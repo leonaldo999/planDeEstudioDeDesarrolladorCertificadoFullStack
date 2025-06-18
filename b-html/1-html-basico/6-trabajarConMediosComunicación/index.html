@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Trabajar con los medios de comunicación (MEDIA) - HTML básico. Aprenderás a trabajar con recursos multimedia como elementos de audio y video, SVG, cómo optimizarlos y más.">
+  <meta name="keywords" content="HTML, multimedia, audio, video, SVG, optimización">
+  <meta name="author" content="LeoNaldo.DEV">
+
+  <!-- Open Graph (OG) -->
+  <meta property="og:title" content="Trabajar con los medios de comunicación (MEDIA) - HTML básico">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con los medios de comunicación (MEDIA)</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <header id="header">
+    <figure class="cont-img">
+      <img src="img/icons8-html.png" alt="Logo de HTML" class="logo">
+    </figure>
+    <h1>Trabajar con los medios de comunicación (MEDIA)</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#header">Home</a></li>
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">Tema 1</a></li>
+      <li><a href="#quest1">Quest 1</a></li>
+      <li><a href="#tema2">Tema 2</a></li>
+      <li><a href="#quest2">Quest 2</a></li>
+      <li><a href="#tema3">Tema 3</a></li>
+      <li><a href="#quest3">Quest 3</a></li>
+      <li><a href="#tema4">Tema 4</a></li>
+      <li><a href="#quest4">Quest 4</a></li>
+      <li><a href="#tema5">Tema 5</a></li>
+      <li><a href="#quest5">Quest 5</a></li>
+      <li><a href="#tema6">Tema 6</a></li>
+      <li><a href="#quest6">Quest 6</a></li><!--  -->
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>Introducción</h2>
+      <p>
+        En estos videos de
+        lecciones, aprenderá a trabajar con recursos multimedia como elementos de audio y video, SVG,
+        cómo optimizarlos y más.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>¿Qué son los elementos reemplazados y cuáles son algunos ejemplos? (<a
+          href="https://www.youtube.com/watch?v=E652pcln6EQ&ab_channel=freeCodeCampConcepts"
+          alt="channel=freeCodeCampConcepts" target="_blank">video</a>)</h2>
+      <p>
+        Un elemento reemplazado es un elemento cuyo contenido está determinado por un recurso externo, no por el propio
+        CSS. CSS, u hojas de estilo en cascada, se utiliza para añadir estilos a una página web. Ejemplos comunes de
+        elementos reemplazados incluyen los elementos de imagen, iframe y vídeo.
+        <br><br>
+        Con los elementos reemplazados, se puede controlar la posición o el diseño de un elemento. Sin embargo, el CSS
+        no puede modificar directamente su contenido. Esto podría explicarse más fácilmente con algunos ejemplos.
+        Considere el elemento de imagen, que incrusta una imagen en su página web:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;img src="example-img-url" alt="Descriptive text goes here"/&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        El elemento en sí se reemplaza con el objeto externo: la imagen. Tu CSS puede controlar aspectos como la
+        posición de la imagen o aplicarle un filtro, pero no puedes modificarla. Un ejemplo más robusto podría ser el
+        elemento <mark>iframe</mark>, que integra un sitio externo en tu página web:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;iframe src="https://www.example.com" title="Example Site"&gt;&lt;/iframe&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Ejemplos comunes del uso del elemento <mark>iframe</mark> serían incrustar mapas o vídeos de YouTube en la
+        página. El
+        elemento se reemplaza por el objeto externo: el sitio. Tu CSS puede cambiar la posición del sitio incrustado,
+        pero no puedes modificar su contenido. Para profundizar un poco más, si el sitio incrustado tiene un elemento
+        <mark>h1</mark>, tu CSS no podrá aplicar estilo a ese elemento <mark>h1</mark>. No puedes cambiar el tamaño, el
+        color de la fuente, etc.
+        <br><br>
+        Existen otros elementos reemplazados, como <mark>vídeo</mark> y <mark>embed</mark>. Algunos elementos se
+        comportan como elementos
+        reemplazados en circunstancias específicas. Aquí tienes un ejemplo de un elemento de <mark>input</mark> con el
+        atributo
+        <mark>type</mark> establecido en <mark>img</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;input type="image" alt="Descriptive text goes here" src="example-img-url"/&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Este tipo de entrada se considera un elemento reemplazado, pero otros tipos de entrada, como texto o correo
+        electrónico, no son elementos reemplazados.
+      </p>
+    </section>
+
+    <section id="quest1">
+      <h2>Questionario 1</h2>
+      <article>
+        <h3>¿Qué puedes diseñar en un elemento reemplazado?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              El tamaño de la letra.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              El diseño o posicionamiento. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              El color de un texto específico.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Todas.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Con qué se reemplaza un elemento reemplazado?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Un objeto externo. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Otro elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Algo de CSS.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Asamblea.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cuál de estos es un elemento reemplazado?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              h1.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              p.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              inframe. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              a.
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema2">
+      <h2>¿Cuáles son las formas habituales de optimizar los recursos multimedia? (<a
+          href="https://www.youtube.com/watch?v=_KzjV5RScSE&t=1s&ab_channel=freeCodeCampConcepts"
+          alt="channel=freeCodeCampConcepts" target="_blank">video</a>)</h2>
+      <p>
+        Hay tres factores a considerar al usar recursos multimedia, como imágenes, en tus páginas web: el tamaño, el
+        formato y la compresión.
+        <br><br>
+        <strong>Primero</strong>, hablemos del tamaño de tus imágenes. Al crear un sitio web, a menudo estilizas las
+        imágenes para que se
+        muestren en un tamaño específico. Por ejemplo, podrías tener una imagen con una resolución de <mark>640x480.
+          640</mark>
+        representa el ancho, mientras que <mark>480</mark> representa la altura en píxeles. Al preparar tu imagen,
+        querrás escalarla
+        a <mark>640x480</mark> para que se ajuste a ese estilo. Si publicas una imagen de <mark>1920x1080</mark>, pero
+        la diseñas para que sea
+        mucho más pequeña, estás obligando a tus usuarios a descargar datos innecesarios. Una resolución menor resulta
+        en un tamaño de archivo menor.
+        <br><br>
+        <strong>El siguiente</strong> aspecto a considerar es el formato del archivo. Dos de los formatos de archivo más
+        comunes son <mark>PNG</mark>
+        y <mark>JPG</mark>, pero estos ya no son los formatos más ideales para mostrar imágenes. A menos que necesite
+        compatibilidad
+        con navegadores antiguos, debería considerar usar un formato más optimizado, como <mark>WEBP</mark> o
+        <mark>AVIF</mark>.
+        <br><br>
+        <strong>Finalmente</strong>, puede ejecutar algoritmos de compresión en sus imágenes. Un algoritmo de compresión
+        se utiliza para
+        reducir el tamaño de los archivos o datos. Existen opciones como <mark>pngcrush</mark> para comprimir sus
+        imágenes
+        localmente, o puede usar herramientas de compresión en línea. Sin embargo, cabe destacar que ciertos formatos de
+        archivo, como <mark>JPG</mark>, no son sin pérdida. Sin pérdida significa que los datos originales se pueden
+        reconstruir
+        perfectamente a partir de los datos comprimidos. Si intenta comprimir una imagen <mark>JPG</mark>, la calidad se
+        degradará.
+        Debe tener en cuenta todos estos aspectos al seleccionar imágenes para sus páginas web.
+      </p>
+    </section>
+
+    <section id="quest2">
+      <h2>Questionario 2</h2>
+      <article>
+        <h3>¿Cómo deberías escalar o dimensionar tus imágenes?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Las imágenes deben ser más pequeñas que el tamaño representado en la página.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Las imágenes deben ser más grandes que el tamaño representado en la página.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Sus imágenes deben tener la misma escala que el tamaño representado en la página. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              No importa, usa el tamaño que desees.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cuál de los siguientes NO es un tipo de archivo de imagen válido?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              TS. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              PNG.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              JPG.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              WEBP.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué formato de archivo nunca debes comprimir?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              WEBP.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              PNG.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              JPG. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              GIF.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+
+    <section id="tema3">
+      <h2>¿Cuáles son los diferentes tipos de licencias de imagen y cómo funcionan? (<a
+          href="https://www.youtube.com/watch?v=grui-CD6Uck&t=1s&ab_channel=freeCodeCampConcepts"
+          alt="channel=freeCodeCampConcepts" target="_blank">video</a>)</h2>
+      <p>
+        Las imágenes se consideran <mark>propiedad intelectual</mark>, lo que significa que están protegidas por las
+        <mark>normas de
+          derechos de autor</mark>, que suelen pertenecer a su creador. Por defecto, las imágenes se publican con todos
+        los
+        derechos reservados. El creador, o en ocasiones el editor, posee todos los derechos de autor de la imagen.
+        <br><br>
+        Esto significa que no puedes usarlas en tu página web a menos que cumplas una de estas <strong>tres
+          condiciones</strong>: <em>obtener
+          permiso por escrito del titular de los derechos de autor</em>, <em>adquirir una licencia del titular de los
+          derechos de
+          autor</em> o <em>incorporar la imagen de forma que se considere un uso legítimo</em>.
+        <br><br>
+        Este tercer punto es un poco confuso. El uso legítimo requiere que el uso de la imagen sea limitado y
+        transformador. Algunos ejemplos de uso legítimo serían comentar o reseñar el arte, o crear una parodia de la
+        imagen.
+        <br><br>
+        Algunas imágenes pueden publicarse bajo una <mark>licencia permisival</mark>, como la licencia <mark>Creative
+          Commons</mark> o la licencia
+        <mark>BSD </mark>que utiliza <mark>freeCodeCamp</mark>. Estas imágenes están disponibles para su uso en tu sitio
+        web, pero deberás leer la
+        licencia para comprender las normas que debes seguir al usarlas. Por ejemplo, es posible que se le exija que su
+        sitio web sea de código abierto o que no se le permita modificar la imagen de ninguna manera.
+        <br><br>
+        Finalmente, algunas imágenes pueden estar disponibles en el <mark>dominio público</mark>. Una imagen de
+        <mark>dominio público</mark> no
+        tiene derechos de autor asociados y se puede usar libremente sin restricciones. Las imágenes con licencia
+        <mark>Creative Commons 0</mark> se consideran de <mark>dominio público</mark>.
+        <br><br>
+        La mayoría de los motores de búsqueda permiten filtrar los resultados de imágenes por licencia. También existen
+        sitios como <mark>Pixabay</mark> y <mark>Unsplash</mark>, que ofrecen imágenes gratuitas. Tenga siempre en
+        cuenta los derechos de autor y
+        las licencias al usar una imagen en su sitio web.
+      </p>
+    </section>
+
+    <section id="quest3">
+      <h2>Questionario 3</h2>
+
+      <article>
+        <h3>¿Cuál es la licencia predeterminada para las imágenes?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Reservados todos los derechos. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Licencia permisiva.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Dominio público.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Creative Commons.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué licencia libera obras al dominio público?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              MIT
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              BSD
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Creative Commons
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Creative Commons 0 <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cómo puedo encontrar imágenes que estoy autorizado a utilizar?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Busca imágenes en Google y úsalas libremente.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Utilice sitios web como Pixabay o Unsplash. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Utilice cualquier imagen de las redes sociales siempre que dé crédito.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Puedes utilizar cualquier imagen siempre que no tenga marca de agua.
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema4">
+      <h2>¿Qué son los SVG y cuándo debes usarlos? (<a href="https://youtu.be/mWa1_S3bHVA?si=IATSDZKOJIX3PAF3"
+          alt="channel=freeCodeCampConcepts" target="_blank">video</a>))</h2>
+      <p>
+        <strong>¿Qué son los SVG y cuándo deberías usarlos?</strong>
+        <br><br>
+        Primero, necesitas entender cómo funcionan las imágenes. Los formatos de imagen comunes como <mark>PNG</mark> y
+        <mark>JPG</mark> se
+        clasifican como formatos raster. Esto significa que están basados en píxeles, y los datos rastrean el valor de
+        color de cada píxel.
+        <br><br>
+        Una gran desventaja de las imágenes raster es que no se escalan bien. Si alguna vez has intentado agrandar un
+        <mark>PNG</mark>, puede que hayas visto que se pixela o se ve borroso.
+        <br><br>
+        Un <mark>SVG</mark> es un tipo diferente de imagen. <mark>SVG</mark> significa gráfico vectorial escalable. Un
+        gráfico vectorial rastrea
+        datos basados en rutas y ecuaciones para trazar puntos, líneas y curvas. Esto significa que un gráfico
+        vectorial, como un <mark>SVG</mark>, se puede escalar a cualquier tamaño sin afectar la calidad.
+        <br><br>
+        Los <mark>SVG</mark> tienen la ventaja adicional de almacenar datos en <mark>XML</mark>. Esto significa que
+        puedes usarlos directamente en
+        tu código como <mark>HTML</mark> sin formato con el elemento <mark>SVG</mark>. También significa que puedes
+        cambiar el color de la imagen
+        mediante programación.
+        <br><br>
+        Entonces, ¿cuándo querrías usar un <mark>SVG</mark>? Un excelente ejemplo de uso son los iconos. Si quieres
+        crear viñetas
+        personalizadas o añadir iconos a tus enlaces para representar plataformas de redes sociales, usar
+        <mark>SVG</mark> es la
+        mejor opción. Una de las bibliotecas de iconos más populares, <mark>Font Awesome</mark>, utiliza imágenes
+        <mark>SVG</mark> para sus
+        iconos. Los <mark>SVG</mark> también son ideales para logotipos de páginas web, ya que se escalan perfectamente.
+        Te permiten
+        adaptar tu diseño a cualquier diseño responsivo que necesites. La próxima vez que tengas un <mark>SVG</mark>
+        local, prueba a
+        abrirlo con un editor de texto y experimenta con el código.
+      </p>
+    </section>
+
+    <section id="quest4">
+      <h2>Questionario 4</h2>
+      <article>
+        <h3>¿Qué es una imagen rasterizada?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Una imagen que almacena rutas, líneas, puntos y curvas.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Una imagen que almacena datos de color para cada píxel. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Todas las imágenes son imágenes rasterizadas.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Una imagen fácilmente escalable.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué es una imagen vectorial?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Una imagen que almacena rutas, líneas, puntos y curvas. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Una imagen que almacena datos de color para cada píxel.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Todas las imágenes son imágenes vectoriales.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Una imagen que no es fácilmente escalable.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cómo almacena datos un SVG?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Como píxeles.
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Como binario.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Como hexadecimal.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Como XML. <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema5">
+      <h2>¿Cuáles son las funciones de los elementos de audio y vídeo en HTML y cómo funcionan? (<a
+          href="https://youtu.be/AYp1sMo4TyQ?si=T-uf83_zE38cG6oE" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)</h2>
+      <p>
+        ¿Cuáles son las funciones de los elementos de <mark>audio</mark> y <mark>vídeo</mark> HTML y cómo funcionan?
+        <br><br>
+        Los elementos de <mark>audio</mark> y <mark>vídeo</mark> permiten añadir sonido y vídeo a los documentos HTML.
+        El elemento de <mark>audio</mark> admite
+        formatos de <mark>audio</mark> populares como <mark>MP3</mark>, <mark>WAV</mark> y <mark>OGG</mark>. El elemento
+        de vídeo admite los formatos MP4, OGG y WebM.
+        <br><br>
+        Para incluir <mark>audio</mark> en la página web, se puede usar el elemento de <mark>audio</mark> con el
+        atributo src que indica la
+        ubicación del archivo de <mark>audio</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;audio src="CrystalizeThatInnerChild.mp3"&gt;&lt;/audio&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Si intenta ejecutar este ejemplo, verá que no aparece nada en la página. Sin embargo, si la inspecciona con las
+        herramientas de desarrollo, verá que el elemento de <mark>audio</mark> sí está presente. Si desea ver el
+        reproductor de <mark>audio</mark>
+        en la página, puede agregarlo con el atributo "<mark>controls</mark>":
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;audio src="CrystalizeThatInnerChild.mp3" controls&gt;&lt;/audio&gt;
+          </code>
+        </pre>
+      </div>
+
+      <audio src="https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3" loop controls
+        muted></audio>
+
+      <p>
+        El atributo "<mark>controls</mark>" permite a los usuarios gestionar la reproducción de audio, incluyendo el
+        ajuste del
+        volumen, la pausa y la reanudación de la reproducción. Este atributo "<mark>controls</mark>" es un booleano que
+        se puede añadir a un
+        elemento para habilitar los controles de reproducción integrados. Si se omite, no se mostrará ningún control.
+        <br><br>
+        Además de los atributos "<mark>src</mark>" y "<mark>controls</mark>", existen otros atributos que mejoran la
+        funcionalidad del elemento de
+        <mark>audio</mark>. El atributo "<mark>loop</mark>" es un booleano que permite que el audio se reproduzca
+        continuamente. A continuación,
+        se muestra un ejemplo del uso del atributo "<mark>loop</mark>" para reproducir una canción de Quincy Larson
+        titulada "Can't
+        stay down":
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;audio "https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3"&gt;&lt;/audio&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Cuando la canción llega al final, se repetirá y se reproducirá desde el principio. Otro atributo que puedes usar
+        es el atributo <mark>muted</mark>. Cuando está presente en el elemento de <mark>audio</mark>, este atributo
+        booleano iniciará el
+        audio en <mark>muted</mark>. Aquí tienes un ejemplo del uso del atributo <mark>muted</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;audio 
+              src="https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3"
+              loop
+              controls
+              muted&gt;
+            &lt;/audio&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Al iniciar la canción en el navegador, no se oirá nada. Para escuchar la música, deberá hacer clic en el icono
+        de volumen.
+        <br><br>
+        En cuanto a los tipos de archivos de <mark>audio</mark>, existen diferencias según el navegador que los admita.
+        Para ello,
+        puede usar elementos <mark>source</mark> dentro del elemento de <mark>audio</mark> y el navegador seleccionará
+        la primera fuente que
+        reconozca. A continuación, se muestra un ejemplo de uso de varios elementos <mark>source</mark> para un elemento
+        de <mark>audio</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;audio controls&gt;
+              &lt;source src="audio.ogg" type="audio/ogg"&gt;
+              &lt;source src="audio.wav" type="audio/wav"&gt;
+              &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+            &lt;/audio&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        El navegador comenzará con el tipo ogg y, si no puede reproducir el audio, pasará al siguiente tipo de la lista.
+        <br><br>
+        Todos los atributos que hemos aprendido hasta ahora también son compatibles con el elemento de
+        <mark>video</mark>. A
+        continuación, se muestra un ejemplo de uso de un elemento de <mark>video</mark> con los atributos de
+        <mark>loop</mark>, <mark>controls</mark> y
+        <mark>muted</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;video
+              src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+              loop
+              controls
+              muted&gt;
+            &lt;/video&gt;
+          </code>
+        </pre>
+      </div>
+
+      <video src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" loop controls
+        muted poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" width="620"></video>
+
+      <p>
+        Para el atributo <mark>src</mark> (o fuente), usamos un video llamado "Big Buck Bunny" de archive.org. Si desea
+        mostrar una imagen mientras se descarga el <mark>video</mark>, puede usar el atributo <mark>poster</mark>. Este
+        atributo no está disponible para elementos de <mark>audio</mark> y es exclusivo del elemento <mark>video</mark>.
+        A continuación, se muestra un ejemplo del uso del atributo <mark>poster</mark> con contenido proporcionado por
+        <mark>peach.blender.org</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;video
+              src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+              loop
+              controls
+              muted
+              poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+              width="620"&gt;
+            &lt;/video&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Este ejemplo también utiliza el atributo de <mark>width</mark> para establecer el ancho en <mark>620px</mark>
+        para que el video se ajuste mejor a la pantalla.
+      </p>
+    </section>
+
+    <section id="quest5">
+      <h2>Questionario 5</h2>
+      <article>
+        <h3>¿Qué atributo permite que el audio comience en un estado silenciado?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              mute
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              quiet
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              pause
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              muted <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué atributo te permite ver los botones de reproducción y pausa?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              loop
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              controls <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              detailis
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              muted
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cuál es el propósito del atributo poster en el elemento video?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Para configurar la fuente de vídeo.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Para controlar la reproducción del vídeo.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Para mostrar una imagen mientras se descarga el vídeo. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Para silenciar el vídeo.
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema6">
+      <h2>¿Cómo se incrustan vídeos en una página usando el elemento iframe? (<a
+          href="https://youtu.be/I0_951_MPE0?si=hJWmLSZkqw_7CzAq" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)</h2>
+      <p>
+        Primero, ¿qué es exactamente el elemento <mark>iframe</mark>? <mark>iframe</mark> significa marco en línea. Es
+        un elemento en línea que se
+        utiliza para incrustar otro contenido HTML directamente en la página HTML. Ese contenido HTML puede ser un
+        vídeo, un mapa, otro elemento HTML o incluso otras páginas web. Así es como se ve la sintaxis del elemento
+        <mark>iframe</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;iframe 
+              src="video-url"
+              width="width-value"
+              height="height-value"
+              allowfullscreen
+            &gt;&lt;/iframe&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        El atributo src especifica la URL de la página que desea incrustar. El atributo width especifica el ancho del
+        iframe. El atributo height especifica la altura del iframe. El atributo allowfullscreen permite al usuario
+        mostrar el iframe en modo de pantalla completa. También es recomendable especificar un atributo title para el
+        iframe, ya que es importante para la accesibilidad.
+        <br><br>
+        Para incrustar un vídeo en un iframe, puede copiarlo directamente de servicios de vídeo populares como YouTube y
+        Vimeo, o definirlo usted mismo con el atributo src apuntando a la URL de ese vídeo. A continuación, se muestra
+        un ejemplo de incrustación de un curso popular de freeCodeCamp desde YouTube:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;h1&gt;A freeCodeCamp YouTube Video Embedded with the iframe Element&lt;/h1&gt;
+
+            &lt;iframe 
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/PkZNo7MFNFg?si=-UBVIUNM3csdeiWF"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            &gt;&lt;/iframe&gt;
+          </code>
+        </pre>
+      </div>
+
+      <h3>A freeCodeCamp YouTube Video Embedded with the iframe Element</h3>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/PkZNo7MFNFg?si=-UBVIUNM3csdeiWF"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+      </iframe>
+
+      <p>
+        Puedes personalizar el <mark>iframe</mark> según tus necesidades o incluso definir uno propio copiando el enlace
+        del vídeo de
+        YouTube y pegándolo como URL. La advertencia es que debes reemplazar <mark>https://youtu.be</mark> por
+        <mark>https://youtube.com/embed/</mark>.
+
+        <mark>youtu.be</mark> es el dominio al copiar el enlace para compartir y <mark>youtube.com/embed/</mark> es el
+        dominio necesario para
+        incrustar vídeos con el elemento <mark>iframe</mark>. Aquí tienes un ejemplo:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;iframe 
+            src="https://youtube.com/embed/gp5H0Vw39yw?si=Rb_2nDK6abv1iIAM"
+            title="freeCodeCamp Typescript Course"
+            width="500"
+            height="285"
+            allowfullscreen
+            &gt;&lt;/iframe&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        Tenga en cuenta que el video puede provenir de cualquier lugar. No es necesario que provenga de plataformas de
+        video como YouTube y Vimeo. Aquí hay un video de Pixabay incrustado con el elemento <mark>iframe</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;h1&gt;A Video from Pixabay Embedded with the iframe Element&lt;/h1&gt;
+
+            &lt;iframe 
+            src="https://cdn.pixabay.com/video/2022/07/24/125310-733046613_large.mp4"
+            width="500"
+            height="285"
+            &gt;&lt;/iframe&gt;
+          </code>
+        </pre>
+      </div>
+      <p>
+        No olvides que también puedes incrustar un mapa, otra página web o HTML directo dentro del elemento
+        <mark>iframe</mark>. Aquí
+        tienes un mapa que pude incrustar con el elemento <mark>iframe</mark>:
+      </p>
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;h1&gt;A Map from Openstreetmap.org Embedded with the iframe Element&lt;/h1&gt;
+
+            &lt;iframe 
+            width="425"
+            height="350"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=3.006134033203125%2C6.150112578753815%2C3.6357879638671875%2C6.749850810550778&amp;layer=mapnik"
+            style="border: 1px solid black"
+            &gt;&lt;/iframe&gt;
+            &lt;br /&gt;
+            &lt;small&gt;
+              &lt;a href="https://www.openstreetmap.org/?mlat=6.449981&mlon=3.320958#map=8/6.450/3.321"&gt;
+                View Larger Map&lt;/a&gt;
+            &lt;/small&gt;
+          </code>
+        </pre>
+      </div>
+      <h3>A Map from Openstreetmap.org Embedded with the iframe Element</h3>
+
+      <iframe width="425" height="350"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=3.006134033203125%2C6.150112578753815%2C3.6357879638671875%2C6.749850810550778&amp;layer=mapnik"
+        style="border: 1px solid black">
+      </iframe>
+      <br />
+      <small>
+        <a href="https://www.openstreetmap.org/#map=11/6.4501/3.3210">
+          View Larger Map
+        </a>
+      </small>
+
+      <p>
+        Si desea insertar HTML directo dentro del elemento <mark>iframe</mark>, deberá utilizar el atributo
+        <mark>srcdoc</mark> en lugar de <mark>src</mark>.
+      </p>
+    </section>
+
+    <section id="quest6">
+      <h2>Questionario 6</h2>
+      <article>
+        <h3>¿Qué significa iframe?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Marco internacional.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Formulario en línea.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Marco en línea. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Elemento de formulario en línea.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué atributo del elemento iframe especifica la ubicación de lo que desea incrustar?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              src <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              url
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              frameborder
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              cross-origin
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué atributo del elemento iframe utilizas en lugar de src si quieres incrustar HTML directo?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              html
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              document
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              srcweb
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              srcdoc <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>

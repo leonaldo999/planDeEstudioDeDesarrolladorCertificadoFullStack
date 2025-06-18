@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión semántica</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header">
+    <figure class="cont-img">
+      <img src="img/icons8-html.png" alt="Logo de HTML" class="logo">
+    </figure>
+    <h1>Revisión semántica</h1>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Introducción</h2>
+      <p>
+        Antes de que te examinen sobre HTML semántico, primero debes repasar los conceptos.
+      </p>
+      <p>
+        Abre esta página para repasar los elementos em, strong, blockquote, address y otros elementos HTML semánticos.
+      </p>
+    </section>
+
+    <section>
+      <h2>Importancia del HTML semántico</h2>
+      <p>
+        <strong>Jerarquía estructural de los elementos de <mark>encabezado</mark>:</strong> Es importante usar el elemento de encabezado correcto para
+        mantener la jerarquía estructural del contenido. El elemento <mark>h1</mark> es el nivel superior del encabezado
+        y el
+        elemento <mark>h6</mark>es el inferior.
+      </p>
+      <p>
+        <strong>Elementos <mark>HTML de presentación</mark>:</strong> Elementos que definen la apariencia del contenido. Por ejemplo, los elementos
+        obsoletos "<mark>center</mark>", "<mark>big</mark>" y "<mark>font</mark>".
+      </p>
+      <p>
+        <strong>Elementos <mark>HTML semánticos:</mark></strong> Elementos que contienen significado y estructura. Por ejemplo, "<mark>header</mark>",
+        "<mark>nav</mark>" y
+        "<mark>figure</mark>".
+      </p>
+      <h2>Elementos HTML semánticos</h2>
+      <p>
+        <strong>Elemento de encabezado (<mark>header</mark>):</strong> define el encabezado de un documento o sección.
+      </p>
+      <p>
+        <strong>Elemento principal (<mark>main</mark>):</strong> contiene el contenido principal de la página web.
+      </p>
+      <p>
+        <strong>Elemento de sección de navegación (<mark>nav</mark>):</strong> representa una sección con enlaces de
+        navegación.
+      </p>
+      <p>
+        <strong>Elemento de <mark>figura</mark>:</strong> contiene ilustraciones y diagramas.
+      </p>
+      <p>
+        <strong>Elemento de énfasis: Elemento de énfasis (<mark>em</mark>):</strong> marca el texto con énfasis.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              Never give up on &lt;em&gt;your&lt;/em&gt; dreams.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            Never give up on <em>your</em> dreams.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de texto idiomático (<mark>i</mark>):</strong> se utiliza para resaltar voces o modos
+        alternativos, términos
+        idiomáticos de otro idioma, términos técnicos y pensamientos.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              There is a certain 
+              &lt;i lang="fr"&gt;je ne sais quoi&lt;/i&gt; in the air.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            There is a certain <i lang="fr">je ne sais quoi</i> in the air.
+          </p>
+        </div>
+      </div>
+      <p>
+        El atributo <mark>lang</mark>, dentro de la etiqueta open <mark>i</mark>, se utiliza para especificar el idioma
+        del contenido. En este
+        caso, sería francés. El elemento <mark>i</mark> no indica si el texto es importante o no, solo indica que es
+        diferente del
+        texto circundante.
+      </p>
+      <p>
+        <strong>Elemento de fuerte importancia (<mark>strong</mark>):</strong> marca el texto que tiene fuerte
+        importancia.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              &lt;strong&gt;Warning:&lt;/strong&gt; 
+              This product may cause allergic reactions.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            <strong>Warning:</strong> This product may cause allergic reactions.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento "Llamar la atención a" (<mark>b</mark>):</strong> se utiliza para dirigir la atención a texto
+        que no es
+        importante para el significado del contenido. Se suele usar para destacar palabras clave en resúmenes o nombres
+        de productos en reseñas.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              We tested several products, including the 
+              &lt;b&gt;SuperSound 3000&lt;/b&gt; for audio quality, 
+              the &lt;b&gt;QuickCharge Pro&lt;/b&gt; for fast charging, 
+              and the &lt;b&gt;Ecoclean Vacuum&lt;/b&gt; for cleaning. 
+              The first two performed well, but the 
+              &lt;b&gt;Ecoclean Vacuum&lt;/b&gt; did not meet expectations.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            We tested several products, including the <b>SuperSound 3000</b> for audio quality, the <b>QuickCharge
+              Pro</b> for fast charging, and the <b>Ecoclean Vacuum</b> for cleaning. The first two performed well, but
+            the <b>Ecoclean Vacuum</b> did not meet expectations.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de lista de descripción (<mark>dl</mark>):</strong> se utiliza para representar una lista de
+        agrupaciones de
+        descripción de términos.
+      </p>
+      <p>
+        <strong>Elemento término de descripción (<mark>dt</mark>):</strong> se utiliza para representar el término que
+        se está
+        definiendo.
+      </p>
+      <p>
+        <strong>Elemento Detalles de descripción (<mark>dd</mark>):</strong> se utiliza para representar la descripción
+        del término.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;dl&gt;
+              &lt;dt&gt;HTML&lt;/dt&gt;
+              &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+              &lt;dt&gt;CSS&lt;/dt&gt;
+              &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+            &lt;/dl&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <dl>
+            <dt>HTML</dt>
+            <dd>HyperText Markup Language</dd>
+            <dt>CSS</dt>
+            <dd>Cascading Style Sheets</dd>
+          </dl>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de cita en bloque (<mark>blockquote</mark>):</strong> se utiliza para representar una sección
+        citada de otra
+        fuente. Este elemento tiene un atributo cite. El valor de este atributo es la URL de la fuente.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;blockquote 
+            cite="https://www.freecodecamp.org/news/learn-to-code-book/"&gt;
+              "Can you imagine what it would 
+              be like to be a successful developer?
+              To have built software systems 
+              that people rely upon?"
+            &lt;/blockquote&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+            "Can you imagine what it would be like to be a successful developer? To have built software systems that
+            people rely upon?"
+          </blockquote>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de cita (<mark>cite</mark>):</strong> se utiliza para atribuir visualmente la fuente de la obra
+        referenciada. Marca el título de la referencia.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div&gt;
+              &lt;blockquote 
+              cite="https://www.freecodecamp.org/news/learn-to-code-book/"&gt;
+                "Can you imagine what it would 
+                be like to be a successful developer?
+                To have built software systems 
+                that people rely upon?"
+              &lt;/blockquote&gt;
+              &lt;p&gt;
+                - Quincy Larson, 
+                &lt;cite&gt;How to learn to Code and Get a Developer Job [Full Book].&lt;/cite&gt;
+              &lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div>
+            <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+              "Can you imagine what it would be like to be a successful developer? To have built software systems that
+              people rely upon?"
+            </blockquote>
+            <p>
+              - Quincy Larson, <cite>How to learn to Code and Get a Developer Job [Full Book].</cite>
+            </p>
+          </div>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de cita en línea (<mark>q</mark>):</strong> se utiliza para representar una cita corta en
+        línea.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              As Quincy Larson said, 
+              &lt;q cite="https://www.freecodecamp.org/news/learn-to-code-book/"&gt;
+                Momentum is everything.
+              &lt;/q&gt;
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            As Quincy Larson said,
+            <q cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+              Momentum is everything.
+            </q>
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de abreviatura (<mark>abbr</mark>):</strong> se utiliza para representar una abreviatura o
+        acrónimo. Para que los usuarios comprendan qué es la abreviatura o acrónimo, puede mostrar su forma completa,
+        una descripción legible, con el atributo <code>title</code>.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt; 
+              is the foundation of the web.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            <abbr title="HyperText Markup Language">HTML</abbr> is the foundation of the web.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de dirección de contacto (<mark>address</mark>):</strong> se utiliza para representar la
+        información de contacto.
+      </p>
+      <p>
+        <strong>Elemento de hora (<mark>time</mark>):</strong> se utiliza para representar una fecha u hora. El atributo
+        datetime se utiliza para traducir fechas y horas a un formato legible por máquina.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              The reservations are for the 
+              &lt;time datetime="20:00"&gt;20:00&lt;/time&gt;.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            The reservations are for the <time datetime="20:00">20:00 </time>
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Atributo de fecha (<mark>datetime</mark>) ISO 8601:</strong> se utiliza para representar fechas y horas
+        en un formato legible por máquina. El formato estándar es <mark>AAAA-MM-DDThh:mm:ss</mark>, con la T mayúscula
+        como separador entre la fecha y la hora.
+      </p>
+      <p>
+        <strong>Elemento superíndice (<mark>sup</mark>):</strong> se utiliza para representar texto en superíndice. Los
+        usos comunes del elemento <mark>sup</mark> incluyen exponentes, superíndices y números ordinales.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              2&lt;sup&gt;2&lt;/sup&gt; (2 squared) is 4.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            2<sup>2</sup> (2 squared) is 4.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento subíndice (<mark>sub</mark>):</strong> se utiliza para representar texto en subíndice. Entre
+        los usos más comunes de este elemento se incluyen fórmulas químicas, notas al pie y subíndices variables.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              CO&lt;sub&gt;2&lt;/sub&gt;
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            CO<sub>2</sub>
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de código en línea (<mark>code</mark>)</strong>: se utiliza para representar un fragmento de
+        código informático.
+      </p>
+      <p>
+        <strong>Elemento de texto preformateado (<mark>pre</mark>)</strong>: representa texto preformateado.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;pre&gt;
+              &lt;code&gt;
+                body {
+                  color: red;
+                }
+              &lt;/code&gt;
+            &lt;/pre&gt;   
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <pre>
+            <code>
+              body {
+                color: red;
+              }
+            </code>
+          </pre>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de anotación no articulada (<mark>u</mark>):</strong> se utiliza para representar un fragmento
+        de texto en línea que debe representarse de forma que indique que tiene una anotación no textual.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              You can use the unarticulated 
+              annotation element to highlight 
+              &lt;u&gt;inccccort&lt;/u&gt; 
+              &lt;u&gt;spling&lt;/u&gt; 
+              &lt;u&gt;issses&lt;/u&gt;.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            You can use the unarticulated annotation element to highlight
+            <u>inccccort</u> <u>spling</u> <u>issses</u>.
+          </p>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento de anotación Ruby (<mark>ruby</mark>):</strong> se utiliza para anotar texto con explicaciones
+        de pronunciación o
+        significado. Un ejemplo de uso es para tipografía de Asia Oriental.
+      </p>
+      <p>
+        <strong>Elemento de paréntesis de respaldo Ruby (<mark>rp</mark>):</strong> se utiliza como alternativa para
+        navegadores que no admiten la
+        visualización de anotaciones Ruby.
+      </p>
+      <p>
+        <strong>Elemento de texto Ruby (<mark>rt</mark>):</strong> se utiliza para indicar texto para la anotación Ruby.
+        Generalmente se usa para
+        detalles de pronunciación o traducción en tipografía de Asia Oriental.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;ruby&gt;
+              &lt;rb&gt;明日&lt;/rb&gt;
+              &lt;rp&gt;(&lt;/rp&gt;
+              &lt;rt&gt;Ashita&lt;/rt&gt;
+              &lt;rp&gt;)&lt;/rp&gt;
+            &lt;/ruby&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <ruby>
+            明日 <rp>(</rp>
+            <rt>Ashita</rt>
+            <rp>)</rp>
+          </ruby>
+        </div>
+      </div>
+      <p>
+        <strong>Elemento tachado(<mark>s</mark>):</strong> se utiliza para representar contenido que ya no es preciso o
+        relevante.
+      </p>
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;p&gt;
+              Tomorrow's hike will be meeting at 
+              &lt;s&gt;noon&lt;/s&gt;.
+            &lt;/p&gt;
+            &lt;p&gt;
+              Due to unforeseen weather conditions, 
+              the hike has been cancelled.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <p>
+            <s>Tomorrow's hike will be meeting at noon.</s>
+          </p>
+          <p>
+            Due to unforeseen weather conditions, the hike has been cancelled.
+          </p>
+        </div>
+      </div>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+
+    </section>
+
+  </main>
+
+
+  <script>
+    
+    // Copiar código
+    function copiarCodigo(btn) {
+      const code = btn.parentElement.querySelector('code');
+      let text = '';
+      if (code.querySelectorAll('span').length > 0) {
+        text = Array.from(code.querySelectorAll('span')).map(span => span.innerText).join('\n');
+      } else {
+        text = code.innerText;
+      }
+      navigator.clipboard.writeText(text);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => btn.textContent = "Copiar", 1500);
+    }
+
+  </script>
+
+</body>
+
+</html>

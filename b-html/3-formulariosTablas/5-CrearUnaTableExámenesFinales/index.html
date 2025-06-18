@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="View and edit Calculus final exam grades in an interactive table. Easily update student scores and see the class average.">
+  <meta name="keywords" content="Calculus, Exam, Grades, Table, Interactive, Edit, Students, Average">
+  <meta name="author" content="Tu Nombre">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Calculus Final Exam Grades">
+  <meta property="og:description"
+    content="Interactive table to view and edit Calculus final exam grades. Update scores and see the average instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tusitio.com/og-image.svg">
+  <meta property="og:url" content="https://example.com/grades">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculus Final Exam Grades</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <button id="editTableBtn"
+    style="margin: 20px 0; padding: 8px 18px; font-size: 1rem; background: #4a90e2; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Editar
+    Tabla</button>
+
+  <table>
+    <caption>Calculus Final Exam Grades</caption>
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Davis</td>
+        <td>Alex</td>
+        <td>54</td>
+      </tr>
+      <tr>
+        <td>Doe</td>
+        <td>Samantha</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td>Rodriguez</td>
+        <td>Marcus</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td>Thompson</td>
+        <td>Jane</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td>Williams</td>
+        <td>Natalie</td>
+        <td>83</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Average Grade</td>
+        <td>78.8</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    // Permite editar nombres y notas, y guarda el historial en historial.json (requiere backend para guardar realmente)
+    document.addEventListener('DOMContentLoaded', function () {
+      const editBtn = document.getElementById('editTableBtn');
+      const table = document.querySelector('table');
+      let editing = false;
+      let lastState = [];
+
+      function getTableData() {
+        const rows = Array.from(table.querySelectorAll('tbody tr'));
+        return rows.map(row => {
+          const cells = row.querySelectorAll('td');
+          return {
+            lastName: cells[0].textContent,
+            firstName: cells[1].textContent,
+            grade: cells[2].textContent
+          };
+        });
+      }
+
+      function setTableEditable(editable) {
+        table.querySelectorAll('tbody td').forEach(td => {
+          td.contentEditable = editable;
+          td.style.background = editable ? '#eaf6ff' : '';
+        });
+        // Si está en modo edición, actualiza el promedio en tiempo real
+        if (editable) {
+          table.querySelectorAll('tbody td:nth-child(3)').forEach(td => {
+            td.addEventListener('input', updateAverage);
+          });
+        } else {
+          table.querySelectorAll('tbody td:nth-child(3)').forEach(td => {
+            td.removeEventListener('input', updateAverage);
+          });
+        }
+      }
+
+      function updateAverage() {
+        let sum = 0;
+        let count = 0;
+        const rows = Array.from(table.querySelectorAll('tbody tr'));
+        rows.forEach(row => {
+          const gradeCell = row.querySelectorAll('td')[2];
+          const val = parseFloat(gradeCell.textContent);
+          if (!isNaN(val)) {
+            sum += val;
+            count++;
+          }
+        });
+        const averageCell = document.querySelector('tfoot td:last-child');
+        averageCell.textContent = count ? (sum / count).toFixed(1) : '';
+      }
+
+      function saveHistory(newState) {
+        // Simulación de guardado en historial.json (esto requiere backend real)
+        fetch('historial.json')
+          .then(res => res.json())
+          .then(historial => {
+            historial.push({
+              timestamp: new Date().toISOString(),
+              data: newState
+            });
+            // Simulación: mostrar historial en consola
+            console.log('Historial actualizado:', historial);
+            // Para guardar realmente, se requiere backend (Node.js, Python, etc.)
+          });
+      }
+
+      editBtn.addEventListener('click', function () {
+        if (!editing) {
+          lastState = getTableData();
+          setTableEditable(true);
+          editBtn.textContent = 'Guardar Cambios';
+        } else {
+          setTableEditable(false);
+          editBtn.textContent = 'Editar Tabla';
+          const newState = getTableData();
+          saveHistory(newState);
+          updateAverage(); // Actualiza el promedio al guardar
+        }
+        editing = !editing;
+      });
+
+      // Inicializa el promedio al cargar la página
+      updateAverage();
+    });
+  </script>
+
+</body>
+
+</html>
