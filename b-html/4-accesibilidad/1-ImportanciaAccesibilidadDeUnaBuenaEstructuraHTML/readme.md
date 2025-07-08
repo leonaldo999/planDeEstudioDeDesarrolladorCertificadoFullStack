@@ -341,11 +341,11 @@ Google Lighthouse es un popular comprobador de métricas web que puedes utilizar
 
 Las métricas que puedes comprobar incluyen accesibilidad, SEO, mejores prácticas y rendimiento.
 
-Para utilizar Lighthouse, abre DevTools pulsando F12 y cambiando a la pestaña Lighthouse. Seleccione las métricas que desea comprobar, elija el dispositivo en el que desea realizar la prueba y haga clic en el botón «Analizar carga de página».
+Para utilizar Lighthouse, abre DevTools pulsando `F12` y cambiando a la pestaña Lighthouse. Seleccione las métricas que desea comprobar, elija el dispositivo en el que desea realizar la prueba y haga clic en el botón «Analizar carga de página».
 
 Una vez finalizada la comprobación, aparecerá una puntuación de accesibilidad, junto con una lista de los problemas que deben solucionarse.
 
-Si desea obtener métricas más fiables, considere la posibilidad de utilizar la versión web. El inconveniente es que no permite comprobar sitios web locales. Puedes acceder a la versión web en pagespeed.web.dev.
+Si desea obtener métricas más fiables, considere la posibilidad de utilizar la versión web. El inconveniente es que no permite comprobar sitios web locales. Puedes acceder a la versión web en `pagespeed.web.dev`.
 
 WAVE es otro comprobador de accesibilidad fiable que puedes utilizar como extensión de Chrome o en la web. Todo lo que tienes que hacer es introducir la URL de tu sitio web y se generará un completo informe de accesibilidad para ti. Este informe incluye las características de accesibilidad implementadas, ARIA y contrastes.
 
@@ -353,6 +353,108 @@ IBM Equal Accessibility Checker es otra sólida herramienta para mejorar la acce
 
 Puede utilizarlo como extensión de Chrome o complemento de Firefox.
 
-Para utilizar IBM Accessibility Checker como extensión de Chrome, descárguela de la tienda web de Chrome. Abra su Devtools pulsando F12 y seleccionando la pestaña «Comprobador de accesibilidad» situada en el panel Elementos. Haga clic en el botón de escaneo para iniciar la comprobación y se generará un informe para usted. Puede exportar el informe como una hoja de cálculo y un archivo HTML pulsando el botón «Exportar XLS».
+Para utilizar IBM Accessibility Checker como extensión de Chrome, descárguela de la tienda web de Chrome. Abra su Devtools pulsando `F12` y seleccionando la pestaña «Comprobador de accesibilidad» situada en el panel Elementos. Haga clic en el botón de escaneo para iniciar la comprobación y se generará un informe para usted. Puede exportar el informe como una hoja de cálculo y un archivo HTML pulsando el botón «Exportar XLS».
 
 Ten en cuenta que, aunque estas herramientas automáticas te ayudan a hacer tus contenidos más accesibles, una puntuación perfecta de cualquiera de ellas no significa que tus contenidos sean totalmente accesibles. La gama de problemas que comprueban estas herramientas es limitada, por lo que siempre será necesario realizar pruebas manuales para garantizar una experiencia más accesible para todos.
+
+## Questionario 7
+
+- **¿Cuál de estas opciones describe mejor una herramienta de auditoría de accesibilidad?**
+
+  - a) Corrige automáticamente todos los problemas de accesibilidad
+  - b) Evalúa el grado de accesibilidad de sus contenidos digitales // correcto
+  - c) Sólo comprueba las aplicaciones móviles
+  - d) No requiere ninguna intervención manual
+
+- **¿Cuál de las siguientes opciones describe cómo puede utilizar *IBM Equal Access Accessibility Checker*?**
+
+  - a) Sólo puede utilizarse como aplicación de escritorio.
+  - b) Puede utilizarse sin ninguna integración de desarrollo.
+  - c) Es exclusivo para aplicaciones móviles.
+  - d) Puede utilizarse como extensión de Chrome, complemento de Firefox o paquete NPM. // correcto
+
+- **¿Cuál de estas es una limitación del uso de la versión web de la herramienta en Google Lighthouse?**
+
+  - a) Proporciona métricas poco fiables.
+  - b) Sólo puede probar sitios web locales.
+  - c) No puede probar sitios web locales. // correcto
+  - d) No admite pruebas móviles.
+
+## ¿Cómo afecta a la accesibilidad una estructura adecuada de los niveles de encabezamiento?
+
+En un vídeo anterior, aprendiste sobre la estructura adecuada de los niveles de encabezamiento. En este vídeo, aprenderá cómo afecta una buena estructura de encabezados a la accesibilidad.
+
+El uso adecuado de los encabezados crea una jerarquía visual para que los usuarios naveguen y entiendan tu página web. El uso de una jerarquía lógica de encabezados permite a los usuarios de lectores de pantalla comprender la estructura de su contenido y navegar por él rápidamente. Crear un texto de encabezamiento apropiado que describa con precisión el contenido que sigue ayuda a todos a encontrar la información que necesitan en su sitio. Como beneficio adicional, los encabezados bien formados también pueden mejorar el SEO de su sitio.
+
+Piense en los títulos como en los cimientos de su sitio web. Sin una buena base, la accesibilidad del contenido se resentirá.
+
+Veamos cómo hacer que tus proyectos web sean más accesibles para los usuarios de tecnologías de apoyo utilizando correctamente los encabezados.
+
+Los encabezados, que van del h1 al h6, crean una estructura de navegación para los usuarios de lectores de pantalla. Los lectores de pantalla pueden listar todos los encabezados de una página, lo que permite a los usuarios saltar directamente a las secciones que necesitan. Así pues, disponer correctamente los encabezados es importante para ayudar a estos usuarios a evitar contenidos innecesarios y encontrar rápidamente la información que buscan.
+
+Las personas con visión parcial o discapacidades cognitivas necesitan procesar la información con rapidez y facilidad para reducir la carga cognitiva.
+
+Aunque la disposición adecuada de los títulos es importante, también es necesario que los textos de los títulos sean claros y descriptivos.
+
+He aquí algunas prácticas clave a seguir para utilizar adecuadamente los encabezamientos:
+
+- Utilice encabezamientos con una jerarquía que refleje una organización clara. Por ejemplo, el título de la página debe ser un h1, las secciones principales deben introducirse con títulos h2, las subsecciones con h3 , y así sucesivamente, hasta h6.
+
+- No salte de h1 a h3, o de h2 a h4, y así sucesivamente.
+
+- Utilice un texto claro y descriptivo que resuma el contenido que sigue a cada encabezamiento.
+
+- No utilice un encabezamiento de forma aislada: debe haber algún contenido a continuación del encabezamiento.
+
+- Utilice encabezamientos apropiados cuando sea necesario en lugar de formatear el texto para que parezca un encabezamiento.
+
+- Cada página debe tener un único elemento h1 que represente el tema o título principal.
+
+*A continuación se muestra un marcado básico que representa cómo debe utilizar los encabezados en una página*:
+
+```html
+<!-- Page title -->
+<h1>What is HTML</h1>
+
+<!-- First section -->
+<section>
+  <h2>Introduction to HTML</h2>
+  <p>
+    HTML stands for HyperText Markup Language. It is the standard language for
+    creating web pages.
+  </p>
+</section>
+<!-- Second section -->
+<section>
+  <h2>History of HTML</h2>
+  <p>HTML began to take shape in the early 90s</p>
+  <h3>Origins</h3>
+  <p>
+    HTML was created by Tim Berners-Lee in 1991. It has evolved significantly
+    over the years.
+  </p>
+</section>
+```
+
+## Questionario 8
+
+- **¿Cómo ayuda una estructura de encabezamientos adecuada a los usuarios de lectores de pantalla?**
+
+  - a) Proporciona un estilo visual al contenido.
+  - b) Ayuda a los lectores de pantalla a generar un resumen del contenido.
+  - c) Permite a los lectores de pantalla navegar y saltar a diferentes secciones fácilmente. // correcto
+  - d) Mejora la velocidad de carga de la página web.
+
+- **¿Por qué es importante utilizar correctamente los encabezamientos para los usuarios que dependen del teclado?**
+
+  - a) Mejora el atractivo visual de la página web.
+  - b) Permite a los usuarios imprimir la página web más fácilmente.
+  - c) Permite a los usuarios saltar entre secciones sin necesidad de pasar por cada enlace. // correcto
+  - d) Ayuda a los usuarios a descargar la página web más rápidamente.
+
+- **¿Cuál de estas es una de las mejores prácticas para utilizar encabezados en una página web?**
+
+  - a) Saltar de `h1` a `h3` para ahorrar tiempo.
+  - b) Utilizar textos claros y descriptivos que resuman los siguientes contenidos. // correcto
+  - c) Utilizar cualquier nivel de encabezamiento de forma aislada sin ningún contenido a continuación.
+  - d) Utilizar varias etiquetas `h1` en una misma página para dar énfasis.

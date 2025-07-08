@@ -1,6 +1,11 @@
 /* Importar Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
 
+/* Variables CSS */
+:root {
+	--main-transition: 0.22s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
 /* =====================
   ESTILO GLOBAL
    ===================== */
@@ -10,9 +15,13 @@
 	padding: 0;
 }
 
+html {
+  scroll-padding-top: 70px; /* Ajusta este valor al alto real de tu barra de navegación */
+}
+
 body {
 	font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.6;
 	background-color: #f9f9f9;
 	color: #333;
@@ -23,14 +32,14 @@ body {
    ===================== */
 .header {
 	background: linear-gradient(90deg, #ffcc00, #ff5733);
-	color: white;
+	color: #222;
 	text-align: center;
-	padding: 15px 0;
+	padding: 1rem 0;
 	font-size: 1.2rem;
 	font-weight: bold;
 	text-transform: uppercase;
-	letter-spacing: 2px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	letter-spacing: 0.125rem;
+	box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
 /* =====================
@@ -47,7 +56,8 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 1200;
-	transition: box-shadow 0.3s, background 0.3s;
+	transition: background var(--main-transition), color var(--main-transition),
+		box-shadow var(--main-transition), border var(--main-transition);
 	display: flex;
 	align-items: center;
 }
@@ -63,6 +73,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	transition: none;
+	scrollbar-width: thin;
+	scrollbar-color: #444 #ffe082;
 }
 .nav ul li {
 	margin: 0 10px;
@@ -81,7 +93,8 @@ body {
 	padding: 7px 18px;
 	box-shadow: 0 1.5px 6px rgba(255, 87, 51, 0.08);
 	border: 1.5px solid #ffcc00;
-	transition: background 0.22s, color 0.22s, box-shadow 0.22s, border 0.22s;
+	transition: background var(--main-transition), color var(--main-transition),
+		box-shadow var(--main-transition), border var(--main-transition);
 	text-shadow: 0 1px 0 #fff7, 0 0.5px 0 #ffcc00;
 	text-decoration: none;
 	display: block;
@@ -100,7 +113,8 @@ body {
 	border-radius: 10px;
 	box-shadow: 0 2px 8px rgba(255, 87, 51, 0.18);
 	border: 2px solid #fff3;
-	transition: box-shadow 0.2s, background 0.2s;
+	transition: background var(--main-transition), color var(--main-transition),
+		box-shadow var(--main-transition), border var(--main-transition);
 	margin-right: 24px;
 	margin-left: 0;
 	display: flex;
@@ -172,11 +186,11 @@ body {
 		pointer-events: auto;
 	}
 	.nav ul::-webkit-scrollbar {
-		width: 8px;
-		background: #222;
+		width: 10px;
+		background: #ffe082;
 	}
 	.nav ul::-webkit-scrollbar-thumb {
-		background: #888;
+		background: #444;
 		border-radius: 6px;
 	}
 	.nav ul li {
@@ -188,6 +202,9 @@ body {
   RESPONSIVE: MÓVIL (≤600px)
    ===================== */
 @media (max-width: 600px) {
+	html {
+    scroll-padding-top: 56px; /* Ajusta según la altura real en móvil */
+  }
 	.header h1 {
 		font-size: 1rem;
 	}
@@ -254,7 +271,12 @@ section p mark:hover {
 	list-style-position: inside;
 	text-align: left;
 }
-
+.lis li {
+	list-style: circle;
+	margin-bottom: 10px;
+	font-size: 1.1rem;
+	color: #333;
+}
 /* =====================
   EJEMPLOS DE CÓDIGO: VISUALIZACIÓN DE CÓDIGO Y RESULTADO
    ===================== */
@@ -356,7 +378,8 @@ section p mark:hover {
 	cursor: pointer;
 	font-size: 0.8em;
 	opacity: 0.7;
-	transition: opacity 0.2s;
+	transition: background var(--main-transition), color var(--main-transition),
+		box-shadow var(--main-transition), border var(--main-transition);
 	z-index: 2;
 }
 .copy-btn:hover {
@@ -403,17 +426,28 @@ ul > li label {
 	padding: 10px 18px;
 	font-size: 2rem;
 	background: #ffcc00;
-	color: #333;
+	color: #222;
 	border: none;
 	border-radius: 50px;
 	cursor: pointer;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-	transition: background 0.2s, transform 0.2s;
+	transition: background var(--main-transition), color var(--main-transition),
+		box-shadow var(--main-transition), border var(--main-transition);
 }
 .to-top:hover {
 	background: #ff5733;
 	color: #fff;
 	transform: translateY(-3px) scale(1.08);
+}
+
+/* Accesibilidad: resalta el foco en enlaces y botones */
+a:focus,
+button:focus,
+.copy-btn:focus,
+.to-top:focus {
+	outline: 2px solid #ffcc00;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 3px #fffbe6;
 }
 
 /* =====================
@@ -446,15 +480,15 @@ ul > li label {
 		-webkit-overflow-scrolling: touch;
 		overscroll-behavior: contain;
 		scrollbar-width: thin;
-		scrollbar-color: #888 #ffcc00;
+		scrollbar-color: #444 #ffe082;
 	}
 	.nav ul::-webkit-scrollbar {
-		width: 8px;
-		background: #ffcc00;
+		width: 10px;
+		background: #ffe082;
 		border-radius: 6px;
 	}
 	.nav ul::-webkit-scrollbar-thumb {
-		background: #888;
+		background: #444;
 		border-radius: 6px;
 	}
 	.nav ul.active {
@@ -506,4 +540,10 @@ ul > li label {
 		font-size: 11.5px;
 		padding: 6px 4px;
 	}
+}
+
+/* Personaliza el color de selección de texto */
+::selection {
+	background: #ffcc00;
+	color: #222;
 }
