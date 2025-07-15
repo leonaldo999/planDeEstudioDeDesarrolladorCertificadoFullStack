@@ -955,10 +955,12 @@
       const code = btn.parentElement.querySelector('code');
       let text = '';
       if (code.querySelectorAll('span').length > 0) {
-        text = Array.from(code.querySelectorAll('span')).map(span => span.innerText).join('\n');
+        text = Array.from(code.querySelectorAll('span')).map(span => span.innerText.trim()).join('\n');
       } else {
-        text = code.innerText;
+        text = code.innerText.trim();
       }
+      // Elimina saltos de línea extra
+      text = text.replace(/\n{2,}/g, '\n');
       navigator.clipboard.writeText(text);
       btn.textContent = "¡Copiado!";
       setTimeout(() => btn.textContent = "Copiar", 1500);
@@ -970,7 +972,7 @@
     hamburger.addEventListener('click', function () {
       navUl.classList.toggle('active');
       const expanded = hamburger.getAttribute('aria-expanded') === 'false';
-      hamburger.setAttribute('aria-expanded', expanded);
+      hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
 
     // Cerrar menú hamburguesa al hacer clic en un enlace

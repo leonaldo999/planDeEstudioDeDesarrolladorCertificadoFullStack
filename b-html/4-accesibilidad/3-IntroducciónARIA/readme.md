@@ -524,4 +524,293 @@ Este valor significa que la actualización no es urgente, por lo que el lector d
 
 El valor de prioridad más bajo para `aria-live` es `off`, lo que significa que la actualización no se anunciará a menos que el contenido esté en un elemento que tenga actualmente el foco del teclado. Siendo realistas, este valor casi nunca se utiliza, ya que el caso de uso es muy limitado y no se implementa de forma consistente (si es que se implementa) en todos los lectores de pantalla. Si necesitas regiones en vivo, planea usar `polite` para todo excepto para mensajes críticos que necesiten `assertive`.
 
-También es importante señalar que el atributo aria-live no es necesario si la información actualizada está contenida en un elemento con un rol ARIA de alerta, registro, marquesina, estado o temporizador, ya que estos roles ya tienen valores aria-live por defecto. Pero el valor por defecto puede cambiarse estableciendo explícitamente aria-live en el elemento.
+También es importante señalar que el atributo `aria-live` no es necesario si la información actualizada está contenida en un elemento con un rol ARIA de `alert`, `log`, `marquee`, `status`, or `timer`, ya que estos roles ya tienen valores `aria-live` por defecto. Pero el valor por defecto puede cambiarse estableciendo explícitamente `aria-live` en el elemento.
+
+La elección del valor correcto de `aria-live` depende de la prioridad de la información actualizada.
+
+Si las actualizaciones son urgentes, deberías notificar al usuario inmediatamente con `assertive`. Sin embargo, solo debes utilizar esta opción si las actualizaciones son realmente urgentes, ya que las interrupciones repentinas pueden desorientar a los usuarios y afectar a su experiencia.
+
+Si la actualización puede esperar hasta que finalice la tarea actual, debe utilizar `polite` en su lugar.
+
+El atributo `aria-live` permite a las tecnologías de asistencia saber cuándo el contenido está cambiando dinámicamente en una página web. Esto ayuda a los usuarios con discapacidad a mantenerse informados sobre anuncios y actualizaciones importantes.
+
+Utilizando `aria-live` adecuadamente, puedes asegurarte de que los usuarios estén al tanto de estas actualizaciones en función de su prioridad.
+
+## Cuestionario 6
+
+- **¿Cuál es la finalidad principal del atributo `aria-live`?**
+
+  - a) Para definir el aspecto visual de un elemento.
+  - b) Para mejorar el rendimiento del sitio web.
+  - c) Para indicar que el contenido de un elemento cambia dinámicamente. // correcto
+  - d) Para mejorar la compatibilidad de los navegadores.
+
+- **¿Cuál de los siguientes valores puede utilizarse para el atributo aria-live?**
+
+  - a) `true`, `false`, `off`.
+  - b) `visible`, `hidden`, `off`.
+  - c) `assertive`, `polite`, `off`. // correcto
+  - d) `open`, `closed`,  `off`.
+
+- **¿Cuál es la diferencia entre los valores `polite` y `assertive` del atributo `aria-live`?**
+
+  - a) `polite` anuncia las actualizaciones inmediatamente, mientras que `assertive` anuncia las actualizaciones cuando el foco de atención está en otro elemento.
+  - b) `polite` anuncia las actualizaciones una vez finalizada la tarea actual, mientras que `assertive` anuncia las actualizaciones inmediatamente. // correcto
+  - c) No hay diferencia entre `polite` y `assertive`.
+  - d) `polite` se utiliza para actualizaciones importantes, mientras que `assertive` se utiliza para actualizaciones menos urgentes.
+
+## ¿Cuáles son los estados **ARIA** más comunes utilizados en los elementos de control personalizados?
+
+Los elementos de control de formularios semánticos como `input`, `select`, `textare`a, `button` y `fieldset` tienen estados incorporados que se transmiten a las tecnologías de asistencia.
+
+Por ejemplo, puede utilizar el atributo `disabled` para desactivar un botón o el atributo `checked` para indicar que una casilla de verificación está marcada.
+
+Pero si está creando un elemento de control personalizado, necesita utilizar atributos ARIA para transmitir el estado del control a las tecnologías de asistencia.
+
+En este vídeo de conferencia, hablaremos de algunos estados ARIA comunes que puede utilizar en elementos de control personalizados.
+
+El primer estado ARIA del que hablaremos es `aria-selected`. Este estado se utiliza para indicar que un elemento está seleccionado. Puede utilizar este estado en controles personalizados como una interfaz de pestañas, un cuadro de lista o una cuadrícula.
+
+He aquí un ejemplo de cómo utilizar `aria-selected` en un control de pestañas personalizado:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div role="tablist">
+    <button role="tab" aria-selected="true">Tab 1</button>
+    <button role="tab" aria-selected="false">Tab 2</button>
+    <button role="tab" aria-selected="false">Tab 3</button>
+  </div>
+  ```
+
+Las pestañas se utilizan para mostrar varios paneles de contenido en un espacio limitado. El estado `aria-selected` se utiliza para indicar qué pestaña está seleccionada en ese momento.
+
+Cuando el usuario selecciona una pestaña, el estado `aria-selected` de la pestaña seleccionada se establece en `true`, y el estado `aria-selected` de las otras pestañas se establece en `false`.
+
+Otro estado ARIA común es `aria-disabled`. Este estado se utiliza para indicar que un elemento está deshabilitado sólo para las personas que utilizan tecnologías de asistencia, como los lectores de pantalla. Es importante señalar que `aria-disabled` no desactiva realmente el elemento. Depende de usted, el desarrollador, hacer que parezca y actúe como un elemento deshabilitado. Este atributo también se utiliza habitualmente en elementos HTML nativos en lugar del atributo `disabled`. La elección dependerá del contexto en el que se utilice el botón.
+
+He aquí un ejemplo de cómo puede utilizar `aria-disabled` en un botón de edición personalizado:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div role="button" tabindex="-1" aria-disabled="true">Edit</div>
+  ```
+
+El atributo `aria-disabled` se utiliza para indicar a los usuarios de lectores de pantalla que el botón de edición está deshabilitado y no se puede interactuar con él. De nuevo, en realidad no desactiva el botón. Cuando utilice `aria-disabled`, tendrá que aplicar estilos y JavaScript para que el control se vea y se comporte como un botón desactivado.
+
+En la mayoría de los casos, es probable que utilice el elemento de botón nativo, pero hay casos en los que puede que necesite utilizar un control personalizado. Por lo tanto, es esencial saber cómo transmitir el estado del control a las tecnologías de asistencia.
+
+El siguiente estado ARIA que trataremos es `aria-haspopup`. Este estado se utiliza para indicar que un elemento interactivo activará un elemento emergente cuando se active. Sólo se puede utilizar el atributo `aria-haspopup` cuando el elemento emergente tiene uno de los siguientes roles: `menu`, `listbox`, `tree`, `grid` o `dialog`. El valor de `aria-haspopup` debe ser uno de estos roles o `true`, que por defecto es el rol de `menu`.
+
+Este es un ejemplo de un menú de editor de archivos que utiliza `aria-haspopup`:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <button id="menubutton" aria-haspopup="menu" aria-controls="filemenu" aria-expanded="false">File</button>
+  <ul id="filemenu" role="menu" aria-labelledby="menubutton" hidden>
+    <li role="menuitem" tabindex="-1">Open</li>
+    <li role="menuitem" tabindex="-1">New</li>
+    <li role="menuitem" tabindex="-1">Save</li>
+    <li role="menuitem" tabindex="-1">Delete</li>
+  </ul>
+  ```
+
+El estado `aria-haspopup` se utiliza para indicar que el botón del menú `File` abrirá un menú emergente cuando se active. Los usuarios de lectores de pantalla pueden oír esta información adicional cuando navegan hasta el botón.
+
+Deberá utilizar JavaScript para mostrar y ocultar el menú emergente e implementar un soporte de teclado adecuado para interactuar con el menú. Además, tenga en cuenta que la función de `menu` ARIA se refiere a un tipo muy específico de menú. En general, se refiere a una lista de acciones que el usuario puede invocar, similar a un menú en una aplicación de escritorio. No incluye los usos más comunes de lo que solemos llamar «menús», como los menús de navegación. Siendo realistas, la mayoría de los «menús» que cree en la web no serán menús ARIA y no utilizará `aria-haspopup` con ellos.
+
+El siguiente estado ARIA que trataremos es `aria-required`. El atributo `aria-required` se utiliza para indicar que es necesario rellenar un campo antes de enviar el formulario. He aquí un ejemplo de trabajo con el atributo `aria-required` para un control de formulario personalizado.
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div id="name-label">Full Name*</div>
+  <div role="textbox" contenteditable aria-labelledby="name-label" aria-required="true" id="name"></div>
+  ```
+
+Necesitamos utilizar el atributo `contenteditable` para que los usuarios puedan introducir sus datos. También estamos utilizando el atributo `aria-required` establecido en `true` para indicar que este control de formulario personalizado es obligatorio.
+
+Para hacer que el control de formulario parezca un control de formulario normal, tendría que añadir CSS. También tendría que añadir JavaScript para evitar que el formulario se envíe sin contenido.
+
+Si la etiqueta ya tiene la palabra `required`, entonces debería omitir el atributo `aria-required`. Esto asegura que los lectores de pantalla sólo anuncien la palabra requerido una vez.
+
+En la mayoría de los casos, es probable que utilice el `label` nativa y elementos de `form` con el atributo `required`. Pero si necesita crear un control de formulario personalizado, entonces es importante añadir el atributo `aria-required` cuando sea necesario.
+
+Además, el atributo `aria-required` también puede utilizarse en entradas de formularios nativos, como los elementos `input`, `textarea` y `select`. A menudo se prefiere esto al atributo requerido nativo, ya que el atributo requerido puede tener problemas potenciales de usabilidad y accesibilidad, particularmente con el manejo de errores por defecto proporcionado por el navegador. En última instancia, tendrá que hacer pruebas para determinar qué atributo es el mejor para su situación.
+
+El último estado ARIA del que hablaremos es `aria-checked`. Este atributo se utiliza para indicar si un elemento está marcado. Se utiliza con más frecuencia al crear casillas de verificación, botones de radio, interruptores y cuadros de lista personalizados.
+
+A continuación se muestra un ejemplo de cómo se puede utilizar `aria-checked` en un control de casilla de verificación personalizado:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div role="checkbox" aria-checked="true" tabindex="0">Checkbox</div>
+  ```
+
+Los elementos de casilla de verificación nativos tienen un estado `checked` incorporado que se transmite a las tecnologías de asistencia. Pero si está creando un control de casilla de verificación personalizado, tendrá que utilizar el atributo `aria-checked` para indicar su estado.
+
+Cuando el usuario interactúa con el control de checkbox personalizado, necesitará utilizar el estado `aria-checked` para reflejar el nuevo estado del checkbox. Cuando la casilla de verificación está marcada, el atributo `aria-checked` se establece en `true`. Cuando no está marcada, se establece en `false`.
+
+Los elementos nativos suelen tener mejor soporte y funciones de accesibilidad incorporadas.
+
+Sin embargo, si debe crear controles personalizados, el uso de atributos ARIA es esencial para transmitir eficazmente el estado de estos controles a las tecnologías de asistencia.
+
+Como siempre, pruebe su trabajo para asegurarse de que los atributos ARIA se aplican correctamente y de que el control personalizado funciona de forma accesible y fácil de usar.
+
+## Cuestionario 7
+
+- **¿Qué estado ARIA utilizaría para indicar que una pestaña está actualmente seleccionada?**
+
+  - a) `aria-disabled`
+  - b) `aria-selected` // correcto
+  - c) `aria-haspopup`
+  - d) `aria-checked`
+
+- **En el contexto de los controles personalizados, ¿qué estado ARIA se utiliza para indicar que un elemento está actualmente desactivado?**
+
+  - a) `aria-checked`
+  - b) `aria-disabled` // correcto
+  - c) `aria-selected`
+  - d) `aria-haspopup`
+
+- **Cuando se desea indicar que un elemento de menú tiene un submenú, ¿qué estado ARIA debe utilizarse?**
+
+  - a) `aria-checked`
+  - b) `aria-disabled`
+  - c) `aria-haspopup` // correcto
+  - d) `aria-selected`
+
+## ¿Qué es el atributo `aria-controls` y cómo funciona?
+
+El atributo `aria-controls` se utiliza para crear una relación programática entre un elemento que controla la presencia de otro elemento en la página y el elemento que controla. Esta relación puede ayudar a los usuarios de lectores de pantalla a comprender mejor cómo funciona el control. Los usos más comunes incluyen un conjunto de pestañas que controlan la visibilidad de diferentes secciones de contenido, o un botón que alterna la visibilidad de un menú.
+
+Veamos un ejemplo para ver cómo funciona. En este ejemplo de interfaz con pestañas, tenemos un elemento `div` con un conjunto de tres botones:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div role="tablist">
+    <button role="tab" id="tab1" aria-controls="section1" aria-selected="true">
+      Tab 1
+    </button>
+    <button role="tab" id="tab2" aria-controls="section2" aria-selected="false">
+      Tab 2
+    </button>
+    <button role="tab" id="tab3" aria-controls="section3" aria-selected="false">
+      Tab 3
+    </button>
+  </div>
+  ```
+
+Cada botón representa una pestaña y tiene un atributo `role` definido como `tab`. En la mayoría de las interfaces con pestañas, el primer panel de pestañas es visible por defecto, por lo que el primer botón de pestaña tiene un atributo `aria-selected` establecido a `true` para indicar que su sección de contenido asociada está visible en ese momento El atributo `aria-controls` se utiliza para asociar cada botón con la sección de contenido que controla.
+
+Estas son las tres secciones de contenido que corresponden a las pestañas:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <div id="section1" role="tabpanel" aria-labelledby="tab1">
+  Section 1 content
+  </div>
+  
+  <div id="section2" role="tabpanel" aria-labelledby="tab2" hidden>
+    Section 2 content
+  </div>
+  
+  <div id="section3" role="tabpanel" aria-labelledby="tab3" hidden>
+    Section 3 content
+  </div>
+  ```
+
+Cada sección de contenido tiene un atributo `role` definido como `tabpanel` y un atributo `aria-labelledby` que apunta a la pestaña correspondiente para dar al panel un nombre accesible. El atributo `hidden` se utiliza para ocultar las secciones de contenido que no están seleccionadas en ese momento. Cada id de sección coincide con el valor del atributo `aria-controls` del botón correspondiente. El id de `section1` coincide con el atributo `aria-controls` del primer botón, `section2` coincide con el atributo `aria-controls` del segundo botón y `section3` coincide con el atributo `aria-controls` del tercer botón. Así se establece la asociación entre las pestañas y sus secciones de contenido.
+
+Para pasar de una sección a otra, deberá utilizar JavaScript para actualizar el atributo `hidden` de la sección y el atributo `aria-selected` del botón en función de la sección que esté visible en ese momento. Sólo una sección puede ser visible a la vez y no debe tener el atributo `hidden` y `aria-selected` debe ser `true` en su botón. El resto de secciones ocultas deben tener el atributo `hidden` y aria-selected debe ser `false` en sus botones.
+
+Las pestañas son un caso de uso común para el atributo `aria-controls`, pero se puede utilizar en otros escenarios en los que un elemento controla la visibilidad o el comportamiento de otro elemento. Otros ejemplos son los acordeones, los menús desplegables y los modales.
+
+La próxima vez que diseñe una interfaz de usuario que implique el control de la visibilidad de los elementos, considere la posibilidad de utilizar el atributo `aria-controls` para establecer la relación entre el elemento controlador y el elemento controlado.
+
+## Cuestionario 8
+
+- **¿Para qué sirve el atributo `aria-controls` en el contexto de las pestañas?**
+
+  - a) Para especificar qué pestaña está activa en ese momento.
+  - b) Para ocultar o mostrar secciones de contenido.
+  - c) Para asociar una pestaña a la sección que controla. // correcto
+  - d) Para establecer el papel del elemento.
+
+- **¿Cómo afecta el atributo `aria-controls` a las secciones de contenido del ejemplo?**
+
+  - a) Actualiza automáticamente el contenido en función de las entradas del usuario.
+  - b) Oculta o muestra secciones en función de la pestaña seleccionada. // correcto
+  - c) Cambia el estilo de la pestaña para indicar que está seleccionada.
+  - d) Define el aspecto visual de la pestaña.
+
+- **En el ejemplo proporcionado, ¿cómo se utiliza el atributo `aria-labelledby`?**
+
+  - a) Para especificar qué pestaña controla qué sección de contenido.
+  - b) Para identificar la sección de contenido que controla una pestaña. // correcto
+  - c) Para definir la función de la pestaña y las secciones de contenido.
+  - d) Para pasar automáticamente de una sección de contenido a otra al hacer clic en una pestaña.
+
+## ¿Qué es el atributo `aria-describedby` y cómo funciona?
+
+El atributo `aria-describedby` se utiliza para proporcionar información adicional sobre un elemento a los usuarios de lectores de pantalla haciendo referencia al contenido existente en la página. Crea una asociación programática entre el elemento y el contenido (denominada técnicamente descripción accesible), que los lectores de pantalla pueden utilizar para informar a los usuarios de la información adicional cuando interactúan con el elemento.
+
+El uso más común de `aria-describedby` es asociar instrucciones y mensajes de error a las entradas de un formulario. Debido a los diversos métodos que tienen los usuarios de lectores de pantalla para navegar por una página, pueden perderse estos mensajes al navegar entre las entradas. Usar `aria-describedby` ayuda a asegurar que los escucharán.
+
+Veamos algunos ejemplos para entender cómo funciona. En este primer ejemplo, tenemos un elemento de `form` que acepta una contraseña:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <form>
+    <label for="password">Password:</label>
+    <input type="password" id="password" aria-describedby="password-help" />
+    <p id="password-help">Your password must be at least 8 characters long.</p>
+  </form>
+  ```
+
+Estamos utilizando un elemento `label` para el texto `Password` y asociándolo con el `input` de contraseña.
+
+También tenemos un elemento párrafo que describe los requisitos de contraseña. Estamos utilizando el atributo `aria-describedby` para asociar el `input` de contraseña con los requisitos de contraseña en el elemento de párrafo. Cuando un usuario de lector de pantalla interactúe con este `input`, su lector de pantalla anunciará el nombre de la `input` (`Password`) y puede que también anuncie los requisitos de la contraseña. Sin embargo, esto no es una garantía absoluta, ya que es posible que algunos lectores de pantalla no anuncien automáticamente el contenido adicional o que sólo lo hagan en determinadas circunstancias. Esto no es infrecuente. Cada lector de pantalla es diferente y gestiona los atributos ARIA a su manera. Esto no invalida el uso de `aria-describedby`, ya que beneficiará a los usuarios de lectores de pantalla en general.
+
+Otro buen caso de uso del atributo `aria-describedby` es cuando se tiene un `button` de borrado. A continuación se muestra un ejemplo de un `button` de borrado seguido de un mensaje que describe lo que sucederá cuando se haga clic en el botón:
+
+- **Codigo Ejemplo**
+
+  ```html
+  <button aria-describedby="delete-message">Delete</button>
+
+  <p id="delete-message">Warning! All deletions are permanent.</p>
+  ```
+
+Al igual que en el ejemplo anterior, asociamos el botón de eliminar con el mensaje utilizando el atributo `aria-describedby`. El valor `id` y el valor del atributo `aria-describedby` deben coincidir.
+
+El atributo `aria-describedby` es un atributo potente que puede utilizarse para ayudar a garantizar que se proporcione información adicional sobre un elemento a los usuarios de lectores de pantalla cuando interactúan con el elemento. Se suele utilizar para asociar instrucciones y mensajes de error a las entradas de un formulario con el fin de reducir la posibilidad de que los usuarios de lectores de pantalla no vean estos mensajes mientras navegan por el formulario.
+
+## Cuestionario 9
+
+- **¿Para qué sirve el atributo `aria-describedby` en HTML?**
+
+  - a) Para especificar un identificador único para un elemento.
+  - b) Proporcionar información adicional sobre un elemento a las tecnologías de asistencia. // correcto
+  - c) Para definir el idioma de un documento HTML.
+  - d) Para controlar la visibilidad de un elemento HTML.
+
+- **En los ejemplos proporcionados, ¿cómo mejora el atributo aria-describedby la experiencia del usuario en los campos de formulario?**
+
+  - a) Cambia el aspecto visual de los campos del formulario.
+  - b) Asocia texto descriptivo adicional a los campos del formulario para proporcionar más contexto o instrucciones. // correcto
+  - c) Valida los valores de entrada de los campos del formulario.
+  - d) Rellena automáticamente los campos del formulario con valores por defecto.
+
+- **¿Cómo se utiliza el atributo `aria-describedby` en el ejemplo con el botón de cierre y el cuadro de diálogo modal?**
+
+  - a) Sirve para definir el tamaño del botón de cierre.
+  - b) Proporciona una etiqueta para el botón de cierre utilizando un texto independiente.
+  - c) Asocia el botón de cierre con una descripción de su acción a las tecnologías de asistencia. // correcto
+  - d) Controla el color del botón de cierre.

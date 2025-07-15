@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con elementos multimedia accesibles</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header">
+    <figure class="cont-img">
+      <img src="img/icons8-html.png" alt="Logo de HTML" class="logo">
+    </figure>
+    <h1>Trabajar con elementos multimedia accesibles</h1>
+  </header>
+
+  <nav id="main-nav" class="nav">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="hamburger-icon">
+        <rect y="7" width="32" height="3" rx="1.5" fill="currentColor" />
+        <rect y="15" width="32" height="3" rx="1.5" fill="currentColor" />
+        <rect y="23" width="32" height="3" rx="1.5" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li><a href="#header" onclick="closeNavMobile()">Home</a></li>
+      <li><a href="#intro" onclick="closeNavMobile()">Intro</a></li>
+      <li><a href="#tema1" onclick="closeNavMobile()">Tema 1</a></li>
+      <li><a href="#quest1" onclick="closeNavMobile()">Quest 1</a></li>
+      <li><a href="#tema2" onclick="closeNavMobile()">Tema 2</a></li>
+      <li><a href="#quest2" onclick="closeNavMobile()">Quest 2</a></li>
+      <li><a href="#tema3" onclick="closeNavMobile()">Tema 3</a></li>
+      <li><a href="#quest3" onclick="closeNavMobile()">Quest 3</a></li>
+      <li><a href="#tema4" onclick="closeNavMobile()">Tema 4</a></li>
+      <li><a href="#quest4" onclick="closeNavMobile()">Quest 4</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>Introducción</h2>
+      <p>
+        En estos vídeos didácticos aprenderá a crear enlaces y contenidos de audio y vídeo accesibles.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>¿Cuándo es necesario el atributo <mark><code>alt</code></mark> y cuáles son algunos ejemplos de un buen texto alternativo?
+        (<a href="https://youtu.be/_yKzvDikHOI?si=w9tX0bAaAkLR7ZBj" target="_blank">video</a>)
+      </h2>
+      <p>
+        El texto alternativo, a menudo abreviado como <mark><code>alt</code></mark> text, es una breve descripción textual de una imagen.
+        Proporciona información esencial sobre la imagen para los usuarios que no pueden verla, como los que utilizan
+        lectores de pantalla y otras tecnologías de asistencia.
+      </p>
+    </section>
+
+  </main>
+
+  <script>
+    // Copiar código
+    function copiarCodigo(btn) {
+      const code = btn.parentElement.querySelector('code');
+      let text = '';
+      if (code.querySelectorAll('span').length > 0) {
+        text = Array.from(code.querySelectorAll('span')).map(span => span.innerText.trim()).join('\n');
+      } else {
+        text = code.innerText.trim();
+      }
+      // Elimina saltos de línea extra
+      text = text.replace(/\n{2,}/g, '\n');
+      navigator.clipboard.writeText(text);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => btn.textContent = "Copiar", 1500);
+    }
+
+    // Hamburguesa JS
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', function () {
+      navUl.classList.toggle('active');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'false';
+      hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+
+    // Cerrar menú hamburguesa al hacer clic en un enlace
+    function closeNavMobile() {
+      document.querySelector('nav ul').classList.remove('active');
+      document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+    }
+  </script>
+</body>
+
+</html>
