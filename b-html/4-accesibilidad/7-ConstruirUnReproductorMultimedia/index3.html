@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centro Multimedia</title>
+  <style>
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #1f2937;
+      --accent-color: #6366f1;
+      --card-bg: #ffffff;
+      --card-radius: 16px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --spacing: 1.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: var(--spacing);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    section {
+      background-color: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow);
+      padding: var(--spacing);
+      margin-bottom: var(--spacing);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    audio, video {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 0.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Centro Multimedia</h1>
+
+  <!-- Sección 1: Audio -->
+  <section>
+    <h2>Canción Destacada: Sailing Away</h2>
+    <audio controls aria-label="Reproductor de audio: Sailing Away">
+      <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </section>
+
+  <!-- Sección 2: Video -->
+  <section>
+    <h2>Video Educativo: Método map()</h2>
+    <video 
+      controls 
+      width="640" 
+      aria-label="Reproductor de video: Qué es el método map y cómo funciona"
+    >
+      <source 
+        src="https://cdn.freecodecamp.org/curriculum/labs/What%20is%20the%20map%20method%20and%20how%20does%20it%20work.mp4" 
+        type="video/mp4" 
+      />
+      <track 
+        src="https://cdn.freecodecamp.org/curriculum/labs/What%20is%20the%20map%20method%20and%20how%20does%20it%20work.vtt" 
+        kind="subtitles" 
+        srclang="en" 
+        label="English"
+      />
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </section>
+
+  <!-- Sección 3: Transcripción -->
+  <section>
+    <h2>Transcripción</h2>
+    <p>
+      En este video aprenderás qué es el método <code>map()</code> en JavaScript, cómo se usa para transformar arreglos, 
+      cómo aplicar funciones callback a cada elemento, y cómo este método ayuda a escribir código más limpio y funcional.
+    </p>
+  </section>
+
+</body>
+</html>

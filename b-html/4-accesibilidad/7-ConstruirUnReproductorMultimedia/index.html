@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Player</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom font for Inter */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <main class="bg-white p-6 md:p-8 rounded-lg shadow-xl max-w-3xl w-full space-y-8">
+    <!-- Main Title -->
+    <h1 class="text-4xl font-extrabold text-gray-800 mb-8 text-center">Interactive Media Player</h1>
+
+    <!-- Audio Section -->
+    <section class="p-6 bg-blue-50 rounded-lg border border-blue-200">
+      <h2 class="text-2xl font-semibold text-blue-700 mb-4">Now Playing: Sailing Away</h2>
+      <div class="flex justify-center">
+        <audio controls aria-label="Audio player for the song Sailing Away" class="w-full max-w-xl">
+          <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="p-6 bg-green-50 rounded-lg border border-green-200">
+      <h2 class="text-2xl font-semibold text-green-700 mb-4">Video: What is the map method and how does it work?</h2>
+      <div class="flex justify-center">
+        <video controls width="100%" aria-label="Video explaining the JavaScript map method"
+          class="w-full max-w-xl rounded-lg shadow-md">
+          <source src="https://cdn.freecodecamp.org/curriculum/labs/What is the map method and how does it work.mp4"
+            type="video/mp4">
+          <track
+            src="https://cdn.freecodecamp.org/curriculum/labs/What%20is%20the%20map%20method%20and%20how%20does%20it%20work.vtt"
+            kind="subtitles" srclang="en" label="English">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- Transcript Section -->
+    <section class="p-6 bg-purple-50 rounded-lg border border-purple-200">
+      <h2 class="text-2xl font-semibold text-purple-700 mb-4">Transcript</h2>
+      <p class="text-gray-700 text-lg leading-relaxed">
+        (Video begins)
+        <br><br>
+        Hello everyone, and welcome to this quick tutorial on the JavaScript `map()` method.
+        <br><br>
+        The `map()` method is a powerful array method that allows you to transform elements in an array. It creates a
+        new array populated with the results of calling a provided function on every element in the calling array.
+        <br><br>
+        It does not execute the function for empty elements and does not change the original array.
+        <br><br>
+        Let's look at an example. If you have an array of numbers like [1, 2, 3], and you want to double each number,
+        you can use `map()`. You would pass a callback function to `map()` that takes each number and returns its
+        doubled value.
+        <br><br>
+        For instance, `numbers.map(num => num * 2)` would return a new array [2, 4, 6].
+        <br><br>
+        This method is incredibly useful for functional programming patterns and is widely used in modern JavaScript
+        development.
+        <br><br>
+        Thanks for watching!
+        <br><br>
+        (Video ends)
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>

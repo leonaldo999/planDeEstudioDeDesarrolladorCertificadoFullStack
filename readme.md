@@ -1,9 +1,37 @@
-# Plan de estudio de desarrollador certificado Full Stack
+# 📚 Plan de estudio – Certificación Full Stack Developer (FreeCodeCamp 2025)
 
-Este curso ofrece un camino integral para convertirse en un desarrollador Full Stack certificado, cubriendo todas las tecnologías esenciales necesarias para crear aplicaciones web modernas y escalables de principio a fin.
+Bienvenido al viaje formativo que transforma curiosidad en capacidad real. Esta certificación ofrecida por **FreeCodeCamp** en 2025 representa una de las rutas más completas, accesibles y relevantes para dominar el desarrollo web moderno con un enfoque full stack.
 
-A través de una combinación de lecciones interactivas, ejercicios de codificación y proyectos del mundo real, dominarás el desarrollo frontend y backend. Trabajarás con HTML, CSS y JavaScript para crear interfaces de usuario responsivas, explorarás React y TypeScript para aplicaciones web avanzadas y aprenderás a administrar datos con bases de datos relacionales. Y en el backend, usarás Git, Npm, Node.js y Python para crear soluciones potentes del lado del servidor.
+## 🌐 ¿Qué aprenderás?
 
-Al finalizar este curso, tendrás las habilidades prácticas y la experiencia para desarrollar con confianza aplicaciones web completas, preparándote para una carrera exitosa como desarrollador Full Stack.
+A través de módulos interactivos, proyectos reales y ejercicios prácticos, desarrollarás habilidades concretas en:
 
-This certification will take you a substantial amount of time and effort to complete. If you start now, you may be ready to start the remaining material and final exam when we launch it in the coming months.
+- **Frontend moderno:** HTML, CSS, JavaScript, React, TypeScript.
+- **Backend escalable:** Node.js, Python, bases de datos relacionales, APIs.
+- **Herramientas esenciales:** Git, NPM, testing, debugging y flujo de trabajo profesional.
+
+Además, el contenido ha sido actualizado para reflejar las tendencias de 2025: desarrollo accesible, diseño emocional, y arquitectura sostenible.
+
+## 🛠 Resultados del aprendizaje
+
+Al completar este plan:
+
+- Podrás crear aplicaciones web completas y escalables de principio a fin.
+- Tendrás portafolio real y habilidades listas para el mercado.
+- Estarás preparado para colaborar en proyectos con impacto social o iniciar tu propio camino freelance.
+
+> 🕒 Este recorrido requiere tiempo, perseverancia y pasión. Si comienzas hoy, podrías estar listo para enfrentar el reto final cuando se libere el nuevo módulo y examen en los próximos meses.
+
+---
+
+## 🙌 Agradecimientos sinceros
+
+Quiero expresar mi más profunda gratitud a [FreeCodeCamp](https://www.freecodecamp.org) por democratizar el conocimiento en tecnología. Este curso no solo enseña a programar, sino que da las herramientas para cambiar vidas, comunidades y realidades.
+
+Gracias por construir una plataforma que permite soñar con el futuro, sin importar el lugar, idioma o recursos. En este 2025, el impacto de FreeCodeCamp se siente en cada línea de código que escribimos con propósito.
+
+---
+
+**#CódigoConImpacto • #DesarrolloConPropósito • #GraciasFreeCodeCamp**
+
+---
