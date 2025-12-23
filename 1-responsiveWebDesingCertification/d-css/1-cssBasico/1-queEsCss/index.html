@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Aprende qué es CSS, su papel en la web y cómo usarlo para crear sitios atractivos y responsivos. Ejemplos, cuestionarios y buenas prácticas.">
+  <title>Qué es CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>¿Qué es CSS?</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#quest1" onclick="closeNavMobile()" tabindex="0">❓ Quest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#quest2" onclick="closeNavMobile()" tabindex="0">❓ Quest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#quest3" onclick="closeNavMobile()" tabindex="0">❓ Quest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#quest4" onclick="closeNavMobile()" tabindex="0">❓ Quest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#quest5" onclick="closeNavMobile()" tabindex="0">❓ Quest 5</a>
+      </li>
+      <li>
+        <a href="#tema6" onclick="closeNavMobile()" tabindex="0">💻 Tema 6</a>
+      </li>
+      <li>
+        <a href="#quest6" onclick="closeNavMobile()" tabindex="0">❓ Quest 6</a>
+      </li>
+      <li>
+        <a href="#tema7" onclick="closeNavMobile()" tabindex="0">💻 Tema 7</a>
+      </li>
+      <li>
+        <a href="#quest7" onclick="closeNavMobile()" tabindex="0">❓ Quest 7</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-label="Introducción">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        Los siguientes videos de conferencias tratan sobre CSS. Aprenderá qué es CSS y su función en la web, una regla
+        CSS y su anatomía, las tres formas de escribir CSS y cuándo usar cada una, elementos en línea y en bloque, y
+        muchos más.
+      </p>
+    </section>
+
+    <section id="tema1" aria-label="Tema 1: Qué es CSS y cuál es su papel">
+      <h2>
+        🛜 ¿Qué es CSS y cuál es su papel en la web?
+      </h2>
+
+      <p>
+        <mark>CSS</mark>, que significa Hojas de Estilo en Cascada(<mark>Cascading Style Sheets</mark>), es un
+        componente crucial del desarrollo web moderno. Es un
+        lenguaje de marcado que se utiliza para aplicar estilos a HTML.
+      </p>
+      <p>
+        En términos más simples, si HTML es la estructura de una página web, CSS es lo que la hace lucir bien.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+
+&lt;nav class="navbar"&gt;
+    &lt;ul class="nav-links"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem 2rem;
+  color: white;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #ff9800;
+}
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                /* Simulamos el body dentro del contenedor de preview */
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  /* Del CSS de ejemplo */
+                  font-family: 'Segoe UI', sans-serif;
+                  position: relative;
+                  overflow: hidden;
+                  border-radius: 4px;
+                }
+
+                /* Estilos del ejemplo adaptados al contenedor */
+                .preview-result .navbar-preview {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  background-color: #333;
+                  padding: 1rem 2rem;
+                  color: white;
+                }
+
+                .preview-result .nav-links {
+                  list-style: none;
+                  display: flex;
+                  gap: 1.5rem;
+                  margin: 0;
+                  /* Reset local */
+                  padding: 0;
+                }
+
+                .preview-result .nav-links a {
+                  color: white;
+                  text-decoration: none;
+                  font-weight: 500;
+                  transition: color 0.3s ease;
+                }
+
+                .preview-result .nav-links a:hover {
+                  color: #ff9800;
+                }
+              </style>
+
+              <nav class="navbar-preview">
+                <ul class="nav-links">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <p>
+        La función principal de CSS es separar el contenido de una página web de su presentación visual.Esta separación
+        permite a los desarrolladores web crear sitios web más flexibles y fáciles de mantener.
+      </p>
+      <p>
+        Con CSS, puedes controlar el diseño, los colores, las fuentes y la apariencia visual general de las páginas web
+        sin alterar la estructura HTML.
+      </p>
+      <p>
+        Consideremos una analogía sencilla. Si imaginamos un sitio web como una casa, HTML sería la base y el marco,
+        mientras que CSS sería la pintura, el papel tapiz y la decoración que hacen que la casa sea visualmente
+        atractiva y única.
+      </p>
+      <p>
+        CSS funciona seleccionando elementos HTML y aplicándoles estilos.
+      </p>
+      <p>
+        Aquí tienes un ejemplo que muestra un elemento <mark>abutton</mark> sin estilo y uno con estilo. Para
+        interactuar con este ejemplo, debes habilitar el editor interactivo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+
+&lt;button class="regular-btn"&gt;Unstyled Button&lt;/button&gt;
+&lt;button class="round-btn"&gt;Round Button&lt;/button&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+.regular-btn {
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0.6rem 1.6rem;
+  
+  /* Estilos base neutros para mejor visibilidad */
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.regular-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Botón Redondo Estilizado */
+.round-btn {
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50px;
+  padding: 0.6rem 1.6rem;
+}
+
+.round-btn:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                /* Estilos base para centrar los botones */
+                .preview-result {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  /* Fondo que simula el body */
+                }
+
+                /* Estilo base sin propiedades (simula .regular-btn) */
+                .preview-result .regular-btn {
+                  font-size: 1rem;
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 0.6rem 1.6rem;
+                  border: 1px solid #ccc;
+                  background-color: #f8f8f8;
+                  color: #333;
+                  cursor: pointer;
+                  transition: all 0.2s;
+                }
+
+                .preview-result .regular-btn:hover {
+                  background-color: #e0e0e0;
+                }
+
+                /* Botón Redondo Estilizado (simula .round-btn) */
+                .preview-result .round-btn {
+                  font-size: 1rem;
+                  font-family: 'Segoe UI', sans-serif;
+                  border: none;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease, transform 0.2s ease;
+                  background-color: #2ecc71;
+                  color: white;
+                  border-radius: 50px;
+                  padding: 0.6rem 1.6rem;
+                }
+
+                .preview-result .round-btn:hover {
+                  background-color: #27ae60;
+                  transform: translateY(-2px);
+                }
+              </style>
+
+              <button class="regular-btn">Unstyled Button</button>
+              <button class="round-btn">Round Button</button>
+            </div>
+          </div>
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos estilos pueden incluir propiedades como color, tamaño de fuente y muchas más. Al cambiar estas
+        propiedades, puedes modificar drásticamente la apariencia de una página web sin modificar su contenido.
+      </p>
+      <p>
+        Uno de los aspectos más poderosos de CSS es su capacidad para crear diseños responsivos.
+      </p>
+      <p>
+        Esto significa que con CSS puedes hacer que tu sitio web se vea genial en cualquier dispositivo, ya sea una
+        computadora de escritorio, una tableta o un teléfono inteligente.
+      </p>
+      <p>
+        CSS le permite ajustar diseños, tamaños de fuente y otros elementos visuales según el tamaño de la pantalla del
+        dispositivo que visualiza el sitio web.
+      </p>
+      <p>
+        Otra característica importante de CSS es su naturaleza en cascada, de donde proviene la palabra "cascading" en
+        su nombre.
+      </p>
+      <p>
+        Esto significa que los estilos se pueden heredar y anular, lo que permite una estructura jerárquica de estilos.
+      </p>
+      <p>
+        CSS también admite el uso de hojas de estilo externas.
+      </p>
+      <p>
+        Esto significa que puedes mantener todas tus reglas de estilo en un archivo separado, que luego puede vincularse
+        a múltiples páginas HTML.
+      </p>
+      <p>
+        Esta función mejora considerablemente la facilidad de mantenimiento de los sitios web, especialmente los más
+        grandes. En lugar de tener que cambiar los estilos en cada página, puedes realizar cambios en un solo archivo
+        CSS que afectarán a todas las páginas enlazadas.
+      </p>
+      <p>
+        En el mundo del desarrollo web, CSS juega un papel vital en la creación de sitios web visualmente atractivos,
+        responsivos y fáciles de usar.
+      </p>
+      <p>
+        Permite a los desarrolladores transformar documentos HTML simples en experiencias web atractivas que captan la
+        atención de los usuarios y mejoran su interacción con el contenido web.
+      </p>
+    </section>
+
+    <section id="quest1" aria-label="Cuestionario 1">
+      <h2>🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Cuál es el propósito principal de CSS en el desarrollo web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para estructurar el contenido de las páginas
+            web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para manejar la lógica del lado del
+            servidor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Separar la presentación de un documento de su
+            contenido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para gestionar las operaciones de la base de
+            datos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo contribuye CSS al diseño web responsivo?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Mediante el manejo de la autenticación de
+            usuarios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Permitiendo ajustes de diseño y estilo según el tamaño
+            de la pantalla del dispositivo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Mejorando el tiempo de respuesta del
+            servidor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Comprimiendo archivos de imagen.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué se entiende por naturaleza "en cascada" de CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Se refiere a la forma en que cae el agua en el fondo de
+            un sitio web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Significa que los archivos CSS deben organizarse en un
+            orden específico.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Permite heredar y anular estilos de forma
+            jerárquica.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Describe qué tan rápido se carga el CSS en un
+            navegador.
+          </label>
+        </fieldset>
+
+      </form>
+    </section>
+
+    <section id="tema2" aria-label="Tema 2: ¿Cuál es la Anatomía Básica de una Regla CSS?">
+
+      <h2>
+        🔎 ¿Cuál es la Anatomía Básica de una Regla CSS?
+      </h2>
+
+      <p>
+        CSS es responsable de los estilos de una página web. Todos estos estilos se componen de varias reglas CSS.
+      </p>
+      <p>
+        Una regla CSS se compone de dos partes principales: un selector y un bloque de declaración.
+      </p>
+      <p>
+        Echemos un vistazo a la sintaxis básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre>
+                <code class="language-css">selector {
+                    property: value;
+                  }
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Un selector es un patrón utilizado en <mark>CSS</mark> para identificar y orientar elementos <mark>HTML</mark>
+        específicos para el estilo.
+      </p>
+      <p>
+        Ejemplos de selectores incluyen selectores de tipo, selectores de clase y selectores de ID.
+      </p>
+      <p>
+        Las llaves proporcionadas en la sintaxis básica se conocen como bloque de declaración. Un bloque de declaración
+        aplica un conjunto de estilos para un selector o selectores determinados.
+      </p>
+      <p>
+        Dentro del bloque de declaraciones, tendrá una serie de declaraciones. Cada declaración consta de una propiedad
+        y un valor.
+      </p>
+      <p>
+        La propiedad es el identificador CSS que especifica qué característica se está diseñando. Un ejemplo de una
+        propiedad sería la propiedad <mark><code>background-color</code></mark>.
+      </p>
+      <p>
+        El valor sería la configuración específica aplicada a esa propiedad. Por ejemplo, si la propiedad es
+        <mark><code>background-color</code></mark>, un valor podría ser <mark><code>purple</code></mark>, que establece
+        el color de fondo en <mark><code>purple</code></mark>.
+      </p>
+      <p>
+        Después de cada nombre de propiedad, debe colocar dos puntos y, después de cada valor, debe tener un punto y
+        coma.
+      </p>
+      <p>
+        Ahora que conoces la sintaxis de una regla CSS, echemos un vistazo a un ejemplo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css" /&gt;
+                &lt;h1&gt;Learning about CSS&lt;/h1&gt;
+
+                &lt;p&gt;Example paragraph element&lt;/p&gt;
+                &lt;p&gt;Another example paragraph element&lt;/p&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre>
+                <code class="language-css">p {
+                    color: blue;
+                  }
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result h1 {
+                  font-size: 1.5rem;
+                  margin-bottom: 1rem;
+                  color: black;
+                }
+
+                .preview-result p {
+                  color: blue;
+                }
+              </style>
+
+              <h1>Learning about CSS</h1>
+
+              <p>Example paragraph element</p>
+              <p>Another example paragraph element</p>
+            </div>
+          </div>
+
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En esta regla CSS, un selector de tipo se dirige a todos los elementos de párrafo de la página.
+      </p>
+      <p>
+        Dentro del bloque de declaración, hay una declaración.
+      </p>
+      <p>
+        La declaración consiste en la propiedad <mark><code>color</code></mark> con un valor establecido en
+        <mark><code>blue</code></mark>. Esto cambiará el color del texto
+        de todos los elementos del párrafo a <mark><code>blue</code></mark>.
+      </p>
+      <p>
+        Si desea aplicar el mismo conjunto de estilos a varios selectores, puede crear una lista de selectores con cada
+        selector separado por una coma.
+      </p>
+      <p>
+        Aquí hay un ejemplo de estilo de múltiples selectores:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre>
+                <code class="language-css">#title, .subheading {
+                    color: navy;
+                  }
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <p>
+        En esta lista de selectores, hay un selector de <mark><code>id</code></mark> que apunta al elemento HTML con el
+        valor de <mark><code>id</code></mark> de <mark><code>title</code></mark>.
+        Todos los selectores de <mark><code>id</code></mark> deben comenzar con un símbolo hash
+        <mark><code>#</code></mark>.
+      </p>
+      <p>
+        Luego hay una coma seguida de un selector de <mark><code>class</code></mark> que apunta a todos los elementos
+        HTML con el valor de <mark><code>class</code></mark>
+        de <mark><code>subheading</code></mark>. Todos los selectores de clase deben comenzar con un punto
+        <mark><code>.</code></mark>
+      </p>
+      <p>
+        Toda la lista de selectores recibirá el mismo estilo, con el color del texto establecido en
+        <mark><code>navy</code></mark>a.
+      </p>
+
+    </section>
+
+    <section id="quest2" aria-label="Cuestionario 2">
+      <h2>🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de un selector en una regla CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Para aplicar estilos a elementos HTML.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Para determinar a qué elementos HTML se aplicará la
+            regla.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Para definir las propiedades y valores de estilo
+            específicos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Para crear nuevos elementos HTML.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes reglas CSS cambia correctamente el color del texto de todos los elementos del
+            párrafo a <code>blue</code>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <pre>
+              <code>
+                p {
+                  background-color: blue;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <pre>
+              <code>
+                p {
+                  color: blue;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <pre>
+              <code>
+                .p {
+                  color: blue;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <pre>
+              <code>
+                #p {
+                  color: blue;
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Dada la siguiente regla CSS, ¿cuál será el tamaño del texto del elemento HTML de destino?
+
+            <pre
+              style="background: linear-gradient(90deg, #3a7bd5 0%, #08caf5 100%); border-radius: 10px; box-shadow: 0 2px 12px rgba(58,123,213,0.15); color: #fff; padding: -1em; font-size: 1.1em; margin-bottom: 1em;">
+              <code>
+                <span>h1 {</span>
+                  <span>color: green;</span>
+                  <span>font-size: 24px;</span>
+                <span>}</span>
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <code>green</code>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <code>24px</code>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <code>16px</code>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <code>font-size</code>
+          </label>
+        </fieldset>
+
+      </form>
+    </section>
+
+    <section id="tema3" aria-label="Tema 2: ¿Para qué se utiliza el elemento Meta Viewport?">
+
+      <h2>
+        🔎 ¿Para qué se utiliza el elemento Meta Viewport?
+      </h2>
+
+      <p>
+        El elemento meta viewport es un componente crucial en el diseño web responsivo.
+      </p>
+      <p>
+        Es un elemento meta HTML especial que proporciona al navegador instrucciones sobre cómo controlar las
+        dimensiones y la escala de la página en diferentes dispositivos, especialmente en teléfonos móviles y tabletas.
+      </p>
+      <p>
+        Echemos un vistazo a la sintaxis básica del elemento meta viewport:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este elemento suele ubicarse en la sección <mark><code>head</code></mark> del documento HTML. Pero ¿qué
+        significa cada parte del elemento?
+      </p>
+      <p>
+        Esta sección <mark><code>width=device-width</code></mark> indica al navegador que ajuste el ancho de la página
+        al ancho de la pantalla del
+        dispositivo. Esto es esencial para crear diseños adaptables a diferentes tamaños de pantalla.
+      </p>
+      <p>
+        Establece el <mark><code>initial-scale=1.0</code></mark> nivel de zoom inicial al cargar la página por primera
+        vez. Un valor de 1.0
+        significa que la página se muestra con zoom <mark><code>100%</code></mark>, sin escala.
+      </p>
+      <p>
+        Al utilizar el elemento meta viewport, garantiza que sus páginas web se muestren correctamente en dispositivos
+        móviles.
+      </p>
+      <p>
+        Sin ella, los navegadores móviles normalmente mostrarán la página con el ancho de una pantalla de escritorio y
+        luego la reducirán, lo que puede generar una mala experiencia de usuario con texto pequeño y difícil de leer.
+      </p>
+      <p>
+        El elemento meta viewport también le permite controlar si los usuarios pueden acercar o alejar sus páginas
+        web.
+      </p>
+      <p>
+        Si bien es posible deshabilitar el zoom con el atributo <mark><code>user-scalable=no</code></mark>,
+        generalmente
+        se recomienda evitarlo
+        por razones de accesibilidad.
+      </p>
+      <p>
+        Muchos usuarios confían en la capacidad de hacer zoom para una mejor legibilidad, especialmente aquellos con
+        discapacidades visuales.
+      </p>
+      <p>
+        He aquí un ejemplo de lo que no se debe hacer:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En cambio, es mejor diseñar su sitio web para que responda y sea legible en diferentes niveles de zoom,
+        garantizando que todos los usuarios puedan acceder cómodamente a su contenido.
+      </p>
+      <p>
+        El elemento meta viewport juega un papel crucial en la creación de sitios web optimizados para dispositivos
+        móviles.
+      </p>
+      <p>
+        Garantiza que sus diseños responsivos cuidadosamente elaborados se muestren como está previsto en varios
+        dispositivos, brindando una mejor experiencia de usuario para todos los visitantes de su sitio.
+      </p>
+
+    </section>
+
+    <section id="quest3" aria-label="Cuestionario 3">
+      <h2>🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito principal de la etiqueta <code>&lt;meta name="viewport"&gt;</code>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Para mejorar la velocidad de carga del sitio web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Para controlar las dimensiones y la escala de la página en diferentes dispositivos.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Proporcionar descripciones de páginas para motores de búsqueda.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Para habilitar la funcionalidad de JavaScript.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace <code>width=device-width</code> la <code>&lt;meta name="viewport"&gt;</code>etiqueta?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Establece el ancho de todas las imágenes para que coincida con el ancho del dispositivo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Le dice al navegador que ajuste el ancho de la página al ancho de la pantalla del dispositivo.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Ajusta el tamaño de la fuente según el ancho del dispositivo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Limita el ancho máximo de la página web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué generalmente se recomienda evitar su uso <code>user-scalable=no</code> en la
+            <code>&lt;meta name="viewport"&gt;</code>etiqueta?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Puede provocar que el sitio web se bloquee en ciertos dispositivos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Evita que los motores de búsqueda indexen el sitio web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Puede crear problemas de accesibilidad para los usuarios que necesitan hacer zoom.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Hace que el sitio web se cargue más lento en dispositivos móviles.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-label="Tema 4: Cuáles Son Algunos Estilos Predeterminados del Navegador Aplicados a HTML?">
+      <h2>
+        🗂️ ¿Cuáles Son Algunos Estilos Predeterminados del Navegador Aplicados a HTML?
+      </h2>
+
+      <p>
+        Cuando comiences a trabajar con HTML y CSS, notarás que algunos estilos se aplican a tus páginas web incluso
+        antes de escribir CSS. Estos estilos se denominan "estilos predeterminados del navegador" o "estilos de agente
+        de usuario".
+      </p>
+      <p>
+        Estos estilos predeterminados del navegador proporcionan un formato básico para garantizar que los elementos
+        HTML se muestren de manera legible en todos los navegadores.
+      </p>
+      <p>
+        Sin embargo, estos estilos pueden variar ligeramente de un navegador a otro, por lo que es importante
+        comprenderlos al diseñar un aspecto coherente para su sitio web.
+      </p>
+      <p>
+        Echemos un vistazo a algunos estilos predeterminados comunes del navegador aplicados a varios elementos HTML.
+      </p>
+      <p>
+        Los encabezados son uno de los elementos HTML más utilizados y tienen un estilo predeterminado para tener
+        tamaños y pesos variables.
+      </p>
+      <p>
+        Por ejemplo, <mark><code>h1</code></mark> (el encabezado de nivel más alto) suele estar en negrita y tener un
+        tamaño de fuente mayor en
+        comparación con los encabezados de nivel inferior como <mark><code>h2</code></mark>,
+        <mark><code>h3</code></mark>, etc.
+      </p>
+      <p>
+        Estas etiquetas de encabezado ayudan a definir la jerarquía y estructura de su contenido.
+      </p>
+      <p>
+        El siguiente ejemplo muestra los seis elementos de encabezado de <mark><code>h1</code></mark> a
+        <mark><code>h6</code></mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">style.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;h1&gt;Heading 1&lt;/h1&gt;
+                &lt;h2&gt;Heading 2&lt;/h2&gt;
+                &lt;h3&gt;Heading 3&lt;/h3&gt;
+                &lt;h4&gt;Heading 4&lt;/h4&gt;
+                &lt;h5&gt;Heading 5&lt;/h5&gt;
+                &lt;h6&gt;Heading 6&lt;/h6&gt;
+              </code></pre>
+            </div>
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* No CSS reset applied */
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result h1 {
+                  font-size: 2em;
+                  font-weight: bold;
+                }
+
+                .preview-result>h2 {
+                  font-size: 1.5em;
+                  font-weight: bold;
+                }
+
+                .preview-result h3 {
+                  font-size: 1.17em;
+                  font-weight: bold;
+                }
+
+                .preview-result h4 {
+                  font-size: 1em;
+                  font-weight: bold;
+                }
+
+                .preview-result h5 {
+                  font-size: 0.83em;
+                  font-weight: bold;
+                }
+
+                .preview-result h6 {
+                  font-size: 0.67em;
+                  font-weight: bold;
+                }
+              </style>
+
+              <h1>This is an h1 heading</h1>
+              <h2>This is an h2 heading</h2>
+              <h3>This is an h3 heading</h3>
+              <h4>This is an h4 heading</h4>
+              <h5>This is an h5 heading</h5>
+              <h6>This is an h6 heading</h6>
+
+            </div>
+          </div>
+
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otro elemento con estilos predeterminados es el elemento <mark><code>hr</code></mark>, que crea una regla
+        horizontal que a menudo se usa
+        para separar visualmente secciones de contenido. Los navegadores generalmente aplican un estilo de línea
+        simple
+        a este elemento.
+      </p>
+      <p>
+        Para entenderlo mejor, veamos este ejemplo de código:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;Paragraph 1&lt;/p&gt;
+                &lt;p&gt;Paragraph 2&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;p&gt;Paragraph 3&lt;/p&gt;
+                &lt;p&gt;Paragraph 4&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result hr {
+                  border: none;
+                  border-top: 1px solid #ccc;
+                  margin: 1rem 0;
+                }
+              </style>
+
+              <p>Paragraph 1</p>
+              <p>Paragraph 2</p>
+              <hr>
+              <p>Paragraph 3</p>
+              <p>Paragraph 4</p>
+            </div>
+          </div>
+
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La regla horizontal aparece como una línea delgada con espaciado por encima y por debajo del texto para
+        distinguir entre secciones de contenido.
+      </p>
+      <p>
+        A continuación, veremos el elemento <mark><code>blockquote</code></mark>.
+      </p>
+      <p>
+        Las citas en bloque se utilizan para indicar una sección de texto que es una cita de otra fuente. Los
+        navegadores suelen agregar sangría y, a veces, ponen el texto en cursiva.
+      </p>
+      <p>
+        La sangría ayuda a diferenciar las citas en bloque del resto del texto, dejando en claro que este contenido se
+        cita de otra fuente.
+      </p>
+      <p>
+        Echemos un vistazo a este ejemplo de código:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;Paragraph 1&lt;/p&gt;
+                &lt;p&gt;Paragraph 2&lt;/p&gt;
+                &lt;blockquote&gt;I think, therefore I am. (Rene Descartes)&lt;/blockquote&gt;
+                &lt;p&gt;Paragraph 3&lt;/p&gt;
+                &lt;p&gt;Paragraph 4&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result blockquote {
+                  margin-left: 40px;
+                  margin-right: 40px;
+                  font-style: italic;
+                }
+              </style>
+
+              <p>Paragraph 1</p>
+              <p>Paragraph 2</p>
+              <blockquote>I think, therefore I am. (Rene Descartes)</blockquote>
+              <p>Paragraph 3</p>
+              <p>Paragraph 4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-actions">
+        <a href="#" class="sandbox-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Abrir Sandbox
+        </a>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el elemento <mark><code>blockquote</code></mark> producirá una sangría en el texto,
+        aplicada por los estilos
+        predeterminados del navegador.
+      </p>
+      <p>
+        Otro elemento con estilos predeterminados es el elemento de anclaje (<mark><code>&lt;a&gt;</code></mark> ),
+        que
+        tiene un estilo predeterminado de
+        color azul y subrayado para que sea reconocible como un enlace.
+      </p>
+      <p>
+        Echemos un vistazo al siguiente ejemplo HTML:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;Paragraph 1&lt;/p&gt;
+                &lt;p&gt;Paragraph 2&lt;/p&gt;
+                &lt;a href="https://freecodecamp.org/"&gt;Visit the freeCodeCamp learn page&lt;/a&gt;
+                &lt;p&gt;Paragraph 3&lt;/p&gt;
+                &lt;p&gt;Paragraph 4&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result a {
+                  color: blue;
+                  text-decoration: underline;
+                }
+              </style>
+
+              <p>Paragraph 1</p>
+              <p>Paragraph 2</p>
+              <a href="https://freecodecamp.org/">Visit the freeCodeCamp learn page</a>
+              <p>Paragraph 3</p>
+              <p>Paragraph 4</p>
+            </div>
+          </div>
+
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El código anterior tiene cuatro elementos de párrafo con un elemento de anclaje en el medio. El elemento de
+        anclaje tiene un estilo azul con un subrayado para mostrar a los usuarios que vayan a la página de aprendizaje
+        de FreeCodeCamp.
+      </p>
+      <p>
+        Finalmente, veremos los elementos de la lista desordenada y ordenada.
+      </p>
+      <p>
+        Los navegadores agregan formato básico a las listas, incluida la sangría y las viñetas o números, según si
+        está
+        utilizando una lista desordenada (<mark><code>ul</code></mark>) o una lista ordenada
+        (<mark><code>ol</code></mark>).
+      </p>
+      <p>
+        Echemos un vistazo a un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;Sample Paragraph&lt;/p&gt;
+                &lt;ol&gt;
+                  &lt;li&gt;item 1&lt;/li&gt;
+                  &lt;li&gt;item 2&lt;/li&gt;
+                  &lt;li&gt;item 3&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;item&lt;/li&gt;
+                  &lt;li&gt;another item&lt;/li&gt;
+                  &lt;li&gt;yet another item&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;p&gt;Ending Paragraph&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+
+                .preview-result ol {
+                  margin-left: 40px;
+                }
+
+                .preview-result ul {
+                  margin-left: 40px;
+                }
+              </style>
+
+              <p>Sample Paragraph</p>
+              <ol>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+              </ol>
+
+              <ul>
+                <li>item</li>
+                <li>another item</li>
+                <li>yet another item</li>
+              </ul>
+              <p>Ending Paragraph</p>
+            </div>
+          </div>
+
+          <div class="preview-actions">
+            <a href="#" class="sandbox-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Abrir Sandbox
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo de código anterior, estamos usando una lista desordenada y una lista ordenada. Ambas listas
+        estarán ligeramente sangradas a la derecha de forma predeterminada.
+      </p>
+      <p>
+        Para todos estos ejemplos, vio cómo el navegador aplicaba espaciado predeterminado, tamaños de fuente
+        variables
+        y pesos a estos elementos HTML.
+      </p>
+      <p>
+        En conferencias posteriores, aprenderá cómo restablecer algunos de estos estilos predeterminados mediante un
+        restablecimiento de CSS.
+      </p>
+
+    </section>
+
+    <section id="quest4" aria-label="Cuestionario 4">
+      <h2>🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el estilo predeterminado que se aplica a las etiquetas de encabezado (<code>h1</code> a
+            <code>h6</code>) en la mayoría de los navegadores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Todos tienen el mismo tamaño y peso.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Tienen diferentes tamaños y pesos, siendo h1 el más grande y audaz.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <code>h1</code> está en cursiva y <code>h6</code> subrayado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Todas las etiquetas de encabezado están centradas de forma predeterminada.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo <code>hr</code> se ve normalmente el elemento por defecto en la mayoría de los navegadores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Una línea delgada horizontal con espacio arriba y abajo.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Una línea discontinua que abarca todo el ancho de la página.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Una línea negra gruesa sin espacio.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Una barra de color que separa secciones.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se suelen diseñar de forma predeterminada las etiquetas de anclaje (<code>a</code>) en los
+            navegadores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <code>bold</code> y <code>green</code>.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <code>underline</code> y <code>blue</code>.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <code>italic</code> y <code>red</code>.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <code>underline</code> y <code>purple</code>
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-label="Tema 5: Buscar archivos y carpetas">
+      <h2>🗂️ ¿Qué Son CSS en Línea, Interno y Externo, y Cuándo Debería Usar Cada Uno?
+      </h2>
+
+      <p>
+        CSS se puede aplicar a una página web de tres formas principales: en línea, interna o externa.
+      </p>
+      <p>
+        Cada método tiene su propio caso de uso, ventajas y limitaciones, y saber cuándo usar cada uno es esencial para
+        escribir código limpio, eficiente y fácil de mantener.
+      </p>
+      <p>
+        Analicemos los tres tipos de CSS y cuándo debe usarlos.
+      </p>
+      <p>
+        CSS en línea se escribe directamente dentro de un elemento HTML utilizando el atributo
+        <mark><code>style</code></mark>. Aplica estilos a
+        un elemento específico.
+      </p>
+      <p>
+        Aquí hay un ejemplo usando CSS en línea:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p style="color: green;"&gt;
+                  This is an inline-styled paragraph.
+                &lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <p style="color: green;">This is an inline-styled paragraph.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, estamos usando el atributo <mark><code>style</code></mark> para establecer el texto del
+        párrafo
+        en <mark><code>red</code></mark>.
+      </p>
+      <p>
+        CSS en línea generalmente se usa para estilos rápidos y únicos o para anular otros estilos para un elemento
+        específico.
+      </p>
+      <p>
+        Sin embargo, debe evitarse en la mayoría de los casos porque puede saturar el HTML y dificultar el
+        mantenimiento
+        del código.
+      </p>
+      <p>
+        La mayoría de las veces, es mejor usar CSS interno o externo para mantener sus estilos organizados y fáciles
+        de
+        mantener.
+      </p>
+      <p>
+        El CSS interno se escribe dentro de las etiquetas de <mark><code>style</code></mark> dentro de la sección
+        <mark><code>head</code></mark> de un documento HTML.
+        Aplica estilos a toda la página y es útil cuando necesita aplicar estilo a un solo documento.
+      </p>
+      <p>
+        Aquí hay un ejemplo de CSS interno:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;style&gt;
+                    p {
+                      color: blue;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;p&gt;
+                    En este párrafo se aplica el estilo
+                    usando CSS interno.
+                  &lt;/p&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <p style="color: blue;">En este párrafo se aplica el estilo usando CSS interno.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el CSS interno aplica texto azul a todos los elementos <mark><code>p</code></mark> de
+        la
+        página.
+      </p>
+      <p>
+        El CSS interno se usa mejor cuando necesita aplicar estilos a una página específica en lugar de a varias
+        páginas. Es útil para sitios web de una sola página o cuando los estilos no necesitan reutilizarse en ningún
+        otro lugar.
+      </p>
+      <p>
+        Sin embargo, existen algunas desventajas, como no promover la reutilización en varias páginas. Además, al
+        igual
+        que CSS en línea, mezcla HTML y CSS, lo que dificulta el mantenimiento del código en proyectos más grandes.
+      </p>
+      <p>
+        CSS externo está escrito por separado archivo <mark><code>.css</code></mark> y vinculado al documento HTML
+        utilizando el elemento <mark><code>link</code></mark> en
+        la sección <mark><code>head</code></mark>.
+      </p>
+      <p>
+        Le permite diseñar varias páginas de manera consistente y es el método preferido en el desarrollo web
+        profesional.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo aplicar estilo a todos los elementos del párrafo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;p&gt;
+                    This paragraph is styled using external CSS.
+                  &lt;/p&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  color: green;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <p style="color: green;">This paragraph is styled using external CSS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En una conferencia anterior, aprendió que el elemento <mark><code>link</code></mark> tiene un atributo
+        <mark><code>rel</code></mark> que especifica la relación
+        entre el documento actual y el recurso vinculado, como vincular a una hoja de estilo o un recurso externo.
+      </p>
+      <p>
+        Por otro lado, el atributo <mark><code>href</code></mark> especifica la URL del recurso vinculado, indicando
+        de
+        dónde se debe recuperar el
+        recurso.
+      </p>
+      <p>
+        CSS externo es ideal para proyectos grandes en los que desea mantener un estilo coherente en varias páginas.
+      </p>
+      <p>
+        Promueve la separación de preocupaciones al hacer que HTML maneje la estructura y CSS maneje el estilo, lo
+        que
+        hace que el código sea más fácil de mantener y escalar.
+      </p>
+      <p>
+        Comprender cuándo usar cada tipo de CSS es crucial para un desarrollo web eficiente y efectivo.
+      </p>
+      <p>
+        En la mayoría de los casos, CSS externo debería ser su enfoque preferido, especialmente para proyectos más
+        grandes y complejos.
+      </p>
+
+    </section>
+
+    <section id="quest5" aria-label="Cuestionario 5">
+      <h2>🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo es más apropiado utilizar CSS en línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Para dar estilo a todos los párrafos de un documento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Para anular estilos rápidamente en un solo elemento.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Para diseñar un sitio web completo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Para separar preocupaciones en grandes proyectos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué tipo de CSS es el más adecuado para aplicar estilos a una sola página web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            CSS en línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            CSS externo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            CSS interno.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            CSS universal.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué se prefiere el CSS externo en proyectos más grandes?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Permite realizar cambios de estilo rápidos y únicos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Aplica estilos solo a un elemento específico.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Promueve la separación de preocupaciones y la reutilización en múltiples páginas.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Hace que el HTML sea más complicado.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-label="Tema 6: ¿Cómo funcionan el Ancho y la Altura?">
+
+      <h2>🗂️ ¿Cómo funcionan el Ancho y la Altura?
+      </h2>
+
+      <p>
+        En CSS, las propiedades de <mark><code>width</code></mark> y <mark><code>height</code></mark> se utilizan para
+        controlar las dimensiones de los elementos en una
+        página web.
+      </p>
+      <p>
+        Estas propiedades se pueden definir en diferentes unidades, como píxeles (<mark><code>px</code></mark>),
+        porcentajes (<mark><code>%</code></mark>), unidades de
+        ventana gráfica (<mark><code>vw</code></mark>, <mark><code>vh</code></mark>) y más.
+      </p>
+      <p>
+        La propiedad <mark><code>width</code></mark> especifica el ancho de un elemento. Si no especifica un ancho, el
+        valor predeterminado se
+        establece en <mark><code>auto</code></mark>. Esto significa que el elemento ocupará todo el ancho de su
+        contenedor principal.
+      </p>
+      <p>
+        La propiedad <mark><code>height</code></mark> especifica la altura de un elemento. Del mismo modo, la altura es
+        <mark><code>auto</code></mark> de forma
+        predeterminada, lo que significa que se ajustará al contenido interno.
+      </p>
+      <p>
+        Aquí hay un ejemplo usando las propiedades <mark><code>width</code></mark> y <mark><code>height</code></mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;style&gt;
+                    .box {
+                      width: 100px;
+                      height: 100px;
+                      background-color: skyblue;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;div class="box"&gt;&lt;/div&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <div style="width: 100px; height: 100px; background-color: skyblue;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un elemento <mark><code>div</code></mark> con clase llamado
+        <mark><code>box</code></mark>. Este elemento ocupará <mark><code>100px</code></mark> de alto y
+        ancho, mientras que el color de fondo será <mark><code>skyblue</code></mark>.
+      </p>
+      <p>
+        Los píxeles son una unidad de medida de tamaño fijo en CSS, que proporciona un control preciso sobre las
+        dimensiones.
+      </p>
+      <p>
+        La propiedad <mark><code>min-width</code></mark> especifica el ancho mínimo que puede tener un elemento. Incluso
+        si el contenido interno
+        es más pequeño, el elemento no se reducirá por debajo de este valor.
+      </p>
+      <p>
+        La propiedad <mark><code>min-height</code></mark> especifica la altura mínima que puede tener un elemento.
+        Asegura que el
+        elemento no sea más
+        corto que el valor establecido.
+      </p>
+      <p>
+        Aquí hay un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;style&gt;
+                    .box {
+                      width: 50px;
+                      min-width: 100px;
+                      height: 50px;
+                      min-height: 100px;
+                      background-color: lightcoral;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;div class="box"&gt;&lt;/div&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <div style="width: 50px;
+                      min-width: 100px;
+                      height: 50px;
+                      min-height: 100px;
+                      background-color: lightcoral;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El ejemplo anterior demuestra cómo funcionan <mark><code>min-width</code></mark> y
+        <mark><code>min-height</code></mark>.
+      </p>
+      <p>
+        Aunque la caja tiene su <mark><code>width</code></mark> y <mark><code>height</code></mark> establecidos en 50px,
+        en realidad será de <mark><code>100px</code></mark> por <mark><code>100px</code></mark>. Esto se debe a que el
+        <mark><code>min-width</code></mark> y el <mark><code>min-height</code></mark> se establecen en
+        <mark><code>100px</code></mark>, que son más grandes
+        que el <mark><code>width</code></mark> y <mark><code>height</code></mark> especificados.
+      </p>
+      <p>
+        Recuerde, si <mark><code>min-width</code></mark> o <mark><code>min-height</code></mark> son más grandes que
+        <mark><code>width</code></mark> o <mark><code>height</code></mark>, anularán los valores más pequeños. Esto
+        asegura que los elementos no se vuelvan demasiado pequeños, lo cual es importante para mantener un diseño
+        consistente y utilizable.
+      </p>
+      <p>
+        El <mark><code>max-width</code></mark> especifica el ancho máximo al que puede crecer un elemento, incluso si
+        hay suficiente espacio
+        para que sea más ancho.
+      </p>
+      <p>
+        El <mark><code>max-height</code></mark> especifica la altura máxima a la que puede crecer un elemento,
+        independientemente del tamaño del
+        contenido.
+      </p>
+      <p>
+        Aquí hay un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;style&gt;
+                    .box {
+                      width: 200px;
+                      max-width: 150px;
+                      height: 200px;
+                      max-height: 150px;
+                      background-color: lightgreen;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;div class="box"&gt;&lt;/div&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .preview-result {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f4f4f4;
+                  color: black;
+                  /* Simula el body */
+                  font-family: 'Segoe UI', sans-serif;
+                  padding: 1rem;
+                }
+              </style>
+
+              <div style="width: 200px;
+                      max-width: 150px;
+                      height: 200px;
+                      max-height: 150px;
+                      background-color: lightgreen;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El ejemplo anterior demuestra cómo <mark><code>max-width</code></mark> y <mark><code>max-height</code></mark>
+        anulan <mark><code>width</code></mark> y <mark><code>height</code></mark>. Aunque la caja está configurada
+        en <mark><code>200px</code></mark> por <mark><code>200px</code></mark>, en realidad será de
+        <mark><code>150px</code></mark> por <mark><code>150px</code></mark>. Esto se debe a que
+        <mark><code>max-width</code></mark> y
+        <mark><code>max-height</code></mark> están configurados en <mark><code>150px</code></mark>, que es más pequeño.
+      </p>
+      <p>
+        Recuerde, cuando <mark><code>max-width</code></mark> o <mark><code>max-height</code></mark> son más pequeños que
+        <mark><code>width</code></mark> o <mark><code>height</code></mark>, tienen prioridad. Esto es
+        importante para controlar el tamaño máximo de los elementos en sus diseños.
+      </p>
+      <p>
+        CSS prioriza el min-width y la <mark><code>min-height</code></mark> sobre el <mark><code>width</code></mark> y
+        la <mark><code>height</code></mark>. <mark><code></code>max-width</code></mark> y
+        <mark><code>max-height</code></mark> restringen
+        las dimensiones si los valores exceden sus límites.
+      </p>
+      <p>
+        nPor ejemplo, si establece ancho en 600px y ancho máximo en 500px, el elemento estará limitado a 500px de ancho.
+        El ancho máximo anula la configuración más amplia, manteniendo el elemento dentro del tamaño
+        máximo especificado.
+      </p>
+      <p>
+        Esto garantiza que los elementos permanezcan dentro de los rangos de tamaño deseados, independientemente de los
+        valores estándar de ancho y alto.
+      </p>
+
+    </section>
+
+    <section id="quest6" aria-label="Cuestionario 6">
+
+      <h2>🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué pasará si estableces <code>width: 600px;</code> y <code>max-width: 500px;</code> en un elemento div?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El elemento será 600px de ancho.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El elemento será 500px de ancho.
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El elemento será 550px ancho.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El elemento será 100px ancho.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si establece <code>min-height: 200px</code> y <code>height: 150px</code> en un elemento, ¿cuál será el <code>height</code> del elemento?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            150px
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            100px
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            200px
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            250px
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes NO es una unidad válida utilizada con la propiedad de ancho?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            hv
+            <!-- correcto -->
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            px
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            %
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            vw
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    
+
+  </main>
+
+  <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <script src="./script.js"></script>
+
+  <footer>
+    &copy; 2025 Curso CSS. Todos los derechos reservados.
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajando con enlaces</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <header id="header">
+    <figure class="cont-img">
+      <img src="img/icons8-html.png" alt="Logo de HTML" class="logo">
+    </figure>
+    <h1>Trabajando con enlaces</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#header">Home</a></li>
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">Tema 1</a></li>
+      <li><a href="#quest1">Quest 1</a></li>
+      <li><a href="#tema2">Tema 2</a></li>
+      <li><a href="#quest2">Quest 2</a></li>
+      <li><a href="#tema3">Tema 3</a></li>
+      <li><a href="#quest3">Quest 3</a></li>
+      <li><a href="#tema4">Tema 4</a></li>
+      <li><a href="#quest4">Quest 4</a></li>
+      <!-- <li><a href="#tema5">Tema 5</a></li>
+      <li><a href="#quest5">Quest 5</a></li>
+      <li><a href="#tema6">Tema 6</a></li>
+      <li><a href="#quest6">Quest 6</a></li> -->
+    </ul>
+  </nav>
+  <main>
+
+    <section id="intro">
+      <h2>Introducción</h2>
+      <p>
+        En estos videos de lecciones, aprenderá sobre los enlaces, el atributo de destino, diferentes estados de enlace,
+        rutas absolutas y relativas, y más.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>
+        ¿Cuáles son los diferentes tipos de atributos <mark>target</mark> y cómo funcionan? (<a
+          href="https://youtu.be/zf4bbN-hYOg?si=tQIPcANWnKK77q-E" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Quizás hayas visto el atributo de <mark>target</mark> en elementos de anclaje o enlaces. Este importante
+        atributo indica al navegador dónde abrir la <strong></strong>URL del elemento de anclaje:
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Hay cuatro valores posibles importantes para este atributo. Tenga en cuenta que cada valor va precedido de un
+        guion bajo.
+        <br><br>
+        El primer valor es <mark>_self</mark>, que es el valor predeterminado. Abre el enlace en el contexto de
+        navegación actual. En
+        la mayoría de los casos, será la pestaña o ventana actual.
+        <br><br>
+        El segundo valor es <mark>_blank</mark>, que abre el enlace en un nuevo contexto de navegación. Normalmente, se
+        abre en una
+        nueva pestaña. Sin embargo, algunos usuarios pueden configurar sus navegadores para que se abran en una nueva
+        ventana.
+        <br><br>
+        El tercer valor es <mark>_parent</mark>, que abre el enlace en el contexto principal del contexto actual. Por
+        ejemplo, si su
+        sitio web tiene un <mark>iframe</mark>, un valor <mark>_parent</mark> en ese <mark>iframe</mark> se abriría en
+        la pestaña/ventana de su sitio web, no
+        en el marco incrustado.
+        <br><br>
+        El cuarto valor es <mark>_top</mark>, que abre el enlace en el contexto de navegación superior (es decir, el
+        contexto
+        principal del contexto principal). Es similar a <mark>_parent</mark>, pero el enlace siempre se abrirá en la
+        pestaña/ventana
+        completa del navegador, incluso con marcos incrustados anidados.
+        <br><br>
+        Hay un quinto valor, llamado <mark>_unfencedTop</mark>, que actualmente se utiliza para la API experimental
+        FencedFrame. Al
+        momento de este video, probablemente aún no tengas motivos para usarlo.
+        <br><br>
+        Seleccionar el valor <mark>target</mark> correcto para controlar la llegada de tus usuarios es un factor
+        importante al
+        crear un sitio web.
+      </p>
+    </section>
+
+    <section id="quest1">
+      <h2>Questionario 1</h2>
+
+      <article>
+        <h3>¿Cuántos valores target actuales existen para elegir?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              2
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              4 <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              3
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              1
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Dónde se abrirá un enlace con <mark>target="_blank"</mark>?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              En una nueva ventana o pestaña. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              En la misma ventana o pestaña.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              En su segundo monitor.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              En la computadora de Camperchan.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cuál es el comportamiento predeterminado cuando no se establece un <mark>target</mark>?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Se abre en una nueva ventana o pestaña.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Se abre en el contexto principal.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Se abre en la misma ventana o pestaña. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              No abre.
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema2">
+      <h2>
+        ¿Cuál es la diferencia entre rutas absolutas y relativas? (<a
+          href="https://youtu.be/bxr4p5Ik4js?si=YEp2_Sfutrrk77-c" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Una ruta es una cadena que especifica la ubicación de un archivo o directorio en un sistema de archivos. En
+        desarrollo web, las rutas permiten a los desarrolladores enlazar a recursos como imágenes, hojas de estilo,
+        scripts y otras páginas web. Existen rutas absolutas y relativas; ambas son esenciales al especificar la
+        ubicación de archivos dentro de un sistema de archivos. Analicemos ambas para que pueda decidir cuál usar y
+        cuándo.
+      </p>
+      <p>
+        Una ruta absoluta es un enlace completo a un recurso. Comienza desde el directorio raíz, incluye todos los demás
+        directorios y, finalmente, el nombre del archivo y la extensión. El "directorio raíz" se refiere al directorio o
+        carpeta de nivel superior en una jerarquía.
+      </p>
+      <p>
+        Una ruta absoluta también incluye el protocolo (que puede ser <mark>http</mark>, <mark>https</mark>,
+        <mark>file</mark>) y el nombre de dominio si el
+        recurso está en la web. Aquí tiene un ejemplo de una ruta absoluta que enlaza con el logotipo de freeCodeCamp:
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;a href="https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg"&gt;View fCC Logo&lt;/a&gt;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este ejemplo, el protocolo es <mark>https</mark>, el nombre de dominio es
+        <mark><code>design-style-guide.freecodecamp.org</code></mark> y el nombre
+        de archivo es <mark>fcc_secondary_small.svg</mark>.
+      </p>
+      <p>
+        ¿Qué ocurre si el recurso al que quieres enlazar mediante una ruta absoluta se encuentra en tu equipo local? A
+        continuación, te explicamos cómo enlazar al archivo <mark>about.html</mark> con una ruta absoluta:
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;p&gt;
+              Read more on the
+              &lt;a href="/Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html"&gt;About Page&lt;/a&gt;
+            &lt;/p&gt;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Se ve así porque vamos a la carpeta <mark>Users</mark>, luego a la carpeta <mark>Users</mark>, luego a la
+        carpeta <mark>Desktop</mark>, luego
+        a la carpeta <mark>fCC</mark>, luego a la carpeta <mark>script-code</mark>, luego a la carpeta
+        <mark>absolute-vs-relative-paths</mark>, y finalmente
+        a la carpeta <mark>pages</mark> para finalmente obtener el archivo <mark>about.html</mark>.
+        <br><br>
+        Así se ve la URL absoluta en la barra de direcciones del navegador:
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            file:///Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html
+          </code>
+        </pre>
+      </div>
+
+      <P>
+        La URL incluye el protocolo, <mark>file://</mark>. También incluye la ruta, que se ve así:
+        <mark>/Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/</mark>, y representa la serie de
+        carpetas que
+        llevan al archivo. Finalmente, también incluye <mark>about.html</mark>, que es el nombre del archivo y la
+        extensión.
+        <br><br>
+        Ahora, veamos la ruta relativa. Una ruta relativa especifica la ubicación de un archivo en relación con el
+        directorio del archivo actual. No incluye el protocolo ni el nombre de dominio, lo que la hace más corta y
+        flexible para los enlaces internos dentro del mismo sitio web. Aquí hay un ejemplo de cómo enlazar a la página
+        <mark>about.html</mark> desde la página <mark>contact.html</mark>, ambas en la misma carpeta:
+      </P>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;p&gt;
+              Read more on the
+              &lt;a href="about.html""&gt;About Page&lt;/a&gt;
+            &lt;/p&gt;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Imagina que estás en la página <mark>contact.html</mark> y, como la página <mark>about.html</mark> está en el
+        mismo lugar, simplemente
+        obtienes el nombre del archivo. Este es un ejemplo del uso de una ruta de archivo relativa.
+        <br><br>
+        Entonces, ¿qué deberías usar y cuándo: una ruta absoluta o una relativa? Estas son las reglas que debes seguir:
+      </p>
+
+      <ul>
+        <li><strong>Utilice</strong> rutas absolutas al enlazar a un recurso alojado en un sitio web externo.</li>
+        <li><strong>Utilice</strong> rutas absolutas cuando necesite que el enlace a una página o recurso funcione de
+          forma coherente,
+          independientemente de la ubicación del documento dentro del sitio.</li>
+        <li><strong>Utilice</strong> rutas relativas al enlazar a recursos dentro del mismo sitio web.</li>
+        <li><strong>Utilice</strong> rutas relativas si desea mantener su código más limpio y fácil de mantener durante
+          el desarrollo.
+        </li>
+        <li><strong>Utilice</strong> rutas relativas durante las pruebas locales para garantizar que los enlaces
+          funcionen sin conexión a
+          internet.</li>
+      </ul>
+
+    </section>
+
+    <section id="quest2">
+      <h2>Questionario 2</h2>
+
+      <article>
+        <h3>¿Cuales son los dos tipos de caminos?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Caminos resueltos y absolutos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Caminos absolutos y últimos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Caminos relativos y únicos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Rutas absolutas y relativas. <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cómo vincularse a un recurso disponible sólo en Internet?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Ruta absoluta. <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Ruta relativa.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Rutas relativas y absolutas.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Ninguna de las anteriores.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué protocolo se utiliza para una ruta absoluta en una máquina local?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>http://</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>https://</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>file://</code> <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>localhost</code>
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema3">
+      <h2>
+        ¿Cuál es la diferencia entre barras, un punto simple y un punto doble en la sintaxis de ruta? (<a
+          href="https://youtu.be/5EfMkiLB9BA?si=JGsoi25eR-AAk8ax" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Quizás hayas visto enlaces como <mark><code>/public/logo.png</code></mark>,
+        <mark><code>./script.js</code></mark> o
+        <mark><code>../styles.css</code></mark>. Pero ¿qué significan estos tipos
+        especiales de enlaces? Se llaman rutas de archivo. Hay tres sintaxis clave que debes conocer. Primero está la
+        barra diagonal, que puede ser una barra invertida (<mark>\</mark>) o una barra diagonal (<mark>/</mark>) según
+        el sistema operativo.
+        Segundo es el punto simple (<mark>.</mark>). Y finalmente, el punto doble (<mark>..</mark>).
+      </p>
+      <p>
+        La barra diagonal se conoce como el "separador de rutas". Se utiliza para indicar una separación de texto entre
+        nombres de carpetas o archivos. Así es como tu ordenador sabe que <mark>naomis-files/</mark> apunta a un
+        directorio con el
+        mismo nombre, mientras que <mark>naomis/files/</mark> apunta a un directorio de archivos dentro del directorio
+        naomis.
+      </p>
+      <p>
+        Un punto simple apunta al directorio actual y dos puntos al directorio principal. Normalmente verás un punto
+        simple para asegurar que la ruta se reconozca como una ruta relativa. Recuerda que aprendiste en una lección
+        anterior sobre rutas relativas y absolutas.
+      </p>
+      <p>
+        Sin embargo, los puntos dobles son mucho más comunes para acceder a archivos fuera del directorio de trabajo
+        actual.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            my-app/
+            ├─ public/
+            │  ├─ favicon.ico
+            │  ├─ index.html
+            ├─ src/
+            │  ├─ index.css
+            │  ├─ index.js
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Si tu archivo <mark><code>public/index.html</code></mark> necesitara cargar el archivo
+        <mark><code>favicon.ico</code></mark>, usarías una
+        ruta relativa con un solo
+        punto para acceder al directorio actual: <mark><code>./favicon.ico</code></mark>. Si tu archivo
+        <mark><code>public/index.html</code></mark> necesitara cargar el
+        archivo <mark>index.css</mark>, usarías una ruta relativa con dos puntos para navegar primero al directorio
+        principal <mark>my-app</mark>,
+        luego al directorio <mark>src</mark> y finalmente a tu archivo: <mark><code>../src/index.css</code></mark>.
+      </p>
+    </section>
+
+    <section id="quest3">
+      <h2>Questionario 3</h2>
+
+      <article>
+        <h3>¿Cuál opción es una ruta absoluta?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              /public/styles.css <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              ./script.js
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              ../src/nav.html
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              https://freecodecamp.org
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué opción es una ruta relativa al directorio actual?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              /public/styles.css
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              ./script.js <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              ../src/nav.html
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              https://freecodecamp.org
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Cuál opción es una ruta relativa al directorio principal?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              /public/styles.css
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              ./script.js
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              ../src/nav.html <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              https://freecodecamp.org
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="tema4">
+
+      <h2>¿Cuáles son los diferentes estados de enlace y por qué son importantes? (<a
+          href="https://youtu.be/ztu_9h2ZJrA?si=zyqG6ahVtF45n7Af" alt="channel=freeCodeCampConcepts"
+          target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Quizás hayas visto que un enlace en una página web se vuelve morado después de hacer clic. Esto se debe a que el
+        estado del enlace ha cambiado, por lo que se le aplica un estilo diferente. Un enlace puede tener cinco estados
+        diferentes.
+      </p>
+      <p>
+        <strong>El primero es el estado predeterminado</strong>: <mark>:link</mark>. Este estado representa un enlace
+        que el usuario aún
+        no ha
+        visitado, hecho clic ni interactuado. Puedes considerar este estado como el que proporciona los estilos base
+        para todos los enlaces de tu página. Los demás estados se basan en él.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            
+            &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+            
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        El segundo estado es <mark>:visited</mark>, que se aplica cuando un usuario ya ha visitado la página enlazada.
+        Por defecto, esto cambia el color del enlace a morado, pero puedes usar CSS para ofrecer una indicación visual
+        diferente al
+        usuario. Esto es útil para que alguien sepa que ya ha leído parte de tu documentación o que el sitio es
+        confiable porque lo ha usado antes.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;head&gt;
+                &lt;link href="styles.css" rel="stylesheet" /&gt;
+            &lt;/head&gt;
+            
+            &lt;body>
+                &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+            &lt;/body&gt;
+            
+            /* styles.css */
+            a:visited {
+              color: brown;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        El tercer estado es <mark>:hover</mark>. Este estado se aplica cuando un usuario pasa el cursor sobre un enlace.
+        Este estado
+        es útil para destacar un enlace y garantizar que el usuario realmente tenga la intención de hacer clic en él.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;head&gt;
+                &lt;link href="styles.css" rel="stylesheet" /&gt;
+            &lt;/head&gt;
+            
+            &lt;body>
+                &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+            &lt;/body&gt;
+            
+            /* styles.css */
+            a:hover {
+              color: red;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Luego tenemos <mark>:focus</mark>. Este estado se aplica cuando nos centramos en un enlace.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;head&gt;
+                &lt;link href="styles.css" rel="stylesheet" /&gt;
+            &lt;/head&gt;
+            
+            &lt;body>
+                &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+            &lt;/body&gt;
+            
+            /* styles.css */
+            a:focus {
+              color: green;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Y finalmente, tenemos <mark>:active</mark>. Este estado se aplica a los enlaces que el usuario activa. Esto
+        suele significar
+        hacer clic en el enlace con el botón principal del ratón (clic izquierdo), en la mayoría de los casos. Este
+        estado puede ser útil para mostrar al usuario que el elemento en el que hizo clic es interactivo.
+      </p>
+
+      <div class="codeEjm">
+        <p><em>Código ejemplo</em></p>
+        <pre>
+          <code>
+            &lt;head&gt;
+                &lt;link href="styles.css" rel="stylesheet" /&gt;
+            &lt;/head&gt;
+            
+            &lt;body>
+                &lt;a href="https://freecodecamp.org" target="_blank"&gt;Visit freeCodeCamp&lt;/a&gt;
+            &lt;/body&gt;
+            
+            /* styles.css */
+            a:active {
+              color: black;
+            }
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Al usar estos estados para dar estilo a tus enlaces, debes escribir tu CSS en un orden específico:
+        <mark>link</mark>,
+        <mark>visited</mark>, <mark>hover</mark>, <mark>focus</mark> y, finalmente, <mark>active</mark>.
+      </p>
+      <p>
+        Ahora ya sabes cómo darle a los enlaces de tu página tu propio estilo, a la vez que proporcionas la información
+        importante que el usuario necesita sobre el estado de cada enlace.
+      </p>
+    </section>
+
+    <section id="quest4">
+      <h2>Questionario 4</h2>
+
+      <article>
+        <h3>¿Cuál es el estado predeterminado de un enlace?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              :link <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              :visited
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              :hover
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              :active
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿Qué estado se aplica mientras un usuario hace clic en el enlace?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              :link
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              :visited
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              :hover
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              :active <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>¿En qué orden debes diseñar tus enlaces?</h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              visited, link, active, hover.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              link, active, hover, visited.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              hover, active, link, visited.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              link, visited, hover, active. <!-- correcto -->
+            </label>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

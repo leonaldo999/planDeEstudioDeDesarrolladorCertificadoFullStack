@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a ARIA</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header">
+    <figure class="cont-img">
+      <img src="img/icons8-html.png" alt="Logo de HTML" class="logo">
+    </figure>
+    <h1>Introducción a ARIA</h1>
+  </header>
+
+  <nav id="main-nav" class="nav">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="hamburger-icon">
+        <rect y="7" width="32" height="3" rx="1.5" fill="currentColor" />
+        <rect y="15" width="32" height="3" rx="1.5" fill="currentColor" />
+        <rect y="23" width="32" height="3" rx="1.5" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li><a href="#header" onclick="closeNavMobile()">Home</a></li>
+      <li><a href="#intro" onclick="closeNavMobile()">Intro</a></li>
+      <li><a href="#tema1" onclick="closeNavMobile()">Tema 1</a></li>
+      <li><a href="#quest1" onclick="closeNavMobile()">Quest 1</a></li>
+      <li><a href="#tema2" onclick="closeNavMobile()">Tema 2</a></li>
+      <li><a href="#quest2" onclick="closeNavMobile()">Quest 2</a></li>
+      <li><a href="#tema3" onclick="closeNavMobile()">Tema 3</a></li>
+      <li><a href="#quest3" onclick="closeNavMobile()">Quest 3</a></li>
+      <li><a href="#tema4" onclick="closeNavMobile()">Tema 4</a></li>
+      <li><a href="#quest4" onclick="closeNavMobile()">Quest 4</a></li>
+      <li><a href="#tema5" onclick="closeNavMobile()">Tema 5</a></li>
+      <li><a href="#quest5" onclick="closeNavMobile()">Quest 5</a></li>
+      <li><a href="#tema6" onclick="closeNavMobile()">Tema 6</a></li>
+      <li><a href="#quest6" onclick="closeNavMobile()">Quest 6</a></li>
+      <li><a href="#tema7" onclick="closeNavMobile()">Tema 7</a></li>
+      <li><a href="#quest7" onclick="closeNavMobile()">Quest 7</a></li>
+      <li><a href="#tema8" onclick="closeNavMobile()">Tema 8</a></li>
+      <li><a href="#quest8" onclick="closeNavMobile()">Quest 8</a></li>
+      <li><a href="#tema9" onclick="closeNavMobile()">Tema 9</a></li>
+      <li><a href="#quest9" onclick="closeNavMobile()">Quest 9</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>Introducción</h2>
+      <p>
+        En estos vídeos aprenderá a trabajar con roles ARIA.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>¿Para qué sirve WAI-ARIA y cómo funciona?
+        (<a href="https://youtu.be/LNv_JZogKy0?si=AoihvN7jOQdNK4kS" target="_blank">video</a>)
+      </h2>
+      <p>
+        Hacer accesible el contenido estático puede ser relativamente sencillo, pero el contenido dinámico puede ser más
+        complicado. Aquí es donde entra en juego <strong>WAI-ARIA</strong>.
+      </p>
+      <p>
+        Veamos qué es <strong>WAI-ARIA</strong>, su propósito, cómo funciona y algunos ejemplos.
+      </p>
+      <p>
+        <strong>WAI-ARIA</strong> son las siglas de <strong>Web Accessibility Initiative - Accessible Rich Internet
+          Applications</strong>. Se trata de una
+        especificación que mejora la accesibilidad de los contenidos dinámicos y los componentes de interfaz de usuario.
+      </p>
+      <p>
+        Tenga en cuenta que <strong>WCAG y WAI-ARIA</strong> no son lo mismo. <strong>WCAG</strong> proporciona
+        directrices generales para la
+        accesibilidad web, mientras que <strong>WAI-ARIA</strong> ofrece reglas específicas para hacer accesibles los
+        contenidos
+        dinámicos e interactivos a los usuarios de tecnologías de asistencia.
+      </p>
+      <p>
+        Por tanto, el objetivo principal de <strong>WAI-ARIA</strong> es mejorar la accesibilidad de los contenidos
+        dinámicos y los
+        componentes de interfaz de usuario que no tienen equivalentes nativos en <strong>HTML</strong>.
+      </p>
+      <p>
+        <strong>WAI-ARIA</strong> funciona introduciendo un conjunto de atributos que se pueden añadir a los elementos
+        <strong>HTML</strong> para
+        proporcionar información semántica adicional. Estos atributos se clasifican en roles, estados y propiedades.
+      </p>
+      <p>
+        El rol <strong>ARIA</strong> define el propósito de un elemento dentro de un sitio o aplicación web. A
+        continuación se muestra un
+        ejemplo en el que se establece la función de <mark><code>button</code></mark> para un elemento
+        <mark><code>div</code></mark>.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="button"&gt;Click Me&lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="button">Click Me</div>
+        </div>
+      </div>
+
+      <p>
+        De este modo, está indicando a la tecnología de asistencia que el elemento es un botón. Sin embargo, los roles
+        no proporcionan ninguna funcionalidad. El mero hecho de asignar a este <mark><code>div</code></mark> la
+        <mark><code>role</code></mark> de
+        <mark><code>button</code></mark> no hará que se
+        comporte como tal. Para que se vea y se comporte como un botón, tendrá que utilizar <strong>CSS</strong> y
+        <strong>JavaScript</strong> para
+        obtener el resultado deseado. Siempre es mejor utilizar el <mark><code>button</code></mark> o
+        <mark><code>input</code></mark> con
+        <mark><code>type="button"</code></mark>
+        en su lugar.
+      </p>
+      <p>
+        Dado que el <strong>HTML</strong> por sí solo no proporciona una forma de hacer accesibles componentes de
+        interfaz de usuario
+        personalizados como la navegación por pestañas (lista de pestañas), los roles <strong>ARIA</strong> pueden ser
+        muy útiles.
+      </p>
+      <p>
+        Este es el aspecto que podría tener una lista de pestañas con el atributo <mark><code>role</code></mark>:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="tablist" 
+            aria-label="Football Match Dashboard"&gt;
+              &lt;button
+                role="tab"
+                aria-selected="true"
+                aria-controls="match-info-panel"
+                id="match-info-tab"&gt;
+                  Match Info
+              &lt;/button&gt;
+          
+              &lt;button
+                role="tab"
+                aria-selected="false"
+                aria-controls="player-stats-panel"
+                id="player-stats-tab"&gt;
+                Player Stats
+              &lt;/button&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="tablist" aria-label="Football Match Dashboard">
+            <button role="tab" aria-selected="true" aria-controls="match-info-panel" id="match-info-tab">
+              Match Info
+            </button>
+
+            <button role="tab" aria-selected="false" aria-controls="player-stats-panel" id="player-stats-tab">
+              Player Stats
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cada pestaña de la lista de pestañas tendrá un panel de pestañas asociado que se mostrará cuando se seleccione
+        su pestaña. Cada panel de pestañas tendrá el <mark><code>role</code></mark> de
+        <mark><code>tabpanel</code></mark>.
+      </p>
+      <p>
+        He aquí cómo podría ser cada uno de esos paneles de pestañas:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div 
+              role="tabpanel"
+              id="match-info-panel" 
+              aria-labelledby="match-info-tab"
+            &gt;
+              &lt;p&gt;
+                Details about the match, including date,
+                time, venue, and current score.
+              &lt;/p&gt;
+            &lt;/div&gt;
+            
+            &lt;div
+              role="tabpanel"
+              id="player-stats-panel"
+              aria-labelledby="player-stats-tab"
+              hidden
+            &gt;
+              &lt;p&gt;
+                Individual player statistics such as goals,
+                assists, and minutes played.
+              &lt;/p&gt;
+            &lt;/div&gt;  
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="tabpanel" id="match-info-panel" aria-labelledby="match-info-tab">
+            <p>
+              Details about the match, including date,
+              time, venue, and current score.
+            </p>
+          </div>
+
+          <div role="tabpanel" id="player-stats-panel" aria-labelledby="player-stats-tab" hidden>
+            <p>
+              Individual player statistics such as goals,
+              assists, and minutes played.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El estado <strong>ARIA</strong> describe el estado actual de un elemento, que puede cambiar en función de las
+        interacciones del
+        usuario. Un ejemplo es el atributo <mark><code>aria-expanded</code></mark> para las secciones plegables:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-expanded="false" 
+            aria-controls="more-info"&gt;
+              More Info
+            &lt;/button&gt;
+            
+            &lt;div id="more-info" hidden&gt;
+              &lt;p&gt;This is additional information.&lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-expanded="false" aria-controls="more-info">
+            More Info
+          </button>
+
+          <div id="more-info" hidden>
+            <p>This is additional information.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        De nuevo, esto es simplemente describir el estado, no proporciona ninguna funcionalidad. Tendría que utilizar
+        <strong>JavaScript</strong> para cambiar el estado del atributo cuando el usuario haga clic en el botón.
+      </p>
+      <p>
+        Las propiedades ARIA proporcionan detalles adicionales sobre los elementos. Por ejemplo, la propiedad
+        <mark><code>aria-labelledby</code></mark> permite conectar un elemento a una etiqueta específica:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;h2 id="header-id">About freeCodeCamp&lt;/h2&gt;
+            
+            &lt;button 
+            id="button-id" 
+            aria-labelledby="header-id 
+            button-id"&gt;
+              Learn More
+            &lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <h2 id="header-id">About freeCodeCamp</h2>
+          <button id="button-id" aria-labelledby="header-id button-id">Learn More</button>
+        </div>
+      </div>
+
+      <p>
+        Esto hará que los elementos sean comprensibles y navegables para los usuarios de tecnologías de asistencia.
+      </p>
+      <p>
+        Para sacar el máximo partido de <strong>WAI-ARIA</strong>, intenta utilizar <strong>HTML</strong> nativo siempre
+        que sea posible, ya que suele
+        proporcionar más accesibilidad desde el primer momento.
+      </p>
+      <p>
+        Utiliza <strong>WAI-ARIA</strong> sólo cuando <strong>HTML</strong> se quede corto, y no te olvides de hacer
+        pruebas con tecnologías de asistencia
+        como lectores de pantalla, o haz que personas con discapacidades prueben tu trabajo. Además, asegúrate de que
+        tus estados y propiedades <strong>WAI-ARIA</strong> se actualizan con el contenido en tiempo real. Evita abusar
+        de <strong>ARIA</strong>, ya que
+        puede resultar confuso en muchas ocasiones.
+      </p>
+    </section>
+
+    <section id="quest1">
+      <h2>Questionario 1</h2>
+
+      <article>
+        <h3>
+          ¿Cuál es la finalidad principal de los atributos WAI-ARIA en HTML?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para cambiar el aspecto visual de los elementos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Proporcionar información semántica adicional para la accesibilidad.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mostrar información sobre herramientas en los elementos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para añadir animaciones a los elementos.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cómo funciona WAI-ARIA para mejorar la accesibilidad web?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Mejorando la velocidad de carga de las páginas.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Introduciendo atributos que aportan información semántica adicional.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Cifrando los datos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Creando efectos visuales para los elementos.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Qué significa WAI-ARIA?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Web Accessibility Initiative - Advanced Responsive Internet Applications
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Web Accessibility Interface - Accessible Resource Internet Applications
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <!-- correcto -->
+              Web Accessibility Initiative - Accessible Rich Internet Applications
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Web Application Interface - Accessibility and Richness
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+
+    </section>
+
+    <section id="tema2">
+      <h2>¿Qué son las funciones ARIA?
+        (<a href="https://youtu.be/9rEXBdjn5ZQ?si=WJgkMoK6D4aq8s2d" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        <strong>ARIA</strong> son las siglas de <strong>Accessible Rich Internet Applications</strong>.
+      </p>
+      <p>
+        Los roles <strong>ARIA</strong> especifican el significado semántico de los elementos <strong>HTML</strong>. Son
+        esenciales para que los
+        contenidos web sean accesibles a las personas que utilizan tecnologías de asistencia, como los lectores de
+        pantalla.
+      </p>
+      <p>
+        <strong>HTML</strong> tiene elementos semánticos y no semánticos, en función de si transmiten significado sobre
+        su contenido.
+      </p>
+      <p>
+        Muchos elementos <strong>HTML</strong> semánticos ya tienen asignado por defecto un rol <strong>ARIA</strong>.
+        Por ejemplo, el elemento <mark><code>button</code></mark>
+        tiene un rol <strong>ARIA</strong> por defecto de <mark><code>button</code></mark>.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button&gt;Example button&lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button>Example button</button>
+        </div>
+      </div>
+
+      <p>
+        Pero los elementos no semánticos no tienen un rol. Por ejemplo, los lectores de pantalla no sabrán interpretar
+        el propósito de un <mark><code>div</code></mark> si no se especifica explícitamente su función.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div&gt;
+              &lt;!-- more elements go here --&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div>
+            <!-- more elements go here -->
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para especificar el rol <strong>ARIA</strong> de un elemento, basta con añadir el atributo
+        <mark><code>role</code></mark>,
+        como este <mark><code>role="ARIA role"</code></mark>, donde
+        value es el nombre de un rol en la especificación <strong>ARIA</strong>.
+      </p>
+      <p>
+        Es importante tener en cuenta que especificar una función en un elemento sólo hace una cosa: informa a la
+        tecnología de asistencia de la finalidad del elemento. No añade ninguna funcionalidad o comportamiento al
+        elemento. Si la gente espera que un rol se comporte de una determinada manera, depende de ti, el desarrollador,
+        añadir ese comportamiento esperado. Por ejemplo, añadir un <mark><code>role</code></mark> de
+        <mark><code>button</code></mark> a un
+        <mark><code>div</code></mark> no lo hace automáticamente
+        clicable con un ratón o utilizable con un teclado. Es responsabilidad del desarrollador añadir el comportamiento
+        esperado que permita al <mark><code>div</code></mark> actuar como un botón y, en la mayoría de los casos, es
+        mejor utilizar
+        el elemento
+        <mark><code>button</code></mark>.
+      </p>
+      <p>
+        Hay seis categorías principales de roles <strong>ARIA</strong>:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">Funciones de Document structure</li>
+          <li class="list">Funciones de widgets</li>
+          <li class="list">Funciones de Landmark</li>
+          <li class="list">Funciones de Live region</li>
+          <li class="list">Funciones de Window</li>
+          <li class="list">Y funciones abstractas</li>
+        </ul>
+      </div>
+
+      <p>
+        Veámoslos con más detalle.
+      </p>
+      <p>
+        Los roles de estructura del documento(<strong>Document structure roles</strong>) definen la estructura general
+        de la página web. Con estos roles, las
+        tecnologías de asistencia pueden entender las relaciones entre las distintas secciones y ayudar a los usuarios
+        a
+        navegar por el contenido.
+      </p>
+      <p>
+        Sin embargo, la mayoría de los roles de estructura de documento no se utilizan en el desarrollo web moderno
+        porque los navegadores ya admiten elementos <strong>HTML</strong> semánticos equivalentes, a los que debe
+        darse
+        prioridad siempre
+        que sea posible.
+      </p>
+      <p>
+        Debe especificar los roles que no tienen un elemento semántico equivalente. Por ejemplo:
+        <mark><code>toolbar</code></mark>,
+        <mark><code>tooltip</code></mark>, <mark><code>feed</code></mark>,
+        <mark><code>math</code></mark>, <mark><code>presentation</code></mark>, <mark><code>none</code></mark> y
+        <mark><code>note</code></mark>.
+      </p>
+      <p>
+        Existen otros roles similares, pero estos son los más utilizados. Este es un ejemplo de un
+        <mark><code>div</code></mark> con
+        el rol <strong>ARIA</strong>
+        <mark><code>math</code></mark>. El <mark><code>div</code></mark> contiene una ecuación matemática.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="math" 
+            aria-label="x squared + y squared = 3"&gt;
+              x&lt;sup>2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = 3
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="math" aria-label="x squared + y squared = 3">
+            x<sup>2</sup> + y<sup>2</sup> = 3
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También observará que el <mark><code>div</code></mark> tiene un atributo <mark><code>aria</code>-label</mark>.
+        El valor de este atributo
+        debe ser una cadena que
+        represente la expresión.
+      </p>
+      <p>
+        Los roles de widget(<strong>Widget roles</strong>) definen el propósito y la funcionalidad de los elementos
+        interactivos, como las barras de
+        desplazamiento.
+      </p>
+      <p>
+        Algunos ejemplos de roles de widget son <mark><code>scrollbar</code></mark>,
+        <mark><code>searchbox</code></mark>, <mark><code>separator</code></mark>
+        (cuando es
+        enfocable), <mark><code>slider</code></mark>, <mark><code>spinbutton</code></mark>,
+        <mark><code>switch</code></mark>, <mark><code>tab</code></mark>,
+        <mark><code>tabpanel</code></mark>, y <mark><code>treeitem</code></mark>
+      </p>
+      <p>
+        Algunos de estos roles tienen elementos semánticos equivalentes. Debe dar prioridad al elemento semántico
+        sobre
+        el rol si existe uno. Por ejemplo, debe favorecer el uso del elemento <strong>HTML</strong>
+        <mark><code>button</code></mark>
+        sobre añadir un <mark><code>role</code></mark> de <mark><code>button</code></mark>
+        a un <mark><code>div</code></mark>.
+      </p>
+      <p>
+        Los roles de referencia(<strong>Landmark roles</strong>) clasifican y etiquetan las secciones principales de
+        una
+        página web. Los lectores de
+        pantalla los utilizan para proporcionar una navegación cómoda a las secciones importantes de una página. Deben
+        utilizarse con moderación para que el diseño general sea sencillo y fácil de entender. Ejemplos de
+        <strong>landmark</strong>
+        roles son <mark><code>banner</code></mark>, <mark><code>complementary</code></mark>,
+        <mark><code>contentinfo</code></mark>, <mark><code>form</code></mark>,
+        <mark><code>main</code></mark>, <mark><code>navigation</code></mark>, <mark><code>region</code></mark> y
+        <mark><code>search</code></mark>. Cada uno de estos roles
+        tiene su equivalente <strong>HTML</strong> correspondiente, como <mark><code>header</code></mark>,
+        <mark><code>footer</code></mark>,
+        <mark><code>aside</code></mark>, <mark><code>form</code></mark>, <mark><code>main</code></mark>,
+        <mark><code>nav</code></mark>, <mark><code>section</code></mark>, y
+        <mark><code>search</code></mark>. Si utiliza los elementos <strong>HTML</strong> adecuados para definir las
+        secciones de su
+        página,
+        no es necesario añadir explícitamente el atributo <mark><code>role</code></mark> a estos elementos.
+      </p>
+      <p>
+        Los roles de región activa(<strong>Live region roles</strong>) definen elementos con contenido que cambiará
+        dinámicamente. De este modo, los
+        lectores de pantalla y otras tecnologías de asistencia pueden anunciar los cambios a los usuarios con
+        discapacidad visual. Estos roles incluyen: <mark><code>alert</code></mark>, <mark><code>log</code></mark>,
+        <mark><code>marquee</code></mark>,
+        <mark><code>status</code></mark>, y <mark><code>timer</code></mark>.
+      </p>
+      <p>
+        Los roles de Window (<strong>Window roles</strong>) definen subventanas, como los diálogos modales emergentes.
+        Estos roles incluyen <mark><code>alertdialog</code></mark>
+        y <mark><code>dialog</code></mark>. Tenga en cuenta que actualmente se considera una buena práctica utilizar
+        el
+        elemento de
+        <mark><code>dialog</code></mark> <strong>HTML</strong> y
+        sus métodos <strong>JavaScript</strong> asociados en lugar de crear manualmente un diálogo.
+      </p>
+      <p>
+        Por último, tenemos los roles abstractos(<strong>Abstract roles</strong>). Estos roles ayudan a organizar el
+        documento. Sólo están pensados para
+        ser utilizados internamente por el navegador, no por los desarrolladores, así que debes saber que existen pero
+        no debes utilizarlos en tus sitios o aplicaciones web.
+      </p>
+      <p>
+        Los roles <strong>ARIA</strong> permiten crear sitios y aplicaciones web accesibles e inclusivos. Proporcionan
+        información
+        semántica sobre el propósito y la función de los elementos <strong>HTML</strong>.
+      </p>
+      <p>
+        Los lectores de pantalla y otras tecnologías de asistencia utilizan esta información para ayudar a los
+        usuarios
+        a comprender el contenido de su página y establecer expectativas sobre cómo utilizarla, lo que contribuye a
+        garantizar que todo el mundo pueda disfrutar de una gran experiencia de usuario.
+      </p>
+    </section>
+
+    <section id="quest2">
+      <h2>Questionario 2</h2>
+
+      <article>
+        <h3>
+          ¿Cuál es el objetivo principal de las funciones ARIA?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Definir el aspecto visual de los elementos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar el rendimiento del sitio web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <!-- correcto -->
+              Proporcionar información semántica sobre la finalidad de los elementos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar la compatibilidad de los navegadores.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Qué categoría de roles ARIA se utiliza para definir la finalidad y el comportamiento de las subventanas, como
+          los diálogos modales emergentes?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Widget roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Document structure roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Landmark roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <!-- correcto -->
+              Window roles.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Qué categoría de roles ARIA se utiliza para indicar contenido dinámico que debe anunciarse a los usuarios?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Widget roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Document structure roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Landmark roles.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <!-- correcto -->
+              Live region roles.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+    </section>
+
+    <section id="tema3">
+
+      <h2>¿Qué función desempeñan los atributos <mark>aria-label</mark> y <mark>aria-labelledby</mark>?
+        (<a href="https://youtu.be/WLb6vAfd_eE?si=NJGBe-s4O0qKaBep" target="_blank">video</a>)
+      </h2>
+      <p>
+        Es importante garantizar que todos los usuarios, incluidos los discapacitados, puedan acceder a los sitios web
+        sin problemas.
+      </p>
+      <p>
+        Para los usuarios de lectores de pantalla, los atributos <mark><code>aria-label</code></mark> y
+        <mark><code>aria-labelledby</code></mark>
+        proporcionan información
+        crucial sobre elementos de la página que pueden resultar poco claros o invisibles.
+      </p>
+      <p>
+        Veamos qué son los atributos <mark><code>aria-label</code></mark> y <mark><code>aria-labelledby</code></mark> y
+        qué papel desempeñan en la
+        accesibilidad de la web
+        para personas con discapacidad visual y discapacidades afines.
+      </p>
+      <p>
+        Verás que tanto <mark><code>aria-label</code></mark> como <mark><code>aria-labelledby</code></mark> llevan el
+        prefijo aria. ¿Qué significa
+        eso? <mark>ARIA</mark> son las siglas
+        de <mark>Accessible Rich Internet Applications</mark>. Se trata de un conjunto de atributos con el prefijo
+        <mark><code>aria-</code></mark>, que permite
+        a los desarrolladores comunicar el propósito de los elementos a las tecnologías de asistencia. El atributo
+        <mark><code>aria-label</code></mark> es una etiqueta invisible para elementos interactivos. Añade una etiqueta
+        de texto a un
+        elemento que
+        los lectores de pantalla pueden leer.
+      </p>
+      <p>
+        <mark><code>aria-label</code></mark> es especialmente útil para los elementos que no tienen texto visible pero
+        que necesitan
+        ser descritos
+        por los lectores de pantalla. Por ejemplo, los botones que sólo tienen iconos a menudo necesitan
+        <mark><code>aria-label</code></mark> para
+        transmitir su propósito.
+      </p>
+      <p>
+        He aquí un ejemplo:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-label="Search"&gt;
+              &lt;i class="fas fa-search"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <p>
+        En este caso, un lector de pantalla puede anunciar este botón como <mark><code>Search, button</code></mark>,
+        aunque el botón
+        sólo contenga
+        un icono. El atributo <mark><code>aria-label</code></mark> indica a los lectores de pantalla qué texto deben
+        utilizar en
+        lugar del icono.
+      </p>
+      <p>
+        Si el botón contuviera el texto «Search» en lugar de un icono, no sería necesario el atributo
+        <mark><code>aria-label</code></mark>, ya que
+        el texto proporcionaría la etiqueta para el botón.
+      </p>
+      <p>
+        Para los elementos de entrada, el atributo <mark><code>aria-label</code></mark> proporciona una etiqueta
+        directamente si no hay una
+        etiqueta visible asociada a la entrada.
+      </p>
+      <p>
+        El atributo <mark><code>aria-labelledby</code></mark> hace exactamente lo mismo que el atributo
+        <mark><code>aria-label</code></mark>, pero
+        en lugar de definir el
+        texto directamente en el atributo, se utiliza una referencia a un texto que ya existe en la página. El texto
+        existente debe tener un atributo id, que se utilizará para el valor de referencia en el atributo
+        <mark><code>aria-labelledby</code></mark>.
+      </p>
+      <p>
+        He aquí un ejemplo:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;input type="text" aria-labelledby="search-btn"&gt;
+            &lt;button type="button" id="search-btn"&gt;Search&lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <input type="text" aria-labelledby="search-btn">
+          <button type="button" id="search-btn">Search</button>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el texto del botón se utiliza como etiqueta para la entrada de búsqueda. Los lectores de pantalla
+        anunciarán la entrada como algo parecido a <mark>Search, edit</mark>. Si más adelante decide cambiar el texto
+        del botón a <mark>Find</mark>, la etiqueta de la entrada se actualizará automáticamente con el nuevo texto, ya
+        que hace referencia al texto del botón. También es posible combinar varios valores de
+        <mark><code>id</code></mark> en un
+        único valor de atributo <mark><code>aria-labelledby</code></mark>. Así es como funciona:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div&gt;
+              &lt;span id="volume-label"&gt;Volume&lt;/span&gt;
+              &lt;span id="volume-details"&gt;
+                Adjust the volume level
+              &lt;/span&gt;
+              &lt;input
+                type="range"
+                min="0"
+                max="100"
+                value="30"
+                aria-labelledby="volume-label volume-details"&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div>
+            <span id="volume-label">Volume</span><br>
+            <span id="volume-details">Adjust the volume level</span>
+            <input type="range" min="0" max="100" value="30" aria-labelledby="volume-label volume-details">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el caso del deslizador, el lector de pantalla buscará el contenido de los elementos
+        <mark><code>volume-label</code></mark>
+        y
+        <mark><code>volume-details</code></mark> y anunciará <mark>Volume Adjust the volume level</mark>.
+      </p>
+      <p>
+        Ya has visto que los atributos <mark><code>aria-label</code></mark> y <mark><code>aria-labelledby</code></mark>
+        ayudan a los lectores de
+        pantalla a entender qué
+        hacen los elementos. Entonces, ¿cuál debería utilizar? Dado que ambos proporcionan la misma funcionalidad, se
+        puede utilizar cualquiera de ellos, pero puede haber algunas ventajas en el uso de
+        <mark><code>aria-labelledby</code></mark> sobre
+        <mark><code>aria-label</code></mark>:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Si alguien utiliza un servicio de traducción para traducir el contenido de su página, es posible que el
+            texto
+            de un atributo <code>aria-label</code> no siempre se traduzca.
+          </li>
+          <li class="list">
+            El uso de <code>aria-labelledby</code> puede ayudar a evitar un desajuste entre el texto de la etiqueta
+            visible y la etiqueta invisible para los usuarios de lectores de pantalla, ya que la actualización del texto
+            visible actualizará automáticamente la etiqueta invisible.
+          </li>
+          <li class="list">
+            <code>aria-labelledby</code> puede facilitar mucho la creación programática de etiquetas invisibles
+            complejas compuestas por múltiples fuentes de texto.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Una última nota, no utilice <mark><code>aria-label</code></mark> y <mark><code>aria-labelledby</code></mark> en
+        un elemento al mismo tiempo. En este caso, la etiqueta invisible para los lectores de pantalla siempre estará
+        determinada por <mark><code>aria-labelledby</code></mark> y <mark><code>aria-label</code></mark> será
+        completamente ignorada.
+      </p>
+    </section>
+
+    <section id="quest3">
+      <h2>Questionario 3</h2>
+
+      <article>
+        <h3>
+          ¿Qué significa ARIA?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <!-- correcto -->
+              Accessible Rich Internet Applications.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Advanced Resource Integration Accessibility.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Automated Rich Internet Access.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Accessible Responsive Interactive Applications.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Qué hacen <code>aria-label</code> y <code>aria-labelledby</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Modifican el aspecto visual de los elementos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Proporcionan etiquetas a los elementos para mejorar la accesibilidad de los lectores de pantalla.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Cambian la funcionalidad de las entradas de los formularios.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Añaden efectos de animación a los elementos.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuándo utilizar <code>aria-labelledby</code> en lugar de <code>aria-label</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Cuando necesite proporcionar un tooltip para un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Cuando quieras cambiar el color de un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Cuando necesite ocultar un elemento a los lectores de pantalla.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <!-- correcto -->
+              Cuando existe texto visible en la página que puede utilizarse como etiqueta.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+
+    </section>
+
+    <section id="tema4">
+      <h2>¿Qué es el atributo <mark><code>aria-hidden</code></mark> y cómo funciona?
+        (<a href="https://youtu.be/QedOQkZOBYc?si=w_uTnqTZcLOhY-rD" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Si alguna vez necesitas mostrar contenido y, al mismo tiempo, ocultarlo a personas que utilizan tecnología de
+        asistencia, como lectores de pantalla, puedes utilizar el atributo <mark><code>aria-hidden</code></mark>.
+      </p>
+      <p>
+        Sólo tienes que añadirlo al elemento HTML que quieras ocultar y establecer su valor en
+        <mark><code>true</code></mark>, como puedes ver
+        aquí: <mark><code>aria-hidden=«true»</code></mark>.
+      </p>
+      <p>
+        Este atributo oculta el elemento y todos sus hijos del árbol de accesibilidad, pero los mantiene visibles en la
+        página. Los casos de uso común incluyen:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">Iconos e imágenes que sólo tienen una función decorativa.</li>
+          <li class="list">Contenido duplicado.</li>
+        </ul>
+      </div>
+
+      <p>
+        Es importante recordar que <mark><code>aria-hidden</code></mark> sólo oculta el contenido a la tecnología de
+        asistencia, como los lectores
+        de pantalla. Si el contenido debe estar oculto para todo el mundo, no debe utilizar
+        <mark><code>aria-hidden</code></mark> para ocultarlo.
+        Por ejemplo, un menú de hamburguesa que está actualmente contraído debe ocultarse a todos los usuarios de
+        teclado, no sólo a los usuarios de lectores de pantalla. En este caso, podrías establecer la propiedad CSS
+        <mark><code>display</code></mark> a <mark><code>none</code></mark> en el menú para eliminarlo del DOM cuando
+        esté colapsado.
+      </p>
+      <p>
+        Nunca debe utilizar <mark><code>aria-hidden</code></mark> para ocultar un elemento que es enfocable con el
+        teclado. El atributo <mark><code>aria-hidden</code></mark> sólo elimina el elemento del árbol de accesibilidad.
+        No lo elimina del DOM. Por lo tanto, los usuarios de lectores de pantalla aún podrán desplazarse hasta el
+        elemento, pero su lector de pantalla no anunciará el elemento, lo que hará que se centren en «nada».
+      </p>
+      <p>
+        He aquí un ejemplo en el que ocultamos un icono del árbol de accesibilidad añadiendo el atributo
+        <mark><code>aria-hidden</code></mark> con
+        el valor <mark><code>true</code></mark>.
+      </p>
+      <p>
+        Sólo mantenemos el texto expuesto a las tecnologías de asistencia para evitar cualquier confusión que pueda
+        surgir de la redundancia de tener tanto un icono como texto para el mismo propósito.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button&gt;
+              &lt;i class="fa-solid fa-gear" aria-hidden="true"&gt;&lt;/i&gt;
+              &lt;span class="label"&gt;Settings&lt;/span&gt;
+            &lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button>
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            <span class="label">Settings</span>
+          </button>
+        </div>
+      </div>
+
+      <p>
+        No es necesario utilizar <mark><code>aria-hidden</code></mark> cuando:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">El elemento HTML ya tiene un atributo <mark><code>hidden</code></mark>.</li>
+          <li class="list">El elemento o el ancestro del elemento ya está oculto con
+            <mark><code>display: none</code></mark>.
+          </li>
+          <li class="list">El elemento o el ancestro del elemento ya está oculto con
+            <mark><code>visibility: hidden</code></mark>.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        En estos tres casos, el elemento ya está eliminado del DOM y, por tanto, oculto del árbol de accesibilidad, por
+        lo que el atributo <mark><code>aria-hidden</code></mark> no es necesario.
+      </p>
+      <p>
+        Al igual que con el uso de cualquier atributo ARIA, siempre debe realizar pruebas con tecnologías de asistencia
+        y, preferiblemente, hacer que personas con discapacidades prueben su trabajo, para asegurarse de que es fácil de
+        entender, incluso con estos elementos ocultos.
+      </p>
+      <p>
+        También debes saber que establecer <mark><code>aria-hidden</code></mark> en <mark><code>false</code></mark> no
+        expondrá el elemento a las tecnologías de asistencia
+        si alguno de sus padres tiene este atributo establecido en <mark><code>true</code></mark>.
+      </p>
+      <p>
+        El atributo <mark><code>aria-hidden</code></mark> se utiliza para ocultar elementos a las personas que utilizan
+        tecnologías de asistencia,
+        como los usuarios de lectores de pantalla.
+      </p>
+      <p>
+        Aunque puede ser útil para ocultar elementos puramente decorativos y contenido duplicado, debe utilizarse con
+        moderación para no dificultar la accesibilidad.
+      </p>
+      <p>
+        En general, todos los contenidos y funcionalidades disponibles en la página deben estar también disponibles para
+        las personas que utilicen tecnología de asistencia. El uso de <mark><code>aria-hidden</code></mark> es muy
+        restringido y debe limitarse
+        principalmente a hacer que la experiencia sea más limpia para los usuarios de lectores de pantalla, eliminando
+        información puramente decorativa o duplicada. No utilices <mark><code>aria-hidden</code></mark> para ocultar
+        contenido que no creas que
+        pueda interesar a los usuarios de lectores de pantalla. Los usuarios de lectores de pantalla merecen tener
+        acceso a toda la información de la página.
+      </p>
+      <p>
+        Siguiendo estas buenas prácticas y poniendo a prueba la experiencia del usuario, podrá crear experiencias en
+        línea inclusivas para todos.
+      </p>
+    </section>
+
+    <section id="quest4">
+      <h2>Questionario 4</h2>
+
+      <article>
+        <h3>
+          ¿Cuál es el objetivo principal del atributo <code>aria-hidden</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para definir el aspecto visual de un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar el rendimiento del sitio web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <!-- correcto -->
+              Ocultar elementos de las tecnologías de asistencia.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar la compatibilidad de los navegadores.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuándo debe utilizarse el atributo <code>aria-hidden</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para todos los elementos de la página web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para elementos visualmente ocultos pero importantes para la experiencia del usuario.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <!-- correcto -->
+              Para elementos decorativos que no contribuyen al contenido principal.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para elementos que se añaden o eliminan dinámicamente.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuáles son los riesgos potenciales del uso excesivo del atributo <code>aria-hidden</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Reduced website performance.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Incompatibilidad con navegadores antiguos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Accesibilidad dificultada para usuarios con discapacidad.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Aumento del tamaño de los archivos.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+
+    </section>
+
+    <section id="tema5">
+      <h2>¿Qué es el atributo <code>aria-expanded</code> y cómo funciona?
+        (<a href="https://youtu.be/EhZHqC1ZE_Q?si=1gbzAmJJG2bNpKDU" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        El atributo <mark><code>aria-expanded</code></mark> se utiliza con fines de accesibilidad para indicar si un
+        control está expandido o colapsado. Se utiliza junto con widgets plegables como menús, acordeones y otros
+        widgets de divulgación que controlan la visibilidad del contenido. El atributo
+        <mark><code>aria-expanded</code></mark> se establece en<mark><code>true</code></mark> si el control está
+        expandido, o en<mark><code>false</code></mark> si está colapsado.
+      </p>
+      <p>
+        La información proporcionada por <mark><code>aria-expanded</code></mark> permite a los usuarios de lectores de
+        pantalla comprender el
+        estado actual del control (si está expandido o contraído).
+      </p>
+      <p>
+        El atributo <mark><code>aria-expanded</code></mark> se aplica al elemento interactivo que activa la visibilidad
+        de un widget plegable. Por
+        ejemplo, si un botón activa un menú desplegable, el atributo <mark><code>aria-expanded</code></mark> se coloca
+        en el botón.
+      </p>
+      <p>
+        Cuando el menú se expande, el atributo <mark><code>aria-expanded</code></mark> debe establecerse en
+        <mark><code>true</code></mark> como en este ejemplo:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-expanded="true"&gt;
+              Menu
+            &lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-expanded="true">Menu</button>
+        </div>
+      </div>
+
+      <p>
+        Cuando el menú está colapsado, se debe establecer en <mark><code>false</code></mark> en su lugar.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-expanded="false"&gt;
+              Menu
+            &lt;/button&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-expanded="false">Menu</button>
+        </div>
+      </div>
+
+      <p>
+        El atributo <mark><code>aria-expanded</code></mark> debe tener siempre el valor <mark><code>true</code></mark> o
+        <mark><code>false</code></mark> en el elemento controlador. Por ejemplo,
+        si un botón cambia la visibilidad de un menú, el valor predeterminado de <mark><code>aria-expanded</code></mark>
+        debe basarse en la
+        visibilidad predeterminada del menú.
+      </p>
+      <p>
+        Si el menú está desplegado por defecto, <mark><code>aria-expanded</code></mark> debe tener inicialmente el valor
+        <mark><code>true</code></mark>. Si el menú está
+        contraído por defecto, <mark><code>aria-expanded</code></mark> debe ser inicialmente
+        <mark><code>false</code></mark>.
+      </p>
+      <p>
+        El valor de <mark><code>aria-expanded</code></mark> debe actualizarse dinámicamente mediante JavaScript a medida
+        que el usuario interactúa
+        con el elemento.
+      </p>
+      <p>
+        Además, las propiedades <mark><code>aria-controls</code></mark> y <mark><code>aria-owns</code></mark> pueden
+        utilizarse en combinación con <mark><code>aria-expanded</code></mark> para
+        establecer una conexión programática entre el elemento controlador y el elemento que controla.
+      </p>
+      <p>
+        Empecemos con <mark><code>aria-controls</code></mark>. Cuando se utiliza con
+        <mark><code>aria-expanded</code></mark>, el atributo <mark><code>aria-controls</code></mark> sirve para
+        especificar el elemento que se está controlando. Por ejemplo, un botón puede expandir o contraer una lista
+        actuando como un menú. El valor de <mark><code>aria-controls</code></mark> será el <mark><code>id</code></mark>
+        del elemento controlado (la lista del menú en este ejemplo).
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-expanded="false" 
+            aria-controls="menu1"&gt;Menu&lt;/button&gt;
+            &lt;ul id="menu1"&gt;
+              &lt;li&gt;...&lt;/li&gt;
+              &lt;li&gt;...&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-expanded="false" aria-controls="menu1">Menu</button>
+          <ul id="menu1">
+            <li>...</li>
+            <li>...</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        Observe que la lista sigue inmediatamente al botón de control. Para controles expandibles como éste, lo mejor es
+        que el contenido expandido siga inmediatamente al elemento que lo controla en el DOM. Esto evita que los
+        usuarios de lectores de pantalla tengan que buscar el contenido expandido, y facilita a los usuarios de teclado
+        la navegación a través de cualquier control interactivo en el contenido expandido.
+      </p>
+      <p>
+        Si no es posible colocar el contenido expandido inmediatamente después del elemento de control, el atributo
+        <mark><code>aria-owns</code></mark> permite moverlo virtualmente después del control en el árbol de
+        accesibilidad. Esto permite que la tecnología de asistencia, como los lectores de pantalla, simulen que el
+        contenido expandido se coloca directamente después del control en el DOM.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-owns="menu1"
+            aria-expanded="true"&gt;
+              Menu
+            &lt;/button&gt;
+            &lt;main&gt;
+              &lt;!-- an entire page worth of content ---&gt;
+            &lt;/main&gt;
+            &lt;ul id="menu1"&gt;
+              &lt;li&gt;...&lt;/li&gt;
+              &lt;li&gt;...&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-owns="menu1" aria-expanded="true">Menu</button>
+          <main>
+            <!-- an entire page worth of content --->
+          </main>
+          <ul id="menu1">
+            <li>...</li>
+            <li>...</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        El uso del atributo <mark><code>aria-owns</code></mark> tiene sus inconvenientes. Crea una verbosidad
+        innecesaria para los usuarios de lectores de pantalla, ya que la mayoría de los lectores de pantalla leen
+        automáticamente todo el contenido del elemento expandido cuando se expande por primera vez. Tampoco cambia el
+        orden de tabulación, lo que puede obligar a los usuarios de teclado a pasar por todos los demás controles
+        interactivos de la página antes de llegar al contenido expandido, a menos que gestione el orden de tabulación
+        con JavaScript.
+      </p>
+      <p>
+        Idealmente, el contenido expandible debería colocarse después del elemento de control, y el atributo
+        <mark><code>aria-owns</code></mark> sólo debería utilizarse en el peor de los casos cuando eso no sea posible.
+        Si es necesario utilizarlo, tendrás que realizar pruebas exhaustivas con una amplia gama de lectores de pantalla
+        y navegadores para asegurarte de que tu implementación es accesible para todos.
+      </p>
+      <p>
+        Y sólo un recordatorio, cuando se utiliza ya sea <mark><code>aria-controls</code></mark> o
+        <mark><code>aria-owns</code></mark>, el valor de <mark><code>aria-expanded</code></mark> debe
+        seguir actualizándose a medida que el control se expande y se contrae.
+      </p>
+      <p>
+        El atributo <mark><code>aria-expanded</code></mark> indica si un control está expandido o colapsado. Esta
+        información es esencial para los
+        usuarios de lectores de pantalla, ya que les ayuda a comprender el estado actual de elementos plegables como
+        menús, acordeones y otros widgets de divulgación similares.
+      </p>
+      <p>
+        Si utiliza <mark><code>aria-expanded</code></mark> correctamente, podrá crear una experiencia de usuario
+        intuitiva para todos.
+      </p>
+
+    </section>
+
+    <section id="quest5">
+
+      <h2>Questionario 5</h2>
+
+      <article>
+        <h3>
+          ¿Cuál es el objetivo principal del atributo <code>aria-expanded</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para definir el aspecto visual de un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar el rendimiento del sitio web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <!-- correcto -->
+              Para indicar si un elemento está expandido o colapsado.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar la compatibilidad de los navegadores.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuándo debe utilizarse el atributo <code>aria-expanded</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para todos los elementos de una página web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para elementos visualmente ocultos.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <!-- correcto -->
+              Para elementos plegables como menús y acordeones.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para elementos con contenido dinámico.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuáles son los posibles valores del atributo <code>aria-expanded</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>open</code>, <code>closed</code>, <code>expanded</code>, <code>collapsed</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>show</code>, <code>hide</code>, <code>visible</code>, <code>invisible</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <!-- correcto -->
+              <code>true</code>, <code>false</code>.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+
+    </section>
+
+    <section id="tema6">
+      <h2>¿Qué es el atributo <mark><code>aria-live</code></mark> y cómo funciona?
+        (<a href="https://youtu.be/LGkl102m2-s?si=gxhAxzqouziwC-Lo" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        El atributo <mark><code>aria-live</code></mark> crea una región activa en la página que puede utilizarse para
+        notificar a los usuarios de
+        lectores de pantalla los cambios dinámicos de contenido que se produzcan en la región activa.
+      </p>
+      <p>
+        Entre los usos habituales de las regiones activas se encuentran los mensajes que se muestran después de realizar
+        una acción (como un mensaje de error o una confirmación), el contenido que se actualiza periódicamente (como un
+        teletipo, una marquesina o un temporizador de cuenta atrás) o los mensajes de estado general (como las
+        actualizaciones sobre un proceso).
+      </p>
+      <p>
+        Dado que el foco de lectura de los lectores de pantalla sólo puede estar en un lugar a la vez, los usuarios de
+        lectores de pantalla no notarán un cambio de contenido si su foco está en otra parte de la página. Las regiones
+        activas permiten notificar automáticamente a los usuarios de lectores de pantalla los cambios que se producen en
+        la página en tiempo real. Sin una región activa, los usuarios de lectores de pantalla podrían perderse
+        actualizaciones de contenido importantes que sí están disponibles para los usuarios videntes, ya que un usuario
+        vidente tiene la capacidad de escanear toda la página.
+      </p>
+      <p>
+        Hay tres valores posibles para este atributo, basados en la prioridad de la información.
+      </p>
+      <p>
+        Si se establece <mark><code>aria-live</code></mark> con el valor <mark><code>assertive</code></mark> significa
+        que la actualización es muy importante. Tiene la
+        máxima prioridad, por lo que el usuario debe ser notificado inmediatamente.
+      </p>
+      <p>
+        Esto significa que el lector de pantalla interrumpirá cualquier anuncio que esté realizando en ese momento para
+        anunciar el cambio de contenido en la región en directo. Estas interrupciones pueden ser muy molestas, por lo
+        que el valor <mark><code>assertive</code></mark> sólo debe utilizarse para notificaciones críticas o urgentes.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div aria-live="assertive"&gt;
+              &lt;p&gt;
+                Your session will expire in 30 seconds.
+              &lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div aria-live="assertive">
+            <p>Your session will expire in 30 seconds.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El siguiente valor en orden de prioridad es <mark><code>polite</code></mark>.
+      </p>
+      <p>
+        Este valor significa que la actualización no es urgente, por lo que el lector de pantalla puede esperar hasta
+        que finalice cualquier anuncio actual o hasta que el usuario deje de escribir antes de anunciar la
+        actualización. La mayoría de las regiones en directo utilizarán el valor <mark><code>polite</code></mark>.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div aria-live="polite"&gt;
+              &lt;p&gt;
+                File successfully uploaded
+              &lt;/p&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div aria-live="polite">
+            <p>File successfully uploaded</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El valor de prioridad más bajo para ma<mark><code>aria-live</code></mark> es ma<mark><code>off</code></mark>, lo
+        que significa que la actualización no se anunciará a menos que el contenido esté en un elemento que tenga
+        actualmente el foco del teclado. Siendo realistas, este valor casi nunca se utiliza, ya que el caso de uso es
+        muy limitado y no se implementa de forma consistente (si es que se implementa) en todos los lectores de
+        pantalla. Si necesitas regiones en vivo, planea usa<mark><code>polite</code></mark> para todo excepto para
+        mensajes críticos que necesiten ma<mark><code>assertive</code></mark>.
+      </p>
+      <p>
+        También es importante señalar que el atributo <mark><code>aria-live</code></mark> no es necesario si la
+        información actualizada está
+        contenida en un elemento con un rol ARIA de <mark><code>alert</code></mark>, <mark><code>log</code></mark>,
+        <mark><code>marquee</code></mark>, <mark><code>status</code></mark>, or <mark><code>timer</code></mark>, ya que
+        estos
+        roles ya tienen valores <mark><code>aria-live</code></mark> por defecto. Pero el valor por defecto puede
+        cambiarse estableciendo
+        explícitamente <mark><code>aria-live</code></mark> en el elemento.
+      </p>
+      <p>
+        La elección del valor correcto de <mark><code>aria-live</code></mark> depende de la prioridad de la información
+        actualizada.
+      </p>
+      <p>
+        Si las actualizaciones son urgentes, deberías notificar al usuario inmediatamente con
+        <mark><code>assertive</code></mark>. Sin embargo,
+        solo debes utilizar esta opción si las actualizaciones son realmente urgentes, ya que las interrupciones
+        repentinas pueden desorientar a los usuarios y afectar a su experiencia.
+      </p>
+      <p>
+        Si la actualización puede esperar hasta que finalice la tarea actual, debe utilizar
+        <mark><code>polite</code></mark> en su lugar.
+      </p>
+      <p>
+        El atributo <mark><code>aria-live</code></mark> permite a las tecnologías de asistencia saber cuándo el
+        contenido está cambiando
+        dinámicamente en una página web. Esto ayuda a los usuarios con discapacidad a mantenerse informados sobre
+        anuncios y actualizaciones importantes.
+      </p>
+      <p>
+        Utilizando <mark><code>aria-live</code></mark> adecuadamente, puedes asegurarte de que los usuarios estén al
+        tanto de estas
+        actualizaciones en función de su prioridad.
+      </p>
+    </section>
+
+    <section id="quest6">
+      <h2>Questionario 6</h2>
+
+      <article>
+        <h3>
+          ¿Cuál es la finalidad principal del atributo <code>aria-live</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para definir el aspecto visual de un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar el rendimiento del sitio web.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <!-- correcto -->
+              Para indicar que el contenido de un elemento cambia dinámicamente.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para mejorar la compatibilidad de los navegadores.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuál de los siguientes valores puede utilizarse para el atributo <code>aria-live</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>true</code>, <code>false</code>, <code>off</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>visible</code>, <code>hidden</code>, <code>off</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>assertive</code>, <code>polite</code>, <code>off</code>.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>open</code>, <code>closed</code>, <code>off</code>.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cuál es la diferencia entre los valores <code>polite</code> y <code>assertive</code> del atributo
+          <code>aria</code>-live?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>polite</code> anuncia las actualizaciones inmediatamente, mientras que <code>assertive</code>
+              anuncia las actualizaciones cuando el foco de atención está en otro elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>polite</code> anuncia las actualizaciones una vez finalizada la tarea actual, mientras que
+              <code>assertive</code> anuncia las actualizaciones inmediatamente.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              No hay diferencia entre <code>polite</code> y <code>assertive</code>.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>polite</code> se utiliza para actualizaciones importantes, mientras que <code>assertive</code> se
+              utiliza para actualizaciones menos urgentes.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+    </section>
+
+    <section id="tema7">
+      <h2>¿Cuáles son los estados <strong>ARIA</strong> más comunes utilizados en los elementos de control
+        personalizados?
+        (<a href="https://youtu.be/LGkl102m2-s?si=gxhAxzqouziwC-Lo" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        Los elementos de control de formularios semánticos como <mark><code>input</code></mark>,
+        <mark><code>select</code></mark>, <mark><code>textarea</code></mark>, <mark><code>button</code></mark> y
+        <mark><code>fieldset</code></mark> tienen
+        estados incorporados que se transmiten a las tecnologías de asistencia.
+      </p>
+      <p>
+        Por ejemplo, puede utilizar el atributo <mark><code>disabled</code></mark> para desactivar un botón o el
+        atributo <mark><code>checked</code></mark> para indicar que
+        una casilla de verificación está marcada.
+      </p>
+      <p>
+        Pero si está creando un elemento de control personalizado, necesita utilizar atributos ARIA para transmitir el
+        estado del control a las tecnologías de asistencia.
+      </p>
+      <p>
+        En este vídeo de conferencia, hablaremos de algunos estados ARIA comunes que puede utilizar en elementos de
+        control personalizados.
+      </p>
+      <p>
+        El primer estado ARIA del que hablaremos es <mark><code>aria-selected</code></mark>. Este estado se utiliza para
+        indicar que un elemento
+        está seleccionado. Puede utilizar este estado en controles personalizados como una interfaz de pestañas, un
+        cuadro de lista o una cuadrícula.
+      </p>
+      <p>
+        He aquí un ejemplo de cómo utilizar <mark><code>aria-selected</code></mark> en un control de pestañas
+        personalizado:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="tablist"&gt;
+              &lt;button role="tab"
+              aria-selected="true"&gt;
+                Tab 1
+              &lt;/button&gt;
+              &lt;button role="tab"
+              aria-selected="false"&gt;
+                Tab 2
+              &lt;/button&gt;
+              &lt;button role="tab"
+              aria-selected="false"&gt;
+                Tab 3
+              &lt;/button&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="tablist">
+            <button role="tab" aria-selected="true">Tab 1</button>
+            <button role="tab" aria-selected="false">Tab 2</button>
+            <button role="tab" aria-selected="false">Tab 3</button>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Las pestañas se utilizan para mostrar varios paneles de contenido en un espacio limitado. El estado
+        <mark><code>aria-selected</code></mark> se utiliza para indicar qué pestaña está seleccionada en ese momento.
+      </p>
+      <p>
+        Cuando el usuario selecciona una pestaña, el estado <mark><code>aria-selected</code></mark> de la pestaña
+        seleccionada se establece en
+        <mark><code>true</code></mark>, y el estado <mark><code>aria-selected</code></mark> de las otras pestañas se
+        establece en <mark><code>false</code></mark>.
+      </p>
+      <p>
+        Otro estado ARIA común es <mark><code>aria-disabled</code></mark>. Este estado se utiliza para indicar que un
+        elemento está deshabilitado
+        sólo para las personas que utilizan tecnologías de asistencia, como los lectores de pantalla. Es importante
+        señalar que <mark><code>aria-disabled</code></mark> no desactiva realmente el elemento. Depende de usted, el
+        desarrollador, hacer que
+        parezca y actúe como un elemento deshabilitado. Este atributo también se utiliza habitualmente en elementos HTML
+        nativos en lugar del atributo <mark><code>disabled</code></mark>. La elección dependerá del contexto en el que
+        se utilice el botón.
+      </p>
+      <p>
+        He aquí un ejemplo de cómo puede utilizar <mark><code>aria-disabled</code></mark> en un botón de edición
+        personalizado:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="button" tabindex="-1" aria-disabled="true"&gt;
+              Edit
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="button" tabindex="-1" aria-disabled="true">Edit</div>
+        </div>
+      </div>
+
+      <p>
+        El atributo <mark><code>aria-disabled</code></mark> se utiliza para indicar a los usuarios de lectores de
+        pantalla que el botón de edición está deshabilitado y no se puede interactuar con él. De nuevo, en realidad no
+        desactiva el botón. Cuando utilice <mark><code>aria-disabled</code></mark>, tendrá que aplicar estilos y
+        JavaScript para que el control se vea y se comporte como un botón desactivado.
+      </p>
+      <p>
+        En la mayoría de los casos, es probable que utilice el elemento de botón nativo, pero hay casos en los que puede
+        que necesite utilizar un control personalizado. Por lo tanto, es esencial saber cómo transmitir el estado del
+        control a las tecnologías de asistencia.
+      </p>
+      <p>
+        El siguiente estado ARIA que trataremos es <mark><code>aria-haspopup</code></mark>. Este estado se utiliza para
+        indicar que un elemento
+        interactivo activará un elemento emergente cuando se active. Sólo se puede utilizar el atributo
+        <mark><code>aria-haspopup</code></mark>
+        cuando el elemento emergente tiene uno de los siguientes roles: <mark><code>menu</code></mark>,
+        <mark><code>listbox</code></mark>, <mark><code>tree</code></mark>, <mark><code>grid</code></mark> o
+        <mark><code>dialog</code></mark>. El
+        valor de <mark><code>aria-haspopup</code></mark> debe ser uno de estos roles o <mark><code>true</code></mark>,
+        que por defecto es el rol de <mark><code>menu</code></mark>.
+      </p>
+      <p>
+        Este es un ejemplo de un menú de editor de archivos que utiliza <mark><code>aria-haspopup</code></mark>:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button id="menubutton"
+            aria-haspopup="menu" 
+            aria-controls="filemenu" 
+            aria-expanded="false"&gt;
+              File
+            &lt;/button&gt;
+            &lt;ul id="filemenu"
+            role="menu"
+            aria-labelledby="menubutton" 
+            hidden&gt;
+              &lt;li role="menuitem" tabindex="-1"&gt;Open&lt;/li&gt;
+              &lt;li role="menuitem" tabindex="-1"&gt;New&lt;/li&gt;
+              &lt;li role="menuitem" tabindex="-1"&gt;Save&lt;/li&gt;
+              &lt;li role="menuitem" tabindex="-1"&gt;Delete&lt;/li&gt;
+            &lt;/ul&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button id="menubutton" aria-haspopup="menu" aria-controls="filemenu" aria-expanded="false">File</button>
+          <ul id="filemenu" role="menu" aria-labelledby="menubutton" hidden>
+            <li role="menuitem" tabindex="-1">Open</li>
+            <li role="menuitem" tabindex="-1">New</li>
+            <li role="menuitem" tabindex="-1">Save</li>
+            <li role="menuitem" tabindex="-1">Delete</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        El estado <mark><code>aria-haspopup</code></mark> se utiliza para indicar que el botón del menú
+        <mark><code>File</code></mark> abrirá un menú emergente cuando se
+        active. Los usuarios de lectores de pantalla pueden oír esta información adicional cuando navegan hasta el
+        botón.
+      </p>
+      <p>
+        Deberá utilizar JavaScript para mostrar y ocultar el menú emergente e implementar un soporte de teclado adecuado
+        para interactuar con el menú. Además, tenga en cuenta que la función de <mark><code>menu</code></mark> ARIA se
+        refiere a un tipo muy
+        específico de menú. En general, se refiere a una lista de acciones que el usuario puede invocar, similar a un
+        menú en una aplicación de escritorio. No incluye los usos más comunes de lo que solemos llamar «menús», como los
+        menús de navegación. Siendo realistas, la mayoría de los «menús» que cree en la web no serán menús ARIA y no
+        utilizará <mark><code>aria-haspopup</code></mark> con ellos.
+      </p>
+      <p>
+        El siguiente estado ARIA que trataremos es <mark><code>aria-required</code></mark>. El atributo
+        <mark><code>aria-required</code></mark> se utiliza para indicar que
+        es necesario rellenar un campo antes de enviar el formulario. He aquí un ejemplo de trabajo con el atributo
+        <mark><code>aria-required</code></mark> para un control de formulario personalizado.
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div id="name-label"&gt;
+              Full Name*
+            &lt;/div&gt;
+            &lt;div role="textbox"
+            contenteditable
+            aria-labelledby="name-label"
+            aria-required="true"
+            id="name"&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div id="name-label">Full Name*</div>
+          <div role="textbox" contenteditable aria-labelledby="name-label" aria-required="true" id="name"></div>
+        </div>
+      </div>
+
+      <p>
+        Necesitamos utilizar el atributo <mark><code>contenteditable</code></mark> para que los usuarios puedan
+        introducir sus datos. También
+        estamos utilizando el atributo <mark><code>aria-required</code></mark> establecido en
+        <mark><code>true</code></mark> para indicar que este control de formulario
+        personalizado es obligatorio.
+      </p>
+      <p>
+        Para hacer que el control de formulario parezca un control de formulario normal, tendría que añadir CSS. También
+        tendría que añadir JavaScript para evitar que el formulario se envíe sin contenido.
+      </p>
+      <p>
+        Si la etiqueta ya tiene la palabra <mark><code>required</code></mark>, entonces debería omitir el atributo
+        <mark><code>aria-required</code></mark>. Esto asegura
+        que los lectores de pantalla sólo anuncien la palabra requerido una vez.
+      </p>
+      <p>
+        En la mayoría de los casos, es probable que utilice la <mark><code>label</code></mark> nativa y elementos de
+        <mark><code>form</code></mark> con el atributo <mark><code>required</code></mark>. Pero si necesita crear un
+        control de formulario personalizado, entonces es importante añadir el atributo
+        <mark><code>aria-required</code></mark> cuando sea necesario.
+      </p>
+      <p>
+        Además, el atributo <mark><code>aria-required</code></mark> también puede utilizarse en entradas de formularios
+        nativos, como los
+        elementos <mark><code>input</code></mark>, <mark><code>textarea</code></mark> y
+        <mark><code>select</code></mark>. A menudo se prefiere esto al atributo requerido nativo, ya que el atributo
+        requerido puede tener problemas potenciales de usabilidad y accesibilidad, particularmente con el manejo de
+        errores por defecto proporcionado por el navegador. En última instancia, tendrá que hacer pruebas para
+        determinar qué atributo es el mejor para su situación.
+      </p>
+      <p>
+        El último estado ARIA del que hablaremos es <mark><code>aria-checked</code></mark>. Este atributo se utiliza
+        para indicar si un elemento
+        está marcado. Se utiliza con más frecuencia al crear casillas de verificación, botones de radio, interruptores y
+        cuadros de lista personalizados.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo se puede utilizar <mark><code>aria-checked</code></mark> en un
+        control de casilla de
+        verificación personalizado:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="checkbox" aria-checked="true" tabindex="0"&gt;
+              Checkbox
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="checkbox" aria-checked="true" tabindex="0">Checkbox</div>
+        </div>
+      </div>
+
+      <p>
+        Los elementos de casilla de verificación nativos tienen un estado <mark><code>checked</code></mark> incorporado
+        que se transmite a las tecnologías de asistencia. Pero si está creando un control de casilla de verificación
+        personalizado, tendrá que utilizar el atributo <mark><code>aria-checked</code></mark> para indicar su estado.
+      </p>
+      <p>
+        Cuando el usuario interactúa con el control de checkbox personalizado, necesitará utilizar el estado
+        <mark><code>aria-checked</code></mark> para reflejar el nuevo estado del checkbox. Cuando la casilla de
+        verificación está marcada, el
+        atributo <mark><code>aria-checked</code></mark> se establece en <mark><code>true</code></mark>. Cuando no está
+        marcada, se establece en <mark><code>false</code></mark>.
+      </p>
+      <p>
+        Los elementos nativos suelen tener mejor soporte y funciones de accesibilidad incorporadas.
+      </p>
+      <p>
+        Sin embargo, si debe crear controles personalizados, el uso de atributos ARIA es esencial para transmitir
+        eficazmente el estado de estos controles a las tecnologías de asistencia.
+      </p>
+      <p>
+        Como siempre, pruebe su trabajo para asegurarse de que los atributos ARIA se aplican correctamente y de que el
+        control personalizado funciona de forma accesible y fácil de usar.
+      </p>
+    </section>
+
+    <section id="quest7">
+      <h2>Questionario 7</h2>
+
+      <article>
+        <h3>
+          ¿Qué estado ARIA utilizaría para indicar que una pestaña está actualmente seleccionada?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <code>aria-disabled</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <code>aria-selected</code>
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <code>aria-haspopup</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              <code>aria-checked</code>
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿En el contexto de los controles personalizados, ¿qué estado ARIA se utiliza para indicar que un elemento
+          está actualmente desactivado?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>aria-checked</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>aria-disabled</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>aria-selected</code>
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              <code>aria-haspopup</code>
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Cuando se desea indicar que un elemento de menú tiene un submenú, ¿qué estado ARIA debe utilizarse?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>aria-checked</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>aria-disabled</code>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>aria-haspopup</code>
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <code>aria-selected</code>
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+    </section>
+
+    <section id="tema8">
+      <h2>¿Qué es el atributo <mark><code>aria-controls</code></mark> y cómo funciona?
+        (<a href="https://youtu.be/CIjzHpQHKFo?si=bWwAuPyhSWFGkekU" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        El atributo <mark><code>aria-controls</code></mark> se utiliza para crear una relación programática entre un
+        elemento que controla la presencia de otro elemento en la página y el elemento que controla. Esta relación puede
+        ayudar a los usuarios de lectores de pantalla a comprender mejor cómo funciona el control. Los usos más comunes
+        incluyen un conjunto de pestañas que controlan la visibilidad de diferentes secciones de contenido, o un botón
+        que alterna la visibilidad de un menú.
+      </p>
+      <p>
+        Veamos un ejemplo para ver cómo funciona. En este ejemplo de interfaz con pestañas, tenemos un elemento
+        <mark><code>div</code></mark> con
+        un conjunto de tres botones:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div role="tablist"&gt;
+              &lt;button role="tab" id="tab1"
+              aria-controls="section1" aria-selected="true"&gt;
+                Tab 1
+              &lt;/button&gt;
+              &lt;button role="tab" id="tab2"
+              aria-controls="section2" aria-selected="false"&gt;
+                Tab 2
+              &lt;/button&gt;
+              &lt;button role="tab" id="tab3"
+              aria-controls="section3" aria-selected="false"&gt;
+                Tab 3
+              &lt;/button&gt;
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div role="tablist">
+            <button role="tab" id="tab1" aria-controls="section1" aria-selected="true">
+              Tab 1
+            </button>
+            <button role="tab" id="tab2" aria-controls="section2" aria-selected="false">
+              Tab 2
+            </button>
+            <button role="tab" id="tab3" aria-controls="section3" aria-selected="false">
+              Tab 3
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cada botón representa una pestaña y tiene un atributo <mark><code>role</code></mark> definido como
+        <mark><code>tab</code></mark>. En la mayoría de las interfaces con pestañas, el primer panel de pestañas es
+        visible por defecto, por lo que el primer botón de pestaña tiene un atributo
+        <mark><code>aria-selected</code></mark> establecido a <mark><code>true</code></mark> para indicar que su sección
+        de contenido asociada está visible en ese momento El atributo <mark><code>aria-controls</code></mark> se utiliza
+        para asociar cada botón con la sección de contenido que controla.
+      </p>
+      <p>
+        Estas son las tres secciones de contenido que corresponden a las pestañas:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;div id="section1"
+            role="tabpanel" aria-labelledby="tab1"&gt;
+              Section 1 content
+            &lt;/div&gt;
+      
+            &lt;div id="section2"
+            role="tabpanel" aria-labelledby="tab2" hidden&gt;
+              Section 2 content
+            &lt;/div&gt;
+      
+            &lt;div id="section3"
+            role="tabpanel" aria-labelledby="tab3" hidden&gt;
+              Section 3 content
+            &lt;/div&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <div id="section1" role="tabpanel" aria-labelledby="tab1">
+            Section 1 content
+          </div>
+
+          <div id="section2" role="tabpanel" aria-labelledby="tab2" hidden>
+            Section 2 content
+          </div>
+
+          <div id="section3" role="tabpanel" aria-labelledby="tab3" hidden>
+            Section 3 content
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cada sección de contenido tiene un atributo <mark><code>role</code></mark> definido como
+        <mark><code>tabpanel</code></mark> y un atributo <mark><code>aria-labelledby</code></mark> que apunta
+        a la pestaña correspondiente para dar al panel un nombre accesible. El atributo <mark><code>hidden</code></mark>
+        se utiliza para ocultar
+        las secciones de contenido que no están seleccionadas en ese momento. Cada id de sección coincide con el valor
+        del atributo <mark><code>aria-controls</code></mark> del botón correspondiente. El id de
+        <mark><code>section1</code></mark> coincide con el atributo <mark><code>aria-controls</code></mark>
+        del primer botón, <mark><code>section2</code></mark> coincide con el atributo
+        <mark><code>aria-controls</code></mark> del segundo botón y <mark><code>section3</code></mark> coincide con el
+        atributo <mark><code>aria-controls</code></mark> del tercer botón. Así se establece la asociación entre las
+        pestañas y sus secciones de
+        contenido.
+      </p>
+      <p>
+        Para pasar de una sección a otra, deberá utilizar JavaScript para actualizar el atributo
+        <mark><code>hidden</code></mark> de la sección y el atributo <mark><code>aria-selected</code></mark> del botón
+        en función de la sección que esté visible en ese momento. Sólo una sección puede ser visible a la vez y no debe
+        tener el atributo <mark><code>hidden</code></mark> y <mark><code>aria-selected</code></mark> debe ser
+        <mark><code>true</code></mark> en su botón. El resto de secciones ocultas deben tener el atributo
+        <mark><code>hidden</code></mark> y aria-selected debe ser <mark><code>false</code></mark> en sus botones.
+      </p>
+      <p>
+        Las pestañas son un caso de uso común para el atributo <mark><code>aria-controls</code></mark>, pero se puede
+        utilizar en otros escenarios
+        en los que un elemento controla la visibilidad o el comportamiento de otro elemento. Otros ejemplos son los
+        acordeones, los menús desplegables y los modales.
+      </p>
+      <p>
+        La próxima vez que diseñe una interfaz de usuario que implique el control de la visibilidad de los elementos,
+        considere la posibilidad de utilizar el atributo <mark><code>aria-controls</code></mark> para establecer la
+        relación entre el elemento
+        controlador y el elemento controlado.
+      </p>
+    </section>
+
+    <section id="quest8">
+      <h2>Questionario 8</h2>
+
+      <article>
+        <h3>
+          ¿Para qué sirve el atributo <code>aria-controls</code> en el contexto de las pestañas?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para especificar qué pestaña está activa en ese momento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para ocultar o mostrar secciones de contenido.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para asociar una pestaña a la sección que controla.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para establecer el papel del elemento.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cómo afecta el atributo <code>aria-controls</code> a las secciones de contenido del ejemplo?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Actualiza automáticamente el contenido en función de las entradas del usuario.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Oculta o muestra secciones en función de la pestaña seleccionada.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Cambia el estilo de la pestaña para indicar que está seleccionada.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Define el aspecto visual de la pestaña.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          En el ejemplo proporcionado, ¿cómo se utiliza el atributo <code>aria-labelledby</code>?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para especificar qué pestaña controla qué sección de contenido.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para identificar la sección de contenido que controla una pestaña.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para definir la función de la pestaña y las secciones de contenido.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Para pasar automáticamente de una sección de contenido a otra al hacer clic en una pestaña.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+    </section>
+
+    <section id="tema9">
+      <h2>¿Qué es el atributo <mark><code>aria-describedby</code></mark> y cómo funciona?
+        (<a href="https://youtu.be/IuYRdE-f28M?si=UdhKCIEBPBiyZvLX" target="_blank">video</a>)
+      </h2>
+
+      <p>
+        El atributo <mark><code>aria-describedby</code></mark> se utiliza para proporcionar información adicional sobre
+        un elemento a los usuarios de lectores de pantalla haciendo referencia al contenido existente en la página. Crea
+        una asociación programática entre el elemento y el contenido (denominada técnicamente descripción accesible),
+        que los lectores de pantalla pueden utilizar para informar a los usuarios de la información adicional cuando
+        interactúan con el elemento.
+      </p>
+      <p>
+        El uso más común de <mark><code>aria-describedby</code></mark> es asociar instrucciones y mensajes de error a
+        las entradas de un
+        formulario. Debido a los diversos métodos que tienen los usuarios de lectores de pantalla para navegar por una
+        página, pueden perderse estos mensajes al navegar entre las entradas. Usar
+        <mark><code>aria-describedby</code></mark> ayuda a asegurar que
+        los escucharán.
+      </p>
+      <p>
+        Veamos algunos ejemplos para entender cómo funciona. En este primer ejemplo, tenemos un elemento de
+        <mark><code>form</code></mark>
+        que acepta una contraseña:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;form&gt;
+              &lt;label for="password"&gt;Password:&lt;/label&gt;
+              &lt;input type="password"
+              id="password"
+              aria-describedby="password-help"
+              /&gt;
+              &lt;p id="password-help"&gt;
+                Your password must be at least 8 characters long.
+              &lt;/p&gt;
+            &lt;/form&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <form>
+            <label for="password">Password:</label>
+            <input type="password" id="password" aria-describedby="password-help" />
+            <p id="password-help">Your password must be at least 8 characters long.</p>
+          </form>
+        </div>
+      </div>
+
+      <P>
+        Estamos utilizando un elemento de <mark><code>label</code></mark> para el texto
+        <mark><code>Password</code></mark> y asociándolo con el <mark><code>input</code></mark> de contraseña.
+      </P>
+      <p>
+        También tenemos un elemento <mark><code>p</code></mark> que describe los requisitos de contraseña. Estamos utilizando el atributo
+        <mark><code>aria-describedby</code></mark> para asociar el <mark><code>input</code></mark> de contraseña con los
+        requisitos de contraseña en el elemento de párrafo.
+        Cuando un usuario de lector de pantalla interactúe con este <mark><code>input</code></mark>, su lector de
+        pantalla anunciará el nombre de
+        la <mark><code>input</code></mark> (<mark><code>Password</code></mark>) y puede que también anuncie los
+        requisitos de la contraseña. Sin embargo, esto no es una
+        garantía absoluta, ya que es posible que algunos lectores de pantalla no anuncien automáticamente el contenido
+        adicional o que sólo lo hagan en determinadas circunstancias. Esto no es infrecuente. Cada lector de pantalla es
+        diferente y gestiona los atributos ARIA a su manera. Esto no invalida el uso de
+        <mark><code>aria-describedby</code></mark>, ya que
+        beneficiará a los usuarios de lectores de pantalla en general.
+      </p>
+      <p>
+        Otro buen caso de uso del atributo <mark><code>aria-describedby</code></mark> es cuando se tiene un
+        <mark><code>button</code></mark> de borrado. A continuación se
+        muestra un ejemplo de un <mark><code>button</code></mark> de borrado seguido de un mensaje que describe lo que
+        sucederá cuando se haga
+        clic en el botón:
+      </p>
+
+      <div class="codeEjm">
+        <div class="code-label">Código</div>
+        <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+        <pre>
+          <code>
+            &lt;button aria-describedby="delete-message"&gt;
+              Delete
+            &lt;/button&gt;
+
+            &lt;p id="delete-message"&gt;
+              Warning! All deletions are permanent.
+            &lt;/p&gt;
+          </code>
+        </pre>
+        <div class="code-result-label">Resultado</div>
+        <div class="code-result">
+          <button aria-describedby="delete-message">Delete</button>
+
+          <p id="delete-message">Warning! All deletions are permanent.</p>
+        </div>
+      </div>
+
+      <p>
+        Al igual que en el ejemplo anterior, asociamos el botón de eliminar con el mensaje utilizando el atributo
+        <mark><code>aria-describedby</code></mark>. El valor <mark><code>id</code></mark> y el valor del atributo
+        <mark><code>aria-describedby</code></mark> deben coincidir.
+      </p>
+      <p>
+        El atributo <mark><code>aria-describedby</code></mark> es un atributo potente que puede utilizarse para ayudar a
+        garantizar que se
+        proporcione información adicional sobre un elemento a los usuarios de lectores de pantalla cuando interactúan
+        con el elemento. Se suele utilizar para asociar instrucciones y mensajes de error a las entradas de un
+        formulario con el fin de reducir la posibilidad de que los usuarios de lectores de pantalla no vean estos
+        mensajes mientras navegan por el formulario.
+      </p>
+    </section>
+
+    <section id="quest9">
+
+      <h2>Questionario 9</h2>
+
+      <article>
+        <h3>
+          ¿Para qué sirve el atributo <code>aria-describedby</code> en HTML?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para especificar un identificador único para un elemento.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Proporcionar información adicional sobre un elemento a las tecnologías de asistencia.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para definir el idioma de un documento HTML.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest">
+              Para controlar la visibilidad de un elemento HTML.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          En los ejemplos proporcionados, ¿cómo mejora el atributo <code>aria-describedby</code> la experiencia del
+          usuario en los campos de formulario?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Cambia el aspecto visual de los campos del formulario.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Asocia texto descriptivo adicional a los campos del formulario para proporcionar más contexto o
+              instrucciones.
+              <!-- correcto -->
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Valida los valores de entrada de los campos del formulario.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest2">
+              Rellena automáticamente los campos del formulario con valores por defecto.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          ¿Cómo se utiliza el atributo <code>aria-describedby</code> en el ejemplo con el botón de cierre y el cuadro de
+          diálogo modal?
+        </h3>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Sirve para definir el tamaño del botón de cierre.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Proporciona una etiqueta para el botón de cierre utilizando un texto independiente.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              <!-- correcto -->
+              Asocia el botón de cierre con una descripción de su acción a las tecnologías de asistencia.
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="quest1">
+              Controla el color del botón de cierre.
+            </label>
+          </li>
+        </ul>
+      </article>
+
+      <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio">🔝</button>
+    </section>
+
+  </main>
+
+  <script>
+    // Copiar código
+    function copiarCodigo(btn) {
+      const code = btn.parentElement.querySelector('code');
+      let text = '';
+      if (code.querySelectorAll('span').length > 0) {
+        text = Array.from(code.querySelectorAll('span')).map(span => span.innerText.trim()).join('\n');
+      } else {
+        text = code.innerText.trim();
+      }
+      // Elimina saltos de línea extra
+      text = text.replace(/\n{2,}/g, '\n');
+      navigator.clipboard.writeText(text);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => btn.textContent = "Copiar", 1500);
+    }
+
+    // Hamburguesa JS
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', function () {
+      navUl.classList.toggle('active');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'false';
+      hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+
+    // Cerrar menú hamburguesa al hacer clic en un enlace
+    function closeNavMobile() {
+      document.querySelector('nav ul').classList.remove('active');
+      document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+    }
+  </script>
+
+</body>
+
+</html>
