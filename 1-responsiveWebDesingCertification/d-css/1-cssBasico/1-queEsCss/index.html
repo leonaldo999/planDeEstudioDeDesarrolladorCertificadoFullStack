@@ -2,6 +2,28 @@
 <html lang="es">
 
 <head>
+  <!-- SEO -->
+  <meta name="keywords"
+    content="CSS, Hojas de Estilo en Cascada, Desarrollo Web, Diseño Web, Estilos Web, Lenguaje de Estilo, Diseño Responsivo, Tutorial CSS, Guía CSS, Ejemplos CSS, Buenas Prácticas CSS">
+  <meta name="author" content="FreeCodeCamp Español">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://freecodecamp.es/">
+  <meta property="og:title" content="Qué es CSS">
+  <meta property="og:description"
+    content="Aprende qué es CSS, su papel en la web y cómo usarlo para crear sitios atractivos y responsivos. Ejemplos, cuestionarios y buenas prácticas.">
+  <meta property="og:image" content="./img/cssIcon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://freecodecamp.es/">
+  <meta property="twitter:title" content="Qué es CSS">
+  <meta property="twitter:description"
+    content="Aprende qué es CSS, su papel en la web y cómo usarlo para crear sitios atractivos y responsivos. Ejemplos, cuestionarios y buenas prácticas.">
+  <meta property="twitter:image" content="./img/cssIcon.png">
+
+  <!-- Meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
@@ -70,6 +92,17 @@
       </li>
       <li>
         <a href="#quest7" onclick="closeNavMobile()" tabindex="0">❓ Quest 7</a>
+      </li>
+      <li>
+        <a href="#tema8" onclick="closeNavMobile()" tabindex="0">💻 Tema 8</a>
+      </li>
+      <li>
+        <a href="#quest8" onclick="closeNavMobile()" tabindex="0">❓ Quest 8</a>
+      <li>
+        <a href="#tema9" onclick="closeNavMobile()" tabindex="0">💻 Tema 9</a>
+      </li>
+      <li>
+        <a href="#quest9" onclick="closeNavMobile()" tabindex="0">❓ Quest 9</a>
       </li>
     </ul>
   </nav>
@@ -203,24 +236,24 @@ body {
                   padding: 0;
                 }
 
-                .preview-result .nav-links a {
+                .preview-result .nav-links .a {
                   color: white;
                   text-decoration: none;
                   font-weight: 500;
                   transition: color 0.3s ease;
                 }
 
-                .preview-result .nav-links a:hover {
+                .preview-result .nav-links .a:hover {
                   color: #ff9800;
                 }
               </style>
 
               <nav class="navbar-preview">
                 <ul class="nav-links">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a class="a" href="#">Home</a></li>
+                  <li><a class="a" href="#">About</a></li>
+                  <li><a class="a" href="#">Services</a></li>
+                  <li><a class="a" href="#">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -247,8 +280,7 @@ body {
         CSS funciona seleccionando elementos HTML y aplicándoles estilos.
       </p>
       <p>
-        Aquí tienes un ejemplo que muestra un elemento <mark>abutton</mark> sin estilo y uno con estilo. Para
-        interactuar con este ejemplo, debes habilitar el editor interactivo.
+        Aquí tienes un ejemplo que muestra un elemento <mark>button</mark> sin estilo y uno con estilo.
       </p>
 
       <div class="ide-container">
@@ -268,30 +300,13 @@ body {
               <div class="line-numbers"></div>
               <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
 
-&lt;button class="regular-btn"&gt;Unstyled Button&lt;/button&gt;
+&lt;button&gt;Unstyled Button&lt;/button&gt;
 &lt;button class="round-btn"&gt;Round Button&lt;/button&gt;</code></pre>
             </div>
 
             <div class="code-content" data-lang="css" style="display: none;">
               <div class="line-numbers"></div>
               <pre><code class="language-css">
-.regular-btn {
-  font-size: 1rem;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 0.6rem 1.6rem;
-  
-  /* Estilos base neutros para mejor visibilidad */
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
-  color: #333;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.regular-btn:hover {
-  background-color: #e0e0e0;
-}
-
 /* Botón Redondo Estilizado */
 .round-btn {
   font-size: 1rem;
@@ -368,16 +383,7 @@ body {
               <button class="round-btn">Round Button</button>
             </div>
           </div>
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
+
         </div>
       </div>
 
@@ -553,12 +559,9 @@ body {
           <div class="editor-body">
             <div class="code-content active" data-lang="css">
               <div class="line-numbers"></div>
-              <pre>
-                <code class="language-css">selector {
-                    property: value;
-                  }
-                </code>
-              </pre>
+              <pre><code class="language-css">selector {
+  property: value;
+}</code></pre>
             </div>
           </div>
         </div>
@@ -613,6 +616,7 @@ body {
               <div class="line-numbers"></div>
               <pre><code class="language-html">
                 &lt;link rel="stylesheet" href="styles.css" /&gt;
+                
                 &lt;h1&gt;Learning about CSS&lt;/h1&gt;
 
                 &lt;p&gt;Example paragraph element&lt;/p&gt;
@@ -622,10 +626,9 @@ body {
 
             <div class="code-content" data-lang="css" style="display: none;">
               <div class="line-numbers"></div>
-              <pre>
-                <code class="language-css">p {
-                    color: blue;
-                  }
+              <pre><code class="language-css">p {
+  color: blue;
+}
                 </code>
               </pre>
             </div>
@@ -645,34 +648,24 @@ body {
                   padding: 1rem;
                 }
 
-                .preview-result h1 {
+                .preview-result .h1 {
                   font-size: 1.5rem;
                   margin-bottom: 1rem;
                   color: black;
                 }
 
-                .preview-result p {
+                .preview-result .p {
                   color: blue;
                 }
               </style>
 
-              <h1>Learning about CSS</h1>
+              <h1 class="h1">Learning about CSS</h1>
 
-              <p>Example paragraph element</p>
-              <p>Another example paragraph element</p>
+              <p class="p">Example paragraph element</p>
+              <p class="p">Another example paragraph element</p>
             </div>
           </div>
 
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
         </div>
       </div>
 
@@ -708,10 +701,9 @@ body {
           <div class="editor-body">
             <div class="code-content" data-lang="css">
               <div class="line-numbers"></div>
-              <pre>
-                <code class="language-css">#title, .subheading {
-                    color: navy;
-                  }
+              <pre><code class="language-css">#title, .subheading {
+  color: navy;
+}
                 </code>
               </pre>
             </div>
@@ -1152,57 +1144,47 @@ body {
                   padding: 1rem;
                 }
 
-                .preview-result h1 {
+                .preview-result .h1a {
                   font-size: 2em;
                   font-weight: bold;
                 }
 
-                .preview-result>h2 {
+                .preview-result>.h2a {
                   font-size: 1.5em;
                   font-weight: bold;
                 }
 
-                .preview-result h3 {
+                .preview-result .h3 {
                   font-size: 1.17em;
                   font-weight: bold;
                 }
 
-                .preview-result h4 {
+                .preview-result .h4 {
                   font-size: 1em;
                   font-weight: bold;
                 }
 
-                .preview-result h5 {
+                .preview-result .h5 {
                   font-size: 0.83em;
                   font-weight: bold;
                 }
 
-                .preview-result h6 {
+                .preview-result .h6 {
                   font-size: 0.67em;
                   font-weight: bold;
                 }
               </style>
 
-              <h1>This is an h1 heading</h1>
-              <h2>This is an h2 heading</h2>
-              <h3>This is an h3 heading</h3>
-              <h4>This is an h4 heading</h4>
-              <h5>This is an h5 heading</h5>
-              <h6>This is an h6 heading</h6>
+              <h1 class="h1a">This is an h1 heading</h1>
+              <h2 class="h2a">This is an h2 heading</h2>
+              <h3 class="h3">This is an h3 heading</h3>
+              <h4 class="h4">This is an h4 heading</h4>
+              <h5 class="h5">This is an h5 heading</h5>
+              <h6 class="h6">This is an h6 heading</h6>
 
             </div>
           </div>
 
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
         </div>
       </div>
 
@@ -1254,31 +1236,26 @@ body {
                   padding: 1rem;
                 }
 
-                .preview-result hr {
+                .preview-result .hrb {
                   border: none;
-                  border-top: 1px solid #ccc;
-                  margin: 1rem 0;
+                  border-top: 1px solid black;
+                  /* margin: 1rem 0; */
+                }
+
+                .preview-result .pb {
+                  margin-bottom: 1rem;
+                  color: black;
                 }
               </style>
 
-              <p>Paragraph 1</p>
-              <p>Paragraph 2</p>
-              <hr>
-              <p>Paragraph 3</p>
-              <p>Paragraph 4</p>
+              <p class="pb">Paragraph 1</p>
+              <p class="pb">Paragraph 2</p>
+              <hr class="hrb">
+              <p class="pb">Paragraph 3</p>
+              <p class="pb">Paragraph 4</p>
             </div>
           </div>
 
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
         </div>
       </div>
 
@@ -1338,6 +1315,11 @@ body {
                   padding: 1rem;
                 }
 
+                .preview-result p {
+                  margin-bottom: 1rem;
+                  color: black;
+                }
+
                 .preview-result blockquote {
                   margin-left: 40px;
                   margin-right: 40px;
@@ -1353,17 +1335,6 @@ body {
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="preview-actions">
-        <a href="#" class="sandbox-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          Abrir Sandbox
-        </a>
       </div>
 
       <p>
@@ -1419,7 +1390,7 @@ body {
                 }
 
                 .preview-result a {
-                  color: blue;
+                  color: rgb(255, 0, 51);
                   text-decoration: underline;
                 }
               </style>
@@ -1432,16 +1403,6 @@ body {
             </div>
           </div>
 
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
         </div>
       </div>
 
@@ -1499,6 +1460,7 @@ body {
             <div class="preview-result">
               <style>
                 .preview-result {
+                  display: block;
                   width: 100%;
                   height: 100%;
                   background-color: #f4f4f4;
@@ -1533,16 +1495,6 @@ body {
             </div>
           </div>
 
-          <div class="preview-actions">
-            <a href="#" class="sandbox-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Abrir Sandbox
-            </a>
-          </div>
         </div>
       </div>
 
@@ -1702,17 +1654,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <p style="color: green;">This is an inline-styled paragraph.</p>
             </div>
@@ -1782,17 +1723,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <p style="color: blue;">En este párrafo se aplica el estilo usando CSS interno.</p>
             </div>
@@ -1869,17 +1799,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <p style="color: green;">This paragraph is styled using external CSS.</p>
             </div>
@@ -2071,17 +1990,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <div style="width: 100px; height: 100px; background-color: skyblue;"></div>
             </div>
@@ -2149,17 +2057,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <div style="width: 50px;
                       min-width: 100px;
@@ -2239,17 +2136,6 @@ body {
         <div class="ide-preview">
           <div class="preview-iframe-container">
             <div class="preview-result">
-              <style>
-                .preview-result {
-                  width: 100%;
-                  height: 100%;
-                  background-color: #f4f4f4;
-                  color: black;
-                  /* Simula el body */
-                  font-family: 'Segoe UI', sans-serif;
-                  padding: 1rem;
-                }
-              </style>
 
               <div style="width: 200px;
                       max-width: 150px;
@@ -2328,7 +2214,8 @@ body {
 
         <fieldset>
           <legend>
-            Si establece <code>min-height: 200px</code> y <code>height: 150px</code> en un elemento, ¿cuál será el <code>height</code> del elemento?
+            Si establece <code>min-height: 200px</code> y <code>height: 150px</code> en un elemento, ¿cuál será el
+            <code>height</code> del elemento?
           </legend>
 
           <label>
@@ -2384,11 +2271,1071 @@ body {
 
     </section>
 
-    
+    <section id="tema7" aria-label="¿Cuáles son los diferentes tipos de combinadores CSS?">
+
+      <h2>🗂️ ¿Cuáles son los diferentes tipos de combinadores CSS?
+      </h2>
+
+      <p>
+        Los combinadores CSS se utilizan para definir la relación entre selectores en CSS. Ayudan a seleccionar
+        elementos en función de su relación con otros elementos, lo que permite un estilo más preciso y eficiente.
+      </p>
+      <p>
+        Analizaremos algunos combinadores CSS principales y sus casos de uso, comenzando por el combinador
+        descendiente.
+      </p>
+      <p>
+        Un combinador descendiente se utiliza para seleccionar elementos que coinciden con el segundo selector si están
+        anidados dentro de un elemento antecesor que coincide con el primer selector. Un antecesor puede ser un
+        elemento padre o el padre de un padre.
+      </p>
+      <p>
+        Para comprender mejor cómo funciona, veamos un ejemplo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;div class="container"&gt;
+                    &lt;figure&gt;
+                      &lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Relaxing Cat"&gt;
+                      &lt;figcaption&gt;A relaxing cat with a border&lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                  &lt;/div&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                figure img {
+                  border: 4px solid red;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .fg img {
+                  border: 4px solid red;
+                }
+              </style>
+
+              <div class="container">
+                <link rel="stylesheet" href="styles.css">
+
+                <figure class="fg">
+                  <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Relaxing Cat">
+                  <figcaption>A relaxing cat with a border</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, utilizamos el combinador descendiente para seleccionar todos los elementos de imagen
+        dentro de los elementos de <mark>figure</mark> y aplicar un borde <mark>solid red</mark> en los cuatro lados.
+      </p>
+      <p>
+        Tenga en cuenta que se utiliza un <mark>espacio</mark> entre el selector padre y el selector hijo.
+      </p>
+      <p>
+        En este caso, la <mark>figure</mark> sería el padre y el <mark>img</mark> sería el hijo.
+      </p>
+      <p>
+        Si tuviera varias imágenes dentro de un elemento <mark>figure</mark>, utilizar el combinador descendiente sería
+        una buena
+        forma de aplicar un borde negro sólido alrededor de cada una de esas imágenes.
+      </p>
+      <p>
+        Otro tipo de combinador sería el combinador hijo.
+      </p>
+      <p>
+        El combinador hijo (<mark>></mark>) en CSS se utiliza para seleccionar elementos que son hijos directos de un
+        elemento padre
+        específico.
+      </p>
+      <p>
+        Este combinador se dirige solo a elementos con un padre específico, lo que hace que tus reglas CSS sean más
+        precisas y evita el estilo no deseado de elementos anidados más profundos.
+      </p>
+      <p>
+        Echemos un vistazo al siguiente ejemplo HTML:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;div class="container"&gt;
+                  &lt;p&gt;First&lt;/p&gt;
+                  &lt;div&gt;
+                    &lt;p&gt;Second&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div&gt;
+                    &lt;p&gt;Third&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <div class="container">
+                <p>First</p>
+                <div>
+                  <p>Second</p>
+                </div>
+                <div>
+                  <p>Third</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En la estructura HTML anterior, la clase <mark>container</mark> se aplica a un elemento <mark>div</mark>.
+      </p>
+      <p>
+        Dentro de este contenedor, hay un elemento <mark>p</mark> hijo directo (<mark>Primero</mark>), seguido de dos
+        elementos <mark>div</mark> adicionales,
+        cada uno de los cuales contiene un elemento <mark>p</mark> (<mark>Segundo</mark> y <mark>Tercero</mark>).
+      </p>
+      <p>
+        El primer elemento <mark>p</mark> es un elemento secundario directo del elemento <mark>.container</mark>,
+        mientras que los otros dos
+        elementos <mark>p</mark> están anidados dentro de otros elementos <mark>div</mark>, lo que los convierte en
+        descendientes más profundos.
+      </p>
+      <p>
+        Para aplicar estilos solo al elemento secundario directo de la clase <mark>container</mark>, puede utilizar el
+        combinador
+        secundario de la siguiente manera:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;div class="container"&gt;
+                    &lt;p&gt;First&lt;/p&gt;
+                    &lt;div&gt;
+                      &lt;p&gt;Second&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                      &lt;p&gt;Third&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                .container > p {
+                  color: blue;
+                }
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <div class="container">
+                <p style="color: blue;">First</p>
+                <div>
+                  <p>Second</p>
+                </div>
+                <div>
+                  <p>Third</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, solo estamos apuntando al hijo directo de la clase <mark>container</mark>. Esto le dará
+        al hijo
+        directo el color de texto <mark>blue</mark>.
+      </p>
+      <p>
+        Debido a que los otros dos elementos de párrafo están anidados dentro de elementos <mark>div</mark>, no se
+        consideran hijos
+        directos de la clase <mark>container</mark> y no obtendrán el color de texto azul.
+      </p>
+      <p>
+        Otro combinador común sería el combinador de hermanos siguientes.
+      </p>
+      <p>
+        El combinador de hermanos siguientes (<mark>+</mark>) en CSS selecciona un elemento que sigue inmediatamente a
+        un elemento
+        hermano especificado. Este combinador es útil cuando se desea aplicar estilos a un elemento que sigue
+        directamente a otro elemento, lo que permite aplicar estilos específicos en función de la posición del elemento
+        con respecto a sus hermanos.
+      </p>
+      <p>
+        Veamos el siguiente ejemplo HTML:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;figure&gt;
+                  &lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                    alt="A cute orange cat lying on its back." /&gt;
+                  &lt;figcaption&gt;A cute orange cat lying on its back.&lt;/figcaption&gt;
+                &lt;/figure&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <figure>
+                <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                  alt="A cute orange cat lying on its back." />
+                <figcaption>A cute orange cat lying on its back.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí tenemos un elemento <mark>figure</mark> que contiene un elemento <mark>img</mark> seguido de un elemento
+        <mark>figcaption</mark>. El elemento
+        <mark>figcaption</mark> es el hermano inmediato del elemento <mark>img</mark>.
+      </p>
+      <p>
+        Si desea aplicar un borde negro alrededor del elemento <mark>figcaption</mark>, puede utilizar el combinador
+        next-sibling de
+        la siguiente manera:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;figure&gt;
+                  &lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                    alt="A cute orange cat lying on its back." /&gt;
+                  &lt;figcaption&gt;A cute orange cat lying on its back.&lt;/figcaption&gt;
+                &lt;/figure&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                img + figcaption {
+                  border: 4px solid black;
+                }
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .img+.figimg {
+                  border: 4px solid black;
+                  color: black;
+                }
+              </style>
+
+              <link rel="stylesheet" href="styles.css">
+
+              <figure>
+                <img class="img" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                  alt="A cute orange cat lying on its back." />
+                <figcaption class="figimg">A cute orange cat lying on its back.</figcaption>
+              </figure>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el combinador de elemento hermano siguiente (<mark>+</mark>) selecciona el elemento
+        <mark>figcaption</mark> que sigue
+        inmediatamente al elemento <mark>img</mark>. La regla CSS aplicada añade un <mark>borde negro sólido de 4
+          píxeles</mark> alrededor del
+        <mark>figcaption</mark>.
+      </p>
+      <p>
+        Otro combinador común es el combinador de elemento hermano posterior.
+      </p>
+      <p>
+        El combinador de elemento hermano posterior (<mark>~</mark>) en CSS selecciona todos los elementos hermanos de
+        un elemento
+        especificado que vienen después de él.
+      </p>
+      <p>
+        A diferencia del combinador de elemento hermano siguiente, que solo selecciona el elemento hermano
+        inmediatamente posterior, el combinador de elemento hermano posterior (<mark>~</mark>) puede seleccionar
+        cualquier elemento
+        hermano que siga al elemento especificado, lo que ofrece una mayor flexibilidad en el estilo.
+      </p>
+      <p>
+        Veamos el siguiente ejemplo HTML:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;div class="container"&gt;
+                  &lt;h2&gt;Subheading&lt;/h2&gt;
+                  &lt;p&gt;First paragraph.&lt;/p&gt;
+                  &lt;p&gt;Second paragraph.&lt;/p&gt;
+                  &lt;p&gt;Third paragraph.&lt;/p&gt;
+                  &lt;p&gt;Another paragraph element&lt;/p&gt;
+                &lt;/div&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <div class="result-container">
+                <h2 class="h2c">Subheading</h2>
+                <p>First paragraph.</p>
+                <p>Second paragraph.</p>
+                <p>Third paragraph.</p>
+                <p>Another paragraph element</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p>
+        En esta estructura HTML, tenemos un elemento <mark>h2</mark> seguido de cuatro elementos de párrafo. Los
+        elementos de párrafo
+        son hermanos del elemento <mark>h2</mark>.
+      </p>
+      <p>
+        Si quieres aplicar un estilo a todos los elementos de párrafo que vienen después del elemento <mark>h2</mark>,
+        puedes
+        utilizar el combinador de hermanos posteriores de la siguiente manera:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;div class="container"&gt;
+                  &lt;h2&gt;Subheading&lt;/h2&gt;
+                  &lt;p&gt;First paragraph.&lt;/p&gt;
+                  &lt;p&gt;Second paragraph.&lt;/p&gt;
+                  &lt;p&gt;Third paragraph.&lt;/p&gt;
+                  &lt;p&gt;Another paragraph element&lt;/p&gt;
+                &lt;/div&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">h2 ~ p {
+  color: green;
+}
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <div class="result-container">
+                <h2 class="h2c">Subheading</h2>
+                <p style="color: green;">First paragraph.</p>
+                <p style="color: green;">Second paragraph.</p>
+                <p style="color: green;">Third paragraph.</p>
+                <p style="color: green;">Another paragraph element</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, todos los elementos de párrafo que siguen al elemento h2 tendrán el color de texto verde.
+      </p>
+      <p>
+        El combinador de hermanos posteriores (~) se dirige a todos los hermanos de párrafo que aparecen después del
+        elemento h2, independientemente de si son hermanos inmediatos.
+      </p>
+      <p>
+        En conclusión, comprender y utilizar varios combinadores CSS le permite aplicar estilos precisos a sus elementos
+        HTML, lo que mejora el control y la flexibilidad de su diseño.
+      </p>
+      <p>
+        Al dominar estos selectores, podrás crear reglas de estilo más sofisticadas y específicas que mejorarán tanto la
+        apariencia como la funcionalidad de tus páginas web.
+      </p>
+
+    </section>
+
+    <section id="quest7" aria-label="Cuestionario 7">
+
+      <h2>🧠 Cuestionario 7</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué regla CSS aplicará estilo a todos los elementos span que se encuentren dentro de elementos div,
+            independientemente de cuántas veces estén anidados?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            <pre>
+              <code>
+                div > span {
+                  color: red;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            <pre><code>
+              div + span {
+                color: red;
+              }
+            </code></pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            <pre>
+              <code>
+                div ~ span {
+                  color: red;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            <!-- correcto -->
+            <pre>
+              <code>
+                div span {
+                  color: red;
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué regla CSS aplicará estilo solo a los elementos li hijos directos de los elementos ul?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            <!-- correcto -->
+            <pre>
+              <code>
+                ul > li {
+                  font-weight: bold;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            <pre>
+              <code>
+                ul li {
+                  font-weight: bold;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            <pre>
+              <code>
+                ul + li {
+                  font-weight: bold;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            <pre>
+              <code>
+                ul ~ li {
+                  font-weight: bold;
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué regla CSS aplicará el estilo al primer elemento <code>p</code> que sigue inmediatamente a cualquier
+            elemento <code>h1</code>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            <!-- correcto -->
+            <pre>
+              <code>
+                h1 > p {
+                  margin-top: 0;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            <pre>
+              <code>
+                h1 + p {
+                  margin-top: 0;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            <pre>
+              <code>
+                h1 ~ p {
+                  margin-top: 0;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            <pre>
+              <code>
+                h1 p {
+                  margin-top: 0;
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+      </form>
+
+    </section>
+
+    <section id="tema8" aria-label="¿Cuál es la diferencia entre elementos en línea y a nivel de bloque en CSS?">
+
+      <h2>📏 ¿Cuál es la diferencia entre elementos en línea y a nivel de bloque en CSS?
+      </h2>
+
+      <p>
+        En HTML y CSS, los elementos se clasifican como elementos en línea o elementos de nivel de bloque, y esta
+        clasificación determina cómo se comportan en el diseño del documento.
+      </p>
+      <p>
+        Comprender esta diferencia es fundamental para controlar cómo se muestra el contenido en una página web.
+      </p>
+      <p>
+        Los elementos de nivel de bloque son elementos que ocupan todo el ancho disponible por defecto, extendiéndose a
+        lo largo del ancho de su contenedor.
+      </p>
+      <p>
+        Estos elementos siempre comienzan en una nueva línea y empujan el resto del contenido a la siguiente línea,
+        creando un <mark>bloque</mark> de contenido.
+      </p>
+      <p>
+        Los elementos de nivel de bloque tienen la propiedad CSS <mark><code>display: block;</code></mark> aplicada de
+        forma predeterminada. Esta
+        propiedad garantiza que el elemento se extienda para llenar el ancho del contenedor y aparezca en una nueva
+        línea.
+      </p>
+      <p>
+        Algunos elementos de nivel de bloque comunes son los elementos <mark><code>div</code></mark>, los párrafos, los
+        encabezados, las listas
+        ordenadas, las listas desordenadas y los elementos de sección.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de código de un elemento de nivel de bloque:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p style="border: 2px solid red;"&gt;
+                First paragraph
+                &lt;/p&gt;
+                &lt;p&gt;Second paragraph&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <p style="border: 2px solid red;">
+                First paragraph
+              </p>
+              <p>Second paragraph</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos dos elementos de párrafo, el primero de los cuales tiene un borde rojo alrededor.
+      </p>
+      <p>
+        Los dos elementos de párrafo no comparten la misma línea porque son elementos de nivel de bloque por defecto.
+      </p>
+      <p>
+        Por lo tanto, ambos elementos de párrafo ocuparán todo el ancho de su contenedor, que en este caso es el
+        elemento <mark><code>body</code></mark>.
+      </p>
+      <p>
+        Los elementos de nivel de bloque son ideales cuando se desea que el contenido se apile verticalmente, como
+        párrafos, secciones o bloques de contenido más grandes. Se utilizan comúnmente para definir el diseño y la
+        estructura de una página web.
+      </p>
+      <p>
+        Los elementos en línea, a diferencia de los elementos de nivel de bloque, solo ocupan el ancho que necesitan y
+        no comienzan en una nueva línea. Estos elementos fluyen dentro del contenido, lo que permite que el texto y
+        otros elementos en línea aparezcan junto a ellos.
+      </p>
+      <p>
+        Los elementos en línea tienen la propiedad CSS <mark><code>display: inline;</code></mark> aplicada de forma
+        predeterminada. Esta propiedad
+        garantiza que el elemento permanezca dentro del flujo del contenido y no se rompa en una nueva línea.
+      </p>
+      <p>
+        Los elementos en línea comunes son los elementos <mark><code>span</code></mark>,
+        <mark><code>anchor</code></mark> e <mark><code>img</code></mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo para comprender mejor los elementos en línea:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;This is a
+                  &lt;span style="color: red; border: 2px solid green;"&gt;red&lt;/span&gt;
+                  word inside a paragraph.
+                &lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <p>This is a
+                <span style="color: red; border: 2px solid green;">red</span>
+                word inside a paragraph.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un elemento <mark><code>span</code></mark> anidado dentro de un elemento párrafo. El
+        elemento <mark><code>span</code></mark> tiene un color
+        de texto <mark><code>red</code></mark> con un borde <mark><code>green</code></mark> alrededor para que puedas
+        ver mejor la palabra resaltada.
+      </p>
+      <p>
+        Como puede ver, el elemento <mark><code>span</code></mark> solo ocupa el espacio de la palabra «rojo» y no
+        empuja el contenido siguiente a
+        una nueva línea.
+      </p>
+      <p>
+        Los elementos en línea se utilizan mejor para dar estilo a partes más pequeñas de texto o contenido dentro de
+        una línea, como enfatizar una palabra, crear hipervínculos o aplicar estilos específicos a partes de un párrafo.
+      </p>
+
+    </section>
+
+    <section id="quest8" aria-label="Cuestionario 8">
+
+      <h2>🧠 Cuestionario 8</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el comportamiento predeterminado de los elementos a nivel de bloque en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            <!-- correcto -->
+            Ocupan tanto ancho como sea necesario y se mantienen dentro del flujo del contenido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            Ocupan todo el ancho de su contenedor y comienzan una nueva línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            Sólo se utilizan para imágenes y enlaces.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            Siempre están alineados al centro de la página.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes es un ejemplo de un elemento en línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            div
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            p
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            <!-- correcto -->
+            span
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            section
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede cambiar el comportamiento de un elemento a nivel de bloque para que se comporte como un
+            elemento en línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest24" tabindex="0">
+            display: inline-block;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest24" tabindex="0">
+            display: flex;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest24" tabindex="0">
+            <!-- correcto -->
+            display: inline;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest24" tabindex="0">
+            display: none;
+          </label>
+        </fieldset>
+      </form>
+
+    </section>
+
+    <section id="tema9"
+      aria-label="¿Cómo funciona el bloque en línea y en qué se diferencia de los elementos en línea y de bloque?">
+
+      <h2>📏 ¿Cómo funciona el bloque en línea y en qué se diferencia de los elementos en línea y de bloque?
+      </h2>
+
+      <p>
+        Al trabajar con CSS, a menudo te encuentras con tres tipos diferentes de comportamientos de visualización para
+        los elementos: <mark>inline</mark>, <mark>block</mark>, <mark>inline-block</mark>.
+      </p>
+      <p>
+        Cada una de estas propiedades afecta a la forma en que se posicionan los elementos y a cómo interactúan con
+        otros elementos de la página.
+      </p>
+      <p>
+        En esta lección, nos centraremos en cómo funciona la propiedad <mark><code>inline-block</code></mark> y en qué se diferencia de los
+        elementos inline y de nivel de bloque.
+      </p>
+      <p>
+        Los elementos de nivel de bloque se comportan como grandes contenedores o <mark>bloques</mark> que ocupan todo el ancho de
+        su contenedor principal. Siempre comienzan en una nueva línea y su altura y anchura se pueden ajustar.
+      </p>
+      <p>
+        Los elementos inline solo ocupan el espacio que necesitan. Fluyen dentro del contenido circundante y no se
+        dividen en una nueva línea.
+      </p>
+      <p>
+        La propiedad <mark><code>inline-block</code></mark> es un híbrido de estos dos comportamientos. Al igual que los elementos inline, los
+        elementos <mark><code>inline-block</code></mark> permanecen en el flujo del texto sin comenzar en una nueva línea.
+      </p>
+      <p>
+        Sin embargo, a diferencia de los elementos inline, se puede ajustar el ancho y el alto de un elemento
+        inline-block, tal y como se haría con los elementos de nivel de bloque.
+      </p>
+      <p>
+        En resumen, la diferencia clave entre inline e inline-block es que el tamaño de los elementos inline no se puede
+        controlar, mientras que los elementos inline-block permiten un control total sobre las dimensiones sin dejar de
+        estar alineados con el resto del contenido.
+      </p>
+      <p>
+        Veamos un ejemplo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;div class="inline-block-element element1"&gt;
+                  &lt;span class="inline-block-element element1"&gt;Inline-Block&lt;/span&gt;
+                  &lt;span class="inline-block-element element2"&gt;Inline-Block&lt;/span&gt;
+                &lt;/div&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                .inline-block-element {
+                  display: inline-block;
+                  width: 150px;
+                  height: 100px;
+                }
+                
+                .element1 {
+                  background-color: lightblue;
+                }
+                
+                .element2 {
+                  background-color: lightgreen;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .inline-block-element {
+                  display: inline-block;
+                  width: 150px;
+                  height: 100px;
+                }
+
+                .element1 {
+                  background-color: lightblue;
+                }
+
+                .element2 {
+                  background-color: lightgreen;
+                }
+              </style>
+
+              <div class="container">
+                <span class="inline-block-element element1">Inline-Block</span>
+                <span class="inline-block-element element2">Inline-Block</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
   </main>
 
-  <button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
     aria-label="Ir al inicio de la página" tabindex="0">
     🚀
   </button>

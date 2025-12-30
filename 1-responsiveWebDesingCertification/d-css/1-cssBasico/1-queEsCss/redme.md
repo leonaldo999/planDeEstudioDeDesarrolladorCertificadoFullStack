@@ -694,7 +694,7 @@ Esto garantiza que los elementos permanezcan dentro de los rangos de tamaño des
 
   - [ ] a) `150px`
   - [ ] b) `100px`
-  - [ ] c) `200px` //correcto
+  - [x] c) `200px` //correcto
   - [ ] d) `250px`
 
 - **3.¿Cuál de las siguientes NO es una unidad válida utilizada con la propiedad de ancho?**
@@ -705,3 +705,470 @@ Esto garantiza que los elementos permanezcan dentro de los rangos de tamaño des
   - [ ] d) `vw`
 
 ---
+
+## ¿Cuáles son los diferentes tipos de combinadores CSS?
+
+Los combinadores CSS se utilizan para definir la relación entre selectores en CSS. Ayudan a seleccionar elementos en función de su relación con otros elementos, lo que permite un estilo más preciso y eficiente.
+
+Analizaremos algunos combinadores CSS principales y sus casos de uso, comenzando por el combinador descendiente.
+
+Un combinador descendiente se utiliza para seleccionar elementos que coinciden con el segundo selector si están anidados dentro de un elemento antecesor que coincide con el primer selector. Un antecesor puede ser un elemento padre o el padre de un padre.
+
+Para comprender mejor cómo funciona, veamos un ejemplo.
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <figure>
+    <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Relaxing Cat">
+    <figcaption>A relaxing cat with a border</figcaption>
+  </figure>
+  ```
+
+  ```css
+  figure img {
+    border: 4px solid red;
+  }
+  ```
+
+En el ejemplo anterior, utilizamos el combinador descendiente para seleccionar todos los elementos de imagen dentro de los elementos de `figure` y aplicar un borde `solid red` en los cuatro lados.
+
+Tenga en cuenta que se utiliza un `espacio` entre el selector padre y el selector hijo.
+
+En este caso, la `figure` sería el padre y el `img` sería el hijo.
+
+Si tuviera varias imágenes dentro de un elemento `figure`, utilizar el combinador descendiente sería una buena forma de aplicar un borde negro sólido alrededor de cada una de esas imágenes.
+
+Otro tipo de combinador sería el combinador hijo.
+
+El combinador hijo (`>`) en CSS se utiliza para seleccionar elementos que son hijos directos de un elemento padre específico.
+
+Este combinador se dirige solo a elementos con un padre específico, lo que hace que tus reglas CSS sean más precisas y evita el estilo no deseado de elementos anidados más profundos.
+
+Echemos un vistazo al siguiente ejemplo HTML:
+
+- **Codigo Ejm**
+
+  ```html
+  <div class="container">
+    <p>First</p>
+    <div>
+      <p>Second</p>
+    </div>
+    <div>
+      <p>Third</p>
+    </div>
+  </div>
+  ```
+
+En la estructura HTML anterior, la clase `container` se aplica a un elemento `div`.
+
+Dentro de este contenedor, hay un elemento `p` hijo directo (`Primero`), seguido de dos elementos `div` adicionales, cada uno de los cuales contiene un elemento `p` (`Segundo` y `Tercero`).
+
+El primer elemento `p` es un elemento secundario directo del elemento `.container`, mientras que los otros dos elementos `p` están anidados dentro de otros elementos `div`, lo que los convierte en descendientes más profundos.
+
+Para aplicar estilos solo al elemento secundario directo de la clase `container`, puede utilizar el combinador secundario de la siguiente manera:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <div class="container">
+    <p>First</p>
+    <div>
+      <p>Second</p>
+    </div>
+    <div>
+      <p>Third</p>
+    </div>
+  </div>
+  ```
+  
+  ```css
+  .container > p {
+    color: blue;
+  }
+  ```
+
+En el ejemplo anterior, solo estamos apuntando al hijo directo de la clase `container`. Esto le dará al hijo directo el color de texto `blue`.
+
+Debido a que los otros dos elementos de párrafo están anidados dentro de elementos `div`, no se consideran hijos directos de la clase `container` y no obtendrán el color de texto azul.
+
+Otro combinador común sería el combinador de hermanos siguientes.
+
+El combinador de hermanos siguientes (`+`) en CSS selecciona un elemento que sigue inmediatamente a un elemento hermano especificado. Este combinador es útil cuando se desea aplicar estilos a un elemento que sigue directamente a otro elemento, lo que permite aplicar estilos específicos en función de la posición del elemento con respecto a sus hermanos.
+
+Veamos el siguiente ejemplo HTML:
+
+- **Codigo Ejm**
+
+  ```html
+  <figure>
+    <img
+      src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+      alt="A cute orange cat lying on its back."
+    />
+    <figcaption>A cute orange cat lying on its back.</figcaption>
+  </figure>
+  ```
+
+Aquí tenemos un elemento `figure` que contiene un elemento `img` seguido de un elemento `figcaption`. El elemento `figcaption` es el hermano inmediato del elemento `img`.
+
+Si desea aplicar un borde negro alrededor del elemento `figcaption`, puede utilizar el combinador next-sibling de la siguiente manera:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <figure>
+    <img
+      src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+      alt="A cute orange cat lying on its back."
+    />
+    <figcaption>A cute orange cat lying on its back.</figcaption>
+  </figure>
+  ```
+
+  ```css
+  img + figcaption {
+    border: 4px solid black;
+  }
+  ```
+
+En este ejemplo, el combinador de elemento hermano siguiente (`+`) selecciona el elemento `figcaption` que sigue inmediatamente al elemento `img`. La regla CSS aplicada añade un `borde negro sólido de 4 píxeles` alrededor del `figcaption`.
+
+Otro combinador común es el combinador de elemento hermano posterior.
+
+El combinador de elemento hermano posterior (`~`) en CSS selecciona todos los elementos hermanos de un elemento especificado que vienen después de él.
+
+A diferencia del combinador de elemento hermano siguiente, que solo selecciona el elemento hermano inmediatamente posterior, el combinador de elemento hermano posterior (`~`) puede seleccionar cualquier elemento hermano que siga al elemento especificado, lo que ofrece una mayor flexibilidad en el estilo.
+
+Veamos el siguiente ejemplo HTML:
+
+- **Codigo Ejm**
+
+  ```html
+  <div class="container">
+    <h2>Subheading</h2>
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+    <p>Third paragraph.</p>
+    <p>Another paragraph element</p>
+  </div>
+  ```
+
+En esta estructura HTML, tenemos un elemento `h2` seguido de cuatro elementos de párrafo. Los elementos de párrafo son hermanos del elemento `h2`.
+
+Si quieres aplicar un estilo a todos los elementos de párrafo que vienen después del elemento `h2`, puedes utilizar el combinador de hermanos posteriores de la siguiente manera:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <div class="container">
+    <h2>Subheading</h2>
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+    <p>Third paragraph.</p>
+    <p>Another paragraph element</p>
+  </div>
+  ```
+
+  ```css
+  h2 ~ p {
+    color: green;
+  }
+  ```
+
+En este ejemplo, todos los elementos de párrafo que siguen al elemento `h2` tendrán el color de texto verde.
+
+El combinador de hermanos posteriores (`~`) se dirige a todos los hermanos de párrafo que aparecen después del elemento `h2`, independientemente de si son hermanos inmediatos.
+
+En conclusión, comprender y utilizar varios combinadores CSS le permite aplicar estilos precisos a sus elementos HTML, lo que mejora el control y la flexibilidad de su diseño.
+
+Al dominar estos selectores, podrás crear reglas de estilo más sofisticadas y específicas que mejorarán tanto la apariencia como la funcionalidad de tus páginas web.
+
+---
+
+## Cuestionario 7
+
+- **1.¿Qué regla CSS aplicará estilo a todos los elementos span que se encuentren dentro de elementos div, independientemente de cuántas veces estén anidados?**
+
+  - [ ] a)  
+
+      ```css
+        
+      div > span {
+        color: red;
+      }
+      ```
+
+  - [ ] b)  
+
+      ```css
+      div + span {
+        color: red;
+      }
+      ```
+
+  - [ ] c)
+
+      ```css
+      div ~ span {
+        color: red;
+      }
+      ```
+
+  - [x] d)
+//correcto
+
+      ```css
+      div span {
+        color: red;
+      }
+      ```
+
+- **2.¿Qué regla CSS aplicará estilo solo a los elementos li hijos directos de los elementos ul?**
+
+  - [x] a)  
+//correcto
+
+      ```css
+        
+      ul > li {
+        font-weight: bold;
+      }
+      ```
+
+  - [ ] b)  
+
+      ```css
+      ul li {
+        font-weight: bold;
+      }
+      ```
+
+  - [ ] c)
+
+      ```css
+      ul + li {
+        font-weight: bold;
+      }
+      ```
+
+  - [ ] d)
+
+      ```css
+      ul ~ li {
+        font-weight: bold;
+      }
+      ```
+
+- **3.¿Qué regla CSS aplicará el estilo al primer elemento `p` que sigue inmediatamente a cualquier elemento `h1`?**
+
+  - [ ] a)  
+
+      ```css
+        
+      h1 > p {
+        margin-top: 0;
+      }
+      ```
+
+  - [x] b)  
+//correcto
+
+      ```css
+      h1 + p {
+        margin-top: 0;
+      }
+      ```
+
+  - [ ] c)
+
+      ```css
+      h1 ~ p {
+        margin-top: 0;
+      }
+      ```
+
+  - [ ] d)
+
+      ```css
+      h1 p {
+        margin-top: 0;
+      }
+      ```
+
+---
+
+## ¿Cuál es la diferencia entre los elementos en línea y los elementos de nivel de bloque?
+
+En HTML y CSS, los elementos se clasifican como elementos en línea o elementos de nivel de bloque, y esta clasificación determina cómo se comportan en el diseño del documento.
+
+Comprender esta diferencia es fundamental para controlar cómo se muestra el contenido en una página web.
+
+Los elementos de nivel de bloque son elementos que ocupan todo el ancho disponible por defecto, extendiéndose a lo largo del ancho de su contenedor.
+
+Estos elementos siempre comienzan en una nueva línea y empujan el resto del contenido a la siguiente línea, creando un `bloque` de contenido.
+
+Los elementos de nivel de bloque tienen la propiedad CSS `display: block;` aplicada de forma predeterminada. Esta propiedad garantiza que el elemento se extienda para llenar el ancho del contenedor y aparezca en una nueva línea.
+
+Algunos elementos de nivel de bloque comunes son los elementos `div`, los párrafos, los encabezados, las listas ordenadas, las listas desordenadas y los elementos de sección.
+
+A continuación se muestra un ejemplo de código de un elemento de nivel de bloque:
+
+- **Codigo Ejm**
+
+  ```html
+  <p style="border: 2px solid red;">
+    First paragraph
+  </p>
+  <p>Second paragraph</p>
+  ```
+
+En este ejemplo, tenemos dos elementos de párrafo, el primero de los cuales tiene un borde rojo alrededor.
+
+Los dos elementos de párrafo no comparten la misma línea porque son elementos de nivel de bloque por defecto.
+
+Por lo tanto, ambos elementos de párrafo ocuparán todo el ancho de su contenedor, que en este caso es el elemento `body`.
+
+Los elementos de nivel de bloque son ideales cuando se desea que el contenido se apile verticalmente, como párrafos, secciones o bloques de contenido más grandes. Se utilizan comúnmente para definir el diseño y la estructura de una página web.
+
+Los elementos en línea, a diferencia de los elementos de nivel de bloque, solo ocupan el ancho que necesitan y no comienzan en una nueva línea. Estos elementos fluyen dentro del contenido, lo que permite que el texto y otros elementos en línea aparezcan junto a ellos.
+
+Los elementos en línea tienen la propiedad CSS `display: inline;` aplicada de forma predeterminada. Esta propiedad garantiza que el elemento permanezca dentro del flujo del contenido y no se rompa en una nueva línea.
+
+Los elementos en línea comunes son los elementos `span`, `anchor` e `img`.
+
+A continuación se muestra un ejemplo para comprender mejor los elementos en línea:
+
+- **Codigo Ejm**
+
+  ```html
+  <p>This is a
+    <span style="color: red; border: 2px solid green;">red</span>
+    word inside a paragraph.
+  </p>
+  ```
+
+En este ejemplo, tenemos un elemento `span` anidado dentro de un elemento párrafo. El elemento `span` tiene un color de texto `red` con un borde `green` alrededor para que puedas ver mejor la palabra resaltada.
+
+Como puede ver, el elemento `span` solo ocupa el espacio de la palabra «red» y no empuja el contenido siguiente a una nueva línea.
+
+Los elementos en línea se utilizan mejor para dar estilo a partes más pequeñas de texto o contenido dentro de una línea, como enfatizar una palabra, crear hipervínculos o aplicar estilos específicos a partes de un párrafo.
+
+---
+
+## Cuestionario 8
+
+- **1.¿Cuál es el comportamiento predeterminado de los elementos a nivel de bloque en CSS?**
+
+  - [ ] a) Ocupan tanto ancho como sea necesario y se mantienen dentro del flujo del contenido.
+  - [x] b) Ocupan todo el ancho de su contenedor y comienzan una nueva línea. //correcto
+  - [ ] c) Sólo se utilizan para imágenes y enlaces.
+  - [ ] d) Siempre están alineados al centro de la página.
+
+- **2.¿Cuál de los siguientes es un ejemplo de un elemento en línea?**
+
+  - [ ] a) `div`
+  - [ ] b) `p`
+  - [x] c) `span` //correcto
+  - [ ] d) `section`
+
+- **3.¿Cómo se puede cambiar el comportamiento de un elemento a nivel de bloque para que se comporte como un elemento en línea?**
+
+  - [ ] a) `display: inline-block;`
+  - [ ] b) `display: flex;`
+  - [x] c) `display: inline;` //correcto
+  - [ ] d) `display: none;`
+
+---
+
+## ¿Cómo funciona el bloque en línea y en qué se diferencia de los elementos en línea y de bloque?
+
+Al trabajar con CSS, a menudo te encuentras con tres tipos diferentes de comportamientos de visualización para los elementos: `inline`, `block`, y `inline-block`.
+
+Cada una de estas propiedades afecta a la forma en que se posicionan los elementos y a cómo interactúan con otros elementos de la página.
+
+En esta lección, nos centraremos en cómo funciona la propiedad `inline-block` y en qué se diferencia de los elementos inline y de nivel de bloque.
+
+Los elementos de nivel de bloque se comportan como grandes contenedores o «bloques» que ocupan todo el ancho de su contenedor principal. Siempre comienzan en una nueva línea y su altura y anchura se pueden ajustar.
+
+Los elementos inline solo ocupan el espacio que necesitan. Fluyen dentro del contenido circundante y no se dividen en una nueva línea.
+
+La propiedad `inline-block` es un híbrido de estos dos comportamientos. Al igual que los elementos inline, los elementos `inline-block` permanecen en el flujo del texto sin comenzar en una nueva línea.
+
+Sin embargo, a diferencia de los elementos inline, se puede ajustar el ancho y el alto de un elemento `inline-block`, tal y como se haría con los elementos de nivel de bloque.
+
+En resumen, la diferencia clave entre inline e inline-block es que el tamaño de los elementos inline no se puede controlar, mientras que los elementos inline-block permiten un control total sobre las dimensiones sin dejar de estar alineados con el resto del contenido.
+
+Veamos un ejemplo.
+
+- **Codigo Ejm**
+
+  ```html
+  <link href="styles.css" rel="stylesheet">
+
+  <div class="container">
+    <span class="inline-block-element element1">Inline-Block</span>
+    <span class="inline-block-element element2">Inline-Block</span>
+  </div>
+  ```
+
+  ```css
+  .inline-block-element {
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+  }
+  
+  .element1 {
+    background-color: lightblue;
+  }
+  
+  .element2 {
+    background-color: lightgreen;
+  }
+  ```
+  
+  En el ejemplo anterior, tenemos un div con una clase de contenedor. Dentro de ese elemento div, tenemos dos elementos span.
+
+Cada uno de los elementos span está configurado para mostrarse como inline-block y también tiene un ancho y una altura establecidos.
+
+Los elementos inline-block aparecerán uno al lado del otro porque se comportan como elementos inline, pero también tienen un ancho y una altura específicos, lo que les da propiedades similares a las de los elementos block.
+
+Sin embargo, si eliminas la propiedad display: inline-block, no se aplicarán ni el ancho ni el alto, aunque los hayas definido claramente.
+
+Aquí está el CSS revisado:
+
+- **Codigo Ejm**
+
+  ```html
+  <link href="styles.css" rel="stylesheet">
+
+  <div class="container">
+    <span class="inline-block-element element1">Span element</span>
+    <span class="inline-block-element element2">Span element</span>
+  </div>
+  ```
+
+  ```css
+  .inline-block-element {
+    width: 150px;
+    height: 100px;
+  }
+  
+  .element1 {
+    background-color: lightblue;
+  }
+  
+  .element2 {
+    background-color: lightgreen;
+  }
+  ```
