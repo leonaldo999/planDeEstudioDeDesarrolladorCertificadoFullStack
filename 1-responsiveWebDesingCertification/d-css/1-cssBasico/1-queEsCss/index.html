@@ -30,6 +30,7 @@
     content="Aprende qué es CSS, su papel en la web y cómo usarlo para crear sitios atractivos y responsivos. Ejemplos, cuestionarios y buenas prácticas.">
   <title>Qué es CSS</title>
   <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -98,11 +99,18 @@
       </li>
       <li>
         <a href="#quest8" onclick="closeNavMobile()" tabindex="0">❓ Quest 8</a>
+      </li>
       <li>
         <a href="#tema9" onclick="closeNavMobile()" tabindex="0">💻 Tema 9</a>
       </li>
       <li>
         <a href="#quest9" onclick="closeNavMobile()" tabindex="0">❓ Quest 9</a>
+      </li>
+      <li>
+        <a href="#tema10" onclick="closeNavMobile()" tabindex="0">💻 Tema 10</a>
+      </li>
+      <li>
+        <a href="#quest10" onclick="closeNavMobile()" tabindex="0">❓ Quest 10</a>
       </li>
     </ul>
   </nav>
@@ -3230,28 +3238,36 @@ body {
         otros elementos de la página.
       </p>
       <p>
-        En esta lección, nos centraremos en cómo funciona la propiedad <mark><code>inline-block</code></mark> y en qué se diferencia de los
+        En esta lección, nos centraremos en cómo funciona la propiedad <mark><code>inline-block</code></mark> y en qué
+        se diferencia de los
         elementos inline y de nivel de bloque.
       </p>
       <p>
-        Los elementos de nivel de bloque se comportan como grandes contenedores o <mark>bloques</mark> que ocupan todo el ancho de
+        Los elementos de <mark><code>Block-level</code></mark> se comportan como grandes contenedores o
+        <mark>bloques</mark> que ocupan todo
+        el ancho de
         su contenedor principal. Siempre comienzan en una nueva línea y su altura y anchura se pueden ajustar.
       </p>
       <p>
-        Los elementos inline solo ocupan el espacio que necesitan. Fluyen dentro del contenido circundante y no se
+        Los elementos <mark><code>inline</code></mark> solo ocupan el espacio que necesitan. Fluyen dentro del contenido
+        circundante y no se
         dividen en una nueva línea.
       </p>
       <p>
-        La propiedad <mark><code>inline-block</code></mark> es un híbrido de estos dos comportamientos. Al igual que los elementos inline, los
-        elementos <mark><code>inline-block</code></mark> permanecen en el flujo del texto sin comenzar en una nueva línea.
+        La propiedad <mark><code>inline-block</code></mark> es un híbrido de estos dos comportamientos. Al igual que los
+        elementos inline, los
+        elementos <mark><code>inline-block</code></mark> permanecen en el flujo del texto sin comenzar en una nueva
+        línea.
       </p>
       <p>
         Sin embargo, a diferencia de los elementos inline, se puede ajustar el ancho y el alto de un elemento
-        inline-block, tal y como se haría con los elementos de nivel de bloque.
+        <mark><code>inline-block</code></mark>, tal y como se haría con los elementos de nivel de bloque.
       </p>
       <p>
-        En resumen, la diferencia clave entre inline e inline-block es que el tamaño de los elementos inline no se puede
-        controlar, mientras que los elementos inline-block permiten un control total sobre las dimensiones sin dejar de
+        En resumen, la diferencia clave entre <mark><code>inline</code></mark> e <mark><code>inline-block</code></mark>
+        es que el tamaño de los elementos <mark><code>inline</code></mark> no se puede
+        controlar, mientras que los elementos <mark><code>inline-block</code></mark> permiten un control total sobre las
+        dimensiones sin dejar de
         estar alineados con el resto del contenido.
       </p>
       <p>
@@ -3331,6 +3347,933 @@ body {
         </div>
       </div>
 
+      <p>
+        En el ejemplo anterior, tenemos un div con una clase de contenedor. Dentro de ese elemento div, tenemos dos
+        elementos span.
+      </p>
+      <p>
+        Cada uno de los elementos span está configurado para mostrarse como inline-block y también tiene un ancho y una
+        altura establecidos.
+      </p>
+      <p>
+        Los elementos inline-block aparecerán uno al lado del otro porque se comportan como elementos inline, pero
+        también tienen un ancho y una altura específicos, lo que les da propiedades similares a las de los elementos
+        block.
+      </p>
+      <p>
+        Sin embargo, si eliminas la propiedad display: inline-block, no se aplicarán ni el ancho ni el alto, aunque los
+        hayas definido claramente.
+      </p>
+      <p>
+        Aquí está el CSS revisado:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;div class="inline-block-element element1"&gt;
+                  &lt;span class="inline-block-element element1"&gt;Inline-Block&lt;/span&gt;
+                  &lt;span class="inline-block-element element2"&gt;Inline-Block&lt;/span&gt;
+                &lt;/div&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                .inline-block-element {
+                  width: 150px;
+                  height: 100px;
+                }
+                
+                .element1 {
+                  background-color: lightblue;
+                }
+                
+                .element2 {
+                  background-color: lightgreen;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .inline-block-elements {
+                  width: 150px;
+                  height: 100px;
+                }
+
+                .element1 {
+                  background-color: lightblue;
+                }
+
+                .element2 {
+                  background-color: lightgreen;
+                }
+              </style>
+
+              <div class="container">
+                <span class="inline-block-elements element1">Inline-Block</span>
+                <span class="inline-block-elements element2">Inline-Block</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, hemos eliminado la propiedad display: inline-block; pero hemos mantenido todo lo demás intacto.
+        Aquí, los elementos span vuelven a su comportamiento predeterminado como elementos en línea.
+      </p>
+      <p>
+        Como resultado, se ignoran el ancho y el alto especificados, y los elementos solo ocupan el espacio necesario
+        para su contenido.
+      </p>
+      <p>
+        Es útil comprender cómo funciona inline-block, ya que se puede utilizar para crear diseños que requieren tanto
+        alineación como control de dimensiones dentro de un flujo de texto continuo.
+      </p>
+
+    </section>
+
+    <section id="quest9" aria-label="Cuestionario 9">
+
+      <h2>🧠 Cuestionario 9</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la característica clave de un elemento en inline-block que lo distingue de un elemento en línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest25" tabindex="0">
+            Los elementos de inline-block no se pueden anidar dentro de elementos de bloque.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest25" tabindex="0">
+            Los elementos de inline-block abarcan automáticamente todo el ancho de su contenedor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest25" tabindex="0">
+            <!-- correcto -->
+            Los elementos de inline-block permiten configurar la altura y el ancho, a diferencia de los elementos en
+            línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest25" tabindex="0">
+            Los elementos de inline-block siempre se dividen en una nueva línea.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué escenario es el más adecuado para utilizar elementos inline-block en lugar de elementos inline o block?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest26" tabindex="0">
+            Cuando necesitas que un elemento ocupe todo el ancho de su contenedor principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest26" tabindex="0">
+            <!-- correcto -->
+            Cuando quieres que un elemento permanezca en línea, pero necesitas ajustar su tamaño.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest26" tabindex="0">
+            Cuando necesitas que un elemento siempre comience en una nueva línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest26" tabindex="0">
+            Cuando no quieres que un elemento se vea afectado por el relleno y los márgenes.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situación un elemento con display: inline-block; se comportaría de manera diferente a uno con
+            display: block;?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest27" tabindex="0">
+            Cuando necesitas que el elemento ocupe todo el ancho del contenedor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest27" tabindex="0">
+            <!-- correcto -->
+            Cuando se desea que el elemento fluya junto con el texto y otros elementos en línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest27" tabindex="0">
+            Cuando necesites que el elemento comience automáticamente en una nueva línea.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest27" tabindex="0">
+            Cuando no quieres que el elemento tenga ninguna propiedad de altura o anchura.
+          </label>
+        </fieldset>
+      </form>
+
+    </section>
+
+    <section id="tema10" aria-label="¿Qué son los Margins y Padding, y cómo funcionan?">
+
+      <h2>¿Qué son los Margins y Padding, y cómo funcionan?</h2>
+
+      <p>
+        Los Margins y Padding son propiedades esenciales en CSS para crear páginas web bien estructuradas, legibles
+        y visualmente atractivas.
+      </p>
+      <p>
+        Los Margins controlan el espacio exterior a un elemento, lo que ayuda a separarlo de otros elementos y a
+        definir la estructura del diseño, mientras que el Padding controla el espacio interior a un elemento, lo que
+        mejora la legibilidad del contenido y el atractivo estético.
+      </p>
+      <p>
+        Para comprender mejor las diferencias entre el Margins y Padding, veamos algunos ejemplos.
+      </p>
+      <p>
+        Aquí hay un ejemplo HTML de tres elementos de párrafo en la página:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;Paragraph one&lt;/p&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;p&gt;Paragraph three&lt;/p&gt;
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <p>Paragraph one</p>
+              <p>Paragraph two</p>
+              <p>Paragraph three</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para aplicar espaciado a la parte superior de cada elemento de párrafo, puede utilizar la propiedad
+        <code>margin-top</code> de la siguiente manera:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;p&gt;Paragraph one&lt;/p&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;p&gt;Paragraph three&lt;/p&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin-top: 20px;
+                  border: 2px solid black;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .m-p {
+                  margin-top: 20px;
+                  border: 2px solid black;
+                }
+              </style>
+
+              <p class="m-p">Paragraph one</p>
+              <p class="m-p">Paragraph two</p>
+              <p class="m-p">Paragraph three</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, estamos aplicando un margen de <mark><code>20px</code></mark> solo a la parte superior de cada
+        elemento de párrafo.
+      </p>
+      <p>
+        También tenemos un borde negro sólido en los cuatro lados para que puedas ver mejor el margen.
+      </p>
+      <p>
+        Las cuatro propiedades de <mark><code>margin</code></mark> diferentes son <mark><code>margin-top</code></mark>,
+        <mark><code>margin-right</code></mark>, <mark><code>margin-bottom</code></mark> y
+        <mark><code>margin-left</code></mark>.
+      </p>
+      <p>
+        Aquí tienes un ejemplo del uso de las cuatro propiedades:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin-top: 10px;
+                  margin-right: 20px;
+                  margin-bottom: 30px;
+                  margin-left: 40px;
+                  border: 2px solid black;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .m-p-a {
+                  margin-top: 10px;
+                  margin-right: 20px;
+                  margin-bottom: 30px;
+                  margin-left: 40px;
+                  border: 2px solid black;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="m-p-a">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, estamos asignando valores de espaciado en los cuatro lados del elemento párrafo. También se ha
+        añadido un borde negro sólido para que puedas ver mejor los márgenes.
+      </p>
+      <p>
+        Otra forma de utilizar la propiedad <mark><code>margin</code></mark> es con la notación abreviada. Puedes
+        especificar uno, dos, tres o
+        cuatro valores a la vez. Exploremos estas opciones juntos.
+      </p>
+      <p>
+        Cuando se utiliza un valor único en la notación abreviada del <mark><code>margin</code></mark>, ese valor exacto
+        se aplicará a los cuatro
+        lados del elemento de destino.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de un valor único en la notación abreviada del
+        <mark><code>margin</code></mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin: 10px;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .m-p-b {
+                  margin: 10px;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="m-p-b">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este ejemplo de código aplicará un <mark><code>margin</code></mark> de <mark><code>10px</code></mark> por igual
+        a los cuatro lados del elemento párrafo.
+      </p>
+      <p>
+        Cuando se utilizan dos valores, el primero se aplica a la parte superior(<mark><code>margin-top</code></mark>) e
+        inferior(<mark><code>margin-bottom</code></mark>), mientras que el segundo se aplica a los lados
+        izquierdo(<mark><code>margin-left</code></mark>) y
+        derecho(<mark><code>margin-right</code></mark>) del elemento.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de dos valores para la abreviatura de
+        <mark><code>margin</code></mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin: 10px 20px;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .m-p-c {
+                  margin: 10px 20px;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="m-p-c">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establece los márgenes superior(<mark><code>margin-top</code></mark>) e
+        inferior(<mark><code>margin-bottom</code></mark>) en <mark><code>10px</code></mark>, y los márgenes
+        izquierdo(<mark><code>margin-left</code></mark>) y derecho(<mark><code>margin-right</code></mark>) en
+        <mark><code>20px</code></mark>
+        para el elemento de párrafo.
+      </p>
+      <p>
+        Si se proporcionan tres valores, el primer valor se aplica al margen
+        superior(<mark><code>margin-top</code></mark>), el segundo valor a los márgenes
+        izquierdo(<mark><code>margin-left</code></mark>) y derecho(<mark><code>margin-right</code></mark>), y el tercer
+        valor al margen inferior(<mark><code>margin-bottom</code></mark>).
+      </p>
+      <p>
+        Aquí hay un ejemplo para comprenderlo mejor:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin: 10px 20px 30px;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .m-p-d {
+                  margin: 10px 20px 30px;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="m-p-d">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establece el margin en <mark><code>10px</code></mark> para la parte <mark><code>top</code></mark>,
+        <mark><code>20px</code></mark> para la <mark><code>left</code></mark> y la
+        <mark><code>right</code></mark>, y <mark><code>30px</code></mark> para la parte
+        <mark><code>bottom</code></mark>.
+      </p>
+      <p>
+        Al utilizar cuatro valores, se obtiene un mayor control, ya que se puede especificar de forma independiente cada
+        valor de margen para cada lado del elemento de destino.
+      </p>
+      <p>
+        El primer valor se aplica a la parte <mark><code>top</code></mark>, el segundo a la
+        <mark><code>right</code></mark>, el tercero a la parte <mark><code>bottom</code></mark> y el cuarto al
+        <mark><code>left</code></mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de la abreviatura de margen con cuatro valores:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css
+              </button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  margin: 10px 20px 30px 40px;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .m-p-e {
+                  margin: 10px 20px 30px 40px;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="m-p-e">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establece el <mark><code>margin</code></mark> en <mark><code>10px</code></mark> para la parte
+        <mark><code>top</code></mark>, <mark><code>20px</code></mark> para la <mark><code>right</code></mark>,
+        <mark><code>30px</code></mark> para la parte <mark><code>bottom</code></mark> y <mark><code>40px</code></mark>
+        para la <mark><code>left</code></mark>.
+      </p>
+      <p>
+        La propiedad <mark><code>padding</code></mark> se utiliza para aplicar espacio dentro del elemento, entre el
+        contenido y su borde.
+      </p>
+      <p>
+        Al igual que la propiedad <mark><code>margin</code></mark>, las cuatro propiedades
+        <mark><code>padding</code></mark> son <mark><code>padding-top</code></mark>,
+        <mark><code>padding-right</code></mark>, <mark><code>padding-bottom</code></mark>
+        y <mark><code>padding-left</code></mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo establecer el <mark><code>padding</code></mark> para un elemento de
+        párrafo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  padding-top: 10px;
+                  padding-right: 20px;
+                  padding-bottom: 30px;
+                  padding-left: 40px;
+                  border: 2px solid black;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .p-p {
+                  padding-top: 10px;
+                  padding-right: 20px;
+                  padding-bottom: 30px;
+                  padding-left: 40px;
+                  border: 2px solid black;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="p-p">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establece el <mark><code>padding</code></mark> en <mark><code>10px</code></mark> para la parte
+        <mark><code>top</code></mark>, <mark><code>20px</code></mark> para la <mark><code>right</code></mark>,
+        <mark><code>30px</code></mark> para la parte <mark><code>bottom</code></mark> y <mark><code>40px</code></mark>
+        para
+        la <mark><code>left</code></mark>.
+      </p>
+      <p>
+        Como puede ver, el <mark><code>padding</code></mark> se aplica al contenido que se encuentra dentro del borde, a
+        diferencia del <mark><code>margin</code></mark>,
+        que se aplica fuera del borde.
+      </p>
+      <p>
+        Al igual que la propiedad <mark><code>margin</code></mark>, también puede optar por utilizar la propiedad
+        abreviada para la propiedad
+        <mark><code>padding</code></mark>.
+      </p>
+      <p>
+        También puede especificar uno, dos, tres o cuatro valores en la propiedad abreviada
+        <mark><code>padding</code></mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de la propiedad abreviada <mark><code>padding</code></mark> para el
+        elemento párrafo
+        anterior:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+                &lt;span&gt;Paragraph one&lt;/span&gt;
+                &lt;p&gt;Paragraph two&lt;/p&gt;
+                &lt;span&gt;Paragraph three&lt;/span&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                p {
+                  padding: 10px 20px 30px 40px;
+                  border: 2px solid black;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .p-i {
+                  padding: 10px 20px 30px 40px;
+                  border: 2px solid black;
+                }
+              </style>
+
+              <span>Paragraph one</span>
+              <p class="p-i">Paragraph two</p>
+              <span>Paragraph three</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo, utilizando la abreviatura, el código establecerá el <mark><code>padding</code></mark> en
+        <mark><code>10px</code></mark> para la parte <mark><code>top</code></mark>, <mark><code>20px</code></mark> para
+        la <mark><code>right</code></mark>, <mark><code>30px</code></mark> para la parte
+        <mark><code>bottom</code></mark> y <mark><code>40px</code></mark> para la <mark><code>left</code></mark> del
+        elemento de <mark><code>p</code></mark>.
+      </p>
+
+    </section>
+
+    <section id="quest10" aria-label="Cuestionario 10">
+
+      <h2>🧠 Cuestionario 10</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS utilizarías para crear espacio entre el borde de un elemento y los elementos adyacentes?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest28" tabindex="0">
+            padding
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest28" tabindex="0">
+            border
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest28" tabindex="0">
+            <!-- correcto -->
+            margin
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest28" tabindex="0">
+            width
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS utilizarías para crear espacio entre el contenido de un elemento y su borde?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest29" tabindex="0">
+            <!-- correcto -->
+            padding
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest29" tabindex="0">
+            margin
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest29" tabindex="0">
+            border
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest29" tabindex="0">
+            height
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el orden correcto de los valores cuando se utiliza la propiedad abreviada para el margin o el padding con cuatro valores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest30" tabindex="0">
+            left, right, top, bottom.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest30" tabindex="0">
+            top, left, bottom, right.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest30" tabindex="0">
+            <!-- correcto -->
+            top, right, bottom, left.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest30" tabindex="0">
+            right, bottom, left, top.
+          </label>
+        </fieldset>
+
+      </form>
+
     </section>
 
   </main>
@@ -3340,10 +4283,9 @@ body {
     🚀
   </button>
 
-  <script src="./script.js"></script>
 
   <footer>
-    &copy; 2025 Curso CSS. Todos los derechos reservados.
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
   </footer>
 
 </body>

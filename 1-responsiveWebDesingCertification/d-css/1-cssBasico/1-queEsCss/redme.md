@@ -1106,7 +1106,7 @@ La propiedad `inline-block` es un híbrido de estos dos comportamientos. Al igua
 
 Sin embargo, a diferencia de los elementos inline, se puede ajustar el ancho y el alto de un elemento `inline-block`, tal y como se haría con los elementos de nivel de bloque.
 
-En resumen, la diferencia clave entre inline e inline-block es que el tamaño de los elementos inline no se puede controlar, mientras que los elementos inline-block permiten un control total sobre las dimensiones sin dejar de estar alineados con el resto del contenido.
+En resumen, la diferencia clave entre `inline` e `inline-block` es que el tamaño de los elementos `inline` no se puede controlar, mientras que los elementos `inline-block` permiten un control total sobre las dimensiones sin dejar de estar alineados con el resto del contenido.
 
 Veamos un ejemplo.
 
@@ -1137,7 +1137,7 @@ Veamos un ejemplo.
   }
   ```
   
-  En el ejemplo anterior, tenemos un div con una clase de contenedor. Dentro de ese elemento div, tenemos dos elementos span.
+En el ejemplo anterior, tenemos un div con una clase de contenedor. Dentro de ese elemento div, tenemos dos elementos span.
 
 Cada uno de los elementos span está configurado para mostrarse como inline-block y también tiene un ancho y una altura establecidos.
 
@@ -1172,3 +1172,277 @@ Aquí está el CSS revisado:
     background-color: lightgreen;
   }
   ```
+
+En este código, hemos eliminado la propiedad display: inline-block; pero hemos mantenido todo lo demás intacto. Aquí, los elementos span vuelven a su comportamiento predeterminado como elementos en línea.
+
+Como resultado, se ignoran el ancho y el alto especificados, y los elementos solo ocupan el espacio necesario para su contenido.
+
+Es útil comprender cómo funciona inline-block, ya que se puede utilizar para crear diseños que requieren tanto alineación como control de dimensiones dentro de un flujo de texto continuo.
+
+---
+
+## Cuestionario 9
+
+- **1.¿Cuál es la característica clave de un elemento en inline-block que lo distingue de un elemento en línea?**
+
+  - [ ] a) Los elementos de inline-block no se pueden anidar dentro de elementos de bloque.
+  - [ ] b) Los elementos de inline-block abarcan automáticamente todo el ancho de su contenedor.
+  - [x] c) Los elementos de inline-block permiten configurar la altura y el ancho, a diferencia de los elementos en línea. //correcto
+  - [ ] d) Los elementos de inline-block siempre se dividen en una nueva línea.
+
+- **2.¿Qué escenario es el más adecuado para utilizar elementos `inline-block` en lugar de elementos `inline` o `block`?**
+
+  - [ ] a) Cuando necesitas que un elemento ocupe todo el ancho de su contenedor principal.
+  - [x] b) Cuando quieres que un elemento permanezca en línea, pero necesitas ajustar su tamaño. //correcto
+  - [ ] c) Cuando necesitas que un elemento siempre comience en una nueva línea.
+  - [ ] d) Cuando no quieres que un elemento se vea afectado por el relleno y los márgenes.
+
+- **3.¿En qué situación un elemento con `display: inline-block;` se comportaría de manera diferente a uno con `display: block;`?**
+
+  - [ ] a) Cuando necesitas que el elemento ocupe todo el ancho del contenedor.
+  - [x] b) Cuando se desea que el elemento fluya junto con el texto y otros elementos en línea. //correcto
+  - [ ] c) Cuando necesites que el elemento comience automáticamente en una nueva línea.
+  - [ ] d) Cuando no quieres que el elemento tenga ninguna propiedad de altura o anchura.
+
+---
+
+## ¿Qué son los Margins y Padding, y cómo funcionan?
+
+Los Margins y Padding son propiedades esenciales en CSS para crear páginas web bien estructuradas, legibles y visualmente atractivas.
+
+Los Margins controlan el espacio exterior a un elemento, lo que ayuda a separarlo de otros elementos y a definir la estructura del diseño, mientras que el Padding controla el espacio interior a un elemento, lo que mejora la legibilidad del contenido y el atractivo estético.
+
+Para comprender mejor las diferencias entre el Margins y Padding, veamos algunos ejemplos.
+
+Aquí hay un ejemplo HTML de tres elementos de párrafo en la página:
+
+- **Codigo Ejm**
+
+  ```html
+  <p>Paragraph one</p>
+  <p>Paragraph two</p>
+  <p>Paragraph three</p>
+  ```
+
+Para aplicar espaciado a la parte superior de cada elemento de párrafo, puede utilizar la propiedad `margin-top` de la siguiente manera:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <p>Paragraph one</p>
+  <p>Paragraph two</p>
+  <p>Paragraph three</p>
+  ```
+
+  ```css
+  p {
+    margin-top: 20px;
+    border: 2px solid black;
+  }
+  ```
+
+En este ejemplo, estamos aplicando un margen de `20px` solo a la parte superior de cada elemento de párrafo.
+
+También tenemos un borde negro sólido en los cuatro lados para que puedas ver mejor el margen.
+
+Las cuatro propiedades de `margin` diferentes son `margin-top`, `margin-right`, `margin-bottom` y `margin-left`.
+
+Aquí tienes un ejemplo del uso de las cuatro propiedades:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    border: 2px solid black;
+  }
+  ```
+
+En este ejemplo, estamos asignando valores de espaciado en los cuatro lados del elemento párrafo. También se ha añadido un borde negro sólido para que puedas ver mejor los márgenes.
+
+Otra forma de utilizar la propiedad `margin` es con la notación abreviada. Puedes especificar uno, dos, tres o cuatro valores a la vez. Exploremos estas opciones juntos.
+
+Cuando se utiliza un valor único en la notación abreviada del `margin`, ese valor exacto se aplicará a los cuatro lados del elemento de destino.
+
+A continuación se muestra un ejemplo del uso de un valor único en la notación abreviada del `margin`:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    margin: 10px;
+  }
+  ```
+
+Este ejemplo de código aplicará un `margin` de `10px` por igual a los cuatro lados del elemento párrafo.
+
+Cuando se utilizan dos valores, el primero se aplica a la parte superior(`margin-top`) e inferior(`margin-bottom`), mientras que el segundo se aplica a los lados izquierdo(`margin-left`) y derecho(`margin-right`) del elemento.
+
+A continuación se muestra un ejemplo del uso de dos valores para la abreviatura de `margin`:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    margin: 10px 20px;
+  }
+  ```
+
+Esto establece los márgenes superior(`margin-top`) e inferior(`margin-bottom`) en 10 píxeles, y los márgenes izquierdo(`margin-left`) y derecho(`margin-right`) en 20 píxeles para el elemento de párrafo.
+
+Si se proporcionan tres valores, el primer valor se aplica al margen superior(`top`), el segundo valor a los márgenes izquierdo(`left`) y derecho(`right`), y el tercer valor al margen inferior(`bottom`).
+
+Aquí hay un ejemplo para comprenderlo mejor:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    margin: 10px 20px 30px;
+  }
+  ```
+
+Esto establece el margin en 10 píxeles para la parte superior(`top`), 20 píxeles para la izquierda(`left`) y la derecha(`right`), y 30 píxeles para la parte inferior(`bottom`).
+
+Al utilizar cuatro valores, se obtiene un mayor control, ya que se puede especificar de forma independiente cada valor de margen para cada lado del elemento de destino.
+
+El primer valor se aplica a la parte `top`, el segundo a la `right`, el tercero a la parte `bottom` y el cuarto a la `left`.
+
+A continuación se muestra un ejemplo del uso de la abreviatura de margen con cuatro valores:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    margin: 10px 20px 30px 40px;
+  }
+  ```
+
+Esto establece el `margin` en `10px` para la parte `top`, `20px` para la `right`, `30px` para la parte `bottom` y `40px` para la `left`.
+
+La propiedad `padding` se utiliza para aplicar espacio dentro del elemento, entre el contenido y su borde.
+
+Al igual que la propiedad `margin`, las cuatro propiedades `padding` son `padding-top`, `padding-right`, `padding-bottom` y `padding-left`.
+
+A continuación se muestra un ejemplo de cómo establecer el `padding` para un elemento de párrafo:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    border: 2px solid black;
+  }
+  ```
+
+Esto establece el `padding` en `10px` para la parte `top`, `20px` para la `right`, `30px` para la parte `bottom` y `40px` para la `left`.
+
+Como puede ver, el `padding` se aplica al contenido que se encuentra dentro del borde, a diferencia del `margin`, que se aplica fuera del borde.
+
+Al igual que la propiedad `margin`, también puede optar por utilizar la propiedad abreviada para la propiedad `padding`.
+
+También puede especificar uno, dos, tres o cuatro valores en la propiedad abreviada `padding`.
+
+A continuación se muestra un ejemplo del uso de la propiedad abreviada `padding` para el elemento párrafo anterior:
+
+- **Codigo Ejm**
+
+  ```html
+  <link rel="stylesheet" href="styles.css">
+
+  <span>Paragraph one</span>
+  <p>Paragraph two</p>
+  <span>Paragraph three</span>
+  ```
+
+  ```css
+  p {
+    padding: 10px 20px 30px 40px;
+    border: 2px solid black;
+  }
+  ```
+
+En el ejemplo, utilizando la abreviatura, el código establecerá el `padding` en `10px` para la parte `top`, `20px` para la `right`, `30px` para la parte `bottom` y `40px` para la `left` del elemento de `p`.
+  
+---
+
+## Cuestionario 10
+
+- **1.¿Qué propiedad CSS utilizarías para crear espacio entre el borde de un elemento y los elementos adyacentes?**
+
+  - [ ] a) `padding`
+  - [ ] b) `border`
+  - [x] c) `margin` //correcto
+  - [ ] d) `width`
+
+- **2.¿Qué propiedad CSS utilizarías para crear espacio entre el contenido de un elemento y su borde?**
+
+  - [x] a) `padding` //correcto
+  - [ ] b) `margin`
+  - [ ] c) `border`
+  - [ ] d) `height`
+
+- **3.¿Cuál es el orden correcto de los valores cuando se utiliza la propiedad abreviada para el `margin` o el `padding` con cuatro valores?**
+
+  - [ ] a) left, right, top, bottom.
+  - [ ] b) top, left, bottom, right.
+  - [x] c) top, right, bottom, left. //correcto
+  - [ ] d) right, bottom, left, top.
+
+---
