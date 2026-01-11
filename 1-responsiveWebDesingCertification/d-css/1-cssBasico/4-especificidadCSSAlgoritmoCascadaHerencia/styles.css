@@ -156,6 +156,10 @@ body::before {
 	filter: drop-shadow(0 0 20px rgba(103, 232, 249, 0.6));
 	animation: pulse 2s ease-in-out infinite;
 }
+.logo:hover {
+	filter: drop-shadow(0 0 30px rgba(103, 232, 249, 0.8));
+	animation: pulse 1.5s ease-in-out infinite;
+}
 
 @keyframes pulse {
 	0%,
@@ -189,7 +193,7 @@ body::before {
 	border-radius: var(--border-radius);
 	padding: 1rem;
 	position: sticky;
-	top: 1rem;
+	top: 0.5rem;
 	z-index: 1000;
 	box-shadow: var(--shadow-soft);
 }
@@ -330,6 +334,10 @@ section::before {
 	height: 1px;
 	background: var(--accent-gradient);
 }
+section:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-soft), 0 0 30px rgba(103, 232, 249, 0.2);
+}
 section:target {
 	outline: 1px solid rgba(255, 255, 255, 0.15);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
@@ -360,47 +368,39 @@ section p mark {
 	padding: 0.3rem 0.8rem;
 	border-radius: 0.5rem;
 	font-weight: 500;
+	font-family: var(--sp-font-code);
 	box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
 }
 
-/* =====================
-	LISTAS EN SECCIÓN
-	===================== */
-.lis {
-	list-style: square;
-	padding-left: 1.5rem;
-	margin-bottom: 1.5rem;
-	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 10px;
+/* ====================
+LISTA DENTRO DE SECCIÓN
+===================== */
+.info-box {
+	background: #cddaff;
+	border: 1.5px solid #bae9ff;
+	padding: 15px 20px;
+	border-radius: 8px;
+	box-shadow: 0 1.5px 6px #0048ff33 inset;
+	color: #045885;
+	font-size: 1rem;
+	margin: 20px auto;
+	max-width: 600px;
 }
-.lis li {
-	margin: 0.5rem 0 0.7rem 0;
-	color: var(--text-secondary);
-	font-size: 1.1rem;
-	line-height: 1.6;
+.info-box .list-box {
+	margin-left: 20px;
 }
-.lis li strong {
-	color: yellow;
-	font-weight: 600;
-	background: rgba(255, 255, 255, 0.1);
-	padding: 0.2rem 0.5rem;
-	border-radius: 0.3rem;
+.info-box .list-box .list {
+	list-style-type: disc;
+	margin-bottom: 6px;
 }
-.lis li mark {
-	background: var(--accent-gradient);
-	color: rgb(22, 21, 21);
-	padding: 0.3rem 0.8rem;
-	border-radius: 0.5rem;
+.info-box .list-box .list mark {
+	background: #97bce7;
+	color: #040154;
+	padding: 0.2rem 0.6rem;
+	border-radius: 0.4rem;
+	font-family: var(--sp-font-code);
 	font-weight: 500;
-}
-.lis li code {
-	background: rgba(0, 204, 255, 0.1);
-	color: #00ccff;
-	padding: 0.2rem 0.5rem;
-	border-radius: 0.3rem;
-	font-family: "JetBrains Mono", monospace;
-	font-size: 0.95rem;
+	box-shadow: 0 1px 4px #7c3bff33;
 }
 
 /* =====================
@@ -434,7 +434,7 @@ fieldset:focus-within {
 legend {
 	font-size: 1.15rem;
 	font-weight: 600;
-	color: var(--text-primary);
+	color: var(--text-dark);
 	background: var(--accent-gradient);
 	padding: 0.4rem 1.2rem;
 	border-radius: 1rem;
@@ -478,11 +478,21 @@ input[type="radio"]:checked {
 /* =====================
 	PRE DENTRO DE FORMULARIOS
 	===================== */
+form fieldset legend mark {
+	background: var(--accent-gradient);
+	color: rgb(22, 21, 21);
+	padding: 0.3rem 0.8rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	font-family: var(--sp-font-code);
+	box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+}
+form fieldset legend pre,
 form fieldset label pre {
 	background: linear-gradient(100deg, #181c2b 60%, #232b3a 100%);
 	color: #b3e5fc;
 	border-radius: 10px;
-	border: 1.5px solid #00ccff33;
+	border: 1.5px solid #0e101033;
 	font-family: "JetBrains Mono", "Fira Mono", "Consolas", "Courier New", Courier,
 		monospace;
 	font-size: 0.98em;
@@ -495,6 +505,7 @@ form fieldset label pre {
 	max-width: 95%;
 	white-space: pre-line;
 }
+form fieldset legend pre code,
 form fieldset label pre code {
 	color: #b3e5fc;
 	background: none;
@@ -688,7 +699,6 @@ form fieldset label:focus-within pre {
 	width: 100%;
 	height: 100%;
 	background-color: #f4f4f4;
-	color: black;
 	/* Simula el body */
 	font-family: "Segoe UI", sans-serif;
 	padding: 1rem;
@@ -862,12 +872,4 @@ footer {
 		opacity: 1;
 		transform: translateY(0);
 	}
-}
-section:hover {
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-soft), 0 0 30px rgba(103, 232, 249, 0.2);
-}
-.logo:hover {
-	filter: drop-shadow(0 0 30px rgba(103, 232, 249, 0.8));
-	animation: pulse 1.5s ease-in-out infinite;
 }
