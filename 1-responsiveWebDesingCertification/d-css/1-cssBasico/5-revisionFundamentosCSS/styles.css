@@ -1,0 +1,458 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN Y VARIABLES
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+	--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+	--glass-bg: rgba(255, 255, 255, 0.03);
+	--glass-border: rgba(255, 255, 255, 0.15);
+	--glass-blur: blur(20px);
+	--text-primary: #ffffff;
+	--text-secondary: #e0e6ed;
+	--bg-primary: #0f0f23;
+	--accent-blue: #00ccff;
+	--border-radius: 20px;
+	--border-radius-small: 12px;
+	--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	/* Variables nuevas para el IDE */
+	--ide-bg: #0d0d1a;
+	--ide-tab-active: rgba(0, 204, 255, 0.1);
+}
+
+/* ==========================================================================
+   2. RESET Y BASE
+   ========================================================================== */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	background: var(--bg-primary);
+	color: var(--text-secondary);
+	line-height: 1.7;
+	overflow-x: hidden;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: radial-gradient(
+			circle at 20% 80%,
+			rgba(120, 119, 198, 0.3),
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 80% 20%,
+			rgba(255, 119, 198, 0.3),
+			transparent 50%
+		);
+	z-index: -1;
+	animation: bgFloat 20s ease-in-out infinite;
+}
+
+code {
+	font-family: "JetBrains Mono", monospace;
+	background: rgba(0, 204, 255, 0.15);
+	color: var(--accent-blue);
+	padding: 0.1rem 0.4rem;
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+/* ==========================================================================
+   3. LAYOUT (HEADER Y NAV)
+   ========================================================================== */
+.header {
+	margin: 1rem;
+	padding: 2.5rem 1rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius);
+	text-align: center;
+}
+
+.logo {
+	width: 70px;
+	height: auto;
+	filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.5));
+	margin-bottom: 1rem;
+}
+
+.nav {
+	position: sticky;
+	top: 1rem;
+	z-index: 1000;
+	margin: 1rem;
+	padding: 0.8rem;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius);
+}
+
+.nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.nav ul li a {
+	display: block;
+	padding: 0.7rem 1.2rem;
+	color: var(--text-secondary);
+	text-decoration: none;
+	border-radius: var(--border-radius-small);
+	transition: var(--transition);
+}
+
+.nav ul li a:hover {
+	background: var(--accent-gradient);
+	color: #1a1a1a;
+	font-weight: 600;
+}
+
+/* Estilo del botón hamburguesa */
+.hamburger {
+	display: none; /* Oculto por defecto en desktop */
+	background: none;
+	border: none;
+	color: var(--accent-blue); /* Usa tu azul neón */
+	cursor: pointer;
+	padding: 5px;
+	z-index: 1100;
+	transition: var(--transition);
+}
+
+.hamburger-icon {
+	width: 35px; /* Tamaño definido */
+	height: 35px;
+	display: block;
+}
+
+/* Mostrar solo en pantallas pequeñas (Móvil) */
+@media (max-width: 767px) {
+	.nav {
+		display: flex;
+		justify-content: flex-end; /* Alinea el icono a la derecha */
+		align-items: center;
+		min-height: 50px;
+	}
+
+	.hamburger {
+		display: block; /* Aparece en móvil */
+	}
+
+	.nav ul {
+		display: none; /* Se oculta el menú horizontal */
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background: rgba(
+			15,
+			15,
+			35,
+			0.95
+		); /* Fondo sólido para que no transparente el texto */
+		backdrop-filter: blur(10px);
+		flex-direction: column;
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--glass-border);
+	}
+
+	.nav ul.active {
+		display: flex; /* Se muestra al activar con JS */
+	}
+}
+
+/* ==========================================================================
+   4. COMPONENTES (IDE INTERACTIVO) - NUEVA INTEGRACIÓN
+   ========================================================================== */
+.ide-container {
+	display: flex;
+	width: 100%;
+	max-width: 1000px;
+	height: 480px;
+	margin: 2rem auto;
+	background: var(--ide-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius-small);
+	overflow: hidden;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.ide-editor {
+	flex: 1.2;
+	display: flex;
+	flex-direction: column;
+	background: rgba(0, 0, 0, 0.2);
+	border-right: 1px solid var(--glass-border);
+}
+
+.editor-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.03);
+	height: 45px;
+	padding: 0 10px;
+	border-bottom: 1px solid var(--glass-border);
+}
+
+.tabs {
+	display: flex;
+	height: 100%;
+}
+
+.tab {
+	background: transparent;
+	border: none;
+	color: var(--text-secondary);
+	padding: 0 15px;
+	cursor: pointer;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 0.8rem;
+	opacity: 0.5;
+	transition: var(--transition);
+	border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+	opacity: 1;
+	color: var(--accent-blue);
+	border-bottom: 2px solid var(--accent-blue);
+	background: var(--ide-tab-active);
+}
+
+.editor-body {
+	flex: 1;
+	display: flex;
+	overflow: hidden;
+}
+
+.code-content {
+	display: none; /* Controlado por JS */
+	width: 100%;
+	height: 100%;
+}
+
+.code-content.active {
+	display: flex;
+}
+
+.line-numbers {
+	padding: 1.5rem 0.5rem;
+	background: rgba(0, 0, 0, 0.3);
+	color: #3e4451;
+	text-align: right;
+	min-width: 35px;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 12px;
+	user-select: none;
+	border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.line-numbers span {
+	display: block;
+}
+
+.ide-editor pre {
+	margin: 0;
+	padding: 1.5rem;
+	flex: 1;
+	background: transparent;
+	overflow-x: auto;
+}
+
+.ide-preview {
+	flex: 1;
+	background: #ffffff;
+	display: flex;
+	flex-direction: column;
+}
+
+.preview-result {
+	flex: 1;
+	padding: 20px;
+	color: #1a1a1a;
+	overflow-y: auto;
+}
+
+/* ==========================================================================
+   5. SECCIONES Y LISTAS
+   ========================================================================== */
+main {
+	max-width: 1000px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+section {
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius);
+	animation: fadeInUp 0.6s ease-out;
+	scroll-margin-top: 6rem;
+}
+
+section h2 {
+	margin-bottom: 1.5rem;
+	color: #fff;
+}
+
+.list-wrapper {
+	padding: 1.5rem;
+	margin: 1.5rem 0;
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: var(--border-radius-small);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lis li {
+	margin-bottom: 1rem;
+	position: relative;
+	padding-left: 1.5rem;
+	list-style: none;
+}
+
+.lis li::before {
+	content: "▹";
+	position: absolute;
+	left: 0;
+	color: var(--accent-blue);
+}
+
+.lis li strong {
+	color: #fff176;
+	font-weight: 600;
+}
+
+/* ==========================================================================
+   6. BLOQUES DE CÓDIGO SIMPLES (Gris Oscuro)
+   ========================================================================== */
+.codeEjm {
+	position: relative;
+	margin: 1.5rem 0;
+	background: #0d0d1a;
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius-small);
+	overflow: hidden;
+}
+
+.code-label {
+	padding: 8px 15px;
+	background: rgba(255, 255, 255, 0.05);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	border-bottom: 1px solid var(--glass-border);
+}
+
+.copy-btn,
+.copy-btn-mini {
+	background: var(--accent-gradient);
+	border: none;
+	border-radius: 4px;
+	color: #000;
+	cursor: pointer;
+	font-weight: 600;
+	transition: var(--transition);
+}
+
+.copy-btn {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	padding: 4px 10px;
+	font-size: 0.7rem;
+}
+
+.copy-btn-mini {
+	padding: 4px 10px;
+	font-size: 0.65rem;
+}
+
+/* ==========================================================================
+   7. FOOTER Y UTILIDADES
+   ========================================================================== */
+footer {
+	margin: 3rem 1rem 5rem 1rem;
+	padding: 2rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius);
+	text-align: center;
+}
+
+.to-top {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 50px;
+	height: 50px;
+	background: var(--accent-gradient);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 1000;
+	font-size: 1.2rem;
+	transition: var(--transition);
+	opacity: 0;
+	transform: scale(0.8);
+}
+
+@keyframes bgFloat {
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(-15px, 20px);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ==========================================================================
+   8. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+	.nav ul {
+		display: none;
+	} /* Manejado por JS hamburguesa */
+	.ide-container {
+		flex-direction: column;
+		height: auto;
+	}
+	.ide-editor {
+		height: 350px;
+		border-right: none;
+		border-bottom: 1px solid var(--glass-border);
+	}
+	.ide-preview {
+		height: 250px;
+	}
+	section {
+		padding: 1.5rem;
+	}
+}

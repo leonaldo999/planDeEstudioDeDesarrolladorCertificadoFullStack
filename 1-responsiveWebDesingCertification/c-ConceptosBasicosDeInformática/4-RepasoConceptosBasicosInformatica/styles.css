@@ -269,7 +269,7 @@ section {
 	box-shadow: var(--shadow-soft);
 	position: relative;
 	overflow: hidden;
-  animation: fadeInUp 0.6s ease-out;
+	animation: fadeInUp 0.6s ease-out;
 }
 
 section::before {
@@ -312,44 +312,56 @@ section p mark {
 }
 
 /* ====================
-  LISTA DENTRO DE SECCIÓN
-  ===================== */
-.lis {
-	list-style: square;
-	padding-left: 1.5rem;
-	margin-bottom: 1.5rem;
+  CONTENEDOR DE LA LISTA
+   ===================== */
+.list-wrapper {
 	background: rgba(255, 255, 255, 0.02);
 	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 10px;
+	border-radius: 12px;
+	padding: 1.5rem; /* Espacio interno para que la lista no toque los bordes */
+	margin-bottom: 2rem;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Toque extra de profundidad */
 }
+
+/* LA LISTA (UL) */
+.lis {
+	list-style: square;
+	padding-left: 1.2rem; /* Sangría para los puntos (bullets) */
+	margin: 0;
+}
+
+/* ELEMENTOS DE LISTA (LI) */
 .lis li {
-  margin: 0.5rem 0;
-  margin-bottom: 0.7rem;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.6;
+	margin-bottom: 1rem; /* Espacio entre cada punto */
+	color: var(--text-secondary);
+	font-size: 1.1rem;
+	line-height: 1.6;
 }
+
+/* ELEMENTOS INTERNOS (STRONG, MARK, CODE) */
 .lis li strong {
-  color: yellow;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.3rem;
+	color: #fff176; /* Un amarillo más suave */
+	font-weight: 600;
+	background: rgba(255, 255, 255, 0.08);
+	padding: 0.2rem 0.4rem;
+	border-radius: 4px;
 }
+
 .lis li mark {
-  background: var(--accent-gradient);
-  color: rgb(22, 21, 21);
-  padding: 0.3rem 0.8rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
+	background: var(--accent-gradient);
+	color: #1a1a1a;
+	padding: 0.1rem 0.5rem;
+	border-radius: 4px;
+	font-weight: 500;
 }
+
 .lis li code {
-  background: rgba(0, 204, 255, 0.1);
-  color: #00ccff;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.3rem;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.95rem;
+	background: rgba(0, 204, 255, 0.15);
+	color: #00ccff;
+	padding: 0.2rem 0.4rem;
+	border-radius: 4px;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 0.9rem;
 }
 
 /* =====================

@@ -861,3 +861,77 @@ Esto permite aplicar de forma más eficiente un estilo coherente en todo el docu
 En CSS, no todas las propiedades se heredan de forma predeterminada. Por ejemplo, propiedades como el `color`, `font-family` y la `line-height` se heredan. Esto significa que si se establece el color del texto en un elemento padre, todos sus elementos hijos heredarán ese color a menos que se sobrescriba específicamente.
 
 Por ejemplo, consideremos el siguiente ejemplo en el que un elemento `div` padre tiene su color establecido mediante un estilo en línea, y el elemento `p` hijo hereda ese color.
+
+- **Codigo Ejemplo**
+  
+  ```html
+  <div style="color: blue;">
+  This is the parent element.
+    <p>This is the child element inheriting the color.</p>
+  </div>
+  ```
+
+En este caso, tanto el `div` padre como el `p` hijo mostrarán su texto en azul porque el color se hereda.
+
+Por otro lado, propiedades como `margin`, `padding`, `border` y `background` no se heredan de forma predeterminada. Si quieres que un elemento hijo herede estos estilos, debes establecerlos explícitamente, ya sea directamente en el elemento hijo o utilizando la palabra clave `inherit`.
+
+La palabra clave `inherit` se puede utilizar para forzar la herencia de una propiedad de un elemento padre, incluso si esa propiedad no se hereda normalmente.
+
+Por ejemplo, si desea que un elemento hijo específico tenga el mismo `padding` que su padre, puede establecer `padding: inherit` en el elemento hijo:
+
+- **Codigo Ejemplo**
+  
+  ```html
+  <div style="padding: 20px;">
+  This is the parent element with padding.
+    <p style="padding: inherit;">This is the child element inheriting the padding.</p>
+  </div>
+  ```
+
+En este caso, el elemento `p` secundario heredará el relleno de `20px` de su elemento `div` principal.
+
+La herencia es especialmente útil para mantener la coherencia y reducir la redundancia en las hojas de estilo.
+
+En lugar de escribir la misma regla de estilo para varios elementos, puedes definirla una vez en un elemento padre y los elementos secundarios la heredarán. Esto puede hacer que tu CSS sea más conciso y fácil de manejar.
+
+Sin embargo, es importante recordar que la herencia solo funciona en una dirección: de padre a hijo. Si anulas un estilo en un elemento secundario, no afectará al elemento padre.
+
+---
+
+## Cuestionario 8
+
+- **1.¿Cuál de las siguientes propiedades CSS se hereda normalmente por defecto?**
+
+  - [ ] a) `padding`
+  - [ ] b) `border`
+  - [x] c) `color` //correcto
+  - [ ] d) `background`
+
+- **2.¿Qué palabra clave se puede utilizar para forzar a un elemento secundario a heredar una propiedad de su elemento principal?**
+
+  - [ ] a) `default`
+  - [x] b) `inherit` //correcto
+  - [ ] c) `initial`
+  - [ ] d) `none`
+
+- **3.Dado el siguiente CSS, ¿cuál será el color del texto del `span` dentro del `p`?**
+
+  ```html
+  <head>
+    <style>
+      p {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is a <span>test</span>.</p>
+  </body>
+  ```
+
+  - [x] a) blue //correcto
+  - [ ] b) red
+  - [ ] c) green
+  - [ ] d) black
+
+---

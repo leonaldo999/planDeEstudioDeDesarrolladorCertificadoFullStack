@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de los fundamentos de CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de los fundamentos de CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <!-- <li><a href="#intro">🚀 Inicio</a></li> -->
+      <li><a href="#tema1">💻 Conceptos</a></li>
+      <li><a href="#tema2">🔗 Tipos de CSS</a></li>
+      <li><a href="#tema3">📐 Dimensiones</a></li>
+      <li><a href="#tema4">🧩 Combinadores</a></li>
+      <li><a href="#tema5">📦 Visualización y Bloques</a></li>
+      <li><a href="#tema6">↔️ Márgenes y Relleno</a></li>
+      <li><a href="#tema7">⚖️ Especificidad</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+      <p>
+        CSS es el lenguaje que define el diseño visual de una web. Se basa en <strong>reglas</strong> (selectores y
+        propiedades) para aplicar estilos y en el <strong>Modelo de Caja</strong>, que gestiona el espacio de cada
+        elemento a través de márgenes, bordes y rellenos. Se denomina "en cascada" porque las reglas se aplican
+        siguiendo un orden de prioridad y jerarquía.
+      </p>
+
+    </section>
+
+    <section id="tema1">
+      <h2>Conceptos básicos de CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li><strong>¿Qué es CSS?</strong>: Las hojas de estilo en cascada (<code>CSS</code>) son un lenguaje de
+            marcado que se utiliza para aplicar estilos a los elementos <code>HTML</code>. <code>CSS</code> se utiliza
+            para colores, imágenes de fondo, diseños y mucho más.</li>
+          <li><strong>Anatomía básica de una regla CSS</strong>: una regla <code>CSS</code> se compone de dos partes
+            principales: un selector y un bloque de declaración. Un selector es un patrón utilizado en <code>CSS</code>
+            para identificar y seleccionar elementos <code>HTML</code> específicos.</li>
+        </ul>
+      </div>
+
+      <p><em>Esta es la sintaxis general de una regla CSS:</em></p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">selector {
+  property: value;
+}</code></pre>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Elemento <code>meta name="viewport"</code></strong>: este elemento <code>meta</code> proporciona al
+            navegador instrucciones sobre cómo controlar las dimensiones y el escalado de la página en diferentes
+            dispositivos, especialmente en teléfonos móviles y tabletas.
+          </li>
+          <li>
+            <strong>Estilos predeterminados del navegador</strong>: cada elemento <code>HTML</code> tendrá aplicados los
+            estilos
+            predeterminados (márgenes y rellenos base).
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+
+      <h2>CSS en línea, interno y externo</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>CSS en línea</strong>: estos estilos se escriben directamente dentro de un elemento
+            <code>HTML</code>
+            utilizando el atributo <code>style</code>. La mayoría de las veces no utilizará <code>CSS</code> en línea
+            debido a la separación de conceptos.
+          </li>
+        </ul>
+      </div>
+
+      <p><em>A continuación se muestra un ejemplo de CSS en línea:</em></p>
+
+      <div class="ide-container">
+
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;p style="color: red;"&gt;
+  This is a red paragraph.
+&lt;/p&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <div class="preview-wrap parent-preview">
+                <p style="color: red;">This is a red paragraph.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li><strong>CSS interno</strong>: estos estilos se escriben dentro de las etiquetas <code>&lt;style&gt;</code>
+            en la sección <code>head</code> de un documento <code>HTML</code>. Esto puede ser útil para crear ejemplos
+            de código cortos, pero normalmente no será necesario utilizar CSS interno.
+          </li>
+          <li>
+            <strong>CSS externo</strong>: estos estilos se escriben en un archivo CSS independiente y se vinculan al
+            documento HTML mediante el elemento <code>link</code> en la sección <code>head</code>. En la mayoría de los
+            proyectos, se utilizará un archivo <code>CSS</code> externo en lugar de <code>CSS</code> interno o en línea.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+
+      <h2>Trabajar con las propiedades <code>width</code> y <code>height</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>width</code></strong>: esta propiedad especifica el ancho de un elemento. Si no se
+            especifica un ancho, el valor predeterminado se establece en <code>auto</code>. Esto permite que el
+            navegador determine el ancho del elemento en función de su contenido, su elemento padre y el tipo de
+            visualización.
+          </li>
+          <li>
+            <strong>Propiedad <code>min-width</code></strong>: esta propiedad especifica el ancho mínimo de un elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>max-width</code></strong>: esta propiedad especifica el ancho máximo de un elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>height</code></strong>: esta propiedad especifica la altura de un elemento. Del
+            mismo modo, la altura es automática de forma predeterminada, lo que significa que se ajustará al contenido
+            que haya dentro.
+          </li>
+          <li>
+            <strong>Propiedad <code>min-height</code></strong>: esta propiedad especifica la altura mínima de un
+            elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>max-height</code></strong>: esta propiedad especifica la altura máxima de un
+            elemento.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema4">
+      <h2>Diferentes tipos de combinadores CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Combinador descendiente</strong>: este combinador se utiliza para seleccionar elementos que son
+            descendientes de un elemento padre específico. El siguiente ejemplo seleccionará todos los elementos
+            <code>li</code> dentro de los elementos <code>ul</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Example item one&lt;/li&gt;
+  &lt;li&gt;Example item two&lt;/li&gt;
+  &lt;li&gt;Example item three&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">ul li {
+  background-color: yellow;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-descendant {
+                color: #333;
+                font-family: sans-serif;
+                padding: 10px;
+              }
+
+              /* Selecciona cualquier 'li' que esté dentro de un 'ul' */
+              .preview-descendant ul li {
+                background-color: #fff176;
+                /* Amarillo suave para mejor lectura */
+                color: #1a1a1a;
+                padding: 5px 10px;
+                margin-bottom: 5px;
+                list-style-position: inside;
+                border-radius: 4px;
+              }
+
+              .preview-descendant ul {
+                padding: 0;
+                list-style: none;
+              }
+            </style>
+            <div class="preview-descendant">
+              <ul>
+                <li>Example item one</li>
+                <li>Example item two</li>
+                <li>Example item three</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Combinador de hijos (<code>></code>)</strong>: este combinador se utiliza para seleccionar elementos
+            que son hijos directos de un elemento padre específico. El siguiente ejemplo seleccionará todos los
+            elementos <code>p</code> que sean hijos directos de la clase <code>container</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;div class="container"&gt;
+  &lt;p&gt;Este se pintará (Hijo directo).&lt;/p&gt;
+
+  &lt;div&gt;
+    &lt;p&gt;Este NO (Es nieto).&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.container > p {
+  background-color: black;
+  color: white;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-child {
+                font-family: 'Inter', sans-serif;
+                color: #333;
+                padding: 10px;
+              }
+
+              .preview-child .container {
+                border: 2px dashed #ccc;
+                padding: 15px;
+                border-radius: 8px;
+              }
+
+              /* El selector clave */
+              .preview-child .container>p {
+                background-color: #1a1a1a;
+                color: #f1f4f5;
+                padding: 8px;
+                margin: 5px 0;
+                border-radius: 4px;
+              }
+
+              .preview-child div div {
+                margin-top: 10px;
+                padding: 10px;
+                background: #f0f0f0;
+                border-radius: 4px;
+              }
+            </style>
+            <div class="preview-child">
+              <div class="container">
+                <p>Este se pintará (Hijo directo).</p>
+                <div>
+                  <p>Este NO (Es nieto, está dentro de otro div).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Combinador siguiente hermano (<code>+</code>)</strong>: este combinador selecciona un elemento que
+            sigue inmediatamente a un elemento hermano especificado. El siguiente ejemplo seleccionará el elemento
+            párrafo que sigue inmediatamente al elemento <code>h2</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;h2&gt;I am a sub heading&lt;/h2&gt;
+
+&lt;p&gt;This paragraph element will get a red background.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">h2 + p {
+  background-color: red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-adjacent {
+                font-family: 'Inter', sans-serif;
+                color: #333;
+                padding: 15px;
+              }
+
+              .preview-adjacent h2 {
+                background-color: red;
+                color: white;
+              }
+
+              /* Solo el p que sigue inmediatamente al h2 */
+              .preview-adjacent>h2+p {
+                background-color: red;
+                color: white;
+              }
+            </style>
+            <div class="preview-adjacent">
+              <h2>I am a sub heading</h2>
+
+              <p>This paragraph element will get a red background.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Combinador de hermanos posteriores (<code>~</code>)</strong>: este combinador selecciona todos los
+            hermanos de un elemento específico que vienen después de él. El siguiente ejemplo aplicará estilo solo al
+            segundo elemento de párrafo, ya que es el único que es hermano del elemento <code>ul</code> y comparte el
+            mismo padre.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;div class="container"&gt;
+  &lt;p&gt;This will not get styled.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Example item one&lt;/li&gt;
+    &lt;li&gt;Example item two&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;This will get styled.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will not get styled.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">ul ~ p {
+  background-color: green;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-gen {
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                color: #333;
+              }
+
+              .preview-gen .container {
+                border: 1px dashed #ccc;
+                padding: 10px;
+                margin-bottom: 10px;
+              }
+
+              /* El selector real para la preview */
+              .preview-gen ul~p {
+                background-color: #2e7d32;
+                /* Verde */
+                color: white;
+                padding: 5px;
+                border-radius: 4px;
+              }
+
+              .preview-gen ul {
+                margin: 10px 0;
+                padding-left: 20px;
+              }
+            </style>
+            <div class="preview-gen">
+              <div class="container">
+                <p>This will not get styled (antes de ul).</p>
+                <ul>
+                  <li>Example item one</li>
+                  <li>Example item two</li>
+                </ul>
+                <p>This will get styled (hermano posterior).</p>
+              </div>
+              <p>This will not get styled (fuera del container).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema5">
+
+      <h2>Elementos de nivel en línea, bloque y bloque en línea</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Elementos de nivel en línea</strong>: los elementos en línea solo ocupan el ancho que necesitan y no
+            comienzan en una nueva línea. Estos elementos fluyen dentro del contenido, lo que permite que el texto y
+            otros elementos en línea aparezcan junto a ellos. Los elementos en línea comunes son los elementos
+            <code>span</code>, <code>anchor</code> e <code>img</code>.
+          </li>
+          <li>
+            <strong>Elementos de nivel de bloque</strong>: los elementos de nivel de bloque comienzan en una nueva línea
+            y ocupan todo el ancho disponible por defecto, extendiéndose a lo largo del ancho de su contenedor. Algunos
+            elementos de nivel de bloque comunes son los elementos <code>div</code>, <code>p</code> y
+            <code>section</code>.
+          </li>
+          <li>
+            <strong>Elementos de nivel de bloque en línea</strong>: puede establecer un elemento como
+            <code>inline-block</code> utilizando la propiedad <code>display</code>. Estos elementos se comportan como
+            elementos en línea, pero pueden tener un <code>width</code> y una <code>height</code> establecidos como los
+            elementos de nivel de bloque.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+
+      <h2>Margen(<code>margin</code>) y relleno(<code>padding</code>)</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>margin</code></strong>: esta propiedad se utiliza para aplicar espacio fuera del
+            elemento, entre el borde del elemento y los elementos circundantes.
+          </li>
+          <li>
+            <strong>Propiedad <code>padding</code></strong>: esta propiedad se utiliza para aplicar espacio dentro del
+            elemento, entre el contenido y su borde.
+          </li>
+          <li>
+            <strong>Abreviatura de <code>margin</code></strong>: puede especificar de 1 a 4 valores para establecer los
+            lados del margen. Un valor se aplica a los cuatro lados; dos valores establecen la parte <code>top</code> ,
+            <code>bottom</code>, y luego <code>right</code> y <code>left</code>; tres valores establecen la parte
+            <code>top</code>, la horizontal (<code>right</code> y <code>left</code>) y luego <code>bottom</code>; cuatro
+            valores establecen la parte <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code>.
+          </li>
+          <li>
+            <strong>Abreviatura <code>padding</code></strong>: puede especificar entre 1 y 4 valores para establecer los
+            lados del relleno. Un valor se aplica a los cuatro lados; dos valores establecen la parte <code>top</code> y
+            <code>bottom</code>, luego <code>right</code> y <code>left</code>; tres valores establecen la parte
+            <code>top</code>, la horizontal (<code>right</code> y <code>left</code>) y luego <code>bottom</code>; cuatro
+            valores establecen la parte <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code>.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema7">
+
+      <h2>Especificidad CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Especificidad CSS en línea</strong>: el CSS en línea tiene la mayor especificidad porque se aplica
+            directamente al elemento. Anula cualquier CSS interno o externo. El valor de especificidad para los estilos
+            en línea es <mark>(1, 0, 0, 0)</mark>.
+          </li>
+          <li>
+            <strong>Especificidad CSS interno</strong>: el CSS interno se define dentro de un elemento de
+            <code>style</code> en la sección <code>head</code> del documento HTML. Tiene menor especificidad que los
+            estilos en línea, pero puede anular los estilos externos.
+          </li>
+          <li>
+            <strong>Especificidad del CSS externo</strong>: el CSS externo se vincula a través de un elemento de
+            <code>link</code> en la sección <code>head</code> y se escribe en archivos <code>.css</code> separados.
+            Tiene la especificidad más baja, pero proporciona la mejor mantenibilidad para proyectos más grandes.
+          </li>
+          <li>
+            <strong>Selector universal (<code>*</code>)</strong>: un tipo especial de selector CSS que coincide con
+            cualquier elemento del documento. A menudo se utiliza para aplicar un estilo a todos los elementos de la
+            página, lo que puede ser útil para restablecer o normalizar estilos en diferentes navegadores. El selector
+            universal tiene el valor de especificidad más bajo de todos los selectores. Contribuye con 0 a todas las
+            partes del valor de especificidad <mark>(0, 0, 0, 0)</mark>.
+          </li>
+          <li>
+            <strong>Selectores de tipo</strong>: estos selectores se dirigen a los elementos en función de su nombre de
+            etiqueta. Los selectores de tipo tienen una especificidad relativamente baja en comparación con otros
+            selectores. El valor de especificidad de un selector de tipo es <mark>(0, 0, 0, 1)</mark>.
+          </li>
+          <li>
+            <strong>Selectores de clase</strong>: Estos selectores se definen mediante un punto (<code>.</code>) seguido
+            del nombre de la clase. El valor de especificidad de un selector de clase es <mark>(0, 0, 1, 0)</mark>. Esto
+            significa que los selectores de clase pueden anular los selectores de tipo, pero pueden ser anulados por los
+            selectores de ID y los estilos en línea.
+          </li>
+          <li>
+            <strong>Selectores de ID</strong>: los selectores de ID se definen mediante un símbolo de almohadilla
+            (<code>#</code>) seguido del nombre del ID. Los selectores de ID tienen una especificidad muy alta, superior
+            a la de los selectores de tipo y los selectores de clase, pero inferior a la de los estilos en línea. El
+            valor de especificidad de un selector de ID es <mark>(0, 1, 0, 0)</mark>.
+          </li>
+          <li>
+            <strong>Palabra clave <code>!important</code></strong>: se utiliza para dar a una regla de estilo la máxima
+            prioridad, lo que le permite anular cualquier otra declaración de una propiedad. Cuando se utiliza, obliga
+            al navegador a aplicar el estilo especificado, independientemente de la especificidad de otros selectores.
+            Debes tener cuidado al utilizar <code>!important</code>, ya que puede dificultar el mantenimiento y la
+            depuración de tu CSS.
+          </li>
+          <li>
+            <strong>Algoritmo en cascada</strong>: algoritmo utilizado para decidir qué reglas CSS aplicar cuando hay
+            varios estilos dirigidos al mismo elemento. Garantiza que se utilicen los estilos más adecuados, basándose
+            en un conjunto de reglas bien definidas.
+          </li>
+          <li>
+            <strong>Herencia CSS</strong>: proceso por el cual los estilos se transmiten de los elementos padres a sus
+            hijos. La herencia permite definir estilos en un nivel superior del árbol del documento y aplicarlos a
+            varios elementos sin especificarlos explícitamen
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

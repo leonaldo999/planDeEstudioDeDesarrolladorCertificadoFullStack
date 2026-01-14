@@ -9,7 +9,6 @@
     content="Comprende cómo funciona la especificidad en CSS, el algoritmo en cascada y la herencia para aplicar estilos de manera efectiva en tus proyectos web.">
   <title>Especificidad CSS, el algoritmo en cascada y la herencia</title>
   <link rel="stylesheet" href="./styles.css">
-  <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -79,18 +78,6 @@
       <li>
         <a href="#quest8" onclick="closeNavMobile()" tabindex="0">❓ Quest 8</a>
       </li>
-      <!-- <li>
-        <a href="#tema9" onclick="closeNavMobile()" tabindex="0">💻 Tema 9</a>
-      </li>
-      <li>
-        <a href="#quest9" onclick="closeNavMobile()" tabindex="0">❓ Quest 9</a>
-      </li>
-      <li>
-        <a href="#tema10" onclick="closeNavMobile()" tabindex="0">💻 Tema 10</a>
-      </li>
-      <li>
-        <a href="#quest10" onclick="closeNavMobile()" tabindex="0">❓ Quest 10</a>
-      </li> -->
     </ul>
   </nav>
 
@@ -2338,14 +2325,254 @@ p {
         Esto permite aplicar de forma más eficiente un estilo coherente en todo el documento.
       </p>
       <p>
-        En CSS, no todas las propiedades se heredan de forma predeterminada. Por ejemplo, propiedades como el <mark>color</mark>,
-        <mark>font-family</mark> y <mark>line-height</mark> se heredan. Esto significa que si se establece el color del texto en un elemento
+        En CSS, no todas las propiedades se heredan de forma predeterminada. Por ejemplo, propiedades como el
+        <mark>color</mark>,
+        <mark>font-family</mark> y <mark>line-height</mark> se heredan. Esto significa que si se establece el color del
+        texto en un elemento
         padre, todos sus elementos hijos heredarán ese color a menos que se sobrescriba específicamente.
       </p>
       <p>
-        Por ejemplo, consideremos el siguiente ejemplo en el que un elemento <mark>div</mark> padre tiene su color establecido
+        Por ejemplo, consideremos el siguiente ejemplo en el que un elemento <mark>div</mark> padre tiene su color
+        establecido
         mediante un estilo en línea, y el elemento <mark>p</mark> hijo hereda ese color.
       </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;div style="color: blue;"&gt;
+                  This is the parent element.
+                    &lt;p&gt;
+                      This is the child element inheriting the color.
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .p-div {
+                  color: blue;
+                }
+              </style>
+
+              <p class="p-div">This is the parent element.</p>
+              <p class="p-div">This is the child element inheriting the color.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, tanto el <mark>div</mark> padre como el <mark>p</mark> hijo mostrarán su texto en azul porque el
+        color se hereda.
+      </p>
+      <p>
+        Por otro lado, propiedades como <mark>margin</mark>, <mark>padding</mark>, <mark>border</mark> y
+        <mark>background</mark> no se heredan de forma predeterminada. Si
+        quieres que un elemento hijo herede estos estilos, debes establecerlos explícitamente, ya sea directamente en el
+        elemento hijo o utilizando la palabra clave <mark>inherit</mark>.
+      </p>
+      <p>
+        La palabra clave <mark>inherit</mark> se puede utilizar para forzar la herencia de una propiedad de un elemento
+        padre,
+        incluso si esa propiedad no se hereda normalmente.
+      </p>
+      <p>
+        Por ejemplo, si desea que un elemento hijo específico tenga el mismo <mark>padding</mark> que su padre, puede
+        establecer
+        <mark>padding: inherit</mark> en el elemento hijo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;div style="padding: 20px;"&gt;
+                  This is the parent element with padding.
+                    &lt;p style="padding: inherit;"&gt;
+                      This is the child element inheriting the padding.
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+              <style>
+                .p1-div {
+                  color: black;
+                  padding: 20px;
+                }
+
+                .p2-div {
+                  color: black;
+                  padding: inherit;
+                }
+              </style>
+
+              <div class="p1-div">
+                This is the parent element with padding.
+                <p class="p2-div">This is the child element inheriting the padding.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el elemento <mark>p</mark> secundario heredará el relleno de <mark>20px</mark> de su elemento
+        <mark>div</mark> principal.
+      </p>
+      <p>
+        La herencia es especialmente útil para mantener la coherencia y reducir la redundancia en las hojas de estilo.
+      </p>
+      <p>
+        En lugar de escribir la misma regla de estilo para varios elementos, puedes definirla una vez en un elemento
+        padre y los elementos secundarios la heredarán. Esto puede hacer que tu CSS sea más conciso y fácil de manejar.
+      </p>
+      <p>
+        Sin embargo, es importante recordar que la herencia solo funciona en una dirección: de padre a hijo. Si anulas
+        un estilo en un elemento secundario, no afectará al elemento padre.
+      </p>
+
+    </section>
+
+    <section id="quest8" aria-label="Cuestionario 8">
+
+      <h2>🧠 Cuestionario 8</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Cuál de las siguientes propiedades CSS se hereda normalmente por defecto?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            padding
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            border
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            <!-- correcto -->
+            color
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest21" tabindex="0">
+            background
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué palabra clave se puede utilizar para forzar a un elemento secundario a heredar una propiedad de su
+            elemento principal?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            default
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            <!-- correcto -->
+            inherit
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            initial
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest22" tabindex="0">
+            none
+          </label>
+        </fieldset>
+
+        <fieldset>
+
+          <legend>
+            Dado el siguiente CSS, ¿cuál será el color del texto del span dentro del p?
+            <pre>
+              <code>
+                &lt;head&gt;
+                  &lt;style&gt;
+                    p {
+                      color: blue;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;p&gt;This is a &lt;span&gt;test&lt;/span&gt;.&lt;/p&gt;
+                &lt;/body&gt;
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            <!-- correcto -->
+            blue
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            red
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            green
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest23" tabindex="0">
+            black
+          </label>
+        </fieldset>
+
+      </form>
 
     </section>
 
@@ -2359,6 +2586,8 @@ p {
   <footer>
     &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
   </footer>
+
+  <script src="./script.js" defer></script>
 
 </body>
 

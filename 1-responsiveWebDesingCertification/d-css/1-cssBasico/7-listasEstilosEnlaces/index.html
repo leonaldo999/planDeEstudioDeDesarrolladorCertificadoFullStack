@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listas de estilos y enlaces</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Listas de estilos y enlaces</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#quest1" onclick="closeNavMobile()" tabindex="0">❓ Quest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#quest2" onclick="closeNavMobile()" tabindex="0">❓ Quest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#quest3" onclick="closeNavMobile()" tabindex="0">❓ Quest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#quest4" onclick="closeNavMobile()" tabindex="0">❓ Quest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#quest5" onclick="closeNavMobile()" tabindex="0">❓ Quest 5</a>
+      </li>
+      <!-- <li>
+        <a href="#tema6" onclick="closeNavMobile()" tabindex="0">💻 Tema 6</a>
+      </li>
+      <li>
+        <a href="#quest6" onclick="closeNavMobile()" tabindex="0">❓ Quest 6</a>
+      </li>
+      <li>
+        <a href="#tema7" onclick="closeNavMobile()" tabindex="0">💻 Tema 7</a>
+      </li>
+      <li>
+        <a href="#quest7" onclick="closeNavMobile()" tabindex="0">❓ Quest 7</a>
+      </li>
+      <li>
+        <a href="#tema8" onclick="closeNavMobile()" tabindex="0">💻 Tema 8</a>
+      </li>
+      <li>
+        <a href="#quest8" onclick="closeNavMobile()" tabindex="0">❓ Quest 8</a>
+      </li> -->
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="Introducción">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, exploraremos cómo transformar elementos de navegación y organización.
+        Aprenderá a personalizar las <strong>listas (ul, ol)</strong> eliminando viñetas predeterminadas
+        o usando imágenes personalizadas. Además, dominaremos el diseño de <strong>enlaces</strong>,
+        controlando sus estados mediante pseudo-clases (<code>:hover</code>, <code>:active</code>,
+        <code>:visited</code>)
+        para crear menús interactivos y una experiencia de usuario profesional y moderna.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="Tema 1: ¿Cómo se espacian los elementos de una lista utilizando el margen o la altura de línea?">
+
+      <h2>
+        🛜 Tema 1: ¿Cómo se espacian los elementos de una lista utilizando el margen o la altura de línea?
+      </h2>
+
+      <p>
+        Los márgenes y la altura de línea son esenciales para espaciar los elementos de una lista y mejorar así la
+        legibilidad y el atractivo visual.
+      </p>
+      <p>
+        En primer lugar, ¡comencemos a espaciar los elementos de una lista utilizando márgenes!
+      </p>
+      <p>
+        Los márgenes se pueden utilizar para crear espacio entre los elementos de una lista aplicando propiedades de
+        margen a los elementos <mark>li</mark>. Este método permite controlar el espaciado fuera de cada elemento de la
+        lista,
+        aumentando o disminuyendo eficazmente la distancia entre ellos.
+      </p>
+      <p>
+        Veamos un ejemplo de una lista desordenada con tres elementos.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;ul&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-box {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-box ul.mi-lista {
+                  list-style-type: square;
+                  /* El cambio visual clave */
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                }
+
+                .preview-list-box li {
+                  margin-bottom: 5px;
+                }
+              </style>
+
+              <div class="preview-list-box">
+                <ul class="mi-lista">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        De forma predeterminada, HTML no aplicará mucho espacio entre los elementos de la lista.
+      </p>
+      <p>
+        Para aplicar algo de espacio en la parte inferior de cada elemento de la lista, puede utilizar la propiedad
+        <mark>margin-bottom</mark> de la siguiente manera:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;ul&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                li {
+                  margin-bottom: 40px;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxs {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxs ul.mi-list {
+                  list-style-type: square;
+                  /* El cambio visual clave */
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                }
+
+                .preview-list-boxs li {
+                  margin-bottom: 40px;
+                }
+              </style>
+
+              <div class="preview-list-boxs">
+                <ul class="mi-list">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, se aplicará un margen de <mark>40px</mark> a la parte inferior de cada elemento de la lista
+        dentro de la
+        lista desordenada.
+      </p>
+      <p>
+        Otra forma de espaciar los elementos de la lista sería utilizar la propiedad <mark>line-height</mark>.
+      </p>
+      <p>
+        La propiedad <mark>line-height</mark> ajusta el espaciado vertical entre las líneas de texto dentro de un solo
+        elemento de la
+        lista.
+      </p>
+      <p>
+        Aunque afecta principalmente al espaciado entre las líneas de texto dentro de cada elemento, también puede
+        influir indirectamente en el espaciado general entre los elementos de la lista si estos contienen solo una línea
+        de texto.
+      </p>
+      <p>
+        Si los elementos de la lista tienen varias líneas de texto, la <mark>line-height</mark> afectará al espaciado
+        entre esas
+        líneas, pero no ajustará directamente el espaciado entre los elementos separados de la lista.
+      </p>
+      <p>
+        Para controlar el espaciado entre elementos individuales de la lista, se deben utilizar las propiedades
+        <mark>margin</mark> o
+        <mark>padding</mark>.
+      </p>
+      <p>
+        Utilizando la misma lista desordenada de antes, aquí hay un ejemplo de cómo aplicar <mark>line-height</mark> a
+        los elementos
+        de la lista:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;ul&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                li {
+                  line-height: 2; 
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxz {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxz ul.mi-listz {
+                  list-style-type: square;
+                  /* El cambio visual clave */
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                }
+
+                .preview-list-boxz li {
+                  line-height: 2;
+                }
+              </style>
+
+              <div class="preview-list-boxz">
+                <ul class="mi-listz">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>line-height: 2;</mark> establece la altura de línea en el doble del tamaño de la fuente,
+        creando más espacio vertical dentro de cada elemento de la lista.
+      </p>
+
+    </section>
+
+    <section id="quest1" aria-labelledby="Cuestionario 1">
+      <h2>🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué propiedad CSS utilizarías para crear espacio entre los elementos de una lista ajustando el espacio fuera de cada elemento li?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            padding
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            line-height
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            margin
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            border
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Dada la regla CSS <mark>li { margin-bottom: 15px; }</mark>, ¿qué efecto tiene esto en los elementos de la lista?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Añade 15px de espacio dentro de cada elemento de la lista.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Añade 15px de espacio entre el contenido y el border de cada elemento de la lista.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Añade 15px de espacio debajo de cada elemento de la lista.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Añade 15px de espacio encima de cada elemento de la lista.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué controla la propiedad line-height en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El width del contenido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El espacio dentro del border de un elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            El espacio vertical entre las líneas de texto dentro de un elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El espacio fuera del border de un elemento.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+  <script src="./script.js"></script>
+
+
+</body>
+
+</html>
