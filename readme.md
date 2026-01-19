@@ -1,37 +1,47 @@
-# 📚 Plan de estudio – Certificación Full Stack Developer (FreeCodeCamp 2025)
+# 📚 Mi Ruta al Full Stack: Bitácora de Aprendizaje (freeCodeCamp 2026)
 
-Bienvenido al viaje formativo que transforma curiosidad en capacidad real. Esta certificación ofrecida por **FreeCodeCamp** en 2025 representa una de las rutas más completas, accesibles y relevantes para dominar el desarrollo web moderno con un enfoque full stack.
+Este repositorio no es solo una colección de archivos; es el **testimonio de mi transformación en programador Full Stack**. Aquí documento mis apuntes, la lógica de resolución de problemas y el avance paso a paso en mi camino hacia el dominio del desarrollo web profesional.
 
-## 🌐 ¿Qué aprenderás?
+Bienvenido a mi viaje formativo, donde transformo la curiosidad en capacidad técnica real, guiado por el currículo de **freeCodeCamp**.
 
-A través de módulos interactivos, proyectos reales y ejercicios prácticos, desarrollarás habilidades concretas en:
+## 🚀 Mi Propósito
 
-- **Frontend moderno:** HTML, CSS, JavaScript, React, TypeScript.
-- **Backend escalable:** Node.js, Python, bases de datos relacionales, APIs.
-- **Herramientas esenciales:** Git, NPM, testing, debugging y flujo de trabajo profesional.
+Mi meta es clara: dominar el desarrollo web moderno para crear soluciones que impacten y ser un profesional altamente remunerado en la industria. Este repositorio centraliza mis estudios sobre:
 
-Además, el contenido ha sido actualizado para reflejar las tendencias de 2025: desarrollo accesible, diseño emocional, y arquitectura sostenible.
+* **Frontend moderno:** HTML, CSS, JavaScript, React y TypeScript.
+* **Backend escalable:** Node.js, Python, bases de datos y APIs.
+* **Mentalidad Profesional:** Git, NPM, testing y flujos de trabajo industriales.
 
-## 🛠 Resultados del aprendizaje
-
-Al completar este plan:
-
-- Podrás crear aplicaciones web completas y escalables de principio a fin.
-- Tendrás portafolio real y habilidades listas para el mercado.
-- Estarás preparado para colaborar en proyectos con impacto social o iniciar tu propio camino freelance.
-
-> 🕒 Este recorrido requiere tiempo, perseverancia y pasión. Si comienzas hoy, podrías estar listo para enfrentar el reto final cuando se libere el nuevo módulo y examen en los próximos meses.
+> [!IMPORTANT]
+> Mis apuntes están actualizados a los estándares de **2026**, integrando desarrollo accesible, diseño emocional y arquitecturas sostenibles.
 
 ---
 
-## 🙌 Agradecimientos sinceros
+## 📊 Estado de Avance
 
-Quiero expresar mi más profunda gratitud a [FreeCodeCamp](https://www.freecodecamp.org) por democratizar el conocimiento en tecnología. Este curso no solo enseña a programar, sino que da las herramientas para cambiar vidas, comunidades y realidades.
+**Progreso Total de la Certificación:**
+![Progreso](https://geps.dev/progress/20?dangerColor=800000&warningColor=ff9900&successColor=006600)
 
-Gracias por construir una plataforma que permite soñar con el futuro, sin importar el lugar, idioma o recursos. En este 2025, el impacto de FreeCodeCamp se siente en cada línea de código que escribimos con propósito.
+### 📑 Checklist de Módulos
+
+* [x] **Diseño Web Responsivo** (Fundamentos de HTML y CSS)
+
+* [ ] **JavaScript:** Algoritmos y Estructuras de Datos
+* [ ] **Bibliotecas de Desarrollo Frontend** (React, Redux, Sass)
+* [ ] **Visualización de Datos** (D3.js)
+* [ ] **Desarrollo de Back End y APIs** (Node.js, Express, MongoDB)
+* [ ] **Calidad de Software** (Testing con Mocha y Chai)
+* [ ] **Seguridad de la Información**
+* [ ] **Análisis de Datos con Python**
+
+---
+
+## 🙌 Gratitud a freeCodeCamp
+
+Este camino es posible gracias a [freeCodeCamp](https://www.freecodecamp.org). Quiero expresar mi más profunda gratitud por su labor de **democratizar el conocimiento técnico**.
+
+Gracias a su plataforma, puedo convertir mi pasión por la tecnología en una carrera profesional con propósito. En este 2026, reconozco el valor incalculable de una comunidad que permite cambiar vidas a través del código, sin importar el lugar o los recursos de cada estudiante.
 
 ---
 
 **#CódigoConImpacto • #DesarrolloConPropósito • #GraciasFreeCodeCamp**
-
----

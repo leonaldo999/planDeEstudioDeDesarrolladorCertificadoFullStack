@@ -51,30 +51,6 @@
       <li>
         <a href="#quest4" onclick="closeNavMobile()" tabindex="0">❓ Quest 4</a>
       </li>
-      <li>
-        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
-      </li>
-      <li>
-        <a href="#quest5" onclick="closeNavMobile()" tabindex="0">❓ Quest 5</a>
-      </li>
-      <!-- <li>
-        <a href="#tema6" onclick="closeNavMobile()" tabindex="0">💻 Tema 6</a>
-      </li>
-      <li>
-        <a href="#quest6" onclick="closeNavMobile()" tabindex="0">❓ Quest 6</a>
-      </li>
-      <li>
-        <a href="#tema7" onclick="closeNavMobile()" tabindex="0">💻 Tema 7</a>
-      </li>
-      <li>
-        <a href="#quest7" onclick="closeNavMobile()" tabindex="0">❓ Quest 7</a>
-      </li>
-      <li>
-        <a href="#tema8" onclick="closeNavMobile()" tabindex="0">💻 Tema 8</a>
-      </li>
-      <li>
-        <a href="#quest8" onclick="closeNavMobile()" tabindex="0">❓ Quest 8</a>
-      </li> -->
     </ul>
   </nav>
 
@@ -93,7 +69,8 @@
       </p>
     </section>
 
-    <section id="tema1" aria-labelledby="Tema 1: ¿Cómo se espacian los elementos de una lista utilizando el margen o la altura de línea?">
+    <section id="tema1"
+      aria-labelledby="Tema 1: ¿Cómo se espacian los elementos de una lista utilizando el margen o la altura de línea?">
 
       <h2>
         🛜 Tema 1: ¿Cómo se espacian los elementos de una lista utilizando el margen o la altura de línea?
@@ -371,7 +348,8 @@
         <fieldset>
 
           <legend>
-            ¿Qué propiedad CSS utilizarías para crear espacio entre los elementos de una lista ajustando el espacio fuera de cada elemento li?
+            ¿Qué propiedad CSS utilizarías para crear espacio entre los elementos de una lista ajustando el espacio
+            fuera de cada elemento li?
           </legend>
 
           <label>
@@ -398,7 +376,8 @@
 
         <fieldset>
           <legend>
-            Dada la regla CSS <mark>li { margin-bottom: 15px; }</mark>, ¿qué efecto tiene esto en los elementos de la lista?
+            Dada la regla CSS <mark>li { margin-bottom: 15px; }</mark>, ¿qué efecto tiene esto en los elementos de la
+            lista?
           </legend>
 
           <label>
@@ -447,6 +426,1442 @@
           <label>
             <input type="radio" name="quest2" tabindex="0">
             El espacio fuera del border de un elemento.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="Tema 2: ¿Cómo funcionan las diferentes propiedades de estilo de lista?">
+
+      <h2>📊 ¿Cómo funcionan las diferentes propiedades de estilo de lista?</h2>
+
+      <p>
+        En CSS, la propiedad <mark>list-style</mark> se utiliza para controlar la apariencia de las listas en una página
+        web.
+      </p>
+      <p>
+        Tanto si trabajas con listas ordenadas (<mark>ol</mark>) como con listas desordenadas (<mark>ul</mark>), la
+        propiedad <mark>list-style</mark> te
+        permite personalizar cómo se muestran los elementos de la lista.
+      </p>
+      <p>
+        La propiedad <mark>list-style</mark> es en realidad una abreviatura de otras tres propiedades:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>list-style-type</mark>
+          </li>
+          <li class="list">
+            <mark>list-style-position</mark>
+          </li>
+          <li class="list">
+            <mark>list-style-image</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Cada una de ellas desempeña un papel diferente en la definición del aspecto de las listas.
+      </p>
+      <p>
+        La propiedad <mark>list-style-type</mark> te permite definir el tipo de viñeta o número utilizado en una lista.
+      </p>
+      <p>
+        Para las listas no ordenadas, puedes elegir entre varios estilos de viñetas, como discos, círculos o cuadrados.
+      </p>
+      <p>
+        Para las listas ordenadas, puedes utilizar diferentes sistemas de numeración, como decimales, números romanos o
+        incluso caracteres alfabéticos.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de <mark>list-style-type</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+
+                &lt;ul style="list-style-type: square;"&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxu {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxu ul.mi-listu {
+                  list-style-type: square;
+                  /* El cambio visual clave */
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                }
+
+                .preview-list-boxu li {
+                  margin-bottom: 5px;
+                }
+              </style>
+
+              <div class="preview-list-boxu">
+                <ul class="mi-listu">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, los puntos de la lista sin ordenar se cambian por cuadrados.
+      </p>
+      <p>
+        La propiedad <mark>list-style-type</mark> es la más utilizada de las tres, ya que afecta directamente al aspecto
+        de los
+        puntos o números de las listas.
+      </p>
+      <p>
+        La propiedad <mark>list-style-position</mark> controla la posición de los puntos o números en relación con el
+        contenido del
+        elemento de la lista. Hay dos valores que se pueden utilizar: <mark>inside</mark> y <mark>outside</mark>.
+      </p>
+      <p>
+        Cuando se utiliza el valor <mark>outside</mark>, la viñeta o el número aparecen fuera del contenido, que es el
+        comportamiento
+        predeterminado.
+      </p>
+      <p>
+        Y, cuando se utiliza el valor <mark>inside</mark>, la viñeta o el número aparecen dentro del contenido, lo que
+        puede hacer
+        que el texto se ajuste y se alinee con la viñeta o el número.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de <mark>list-style-position</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;ul style="list-style-position: inside;"&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;ul style="list-style-position: outside;"&gt;
+                  &lt;li&gt;Item 4&lt;/li&gt;
+                  &lt;li&gt;Item 5&lt;/li&gt;
+                  &lt;li&gt;Item 6&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxi {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxi ul.mi-listi {
+                  list-style-type: square;
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                  list-style-position: inside;
+                  /* El cambio visual clave */
+                }
+
+                .preview-list-boxi ul.mi-listi2 {
+                  list-style-type: square;
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                  list-style-position: outside;
+                  /* El cambio visual clave */
+                }
+
+                .preview-list-boxi li {
+                  margin-bottom: 5px;
+                }
+              </style>
+
+              <div class="preview-list-boxi">
+                <ul class="mi-listi">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+              <div class="preview-list-boxi">
+                <ul class="mi-listi2">
+                  <li>Item 4</li>
+                  <li>Item 5</li>
+                  <li>Item 6</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, se proporcionan valores <mark>inside</mark> y <mark>outside</mark> para dos etiquetas de lista
+        desordenada diferentes.
+      </p>
+      <p>
+        La propiedad <mark>list-style-position</mark> puede resultar útil cuando se desea controlar la alineación del
+        contenido de la
+        lista, especialmente en situaciones en las que hay varias líneas de texto en un solo elemento de la lista.
+      </p>
+      <p>
+        La propiedad <mark>list-style-image</mark> permite utilizar una imagen como viñeta para los elementos de la
+        lista. Esto puede
+        resultar útil para añadir un estilo visual único a las listas.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de <mark>list-style-image</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;head&gt;
+                  &lt;style&gt;
+                    ul {
+                      list-style-image: url('https://cdn.freecodecamp.org/platform/universal/freecodecamp-org-gravatar.jpeg');
+                      list-style-position: inside;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;ul&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/body&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxr {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxr ul.mi-listr {
+                  list-style-type: square;
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                  list-style-image: url('https://cdn.freecodecamp.org/platform/universal/freecodecamp-org-gravatar.jpeg');
+                  /* El cambio visual clave */
+                  list-style-position: inside;
+                }
+
+                .preview-list-boxr li {
+                  margin-bottom: 5px;
+                }
+              </style>
+
+              <div class="preview-list-boxr">
+                <ul class="mi-listr">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, los puntos se sustituyen por un logotipo personalizado de freeCodeCamp, lo que añade un toque
+        personalizado a la lista.
+      </p>
+      <p>
+        Cuando utilices <mark>list-style-image</mark>, asegúrate de que la imagen que elijas sea pequeña y adecuada para
+        el diseño de
+        tu página web. Si la imagen es demasiado grande o compleja, puede dificultar la lectura de la lista.
+      </p>
+      <p>
+        Puede combinar las tres propiedades (<mark>list-style-type</mark>, <mark>list-style-position</mark> y
+        <mark>list-style-image</mark>) en una única
+        propiedad abreviada de estilo de lista.
+      </p>
+      <p>
+        El orden de los valores en la abreviatura no importa, pero los tres se pueden especificar juntos.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se utiliza la propiedad abreviada:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;ul style="list-style: square inside url('https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg');"&gt;
+                  &lt;li&gt;Item 1&lt;/li&gt;
+                  &lt;li&gt;Item 2&lt;/li&gt;
+                  &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxx {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxx ul.mi-listx {
+                  color: black;
+                  margin: 0;
+                  padding-left: 20px;
+                  list-style: square inside url('https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg');
+                  /* El cambio visual clave */
+                }
+
+                .preview-list-boxx li {
+                  margin-bottom: 5px;
+                }
+              </style>
+
+              <div class="preview-list-boxx">
+                <ul class="mi-listx">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, los elementos de la lista utilizan viñetas cuadradas, situadas dentro del contenido, con una
+        imagen personalizada como viñeta.
+      </p>
+      <p>
+        Sin embargo, si la imagen no está disponible o no se muestra, se utilizarán las viñetas cuadradas como
+        alternativa.
+      </p>
+
+    </section>
+
+    <section id="quest2" aria-labelledby="Cuestionario 2">
+      <h2>🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué propiedad de <mark>list-style</mark> utilizarías para cambiar las viñetas por círculos en una lista
+            desordenada?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            list-style-image
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            list-style-position
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            list-style-type
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            list-style
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si desea que las viñetas de una lista se alineen con el contenido del texto, ¿qué valor de
+            <mark>list-style-position</mark> debe utilizar?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            outside
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            inside
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            center
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            left
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad te permite sustituir la viñeta predeterminada por una imagen personalizada?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            list-style-type
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            list-style-position
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            list-style
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            list-style-image
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3"
+      aria-labelledby="¿Por qué son importantes los estilos predeterminados de los enlaces para la usabilidad en la web?">
+
+      <h2>🪪 ¿Por qué son importantes los estilos predeterminados de los enlaces para la usabilidad en la web?</h2>
+
+      <p>
+        Los estilos predeterminados de los enlaces desempeñan un papel crucial en la mejora de la usabilidad y la
+        accesibilidad en la web.
+      </p>
+      <p>
+        Estos estilos, normalmente azul para los enlaces no visitados y morado para los enlaces visitados, se han
+        convertido en un estándar que los usuarios esperan y en el que confían cuando navegan por los sitios web.
+      </p>
+      <p>
+        El objetivo principal de los estilos predeterminados de los enlaces es proporcionar señales visuales claras que
+        ayuden a los usuarios a distinguir entre los elementos interactivos y no interactivos de una página web.
+      </p>
+      <p>
+        Esta distinción es fundamental para crear una experiencia de navegación intuitiva y fácil de usar.
+      </p>
+      <p>
+        Consideremos los estilos predeterminados básicos para los enlaces:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                a:link {
+                  color: blue;
+                  text-decoration: underline;
+                }
+                
+                a:visited {
+                  color: purple;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxw {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxw a:link {
+                  color: blue;
+                  text-decoration: underline;
+                }
+
+                .preview-list-boxw a:visited {
+                  color: purple;
+                }
+              </style>
+
+              <div class="preview-list-boxw">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos estilos cumplen varias funciones importantes.
+      </p>
+      <p>
+        En primer lugar, el color azul de los enlaces no visitados destaca sobre la mayoría de los colores de fondo y el
+        texto, lo que facilita su identificación. Este contraste es fundamental para que los usuarios puedan examinar
+        rápidamente una página y encontrar elementos de navegación o información importante.
+      </p>
+      <p>
+        El subrayado enfatiza aún más que el texto es clicable, lo que proporciona una señal visual adicional. Esto
+        resulta especialmente útil para los usuarios que padecen daltonismo o tienen dificultades para distinguir los
+        colores.
+      </p>
+      <p>
+        El cambio de color de los enlaces visitados (normalmente a morado) ayuda a los usuarios a llevar un registro de
+        los sitios que han visitado. Esta función es muy valiosa para navegar por sitios web grandes o realizar
+        búsquedas, ya que evita que los usuarios vuelvan a visitar inadvertidamente las mismas páginas.
+      </p>
+      <p>
+        Considere este ejemplo de HTML:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;p&gt;
+                  Learn more about 
+                  &lt;a href="https://www.example.com/cats"&gt;cats&lt;/a&gt; 
+                  and 
+                  &lt;a href="https://www.example.com/dogs"&gt;dogs&lt;/a&gt;.
+                &lt;/p&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxz {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxz p {
+                  color: black;
+                  margin: 0;
+                }
+              </style>
+
+              <div class="preview-list-boxz">
+                <p>
+                  Learn more about
+                  <a href="https://www.example.com/cats">cats</a>
+                  and
+                  <a href="https://www.example.com/dogs">dogs</a>.
+                </p>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sin ningún CSS personalizado, la mayoría de los navegadores mostrarán estos enlaces en azul y subrayados. Al
+        hacer clic en uno de los enlaces, su color cambiará a morado, lo que proporcionará al usuario información
+        inmediata sobre su historial de navegación.
+      </p>
+      <p>
+        Aunque es habitual que los diseñadores modifiquen estos estilos predeterminados para adaptarlos a la estética
+        del sitio web, es fundamental mantener los principios básicos que los sustentan.
+      </p>
+      <p>
+        Si decide cambiar los estilos predeterminados, asegúrese de que los enlaces sigan siendo claramente
+        distinguibles del texto normal, que haya una diferencia visible entre los enlaces visitados y los no visitados,
+        y que los colores elegidos proporcionen un contraste suficiente con el fondo.
+      </p>
+      <p>
+        Por ejemplo, podría utilizar un estilo personalizado como este:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                a:link {
+                  color: blue;
+                  text-decoration: none;
+                  border-bottom: 1px solid blue;
+                }
+                
+                a:visited {
+                  color: purple;
+                  border-bottom: 1px solid purple;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxq {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxq a:link {
+                  color: blue;
+                  text-decoration: none;
+                  border-bottom: 1px solid blue;
+                }
+
+                .preview-list-boxq a:visited {
+                  color: purple;
+                  border-bottom: 1px solid purple;
+                }
+              </style>
+
+              <div class="preview-list-boxq">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto mantiene la combinación de colores azul y morado, pero sustituye el subrayado por un borde inferior para
+        darle un aspecto más moderno.
+      </p>
+      <p>
+        También es importante tener en cuenta los diferentes estados de los enlaces. Además de los estados
+        predeterminado y visitado, los enlaces suelen tener los estados «al pasar el cursor» y «activo»:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="/"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                a:hover {
+                  color: red;
+                }
+                
+                a:active {
+                  color: darkorange;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxt {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxt a:hover {
+                  color: red;
+                }
+
+                .preview-list-boxt a:active {
+                  color: darkorange;
+                }
+              </style>
+
+              <div class="preview-list-boxt">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos estados proporcionan información inmediata a los usuarios cuando interactúan con los enlaces, lo que
+        mejora la usabilidad general del sitio.
+      </p>
+      <p>
+        En conclusión, aunque es posible personalizar los estilos de los enlaces, deben mantenerse los principios que
+        subyacen a los estilos predeterminados.
+      </p>
+      <p>
+        Estos desempeñan un papel crucial en la creación de una experiencia web usable y accesible, ya que ayudan a los
+        usuarios a navegar e interactuar con el contenido de forma eficaz.
+      </p>
+      <p>
+        A la hora de diseñar los estilos de los enlaces de sus sitios web, dé siempre prioridad a la claridad y a la
+        experiencia del usuario.
+      </p>
+
+    </section>
+
+    <section id="quest3" aria-labelledby="Cuestionario 3">
+      <h2>🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Por qué es importante tener un color distinto para los enlaces visitados?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Hace que el sitio web sea más colorido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Ayuda a los usuarios a llevar un registro de las páginas que ya han visitado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Los enlaces visitados son más importantes que los enlaces no visitados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Es un requisito legal para los sitios web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO suele ser el estilo predeterminado para los enlaces en la mayoría de los
+            navegadores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Color azul para los enlaces no visitados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Subraya todos los enlaces.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Color morado para los enlaces visitados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Negrita para todos los enlaces.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Al personalizar los estilos de los enlaces, ¿qué principio importante hay que mantener?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Todos los enlaces deben ser de color azul.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Los enlaces siempre deben estar subrayados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            Los enlaces deben distinguirse claramente del texto normal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Los enlaces visitados y no visitados deben tener el mismo estilo.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="¿Cómo se diseñan los diferentes estados de los enlaces?">
+
+      <h2>🧰 ¿Cómo se diseñan los diferentes estados de los enlaces?</h2>
+
+      <p>
+        Hay diferentes estados de un enlace, incluyendo <mark>link</mark>, <mark>visited</mark>, <mark>hover</mark>,
+        <mark>focus</mark>, y <mark>active</mark>. Estos estados son importantes para ayudar a
+        los usuarios a reconocer los enlaces y proporcionar una retroalimentación clara después de las interacciones, lo
+        que mejora tanto la usabilidad como la accesibilidad.
+      </p>
+      <p>
+        El diseño de estos diferentes estados de los enlaces es crucial para la usabilidad y la accesibilidad, ya que
+        proporciona pistas visuales sobre el estado actual del enlace. Esto ayuda a los usuarios a comprender qué
+        enlaces han visitado, con qué enlace están interactuando y qué sucederá cuando hagan clic.
+      </p>
+      <p>
+        Para los usuarios con discapacidades visuales o cognitivas, estos estilos distintos pueden hacer que la
+        navegación sea mucho más fácil e intuitiva.
+      </p>
+      <p>
+        Además, los estados de enlace claros mejoran la experiencia general del usuario al proporcionar información
+        inmediata sobre las interacciones del usuario, lo que reduce la confusión y mejora la navegabilidad del sitio.
+      </p>
+      <p>
+        Estos estados se pueden diseñar utilizando algo llamado <mark>pseudo-clases</mark> en CSS.
+      </p>
+      <p>
+        Una <mark>pseudo-clases</mark> es una palabra clave añadida a un selector que especifica un estado especial del elemento
+        seleccionado.
+      </p>
+      <p>
+        Por ejemplo, <mark>:hover</mark> puede cambiar el color de un botón cuando el puntero del usuario se sitúa sobre
+        él, mientras
+        que <mark>:visited</mark> puede cambiar el color de un enlace que ya ha sido visitado.
+      </p>
+      <p>
+        Las pseudoclases permiten aplicar estilos a los elementos en función de su estado o de la interacción del
+        usuario con ellos, sin necesidad de añadir marcas adicionales en el HTML.
+      </p>
+      <p>
+        La sintaxis de una <mark>pseudo-clase</mark> es similar a la siguiente, donde <mark>A</mark> es el selector y
+        <mark>:B</mark> es la <mark>pseudo-clase</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">style.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                A:B {
+                  property: value;
+                }
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para comprender mejor cómo aplicar estilos a los diferentes estados de los enlaces, veamos algunos ejemplos.
+      </p>
+      <p>
+        La pseudoclase <mark>:link</mark> aplica estilos a los enlaces no visitados, indicando que se puede hacer clic
+        en ellos.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se selecciona un elemento de anclaje y se utiliza la pseudoclase
+        <mark>:link</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* Normal state (unvisited link) */
+                a:link { 
+                  color: red;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxh {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxh a:link {
+                  color: red;
+                }
+              </style>
+
+              <div class="preview-list-boxh">
+                <a href=".">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El ejemplo anterior cambiará el color azul predeterminado del enlace a <mark>red</mark> cuando no se haya
+        visitado.
+      </p>
+      <p>
+        <mark>:visited</mark> aplica estilos a los enlaces que ya se han visitado o en los que se ha hecho clic, lo que
+        ayuda a los
+        usuarios a realizar un seguimiento de los enlaces en los que han hecho clic anteriormente. A continuación se
+        muestra un ejemplo de uso de la pseudoclase <mark>:visited</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* Visited link */
+                a:visited {
+                  color: green;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxe {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxe a:visited {
+                  color: green;
+                }
+              </style>
+
+              <div class="preview-list-boxe">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código cambiará el color del enlace a <mark>green</mark> cuando se haga clic en él.
+      </p>
+      <p>
+        <mark>:hover</mark> cambia el estilo del enlace cuando el usuario pasa el cursor por encima, lo que proporciona
+        una señal
+        visual de que el enlace es interactivo. A continuación se muestra un ejemplo de uso de la pseudoclase
+        <mark>:hover</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* Hover state */
+                a:hover {
+                  color: green;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxee {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxee a:hover {
+                  color: green;
+                }
+              </style>
+
+              <div class="preview-list-boxee">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código coloreará los enlaces de <mark>green</mark> cuando se pase el ratón por encima.
+      </p>
+      <p>
+        <mark>:focus</mark> añade estilos alrededor del enlace cuando está enfocado, como al navegar con el teclado o al
+        mejorar la
+        accesibilidad.
+      </p>
+      <p>
+        Aquí hay un ejemplo que utiliza la propiedad <mark>outline</mark> para aplicar un contorno naranja sólido cuando
+        el enlace
+        está enfocado.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* Focus state */
+                a:focus {
+                  outline: 2px solid orange;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxer {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxer a:focus {
+                  outline: 2px solid orange;
+                }
+              </style>
+
+              <div class="preview-list-boxer">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>:active</mark> cambia los estilos del enlace mientras se hace clic en él, lo que proporciona al usuario
+        una respuesta inmediata de que su acción se está registrando. A continuación se muestra un ejemplo de uso de la
+        pseudoclase <mark>:active</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+
+                &lt;a href="#"&gt;Example link&lt;/a&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">
+                /* Active state */
+                a:active {
+                  color: pink;
+                }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result">
+
+              <style>
+                .preview-list-boxet {
+                  padding: 10px;
+                  font-family: 'Inter', sans-serif;
+                }
+
+                .preview-list-boxet a:active {
+                  color: pink;
+                }
+              </style>
+
+              <div class="preview-list-boxet">
+                <a href="#">Example link</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este ejemplo de código hará que el enlace se vuelva de color <mark>pink</mark> inmediatamente al hacer clic en
+        él.
+      </p>
+
+    </section>
+
+    <section id="quest4" aria-labelledby="Cuestionario 4">
+      <h2>🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué pseudoclase CSS se utiliza para aplicar estilos a los enlaces que no se han visitado?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :visited
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            :link
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :hover
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :active
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué cambio visual suele implicar el estado de <mark>:hover</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            El enlace se hace más grande.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            El color del texto del enlace cambia.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            El texto del enlace aparece en negrita.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            El texto del enlace está subrayado.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué pseudo-clase CSS utilizarías para añadir un contorno visible alrededor de un enlace cuando se navega por él con el teclado?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :link
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :hover
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            :focus
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :active
           </label>
         </fieldset>
 

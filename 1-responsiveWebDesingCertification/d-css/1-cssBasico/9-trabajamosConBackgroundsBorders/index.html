@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajamos con Backgrounds y Borders</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajamos con Backgrounds y Borders</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En esta sección, elevamos nuestras habilidades de CSS más allá de lo básico para aprender a construir interfaces
+        visualmente dinámicas y accesibles. Hemos explorado cómo transformar contenedores simples en piezas de diseño
+        funcional mediante cuatro pilares fundamentales:
+      </p>
+      <p>
+        <strong>Arquitectura de Fondos</strong>: Aprendimos a dominar la imagen de fondo no solo como un adorno, sino
+        como una
+        herramienta adaptable. Desde el control del tamaño y repetición, hasta el posicionamiento preciso y el efecto
+        cinematográfico de la fijación (parallax) durante el scroll.
+      </p>
+      <p>
+        <strong>Gradientes Dinámicos</strong>: Descubrimos la potencia de los degradados lineales y radiales,
+        permitiéndonos crear
+        profundidad y modernidad sin depender de archivos de imagen pesados.
+      </p>
+      <p>
+        <strong>Diseño Responsable y Accesible</strong>: Entendimos que la estética no sirve de nada sin legibilidad.
+        Analizamos las
+        pautas WCAG para garantizar que el contraste entre fondos y textos permita que cualquier usuario, sin importar
+        sus capacidades visuales, pueda consumir el contenido.
+      </p>
+      <p>
+        <strong>Enmarcado y Geometría (Borders)</strong>: Finalmente, exploramos el "Box Model" a través de los bordes y
+        contornos
+        (outlines), aprendiendo a definir límites, estilos independientes y a suavizar interfaces mediante el uso
+        estratégico de radios de curvatura.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo funcionan el tamaño, la repetición, la posición y la fijación de las imágenes
+        de fondo?</h2>
+
+      <p>
+        Cuando se trabaja con imágenes de fondo en CSS, se dispone de varias propiedades para controlar cómo se muestran
+        estas imágenes.
+      </p>
+      <p>
+        Las principales propiedades en las que nos centraremos son <mark>background-size</mark>,
+        <mark>background-repeat</mark>,
+        <mark>background-position</mark> y <mark>background-attachment</mark>.
+      </p>
+      <p>
+        Veamos primero la propiedad <mark>background-image</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+
+              <style>
+                .preview-background-image {
+                  width: auto;
+                  height: 28rem;
+                  margin: 0;
+                  padding: 0;
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                }
+              </style>
+
+              <div class="preview-background-image">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El CSS anterior establece una imagen de fondo de un gato para el elemento <mark>body</mark>.
+      </p>
+      <p>
+        Si quieres establecer el tamaño de la imagen de fondo, puedes utilizar la propiedad
+        <mark>background-size</mark>.
+      </p>
+      <p>
+        Puedes utilizar <mark>contain</mark> para escalar la imagen lo máximo posible sin recortarla ni estirarla.
+      </p>
+      <p>
+        Aquí tienes un ejemplo con <mark>background-size: contain</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: contain;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-size {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: contain;
+                  min-height: 100px;
+                }
+              </style>
+
+              <div class="preview-background-size"></div>
+              <div class="preview-background-size"></div>
+              <div class="preview-background-size"></div>
+              <div class="preview-background-size"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estamos estableciendo la <mark>min-height</mark> en <mark>100px</mark> para que la imagen de fondo sea visible y
+        el diseño mantenga una
+        altura de referencia, lo que garantiza que, incluso con un contenido mínimo, el diseño resulte equilibrado y
+        visualmente atractivo.
+      </p>
+      <p>
+        Si cambiamos la propiedad <mark>background-size</mark> para utilizar el valor <mark>cover</mark>, la imagen de
+        fondo se escalará para
+        cubrir todo el elemento body, manteniendo su relación de aspecto.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: cover;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-sizes {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: cover;
+                  min-height: 450px;
+                }
+              </style>
+
+              <div class="preview-background-sizes"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En los ejemplos anteriores, probablemente hayas notado que la imagen de fondo se repite continuamente.
+      </p>
+      <p>
+        De forma predeterminada, las imágenes de fondo se repiten tanto horizontal como verticalmente para llenar todo
+        el elemento. Sin embargo, puedes controlar este comportamiento.
+      </p>
+      <p>
+        Puedes utilizar la propiedad <mark>background-repeat</mark> con el valor establecido en <mark>no-repeat</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-repeat {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  min-height: 100px;
+                }
+              </style>
+
+              <div class="preview-background-repeat"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Con el <mark>background-size</mark> establecido en <mark>contain</mark> y el <mark>background-repeat</mark>
+        establecida en <mark>no-repeat</mark>, la imagen ya no
+        se repetirá en la pantalla.
+      </p>
+      <p>
+        Si desea repetir la imagen de fondo horizontalmente, puede utilizar el valor <mark>repeat-x</mark> para la
+        propiedad
+        <mark>background-repeat</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: contain;
+    background-repeat: repeat-x;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-repeat2 {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: contain;
+                  background-repeat: repeat-x;
+                  min-height: 100px;
+                }
+              </style>
+
+              <div class="preview-background-repeat2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si desea repetir la imagen de fondo verticalmente, puede utilizar el valor <mark>repeat-y</mark> para la
+        propiedad <mark>background-repeat</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: contain;
+    background-repeat: repeat-y;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-repeat3 {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: contain;
+                  background-repeat: repeat-y;
+                  min-height: 100px;
+                }
+              </style>
+
+              <div class="preview-background-repeat3"></div>
+              <div class="preview-background-repeat3"></div>
+              <div class="preview-background-repeat3"></div>
+              <div class="preview-background-repeat3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para colocar una imagen de fondo en la pantalla, puede utilizar la propiedad <mark>background-position</mark>.
+      </p>
+      <p>
+        La propiedad <mark>background-position</mark> le permite establecer en qué parte del elemento aparecerá la
+        imagen de fondo.
+        Puede utilizar palabras clave como <mark>top</mark>, <mark>bottom</mark>, <mark>left</mark>, <mark>right</mark>
+        y <mark>center</mark>, o valores específicos en píxeles o
+        porcentajes.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se utilizan <mark>center</mark> y <mark>top</mark> para el
+        <mark>background-position</mark>
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 100px;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-position {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center top;
+                  min-height: 100px;
+                }
+              </style>
+
+              <div class="preview-background-position"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código CSS coloca la imagen de fondo en el centro del elemento horizontalmente y en la parte superior
+        verticalmente.
+      </p>
+      <p>
+        Por último, <mark>background-attachment</mark> determina si la imagen de fondo se desplaza con el contenido o
+        permanece fija
+        cuando se desplaza la página.
+      </p>
+      <p>
+        Los valores principales son <mark>scroll</mark> (predeterminado), donde la imagen de fondo se desplaza con el
+        contenido, y
+        <mark>fixed</mark>, donde la imagen de fondo permanece en la misma posición en la pantalla.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se utiliza el valor <mark>fixed</mark> para la propiedad
+        <mark>background-attachment</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+    background-position: center top;
+    background-attachment: fixed;
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background-attachment {
+                  background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  background-position: center top;
+                  background-attachment: fixed;
+                  min-height: 460px;
+                }
+              </style>
+
+              <div class="preview-background-attachment"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código CSS establece que la imagen de fondo permanezca fija en su lugar incluso cuando se desplaza la
+        página.
+      </p>
+      <p>
+        Si desea combinar varias propiedades en una sola línea, puede hacerlo utilizando la propiedad abreviada
+        <mark>background</mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;style&gt;
+  body {
+    background: center top fixed
+    url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+  }
+&lt;/style&gt;
+              </code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="preview-iframe-container">
+            <div class="preview-result" style="display: block; margin: 0; padding: 0;">
+              <style>
+                .preview-background {
+                  background: center top fixed url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+                  min-height: 460px;
+                }
+              </style>
+
+              <div class="preview-background"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El ejemplo anterior combina las propiedades <mark>background-image</mark>, <mark>background-position</mark> y
+        <mark>background-attachment</mark> en una
+        sola línea.
+      </p>
+      <p>
+        Al dominar estas propiedades, tendrás un gran control sobre cómo se muestran las imágenes de fondo en tus
+        diseños web, lo que te permitirá crear diseños más atractivos y funcionales.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué valor de <mark>background-size</mark> utilizarías para garantizar que toda la imagen de fondo sea
+            visible sin recortes, incluso si no cubre todo el elemento?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            cover
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            contain
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            auto
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            100%
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si quieres que una imagen de fondo se repita horizontalmente pero no verticalmente, ¿qué valor de
+            <mark>background-repeat</mark> usarías?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            repeat
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            no-repeat
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            repeat-x
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            repeat-y
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué valor de <mark>background-attachment</mark> utilizarías para que una imagen de fondo permaneciera en su
+            lugar cuando el usuario se desplaza por la página?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            scroll
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            fixed
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            local
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            static
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Qué es un degradado de fondo y cómo funciona?</h2>
+
+      <p>
+        Un degradado de fondo en CSS es una transición suave entre dos o más colores que se puede aplicar al fondo de un
+        elemento. Los degradados permiten crear fondos visualmente atractivos sin necesidad de imágenes.
+      </p>
+      <p>
+        Hay dos tipos principales de degradados en CSS: <mark>linear-gradient</mark> y <mark>radial-gradient</mark>.
+      </p>
+      <p>
+        Un <mark>linear-gradient</mark> realiza una transición de colores a lo largo de una línea recta. Se puede
+        definir la
+        dirección y los colores que se utilizan.
+      </p>
+      <p>
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">Sintaxis CSS</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active">
+              <pre><code class="language-css">background: linear-gradient(direction, color-stop1, color-stop2, ...);</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos la propiedad CSS <mark>background</mark> con un valor de <mark>linear
+          gradient</mark>.
+      </p>
+      <p>
+        La dirección especifica la dirección del degradado. Puede ser un ángulo (como <mark>45deg</mark>), una palabra
+        clave (como <mark>to
+          right</mark>, <mark>to bottom</mark>) o un lado/esquina.
+      </p>
+      <p>
+        <mark>color-stop</mark> especifica los colores y las posiciones en las que se producen las transiciones del
+        degradado.
+      </p>
+      <p>
+        Para comprender mejor cómo funcionan los <mark>linear-gradient</mark>, veamos el siguiente ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="linear-gradient"&gt;&lt;/div&gt;
+              </code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.linear-gradient {
+  background: linear-gradient(to right, red, yellow);
+  height: 40vh;
+}
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block;">
+            <style>
+              .preview-linear-gradient {
+                background: linear-gradient(to right, red, yellow);
+                height: 35vh;
+                width: 100%;
+                border-radius: 4px;
+              }
+            </style>
+            <div class="preview-linear-gradient"></div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este CSS crea un <mark>linear-gradient</mark> que pasa del <mark>red</mark> a la <mark>left</mark> al
+        <mark>yellow</mark> a
+        la <mark>right</mark>. El degradado se aplica a un
+        elemento con una altura del <mark>40%</mark> de la altura de la ventana gráfica. Aprenderás más sobre las
+        unidades <mark>vh</mark> en una
+        lección futura.
+      </p>
+      <p>
+        La dirección <mark>to right</mark> significa que el degradado se extiende horizontalmente de izquierda a
+        derecha.
+      </p>
+      <p>
+        Otro tipo de degradado sería el <mark>radial-gradient</mark>.
+      </p>
+      <p>
+        Un <mark>radial-gradient</mark> transiciona los colores irradiando desde un origen (normalmente el centro) hacia
+        afuera en
+        forma circular o elíptica.
+      </p>
+      <p>
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">Sintaxis CSS</button>
+            </div>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active">
+              <pre><code class="language-css">background: radial-gradient(shape size at position, color-stop1, color-stop2, ...)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En la sintaxis, la <mark>shap</mark> especifica la forma del degradado, que puede ser un <mark>circle</mark> o
+        <mark>ellipse</mark>.
+      </p>
+      <p>
+        El <mark>size</mark> determina el tamaño de la forma final del degradado, que puede ser
+        <mark>closest-side</mark>, <mark>closest-corner</mark>, <mark>farthest-side</mark>,
+        <mark>farthest-corner</mark>, <mark>contain</mark>, or <mark>cover</mark>.
+      </p>
+      <p>
+        La <mark>position</mark> determina la posición del centro del degradado, que se puede especificar mediante
+        palabras clave (como <mark>center</mark>, <mark>top left</mark>, <mark>bottom right</mark>) o valores precisos
+        (como <mark>50% 50%</mark>, <mark>10px 20px</mark>).
+      </p>
+      <p>
+        Por último, las paradas de color son una lista de colores por los que pasa el degradado. Cada parada de color
+        puede incluir opcionalmente un valor de posición (porcentaje o longitud) que indica dónde debe colocarse el
+        color.
+      </p>
+      <p>
+        Un ejemplo sería:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="radial-gradient"&gt;&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.radial-gradient {
+  background: radial-gradient(circle closest-side at center, red, yellow 50%, green);
+  height: 60vh;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block;">
+            <style>
+              .preview-radial-gradient {
+                background: radial-gradient(circle closest-side at center, red, yellow 50%, green);
+                height: 35vh;
+                width: 100%;
+                border-radius: 4px;
+              }
+            </style>
+            <div class="preview-radial-gradient"></div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este CSS crea un <mark>radial-gradient circle</mark> centrado en el elemento. Comienza con <mark>red</mark> en
+        el centro,
+        pasa a <mark>yellow</mark>
+        en el <mark>50%</mark> del radio y termina con <mark>green</mark>.
+      </p>
+      <p>
+        La palabra clave <mark>closest-side</mark> hace que la forma final del degradado se ajuste al lado más cercano
+        del elemento.
+        El degradado se aplica a un elemento con una altura del <mark>60%</mark> de la altura de la ventana gráfica.
+      </p>
+      <p>
+        Comprender cómo trabajar con degradados CSS puede mejorar significativamente sus diseños, ya que proporciona
+        fondos visualmente atractivos sin necesidad de imágenes.
+      </p>
+      <p>
+        Con opciones como <mark>linear-gradient</mark> para transiciones suaves y <mark>radial-gradient</mark> para
+        efectos circulares,
+        ofrecen flexibilidad y creatividad en el diseño web.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué especifica la palabra clave <mark>circle</mark> en una función <mark>radial-gradient()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El degradado tendrá forma cuadrada.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El gradiente se extenderá en dirección diagonal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            El gradiente tendrá forma circular.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El degradado se aplicará al texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace la palabra clave <mark>farthest-corner</mark> en el parámetro size de una función
+            <mark>radial-gradient</mark>()?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Hace que el degradado se extienda hasta la esquina más cercana del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Hace que el degradado cubra todo el width del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Hace que el degradado se extienda hasta la esquina más alejada del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Hace que el degradado solo aparezca dentro del padding del elemento.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En la función <mark>radial-gradient(circle at center, red, yellow 50%, green)</mark>, ¿dónde se encuentra el
+            centro del gradiente?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            En la esquina superior derecha del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            En la esquina inferior izquierda del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            En el centro del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            En el borde exterior del elemento.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2 id="tema3-titulo">¿Cuáles son algunas consideraciones de accesibilidad para los fondos?</h2>
+
+      <p>
+        En el diseño web, los fondos desempeñan un papel fundamental a la hora de definir el aspecto general de una
+        página web.
+      </p>
+      <p>
+        Sin embargo, al diseñar con fondos, es fundamental tener en cuenta la accesibilidad para garantizar que el
+        contenido sea utilizable y legible para todos los usuarios, incluidos aquellos con discapacidad visual.
+      </p>
+      <p>
+        Una de las principales preocupaciones en materia de accesibilidad relacionadas con los fondos es garantizar que
+        haya suficiente contraste entre el fondo y el texto.
+      </p>
+      <p>
+        Sin un contraste adecuado, los usuarios con discapacidad visual, incluidos aquellos con baja visión o
+        daltonismo, pueden tener dificultades para leer el contenido de su página.
+      </p>
+      <p>
+        El contraste se refiere a la diferencia de claridad u oscuridad entre dos colores. Un contraste suficiente entre
+        el color de fondo y el color del texto es esencial para la legibilidad.
+      </p>
+      <p>
+        Las Pautas de Accesibilidad al Contenido en la Web (WCAG) recomiendan una relación de contraste mínima de 4,5:1
+        para el texto normal y de 3:1 para el texto grande.
+      </p>
+      <p>
+        Por ejemplo, colocar texto blanco sobre un fondo gris claro daría lugar a un contraste deficiente, lo que
+        dificultaría la lectura del texto. Sin embargo, el texto blanco sobre un fondo azul oscuro proporcionaría un
+        buen contraste, lo que mejoraría la legibilidad para todos los usuarios.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de contraste deficiente:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+&lt;p style="color: lightgray; background-color: whitesmoke;"&gt;
+  This is an example of poor contrast.
+&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; flex-direction: column; gap: 10px; padding: 10px;">
+
+            <div style="color: lightgray; background-color: rgb(237, 234, 234);">
+              This is an example of poor contrast.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora, aquí hay un ejemplo de buen contraste:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">
+&lt;p style="color: lightgray; background-color: darkslategray;"&gt;
+  This is an example of good contrast.
+&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; flex-direction: column; gap: 10px; padding: 10px;">
+
+            <div style="color: white; background-color: darkslategray;">
+              This is an example of good contrast.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra consideración es evitar colocar texto sobre fondos recargados o complejos, como imágenes o degradados con
+        múltiples colores. Los fondos recargados pueden dificultar la distinción del texto del fondo, independientemente
+        del contraste.
+      </p>
+      <p>
+        Al diseñar fondos, evite utilizar el color como único medio para transmitir información. Por ejemplo, utilizar
+        solo el color para indicar un mensaje de error o de éxito (como el rojo para los errores o el verde para los
+        éxitos) puede ser problemático para los usuarios con daltonismo.
+      </p>
+      <p>
+        Además del color, debe utilizar símbolos o texto para transmitir información. Por ejemplo, junto a un mensaje de
+        error en rojo, podría utilizar un icono o texto en negrita para dejar claro que hay un error.
+      </p>
+      <p>
+        Aunque es menos habitual, el audio o los vídeos de fondo también pueden afectar a la accesibilidad.
+      </p>
+      <p>
+        La música de fondo o los vídeos que se reproducen automáticamente pueden distraer a algunos usuarios,
+        especialmente a aquellos con discapacidades cognitivas. Si incluye audio de fondo, proporcione siempre a los
+        usuarios una forma de silenciarlo o pausarlo.
+      </p>
+      <p>
+        Teniendo en cuenta estas consideraciones de accesibilidad, puede crear diseños más inclusivos que garanticen que
+        su contenido sea legible y utilizable por todos los usuarios, independientemente de sus capacidades.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Por qué es importante mantener un contraste suficiente entre el texto y el fondo?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Para que la página se vea más colorida.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Para que el texto sea más fácil de leer para todos los usuarios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Para reducir los tiempos de carga de la página web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Para resaltar texto de diferentes maneras.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones debe evitarse al colocar texto sobre un fondo?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Aplicar un fondo de alto contraste.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Usar un fondo recargado o complejo sin ninguna superposición.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Usar texto blanco sobre fondo negro.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Usar un color de fondo sólido detrás del texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el problema de utilizar el color como único indicador de información, como por ejemplo mostrar un
+            mensaje de error en rojo?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Hace que el sitio web parezca menos colorido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            No afecta a los usuarios con discapacidad visual.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            Puede resultar problemático para los usuarios con daltonismo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Requiere más código CSS.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2 id="tema4-titulo">¿De qué maneras se pueden añadir bordes alrededor de las imágenes?</h2>
+
+      <p>
+        En CSS, hay varias formas de añadir bordes alrededor de las imágenes, cada una de las cuales ofrece diferentes
+        opciones de estilo y niveles de control.
+      </p>
+      <p>
+        Veamos algunos de los métodos más comunes y versátiles.
+      </p>
+      <p>
+        La forma más sencilla de añadir un borde a una imagen es utilizando la propiedad <mark>border</mark>. Esta
+        propiedad es una
+        abreviatura que permite establecer el ancho, el estilo y el color del borde de una sola vez.
+
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat lying on its back."&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">img {
+  border: 2px solid red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-img-border {
+                border: 5px solid red;
+                width: 100%;
+                max-width: 250px;
+                display: block;
+              }
+            </style>
+            <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat"
+              class="preview-img-border">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esta regla CSS añade un borde rojo sólido de 2 píxeles de ancho alrededor de todos los elementos
+        <mark>img</mark>. Puede
+        ajustar el ancho, el estilo (como dashed, dotted, o double) y el color para adaptarlo a sus necesidades de
+        diseño.
+      </p>
+      <p>
+        Si necesita más control sobre los lados individuales del borde, puede utilizar las propiedades específicas del
+        borde para cada lado:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat lying on its back."&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">img {
+  border-top: 10px solid red;
+  border-right: 10px dashed green;
+  border-bottom: 10px dotted blue;
+  border-left: 10px double purple;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-img-mixed {
+                border-top: 10px solid red;
+                border-right: 10px dashed green;
+                border-bottom: 10px dotted blue;
+                border-left: 10px double purple;
+                width: 100%;
+                max-width: 250px;
+                display: block;
+              }
+            </style>
+            <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat"
+              class="preview-img-mixed">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto le permite crear estilos de borde únicos para cada lado de la imagen.
+      </p>
+      <p>
+        Otra forma de crear un efecto de borde es utilizando la propiedad <mark>outline</mark>. Aunque es similar al
+        borde, el
+        contorno no afecta a las dimensiones ni al diseño del elemento:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat lying on its back."&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">img {
+  outline: 3px solid gold;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-img-outline {
+                outline: 3px solid gold;
+                width: 100%;
+                max-width: 250px;
+                display: block;
+              }
+            </style>
+            <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat"
+              class="preview-img-outline">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un contorno dorado alrededor de la imagen sin cambiar su tamaño ni su posición.
+      </p>
+      <p>
+        Si desea crear esquinas redondeadas en el borde, puede utilizar la propiedad <mark>border-radius</mark> junto
+        con border:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigo(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat lying on its back."&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">img {
+  border: 2px solid black;
+  border-radius: 10px;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result">
+            <style>
+              .preview-img-rounded {
+                border: 2px solid black;
+                border-radius: 10px;
+                width: 100%;
+                max-width: 250px;
+                display: block;
+              }
+            </style>
+            <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute cat"
+              class="preview-img-rounded">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Recuerda que estas técnicas se pueden combinar y personalizar para crear efectos de borde únicos. La elección
+        del método depende de tus requisitos de diseño específicos y del nivel de complejidad que necesites.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué propiedad CSS te permite crear un borde que no afecte a las dimensiones del elemento?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            border
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            outline
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            box-shadow
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            border-image
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo crearías un borde rojo discontinuo de 3 píxeles de ancho solo en el lado izquierdo de una imagen?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <pre>
+              <code>
+                img {
+                  border: 3px dashed red left;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            <pre>
+              <code>
+                img {
+                  border-left: 3px dashed red;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <pre>
+              <code>
+                img {
+                  left-border: 3px dashed red;
+                }
+              </code>
+            </pre>
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <pre>
+              <code>
+                img {
+                  border: left 3px dashed red;
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS utilizarías para redondear las esquinas de un borde?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            border-style
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            border-radius
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            border-spacing
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            border-bottom
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

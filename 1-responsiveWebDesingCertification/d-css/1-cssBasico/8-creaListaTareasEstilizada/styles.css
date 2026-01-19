@@ -1,0 +1,120 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.container {
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	padding: 40px;
+	max-width: 600px;
+	width: 100%;
+}
+
+h1 {
+	color: #667eea;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+.todo-list {
+	list-style: none;
+}
+
+.todo-list > li {
+	background: #f8f9fa;
+	border-radius: 12px;
+	padding: 20px;
+	margin-bottom: 15px;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-list > li:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list > li input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	margin-right: 12px;
+	cursor: pointer;
+	accent-color: #667eea;
+}
+
+.todo-list > li label {
+	font-size: 1.2em;
+	font-weight: 600;
+	color: #2d3748;
+	cursor: pointer;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.sub-item {
+	list-style: none;
+	margin-top: 15px;
+	padding-left: 32px;
+}
+
+.sub-item li {
+	margin-bottom: 8px;
+}
+
+.sub-item-link {
+	text-decoration: none;
+	font-size: 1em;
+	padding: 8px 15px;
+	border-radius: 8px;
+	display: inline-block;
+	transition: all 0.3s ease;
+	background: #e2e8f0;
+}
+
+/* Enlaces no visitados */
+.sub-item-link:link {
+	color: #3182ce;
+}
+
+/* Enlaces visitados */
+.sub-item-link:visited {
+	color: #805ad5;
+}
+
+/* Enlaces al pasar el cursor */
+.sub-item-link:hover {
+	color: #ffffff;
+	background: #667eea;
+	transform: translateX(5px);
+}
+
+/* Enlaces enfocados */
+.sub-item-link:focus {
+	outline: 3px solid #48bb78;
+	outline-offset: 3px;
+}
+
+/* Enlaces al hacer clic */
+.sub-item-link:active {
+	color: #f56565;
+	background: #fed7d7;
+	transform: scale(0.95);
+}
+
+.icon {
+	margin-left: 5px;
+	font-size: 0.9em;
+}
