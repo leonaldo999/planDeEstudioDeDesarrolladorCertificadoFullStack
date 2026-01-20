@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de listas, enlaces, fondos y bordes</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de listas, enlaces, fondos y bordes</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">🚀 Introducción</a></li>
+      <li><a href="#tema1">📏 Estilo de Listas</a></li>
+      <li><a href="#tema2">↔️ Espaciado (Margin)</a></li>
+      <li><a href="#tema3">🔗 Enlaces y Pseudo-clases</a></li>
+      <li><a href="#tema4">🖼️ Fondos (Backgrounds)</a></li>
+      <li><a href="#tema5">📦 Bordes y Radio</a></li>
+      <li><a href="#tema6">🌈 Degradados</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        <strong>Listas y Enlaces</strong>: Son la base de la navegación. Las listas (
+        <code>&lt;ul&gt;</code>, <code>&lt;li&gt</code>;) organizan la información, mientras que los enlaces
+        (<code>&lt;a&gt;</code>) crean la interactividad.
+        Se personalizan
+        eliminando estilos por defecto (<code>list-style: none</code>, <code>text-decoration: none</code>) y gestionando
+        sus estados visuales
+        con pseudo-clases como <code>:hover</code>.
+      </p>
+      <br>
+      <p>
+        <strong>Fondos (<code>Backgrounds</code>)</strong>: Gestionan la capa visual profunda. Permiten usar colores,
+        imágenes o degradados,
+        controlando su escala (<code>cover</code>, <code>contain</code>), repetición y comportamiento ante el scroll
+        (<code>fixed</code>).
+      </p>
+      <br>
+      <p>
+        <strong>Bordes y Geometría</strong>: Definen los límites físicos de los elementos. Mientras que
+        <code>border</code> añade
+        grosor y
+        estilo al Modelo de Caja, <code>border-radius</code> suaviza la interfaz. El <code>outline</code> actúa como un
+        contorno externo que
+        no desplaza otros elementos, siendo clave para la accesibilidad.
+      </p>
+
+    </section>
+
+    <section id="tema1">
+      <h2>Conceptos básicos de CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>line-height</code></strong>: esta propiedad se utiliza para crear espacio entre las
+            líneas de texto. Los valores aceptados para <code>line-height</code> incluyen la palabra clave
+            <code>normal</code>, números, porcentajes y unidades de longitud como la unidad <code>em</code>.
+          </li>
+          <li>
+            <strong>Propiedad <code>list-style-type</code></strong>: esta propiedad se utiliza para especificar el
+            marcador de un elemento de la lista. Los valores aceptables pueden incluir un círculo, un disco o un
+            decimal.
+          </li>
+          <li>
+            <strong>Propiedad <code>list-style-position</code></strong>: esta propiedad se utiliza para establecer la
+            posición del marcador de la lista. Los únicos dos valores aceptables son inside y outside.
+          </li>
+          <li>
+            <strong>Propiedad <code>list-style-image</code></strong>: esta propiedad se utiliza para emplear una imagen
+            como marcador de elemento de lista. Un caso de uso habitual es utilizar la función <code>url</code> con un
+            valor establecido en una ubicación de imagen válida.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema2">
+
+      <h2>Espaciar elementos de lista utilizando <code>margin</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            Además de la <code>line-height</code>, los márgenes también se pueden utilizar en CSS para mejorar el
+            espaciado y la legibilidad de los elementos de lista.
+          </li>
+          <li>
+            Los márgenes crean espacio fuera de cada elemento <code>li</code>, lo que permite controlar el espacio entre
+            los elementos de la lista.
+          </li>
+          <li>
+            <code>margin-bottom</code> se utiliza para crear espacio debajo de cada elemento de la lista. Por ejemplo,
+            <code>margin-bottom: 10px;</code> creará un espacio de 10-píxeles debajo de cada elemento de la lista.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+
+      <h2>Enlaces de estilo</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <code>pseudo-clase</code>: es una palabra clave que se añade a un selector y que permite seleccionar
+            elementos en función de un estado concreto. Entre los estados más comunes se encuentran los estados
+            <code>:hover</code>, <code>:visited</code> y <code>:focus</code>.
+          </li>
+          <li>
+            <code>pseudo-clase :link</code>: esta pseudoclase se utiliza para aplicar estilos a los enlaces que el
+            usuario aún no ha visitado.
+          </li>
+          <li>
+            <code>pseudo-clase :visited</code>: esta pseudoclase se utiliza para aplicar estilos a los enlaces que el
+            usuario ya ha visitado.
+          </li>
+          <li>
+            <code>pseudo-clase :hover</code>: esta pseudoclase se utiliza para aplicar estilos a los elementos sobre los
+            que el usuario está pasando el cursor activamente.
+          </li>
+          <li>
+            <code>pseudo-clase :focus</code>: esta pseudoclase se utiliza para aplicar estilos a un elemento cuando
+            recibe el foco. Algunos ejemplos serían los elementos de <code>input</code> o <code>select</code> en los que
+            se hace clic o se pulsa la tecla Tab para enfocarlos.
+          </li>
+          <li>
+            <code>pseudo-clase :active</code>: esta pseudoclase se utiliza para aplicar estilos a un elemento que ha
+            sido activado por el usuario. Un ejemplo común sería cuando el usuario hace clic en un botón.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema4">
+
+      <h2>Trabajar con Backgrounds y Borders</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>background-size</code></strong>: esta propiedad se utiliza para establecer el tamaño
+            del fondo de un elemento. Algunos valores comunes son <code>cover</code>, para que la imagen de fondo cubra
+            todo el elemento, y <code>contain</code>, para que la imagen de fondo se ajuste al elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>background-repeat</code></strong>: esta propiedad se utiliza para determinar cómo se
+            deben repetir las imágenes de fondo a lo largo de los ejes horizontal y vertical. El valor predeterminado de
+            <code>background-repeat</code> es <code>repeat</code>, lo que significa que la imagen se repetirá tanto
+            horizontal como verticalmente. También se puede especificar que no haya repetición utilizando la propiedad
+            <code>no-repeat</code>.
+          </li>
+          <li>
+            <strong>Propiedad <code>background-position</code></strong>: esta propiedad se utiliza para especificar la
+            posición de la imagen de fondo. Se puede establecer en una longitud específica, un porcentaje o valores de
+            palabras clave como <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> y center.
+          </li>
+          <li>
+            <strong>Propiedad <code>background-attachment</code></strong>: esta propiedad se utiliza para especificar si
+            la imagen de fondo debe desplazarse con el contenido o permanecer fija en su lugar. Los valores principales
+            son <code>scroll</code> (predeterminado), donde la imagen de fondo se desplaza con el contenido, y
+            <code>fixed</code>, donde la imagen de fondo permanece en la misma posición en la pantalla.
+          </li>
+          <li>
+            <strong>Propiedad <code>background-image</code></strong>: esta propiedad se utiliza para establecer la
+            imagen de fondo de un elemento. Se pueden establecer varias imágenes de fondo al mismo tiempo y utilizar las
+            funciones <code>url</code>, <code>radial-gradient</code> o <code>linear-gradient</code> como valores.
+          </li>
+          <li>
+            <strong>Propiedad background</strong>: es la propiedad abreviada para establecer todas las propiedades de
+            fondo en una sola declaración. A continuación se muestra un ejemplo de cómo establecer la imagen de fondo y
+            configurarla para que no se repita: <code>background: no-repeat url("example-url-goes-here"</code>);
+          </li>
+          <li>
+            <strong>Buen contraste entre los colores de fondo y de primer plano</strong>: es importante asegurarse de
+            que los colores de fondo y de primer plano tengan un buen contraste para que el texto sea legible. Las
+            Pautas de Accesibilidad al Contenido en la Web (WCAG) recomiendan una relación de contraste mínima de 4,5:1
+            para el texto normal y de 3:1 para el texto grande.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema5">
+
+      <h2>Bordes</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>border-top</code></strong>: Esta propiedad se utiliza para establecer los estilos
+            del borde superior de un elemento. <code>border-top: 3px solid blue;</code> establece un borde azul sólido
+            de 3-píxeles de ancho en la parte superior del elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>border-right</code></strong>: Esta propiedad se utiliza para establecer los estilos
+            del borde derecho de un elemento. <code>border-right: 2px solid red;</code> establece un borde rojo sólido
+            de 2-píxeles de ancho en el lado derecho del elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>border-bottom</code></strong>: Esta propiedad se utiliza para establecer los estilos
+            del borde inferior de un elemento. <code>border-bottom: 1px dashed green;</code> establece un borde verde
+            discontinuo de 1-píxel de ancho en la parte inferior del elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>border-left</code></strong>: esta propiedad se utiliza para establecer los estilos
+            del borde izquierdo de un elemento. <code>border-left: 4px dotted orange;</code> establece un borde naranja
+            punteado de 4-píxeles de ancho en el lado izquierdo del elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>border</code></strong>: esta es la propiedad abreviada para establecer el ancho, el
+            estilo y el color del borde de un elemento. <code>border: 1px solid black;</code> establece un borde negro
+            sólido de 1-píxel de ancho.
+          </li>
+          <li>
+            <strong>Propiedad <code>border-radius</code></strong>: esta propiedad se utiliza para crear esquinas
+            redondeadas para el borde de un elemento.
+          </li>
+          <li>
+            <strong>Propiedad <code>border-style</code></strong>: esta propiedad se utiliza para establecer el estilo
+            del borde de un elemento. Algunos valores aceptados son <code>solid</code>, <code>dashed</code>,
+            <code>dotted</code>, y <code>double</code>.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+
+      <h2>Degradados</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Función <code>linear-gradient()</code></strong>: esta función CSS se utiliza para crear una
+            transición entre varios colores a lo largo de una línea recta.
+          </li>
+          <li>
+            <strong>Función <code>radial-gradient()</code></strong>: esta función CSS crea una imagen que irradia desde
+            un punto concreto, como un círculo o una elipse, y realiza una transición gradual entre varios colores.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

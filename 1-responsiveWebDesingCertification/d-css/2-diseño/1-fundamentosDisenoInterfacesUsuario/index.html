@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos del diseño de interfaces de usuario (UI)</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Fundamentos del diseño de interfaces de usuario (UI)</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En este módulo, explorarás los principios esenciales que transforman un sitio funcional en una experiencia
+        visual profesional. Aprenderás a utilizar el contraste y el espacio en blanco para mejorar la legibilidad, cómo
+        establecer una jerarquía visual clara mediante la escala y la alineación, y las mejores prácticas para trabajar
+        con imágenes. Finalmente, entenderás la mejora progresiva para asegurar que tus diseños sean accesibles y
+        efectivos en cualquier dispositivo.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Cuáles son los términos de diseño comunes que te ayudan a comunicarte con los
+        diseñadores?</h2>
+
+      <p
+        style="background: rgba(255, 193, 7, 0.15); color: #ffc107; padding: 0.5rem 1rem; border-left: 4px solid #ffc107; border-radius: 4px;">
+        <strong>¡NOTA!:</strong> Algunos de los ejemplos interactivos pueden utilizar CSS que aún no has aprendido. No
+        te preocupes por intentar
+        comprender todo el código. El objetivo de los ejemplos es mostrarte vistas previas de estos conceptos de diseño
+        para que comprendas mejor cómo funcionan las cosas.
+      </p>
+      <p>
+        Como desarrollador, es posible que tengas que trabajar en estrecha colaboración con diseñadores. Si comprendes
+        la terminología básica del diseño, compartirás un vocabulario común y podrás participar más activamente en el
+        proceso de diseño. Esto puede hacer que tu flujo de trabajo sea más eficiente y dar lugar a una mejor
+        experiencia de usuario.
+      </p>
+      <p>
+        Así que vamos a profundizar en el tema. Comenzaremos con el término «diseño». El diseño es la forma en que se
+        organizan los elementos visuales en una página o pantalla para comunicar un mensaje. Estos elementos pueden
+        incluir texto, imágenes y espacios en blanco. El diseño es como el plano de un proyecto. Los diseñadores deben
+        tener en cuenta la ubicación, el tamaño y la jerarquía de cada elemento.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+
+&lt;header&gt;
+  &lt;div class="container"&gt;
+    &lt;h1&gt;ShopMate&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Shop&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Cart (2)&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section class="hero"&gt;
+    &lt;h2&gt;Fall Collection 2026&lt;/h2&gt;
+    &lt;p&gt;Discover the latest trends&lt;/p&gt;
+    &lt;a href="#" class="btn"&gt;Shop Now&lt;/a&gt;
+  &lt;/section&gt;
+
+  &lt;section class="products container"&gt;
+    &lt;h3&gt;Featured Products&lt;/h3&gt;
+    &lt;div class="product-grid"&gt;
+      &lt;div class="product-card"&gt;
+        &lt;img src="https://placehold.co/300x200" alt="Product 1" /&gt;
+        &lt;h4&gt;Product 1&lt;/h4&gt;
+        &lt;p&gt;$49.99&lt;/p&gt;
+        &lt;button&gt;Add to Cart&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="product-card"&gt;
+        &lt;img src="https://placehold.co/300x200" alt="Product 2" /&gt;
+        &lt;h4&gt;Product 2&lt;/h4&gt;
+        &lt;p&gt;$59.99&lt;/p&gt;
+        &lt;button&gt;Add to Cart&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="product-card"&gt;
+        &lt;img src="https://placehold.co/300x200" alt="Product 3" /&gt;
+        &lt;h4&gt;Product 3&lt;/h4&gt;
+        &lt;p&gt;$39.99&lt;/p&gt;
+        &lt;button&gt;Add to Cart&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="product-card"&gt;
+        &lt;img src="https://placehold.co/300x200" alt="Product 4" /&gt;
+        &lt;h4&gt;Product 4&lt;/h4&gt;
+        &lt;p&gt;$29.99&lt;/p&gt;
+        &lt;button&gt;Add to Cart&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;div class="container"&gt;
+    &lt;p&gt;&copy; 2025 ShopMate. All rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.container{
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+header h1 {
+  color: #2c3e50;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.hero {
+  background-color: lightgrey;
+  text-align: center;
+  padding: 4rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.products h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.product-card h4 {
+  margin: 0.5rem 0;
+}
+
+.product-card button {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.product-card button:hover {
+  background: #219150;
+}
+
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 500px; overflow-y: auto; background: #f9f9f9;">
+
+            <style>
+              /* --- TU CSS EXACTO --- */
+              * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+              }
+
+              .preview-body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+              }
+
+              .preview-body .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: auto;
+              }
+
+              .preview-body header {
+                background: #fff;
+                border-bottom: 1px solid #ddd;
+                padding: 1rem 0;
+              }
+
+              .preview-body header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .preview-body header h1 {
+                color: #2c3e50;
+                font-size: 1.5rem;
+              }
+
+              .preview-body nav ul {
+                list-style: none;
+                display: flex;
+                gap: 1rem;
+              }
+
+              .preview-body nav a {
+                text-decoration: none;
+                color: #2c3e50;
+                font-weight: 500;
+                font-size: 0.9rem;
+              }
+
+              .preview-body .hero {
+                background-color: lightgrey;
+                text-align: center;
+                padding: 3rem 1rem;
+                margin-bottom: 2rem;
+              }
+
+              .preview-body .hero h2 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+              }
+
+              .preview-body .hero .btn {
+                display: inline-block;
+                margin-top: 1rem;
+                padding: 0.75rem 1.5rem;
+                background: #2c3e50;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+              }
+
+              .preview-body .products h3 {
+                margin-bottom: 1rem;
+                font-size: 1.5rem;
+                color: #2c3e50;
+                padding: 0 5%;
+              }
+
+              .preview-body .product-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                padding: 1rem 5%;
+              }
+
+              .preview-body .product-card {
+                background: white;
+                padding: 1rem;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+              }
+
+              .preview-body .product-card img {
+                max-width: 100%;
+                border-radius: 6px;
+                margin-bottom: 1rem;
+              }
+
+              .preview-body .product-card h4 {
+                margin: 0.5rem 0;
+              }
+
+              .preview-body .product-card button {
+                background: #27ae60;
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                border-radius: 4px;
+                width: 100%;
+              }
+
+              .preview-body footer {
+                background: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 2rem 0;
+                margin-top: 2rem;
+              }
+            </style>
+
+            <div class="preview-body">
+              <header>
+                <div class="container">
+                  <h1>ShopMate</h1>
+                  <nav>
+                    <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Shop</a></li>
+                      <li><a href="#">Cart (2)</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </header>
+
+              <main>
+                <section class="hero">
+                  <h2>Fall Collection 2026</h2>
+                  <p>Discover the latest trends</p>
+                  <a href="#" class="btn">Shop Now</a>
+                </section>
+
+                <section class="products">
+                  <h3>Featured Products</h3>
+                  <div class="product-grid">
+                    <div class="product-card">
+                      <img src="https://placehold.co/300x200" alt="Product 1" />
+                      <h4>Product 1</h4>
+                      <p>$49.99</p>
+                      <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                      <img src="https://placehold.co/300x200" alt="Product 2" />
+                      <h4>Product 2</h4>
+                      <p>$59.99</p>
+                      <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                      <img src="https://placehold.co/300x200" alt="Product 3" />
+                      <h4>Product 3</h4>
+                      <p>$39.99</p>
+                      <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                      <img src="https://placehold.co/300x200" alt="Product 4" />
+                      <h4>Product 4</h4>
+                      <p>$29.99</p>
+                      <button>Add to Cart</button>
+                    </div>
+                  </div>
+                </section>
+              </main>
+
+              <footer>
+                <div class="container">
+                  <p>&copy; 2026 ShopMate. All rights reserved.</p>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El término estrechamente relacionado con el diseño es la alineación. La alineación es la forma en que se colocan
+        los elementos entre sí. Utilizar correctamente la alineación ayuda a que el diseño resulte limpio y organizado.
+        Los diseñadores crean orden visual alineando los elementos a lo largo de líneas imaginarias, bordes o un punto
+        central.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+
+&lt;div class="container"&gt;
+  &lt;section class="alignment left"&gt;
+    &lt;h2&gt;Left-Aligned&lt;/h2&gt;
+    &lt;p&gt;This content is aligned to the left. Left alignment is most common for body text.&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section class="alignment center"&gt;
+    &lt;h2&gt;Center-Aligned&lt;/h2&gt;
+    &lt;p&gt;This content is centered. Useful for titles and focal points.&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section class="alignment right"&gt;
+    &lt;h2&gt;Right-Aligned&lt;/h2&gt;
+    &lt;p&gt;This content is aligned to the right. Used for stylistic emphasis.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.alignment {
+  background: #fff;
+  border-left: 4px solid #3498db;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.alignment:hover {
+  transform: scale(1.02);
+}
+
+.alignment h2 {
+  margin-bottom: 0.5rem;
+  color: #3498db;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; overflow-y: auto; background: #f4f4f4;">
+
+            <style>
+              /* TU CSS APLICADO */
+              .preview-wrap {
+                padding: 1.5rem;
+              }
+
+              .preview-wrap .alignment {
+                background: #fff;
+                border-left: 4px solid #3498db;
+                padding: 0.5rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+              }
+
+              .preview-wrap .alignment:hover {
+                transform: scale(1.02);
+              }
+
+              .preview-wrap h2 {
+                margin-bottom: 0.5rem;
+                color: #3498db;
+                font-size: 1.2rem;
+              }
+
+              .preview-wrap p {
+                color: #333;
+                font-size: 0.9rem;
+                line-height: 1.5;
+              }
+
+              .preview-wrap .left {
+                text-align: left;
+              }
+
+              .preview-wrap .center {
+                text-align: center;
+              }
+
+              .preview-wrap .right {
+                text-align: right;
+              }
+            </style>
+
+            <div class="preview-wrap">
+              <section class="alignment left">
+                <h2>Left-Aligned</h2>
+                <p>This content is aligned to the left. Left alignment is most common for body text because it follows
+                  natural reading flow in left-to-right languages.</p>
+              </section>
+
+              <section class="alignment center">
+                <h2>Center-Aligned</h2>
+                <p>This content is centered. Center alignment is useful for titles, headings, and content that needs to
+                  be the focal point.</p>
+              </section>
+
+              <section class="alignment right">
+                <h2>Right-Aligned</h2>
+                <p>This content is aligned to the right. Right alignment can be used for stylistic emphasis or when
+                  aligning content against the right edge of a container.</p>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Genial. Ahora hablemos de la composición. La composición es el arte de organizar elementos para crear un diseño
+        armonioso. Determina cómo se relacionan entre sí elementos como imágenes, texto y formas, y cómo contribuyen al
+        diseño de una manera artística. Mientras que el diseño se centra principalmente en la ubicación de los
+        elementos, la composición también tiene en cuenta el impacto artístico que esta ubicación tendrá en el diseño
+        general.
+      </p>
+      <p>
+        La composición está estrechamente relacionada con los conceptos de equilibrio. El equilibrio es la forma en que
+        se distribuye el peso visual dentro de una composición. Los diseñadores buscan crear un equilibrio a través de
+        disposiciones simétricas o asimétricas. Un diseño equilibrado transmite armonía.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+
+&lt;h1&gt;Composition &amp; Balance&lt;/h1&gt;
+
+&lt;div class="section symmetrical"&gt;
+  &lt;div class="box-container"&gt;
+    &lt;div class="box"&gt;A&lt;/div&gt;
+    &lt;div class="box"&gt;B&lt;/div&gt;
+    &lt;div class="box"&gt;A&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="description"&gt;Symmetrical Balance – Equal weight.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="section asymmetrical"&gt;
+  &lt;div class="box-container"&gt;
+    &lt;div class="box"&gt;A&lt;/div&gt;
+    &lt;div class="box"&gt;C&lt;/div&gt;
+    &lt;div class="box"&gt;B&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="description"&gt;Asymmetrical Balance – Harmonious.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px;
+  background: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.asymmetrical .box:nth-child(2) {
+  transform: scale(1.5);
+  background: #e74c3c;
+}
+
+.description {
+  text-align: center;
+  margin-top: 50px;
+  font-style: italic;
+  color: #333;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; overflow-y: auto; background: #f4f4f4;">
+
+            <style>
+              /* TU CSS EXACTO APLICADO A LA PREVISUALIZACIÓN */
+              .preview-wrap {
+                padding: 40px 20px;
+                font-family: Arial, sans-serif;
+                color: black;
+              }
+
+              .preview-wrap h1 {
+                text-align: center;
+                margin-bottom: 40px;
+                font-size: 1.5rem;
+              }
+
+              .preview-wrap .section {
+                margin-bottom: 80px;
+              }
+
+              .preview-wrap .box-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+              }
+
+              .preview-wrap .box {
+                width: 80px;
+                /* Ajustado ligeramente para el ancho del IDE */
+                height: 80px;
+                background: #3498db;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                border-radius: 8px;
+              }
+
+              .preview-wrap .asymmetrical .box:nth-child(2) {
+                transform: scale(1.4);
+                background: #e74c3c;
+              }
+
+              .preview-wrap .description {
+                text-align: center;
+                margin-top: 40px;
+                font-style: italic;
+                color: #333;
+                font-size: 0.9rem;
+              }
+            </style>
+
+            <div class="preview-wrap">
+              <h1>Composition &amp; Balance</h1>
+
+              <div class="section symmetrical">
+                <div class="box-container">
+                  <div class="box">A</div>
+                  <div class="box">B</div>
+                  <div class="box">A</div>
+                </div>
+                <div class="description">Symmetrical Balance – Equal weight on both sides.</div>
+              </div>
+
+              <div class="section asymmetrical">
+                <div class="box-container">
+                  <div class="box">A</div>
+                  <div class="box">C</div>
+                  <div class="box">B</div>
+                </div>
+                <div class="description">Asymmetrical Balance – Unequal but still harmonious.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La jerarquía es otro concepto importante que debes conocer. La jerarquía establece el orden de importancia de
+        los elementos en un diseño. Se trata de asegurarse de que la información más importante se perciba primero.
+        Puedes implementar una jerarquía visual con el tamaño, el color, el contraste, la alineación, el espacio en
+        blanco e incluso la tipografía.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="card"&gt;
+  &lt;div class="headline"&gt;Upgrade to Pro&lt;/div&gt;
+  &lt;div class="subheadline"&gt;Get more features&lt;/div&gt;
+  &lt;div class="body-text"&gt;
+    The Pro plan offers advanced tools, priority support, and 10x more storage.
+  &lt;/div&gt;
+  &lt;a href="#" class="call-to-action"&gt;Start Free Trial&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  margin: 40px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.headline {
+  font-size: 32px;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subheadline {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.body-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.call-to-action {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.call-to-action:hover {
+  background-color: #2980b9;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; overflow-y: auto; background: #fefefe;">
+
+            <style>
+              /* TU CSS EXACTO APLICADO A LA PREVISUALIZACIÓN */
+              .preview-wrap-typo {
+                padding: 40px 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              }
+
+              .preview-wrap-typo .card {
+                max-width: 100%;
+                /* Ajustado para el IDE */
+                background: #ffffff;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+              }
+
+              .preview-wrap-typo .headline {
+                font-size: 32px;
+                color: #2c3e50;
+                font-weight: bold;
+                margin-bottom: 10px;
+                line-height: 1.2;
+              }
+
+              .preview-wrap-typo .subheadline {
+                font-size: 20px;
+                color: #555;
+                margin-bottom: 20px;
+              }
+
+              .preview-wrap-typo .body-text {
+                font-size: 16px;
+                color: #666;
+                margin-bottom: 20px;
+                line-height: 1.6;
+              }
+
+              .preview-wrap-typo .call-to-action {
+                display: inline-block;
+                background-color: #3498db;
+                color: white;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background 0.3s ease;
+              }
+
+              .preview-wrap-typo .call-to-action:hover {
+                background-color: #2980b9;
+              }
+            </style>
+
+            <div class="preview-wrap-typo">
+              <div class="card">
+                <div class="headline">Upgrade to Pro</div>
+                <div class="subheadline">Get more features and storage</div>
+                <div class="body-text">
+                  The Pro plan offers advanced tools, priority support, and 10x more storage. Perfect for professionals
+                  and teams looking to scale their productivity.
+                </div>
+                <a href="#" class="call-to-action">Start Free Trial</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para crear distinciones claras entre los elementos, puedes utilizar el contraste. El contraste es útil para
+        dirigir la atención del usuario hacia lo que deseas resaltar. Puedes hacerlo mediante variaciones en el color,
+        el tamaño, la forma, la textura o cualquier otra característica visual. Un contraste fuerte también es útil para
+        mejorar la legibilidad.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;h1&gt;Contrast in Design&lt;/h1&gt;
+  &lt;p&gt;
+    Contrast helps draw attention to important elements. It also makes content easier to read and visually engaging.
+  &lt;/p&gt;
+
+  &lt;div class="highlight-box"&gt;
+    This box stands out because of strong color contrast.
+  &lt;/div&gt;
+
+  &lt;button class="high-contrast-button"&gt;Example button&lt;/button&gt;
+
+  &lt;p class="low-contrast-text"&gt;
+    This text is harder to read due to low contrast with the background.
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  margin: 40px;
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.highlight-box {
+  background-color: #222;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.low-contrast-text {
+  color: #999999;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.high-contrast-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.high-contrast-button:hover {
+  background-color: #c0392b;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; overflow-y: auto; background: #f6f6f6;">
+
+            <style>
+              /* TU CSS EXACTO APLICADO A LA PREVISUALIZACIÓN */
+              .preview-wrap-contrast {
+                padding: 20px;
+                font-family: Arial, sans-serif;
+              }
+
+              .preview-wrap-contrast .container {
+                max-width: 100%;
+                /* Adaptado al ancho del IDE */
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+              }
+
+              .preview-wrap-contrast h1 {
+                font-size: 24px;
+                /* Un poco más pequeño para el IDE */
+                margin-bottom: 10px;
+                color: #111;
+              }
+
+              .preview-wrap-contrast p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+                color: #333;
+              }
+
+              .preview-wrap-contrast .highlight-box {
+                background-color: #222;
+                color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+              }
+
+              .preview-wrap-contrast .low-contrast-text {
+                color: #999999;
+                font-size: 14px;
+                margin-top: 25px;
+              }
+
+              .preview-wrap-contrast .high-contrast-button {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 15px;
+                width: 100%;
+                transition: background 0.3s ease;
+              }
+
+              .preview-wrap-contrast .high-contrast-button:hover {
+                background-color: #c0392b;
+              }
+            </style>
+
+            <div class="preview-wrap-contrast">
+              <div class="container">
+                <h1>Contrast in Design</h1>
+                <p>
+                  Contrast helps draw attention to important elements. It also makes content easier to read and visually
+                  engaging.
+                </p>
+
+                <div class="highlight-box">
+                  This box stands out because of strong color contrast.
+                </div>
+
+                <button class="high-contrast-button">Example button</button>
+
+                <p class="low-contrast-text">
+                  This text is harder to read due to low contrast with the background.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otro término útil es «espacio en blanco». El espacio en blanco, también conocido como «espacio negativo», es el
+        espacio vacío en un diseño. Es el área que rodea a los elementos. Quizás le sorprenda saber que el espacio en
+        blanco no tiene por qué ser necesariamente blanco. En realidad, puede ser un espacio de cualquier color o
+        textura. Su finalidad es mejorar la legibilidad y realzar la jerarquía visual de un diseño.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;h1&gt;The Power of White Space&lt;/h1&gt;
+  &lt;p&gt;
+    White space (or negative space) is the empty space around elements. It’s not just “blank”—it gives your content room to breathe, improves focus, and adds elegance to the design.
+  &lt;/p&gt;
+  &lt;a href="#" class="button"&gt;Learn More&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="no-whitespace"&gt;
+  &lt;strong&gt;Without white space:&lt;/strong&gt; 
+  This block has minimal padding, making the content feel cramped, harder to read, and less appealing.
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: #ffffff;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #219150;
+}
+
+.no-whitespace {
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 60px auto;
+  width: 800px;
+  box-shadow: 0 0 0 1px #ccc;
+  font-size: 16px;
+  color: #222;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; overflow-y: auto; background: #f0f0f0;">
+
+            <style>
+              /* TU CSS EXACTO APLICADO A LA PREVISUALIZACIÓN */
+              .preview-wrap-space {
+                padding: 20px;
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+              }
+
+              .preview-wrap-space .container {
+                max-width: 100%;
+                /* Adaptado al ancho del IDE */
+                margin: 20px auto;
+                background-color: #ffffff;
+                padding: 60px;
+                /* Pilar: White Space */
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+              }
+
+              .preview-wrap-space h1 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                color: #2c3e50;
+                line-height: 1.2;
+              }
+
+              .preview-wrap-space p {
+                font-size: 16px;
+                line-height: 1.8;
+                color: #555;
+                margin-bottom: 30px;
+              }
+
+              .preview-wrap-space .button {
+                display: inline-block;
+                padding: 14px 28px;
+                background-color: #27ae60;
+                color: white;
+                font-weight: bold;
+                border-radius: 5px;
+                text-decoration: none;
+              }
+
+              .preview-wrap-space .no-whitespace {
+                background-color: #ffffff;
+                padding: 10px;
+                /* Contraste de White Space */
+                margin: 40px auto;
+                width: 100%;
+                box-shadow: 0 0 0 1px #ccc;
+                font-size: 14px;
+                color: #222;
+              }
+            </style>
+
+            <div class="preview-wrap-space">
+              <div class="container">
+                <h1>The Power of White Space</h1>
+                <p>
+                  White space (or negative space) is the empty space around elements. It’s not just “blank”—it gives
+                  your content room to breathe, improves focus, and adds elegance to the design.
+                </p>
+                <a href="#" class="button">Learn More</a>
+              </div>
+
+              <div class="no-whitespace">
+                <strong>Without white space:</strong> This block has minimal padding, making the content feel cramped,
+                harder to read, and less appealing.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos son conceptos generales de diseño que encontrarás muy a menudo, pero también puedes encontrar términos de
+        diseño más relacionados con el desarrollo de software.
+      </p>
+      <p>
+        La interfaz de usuario, también conocida como UI, es la forma en que los humanos interactúan con las
+        computadoras. Una interfaz de usuario incluye los elementos visuales e interactivos que los usuarios pueden ver
+        en sus pantallas, como iconos, imágenes, texto, menús, enlaces y botones.
+      </p>
+      <p>
+        La experiencia de usuario, también conocida como UX, se refiere a cómo se sienten los usuarios al utilizar un
+        producto o servicio. Una aplicación con una experiencia de usuario bien diseñada es intuitiva, fácil de usar,
+        eficiente, accesible y agradable. La interfaz de usuario desempeña un papel fundamental a la hora de hacer que
+        la experiencia del usuario sea lo más fácil y agradable posible, por lo que ambas están muy relacionadas.
+      </p>
+      <p>
+        Estos son algunos de los términos comunes que debes conocer para comunicarte con los diseñadores. Con estos
+        conocimientos, ahora puedes desempeñar un papel más activo en el proceso de diseño.
+      </p>
+
+    </section>
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
