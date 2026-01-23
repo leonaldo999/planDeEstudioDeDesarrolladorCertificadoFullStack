@@ -81,33 +81,30 @@ body::before {
 	width: 100%;
 	height: 100%;
 	background:
-		radial-gradient(
-			circle at 20% 80%,
+		radial-gradient(circle at 20% 80%,
 			rgba(120, 119, 198, 0.3) 0%,
-			transparent 50%
-		),
-		radial-gradient(
-			circle at 80% 20%,
+			transparent 50%),
+		radial-gradient(circle at 80% 20%,
 			rgba(255, 119, 198, 0.3) 0%,
-			transparent 50%
-		),
-		radial-gradient(
-			circle at 40% 40%,
+			transparent 50%),
+		radial-gradient(circle at 40% 40%,
 			rgba(120, 219, 255, 0.2) 0%,
-			transparent 50%
-		);
+			transparent 50%);
 	z-index: -1;
 	animation: float 20s ease-in-out infinite;
 }
 
 @keyframes float {
+
 	0%,
 	100% {
 		transform: translateY(0px) rotate(0deg);
 	}
+
 	33% {
 		transform: translateY(-20px) rotate(1deg);
 	}
+
 	66% {
 		transform: translateY(10px) rotate(-1deg);
 	}
@@ -136,12 +133,10 @@ body::before {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(255, 255, 255, 0.1),
-		transparent
-	);
+	background: linear-gradient(90deg,
+			transparent,
+			rgba(255, 255, 255, 0.1),
+			transparent);
 	animation: shimmer 3s infinite;
 }
 
@@ -149,6 +144,7 @@ body::before {
 	0% {
 		left: -100%;
 	}
+
 	100% {
 		left: 100%;
 	}
@@ -164,16 +160,19 @@ body::before {
 	filter: drop-shadow(0 0 20px rgba(103, 232, 249, 0.6));
 	animation: pulse 2s ease-in-out infinite;
 }
+
 .logo:hover {
 	filter: drop-shadow(0 0 30px rgba(103, 232, 249, 0.8));
 	animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
+
 	0%,
 	100% {
 		transform: scale(1);
 	}
+
 	50% {
 		transform: scale(1.05);
 	}
@@ -220,15 +219,18 @@ body::before {
 	justify-content: center;
 	outline: none;
 }
+
 .hamburger:hover {
 	transform: scale(1.05);
 	box-shadow: 0 0 30px rgba(103, 232, 249, 0.5);
 }
+
 .hamburger:focus-visible {
 	box-shadow:
 		0 0 0 3px #00ccff,
 		var(--shadow-glow);
 }
+
 .hamburger-icon {
 	width: 24px;
 	height: 24px;
@@ -245,9 +247,11 @@ body::before {
 	overflow-y: auto;
 	scrollbar-width: thin !important;
 }
+
 .nav ul.active {
 	display: flex;
 }
+
 .nav ul li a {
 	display: block;
 	padding: 0.3rem 0.5rem;
@@ -263,6 +267,7 @@ body::before {
 	overflow: hidden;
 	outline: none;
 }
+
 .nav ul li a::before {
 	content: "";
 	position: absolute;
@@ -274,14 +279,17 @@ body::before {
 	transition: var(--transition);
 	z-index: -1;
 }
+
 .nav ul li a:hover::before {
 	left: 0;
 }
+
 .nav ul li a:hover {
 	color: rgb(28, 27, 27);
 	transform: translateX(10px);
 	box-shadow: var(--shadow-glow);
 }
+
 .nav ul li a:focus-visible {
 	box-shadow:
 		0 0 0 3px #00ccff,
@@ -337,6 +345,7 @@ section {
 
 	scroll-margin-top: calc(6.5rem + 1rem);
 }
+
 section::before {
 	content: "";
 	position: absolute;
@@ -346,12 +355,14 @@ section::before {
 	height: 1px;
 	background: var(--accent-gradient);
 }
+
 section:hover {
 	transform: translateY(-2px);
 	box-shadow:
 		var(--shadow-soft),
 		0 0 30px rgba(103, 232, 249, 0.2);
 }
+
 section:target {
 	outline: 1px solid rgba(255, 255, 255, 0.15);
 	box-shadow:
@@ -369,6 +380,7 @@ section h2 {
 	margin-bottom: 2rem;
 	text-align: center;
 }
+
 section p {
 	font-size: 1.1rem;
 	line-height: 1.8;
@@ -377,6 +389,7 @@ section p {
 	max-width: none;
 	width: 100%;
 }
+
 section p mark {
 	background: var(--accent-gradient);
 	color: rgb(22, 21, 21);
@@ -385,6 +398,26 @@ section p mark {
 	font-weight: 500;
 	font-family: var(--sp-font-code);
 	box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+}
+
+/* ========
+NOTA
+======== */
+.nota {
+	background: rgba(255, 193, 7, 0.15);
+	color: #ffc107;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border-left: 4px solid #ffc107;
+	border-radius: 4px;
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.p-nota {
+	margin: 0;
+	line-height: 1.5;
 }
 
 /* ====================
@@ -401,13 +434,16 @@ LISTA DENTRO DE SECCIÓN
 	margin: 20px auto;
 	max-width: 600px;
 }
+
 .info-box .list-box {
 	margin-left: 20px;
 }
+
 .info-box .list-box .list {
 	list-style-type: disc;
 	margin-bottom: 6px;
 }
+
 .info-box .list-box .list mark {
 	background: #97bce7;
 	color: #040154;
@@ -417,6 +453,44 @@ LISTA DENTRO DE SECCIÓN
 	font-weight: 500;
 	box-shadow: 0 1px 4px #7c3bff33;
 }
+
+/*  =====
+IMAGEN DE SECCIÓN
+===== */
+.img-sec {
+	background: var(--glass-bg);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--border-radius);
+	padding: 1.5rem;
+	margin: 2rem auto;
+	box-shadow: var(--shadow-soft);
+	transition: var(--transition);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+/* Efecto al pasar el mouse */
+.img-sec:hover {
+	transform: translateY(-5px);
+	border-color: rgba(103, 232, 249, 0.4);
+	box-shadow: var(--shadow-glow);
+}
+
+/* Estilo para la imagen dentro del contenedor */
+.img-sec img {
+	width: 100%;
+	height: auto;
+	border-radius: var(--border-radius-small);
+	object-fit: cover;
+	display: block;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 
 /* =====================
 	FORMULARIOS Y CUESTIONARIOS
@@ -433,6 +507,7 @@ form {
 	flex-direction: column;
 	gap: 2rem;
 }
+
 fieldset {
 	border: 1.5px solid var(--glass-border);
 	border-radius: var(--border-radius-small);
@@ -442,10 +517,12 @@ fieldset {
 	box-shadow: 0 2px 12px rgba(79, 172, 254, 0.07);
 	transition: border-color 0.3s;
 }
+
 fieldset:focus-within {
 	border-color: #00ccff;
 	box-shadow: 0 0 0 2px #00ccff33;
 }
+
 legend {
 	font-size: 1.15rem;
 	font-weight: 600;
@@ -457,6 +534,7 @@ legend {
 	box-shadow: 0 2px 8px rgba(79, 172, 254, 0.1);
 	letter-spacing: 0.01em;
 }
+
 label {
 	display: flex;
 	align-items: center;
@@ -467,9 +545,11 @@ label {
 	margin-bottom: 0.7em;
 	transition: color 0.2s;
 }
+
 label:focus-within {
 	color: #00ccff;
 }
+
 input[type="radio"] {
 	accent-color: #00ccff;
 	width: 1.15em;
@@ -483,10 +563,12 @@ input[type="radio"] {
 		border-color 0.2s;
 	box-shadow: 0 0 0 1.5px #00ccff33;
 }
+
 input[type="radio"]:focus-visible {
 	outline: 2px solid #00ccff;
 	box-shadow: 0 0 0 3px #00ccff77;
 }
+
 input[type="radio"]:checked {
 	box-shadow: 0 0 0 3px #00ccffbb;
 	border-color: #00ccff;
@@ -504,6 +586,7 @@ form fieldset legend mark {
 	font-family: var(--sp-font-code);
 	box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
 }
+
 form fieldset legend pre,
 form fieldset label pre {
 	background: linear-gradient(100deg, #181c2b 60%, #232b3a 100%);
@@ -524,6 +607,7 @@ form fieldset label pre {
 	max-width: 95%;
 	white-space: pre-line;
 }
+
 form fieldset legend pre code,
 form fieldset label pre code {
 	color: #b3e5fc;
@@ -532,6 +616,7 @@ form fieldset label pre code {
 	padding: 0;
 	border: none;
 }
+
 form fieldset label:focus-within pre {
 	border-color: #00ccff;
 	box-shadow: 0 0 0 2px #00ccff55;
@@ -559,10 +644,12 @@ form fieldset label:focus-within pre {
 	justify-content: center;
 	outline: none;
 }
+
 .to-top:hover {
 	transform: scale(1.1) rotate(180deg);
 	box-shadow: 0 0 40px rgba(103, 232, 249, 0.6);
 }
+
 .to-top:focus-visible {
 	box-shadow:
 		0 0 0 3px #00ccff,
@@ -611,6 +698,7 @@ form fieldset label:focus-within pre {
 	display: flex;
 	height: 100%;
 }
+
 .tab {
 	background: transparent;
 	border: none;
@@ -624,10 +712,12 @@ form fieldset label:focus-within pre {
 	display: flex;
 	align-items: center;
 }
+
 .tab:hover {
 	color: #fff;
 	background-color: rgba(255, 255, 255, 0.05);
 }
+
 .tab.active {
 	color: var(--sp-text);
 	background-color: var(--sp-bg-dark);
@@ -660,7 +750,8 @@ form fieldset label:focus-within pre {
 	background-color: var(--sp-bg-dark);
 	font-family: var(--sp-font-code);
 	font-size: 13px;
-	line-height: 1.6; /* Unificado con pre */
+	line-height: 1.6;
+	/* Unificado con pre */
 	user-select: none;
 	min-width: 40px;
 }
@@ -673,7 +764,8 @@ form fieldset label:focus-within pre {
 	color: var(--sp-text);
 	font-family: var(--sp-font-code);
 	font-size: 13px;
-	line-height: 1.6; /* Unificado con line-numbers */
+	line-height: 1.6;
+	/* Unificado con line-numbers */
 	tab-size: 2;
 	white-space: pre;
 	overflow-x: auto;
@@ -694,6 +786,7 @@ form fieldset label:focus-within pre {
 	cursor: pointer;
 	transition: all 0.2s;
 }
+
 .copy-btn-mini:hover {
 	border-color: var(--sp-text);
 	color: var(--sp-text);
@@ -707,6 +800,7 @@ form fieldset label:focus-within pre {
 	background-color: #ffffff;
 	position: relative;
 }
+
 .preview-iframe-container {
 	flex: 1;
 	padding: 20px;
@@ -715,6 +809,7 @@ form fieldset label:focus-within pre {
 	align-items: center;
 	overflow: auto;
 }
+
 .preview-result {
 	display: block;
 	width: 100%;
@@ -732,14 +827,17 @@ form fieldset label:focus-within pre {
 	width: 10px;
 	height: 10px;
 }
+
 .code-content::-webkit-scrollbar-track {
 	background: var(--sp-bg-editor);
 }
+
 .code-content::-webkit-scrollbar-thumb {
 	background: #333;
 	border-radius: 5px;
 	border: 2px solid var(--sp-bg-editor);
 }
+
 .code-content::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
@@ -749,6 +847,7 @@ form fieldset label:focus-within pre {
 ========================================= */
 
 @media (max-width: 768px) {
+
 	/* IDE Container */
 	.ide-container {
 		flex-direction: column;
@@ -789,6 +888,7 @@ footer {
 	.nav {
 		padding: 1.5rem;
 	}
+
 	.nav ul {
 		display: flex;
 		flex-direction: row;
@@ -796,26 +896,32 @@ footer {
 		gap: 1rem;
 		margin-top: 0;
 	}
+
 	.hamburger {
 		display: none;
 	}
+
 	.nav ul li a:hover {
 		transform: translateY(-2px);
 	}
 }
+
 @media (max-width: 767px) {
 	.header {
 		margin: 0.5rem;
 		padding: 1.5rem 1rem;
 	}
+
 	.nav {
 		margin: 0.5rem;
 		padding: 1rem;
 	}
+
 	section {
 		padding: 1.5rem;
 		margin-bottom: 1rem;
 	}
+
 	.to-top {
 		bottom: 1rem;
 		right: 1rem;
@@ -824,17 +930,20 @@ footer {
 		font-size: 1.2rem;
 	}
 }
+
 @media (max-width: 900px) {
 	.codeEjm {
 		max-width: 99vw;
 		width: 99%;
 		margin: 20px auto;
 	}
+
 	.codeEjm pre,
 	.codeEjm .code-result {
 		font-size: 13px;
 		padding: 15px 12px;
 	}
+
 	.copy-btn {
 		top: 10px;
 		right: 10px;
@@ -842,6 +951,7 @@ footer {
 		font-size: 0.75em;
 	}
 }
+
 @media (max-width: 600px) {
 	.codeEjm {
 		max-width: 100vw;
@@ -849,33 +959,40 @@ footer {
 		border-radius: 8px;
 		margin: 15px auto;
 	}
+
 	.codeEjm pre,
 	.codeEjm .code-result {
 		font-size: 12px;
 		padding: 12px 8px;
 	}
+
 	.codeEjm .code-label,
 	.codeEjm .code-result-label {
 		padding: 10px 12px 5px 12px;
 		font-size: 0.85em;
 	}
+
 	.copy-btn {
 		top: 8px;
 		right: 8px;
 		padding: 4px 8px;
 		font-size: 0.7em;
 	}
+
 	form {
 		padding: 1rem 0.5rem;
 		gap: 1.2rem;
 	}
+
 	fieldset {
 		padding: 1rem 0.5rem 0.7rem 0.5rem;
 	}
+
 	legend {
 		font-size: 1rem;
 		padding: 0.3rem 0.7rem;
 	}
+
 	label {
 		font-size: 0.98rem;
 	}
@@ -889,6 +1006,7 @@ footer {
 		opacity: 0;
 		transform: translateY(30px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
