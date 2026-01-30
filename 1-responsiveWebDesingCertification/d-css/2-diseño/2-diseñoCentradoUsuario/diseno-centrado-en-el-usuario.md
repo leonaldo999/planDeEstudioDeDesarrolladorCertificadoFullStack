@@ -24,7 +24,7 @@
   - [Cuestionario 9](#cuestionario-9)
   - [¿Qué es la divulgación progresiva?](#qué-es-la-divulgación-progresiva)
   - [Cuestionario 10](#cuestionario-10)
-  - [¿Qué es el `Deferred` y `Lazy Registration`?](#qué-es-el-deferred-y-lazy-registration)
+  - [¿Qué es el Registro `Deferred` y `Lazy`?](#qué-es-el-registro-deferred-y-lazy)
   - [Cuestionario 11](#cuestionario-11)
 
 ---
@@ -2670,19 +2670,19 @@ Al diseñar sus aplicaciones, piense en la experiencia general del usuario y en 
 
 ---
 
-## ¿Qué es el `Deferred` y `Lazy Registration`?
+## ¿Qué es el Registro `Deferred` y `Lazy`?
 
-El registro `Lazy` es un patrón de diseño de `UI` que permite a los usuarios navegar e interactuar con su aplicación sin tener que registrarse. Un buen ejemplo de ello sería un `e-commerce site`. Los usuarios deben poder navegar por los productos y añadir algunos artículos a su carrito. Luego, si están interesados en comprar, tendrán que registrarse.
+El registro `Deferred/Lazy` es un patrón de diseño de `UI` que permite a los usuarios navegar e interactuar con su aplicación sin tener que registrarse. Un buen ejemplo de ello sería un `e-commerce site`. Los usuarios deben poder navegar por los productos y añadir algunos artículos a su carrito. Luego, si están interesados en comprar, tendrán que registrarse.
 
 El motivo es que los usuarios necesitan ver el valor que ofrece su sitio antes de estar dispuestos a proporcionar su información y registrarse. Al diseñar sus aplicaciones, los usuarios deben poder ver el valor y sentir que la aplicación es segura para proporcionar su información. De lo contrario, no estarán dispuestos a registrarse y usted perderá clientes potenciales.
 
 Deberás asegurarte de comunicar que los datos confidenciales del usuario estarán protegidos y seguros. En módulos posteriores, analizaremos cómo proteger tu aplicación y los datos de tus usuarios.
 
-Otro buen ejemplo de registro `Lazy` sería YouTube. YouTube es una plataforma para compartir videos con millones de videos sobre todo tipo de temas, desde tecnología y cultura pop hasta videojuegos. Si visitas YouTube, los usuarios pueden ver tantos videos como quieran sin necesidad de iniciar sesión ni registrarse. Sin embargo, si quieren dar «me gusta», comentar o suscribirse a un canal, tendrán que registrarse.
+Otro buen ejemplo de registro `Deferred/Lazy` sería YouTube. YouTube es una plataforma para compartir videos con millones de videos sobre todo tipo de temas, desde tecnología y cultura pop hasta videojuegos. Si visitas YouTube, los usuarios pueden ver tantos videos como quieran sin necesidad de iniciar sesión ni registrarse. Sin embargo, si quieren dar «me gusta», comentar o suscribirse a un canal, tendrán que registrarse.
 
-Si al usuario le gusta el contenido que está viendo o quiere participar en las conversaciones, estará más dispuesto a registrarse. El registro `Lazy` es un patrón de diseño útil que permite a los usuarios ver el valor de su aplicación antes de estar dispuestos a proporcionar su información.
+Si al usuario le gusta el contenido que está viendo o quiere participar en las conversaciones, estará más dispuesto a registrarse. El registro `Deferred/Lazy` es un patrón de diseño útil que permite a los usuarios ver el valor de su aplicación antes de estar dispuestos a proporcionar su información.
 
-La próxima vez que diseñe una aplicación, considere la posibilidad de utilizar el registro `Lazy` para aumentar la participación y la retención de los usuarios.
+La próxima vez que diseñe una aplicación, considere la posibilidad de utilizar el registro `Deferred/Lazy` para aumentar la participación y la retención de los usuarios.
 
 [☝️](#diseño-centrado-en-el-usuario)
 
@@ -2690,14 +2690,14 @@ La próxima vez que diseñe una aplicación, considere la posibilidad de utiliza
 
 ## Cuestionario 11
 
-- **1.¿Cómo afecta el registro `lazy` a la interacción del usuario con una aplicación?**
+- **1.¿Cómo afecta el registro `Deferred/lazy` a la interacción del usuario con una aplicación?**
 
   - [ ] a) Limita inmediatamente el acceso de los usuarios hasta que completen un formulario de registro.
   - [x] b) Anima a los usuarios a interactuar con el contenido antes de solicitarles sus datos de registro. //correcto
   - [ ] c) Requiere que los usuarios proporcionen información de pago antes de acceder a cualquier función.
   - [ ] d) Hace que el proceso de registro sea obligatorio antes de que los usuarios puedan ver cualquier parte de la aplicación.
 
-- **2.¿Cuál es una de las principales ventajas del registro `lazy` en el diseño de interfaces de usuario?**
+- **2.¿Cuál es una de las principales ventajas del registro `Deferred/lazy` en el diseño de interfaces de usuario?**
 
   - [ ] a) Los usuarios pueden realizar compras inmediatamente sin necesidad de registrarse.
   - [x] b) Los usuarios pueden ver el valor de la aplicación antes de decidir registrarse. //correcto
