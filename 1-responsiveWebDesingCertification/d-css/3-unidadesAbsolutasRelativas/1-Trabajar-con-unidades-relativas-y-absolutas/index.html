@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="MI RUTA DE APRENDIZAJE con FreeCodeCamp: Aprende a trabajar con unidades relativas y absolutas en CSS para mejorar el diseño y la adaptabilidad de tus sitios web.">
+  <meta name="keywords" content="CSS, Unidades Relativas, Unidades Absolutas, Diseño Web, Responsive Design">
+  <meta name="author" content="leoNaldo.Dev">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con unidades relativas y absolutas en CSS">
+  <meta property="og:description"
+    content="MI RUTA DE APRENDIZAJE con FreeCodeCamp: Aprende a trabajar con unidades relativas y absolutas en CSS para mejorar el diseño y la adaptabilidad de tus sitios web.">
+  <meta property="og:type" content="website">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con unidades relativas y absolutas</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajar con unidades relativas y absolutas</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#cuest5" onclick="closeNavMobile()" tabindex="0">❓ Cuest 5</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En CSS, las unidades de medida son fundamentales para definir tamaños, márgenes, paddings y otros aspectos del
+        diseño web. Existen dos tipos principales de unidades: absolutas y relativas.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son las unidades absolutas en CSS y cuándo se deben utilizar?</h2>
+
+      <p>
+        Al diseñar sus páginas, trabajará con diferentes propiedades como anchuras, alturas, rellenos, márgenes y mucho
+        más. Al definir estas propiedades, deberá especificar las unidades de medida de longitud que desea utilizar.
+      </p>
+      <p>
+        Hay dos tipos de unidades que puedes usar para definir estas propiedades: unidades relativas y unidades
+        absolutas. En esta lección, nos centraremos únicamente en las unidades absolutas.
+      </p>
+      <p>
+        Las unidades de longitud absolutas tienen una longitud fija y no son relativas a nada más. Relativas significa
+        que la longitud es relativa a otra cosa, como el tamaño de la pantalla o el tamaño del elemento principal.
+        Hablaremos más sobre las unidades relativas en las próximas lecciones.
+      </p>
+      <p>
+        La unidad absoluta más común es el píxel (px). Los píxeles son una unidad de medida de tamaño fijo en CSS, que
+        proporciona un control preciso sobre las dimensiones. Esto significa que 1 px siempre es igual a 1/96 de
+        pulgada.
+      </p>
+      <p>
+        Es importante tener en cuenta que, aunque 1 px está estandarizado como 1/96 de pulgada a efectos del diseño CSS,
+        el tamaño físico real de un píxel puede variar en función de la pantalla.
+      </p>
+      <p>
+        Veamos un ejemplo del uso de píxeles para establecer el ancho y el alto de un cuadro:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="box"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; justify-content: center; align-items: center; height: 100%; background-color: #f0f0f0; padding: 20px;">
+
+            <style>
+              .preview-box-red {
+                width: 100px !important;
+                height: 100px !important;
+                background-color: red !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="preview-box-red"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un cuadro rojo con un ancho y una altura establecidos en <mark>100px</mark>. Las
+        dimensiones
+        de este cuadro permanecerán iguales independientemente de los cambios relacionados con el tamaño de la pantalla.
+      </p>
+      <p>
+        Por lo tanto, si estás en un dispositivo con una pantalla pequeña, el cuadro seguirá teniendo <mark>100px</mark>
+        de
+        ancho. Si estás en una pantalla de escritorio grande, el cuadro seguirá teniendo <mark>100px</mark> de ancho.
+      </p>
+      <p>
+        Entonces, ¿cuándo debes usar unidades absolutas como los píxeles? Bueno, depende de la situación. Pero, en
+        general, usarás píxeles cuando necesites un control preciso sobre las dimensiones, el espaciado y el diseño de
+        los elementos. A veces, puedes usar píxeles para los márgenes, el relleno y los bordes.
+      </p>
+      <p>
+        Aquí tienes un ejemplo del uso de píxeles para establecer el margen de dos cuadros:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="box"&gt;&lt;/div&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin: 10px;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background-color: #f5f5f5; padding: 20px;">
+
+            <style>
+              .pv-red-box-item {
+                width: 100px !important;
+                height: 100px !important;
+                background-color: red !important;
+                margin: 10px !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="pv-red-box-item"></div>
+            <div class="pv-red-box-item"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Recuerda que el margen es el espacio fuera del cuadro. Por lo tanto, en este ejemplo, el cuadro tendrá un margen
+        de 10 píxeles en todos los lados.
+      </p>
+      <p>
+        <em>Otros tipos de unidades absolutas son los siguientes:</em>
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">La unidad <mark>in</mark> (pulgadas), que equivale a 96 píxeles.</li>
+          <li class="list">La unidad <mark>cm</mark> (centímetros), que equivale a 25,2/64 de pulgada.</li>
+          <li class="list">La unidad <mark>mm</mark> (milímetros), que equivale a 1/10 de centímetro.</li>
+          <li class="list">La unidad <mark>q</mark> (cuarto de milímetro), que equivale a 1/40 de centímetro.</li>
+          <li class="list">La unidad <mark>pc</mark> (picas), que equivale a 1/6 de pulgada.</li>
+          <li class="list">La unidad <mark>pt</mark> (puntos), que equivale a 1/72 de pulgada.</li>
+        </ul>
+      </div>
+
+      <p>
+        La mayoría de estas unidades se utilizan para impresión y no para pantallas.
+      </p>
+      <p>
+        Aunque la unidad más común que se utiliza es el píxel, es importante saber que existen otras unidades absolutas.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué es un píxel?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Una unidad de medida de tamaño fijo absoluto en CSS, que proporciona un control preciso sobre las
+            dimensiones.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Una unidad de medida relativa en CSS.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Una unidad de medida relativa al tamaño de la pantalla.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Una unidad de medida relativa al tamaño del elemento principal.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuáles son los dos tipos de unidades que se pueden utilizar para definir propiedades en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            margins y padding.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            cm y mm.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            absolute y relative units.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            picas y points.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es una unidad de medida absoluta en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            pt
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            rem
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            in
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            px
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los porcentajes en CSS y cuándo se deben utilizar?</h2>
+
+      <p>
+        Los porcentajes en CSS son unidades relativas que permiten definir tamaños, dimensiones y otras propiedades como
+        una proporción de su elemento principal. Cuando se utiliza un valor porcentual, básicamente se está diciendo:
+        «Haz que esto sea el X % de su contenedor».
+      </p>
+      <p>
+        Por ejemplo, si se establece <mark>width: 50%</mark> en un elemento, este ocupará la mitad del ancho de su
+        contenedor
+        principal. Esto hace que los porcentajes sean increíblemente útiles para crear diseños adaptables que se ajustan
+        a diferentes tamaños de pantalla.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container"&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.container {
+  width: 400px;
+  height: 200px;
+  background-color: lightgray;
+}
+
+.box {
+  width: 50%;
+  height: 100%;
+  background-color: red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; justify-content: center; align-items: center; height: 100%; background-color: #fff; padding: 20px;">
+
+            <style>
+              .pv-parent-container {
+                width: 400px !important;
+                height: 200px !important;
+                background-color: lightgray !important;
+                display: block !important;
+                position: relative !important;
+              }
+
+              .pv-child-box {
+                width: 50% !important;
+                height: 100% !important;
+                background-color: red !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="pv-parent-container">
+              <div class="pv-child-box"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los porcentajes son ideales para crear diseños fluidos que se ajustan a diferentes tamaños de pantalla. Por
+        ejemplo, establecer un contenedor con un <mark>width: 80%</mark> garantiza que ocupe el 80 % del ancho de su
+        elemento principal, independientemente del dispositivo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="parent"&gt;
+    &lt;div class="child"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.parent {
+  width: 100%;
+  height: 300px;
+  background-color: lightblue;
+}
+
+.child {
+  width: 80%;
+  height: 100%;
+  background-color: red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 10px; overflow: hidden;">
+
+            <style>
+              .pv-parent-full {
+                width: 100% !important;
+                height: 300px !important;
+                background-color: lightblue !important;
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-child-percent {
+                width: 80% !important;
+                height: 100% !important;
+                background-color: red !important;
+                display: block !important;
+                margin: 0 !important;
+              }
+            </style>
+
+            <div class="pv-parent-full">
+              <div class="pv-child-percent"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El uso de porcentajes para imágenes flexibles es otra práctica habitual. Al aplicar max-width: 100% a las
+        imágenes, se permite que se reduzcan en pantallas más pequeñas manteniendo su relación de aspecto.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;img src="https://placehold.co/150x150" alt="Example Product Image" /&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; justify-content: center; align-items: center; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .pv-responsive-img {
+                max-width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                border: 1px solid #eee !important;
+              }
+            </style>
+
+            <img src="https://placehold.co/150x150" class="pv-responsive-img" alt="Example Product Image" />
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque es menos habitual, también se pueden utilizar porcentajes para los tamaños de fuente con el fin de crear
+        tipografías escalables. Por ejemplo, <mark>font-size: 120%</mark> haría que el texto fuera un 20 % más grande
+        que el tamaño de fuente de su elemento padre.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="text-container"&gt;
+    Parent text.
+    &lt;p class="text"&gt;This is some example text.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.text-container {
+  font-size: 16px;
+}
+
+.text {
+  font-size: 120%;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 25px; text-align: left;">
+
+            <style>
+              .pv-font-parent {
+                font-size: 16px !important;
+                color: #333 !important;
+                font-family: sans-serif !important;
+                line-height: 1.5 !important;
+              }
+
+              .pv-font-child-text {
+                font-size: 120% !important;
+                /* 120% de 16px = 19.2px */
+                color: #000 !important;
+                margin-top: 10px !important;
+                font-weight: 500 !important;
+              }
+            </style>
+
+            <div class="pv-font-parent">
+              Parent text (16px).
+              <p class="pv-font-child-text">This is some example text (19.2px).</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los porcentajes pueden resultar especialmente útiles para el centrado vertical. A continuación se muestra un
+        ejemplo de cómo se pueden utilizar los porcentajes con la propiedad <mark>transform</mark> para centrar un
+        elemento
+        verticalmente.
+      </p>
+      <p>
+        En este ejemplo, el elemento se coloca al 50 % de la parte superior de su contenedor y, a continuación, se
+        utiliza <mark>transform</mark> para moverlo hacia arriba la mitad de su propia altura, centrándolo así
+        verticalmente.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="centered"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.centered {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #f8f9fa; position: relative; overflow: hidden;">
+
+            <style>
+              .pv-box-centered-vertical {
+                position: absolute !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                width: 300px !important;
+                height: 300px !important;
+                background-color: red !important;
+
+                left: 50% !important;
+                margin-left: -150px !important;
+              }
+            </style>
+
+            <div class="pv-box-centered-vertical"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En futuras lecciones aprenderás más detalles sobre cómo funcionan el posicionamiento absoluto y las propiedades
+        de transformación.
+      </p>
+      <p>
+        Recuerda que los porcentajes siempre son relativos a algo. En el caso de las propiedades horizontales, como el
+        <mark>width</mark>, son relativos al ancho del elemento padre. En el caso de las propiedades verticales, como el
+        <mark>height</mark>,
+        suelen ser relativos a la altura del elemento padre (si se ha especificado).
+      </p>
+      <p>
+        Sin embargo, ten cuidado al anidar elementos con dimensiones basadas en porcentajes, ya que esto puede dar lugar
+        a resultados inesperados. Además, ten en cuenta que las alturas basadas en porcentajes pueden ser complicadas si
+        el elemento padre no tiene una altura definida.
+      </p>
+      <p>
+        En resumen, los porcentajes en CSS son herramientas poderosas para crear diseños flexibles y adaptables. Úsalos
+        cuando quieras que los elementos se escalen proporcionalmente a sus contenedores o cuando necesites diseños que
+        se adapten perfectamente a diferentes tamaños de pantalla.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué sucede si se establece <mark>width: 50%</mark> en un elemento cuyo padre tiene un <mark>width</mark> de
+            <mark>300px</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            El elemento tendrá un ancho de <code>150px</code>.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El elemento tendrá un ancho de <code>50px</code>.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El elemento tendrá un ancho de <code>600px</code>.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El elemento no tendrá ancho.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En la siguiente regla CSS, ¿en qué afecta el valor porcentual?
+            <pre>
+              <code>
+                .box {
+                  margin-top: 10%;
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            El ancho del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            La altura del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            El margen superior del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            El tamaño de fuente del elemento.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes NO es un buen caso de uso para los valores porcentuales en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Configuración del width de un contenedor adaptable.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Definición del border-radius de un elemento circular.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Escalar una imagen dentro de su contenedor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Especificar la line-height del texto.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Qué son los <code>em</code> y los <code>rem</code> en CSS y cuándo se deben usar?</h2>
+
+      <p>
+        En la lección anterior, aprendimos sobre las unidades de longitud absolutas, como los píxeles. Aunque las
+        unidades absolutas pueden ser útiles en determinadas situaciones, habrá ocasiones en las que querrás usar
+        unidades relativas.
+      </p>
+      <p>
+        En esta lección, aprenderemos sobre dos unidades relativas: em y rem.
+      </p>
+      <p>
+        Las unidades <mark>em</mark> son relativas al tamaño de fuente del elemento. Si usas <mark>em</mark> para la
+        propiedad <mark>font-size</mark>, el
+        tamaño del texto será relativo al tamaño de fuente del elemento padre.
+      </p>
+      <p>
+        Para entender mejor cómo funciona esto, veamos un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p class="para"&gt;I am a paragraph element&lt;/p&gt;
+  
+  &lt;div class="blue-box"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.para {
+  font-size: 20px;
+  margin-bottom: 1.5em;
+  border: 2px solid red;
+}
+
+.blue-box {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 25px; text-align: left;">
+
+            <style>
+              .pv-para-em {
+                font-family: sans-serif !important;
+                font-size: 20px !important;
+                margin-top: 0 !important;
+                margin-bottom: 1.5em !important;
+                /* 1.5 * 20px = 30px */
+                border: 2px solid red !important;
+                padding: 5px !important;
+                color: #333 !important;
+                display: block !important;
+              }
+
+              .pv-blue-square {
+                background-color: blue !important;
+                color: white !important;
+                padding: 10px !important;
+                width: 100px !important;
+                height: 100px !important;
+                display: block !important;
+              }
+            </style>
+
+            <p class="pv-para-em">I am a paragraph element</p>
+            <div class="pv-blue-square"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para el HTML, tenemos un elemento párrafo y un elemento <mark>div</mark>. El elemento párrafo tiene una clase
+        <mark>para</mark>, y el
+        elemento div tiene una clase <mark>blue-box</mark>.
+      </p>
+      <p>
+        Para la clase <mark>para</mark>, establecemos el <mark>font-size</mark> en <mark>20px</mark> y el
+        <mark>margin-bottom</mark> en <mark>1.5em</mark>. Esto significa que el margen será 1.5 veces el tamaño de
+        fuente del elemento párrafo. <mark>1.5em</mark> da como resultado un margen de 30 píxeles en la parte inferior
+        del párrafo. También hemos establecido un <mark>border</mark> en <mark>2px solid red</mark> para que puedas ver
+        mejor los márgenes.
+      </p>
+      <p>
+        Para la clase <mark>blue-box</mark>, hemos establecido el color de fondo en <mark>blue</mark>, el color del
+        texto en <mark>white</mark> y el <mark>padding</mark> en <mark>10px</mark> en los cuatro lados.
+      </p>
+      <p>
+        En el ejemplo, habrá un espacio claro entre la parte inferior del elemento de párrafo y el cuadro azul.
+      </p>
+      <p>
+        Entonces, ¿qué sucede si eliminamos la propiedad <mark>font-size</mark> de la clase <mark>para</mark>?
+      </p>
+      <p>
+        Bueno, el margen inferior será relativo al tamaño de fuente del elemento padre. En este caso, el elemento padre
+        es el elemento body, que tiene un tamaño de fuente predeterminado de <mark>16px</mark>.
+      </p>
+      <p>
+        Un buen ejemplo del uso de <mark>em</mark>s sería cuando se trabaja con componentes modulares como botones o
+        tarjetas. Al
+        utilizar unidades <mark>em</mark>, se garantiza que todos los aspectos del componente (como el relleno, el
+        margen y los
+        bordes) se escalen proporcionalmente con el tamaño de la fuente, manteniendo unas proporciones coherentes.
+      </p>
+      <p>
+        Hasta ahora, hemos estado estableciendo el tamaño de la fuente de un elemento utilizando píxeles. Sin embargo,
+        esto plantea algunos retos para los usuarios.
+      </p>
+      <p>
+        En la configuración del navegador, se puede controlar el tamaño de fuente predeterminado.
+      </p>
+      <p>
+        Las personas con discapacidad visual pueden aumentar el tamaño de la fuente para facilitar la lectura. Pero si
+        se establecen píxeles para los tamaños de fuente en los diseños web, el texto no se escalará proporcionalmente
+        con el resto del contenido.
+      </p>
+      <p>
+        Una forma de abordar este problema es utilizar unidades <mark>rem</mark> para la tipografía. Una unidad
+        <mark>rem</mark> es relativa al
+        tamaño de fuente del elemento raíz, que es el elemento <mark>html</mark>.
+      </p>
+      <p>
+        Por defecto, el tamaño de fuente del elemento <mark>html</mark> es de <mark>16px</mark>. Si el usuario aumenta
+        el tamaño de fuente
+        en la configuración de su navegador, el tamaño de fuente del elemento <mark>html</mark> aumentará y todas las
+        unidades <mark>rem</mark> se
+        escalarán proporcionalmente.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de la unidad <mark>rem</mark> para el tamaño de fuente en lugar de
+        píxeles:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;This is regular text.&lt;/p&gt;
+  &lt;p class="para"&gt;This text is slightly larger.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.para {
+  font-size: 1.2rem;
+  margin-bottom: 1.5em;
+  border: 2px solid red;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 25px; text-align: left;">
+
+            <style>
+              .pv-text-regular {
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                /* Tamaño base estándar */
+                margin-bottom: 10px !important;
+                color: #666 !important;
+              }
+
+              .pv-text-para-rem {
+                font-family: sans-serif !important;
+                font-size: 1.2rem !important;
+                /* 1.2 * 16px = 19.2px */
+                margin-bottom: 1.5em !important;
+                /* 1.5 * 19.2px = 28.8px */
+                border: 2px solid red !important;
+                color: #000 !important;
+              }
+            </style>
+
+            <p class="pv-text-regular">This is regular text.</p>
+            <p class="pv-text-para-rem">This text is slightly larger.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al establecer el tamaño de fuente en <mark>1.2rem</mark>, el tamaño de fuente del elemento párrafo será 1.2
+        veces el tamaño
+        de fuente del elemento raíz. Si el usuario no ha cambiado el tamaño de fuente predeterminado, el tamaño de
+        fuente del elemento párrafo será de <mark>19.2px</mark>, ya que es 1.2 veces <mark>16px</mark>.
+      </p>
+      <p>
+        Entonces, ¿cuándo se deben utilizar las unidades <mark>rem</mark>? Las unidades <mark>rem</mark> son preferibles
+        a los píxeles para la
+        tipografía porque se escalan proporcionalmente con la configuración del navegador del usuario. Esto hace que su
+        contenido sea más accesible para los usuarios con discapacidad visual.
+      </p>
+      <p>
+        Las unidades <mark>rem</mark> también pueden ayudar a mantener un espaciado y un diseño coherentes entre los
+        diferentes
+        elementos.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿A qué se refiere la unidad <mark>em</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El tamaño de fuente del elemento figure.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            El font-size del elemento o del elemento principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El font-size del elemento root.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El font-size del elemento img.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué se prefieren las unidades <mark>rem</mark> a los píxeles para la tipografía?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Siempre se deben utilizar píxeles para la tipografía.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Hacen que tus diseños sean más coloridos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Se ajustan proporcionalmente a la configuración del navegador del usuario.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Aumentan el rendimiento del sitio web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿A qué se refieren las unidades <mark>rem</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            El fontsize del elemento figure.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            El fontsize del elemento o del elemento principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            El fontsize del elemento img.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            El fontsize del elemento root
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2>Tema 4: ¿Qué son las unidades <code>vh</code> y <code>vw</code>, y cuándo se deben utilizar?</h2>
+
+      <p>
+        En CSS, <mark>vh</mark> y <mark>vw</mark> son unidades relativas a la ventana gráfica que permiten dimensionar
+        los elementos en función de
+        las dimensiones de la ventana del navegador. Estas unidades son especialmente útiles para crear diseños
+        adaptables que se ajustan a diferentes tamaños de pantalla.
+      </p>
+      <p>
+        <mark>vh</mark> significa «altura de la ventana gráfica», y <mark>1vh</mark> equivale al 1 % de la altura de la
+        ventana gráfica.
+      </p>
+      <p>
+        Del mismo modo, <mark>vw</mark> significa «ancho de la ventana gráfica», y <mark>1 vw</mark> equivale al 1 % del
+        ancho de la ventana
+        gráfica.
+      </p>
+      <p>
+        Esto significa que si estableces la altura de un elemento en <mark>100vh</mark>, ocupará toda la altura de la
+        ventana
+        gráfica, independientemente de las dimensiones reales en píxeles del dispositivo.
+      </p>
+      <p>
+        Estas unidades son especialmente útiles cuando se desea crear diseños a pantalla completa o elementos que
+        mantengan una proporción específica de la pantalla.
+      </p>
+      <p>
+        Por ejemplo, es posible que desee utilizarlas para crear una sección principal que siempre ocupe toda la
+        pantalla (para interactuar con el ejemplo, deberá habilitar el editor interactivo).
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;section class="hero"&gt;
+    &lt;h1&gt;100vh / 100vw Example&lt;/h1&gt;
+    &lt;p&gt;This section fills the entire browser window.&lt;/p&gt;
+  &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">body {
+  margin: 0;
+  font-family: sans-serif;
+  border: 5px dashed #333;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-color: #add8e6; 
+  padding: 2em;
+}
+
+.hero h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1em;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; overflow: auto; position: relative;">
+
+            <style>
+              .v-hero-section {
+                height: 100% !important;
+                /* En el visor usamos 100% para simular el 100vh del viewport real */
+                width: 100% !important;
+                background-color: #add8e6 !important;
+                padding: 2em !important;
+                box-sizing: border-box !important;
+                font-family: sans-serif !important;
+                border: 5px dashed #333 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                text-align: left !important;
+              }
+
+              .v-hero-title {
+                font-size: 2em !important;
+                margin: 0 0 0.5em 0 !important;
+                color: #000 !important;
+                font-weight: bold !important;
+              }
+
+              .v-hero-text {
+                font-size: 1em !important;
+                margin: 0 !important;
+                color: #333 !important;
+              }
+            </style>
+
+            <section class="v-hero-section">
+              <h1 class="v-hero-title">100vh / 100vw Example</h1>
+              <p class="v-hero-text">This section fills the entire browser window.</p>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este CSS garantiza que la sección principal siempre tenga exactamente el tamaño de la ventana gráfica,
+        independientemente del tamaño de la pantalla del dispositivo.
+      </p>
+      <p>
+        Las unidades <mark>vh</mark> y <mark>vw</mark> también se pueden utilizar en tipografía para crear tamaños de
+        texto adaptables.
+      </p>
+      <p>
+        Vea el editor interactivo y pruebe a ajustar el tamaño de la ventana de vista previa para ver cómo se escala
+        el texto con el tamaño de la ventana gráfica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Responsive Heading&lt;/h1&gt;
+  &lt;p&gt;The h1 heading scales with the viewport width.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">h1 {
+  font-size: 5vw;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; overflow: hidden; text-align: left;">
+
+            <style>
+              .vw-container {
+                border: 2px dashed #ccc !important;
+                padding: 15px !important;
+                font-family: sans-serif !important;
+              }
+
+              .vw-h1 {
+                /* En la vista previa usamos vw relativo al contenedor del visor */
+                font-size: 5vw !important;
+                margin: 0 0 10px 0 !important;
+                color: #1a1a1a !important;
+                line-height: 1.2 !important;
+                display: block !important;
+              }
+
+              .vw-p {
+                font-size: 14px !important;
+                color: #666 !important;
+                margin: 0 !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="vw-container">
+              <h1 class="vw-h1">Responsive Heading</h1>
+              <p class="vw-p">The h1 heading scales with the viewport width.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establecerá el tamaño de fuente de los elementos <mark>h1</mark> al 5 % del ancho de la ventana gráfica, lo
+        que
+        permitirá que el texto se adapte perfectamente al tamaño de la ventana del navegador.
+      </p>
+      <p>
+        Una de las ventajas de las unidades <mark>vh</mark> y <mark>vw</mark> es que responden a los cambios en el
+        tamaño de la ventana gráfica en
+        tiempo real. Esto significa que, si un usuario cambia el tamaño de la ventana de su navegador, los elementos
+        dimensionados con estas unidades se ajustarán en consecuencia sin necesidad de recargar la página. Sin embargo,
+        es importante utilizar estas unidades con prudencia. Establecer los tamaños de fuente únicamente con unidades
+        vw, por ejemplo, puede hacer que el texto sea demasiado pequeño en pantallas estrechas o demasiado grande en
+        pantallas anchas.
+      </p>
+      <p>
+        Otra consideración es que, en los dispositivos móviles, la altura de la ventana gráfica puede cambiar cuando
+        aparece o desaparece la barra de direcciones del navegador, lo que puede provocar cambios inesperados en el
+        diseño si se utilizan mucho las unidades <mark>vh</mark>.
+      </p>
+      <p>
+        En resumen, las unidades <mark>vh</mark> y <mark>vw</mark> son herramientas poderosas para crear diseños y
+        elementos responsivos que se
+        adaptan al tamaño de la ventana gráfica. Son particularmente útiles para secciones a pantalla completa, mantener
+        relaciones de aspecto y crear diseños que se escalan suavemente. Sin embargo, deben utilizarse con cuidado y, a
+        menudo, en combinación con otras técnicas CSS para garantizar la mejor experiencia de usuario en todos los
+        dispositivos.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué representa <mark>50vh</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            50 pixels.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            La mitad de la altura de la ventana gráfica.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            50 % de la altura del elemento principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            La mitad del ancho de la ventana gráfica.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes es un caso de uso válido para las unidades <mark>vw</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Establecer un ancho fijo para una barra lateral.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Definición del ancho máximo de una imagen.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            Crear un elemento cuadrado que ocupe siempre el 20 % del ancho de la ventana gráfica.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Establecer la line-height del texto del párrafo.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué problema potencial podría surgir al utilizar unidades <mark>vh</mark> para elementos de diseño críticos
+            en dispositivos móviles?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            No son compatibles con navegadores móviles antiguos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            Pueden provocar cambios en el diseño cuando aparece o desaparece la barra de direcciones del navegador
+            móvil.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Hacen que el sitio web se cargue más lentamente en los dispositivos móviles.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            No funcionan con pantallas táctiles.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2>Tema 5: ¿Qué es la función <code>calc()</code> y cómo funciona?</h2>
+
+      <p>
+        Con la función <mark>calc()</mark>, puedes realizar cálculos directamente en tus hojas de estilo para determinar
+        los valores
+        de las propiedades de forma dinámica. Esto significa que puedes crear interfaces de usuario flexibles y
+        receptivas calculando las dimensiones en función del tamaño de la ventana gráfica u otros elementos.
+      </p>
+      <p>
+        <mark>calc()</mark> es una función CSS. Aprenderás más sobre las funciones cuando comiences a estudiar
+        JavaScript, pero en
+        esta lección aprenderás los conceptos básicos que necesitas saber para comprender cómo funciona
+        <mark>calc()</mark>.
+      </p>
+      <p>
+        Una función es un bloque de código que realiza una tarea específica. Algunas funciones ya están definidas en
+        CSS, por lo que puedes utilizarlas directamente y pasarles los valores necesarios para personalizar cómo se
+        realizarán sus tareas.
+      </p>
+      <p>
+        En el mundo de la programación, cuando ejecutamos la tarea realizada por una función, decimos que «llamamos» a
+        la función. Los valores que pasamos a la función se conocen como argumentos.
+      </p>
+      <p>
+        Como puedes ver en el código siguiente, para llamar a una función, se escribe su nombre seguido de los
+        argumentos entre paréntesis, separados por comas. No debe haber espacio entre el nombre de la función y el
+        paréntesis de apertura:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">function(argument1, argument2, argument3)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Una función puede necesitar solo un valor para saber qué hacer. En ese caso, solo tomará un argumento. Eso es lo
+        que ocurre con la función <mark>calc()</mark>. Toma un argumento porque necesita saber qué calcular.
+      </p>
+      <p>
+        Para ello, se pasa algo llamado expresión como argumento. Una expresión es una combinación de valores y
+        operadores que produce un resultado.
+      </p>
+      <p>
+        Así es como se puede llamar a la función <mark>calc()</mark>. Se escribe el nombre calc, seguido de paréntesis,
+        y dentro de
+        los paréntesis se escribe la expresión:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(expression)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La expresión se evalúa para calcular el resultado final. «Evaluar» solo significa que los valores y operadores
+        se convierten en un único valor entre bastidores. El resultado se asigna a la propiedad CSS donde se realiza el
+        cálculo.
+      </p>
+      <p>
+        Puedes realizar cálculos con valores que representen longitud, ángulo, tiempo, porcentajes, números y colores.
+        También puedes combinar diferentes unidades, como <mark>px</mark>, porcentajes(<mark>%</mark>) y
+        <mark>em</mark>s.
+      </p>
+      <p>
+        Con los números, todos los valores de la expresión, también llamados operandos, deben tener sus unidades
+        correspondientes, como <mark>px</mark>, <mark>em</mark> y porcentaje (<mark>%</mark>). Dependiendo del operador,
+        diferentes operandos pueden tener
+        diferentes unidades.
+      </p>
+      <p>
+        Puedes utilizar los operadores de suma (<mark>+</mark>), resta (<mark>-</mark>), multiplicación (<mark>*</mark>)
+        y división (<mark>/</mark>) en la expresión.
+      </p>
+      <p>
+        Si hay varios operandos y operadores, <mark>calc()</mark> seguirá la regla estándar de precedencia de
+        operadores. También
+        puedes añadir paréntesis para establecer el orden de las operaciones si es necesario.
+      </p>
+      <p>
+        En el ejemplo siguiente, puedes ver un <mark>div</mark> con el texto <mark>Hello, World!</mark>.
+      </p>
+      <p>
+        Utilizando el selector de tipo CSS para seleccionar el <mark>div</mark>, puedes darle estilo con texto blanco y
+        fondo azul
+        oscuro:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div&gt;Hello, World!&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">div {
+  color: white;
+  background-color: #1b1b32;
+  width: calc(50% - 20px);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #f0f0f0; padding: 20px;">
+
+            <style>
+              .pv-calc-box {
+                color: white !important;
+                background-color: #1b1b32 !important;
+                width: calc(50% - 20px) !important;
+                padding: 15px !important;
+                font-family: sans-serif !important;
+                border-radius: 4px !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="pv-calc-box">Hello, World!</div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La novedad aquí es que el ancho se calcula dinámicamente. Observe cómo llamamos a la función <mark>calc()</mark>
+        y pasamos
+        una expresión como argumento. La expresión tiene dos operandos con unidades diferentes y un operador, el
+        operador de resta.
+      </p>
+      <p>
+        El porcentaje es una unidad relativa. El valor (<mark>50%</mark>) vendrá determinado por el ancho del contenedor
+        principal.
+        A continuación, se resta <mark>20px</mark> del valor. El resultado de esta expresión determinará el ancho del
+        <mark>div</mark>.
+      </p>
+      <p>
+        El ancho del <mark>div</mark> es aproximadamente la mitad del ancho total de su contenedor, y si cambia el
+        tamaño del
+        contenedor principal, el ancho se recalculará automáticamente.
+      </p>
+      <p>
+        Esa es la ventaja clave de utilizar <mark>calc()</mark>. Puedes determinar el valor de una propiedad CSS de
+        forma dinámica en
+        función de diferentes aspectos de la aplicación o la ventana gráfica.
+      </p>
+      <p>
+        La expresión también puede contener funciones y variables CSS si necesitas utilizarlas en tus cálculos.
+        Aprenderás más sobre las variables CSS en las próximas lecciones.
+      </p>
+      <p>
+        Genial. Ahora que ya conoces los fundamentos de la función <mark>calc()</mark>, veamos algunas de sus mejores
+        prácticas.
+      </p>
+      <p>
+        En primer lugar, debes rodear los operadores de suma (<mark>+</mark>) y resta (<mark>-</mark>) con espacios en
+        blanco.
+      </p>
+      <p>
+        Por ejemplo, la expresión siguiente no sería válida porque el operador de resta se encuentra inmediatamente
+        antes del segundo operando.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(100% -30px)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de resta (<mark>-</mark>) debe estar rodeado de espacios en blanco, como se muestra aquí. Al añadir
+        los espacios
+        en blanco se creará una expresión válida.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(100% - 30px)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto no es necesario para los operadores de multiplicación y división, pero es muy recomendable.
+      </p>
+      <p>
+        También puede anidar llamadas a la función <mark>calc()</mark> si necesita realizar cálculos y utilizar esos
+        resultados en
+        otros cálculos.
+      </p>
+      <p>
+        Además, si utiliza el valor cero para representar la longitud en la expresión que pasa a la función
+        <mark>calc()</mark>, debe
+        incluir las unidades. Por ejemplo, esta expresión no sería válida:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(100% - 0)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Tendrías que agregar las unidades, como px.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(100% - 0px)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También debe saber que, actualmente, si utiliza los operadores de multiplicación o división, uno de los
+        operandos debe carecer de unidades. En el caso del operador de división, concretamente el operando derecho debe
+        carecer de unidades. Esta no sería una expresión válida porque ambos operandos tienen unidades (píxeles). Uno de
+        los operandos, ya sea 5 o 50, debe carecer de unidades:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(5px * 50px)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Deberías omitir las unidades en una de ellas. Ambas alternativas serían válidas:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(5 * 50px)
+calc(5px * 50)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Y este es un ejemplo con el operador de división. Esta no sería una expresión válida, ya que ambos tienen
+        unidades:
+      </p>
+      
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(50% / 5%)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Debes eliminar la unidad del operando derecho cuando tengas el operador de división:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">script.js</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-js">calc(50% / 5)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La función <mark>calc()</mark> puede resultarte muy útil como desarrollador web. Con esta función, puedes establecer valores de propiedad de forma dinámica para crear diseños flexibles y adaptables.
+      </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Cuáles de las siguientes operaciones se pueden realizar utilizando la función <mark>calc()</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Solo suma y resta.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Solo multiplicación y división.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <!-- correcto -->
+            Suma, resta, multiplicación y división.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Solo adiciones.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué tipos de valores se pueden utilizar como operandos dentro de la expresión pasada a la función <mark>calc()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Solo píxeles.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Solo porcentajes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            <!-- correcto -->
+            Píxeles, porcentajes, em y otras unidades compatibles.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Solo números enteros.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede utilizar la función <mark>calc()</mark> para crear un diseño adaptable?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Estableciendo anchos fijos para los elementos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Utilizando exclusivamente consultas de medios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            <!-- correcto -->
+            Calculando las dimensiones de los elementos en función del tamaño de la ventana gráfica u otros elementos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Utilizando HTML para ajustar dinámicamente los tamaños de los elementos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Mi ruta de aprendizaje: Aprende a utilizar pseudoclases y pseudoelementos en CSS para mejorar el diseño y la interactividad de tus páginas web.">
+  <meta name="keywords" content="CSS, pseudoclases, pseudoelementos, diseño web, estilos CSS">
+  <meta name="author" content="naldodev">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con pseudoclas y pseudo-elementos en css">
+  <meta property="og:description"
+    content="Mi ruta de aprendizaje: Aprende a utilizar pseudoclases y pseudoelementos en CSS para mejorar el diseño y la interactividad de tus páginas web.">
+  <meta property="og:type" content="website">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con pseudoclas y pseudo-elementos en css</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajar con pseudoclas y pseudo-elementos en css</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#cuest5" onclick="closeNavMobile()" tabindex="0">❓ Cuest 5</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        Las pseudoclases y los pseudoelementos en CSS son herramientas poderosas que permiten aplicar estilos a
+        elementos en estados específicos o a partes específicas de un elemento sin necesidad de modificar el HTML. A
+        continuación, se describen las diferencias entre ambos y cómo utilizarlos.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son las <code>pseudo-clases</code> y cómo funcionan?</h2>
+
+      <p>
+        Las <mark>pseudo-clases</mark> son palabras clave CSS especiales que permiten seleccionar un elemento en función
+        de su estado
+        o posición específicos. El estado o la posición del elemento pueden incluir:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Cuando está activo.
+          </li>
+          <li class="list">
+            Cuando se pasa el cursor por encima con el ratón.
+          </li>
+          <li class="list">
+            Cuando es el primer elemento secundario de un elemento principal.
+          </li>
+          <li class="list">
+            Cuando es el último elemento secundario de un elemento principal.
+          </li>
+          <li class="list">
+            Cuando se ha visitado un enlace.
+          </li>
+          <li class="list">
+            Cuando está desactivado.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Para utilizar una pseudoclase, se añade al selector utilizando dos puntos (<mark>:</mark>) seguidos del nombre
+        de la pseudoclase:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor" style="width: 100%;">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css" style="display: block;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">selector</span><span class="tk-pseudo">:pseudo-class</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* CSS properties */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Veamos cómo se puede utilizar una <mark>pseudo-clase</mark> para representar cada uno de los estados y
+        posiciones que ya
+        hemos mencionado.
+      </p>
+      <p>
+        La pseudoclase <mark>:active</mark> permite seleccionar el estado activo de un elemento, como al hacer clic en
+        un botón:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;button&gt;Example Button&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">button</span><span class="tk-pseudo">:active</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">greenyellow</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              /* Azul */
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              /* Naranja/Amarillo */
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              /* Verde */
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              /* Naranja */
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              /* Gris */
+
+              /* Estilo del botón en la vista previa con blindaje */
+              .pv-button-active {
+                padding: 12px 24px !important;
+                font-size: 16px !important;
+                cursor: pointer !important;
+                border: 1px solid #ccc !important;
+                background-color: #f0f0f0 !important;
+                transition: background 0.1s !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-button-active:active {
+                background-color: greenyellow !important;
+                /* El efecto que queremos probar */
+              }
+            </style>
+
+            <button class="pv-button-active">Example Button</button>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudo-clase <mark>:hover</mark> define el estado de desplazamiento de un elemento. Un ejemplo sería pasar el
+        cursor sobre un botón o un enlace:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a href="#"&gt;Hover over me!&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-hover {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                padding: 10px 20px !important;
+                color: crimson !important;
+                text-decoration: underline !important;
+                transition: all 0.3s ease !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-link-hover:hover {
+                text-decoration: none !important;
+                color: white !important;
+                background: crimson !important;
+              }
+            </style>
+
+            <a href="#" class="pv-link-hover" onclick="event.preventDefault()">Hover over me!</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:first-child</mark> selecciona un elemento que es el primer hijo de su elemento padre. A
+        continuación se muestra un ejemplo de cómo seleccionar el primer elemento de párrafo en un contenedor
+        <mark>div</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container"&gt;
+    &lt;p&gt;first child&lt;/p&gt;
+    &lt;p&gt;second child&lt;/p&gt;
+    &lt;p&gt;third child&lt;/p&gt;
+    &lt;p&gt;last child&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container p</span><span class="tk-pseudo">:first-child</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.4rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-container {
+                border: 1px solid #ddd !important;
+                padding: 10px !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-container p {
+                margin: 5px 0 !important;
+                color: #333 !important;
+              }
+
+              .pv-container p:first-child {
+                background: lightcoral !important;
+                padding: 0.4rem !important;
+                color: white !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="pv-container">
+              <p>first child</p>
+              <p>second child</p>
+              <p>third child</p>
+              <p>last child</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El primer elemento de párrafo de ese <mark>div</mark> recibirá el color de fondo <mark>lightcoral</mark> y un
+        <mark>padding</mark> de <mark>0,4rem</mark> en los
+        cuatro lados.
+      </p>
+      <p>
+        La pseudoclase <mark>:last-child</mark> se dirige al último elemento que es hijo de su padre. A continuación se
+        muestra un
+        ejemplo de cómo dirigirse al último elemento de párrafo del elemento <mark>div</mark> contenedor:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container"&gt;
+    &lt;p&gt;first child&lt;/p&gt;
+    &lt;p&gt;second child&lt;/p&gt;
+    &lt;p&gt;third child&lt;/p&gt;
+    &lt;p&gt;last child&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container p</span><span class="tk-pseudo">:last-child</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.4rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-container-last {
+                border: 1px solid #eee !important;
+                padding: 10px !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-container-last p {
+                margin: 5px 0 !important;
+                color: #444 !important;
+              }
+
+              .pv-container-last p:last-child {
+                background: lightcoral !important;
+                padding: 0.4rem !important;
+                color: white !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="pv-container-last">
+              <p>first child</p>
+              <p>second child</p>
+              <p>third child</p>
+              <p>last child</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:visited</mark> te permite aplicar estilos a un enlace que el usuario ya ha visitado:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a href="https://www.example.com" target="_blank"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:visited</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">purple</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-visited {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                color: #0000EE !important;
+                /* Azul estándar de link */
+                text-decoration: underline !important;
+              }
+
+              /* Nota: En esta vista previa, el color podría verse morado si ya visitaste example.com */
+              .pv-link-visited:visited {
+                color: purple !important;
+              }
+            </style>
+
+            <a href="https://www.example.com" class="pv-link-visited" target="_blank">Visit Example.com</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:disabled</mark> te permite aplicar estilos a un elemento interactivo en modo
+        deshabilitado:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;button disabled&gt;Disabled Button&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">button</span><span class="tk-pseudo">:disabled</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-button-disabled {
+                padding: 10px 20px !important;
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                border: 1px solid #999 !important;
+                cursor: not-allowed !important;
+                /* Indica visualmente que no se puede clicar */
+                color: #666 !important;
+              }
+
+              .pv-button-disabled:disabled {
+                background-color: lightgray !important;
+              }
+            </style>
+
+            <button class="pv-button-disabled" disabled>Disabled Button</button>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, las pseudoclases te permiten aplicar estilos a los elementos en función de las interacciones
+        del usuario, como pasar el cursor por encima o visitar un enlace. Esto hace que tu sitio web resulte más
+        interactivo.
+      </p>
+      <p>
+        <em>Además de las pseudoclases ya mencionadas, hay otras como:</em>
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>:focus</mark>
+          </li>
+          <li class="list">
+            <mark>:first-of-type</mark>
+          </li>
+          <li class="list">
+            <mark>:last-of-type</mark>
+          </li>
+          <li class="list">
+            <mark>:nth-of-type</mark>
+          </li>
+          <li class="list">
+            <mark>:modal</mark>
+          </li>
+          <li class="list">
+            <mark>:enabled</mark>
+          </li>
+          <li class="list">
+            <mark>:checked</mark>
+          </li>
+          <li class="list">
+            <mark>:required</mark>, y más.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué hace la pseudoclase <mark>:hover</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Selecciona un elemento cuando se hace clic en él.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Selecciona un elemento cuando se pasa el cursor por encima con el ratón.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Selecciona el primer elemento secundario de un elemento principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Selecciona un enlace después de haberlo visitado.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué son las pseudo-clases?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Son palabras clave CSS especiales que te permiten seleccionar un elemento en función de su estado o
+            posición.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Se utilizan para crear nuevos elementos HTML.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Cambian el contenido de un elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Son sustitutos de las clases en HTML.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace la pseudo-clase <mark>:disabled</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            Aplica un estilo a un elemento cuando está desactivado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Aplica un estilo a un elemento cuando se pasa el cursor por encima.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Estiliza el primer elemento secundario de un elemento principal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Aplica un estilo a un enlace después de haber sido visitado.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son algunos ejemplos de pseudoclases de acción del usuario?</h2>
+
+      <p>
+        La retroalimentación del usuario es un elemento crucial del diseño web. Por ejemplo, es importante que los
+        usuarios reciban señales visuales cuando interactúan con elementos de un sitio web, como al pasar el cursor
+        sobre un botón o hacer clic en un enlace. Esta retroalimentación ayuda a los usuarios a comprender el estado de
+        los elementos interactivos, como indicar si un enlace ha sido visitado o no.
+      </p>
+      <p>
+        Las pseudoclases de acción del usuario en CSS son palabras clave especiales que permiten proporcionar este tipo
+        de retroalimentación sin necesidad de JavaScript u otros lenguajes de programación.
+      </p>
+      <p>
+        Estas pseudoclases incluyen <mark>:hover</mark>, <mark>:active</mark>, <mark>:focus</mark> y
+        <mark>:visited</mark>, entre otras. Permiten cambiar la apariencia de
+        los elementos en función de las interacciones del usuario, mejorando así la experiencia general del usuario.
+      </p>
+      <p>
+        Veamos algunas de las pseudoclases de acción del usuario que tenemos y cómo funcionan.
+      </p>
+      <p>
+        La pseudoclase <mark>:active</mark> aplica estilos cuando el usuario activa un elemento. Por ejemplo, cuando el
+        usuario hace
+        clic en un botón o un enlace, proporciona una respuesta visual inmediata, mostrando a los usuarios que sus
+        acciones están siendo reconocidas.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a href="#"&gt;Example link&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:active</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-active {
+                font-family: sans-serif !important;
+                font-size: 20px !important;
+                color: #007bff !important;
+                text-decoration: underline !important;
+                cursor: pointer !important;
+                transition: color 0.05s !important;
+              }
+
+              .pv-link-active:active {
+                color: crimson !important;
+                /* El color cambia al presionar */
+              }
+            </style>
+
+            <a href="#" class="pv-link-active" onclick="event.preventDefault()">Example link</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudo-clase <mark>:hover</mark> se activa cuando un usuario pasa el cursor por encima de un elemento con el
+        ratón u otro dispositivo señalador. Los desarrolladores suelen utilizarla para crear una respuesta visual en
+        botones, enlaces o cualquier elemento que deba responder a la atención del usuario. Aquí hay un botón sobre el
+        que el usuario pasaría el cursor antes de hacer clic:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;button class="btn"&gt;Hover Over Me&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.btn</span><span class="tk-pseudo">:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkgreen</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-btn-custom {
+                padding: 12px 24px !important;
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                border: 2px solid darkgreen !important;
+                background-color: white !important;
+                color: darkgreen !important;
+                border-radius: 5px !important;
+                transition: all 0.3s ease !important;
+              }
+
+              .pv-btn-custom:hover {
+                background-color: darkgreen !important;
+                color: white !important;
+                cursor: pointer !important;
+              }
+            </style>
+
+            <button class="pv-btn-custom">Hover Over Me</button>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudo-clase <mark>:focus</mark> aplica estilos cuando un elemento obtiene el foco, normalmente mediante la
+        navegación con
+        el teclado o cuando un usuario hace clic en un campo de entrada de un formulario. Esto no solo sirve para
+        proporcionar información, sino que también es fundamental para la accesibilidad. Garantiza que los usuarios que
+        dependen en gran medida del teclado puedan identificar fácilmente con qué elemento están interactuando.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de un campo de entrada que obtiene el foco cuando se hace clic en él o se
+        navega hasta él con el teclado:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;input type="text" /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid darkgreen</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-input-focus {
+                padding: 8px 12px !important;
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                border: 1px solid #ccc !important;
+                transition: all 0.2s ease !important;
+                width: 80% !important;
+              }
+
+              .pv-input-focus:focus {
+                outline: 2px solid darkgreen !important;
+                border-radius: 4px !important;
+                border-color: transparent !important;
+              }
+            </style>
+
+            <input type="text" class="pv-input-focus" placeholder="Haz clic aquí..." />
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudo-clase <mark>:visited</mark> se aplica a los enlaces que el usuario ha visitado. Esto puede resultar
+        útil para ayudar a los usuarios a distinguir entre las páginas que ya han visitado y las que aún no han
+        visitado. A continuación se muestra un ejemplo de cómo cambiar el color del texto de anclaje a cian cuando se
+        visita el enlace:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a href="https://www.example.com" target="_blank"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:visited</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">cyan</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #1a1a1a; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-cyan {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                color: #ffffff !important;
+                text-decoration: underline !important;
+                transition: color 0.3s ease !important;
+              }
+
+              .pv-link-cyan:visited {
+                color: cyan !important;
+              }
+            </style>
+
+            <a href="https://www.example.com" class="pv-link-cyan" target="_blank">Visit Example.com</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:checked</mark> en CSS te permite aplicar estilos a elementos de formulario como casillas
+        de
+        verificación y botones de opción cuando están seleccionados (marcados). Esta pseudoclase es útil para
+        personalizar la apariencia de estos elementos y mejorar la experiencia del usuario, aunque los navegadores
+        proporcionan estilos predeterminados para ellos.
+      </p>
+      <p>
+        Aquí tienes un ejemplo con una casilla de verificación para aceptar los términos de un sitio web.
+      </p>
+
+      <div class="nota">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink: 0; margin-top: 2px;">
+          <path
+            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5">
+          </path>
+          <line x1="9" y1="18" x2="15" y2="18"></line>
+          <line x1="10" y1="22" x2="14" y2="22"></line>
+        </svg>
+
+        <p class="p-nota">
+          <strong>NOTA:</strong> Parte del CSS de este ejemplo utiliza propiedades que aún no se han tratado. Esto es
+          solo para darte una idea de cómo crear una casilla de verificación personalizada. Aprenderás cómo funciona
+          todo esto en futuras lecciones y talleres.
+        </p>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;label&gt;
+      Agree &lt;input class="checkbox" type="checkbox" /&gt;
+    &lt;/label&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.checkbox</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">appearance</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #ccc</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">all 0.25s ease</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:hover</span> <span class="tk-punctuation">{</span> <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#888</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:checked</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:checked</span><span class="tk-pseudo">::after</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">content</span><span class="tk-punctuation">:</span> <span class="tk-value">""</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">solid white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-width</span><span class="tk-punctuation">:</span> <span class="tk-value">0 2px 2px 0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">rotate(45deg)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-label {
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                cursor: pointer !important;
+                color: #1a1a1a !important;
+              }
+
+              .pv-checkbox {
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                width: 18px !important;
+                height: 18px !important;
+                border: 2px solid #ccc !important;
+                border-radius: 4px !important;
+                display: inline-block !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.25s ease !important;
+                vertical-align: middle !important;
+                margin-left: 8px !important;
+                background: white !important;
+              }
+
+              .pv-checkbox:hover {
+                border-color: #888 !important;
+              }
+
+              .pv-checkbox:checked {
+                background-color: #4caf50 !important;
+                border-color: #4caf50 !important;
+              }
+
+              .pv-checkbox:checked::after {
+                content: "" !important;
+                position: absolute !important;
+                left: 4px !important;
+                top: 0px !important;
+                width: 5px !important;
+                height: 10px !important;
+                border: solid white !important;
+                border-width: 0 2px 2px 0 !important;
+                transform: rotate(45deg) !important;
+              }
+
+              .pv-checkbox:focus {
+                outline: 2px solid #90caf9 !important;
+                outline-offset: 2px !important;
+              }
+            </style>
+
+            <label class="pv-label">
+              Agree <input class="pv-checkbox" type="checkbox" />
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos la propiedad <mark>appearance</mark> establecida en <mark>none</mark> para eliminar
+        el estilo predeterminado
+        que aplica el navegador a los campos de entrada de casillas de verificación. Cuando el usuario marque la
+        casilla, esta tendrá un color de fondo green.
+      </p>
+      <p>
+        <em>Otros ejemplos de pseudoclases de acción son:</em>
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>:focus-within</mark>: para aplicar estilos a un elemento cuando este o cualquiera de sus descendientes
+            tienen el foco.
+          </li>
+          <li class="list">
+            <mark>:enabled</mark>: para seleccionar botones de formulario u otros elementos que estén habilitados
+            actualmente.
+          </li>
+          <li class="list">
+            <mark>:disabled</mark>: para seleccionar botones de formulario u otros elementos que estén deshabilitados.
+          </li>
+          <li class="list">
+            <mark>:target</mark>: para aplicar estilos a un elemento que sea el destino de un fragmento de URL (la parte
+            de una URL que aparece después del símbolo <mark>#</mark>).
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué te permiten hacer las pseudo-clases de acción del usuario?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Permiten animaciones y transiciones.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Te permiten modificar la estructura DOM de manera dinámica.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Te permiten proporcionar comentarios al usuario sin depender de JavaScript.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Te permiten dar estilo al último elemento de una lista.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace la pseudo-clase <mark>:checked</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Selecciona un elemento cuando está desactivado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Selecciona un elemento cuando se pasa el cursor por encima.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Estiliza elementos como casillas de verificación o botones de opción que están marcados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Aplica un estilo a un elemento cuando este obtiene el foco.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace la pseudoclase <mark>:focus</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Selecciona un elemento cuando se pasa el cursor por encima con el ratón.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Aplica estilos cuando un elemento obtiene el foco, normalmente mediante la navegación con el teclado o un
+            clic.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Selecciona un elemento después de enviar un formulario.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Aplica estilos a un elemento cuando está desactivado.
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Cuáles son algunos ejemplos de pseudoclases de entrada?</h2>
+
+      <p>
+        La apariencia y el comportamiento de los elementos de entrada son importantes a la hora de crear formularios
+        web. Un formulario con entradas que responden a las acciones del usuario contribuye en gran medida a mejorar la
+        experiencia del usuario y no debe causar confusión ni frustración.
+      </p>
+      <p>
+        CSS proporciona varias pseudo-clases de entrada que pueden hacer que tus formularios sean más intuitivos y
+        fáciles de usar. Veamos estas pseudoclases en detalle.
+      </p>
+      <p>
+        La pseudo-clase <mark>:focus</mark> le permite seleccionar un elemento de entrada cuando un usuario lo
+        selecciona o hace clic
+        en él, llamando la atención sobre el campo de entrada activo. Esto ayuda a los usuarios a identificar fácilmente
+        dónde están escribiendo en ese momento:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;input type="text" placeholder="Haz clic aquí..." /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-input-crimson {
+                padding: 10px 15px !important;
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+                width: 80% !important;
+                transition: border 0.2s ease !important;
+              }
+
+              .pv-input-crimson:focus {
+                border: 2px solid crimson !important;
+                outline: none !important;
+              }
+            </style>
+
+            <input type="text" class="pv-input-crimson" placeholder="Haz clic para ver el borde carmesí" />
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como su nombre indica, la pseudoclase <mark>:hover</mark> se activa cuando el usuario coloca el cursor sobre un
+        elemento. Proporciona información visual antes de que el usuario interactúe con el campo de entrada, alertándole
+        de manera efectiva de que el campo está listo para actuar.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;input type="text" placeholder="Pasa el mouse por aquí..." /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">orange</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-input-hover-orange {
+                padding: 10px 15px !important;
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+                width: 80% !important;
+                transition: background-color 0.3s ease !important;
+                outline: none !important;
+              }
+
+              .pv-input-hover-orange:hover {
+                background-color: orange !important;
+              }
+            </style>
+
+            <input type="text" class="pv-input-hover-orange" placeholder="Pasa el mouse por aquí..." />
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el fondo del elemento de entrada cambia a color naranja cuando el usuario pasa el cursor
+        por encima, lo que le indica que el campo está listo para interactuar.
+      </p>
+      <p>
+        La pseudo-clase :checked te permite aplicar un estilo diferente a un botón de radio o una casilla de
+        verificación cuando el usuario lo selecciona. De esta manera, el usuario puede ver fácilmente qué opción ha
+        elegido.
+      </p>
+      <p>
+        Aquí hay un ejemplo con una casilla de verificación para aceptar los términos de un sitio web.
+      </p>
+
+      <div class="nota">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink: 0; margin-top: 2px;">
+          <path
+            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5">
+          </path>
+          <line x1="9" y1="18" x2="15" y2="18"></line>
+          <line x1="10" y1="22" x2="14" y2="22"></line>
+        </svg>
+
+        <p class="p-nota">
+          <strong>NOTA:</strong> Parte del CSS de este ejemplo utiliza propiedades que aún no se han tratado. Esto es
+          solo para darte una idea de cómo crear una casilla de verificación personalizada. Aprenderás cómo funciona
+          todo esto en futuras lecciones y talleres.
+        </p>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;label&gt;
+    Agree &lt;input class="checkbox" type="checkbox" /&gt;
+    &lt;/label&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.checkbox</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">appearance</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #ccc</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">inline-block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">all 0.25s ease</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">vertical-align</span><span class="tk-punctuation">:</span> <span class="tk-value">middle</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#888</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:checked</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:checked</span><span class="tk-pseudo">::after</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">content</span><span class="tk-punctuation">:</span> <span class="tk-value">""</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">0px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">5px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">solid white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-width</span><span class="tk-punctuation">:</span> <span class="tk-value">0 2px 2px 0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">rotate(45deg)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox</span><span class="tk-pseudo">:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #90caf9</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">outline-offset</span><span class="tk-punctuation">:</span> <span class="tk-value">2px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-label {
+                font-family: sans-serif !important;
+                font-size: 16px !important;
+                cursor: pointer !important;
+              }
+
+              .pv-checkbox {
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                width: 18px !important;
+                height: 18px !important;
+                border: 2px solid #ccc !important;
+                border-radius: 4px !important;
+                display: inline-block !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.25s ease !important;
+                vertical-align: middle !important;
+                background: white !important;
+                margin-left: 8px !important;
+              }
+
+              .pv-checkbox:hover {
+                border-color: #888 !important;
+              }
+
+              .pv-checkbox:checked {
+                background-color: #4caf50 !important;
+                border-color: #4caf50 !important;
+              }
+
+              .pv-checkbox:checked::after {
+                content: "" !important;
+                position: absolute !important;
+                left: 4px !important;
+                top: 0px !important;
+                width: 5px !important;
+                height: 10px !important;
+                border: solid white !important;
+                border-width: 0 2px 2px 0 !important;
+                transform: rotate(45deg) !important;
+              }
+
+              .pv-checkbox:focus {
+                outline: 2px solid #90caf9 !important;
+                outline-offset: 2px !important;
+              }
+            </style>
+
+            <label class="pv-label">
+              Agree <input class="pv-checkbox" type="checkbox" />
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>:required</mark> selecciona los elementos de entrada que tienen el atributo <mark>required</mark>. Indica
+        al usuario que debe
+        rellenar el campo para enviar el formulario.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo con un formulario que tiene algunos campos de entrada obligatorios:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form action="#"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required /&gt;
+  
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required /&gt;
+  
+    &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone" /&gt;
+  
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:required</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid orange</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-form {
+                font-family: sans-serif !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 10px !important;
+                max-width: 300px !important;
+              }
+
+              .pv-form label {
+                font-size: 14px !important;
+                font-weight: bold !important;
+                color: #1a1a1a !important;
+              }
+
+              .pv-form input {
+                padding: 8px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+                outline: none !important;
+              }
+
+              .pv-form input:required {
+                border: 2px solid orange !important;
+              }
+
+              .pv-form button {
+                margin-top: 10px !important;
+                padding: 10px !important;
+                background: #333 !important;
+                color: white !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+              }
+            </style>
+
+            <form class="pv-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" required placeholder="Obligatorio" />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" required placeholder="Obligatorio" />
+
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" placeholder="Opcional" />
+
+              <button type="submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al validar formularios, puede utilizar la pseudoclase <mark>:valid</mark> para aplicar estilos a los campos de
+        entrada que
+        cumplen los criterios de validación, y <mark>:invalid</mark> para aplicar estilos a los campos de entrada que no
+        cumplen los
+        criterios. Normalmente, se utiliza el color verde para las entradas válidas y el rojo para las entradas no
+        válidas.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se utiliza la pseudoclase <mark>:valid</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:valid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-form-valid {
+                font-family: sans-serif !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+              }
+
+              .pv-form-valid label {
+                font-size: 14px !important;
+                font-weight: bold !important;
+                color: #1a1a1a !important;
+              }
+
+              .pv-input-valid {
+                padding: 8px !important;
+                border: 2px solid #ccc !important;
+                border-radius: 4px !important;
+                outline: none !important;
+                transition: border-color 0.3s ease !important;
+              }
+
+              .pv-input-valid:valid {
+                border-color: green !important;
+              }
+            </style>
+
+            <form class="pv-form-valid">
+              <label for="email">Email:</label>
+              <input type="email" class="pv-input-valid" id="email" placeholder="ejemplo@correo.com" />
+              <small style="color: #666;">Escribe un email válido para ver el borde verde.</small>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A continuación se muestra un ejemplo del uso de la pseudoclase <mark>:invalid</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span><span class="tk-pseudo">:invalid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-form-invalid {
+                font-family: sans-serif !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+              }
+
+              .pv-form-invalid label {
+                font-size: 14px !important;
+                font-weight: bold !important;
+              }
+
+              .pv-input-invalid {
+                padding: 8px !important;
+                border: 2px solid #ccc !important;
+                border-radius: 4px !important;
+                outline: none !important;
+                transition: border-color 0.2s ease !important;
+              }
+
+              .pv-input-invalid:invalid {
+                border-color: crimson !important;
+              }
+            </style>
+
+            <form class="pv-form-invalid">
+              <label for="email">Email:</label>
+              <input type="email" class="pv-input-invalid" id="email" placeholder="Escribe algo que NO sea un email"
+                value="email-incorrecto" />
+              <small style="color: #666;">Como "email-incorrecto" no tiene @, verás el borde carmesí.</small>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:disabled</mark> te permite seleccionar y aplicar estilos a los elementos de entrada que
+        están
+        deshabilitados. Estos elementos tienen el atributo <mark>disabled</mark>, que impide a los usuarios interactuar
+        con ellos.
+        Cuando una entrada está deshabilitada, no se puede hacer clic en ella, seleccionarla ni editarla.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de una etiqueta y un elemento de entrada deshabilitado.
+      </p>
+      <p>
+        En el CSS, nos centramos en esa entrada deshabilitada y le damos un color de fondo <mark>lightgray</mark> y
+        cambiamos el
+        puntero del cursor a <mark>not-allowed</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input class="text-input" type="text" id="name" name="name" disabled /&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.text-input</span><span class="tk-pseudo">:disabled</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">not-allowed</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-form-disabled {
+                font-family: sans-serif !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+              }
+
+              .pv-form-disabled label {
+                font-size: 14px !important;
+                font-weight: bold !important;
+              }
+
+              /* Estilo base del input */
+              .pv-text-input {
+                padding: 8px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-text-input:disabled {
+                background-color: lightgray !important;
+                cursor: not-allowed !important;
+              }
+            </style>
+
+            <form class="pv-form-disabled">
+              <label for="name">Name:</label>
+              <input class="pv-text-input" type="text" id="name" name="name" disabled value="Usuario Bloqueado" />
+              <small style="color: #666;">Este campo no se puede editar.</small>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El <mark>cursor: not-allowed;</mark> el valor de la propiedad CSS cambia la apariencia del cursor para indicar
+        que no se
+        permite realizar una acción.
+      </p>
+      <p>
+        Cuando se aplica a un elemento, muestra un cursor con un símbolo de círculo tachado (normalmente un círculo con
+        una línea diagonal que lo atraviesa) para indicar a los usuarios que el elemento no es interactivo o que no se
+        puede hacer clic en él ni interactuar con él.
+      </p>
+      <p>
+        <em>
+          A continuación se muestran otros ejemplos de pseudoclases de entrada y lo que hacen:
+        </em>
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>:autofill</mark>: aplica estilos a los campos de entrada que el navegador rellena automáticamente con
+            los datos guardados.
+          </li>
+          <li class="list">
+            <mark>:optional</mark>: aplica estilos a los elementos de entrada que no son obligatorios y pueden dejarse
+            vacíos.
+          </li>
+          <li class="list">
+            <mark>:in-range</mark> y <mark>:out-of-range</mark>: aplican estilos a los elementos en función de si sus
+            valores están dentro o fuera de los límites especificados.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué te permite hacer la Pseudo-Clase <mark>:focus</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Te permite resaltar varios elementos al mismo tiempo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Te permite aplicar estilos a un elemento de entrada cuando se selecciona o se hace clic en él.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Te permite enviar automáticamente un formulario cuando se hace clic en un campo de entrada.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Te permite reordenar elementos en un formulario de manera dinámica.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Para qué se pueden utilizar las Pseudo-Clases <mark>:valid</mark> e <mark>:invalid</mark> en la validación
+            de formularios?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Te permiten restablecer todos los campos de entrada automáticamente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Te permiten proporcionar diferentes estilos para las entradas en función de si cumplen los criterios de
+            validación.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Te permiten desactivar el envío de formularios si se deja algún campo sin rellenar.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Te permiten cambiar el texto del marcador de posición de forma dinámica.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué pseudoclase te permite aplicar estilos a los campos de entrada que deben completarse antes de enviar el
+            formulario?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            :optional
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            :disabled
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            :required
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            :checked
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2>Tema 4: ¿Cuáles son algunos ejemplos de Pseudo-Clases de ubicación?</h2>
+
+      <p>
+        Las pseudo-clases de ubicación se utilizan para aplicar estilos a enlaces y elementos que se encuentran dentro
+        del documento actual. Ofrecen una forma de aplicar estilos en función de si un enlace ha sido visitado o si un
+        elemento está actualmente seleccionado.
+      </p>
+      <p>
+        Algunos ejemplos de pseudo-clases de ubicación son:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>:link</mark>
+          </li>
+          <li class="list">
+            <mark>:visited</mark>
+          </li>
+          <li class="list">
+            <mark>:any-link</mark>
+          </li>
+          <li class="list">
+            <mark>:local-link</mark>
+          </li>
+          <li class="list">
+            <mark>:target</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Veamos más detenidamente cada una de estas pseudoclases.
+      </p>
+      <p>
+        La pseudo-clase <mark>:link</mark> te permite seleccionar todos los enlaces no visitados de una página web.
+        Puedes utilizarla
+        para aplicar un estilo diferente a los enlaces antes de que el usuario haga clic en ellos. Por ejemplo, es
+        posible que quieras que todos los enlaces no visitados sean de color azul o del color principal de tu sitio web:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a target="_blank" href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:link</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">magenta</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-new {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                text-decoration: underline !important;
+              }
+
+              .pv-link-new:link {
+                color: magenta !important;
+              }
+            </style>
+
+            <a target="_blank" href="https://www.example.com" class="pv-link-new">Visit Example.com</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, cualquier enlace en el que el usuario aún no haya hecho clic aparecerá en color magenta. Una vez
+        que el usuario hace clic en el enlace, el estilo <mark>:link</mark> deja de aplicarse y la pseudoclase
+        <mark>:visited</mark> toma el
+        relevo. La pseudoclase <mark>:visited</mark> entra en juego después de que el usuario haga clic en el enlace,
+        por lo que
+        puede utilizarla para seleccionar los enlaces en los que el usuario ya ha hecho clic.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo cambiar el estado del enlace visitado al color <mark>purple</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a target="_blank" href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:visited</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">purple</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-link-visited {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                text-decoration: underline !important;
+                color: #0000EE !important;
+              }
+
+              .pv-link-visited:visited {
+                color: purple !important;
+              }
+            </style>
+
+            <a target="_blank" href="https://www.example.com" class="pv-link-visited">Visit Example.com</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase <mark>:visited</mark> ayuda a los usuarios a distinguir entre los enlaces que han visitado y los
+        que no.
+      </p>
+      <p>
+        La pseudoclase <mark>:any-link</mark> es una combinación de las pseudoclases <mark>:link</mark> y
+        <mark>:visited</mark>. Por lo tanto, coincide con
+        cualquier elemento de anclaje con un atributo <mark>href</mark>, independientemente de si se ha visitado o no.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo cambiar el color del enlace para la pseudoclase
+        <mark>:any-link</mark> a
+        <mark>crimson</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;a target="_blank" href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a</span><span class="tk-pseudo">:any-link</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; display: flex; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-anylink-crimson {
+                font-family: sans-serif !important;
+                font-size: 18px !important;
+                text-decoration: underline !important;
+              }
+
+              .pv-anylink-crimson:any-link {
+                color: crimson !important;
+              }
+            </style>
+
+            <a target="_blank" href="https://www.example.com" class="pv-anylink-crimson">Visit Example.com</a>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La pseudoclase `<mark>:local-link</mark> se aplica a los enlaces que apuntan al mismo documento. Puede resultar
+        útil cuando se
+        desea diferenciar los enlaces internos de los externos. Actualmente, ningún navegador es compatible con la
+        pseudoclase `<mark>:local-link</mark>.
+      </p>
+      <p>
+        La pseudoclase <mark>:target</mark> selecciona un elemento que coincide con el identificador de fragmento de la
+        URL actual,
+        por ejemplo, <mark>#section1</mark>. Es muy útil para páginas con navegación dentro de la página.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo HTML que representa una navegación dentro de la página. El CSS utiliza la
+        pseudoclase <mark>:target</mark> para aplicar estilo a la sección que coincide con el lugar al que navega el
+        usuario:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;nav id="table-of-contents"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#section1"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#section2"&gt;Features&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  
+  &lt;section id="section1"&gt;
+    &lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;This is the introduction section.&lt;/p&gt;
+  &lt;/section&gt;
+  
+  &lt;section id="section2"&gt;
+    &lt;h2&gt;Features&lt;/h2&gt;
+    &lt;p&gt;This section describes the features.&lt;/p&gt;
+  &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">section</span><span class="tk-pseudo">:target</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid green</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 15px; overflow-y: auto;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-container {
+                font-family: sans-serif !important;
+                color: #333 !important;
+              }
+
+              .pv-nav ul {
+                list-style: none !important;
+                padding: 0 !important;
+                display: flex !important;
+                gap: 15px !important;
+                border-bottom: 1px solid #eee !important;
+                padding-bottom: 10px !important;
+              }
+
+              .pv-nav a {
+                color: #007bff !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+              }
+
+              .pv-section {
+                margin-top: 15px !important;
+                border: 2px solid transparent !important;
+                transition: all 0.4s ease !important;
+                border-radius: 8px !important;
+              }
+
+              .pv-section h2 {
+                margin: 0 0 5px 0 !important;
+              }
+
+              .pv-section:target {
+                background-color: #d4edda !important;
+                border: 2px solid green !important;
+                padding: 10px !important;
+                color: #155724 !important;
+              }
+            </style>
+
+            <div class="pv-container">
+              <nav class="pv-nav">
+                <ul>
+                  <li><a href="#section1">Introduction</a></li>
+                  <li><a href="#section2">Features</a></li>
+                </ul>
+              </nav>
+
+              <section id="section1" class="pv-section">
+                <h2>Introduction</h2>
+                <p>This is the introduction section. Haz clic en "Features" arriba para ver el cambio.</p>
+              </section>
+
+              <section id="section2" class="pv-section">
+                <h2>Features</h2>
+                <p>This section describes the features. ¡Ahora esta es el target!</p>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando el usuario haga clic en uno de los enlaces de navegación, el color de fondo de la sección correspondiente
+        cambiará a verde.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué pseudo-clase te permite aplicar estilos a un elemento que coincida con el identificador de fragmento de
+            la URL actual, como <mark>#section1</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :hover
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :focus
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            :target
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            :checked
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo son especialmente útiles las pseudo-clases de ubicación?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Al aplicar estilos a los elementos basándose en sus relaciones entre hermanos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            Al aplicar estilos basados en si un enlace ha sido visitado o si un elemento está actualmente enfocado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Al aplicar estilos a los elementos basándose en los atributos de su elemento padre.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Al ajustar el diseño de una página web de forma dinámica.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué pseudoclase está diseñada para seleccionar enlaces que apuntan al mismo documento, pero que actualmente
+            no es compatible con ningún navegador?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :any-link
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            :local-link
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :visited
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            :target
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2>Tema 5: ¿Cuáles son algunos ejemplos de pseudo-clases con estructura-árbol</h2>
+
+      <p>
+        Las pseudoclases con estructura de árbol te permiten seleccionar y aplicar estilos a los elementos en función de
+        su posición dentro del árbol del documento. El árbol del documento hace referencia a la estructura jerárquica de
+        los elementos en un documento HTML.
+      </p>
+      <p>
+        A continuación se muestra una lista de pseudoclases con estructura de árbol:
+      </p>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

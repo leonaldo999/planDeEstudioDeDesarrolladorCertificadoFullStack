@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de unidades relativas y absolutas en CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de unidades relativas y absolutas en CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Unidades absolutas</a></li>
+      <li><a href="#tema2">Unidades relativas</a></li>
+      <li><a href="#tema3">Función calc</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En CSS, las unidades de medida se dividen en dos categorías principales: unidades absolutas y unidades
+        relativas. Comprender la diferencia entre estas unidades es crucial para diseñar sitios web responsivos y
+        adaptables a diferentes dispositivos y tamaños de pantalla.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Unidades absolutas</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>px (píxeles)</strong>: esta unidad absoluta es una unidad de medida de tamaño fijo en CSS. Es la
+            unidad absoluta más común y proporciona un control preciso sobre las dimensiones. 1 px siempre equivale a
+            1/96 de pulgada.
+          </li>
+          <li>
+            <strong>in (pulgada)</strong>: esta unidad absoluta equivale a 96 px.
+          </li>
+          <li>
+            <strong>cm (centímetros)</strong>: esta unidad absoluta equivale a 25.2/64 de pulgada.
+          </li>
+          <li>
+            <strong>mm (milímetros)</strong>: esta unidad absoluta equivale a 1/10 de centímetro.
+          </li>
+          <li>
+            <strong>q (cuartos de milímetro)</strong>: esta unidad absoluta equivale a 1/40 de centímetro.
+          </li>
+          <li>
+            <strong>pc (picas)</strong>: esta unidad absoluta equivale a 1/6 de pulgada.
+          </li>
+          <li>
+            <strong>pt (puntos)</strong>: esta unidad absoluta equivale a 1/72 de pulgada.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="units"&gt;
+    &lt;div class="unit px"&gt;px&lt;/div&gt;
+    &lt;div class="unit inch"&gt;in&lt;/div&gt;
+    &lt;div class="unit cm"&gt;cm&lt;/div&gt;
+    &lt;div class="unit mm"&gt;mm&lt;/div&gt;
+    &lt;div class="unit q"&gt;q&lt;/div&gt;
+    &lt;div class="unit pc"&gt;pc&lt;/div&gt;
+    &lt;div class="unit pt"&gt;pt&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.units {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.unit {
+  background: steelblue;
+  color: white;
+  text-align: center;
+  padding: 4px;
+}
+
+.px { width: 40px; height: 40px; }
+.inch { width: 0.5in; height: 0.5in; }
+.cm { width: 1cm; height: 1cm; }
+.mm { width: 10mm; height: 10mm; }
+.q { width: 40q; height: 40q; }
+.pc { width: 6pc; height: 6pc; }
+.pt { width: 36pt; height: 36pt; }</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; overflow-y: auto;">
+
+            <style>
+              .pv-units-wrapper {
+                display: flex !important;
+                gap: 12px !important;
+                flex-wrap: wrap !important;
+                align-items: flex-end !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-unit-item {
+                background: steelblue !important;
+                color: white !important;
+                text-align: center !important;
+                padding: 4px !important;
+                box-sizing: border-box !important;
+                font-size: 11px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+              }
+
+              .pv-px {
+                width: 40px !important;
+                height: 40px !important;
+              }
+
+              .pv-inch {
+                width: 0.5in !important;
+                height: 0.5in !important;
+              }
+
+              .pv-cm {
+                width: 1cm !important;
+                height: 1cm !important;
+              }
+
+              .pv-mm {
+                width: 10mm !important;
+                height: 10mm !important;
+              }
+
+              .pv-q {
+                width: 40q !important;
+                height: 40q !important;
+              }
+
+              /* 1q = 1/4 de 1mm */
+              .pv-pc {
+                width: 6pc !important;
+                height: 6pc !important;
+              }
+
+              /* 1pc = 12pt */
+              .pv-pt {
+                width: 36pt !important;
+                height: 36pt !important;
+              }
+
+              /* 1pt = 1/72 de pulgada */
+            </style>
+
+            <div class="pv-units-wrapper">
+              <div class="pv-unit-item pv-px">px</div>
+              <div class="pv-unit-item pv-inch">in</div>
+              <div class="pv-unit-item pv-cm">cm</div>
+              <div class="pv-unit-item pv-mm">mm</div>
+              <div class="pv-unit-item pv-q">q</div>
+              <div class="pv-unit-item pv-pc">pc</div>
+              <div class="pv-unit-item pv-pt">pt</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+
+      <h2>Unidades relativas</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Porcentajes</strong>: estas unidades relativas le permiten definir tamaños, dimensiones y otras
+            propiedades como una proporción de su elemento principal. Por ejemplo, si establece <code>width: 50%;</code>
+            en un elemento, este ocupará la mitad del ancho de su contenedor principal.
+          </li>
+          <li>
+            <strong>Unidad em</strong>: estas unidades son relativas al tamaño de fuente del elemento. Si utiliza
+            <code>em</code>s
+            para la propiedad <code>font-size</code>, el tamaño del texto será relativo al tamaño de fuente del elemento
+            principal.
+          </li>
+          <li>
+            <strong>Unidad rem</strong>: estas unidades son relativas al tamaño de fuente del elemento raíz, que es el
+            elemento <code>html</code>.
+          </li>
+          <li>
+            <strong>Unidad vh</strong>: <code>vh</code> significa «altura de la ventana
+            gráfica(<code>viewport height</code>)» y <code>1vh</code> es igual al 1 % de la altura
+            de la ventana gráfica.
+          </li>
+          <li>
+            <strong>Unidad vw</strong>: <code>vw</code> significa «anchura de la ventana
+            gráfica(<code>viewport width</code>)» y <code>1vw</code> es igual al 1 % de la anchura
+            de la ventana gráfica.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="parent"&gt;
+    &lt;div class="box percent"&gt;50%&lt;/div&gt;
+    &lt;div class="box em"&gt;2em&lt;/div&gt;
+    &lt;div class="box rem"&gt;2rem&lt;/div&gt;
+    &lt;div class="box vh"&gt;10vh&lt;/div&gt;
+    &lt;div class="box vw"&gt;10vw&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">html {
+  font-size: 16px;
+}
+
+.parent {
+  width: 200px;
+  font-size: 20px;
+  border: 2px dashed #555;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.box {
+  background: seagreen;
+  color: white;
+  text-align: center;
+  padding: 6px;
+}
+
+.percent {
+  width: 50%;
+}
+
+.em {
+  font-size: 2em;
+}
+
+.rem {
+  font-size: 2rem;
+}
+
+.vh {
+  height: 10vh;
+}
+
+.vw {
+  width: 10vw;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 15px; overflow-y: auto;">
+
+            <style>
+              .rel-parent {
+                width: 200px !important;
+                font-size: 20px !important;
+                /* Base para em */
+                border: 2px dashed #555 !important;
+                padding: 10px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                font-family: sans-serif !important;
+                box-sizing: border-box !important;
+              }
+
+              .rel-box {
+                background: seagreen !important;
+                color: white !important;
+                text-align: center !important;
+                padding: 6px !important;
+                box-sizing: border-box !important;
+                display: block !important;
+              }
+
+              /* 50% de los 200px del padre = 100px */
+              .rel-percent {
+                width: 50% !important;
+              }
+
+              /* 2em x 20px (fuente del padre) = 40px */
+              .rel-em {
+                font-size: 2em !important;
+              }
+
+              /* 2rem x 16px (fuente raíz habitual) = 32px */
+              .rel-rem {
+                font-size: 2rem !important;
+              }
+
+              /* 10% de la altura de la ventana */
+              .rel-vh {
+                height: 10vh !important;
+                min-height: 40px;
+              }
+
+              /* 10% del ancho de la ventana */
+              .rel-vw {
+                width: 10vw !important;
+                min-width: 80px;
+              }
+            </style>
+
+            <div class="rel-parent">
+              <div class="rel-box rel-percent">50%</div>
+              <div class="rel-box rel-em">2em</div>
+              <div class="rel-box rel-rem">2rem</div>
+              <div class="rel-box rel-vh">10vh</div>
+              <div class="rel-box rel-vw">10vw</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+
+      <h2>Función calc</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Función <code>calc()</code></strong>: Con la función calc(), puede realizar cálculos directamente en
+            sus hojas de estilo para determinar los valores de las propiedades de forma dinámica. Esto significa que
+            puede crear interfaces de usuario flexibles y receptivas calculando las dimensiones en función del tamaño de
+            la ventana gráfica u otros elementos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="calc-box"&gt;calc()&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css">.calc-box {
+  width: calc(100% - 40px);
+  padding: 10px;
+  background: steelblue;
+  color: white;
+  text-align: center;
+  border: 2px solid black;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              /* Blindaje con clase exclusiva para el visor */
+              .pv-calc-box-result {
+                width: calc(100% - 40px) !important;
+                padding: 10px !important;
+                background: steelblue !important;
+                color: white !important;
+                text-align: center !important;
+                border: 2px solid black !important;
+                box-sizing: content-box !important;
+                /* Respetando el modelo por defecto */
+                font-family: sans-serif !important;
+                display: block !important;
+              }
+            </style>
+
+            <div class="pv-calc-box-result">calc()</div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
