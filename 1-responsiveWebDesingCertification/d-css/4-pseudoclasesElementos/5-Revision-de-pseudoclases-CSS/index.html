@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de Pseudo-Clases CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de Pseudo-Clases CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Acción del usuario</a></li>
+      <li><a href="#tema2">Input</a></li>
+      <li><a href="#tema3">Ubicación</a></li>
+      <li><a href="#tema4">Estructura de árbol</a></li>
+      <li><a href="#tema5">Funcionales</a></li>
+      <li><a href="#tema6">Pseudo-elementos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En CSS, las pseudo-clases son palabras clave especiales que permiten seleccionar elementos en función de su
+        estado o posición específicos. Las pseudo-clases de acción del usuario son un tipo de pseudoclase que permite
+        cambiar la apariencia de los elementos en función de las interacciones del usuario, mejorando así la experiencia
+        general del usuario.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Pseudo-clases de acción del usuario</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición de pseudo-clases</strong>: son palabras clave CSS especiales que permiten seleccionar un
+            elemento en función de su estado o posición específicos.
+          </li>
+          <li>
+            <strong>Pseudo-clases de acción del usuario</strong>: son palabras clave especiales que permiten cambiar la
+            apariencia de los elementos en función de las interacciones del usuario, mejorando así la experiencia
+            general del usuario.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:active</code></strong>: esta pseudo-clase permite seleccionar el estado activo
+            de un elemento, como al hacer clic en un botón.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:hover</code></strong>: esta pseudo-clase define el estado de desplazamiento de
+            un elemento.
+          </li>
+          <li>
+            <strong>Pseudo-clase `:focus</strong>: esta pseudo-clase aplica estilos cuando un elemento obtiene el foco,
+            normalmente a través de la navegación por teclado o cuando un usuario hace clic en un campo de entrada de un
+            formulario.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:focus-within</code></strong>: esta pseudo-clase se utiliza para aplicar estilos
+            a un elemento cuando este o cualquiera de sus descendientes tienen el foco.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema2">
+      <h2>Pseudo-clases de Input</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudoclases de Input</strong>: estas pseudoclases se utilizan para seleccionar elementos de
+            <code>input</code> HTML en función del estado en el que se encuentran antes y después de la interacción del
+            usuario.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:enabled</code></strong>: esta pseudoclase se utiliza para seleccionar botones de
+            formulario u otros elementos que están habilitados actualmente.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:disabled</code></strong>: esta pseudoclase permite aplicar estilos a un elemento
+            interactivo en modo deshabilitado.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:checked</code></strong>: esta pseudoclase se utiliza para indicar al usuario que
+            está marcado.
+          </li>
+          <li>
+            <strong><code>:valid</code> Pseudoclase</strong>: esta pseudoclase selecciona los campos de entrada que
+            cumplen los criterios de validación.
+          </li>
+          <li>
+            <strong><code>:invalid</code> Pseudoclase</strong>: esta pseudoclase selecciona los campos de entrada que no
+            cumplen los criterios de validación.
+          </li>
+          <li>
+            <strong><code>:in-range</code> y <code>:out-of-range</code> Pseudoclases</strong>: estas pseudoclases
+            aplican estilos a los elementos en función de si sus valores se encuentran dentro o fuera de los límites
+            especificados.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:required</code></strong>: esta pseudoclase se aplica a los elementos de entrada
+            que tienen el atributo required. Indica al usuario que debe rellenar el campo para enviar el formulario.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:optional</code></strong>: esta pseudoclase aplica estilos a los elementos de
+            entrada que no son obligatorios y pueden dejarse vacíos.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:autofill</code></strong>: esta pseudoclase aplica estilos a los campos de entrada
+            que el navegador rellena automáticamente con los datos guardados.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema3">
+      <h2>Pseudo-clases de ubicación</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudo-clases de ubicación</strong>: estas pseudoclases se utilizan para aplicar estilos a enlaces y
+            elementos que se encuentran dentro del documento actual.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:any-link</code></strong>: esta pseudoclase es una combinación de las
+            pseudoclases <code>:link</code> y <code>:visited</code>. Por lo tanto, coincide con cualquier elemento de
+            anclaje con un atributo href, independientemente de si se ha visitado o no.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:link</code></strong>: esta pseudoclase permite seleccionar todos los enlaces no
+            visitados de una página web. Se puede utilizar para aplicar estilos diferentes a los enlaces antes de que el
+            usuario haga clic en ellos.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:local-link</code></strong>: esta pseudoclase selecciona los enlaces que apuntan
+            al mismo documento. Puede resultar útil cuando se desea diferenciar los enlaces internos de los externos.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:visited</code></strong>: esta pseudo-clase selecciona un enlace que el usuario
+            ha visitado.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:target</code></strong>: esta pseudoclase se utiliza para aplicar estilos a un
+            elemento que es el destino de un fragmento de URL.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema4">
+      <h2>Pseudo-clases con estructura de árbol(<code>Tree-structural</code>)</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudoclases con estructura de árbol</strong>: estas pseudoclases te permiten seleccionar y aplicar
+            estilos a los elementos en función de su posición dentro de
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:root</code></strong>: esta pseudo-clase suele ser el elemento <code>html</code>
+            raíz(<code>:root</code>). Te ayuda a seleccionar el nivel más alto del documento para que puedas aplicar un
+            estilo común a todo el documento.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:empty</code></strong>: los elementos vacíos, es decir, los elementos que no
+            tienen hijos más que espacios en blanco, también se incluyen en el árbol del documento. Por eso existe la
+            pseudoclase <code>:empty</code> para seleccionar elementos vacíos.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:nth-child(n)</code></strong>: esta pseudoclase permite seleccionar elementos en
+            función de su posición dentro de un elemento padre.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:nth-last-child(n)</code></strong>: esta pseudoclase permite seleccionar
+            elementos contando desde el final.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:first-child</code></strong>: esta pseudoclase selecciona el primer elemento de
+            un elemento padre o del documento.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:last-child</code></strong>: esta pseudoclase selecciona el último elemento de un
+            elemento padre o del documento.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:only-child</code></strong>: esta pseudoclase selecciona el único elemento de un
+            elemento padre o del documento.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:first-of-type</code></strong>: esta pseudoclase selecciona la primera aparición
+            de un tipo de elemento específico dentro de su elemento padre.
+          </li>
+          <li>
+            <strong>Pseudo-clase <code>:last-of-type</code></strong>: esta pseudoclase selecciona la última aparición de
+            un tipo de elemento específico dentro de su elemento padre.
+          </li>
+          <li>
+            <strong><code>:nth-of-type(n)</code> Pseudo-clase</strong>: esta pseudoclase permite seleccionar un elemento
+            específico dentro de su elemento padre en función de su posición entre los elementos hermanos del mismo
+            tipo.
+          </li>
+          <li>
+            <strong><code>:only-of-type</code> Pseudo-clase</strong>: esta pseudoclase selecciona un elemento si es el
+            único de su tipo dentro de su elemento padre.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema5">
+      <h2>Pseudo-clases funcionales</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudoclases funcionales</strong>: Las pseudoclases funcionales permiten seleccionar elementos
+            basándose en condiciones o relaciones más complejas. A diferencia de las pseudoclases normales, que se
+            centran en elementos basándose en un estado (por ejemplo, <code>:hover</code>, <code>:focus</code>), las
+            pseudoclases funcionales aceptan argumentos.
+          </li>
+          <li>
+            <strong>Pseudoclase <code>:is()</code></strong>: esta pseudoclase toma una lista de selectores (por ejemplo,
+            <code>ol</code>, <code>ul</code>) y selecciona un elemento que coincida con uno de los selectores de la
+            lista.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p class="example"&gt;This text will change color.&lt;/p&gt;
+  &lt;p&gt;This text will not change color.&lt;/p&gt;
+  &lt;p&gt;This text will not change color.&lt;/p&gt;
+  &lt;p class="this-works-too"&gt;This text will change color.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.p</span><span class="tk-pseudo">:is(.example, .this-works-too)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; font-family: sans-serif;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-p {
+                margin: 10px 0 !important;
+                color: #333 !important;
+                font-size: 16px !important;
+              }
+
+              /* Aplicación de :is con blindaje de clase */
+              .pv-p:is(.pv-example, .pv-this-works-too) {
+                color: red !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <p class="pv-p pv-example">This text will change color.</p>
+            <p class="pv-p">This text will not change color.</p>
+            <p class="pv-p">This text will not change color.</p>
+            <p class="pv-p pv-this-works-too">This text will change color.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudo-clase <code>:where()</code></strong>: esta pseudoclase toma una lista de selectores (por
+            ejemplo, <code>ol</code>, <code>ul</code>) y selecciona un elemento que coincida con uno de los selectores
+            de la lista. La diferencia entre <code>:is</code> y <code>:where</code> es que esta última tendrá una
+            especificidad de 0.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:where(h1, h2, h3)</span> <span class="tk-punctuation text-white">{</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; font-family: sans-serif;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              /* Reseteo visual con :where para la demostración */
+              .preview-result :where(.pv-h1, .pv-h2, .pv-h3) {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: #f0f0f0 !important;
+                border: 1px dashed #ccc !important;
+              }
+
+              .pv-h1 {
+                font-size: 22px !important;
+              }
+
+              .pv-h2 {
+                font-size: 18px !important;
+                color: #333;
+              }
+
+              .pv-h3 {
+                font-size: 14px !important;
+              }
+
+              .pv-note {
+                font-size: 12px;
+                color: #666;
+                margin-top: 10px;
+              }
+            </style>
+
+            <h1 class="pv-h1">Heading 1</h1>
+            <h2 class="pv-h2">Heading 2</h2>
+            <h3 class="pv-h3">Heading 3</h3>
+
+            <p class="pv-note">Los bordes y el fondo gris muestran que no hay espacio (margin/padding) entre ellos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudo-clase <code>:has()</code></strong>: esta pseudoclase se suele denominar selector
+            <code>"parent"</code>, ya que permite aplicar estilos a los elementos que contienen elementos secundarios
+            especificados en la lista de selectores.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">article</span><span class="tk-pseudo">:has(h2)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid hotpink</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; font-family: sans-serif;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-article {
+                margin-bottom: 15px !important;
+                padding: 15px !important;
+                border-radius: 8px !important;
+                border: 2px solid #eee !important;
+                background-color: #fafafa !important;
+              }
+
+              .pv-h2 {
+                margin: 0 0 10px 0 !important;
+                color: #333 !important;
+              }
+
+              .pv-h3 {
+                margin: 0 0 10px 0 !important;
+                color: #333 !important;
+              }
+
+              .pv-p {
+                margin: 0 !important;
+                color: #666 !important;
+                font-size: 14px !important;
+              }
+
+              .pv-article:has(.pv-h2) {
+                border: 2px solid hotpink !important;
+                background-color: #fff0f5 !important;
+              }
+            </style>
+
+            <article class="pv-article">
+              <h2 class="pv-h2">Con H2 (Target)</h2>
+              <p class="pv-p">Este artículo tiene borde rosa porque contiene un h2.</p>
+            </article>
+
+            <article class="pv-article">
+              <h3 class="pv-h3">Con H3 (Ignorado)</h3>
+              <p class="pv-p">Este artículo mantiene su estilo base porque no tiene un h2.</p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudoclase <code>:not</code>()</strong>: esta pseudo-clase se utiliza para seleccionar elementos
+            que
+            no coinciden con el selector proporcionado.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span><span class="tk-pseudo">:not(.example)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">blue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 20px; font-family: sans-serif;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-pseudo {
+                color: #d19a66 !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pn-p {
+                margin: 10px 0 !important;
+                color: #333 !important;
+                font-size: 16px !important;
+              }
+
+              .pn-p:not(.pv-example) {
+                color: blue !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <p class="pn-p">Este párrafo NO tiene la clase y por eso es azul.</p>
+            <p class="pn-p pv-example">Este párrafo TIENE la clase .example.</p>
+            <p class="pn-p">Este también es azul por la negación.</p>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+      <h2>Pseudo-elementos</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Pseudo-elemento <code>::before</code></strong>: este pseudoelemento utiliza la propiedad
+            <code>content</code> para insertar contenido cosmético, como iconos, justo antes del elemento.
+          </li>
+          <li>
+            <strong>Pseudo-elemento <code>::after</code></strong>: este pseudoelemento utiliza la propiedad
+            <code>content</code> para insertar contenido cosmético, como iconos, justo después del elemento.
+          </li>
+          <li>
+            <strong>Pseudo-elemento <code>::first-letter</code></strong>: este pseudoelemento se dirige a la primera
+            letra del contenido de un elemento, lo que le permite aplicarle un estilo.
+          </li>
+          <li>
+            <strong>Pseudo-elemento <code>::marker</code></strong>: este pseudoelemento le permite seleccionar el
+            marcador (viñeta o numeración) de los elementos de la lista para aplicarles un estilo.
+          </li>
+        </ul>
+      </div>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
