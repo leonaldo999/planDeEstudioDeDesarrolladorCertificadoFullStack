@@ -89,7 +89,7 @@ Para aprobar el cuestionario, debe responder correctamente al menos 18 de las 20
   - [ ] d) `80px`
 
 - **15. ¿Qué unidades debes usar si quieres que un elemento ocupe un determinado ancho o alto en porcentaje de la pantalla?**
-  - [x] a) `pt` y `px`
+  - [ ] a) `pt` y `px`
   - [ ] b) `pt` y `pc`
   - [x] c) `vw` y `vh` // ❎
   - [ ] d) `rem` y `em`

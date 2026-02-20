@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+
+  <!-- Open Graph -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con colores en CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajar con colores en CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#cuest5" onclick="closeNavMobile()" tabindex="0">❓ Cuest 5</a>
+      </li>
+      <li>
+        <a href="#tema6" onclick="closeNavMobile()" tabindex="0">💻 Tema 6</a>
+      </li>
+      <li>
+        <a href="#cuest6" onclick="closeNavMobile()" tabindex="0">❓ Cuest 6</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En CSS, puedes usar colores de varias maneras para estilizar tus páginas web. Aquí te presento algunas formas
+        comunes de trabajar con colores en CSS:
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es la teoría del color en el diseño?</h2>
+
+      <p>
+        La teoría del color es el estudio de cómo interactúan los colores entre sí y cómo afectan a nuestra percepción.
+        Abarca las relaciones entre los colores, la armonía cromática y el impacto psicológico del color. Empecemos a
+        sumergirnos en este mundo. Los colores se pueden clasificar como primarios, secundarios o terciarios.
+      </p>
+      <p>
+        Los colores primarios, amarillo, azul y rojo, son los tonos fundamentales de los que se derivan todos los demás
+        colores.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/primary-color.webp" alt="Diagrama de los colores primarios: amarillo, azul y rojo">
+      </div>
+
+      <p>
+        Los colores secundarios se obtienen al mezclar cantidades iguales de dos colores primarios. El verde, el naranja
+        y el morado son ejemplos de colores secundarios.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/color-secondary.webp" alt="Diagrama de los colores secundarios: verde, naranja y morado">
+      </div>
+
+      <p>
+        Por ejemplo, el verde es el resultado de combinar el amarillo y el azul.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/resultado-combinar.webp" alt="El verde es el resultado de combinar el amarillo y el azul">
+      </div>
+
+      <p>
+        Los colores terciarios se obtienen al combinar un color primario con un color secundario adyacente. El amarillo
+        verdoso, el azul verdoso y el azul violáceo son ejemplos de colores terciarios.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/colores-terciarios.webp"
+          alt="Los colores terciarios se obtienen al combinar un color primario con un color secundario adyacente.">
+      </div>
+
+      <p>
+        Esta es una clasificación fundamental en el mundo de la teoría del color, pero hay otras formas de clasificar
+        los colores. Se pueden clasificar como cálidos o fríos, según su temperatura.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/calidos-frios.webp" alt="Se pueden clasificar como cálidos o fríos, según su temperatura.">
+      </div>
+
+      <p>
+        Los colores cálidos, como los rojos, naranjas y amarillos, evocan sensaciones de comodidad, calidez y
+        acogedoridad.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/colores-calidos.webp"
+          alt="Los colores cálidos, como los rojos, naranjas y amarillos, evocan sensaciones de comodidad, calidez y acogedoridad.">
+      </div>
+
+      <p>
+        Los colores fríos, como los azules, verdes y morados, evocan sentimientos de calma, serenidad y profesionalismo.
+      </p>
+      <p>
+        Los colores también se pueden representar mediante modelos de color. Son esenciales para describir y reproducir
+        colores de forma estándar. Entre los modelos de color más utilizados se encuentran el modelo RGB, el modelo HSV
+        y el modelo HSL. Representan los colores basándose en diferentes propiedades. Aprenderás más sobre ellos en
+        futuras lecciones.
+      </p>
+      <p>
+        Genial. Ahora que ya sabes más sobre esto, hablemos de una herramienta fundamental que utilizan los diseñadores
+        para representar los colores y sus relaciones.
+      </p>
+      <p>
+        La rueda de colores es un diagrama circular que muestra cómo se relacionan los colores entre sí. Es una
+        herramienta esencial para los diseñadores, ya que les ayuda a seleccionar combinaciones de colores. Esto resulta
+        muy útil para crear paletas y esquemas de colores.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/rueda-colores.webp"
+          alt="La rueda de colores es un diagrama circular que muestra cómo se relacionan los colores entre sí.">
+      </div>
+
+      <p>
+        Una combinación de colores es el conjunto de colores elegidos para un diseño o proyecto específico. Por lo
+        general, se basan en los principios de la teoría del color. Al comprender las relaciones entre los colores en la
+        rueda, puedes desarrollar diferentes tipos de combinaciones de colores. Veamos algunas de ellas.
+      </p>
+      <p>
+        Las combinaciones de colores análogos crean experiencias cohesionadas y relajantes. Tienen colores análogos, que
+        son adyacentes entre sí en la rueda de colores.
+      </p>
+      <p>
+        Las combinaciones de colores complementarios crean un alto contraste e impacto visual. Sus colores se encuentran
+        en los extremos opuestos de la rueda de colores, uno respecto al otro.
+      </p>
+      <p>
+        El contraste de colores es esencial para la accesibilidad web. Garantiza que el texto y otros elementos
+        importantes se distingan claramente del fondo. Esto es especialmente importante para las personas con
+        discapacidad visual.
+      </p>
+      <p>
+        En una rueda de colores RGB, los colores complementarios se encuentran en los extremos opuestos de la rueda. Por
+        ejemplo, el magenta es complementario al verde y el azul es complementario al amarillo, y así sucesivamente.
+      </p>
+      <p>
+        Una combinación de colores triádica tiene colores vibrantes. Se crean a partir de colores que están
+        aproximadamente equidistantes entre sí. Si se conectan, forman un triángulo equilátero en la rueda de colores.
+      </p>
+      <p>
+        Y, por último, tenemos la combinación de colores monocromática. En esta combinación, todos los colores se
+        derivan del mismo color base ajustando su luminosidad, oscuridad y saturación. Esto evoca una sensación de
+        unidad y armonía, al tiempo que crea contraste.
+      </p>
+
+      <div class="img-sec">
+        <img src="./img/colores-monocromatica.webp" alt="En esta combinación, todos los colores se
+        derivan del mismo color base ajustando su luminosidad, oscuridad y saturación. Esto evoca una sensación de
+        unidad y armonía, al tiempo que crea contraste.">
+      </div>
+
+      <p>
+        Y, por último, aquí tienes algunos consejos para utilizar el color de forma eficaz en el desarrollo web:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Crea una combinación de colores que defina la imagen de marca de tu sitio web.
+          </li>
+          <li class="list">
+            Utiliza los colores para evocar las emociones y percepciones que se ajusten a tus objetivos.
+          </li>
+          <li class="list">
+            Elija colores con suficiente contraste para que su sitio web sea accesible para todos.
+          </li>
+          <li class="list">
+            Utilice el color para resaltar elementos importantes de su sitio web, como los botones.
+          </li>
+          <li class="list">
+            Utilice el color de forma coherente y utilícelo para crear una jerarquía visual.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        La teoría del color es un aspecto fundamental del diseño. Al comprender la psicología del color, las armonías y
+        la accesibilidad, puede crear diseños eficaces, evocar emociones y mejorar la experiencia del usuario.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Por qué es importante la teoría del color para el desarrollo web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            No es importante porque no tiene ningún impacto en la experiencia del usuario.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Ayuda a los diseñadores a crear sitios web visualmente atractivos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Solo es importante para el diseño impreso.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Es irrelevante para las tendencias actuales en diseño web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué combinación de colores es más probable que cree experiencias cohesionadas y relajantes?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Análogo
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Complementario
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Monocromático
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Triádico
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            El concepto de armonía cromática se refiere a:
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Usar solo un color en un diseño.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Combinar colores que chocan entre sí.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            Creación de combinaciones de colores visualmente efectivas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El brillo o la oscuridad de un color.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los colores con nombre en CSS y cuándo se utilizan?</h2>
+
+      <p>
+        En CSS, los colores desempeñan un papel crucial en el diseño de páginas web, ya que mejoran la legibilidad,
+        crean ambiente y mejoran la experiencia del usuario. Una de las formas más sencillas de definir colores en CSS
+        es utilizando colores con nombre. Los colores con nombre son nombres de colores predefinidos que reconocen los
+        navegadores. A continuación se muestra un ejemplo del uso de un color con nombre para un elemento de párrafo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-named-color {
+                font-family: sans-serif !important;
+                font-size: 1.5rem !important;
+                font-weight: 500 !important;
+                /* Aplicación del color solicitado con blindaje */
+                color: red !important;
+                margin: 0 !important;
+              }
+            </style>
+
+            <p class="pv-named-color">This is a paragraph.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos el color <mark>red</mark> para dar estilo al texto de un párrafo.
+      </p>
+      <p>
+        Los colores con nombre en CSS son una colección de 140 nombres de colores estándar como <mark>red</mark>,
+        <mark>blue</mark>, <mark>yellow</mark>, <mark>aqua</mark>, <mark>fuchsia</mark>, <mark>black</mark>, etc. Estos
+        nombres son fáciles de usar y hacen que el código sea más legible, además de ser autoexplicativos.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;div class="pv-gallery"&gt;
+  &lt;!-- La galería contiene los 147 colores estandarizados --&gt;
+  &lt;div class="pv-item" style="background: AliceBlue"&gt;&lt;span&gt;AliceBlue&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: AntiqueWhite"&gt;&lt;span&gt;AntiqueWhite&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: Aquamarine"&gt;&lt;span&gt;Aquamarine&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: BurlyWood"&gt;&lt;span&gt;BurlyWood&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: CadetBlue"&gt;&lt;span&gt;CadetBlue&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: Chartreuse"&gt;&lt;span&gt;Chartreuse&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="pv-item" style="background: DarkGoldenRod"&gt;&lt;span&gt;DarkGoldenRod&lt;/span&gt;&lt;/div&gt;
+  &lt;!-- ... hasta completar los 147 --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.pv-gallery</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(auto-fill, minmax(80px, 1fr))</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">5px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #f0f2f5; padding: 10px; overflow-y: auto;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-gallery {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)) !important;
+                gap: 4px !important;
+                font-family: 'Arial Narrow', sans-serif !important;
+              }
+
+              .pv-item {
+                height: 40px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 3px !important;
+                border: 1px solid rgba(0, 0, 0, 0.1) !important;
+                position: relative !important;
+              }
+
+              .pv-item span {
+                font-size: 8px !important;
+                background: rgba(255, 255, 255, 0.85) !important;
+                color: #000 !important;
+                padding: 1px 2px !important;
+                border-radius: 2px !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                max-width: 90% !important;
+                overflow: hidden !important;
+              }
+            </style>
+
+            <div class="pv-gallery">
+              <div class="pv-item" style="background: AliceBlue"><span>AliceBlue</span></div>
+              <div class="pv-item" style="background: AntiqueWhite"><span>AntiqueWhite</span></div>
+              <div class="pv-item" style="background: Aqua"><span>Aqua</span></div>
+              <div class="pv-item" style="background: Aquamarine"><span>Aquamarine</span></div>
+              <div class="pv-item" style="background: Azure"><span>Azure</span></div>
+              <div class="pv-item" style="background: Beige"><span>Beige</span></div>
+              <div class="pv-item" style="background: Bisque"><span>Bisque</span></div>
+              <div class="pv-item" style="background: BlanchedAlmond"><span>BlanchedAlm</span></div>
+              <div class="pv-item" style="background: BlueViolet"><span>BlueViolet</span></div>
+              <div class="pv-item" style="background: Brown"><span>Brown</span></div>
+              <div class="pv-item" style="background: BurlyWood"><span>BurlyWood</span></div>
+              <div class="pv-item" style="background: CadetBlue"><span>CadetBlue</span></div>
+              <div class="pv-item" style="background: Chartreuse"><span>Chartreuse</span></div>
+              <div class="pv-item" style="background: Chocolate"><span>Chocolate</span></div>
+              <div class="pv-item" style="background: Coral"><span>Coral</span></div>
+              <div class="pv-item" style="background: CornflowerBlue"><span>CornflBlue</span></div>
+              <div class="pv-item" style="background: Crimson"><span>Crimson</span></div>
+              <div class="pv-item" style="background: DarkBlue"><span>DarkBlue</span></div>
+              <div class="pv-item" style="background: DarkCyan"><span>DarkCyan</span></div>
+              <div class="pv-item" style="background: DarkGoldenRod"><span>DGoldenRod</span></div>
+              <div class="pv-item" style="background: DarkGray"><span>DarkGray</span></div>
+              <div class="pv-item" style="background: DarkGreen"><span>DarkGreen</span></div>
+              <div class="pv-item" style="background: DarkKhaki"><span>DarkKhaki</span></div>
+              <div class="pv-item" style="background: DarkMagenta"><span>DarkMagenta</span></div>
+              <div class="pv-item" style="background: DarkOliveGreen"><span>DOliveGreen</span></div>
+              <div class="pv-item" style="background: DarkOrange"><span>DarkOrange</span></div>
+              <div class="pv-item" style="background: DarkOrchid"><span>DarkOrchid</span></div>
+              <div class="pv-item" style="background: DarkRed"><span>DarkRed</span></div>
+              <div class="pv-item" style="background: DarkSalmon"><span>DarkSalmon</span></div>
+              <div class="pv-item" style="background: DeepPink"><span>DeepPink</span></div>
+              <div class="pv-item" style="background: DeepSkyBlue"><span>DeepSkyBlue</span></div>
+              <div class="pv-item" style="background: DimGray"><span>DimGray</span></div>
+              <div class="pv-item" style="background: DodgerBlue"><span>DodgerBlue</span></div>
+              <div class="pv-item" style="background: FireBrick"><span>FireBrick</span></div>
+              <div class="pv-item" style="background: FloralWhite"><span>FloralWhite</span></div>
+              <div class="pv-item" style="background: ForestGreen"><span>ForestGreen</span></div>
+              <div class="pv-item" style="background: Fuchsia"><span>Fuchsia</span></div>
+              <div class="pv-item" style="background: Gainsboro"><span>Gainsboro</span></div>
+              <div class="pv-item" style="background: Gold"><span>Gold</span></div>
+              <div class="pv-item" style="background: GoldenRod"><span>GoldenRod</span></div>
+              <div class="pv-item" style="background: HotPink"><span>HotPink</span></div>
+              <div class="pv-item" style="background: IndianRed"><span>IndianRed</span></div>
+              <div class="pv-item" style="background: Indigo"><span>Indigo</span></div>
+              <div class="pv-item" style="background: Ivory"><span>Ivory</span></div>
+              <div class="pv-item" style="background: Khaki"><span>Khaki</span></div>
+              <div class="pv-item" style="background: Lavender"><span>Lavender</span></div>
+              <div class="pv-item" style="background: LawnGreen"><span>LawnGreen</span></div>
+              <div class="pv-item" style="background: LemonChiffon"><span>LemChiffon</span></div>
+              <div class="pv-item" style="background: LightBlue"><span>LightBlue</span></div>
+              <div class="pv-item" style="background: LightCoral"><span>LightCoral</span></div>
+              <div class="pv-item" style="background: LightCyan"><span>LightCyan</span></div>
+              <div class="pv-item" style="background: LightPink"><span>LightPink</span></div>
+              <div class="pv-item" style="background: LightSalmon"><span>LightSalmon</span></div>
+              <div class="pv-item" style="background: LightSeaGreen"><span>LSeaGreen</span></div>
+              <div class="pv-item" style="background: LimeGreen"><span>LimeGreen</span></div>
+              <div class="pv-item" style="background: Linen"><span>Linen</span></div>
+              <div class="pv-item" style="background: MediumBlue"><span>MediumBlue</span></div>
+              <div class="pv-item" style="background: MediumOrchid"><span>MedOrchid</span></div>
+              <div class="pv-item" style="background: MidnightBlue"><span>MidBlue</span></div>
+              <div class="pv-item" style="background: MintCream"><span>MintCream</span></div>
+              <div class="pv-item" style="background: MistyRose"><span>MistyRose</span></div>
+              <div class="pv-item" style="background: Moccasin"><span>Moccasin</span></div>
+              <div class="pv-item" style="background: NavajoWhite"><span>NavajoWhite</span></div>
+              <div class="pv-item" style="background: OldLace"><span>OldLace</span></div>
+              <div class="pv-item" style="background: Olive"><span>Olive</span></div>
+              <div class="pv-item" style="background: OrangeRed"><span>OrangeRed</span></div>
+              <div class="pv-item" style="background: Orchid"><span>Orchid</span></div>
+              <div class="pv-item" style="background: PaleGoldenRod"><span>PGoldenRod</span></div>
+              <div class="pv-item" style="background: PapayaWhip"><span>PapayaWhip</span></div>
+              <div class="pv-item" style="background: Peru"><span>Peru</span></div>
+              <div class="pv-item" style="background: Plum"><span>Plum</span></div>
+              <div class="pv-item" style="background: PowderBlue"><span>PowderBlue</span></div>
+              <div class="pv-item" style="background: RebeccaPurple"><span>RebeccaPurp</span></div>
+              <div class="pv-item" style="background: RosyBrown"><span>RosyBrown</span></div>
+              <div class="pv-item" style="background: RoyalBlue"><span>RoyalBlue</span></div>
+              <div class="pv-item" style="background: SaddleBrown"><span>SaddleBrown</span></div>
+              <div class="pv-item" style="background: SandyBrown"><span>SandyBrown</span></div>
+              <div class="pv-item" style="background: SeaGreen"><span>SeaGreen</span></div>
+              <div class="pv-item" style="background: SeaShell"><span>SeaShell</span></div>
+              <div class="pv-item" style="background: Sienna"><span>Sienna</span></div>
+              <div class="pv-item" style="background: SkyBlue"><span>SkyBlue</span></div>
+              <div class="pv-item" style="background: SlateBlue"><span>SlateBlue</span></div>
+              <div class="pv-item" style="background: SpringGreen"><span>SpringGreen</span></div>
+              <div class="pv-item" style="background: SteelBlue"><span>SteelBlue</span></div>
+              <div class="pv-item" style="background: Tan"><span>Tan</span></div>
+              <div class="pv-item" style="background: Teal"><span>Teal</span></div>
+              <div class="pv-item" style="background: Thistle"><span>Thistle</span></div>
+              <div class="pv-item" style="background: Tomato"><span>Tomato</span></div>
+              <div class="pv-item" style="background: Turquoise"><span>Turquoise</span></div>
+              <div class="pv-item" style="background: Violet"><span>Violet</span></div>
+              <div class="pv-item" style="background: Wheat"><span>Wheat</span></div>
+              <div class="pv-item" style="background: YellowGreen"><span>YellowGreen</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los colores con nombre son útiles para crear prototipos rápidos, diseños sencillos y mejorar la legibilidad del
+        código. Aquí hay otro ejemplo del uso de colores con nombre para un selector <mark>h1</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;This is a heading&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">navy</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-heading-styled {
+                font-family: sans-serif !important;
+                padding: 20px !important;
+                margin: 0 !important;
+                text-align: center !important;
+                border-radius: 8px !important;
+                color: navy !important;
+                background-color: lightgray !important;
+              }
+            </style>
+
+            <h1 class="pv-heading-styled">This is a heading</h1>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el texto del encabezado se diseñará en azul marino, con un fondo gris claro. La legibilidad del
+        código mejora, ya que los colores con nombre proporcionan una comprensión visual inmediata del estilo deseado.
+      </p>
+      <p>
+        Los colores con nombre en CSS son prácticos, pero limitados, ya que solo hay 140 opciones disponibles. Es
+        posible que no ofrezcan el tono preciso necesario para diseños más detallados.
+      </p>
+      <p>
+        Los colores con nombre en CSS son una forma estupenda de aplicar colores de forma rápida y descriptiva. Aunque
+        son útiles para diseños básicos, prototipos y mejorar la legibilidad del código, su gama limitada los hace menos
+        adecuados para diseños complejos que requieren un control preciso del color.
+      </p>
+      <p>
+        Al comprender las ventajas y limitaciones de los colores con nombre, podrás determinar cuándo es mejor
+        utilizarlos en lugar de modelos de color más detallados como RGB o HSL, que aprenderás en futuras lecciones.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Cuál es la principal ventaja de utilizar colores con nombre en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Los colores con nombre te permiten crear degradados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Los colores con nombre son más fáciles de escribir y hacen que el código sea más legible.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Los colores con nombre ofrecen una gama más amplia de opciones de color que los códigos hexadecimales.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Los colores con nombre son la forma más precisa de definir los colores en el diseño web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situación los colores con nombre podrían no ser la mejor opción?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Cuando necesitas crear rápidamente un prototipo de un diseño.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Cuando su diseño requiere tonos de color muy específicos o matizados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Cuando tu diseño solo incluye colores primarios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Cuando colaboras con otras personas en un proyecto sencillo.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes es un ejemplo de un color con nombre en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            #ff5733
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            rgb(255, 99, 71)
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            tomato
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Opacidad
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Qué es el modelo de color RGB y cómo funciona la función RGB en CSS?</h2>
+
+      <p>
+        Cuando se trabaja con colores en CSS, es esencial comprender el modelo de color RGB. RGB son las siglas de rojo,
+        verde y azul, los colores primarios de la luz. Estos tres colores se combinan en diferentes intensidades para
+        crear una amplia gama de colores.
+      </p>
+      <p>
+        El modelo de color RGB es un modelo de color aditivo, lo que significa que los colores se crean combinando luz
+        en diferentes intensidades.
+      </p>
+      <p>
+        La intensidad de cada color puede variar entre <mark>0</mark> (lo que significa que no hay luz) y
+        <mark>255</mark> (lo que significa luz
+        plena). Al mezclar diferentes niveles de rojo, verde y azul, se puede producir cualquier color que se vea en la
+        pantalla. Por ejemplo:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            El negro se representa con <mark>rgb(0, 0, 0</mark>), lo que significa que no hay luz para ninguno de los
+            tres colores.
+          </li>
+          <li class="list">
+            El blanco se representa con <mark>rgb(255, 255, 255)</mark>, lo que significa intensidad de luz total para
+            los tres
+            colores.
+          </li>
+          <li class="list">
+            El rojo se representa con <mark>rgb(255, 0, 0)</mark>, con intensidad total para el rojo y ninguna para el
+            verde o el
+            azul.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        En CSS, la función <mark>rgb()</mark> permite definir colores utilizando el modelo de color RGB. La función toma
+        tres
+        valores, cada uno de los cuales representa la intensidad de la luz roja, verde y azul, respectivamente. Esta es
+        la sintaxis básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">element</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgb(red, green, blue)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-rgb-box {
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: 800 !important;
+                text-align: center !important;
+                color: rgb(138, 43, 226) !important;
+                padding: 10px !important;
+                border: 4px double rgb(138, 43, 226) !important;
+              }
+            </style>
+
+            <div class="pv-rgb-box">
+              RGB(red, green, blue)
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los valores para el rojo, el verde y el azul pueden oscilar entre <mark>0</mark> y <mark>255</mark>, donde
+        <mark>0</mark> representa la ausencia de ese
+        color y <mark>255</mark> representa la saturación total. A continuación se muestra un ejemplo de cómo se puede
+        utilizar la
+        función <mark>rgb()</mark> en CSS:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgb(255, 0, 0)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; height: 100%; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-p-rgb {
+                font-family: sans-serif !important;
+                font-size: 1.5rem !important;
+                font-weight: bold !important;
+                color: rgb(255, 0, 0) !important;
+                margin: 0 !important;
+              }
+            </style>
+
+            <p class="pv-p-rgb">This is a paragraph.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código cambiaría el color del texto del párrafo a rojo, ya que el valor del rojo se establece en
+        <mark>255</mark>,
+        mientras que el del verde y el azul se establecen en <mark>0</mark>.
+      </p>
+      <p>
+        CSS también proporciona la función <mark>rgba()</mark>, que añade un cuarto valor, alfa, que controla la
+        transparencia del
+        color. El valor alfa oscila entre <mark>0</mark> (completamente transparente) y <mark>1</mark> (completamente
+        opaco). A continuación se
+        muestra un ejemplo del uso de <mark>rgba()</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div&gt;This is a div.&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(0, 0, 255, 0.5)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; 
+      background-image: radial-gradient(#d1d1d1 1px, transparent 1px); background-size: 20px 20px; background-color: #ffffff;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-rgba-box {
+                font-family: sans-serif !important;
+                font-size: 1.2rem !important;
+                font-weight: bold !important;
+                color: white !important;
+                padding: 40px !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+                background-color: rgba(0, 0, 255, 0.5) !important;
+              }
+            </style>
+
+            <div class="pv-rgba-box">This is a div.</div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código aplicaría un fondo azul semitransparente a un elemento <mark>div</mark> porque los valores de rojo y
+        verde se
+        establecen en <mark>0</mark>, el valor de azul se establece en <mark>255</mark> y el valor alfa se establece en
+        <mark>0.5</mark> (50 % de
+        transparencia).
+      </p>
+      <p>
+        El modelo de color RGB es especialmente útil para los medios digitales porque se corresponde directamente con la
+        forma en que las pantallas muestran los colores. Los monitores y las pantallas utilizan pequeños píxeles rojos,
+        verdes y azules para crear los colores que ves. Al controlar la intensidad de estos píxeles a través de los
+        valores RGB, puedes lograr una amplia gama de colores para tu diseño web.
+      </p>
+      <p>
+        Además, el modelo RGB es ideal cuando se trabaja con diseños dinámicos. Por ejemplo, si deseas crear animaciones
+        o efectos de color que requieran cambios en tiempo real, la flexibilidad de la función RGB te permite modificar
+        los colores mediante programación.
+      </p>
+      <p>
+        Al comprender el modelo de color RGB y cómo utilizar las funciones <mark>rgb()</mark> y <mark>rgba()</mark> en
+        CSS, tendrás un mayor
+        control sobre cómo se muestran los colores en tus páginas web. Puedes crear diseños vibrantes, transparencia e
+        incluso ajustar los colores mediante programación para obtener efectos dinámicos.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué representan los números en la función <mark>rgb()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            width, height, y depth del elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Cantidad de luz red, green, y blue.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Tamaños de padding, margin, y border
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Cantidad de hue, saturation, and lightness.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué función CSS utilizarías si quisieras controlar la transparencia de un color?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            rgb()
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            rgba()
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            hsl()
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            hex()
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿¿Cuál es el valor máximo para cualquier color individual en el modelo RGB?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            100
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            50
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            255
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            360
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2>Tema 4: ¿Qué es el modelo de color HSL y cómo funciona la función HSL en CSS?</h2>
+
+      <p>
+        A la hora de diseñar sitios web, una de las formas más versátiles e intuitivas de trabajar con el color es
+        utilizando el modelo de color HSL. HSL son las siglas de <em>Hue (tono), Saturation (saturación) y Lightness
+          (luminosidad)</em>, los tres componentes clave que definen un color.
+      </p>
+      <p>
+        El modelo de color HSL representa los colores de una forma más acorde con la forma en que los seres humanos
+        percibimos el color. En esta lección, exploraremos qué es el modelo de color HSL y cómo se utiliza la función
+        <mark>hsl()</mark> en CSS.
+      </p>
+      <p>
+        El tono es el tipo de color, representado como un ángulo en la rueda de colores, que va de <mark>0</mark> a
+        <mark>360</mark> grados. Por
+        ejemplo, <mark>0</mark> grados representa el rojo, <mark>120</mark> grados es el verde y <mark>240</mark> grados
+        es el azul. Al ajustar el tono, se
+        cambia entre los diferentes colores del espectro.
+      </p>
+      <p>
+        La saturación se refiere a la intensidad o pureza del color. Se mide como un porcentaje desde el <mark>0%</mark>
+        (un color
+        completamente desaturado, en escala de grises) hasta el <mark>100%</mark> (la forma más vibrante de ese color).
+        Un color con
+        una saturación del <mark>100%</mark> es totalmente vivo, mientras que un color con una saturación del
+        <mark>0%</mark> aparece como un
+        tono de gris.
+      </p>
+      <p>
+        La luminosidad determina lo claro u oscuro que es el color, y también se mide en porcentaje. Un valor de
+        luminosidad del <mark>0%</mark> producirá negro, el <mark>50%</mark> dará el tono normal del color y el
+        <mark>100%</mark> dará como resultado
+        blanco.
+      </p>
+      <p>
+        En CSS, la función <mark>hsl()</mark> se utiliza para definir colores utilizando el modelo de color HSL. Esta es
+        la sintaxis
+        básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">element</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(hue, saturation, lightness)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hsl-box {
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: 800 !important;
+                text-align: center !important;
+                color: hsl(200, 100%, 50%) !important;
+                padding: 20px !important;
+                border: 4px solid hsl(200, 100%, 50%) !important;
+                border-radius: 12px !important;
+              }
+            </style>
+
+            <div class="pv-hsl-box">
+              HSL(hue, saturation, lightness)
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Analicemos esto con un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsla(0, 0%, 1%, 1.00)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(120, 100%, 50%)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-body-mock"
+            style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; transition: background-color 0.3s;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-body-mock {
+                background-color: hsla(0, 0%, 1%, 1.00) !important;
+              }
+
+              .pv-p-hsl {
+                font-family: 'Courier New', Courier, monospace !important;
+                font-size: 1.8rem !important;
+                font-weight: bold !important;
+                margin: 0 !important;
+                color: hsl(120, 100%, 50%) !important;
+                text-shadow: 0 0 8px hsla(120, 100%, 50%, 0.5) !important;
+              }
+            </style>
+
+            <p class="pv-p-hsl">This is a paragraph.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el tono es de <mark>120</mark> grados, lo que corresponde al verde. La saturación es del
+        <mark>100%,</mark> por lo que el
+        verde será totalmente intenso. La luminosidad es del <mark>50%</mark>, por lo que tiene un tono normal, ni
+        demasiado oscuro
+        ni demasiado claro. Como resultado, el color del texto del párrafo será un verde brillante.
+      </p>
+      <p>
+        Una de las principales ventajas del modelo de color HSL es su naturaleza intuitiva. Facilita el ajuste de la
+        intensidad o la luminosidad de un color modificando los valores de saturación y luminosidad sin tener que
+        alterar el color principal (tono).
+      </p>
+      <p>
+        Por ejemplo, si desea crear diferentes matices o tintes del mismo color, solo tiene que ajustar el valor de
+        luminosidad.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="light"&gt;This is a light blue div.&lt;/div&gt;
+  &lt;div class="dark"&gt;This is a dark blue div.&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div.light</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(240, 100%, 80%)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div.dark</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(240, 100%, 20%)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(0, 0%, 100%)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; flex-direction: column; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px; gap: 15px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-div {
+                font-family: sans-serif !important;
+                padding: 20px !important;
+                width: 80% !important;
+                text-align: center !important;
+                border-radius: 8px !important;
+                font-weight: bold !important;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+              }
+
+              .pv-div.pv-light {
+                background-color: hsl(240, 100%, 80%) !important;
+                color: #333 !important;
+              }
+
+              .pv-div.pv-dark {
+                background-color: hsl(240, 100%, 20%) !important;
+                color: hsl(0, 0%, 100%) !important;
+              }
+            </style>
+
+            <div class="pv-div pv-light">This is a light blue div.</div>
+            <div class="pv-div pv-dark">This is a dark blue div.</div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, ambos elementos div utilizan el mismo tono (<mark>240</mark> grados, que es azul), pero uno tiene una
+        luminosidad del
+        <mark>80%</mark> (un tono de azul más claro) y el otro tiene una luminosidad del <mark>20%</mark> (un tono de
+        azul más oscuro).
+      </p>
+      <p>
+        Al igual que el modelo RGB tiene una función <mark>rgba()</mark> para incluir transparencia, el modelo HSL tiene
+        una función
+        <mark>hsla()</mark>. El cuarto parámetro de esta función representa el valor alfa, que controla la opacidad del
+        color. Esta
+        es la sintaxis básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">element</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsla(hue, saturation, lightness, alpha)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; 
+      background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee), 
+                        linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee);
+      background-size: 20px 20px; background-position: 0 0, 10px 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hsla-demo {
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                font-size: 1.2rem !important;
+                font-weight: bold !important;
+                color: white !important;
+                padding: 40px !important;
+                border-radius: 12px !important;
+                text-align: center !important;
+                border: 2px solid hsla(280, 100%, 50%, 0.8) !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+                background-color: hsla(280, 100%, 50%, 0.6) !important;
+              }
+            </style>
+
+            <div class="pv-hsla-demo">
+              HSLA(hue, saturation, lightness, alpha)
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Veamos un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div&gt;This is a div.&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsla(0, 100%, 50%, 0.5)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation text-white">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; 
+      background-image: repeating-conic-gradient(#f0f0f0 0% 25%, #ffffff 0% 50%); background-size: 20px 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hsla-red {
+                font-family: 'Segoe UI', sans-serif !important;
+                font-size: 1.2rem !important;
+                font-weight: bold !important;
+                color: #333 !important;
+                padding: 30px 50px !important;
+                border-radius: 12px !important;
+                text-align: center !important;
+                border: 2px solid hsla(0, 100%, 50%, 0.8) !important;
+                background-color: hsla(0, 100%, 50%, 0.5) !important;
+              }
+            </style>
+
+            <div class="pv-hsla-red">This is a div.</div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este código le daría al <mark>div</mark> un fondo rojo semitransparente, donde el tono se establece en
+        <mark>0</mark> grados (rojo), la
+        saturación es del <mark>100%</mark>, la luminosidad es del <mark>50%</mark> y el alfa es <mark>0,5</mark> (50 %
+        de opacidad). También se puede
+        especificar el alfa como porcentaje; por ejemplo, hsla(0, 100 %, 50 %, 50 %) es equivalente a hsla(0, 100 %, 50
+        %, 0,5).
+      </p>
+      <p>
+        El modelo de color HSL es especialmente útil cuando necesitas crear combinaciones de colores y ajustar tonos o
+        matices fácilmente.
+      </p>
+      <p>
+        Dado que HSL separa el tono de la saturación y la luminosidad, puedes mantener un tema de color coherente
+        mientras ajustas la luminosidad de las sombras o los reflejos. Este nivel de flexibilidad hace que HSL sea el
+        favorito tanto de diseñadores como de desarrolladores.
+      </p>
+      <p>
+        Además, HSL hace que los valores de color sean más legibles y comprensibles en comparación con otros métodos
+        como los códigos hexadecimales o RGB. Se puede ver más claramente la intención detrás del color y ajustarlo en
+        consecuencia, especialmente cuando se experimenta con diferentes diseños.
+      </p>
+      <p>
+        Con el modelo de color HSL, se obtiene más flexibilidad para controlar los tonos, la saturación y la luminosidad
+        del color, lo que lo convierte en una herramienta poderosa para crear diseños ricos y dinámicos en CSS.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+
+          <legend>
+            ¿Qué representa el primer valor de la función hsl()?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Saturation
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Lightness
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            Hue
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Opacity
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué valor porcentual de luminosidad daría como resultado un blanco puro al utilizar el modelo HSL?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            0%
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            50%
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            100%
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            25%
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo harías un color semitransparente utilizando el modelo HSL?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            Utilizando hsla() y ajustando el valor alfa.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Al reducir el valor de luminosidad en la función hsl()/
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Aumentando el valor del tono por encima de los 360 grados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Estableciendo el valor de saturación en 0%.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2>Tema 5: ¿Qué son los códigos <code>hex</code> y cómo funcionan en CSS?</h2>
+
+      <p>
+        Cuando se trabaja con <strong>CSS</strong> para diseñar una página web, uno de los métodos más comunes para
+        definir los colores
+        es utilizar valores de color <mark>hex</mark>. Los valores de color <mark>hexadecimales</mark>, o códigos
+        <mark>hex</mark>, son una
+        forma concisa de representar los colores en el modelo de color <strong>RGB</strong>. En esta lección,
+        exploraremos qué son los
+        códigos <mark>hex</mark>, cómo funcionan en <strong>CSS</strong> y cuándo utilizarlos.
+      </p>
+      <p>
+        Un código <mark>hex</mark> (abreviatura de código <mark>hexadecimal</mark>) es una cadena de seis caracteres que
+        se utiliza para
+        representar colores en el modelo de color <strong>RGB</strong>. El término "<mark>hex</mark>" hace referencia al
+        sistema numérico de base 16,
+        que utiliza los dígitos del <mark>0</mark> al <mark>9</mark> y las letras de la <mark>A</mark> a la
+        <mark>F</mark>.
+      </p>
+      <p>
+        En el contexto de los colores, los códigos <mark>hex</mark> especifican las cantidades de <strong>red</strong>,
+        <strong>green</strong> y <strong>blue</strong> (<strong>RGB</strong>)
+        que componen un color concreto. Cada código <mark>hex</mark> comienza con un símbolo de almohadilla
+        (<mark>#</mark>),
+        seguido de
+        seis caracteres que definen la intensidad del rojo, el verde y el azul en el color.
+      </p>
+      <p>
+        Por ejemplo, el código <mark>hex</mark> del negro es <mark>#000000</mark> y el del blanco es
+        <mark>#FFFFFF</mark>.
+        Los dos primeros caracteres
+        representan el valor del rojo, los dos siguientes representan el verde y los dos últimos representan el azul.
+      </p>
+      <p>
+        En CSS, se pueden aplicar colores a los elementos utilizando códigos <mark>hex</mark>. Esta es la sintaxis
+        básica:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">element</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#RRGGBB</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #1a1a1a; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hex-display {
+                font-family: 'Monaco', 'Consolas', monospace !important;
+                font-size: 2.5rem !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                color: #00fbff !important;
+                text-shadow: 0 0 15px rgba(0, 251, 255, 0.4) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0 !important;
+              }
+
+              .hex-char {
+                padding: 10px 0px !important;
+                display: inline-block !important;
+              }
+
+              .hex-hash {
+                background-color: #000000 !important;
+                color: #ffffff !important;
+              }
+
+              .hex-red {
+                background-color: #000000 !important;
+                color: #ff0000 !important;
+              }
+
+              .hex-green {
+                background-color: #000000 !important;
+                color: #00ff00 !important;
+              }
+
+              .hex-blue {
+                background-color: #000000 !important;
+                color: #0000ff !important;
+              }
+            </style>
+
+            <div class="pv-hex-display">
+              <span class="hex-char hex-hash">#</span>
+              <span class="hex-char hex-red">RR</span>
+              <span class="hex-char hex-green">GG</span>
+              <span class="hex-char hex-blue">BB</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, <mark>#RRGGBB</mark> es un marcador de posición para el código <mark>hex</mark> real. Los pares
+        `<mark>RR</mark>, `<mark>GG</mark> y `<mark>BB</mark> representan la
+        intensidad del rojo, el verde y el azul, respectivamente.
+      </p>
+      <p>
+        Estos pares pueden variar entre <mark>00</mark> (la intensidad más baja) y <mark>FF</mark> (la intensidad más
+        alta). Cuanto mayor sea el
+        número, más presente estará ese color en la mezcla final. Por ejemplo, apliquemos algunos colores hexadecimales
+        a varios elementos:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;This is a heading.&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FF5733</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4CAF50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; flex-direction: column; height: 100%; background-color: #ffffff; align-items: start; justify-content: start; padding: 20px; gap: 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-h1-hex {
+                font-family: sans-serif !important;
+                margin: 0 !important;
+                font-size: 1.8rem !important;
+                /* Aplicación de #FF5733 */
+                color: #FF5733 !important;
+              }
+
+              .pv-p-hex {
+                font-family: sans-serif !important;
+                padding: 3px !important;
+                border-radius: 5px !important;
+                margin: 0 !important;
+                color: black !important;
+                /* Aplicación de #4CAF50 */
+                background-color: #4CAF50 !important;
+              }
+            </style>
+
+            <h1 class="pv-h1-hex">This is a heading.</h1>
+            <p class="pv-p-hex">This is a paragraph.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el primer caso, <mark>#FF5733</mark> es un color rojo anaranjado. Aquí está el desglose:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>FF</mark> es el valor más alto para el rojo (totalmente saturado).
+          </li>
+          <li class="list">
+            <mark>57</mark> es una cantidad moderada de verde.
+          </li>
+          <li class="list">
+            <mark>33</mark> es una pequeña cantidad de azul.
+          </li>
+        </ul>
+      </div>
+
+      <p>En el segundo caso, <mark>#4CAF50</mark> es un tono de verde:</p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>4C</mark> es un valor bajo para el rojo.
+          </li>
+          <li class="list">
+            <mark>AF</mark> es un valor alto para el verde.
+          </li>
+          <li class="list">
+            <mark>50</mark> es un valor moderado para el azul.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Los códigos <mark>hex</mark> son populares porque son precisos y fáciles de usar. Permiten ajustar los colores
+        con
+        precisión, lo que los hace ideales para diseños en los que la coherencia es importante.
+      </p>
+      <p>
+        La mayoría de los programas de diseño, como Adobe Photoshop o Figma, proporcionan códigos <mark>hex</mark> para
+        los
+        colores que seleccionas, lo que facilita copiar y pegar estos valores directamente en tus archivos CSS.
+      </p>
+      <p>
+        En el desarrollo web, los códigos <mark>hex</mark> se utilizan a menudo para definir los colores del texto, los
+        fondos, los bordes y otros elementos visuales. Por ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body class="pv-body-button"&gt;
+
+  &lt;button class="pv-btn-hex"&gt;Example&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#F0F0F0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#007BFF</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FFFFFF</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-body-button"
+            style="display: flex; height: 100%; align-items: start; justify-content: start; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              /* Simulación del body con blindaje */
+              .pv-body-button {
+                background-color: #F0F0F0 !important;
+                border-radius: 0 0 8px 8px;
+              }
+
+              .pv-btn-hex {
+                font-family: sans-serif !important;
+                font-size: 1rem !important;
+                font-weight: 600 !important;
+                padding: 12px 24px !important;
+                border: none !important;
+                border-radius: 6px !important;
+                cursor: pointer !important;
+                transition: transform 0.1s, background-color 0.2s !important;
+                /* Tus estilos Hexadecimales */
+                background-color: #007BFF !important;
+                color: #FFFFFF !important;
+              }
+
+              .pv-btn-hex:hover {
+                background-color: #0056b3 !important;
+              }
+            </style>
+
+            <button class="pv-btn-hex">Example</button>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto garantiza que los colores se mantengan uniformes en todo el sitio web o la aplicación.
+      </p>
+      <p>
+        En algunos casos, es posible que veas códigos <mark>hex</mark> escritos en formato abreviado, utilizando solo
+        tres
+        caracteres en lugar de seis. Esto es posible cuando ambos caracteres de cada par de colores son iguales. Por
+        ejemplo, <mark>#FF5733</mark> no se puede abreviar, pero <mark>#FFFFFF</mark> (blanco) se puede escribir como
+        <mark>#FFF</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body class="pv-body-dark"&gt;
+
+  &lt;h2 class="pv-h2-shorthand"&gt;This is a heading.&lt;/h2&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css active">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#000</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">h2</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FFF</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-body-dark"
+            style="display: flex; height: 100%; align-items: start; justify-content: start; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-body-dark {
+                background-color: #000 !important;
+                border-radius: 0 0 8px 8px;
+              }
+
+              .pv-h2-shorthand {
+                font-family: 'Segoe UI', sans-serif !important;
+                font-size: 2rem !important;
+                margin: 0 !important;
+                color: #FFF !important;
+                text-align: center !important;
+              }
+            </style>
+
+            <h2 class="pv-h2-shorthand">This is a heading.</h2>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La abreviatura <mark>#FFF</mark> equivale a <mark>#FFFFFF</mark>. Del mismo modo, <mark>#000</mark>
+        representaría el negro, que es <mark>#000000</mark> en su forma
+        completa.
+      </p>
+      <p>
+        Los códigos <mark>hex</mark> son populares por su precisión y compatibilidad, ya que permiten más de 16 millones
+        de
+        colores en todos los navegadores. Son ideales cuando se necesitan colores específicos para una marca, se desea
+        controlar tonos exactos que no se definen fácilmente con colores nombrados o HSL, o cuando se copian colores de
+        un software de diseño que proporciona códigos <mark>hex</mark> de forma predeterminada.
+      </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué representa cada par de caracteres en un código hexadecimal?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            La cantidad de opacidad en el color.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <!-- correcto -->
+            La intensidad del rojo, verde o azul en el color.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            La cantidad de contraste entre colores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            La claridad y la saturación del color.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo escribirías el código hex para el negro utilizando el formato abreviado?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            <!-- correcto -->
+            #000
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            #000000
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            #FFF
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            #FFFFFF
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué un diseñador podría optar por utilizar códigos hex en su CSS en lugar de colores con nombre?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            <!-- correcto -->
+            Los códigos hex permiten una selección de colores más precisa.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Los códigos hex son más fáciles de recordar que los nombres de los colores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Los códigos hex se ajustan automáticamente al modo claro y oscuro.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Los códigos hex no requieren ningún formato en CSS.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-labelledby="tema6-titulo">
+
+      <h2>Tema 6: ¿Qué son los degradados lineales(<code>linear-gradient</code>) y
+        radiales(<code>radial-gradient</code>), y cómo funcionan en CSS?</h2>
+
+      <p>
+        En una lección anterior, aprendiste a empezar a trabajar con degradados lineales y radiales. En esta lección,
+        vamos a profundizar en cómo trabajar con las propiedades <strong>CSS</strong> para crear diseños más atractivos
+        y complejos.
+      </p>
+      <p>
+        Los degradados en <strong>CSS</strong> te permiten crear transiciones suaves entre dos o más colores
+        específicos. A menudo se
+        utilizan para añadir profundidad, textura e interés visual a los diseños web sin necesidad de utilizar archivos
+        de imagen.
+      </p>
+      <p>
+        <strong>CSS</strong> admite dos tipos principales de degradados: <mark>degradados lineales</mark> y <mark>degradados radiales</mark>.
+      </p>
+      <p>
+        Los <mark>degradados lineales</mark> crean una mezcla gradual entre colores a lo largo de una línea recta. Puedes controlar
+        la dirección de esta línea y los colores utilizados. Aquí tienes un ejemplo básico de un degradado lineal:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="radial-gradient"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector text-white">.radial-gradient</span> <span class="tk-punctuation text-white">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">radial-gradient(circle, red, blue)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40vh</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation text-white">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-radial-gradient {
+                width: 100% !important;
+                border-radius: 8px !important;
+                background: radial-gradient(circle, red, blue) !important;
+                height: 40vh !important;
+              }
+            </style>
+
+            <div class="pv-radial-gradient"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un degradado circular que comienza con rojo en el centro y pasa a azul en los bordes. También puede
+        especificar la forma y el tamaño de los <mark>degradados radiales</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="custom-radial-gradient"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.custom-radial-gradient</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">radial-gradient(ellipse at top left, red, blue)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40vh</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-custom-radial {
+                width: 100% !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+                /* Tu código aplicado con blindaje */
+                background: radial-gradient(ellipse at top left, red, blue) !important;
+                height: 40vh !important;
+              }
+            </style>
+
+            <div class="pv-custom-radial"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un degradado elíptico que comienza en la esquina superior izquierda del elemento. Tanto los degradados
+        lineales como los radiales permiten especificar paradas de color en posiciones precisas. Por ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="precise-gradient"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.precise-gradient</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">linear-gradient(to right, red 20%, yellow 40%, blue 80%)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40vh</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: block; height: 100%; background-color: #ffffff; padding: 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-precise-gradient {
+                width: 100% !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+                background: linear-gradient(to right, red 20%, yellow 40%, blue 80%) !important;
+                height: 40vh !important;
+              }
+            </style>
+
+            <div class="pv-precise-gradient"></div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un degradado en el que el rojo ocupa el primer <mark>20%</mark>, luego pasa al amarillo en el <mark>40%</mark> y, finalmente, al
+        azul en el <mark>80%</mark>.
+      </p>
+      <p>
+        Los degradados se pueden utilizar en cualquier lugar donde se utilice una imagen en CSS. Esto los hace
+        versátiles para crear fondos, botones o incluso efectos de texto cuando se combinan con otras propiedades CSS.
+      </p>
+      <p>
+        Recuerde que, aunque los degradados pueden mejorar el atractivo visual de su sitio web, es importante garantizar
+        un contraste suficiente para la accesibilidad, especialmente cuando se utilizan degradados detrás del texto.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la diferencia entre los degradados lineales y radiales en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Los degradados lineales utilizan solo dos colores, mientras que los degradados radiales utilizan varios colores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            <!-- correcto -->
+            Los degradados lineales se desplazan a lo largo de una línea recta, mientras que los degradados radiales se irradian desde un punto central.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Los degradados lineales solo son horizontales, mientras que los degradados radiales pueden tener cualquier forma.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Los degradados lineales son más suaves que los degradados radiales.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el siguiente código CSS, ¿qué especifica 45deg?
+            <pre>
+              <code>
+                {
+                  background: linear-gradient(45deg, red, blue);
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El ángulo de rotación de todo el elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            <!-- correcto -->
+            La dirección de la línea de gradiente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            El tamaño del gradiente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            La distancia entre las paradas de color.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es una forma válida de especificar la dirección en un degradado lineal?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            to right
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            to bottom left
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            90deg
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            <!-- correcto -->
+            diagonal
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

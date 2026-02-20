@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de colores CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de colores CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Teoría Color</a></li>
+      <li><a href="#tema2">Formatos CSS</a></li>
+      <li><a href="#tema3">box-shadow</a></li>
+      <li><a href="#tema4">Degradados</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En CSS, los colores se pueden definir utilizando diferentes formatos, como nombres de colores, valores
+        hexadecimales, valores RGB y valores HSL. Cada formato tiene sus propias ventajas y se puede utilizar según las
+        necesidades del diseño.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Teoría del color</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición de teoría del color</strong>: es el estudio de cómo interactúan los colores entre sí y
+            cómo afectan a nuestra percepción. Abarca las relaciones entre los colores, la armonía cromática y el
+            impacto psicológico del color.
+          </li>
+          <li>
+            <strong>Colores primarios</strong>: estos colores, que son el amarillo, el azul y el rojo, son los tonos
+            fundamentales de los que s
+          </li>
+          <li>
+            <strong>Colores secundarios</strong>: estos colores son el resultado de mezclar cantidades iguales de dos
+            colores primarios. El verde, el naranja y el morado son ejemplos de colores secundarios.
+          </li>
+          <li>
+            <strong>Colores terciarios</strong>: Estos colores se obtienen al combinar un color primario con un color
+            secundario vecino. El amarillo verdoso, el azul verdoso y el azul violáceo son ejemplos de colores
+            terciarios.
+          </li>
+          <li>
+            <strong>Colores cálidos</strong>: Estos colores, que incluyen los rojos, naranjas y amarillos, evocan
+            sensaciones
+            de comodidad, calidez y acogedoridad.
+          </li>
+          <li>
+            <strong>Colores fríos</strong>: Estos colores, que incluyen azules, verdes y morados, evocan sensaciones de
+            calma, serenidad y profesionalidad.
+          </li>
+          <li>
+            <strong>Rueda de colores</strong>: La rueda de colores es un diagrama circular que muestra cómo se
+            relacionan los colores entre sí. Es una herramienta esencial para los diseñadores, ya que les ayuda a
+            seleccionar combinaciones de colores.
+          </li>
+          <li>
+            <strong>Esquemas de colores análogos</strong>: Estos esquemas de colores crean experiencias cohesionadas y
+            relajantes. Tienen colores análogos, que son adyacentes entre sí en la rueda de colores.
+          </li>
+          <li>
+            <strong>Esquemas de colores complementarios</strong>: estos esquemas de colores crean un alto contraste y un
+            gran impacto visual. Sus colores se encuentran en extremos opuestos de la rueda de colores, uno respecto al
+            otro.
+          </li>
+          <li>
+            <strong>Esquema de colores triádicos</strong>: este esquema de colores tiene colores vibrantes. Se componen
+            de colores que están aproximadamente a la misma distancia entre sí. Si se conectan, forman un triángulo
+            equilátero en la rueda de colores.
+          </li>
+          <li>
+            <strong>Esquema de colores monocromáticos</strong>: en este esquema, todos los colores se derivan del mismo
+            color base ajustando su luminosidad, oscuridad y saturación. Esto evoca una sensación de unidad y armonía,
+            al tiempo que crea contraste.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema2">
+      <h2>Diferentes formas de trabajar con colores en CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Colores con nombre</strong>: estos colores son nombres de colores predefinidos que reconocen los
+            navegadores. Algunos ejemplos son <code>blue</code>, <code>darkred</code>, <code>lightgreen</code>.
+          </li>
+          <li>
+            <strong>Función <code>rgb()</code></strong>: RGB son las siglas de rojo, verde y azul, los colores primarios
+            de la luz. Estos tres colores se combinan en diferentes intensidades para crear una amplia gama de colores.
+            La función <code>rgb()</code> permite definir colores utilizando el modelo de color RGB.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;RGB Color&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgb(255, 0, 0)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-p-rgb {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: bold !important;
+                margin: 0 !important;
+                /* Aplicación de tu código: Rojo puro */
+                color: rgb(255, 0, 0) !important;
+              }
+            </style>
+
+            <p class="pv-p-rgb">RGB Color</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Función <code>rgba()</code></strong>: Esta función añade un cuarto valor, alfa, que controla la
+            transparencia del color. Si no se proporciona, el valor alfa se establece por defecto en 1.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div&gt;RGBA Background&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(0, 0, 255, 0.5)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result" style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; 
+      background-image: linear-gradient(45deg, #e5e5f7 25%, transparent 25%, transparent 75%, #e5e5f7 75%, #e5e5f7), 
+                        linear-gradient(45deg, #e5e5f7 25%, #ffffff 25%, #ffffff 75%, #e5e5f7 75%, #e5e5f7);
+      background-size: 20px 20px; background-position: 0 0, 10px 10px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-rgba-demo {
+                font-family: sans-serif !important;
+                font-size: 1.2rem !important;
+                font-weight: bold !important;
+                color: #000 !important;
+                padding: 40px !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+                border: 1px solid rgba(0, 0, 255, 0.2) !important;
+                background-color: rgba(0, 0, 255, 0.5) !important;
+              }
+            </style>
+
+            <div class="pv-rgba-demo">RGBA Background</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Función <code>hsl()</code></strong>: HSL son las siglas de Hue (tono), Saturation (saturación) y
+            Lightness (luminosidad), los tres componentes clave que definen un color.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;p&gt;HSL Color&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsl(120, 100%, 50%)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-p-hsl-green {
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+                font-size: 2.5rem !important;
+                font-weight: 800 !important;
+                margin: 0 !important;
+                color: hsl(120, 100%, 50%) !important;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+              }
+            </style>
+
+            <p class="pv-p-hsl-green">HSL Color</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Función <code>hsla()</code></strong>: Esta función agrega un cuarto valor, alfa, que controla la
+            opacidad del color.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+  &lt;div&gt;HSLA Background&lt;/div&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">hsla(0, 100%, 50%, 0.5)</span><span class="tk-punctuation">;</span>
+    <span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; align-items: center; justify-content: center; padding: 20px; 
+      background-image: radial-gradient(#d1d1d1 1px, transparent 1px); background-size: 15px 15px; background-color: #ffffff;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hsla-red {
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                font-size: 1.2rem !important;
+                font-weight: bold !important;
+                color: white !important;
+                padding: 40px !important;
+                border-radius: 12px !important;
+                text-align: center !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+                background-color: hsla(0, 100%, 50%, 0.5) !important;
+              }
+            </style>
+
+            <div class="pv-hsla-red">HSLA Background</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Hexadecimal</code></strong>: un código hex (abreviatura de código hexadecimal) es una cadena
+            de seis caracteres que se utiliza para representar colores en el modelo de color RGB. "Hex" hace referencia
+            al sistema numérico de base 16, que utiliza los dígitos del 0 al 9 y las letras de la A a la F.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Hex Text&lt;/h1&gt;
+  &lt;p&gt;Hex Background&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FF5733</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4CAF50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FFFFFF</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; flex-direction: column; height: 100%; background-color: #ffffff; align-items: center; justify-content: center; padding: 20px; gap: 15px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-h1-hex {
+                font-family: 'Segoe UI', sans-serif !important;
+                margin: 0 !important;
+                font-size: 2.2rem !important;
+                color: #FF5733 !important;
+              }
+
+              .pv-p-hex-bg {
+                font-family: sans-serif !important;
+                padding: 15px 30px !important;
+                border-radius: 8px !important;
+                margin: 0 !important;
+                font-weight: bold !important;
+                color: #FFFFFF !important;
+                background-color: #4CAF50 !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+              }
+            </style>
+
+            <h1 class="pv-h1-hex">Hex Text</h1>
+            <p class="pv-p-hex-bg">Hex Background</p>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Propiedad <code>box-shadow</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: La propiedad <code>box-shadow</code> aplica una o más sombras alrededor de un
+            elemento.
+          </li>
+          <li>
+            <strong>Valores de desplazamiento</strong>: Debe especificar valores horizontales (<code>offset-x</code>) y
+            verticales (<code>offset-y</code>). Un valor positivo de <code>offset-x</code> mueve la sombra hacia la
+            derecha, mientras que los valores negativos la mueven hacia la izquierda. Un valor positivo de
+            <code>offset-y</code> mueve la sombra hacia abajo, mientras que los valores negativos la mueven hacia
+            arriba. Si el valor es 0, no es necesario incluir una unidad.
+          </li>
+          <li>
+            <strong>Radio de desenfoque</strong>: este valor opcional controla el grado de desenfoque de la sombra. Si
+            no se incluye, el valor predeterminado es <code>0</code>, lo que crea bordes nítidos. Cuanto mayor sea el
+            valor, más suave será la sombra.
+          </li>
+          <li>
+            <strong>Radio de expansión</strong>: este valor opcional controla cuánto se expande o se contrae la sombra.
+            Si no se incluye, el valor predeterminado es <code>0</code>.
+          </li>
+          <li>
+            <strong>Color de la sombra</strong>: puede especificar el color utilizando colores con nombre, valores
+            hexadecimales o las funciones <code>rgb()</code>, <code>rgba()</code>, <code>hsl()</code> o
+            <code>hsla()</code>.
+          </li>
+          <li>
+            <strong>Palabra clave <code>inset</code></strong>: al añadir la palabra clave <code>inset</code>, la sombra
+            se coloca dentro del elemento en lugar de fuera.
+          </li>
+          <li>
+            <strong>Aplicación de múltiples sombras de cuadro</strong>: puede aplicar múltiples sombras separándolas con
+            comas. Las sombras se superponen de delante hacia atrás.
+          </li>
+        </ul>
+
+        <h3>Syntax</h3>
+        <code>box-shadow: offset-x offset-y blur-radius spread-radius color;</code>
+
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="shadow-box"&gt;Shadow Color Example&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.shadow-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">box-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">10px 10px 20px rgba(0, 0, 0, 0.5)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; align-items: center; justify-content: center; background-color: #f9f9f9; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-shadow-box {
+                font-family: 'Segoe UI', sans-serif !important;
+                text-align: center !important;
+                border-radius: 4px !important;
+                font-weight: 500 !important;
+                color: #333 !important;
+                width: 200px !important;
+                padding: 20px !important;
+                background-color: lightblue !important;
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5) !important;
+              }
+            </style>
+
+            <div class="pv-shadow-box">Shadow Color Example</div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Degradados lineales y radiales</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Linear Gradients</strong>: estos degradados crean una mezcla gradual entre colores a lo largo de una
+            línea recta. Puede controlar la dirección de esta línea utilizando palabras clave como <code>to top</code>,
+            <code>to right</code>, <code>to bottom right</code> o ángulos como <code>45deg</code>. Puede utilizar
+            cualquier color CSS válido y tantos paradas de color como desee.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="linear-gradient"&gt;
+    Linear Gradient
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.linear-gradient</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">linear-gradient(
+    45deg,
+    red,
+    #33FF11,
+    rgba(100, 100, 255, 0.5)
+    )</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40vh</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: block; height: 100%; background-color: #ffffff; padding: 15px; background-image: radial-gradient(#ccc 1px, transparent 1px); background-size: 20px 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-mixed-gradient {
+                width: 100% !important;
+                border-radius: 12px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-family: 'Segoe UI', sans-serif !important;
+                font-weight: bold !important;
+                font-size: 1.5rem !important;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+                background: linear-gradient(45deg, red, #33FF11, rgba(100, 100, 255, 0.5)) !important;
+                height: 40vh !important;
+              }
+            </style>
+
+            <div class="pv-mixed-gradient">Linear Gradient</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Radial Gradients</strong>: Estos degradados crean degradados circulares o elípticos que irradian
+            desde un punto central.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="radial-gradient"&gt;
+    Radial Gradient
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.radial-gradient</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">radial-gradient(circle, red, blue)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40vh</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result"
+            style="display: flex; height: 100%; align-items: center; justify-content: center; background-color: #ffffff; padding: 20px;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-radial-circle {
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-family: 'Segoe UI', sans-serif !important;
+                font-weight: bold !important;
+                font-size: 1.5rem !important;
+                border-radius: 12px !important;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+                background: radial-gradient(circle, red, blue) !important;
+                height: 40vh !important;
+              }
+            </style>
+
+            <div class="pv-radial-circle">Radial Gradient</div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
