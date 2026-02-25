@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de formularios de estilo</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de formularios de estilo</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Mejores prácticas</a></li>
+      <li><a href="#tema2">appearance: none</a></li>
+      <li><a href="#tema3">Problemas comunes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, revisaremos algunos de los problemas comunes que surgen al aplicar estilos a los formularios.
+        En particular, nos centraremos en los campos de entrada de texto, el uso de <code>appearance: none</code> para
+        entradas y los problemas comunes relacionados con el estilo de las propiedades <code>datetime-local</code> y
+        <code>color</code>.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Mejores prácticas para el estilo de los <code>inputs</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Estilo de los <code>inputs</code></strong>: al igual que con todos los elementos de texto, debes
+            asegurarte de que los estilos que apliques a los <code>inputs</code> de texto sean accesibles. Esto
+            significa que el tamaño de la fuente debe ser adecuado y que el color debe contrastar suficientemente con el
+            fondo. Los elementos de entrada también son enfocables. Cuando edites tus estilos, debes tener cuidado de
+            conservar un indicador visible cuando el elemento esté enfocado, como un borde en negrita.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Uso de <code>appearance: none</code> para <code>inputs</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>appearance: none</code></strong>: los navegadores aplican un estilo predeterminado a muchos
+            elementos. La propiedad CSS <code>appearance: none</code> le ofrece un control total sobre el estilo, pero
+            tiene algunas salvedades. Al crear estilos personalizados para elementos de entrada, deberá asegurarse de
+            que los indicadores de foco y error sigan estando presentes.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Problemas comunes Estilo de las propiedades <code>datetime-local</code> y <code>color</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Problemas comunes</strong>: Estos tipos especiales de <em>inputs</em> se basan en <em>pseudoelementos</em> complejos
+            para crear elementos como selectores de <code>datetime-local</code> y <code>color</code>. Esto supone un reto importante a la hora de aplicar
+            estilos a estas entradas. Uno de los retos es que el estilo predeterminado depende totalmente del navegador,
+            por lo que el CSS que escribas para que el selector tenga el aspecto que deseas puede ser totalmente
+            diferente en otro navegador.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

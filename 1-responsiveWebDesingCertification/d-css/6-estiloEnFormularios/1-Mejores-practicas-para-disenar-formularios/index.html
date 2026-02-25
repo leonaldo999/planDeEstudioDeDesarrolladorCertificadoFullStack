@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En este módulo, aprenderás las mejores prácticas para diseñar formularios efectivos y atractivos. Un formulario bien diseñado no solo mejora la experiencia del usuario, sino que también aumenta la tasa de conversión. A continuación, se presentan algunas recomendaciones clave para diseñar formularios:">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mejores prácticas para diseñar formularios">
+  <meta property="og:description"
+    content="En este módulo, aprenderás las mejores prácticas para diseñar formularios efectivos y atractivos. Un formulario bien diseñado no solo mejora la experiencia del usuario, sino que también aumenta la tasa de conversión. A continuación, se presentan algunas recomendaciones clave para diseñar formularios:">
+  <meta property="og:image" content="./img/cssIcon.png">
+  <meta property="og:type" content="website">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mejores prácticas para diseñar formularios</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Mejores prácticas para diseñar formularios</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En este módulo, aprenderás las mejores prácticas para diseñar formularios efectivos y atractivos. Un formulario
+        bien diseñado no solo mejora la experiencia del usuario, sino que también aumenta la tasa de conversión. A
+        continuación, se presentan algunas recomendaciones clave para diseñar formularios:
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Cuáles son algunas de las mejores prácticas para diseñar campos de entrada de
+        texto?</h2>
+
+      <p>
+        Al igual que con todos los elementos de texto, debes asegurarte de que los estilos que apliques a los Text
+        Inputs sean accesibles. Esto significa que el tamaño de la fuente debe ser adecuado y que el color debe
+        contrastar lo suficiente con el fondo.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form class="accessible-form"&gt;
+  &lt;label for="username"&gt;Username&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" placeholder="Enter your username"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f9fafb</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#222</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.accessible-form</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">320px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">label</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">600</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="text"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 0.8rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#111</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="text"<span class="tk-punctuation">]</span><span class="tk-selector">:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">3px solid #1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button:hover</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">button:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#187bcd</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-body-form"
+            style="display: flex; flex-direction: column; height: 100%; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-body-form {
+                background-color: #f9fafb !important;
+                color: #222 !important;
+                padding: 2rem !important;
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+              }
+
+              .pv-accessible-form {
+                max-width: 320px !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+              }
+
+              .pv-label {
+                display: block !important;
+                font-weight: 600 !important;
+                color: #111 !important;
+                margin-bottom: 0.5rem !important;
+              }
+
+              .pv-input[type="text"] {
+                width: 100% !important;
+                padding: 0.6rem 0.8rem !important;
+                font-size: 1rem !important;
+                border: 2px solid #555 !important;
+                border-radius: 4px !important;
+                background-color: #fff !important;
+                color: #111 !important;
+                box-sizing: border-box !important;
+              }
+
+              .pv-input[type="text"]:focus {
+                outline: 3px solid #1e90ff !important;
+                border-color: #1e90ff !important;
+                outline-offset: 1px !important;
+              }
+
+              .pv-button {
+                margin-top: 1rem !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 1rem !important;
+                background-color: #1e90ff !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                width: 100% !important;
+              }
+
+              .pv-button:hover,
+              .pv-button:focus {
+                background-color: #187bcd !important;
+              }
+            </style>
+
+            <form class="pv-accessible-form" onsubmit="return false;">
+              <label class="pv-label" for="username">Username</label>
+              <input class="pv-input" type="text" id="username" name="username" placeholder="Enter your username">
+              <button class="pv-button" type="submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sin embargo, el <mark>placeholder</mark> suele olvidarse. Es importante recordar que también se trata de texto y que
+        probablemente tendrás que cambiar el estilo para garantizar que sea legible.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form class="accessible-form"&gt;
+  &lt;label for="email"&gt;Email address&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="you@example.com"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f9fafb</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#222</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.accessible-form</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">320px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">label</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">600</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="email"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 0.8rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#111</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="email"<span class="tk-punctuation">]</span><span class="tk-selector">::placeholder</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">opacity</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="email"<span class="tk-punctuation">]</span><span class="tk-selector">:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">3px solid #1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button:hover</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">button:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#187bcd</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-body-form"
+            style="display: flex; flex-direction: column; height: 100%; align-items: center; justify-content: center;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-body-form {
+                background-color: #f9fafb !important;
+                color: #222 !important;
+                padding: 2rem !important;
+                font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+              }
+
+              .pv-accessible-form {
+                max-width: 320px !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+              }
+
+              .pv-label {
+                display: block !important;
+                font-weight: 600 !important;
+                margin-bottom: 0.5rem !important;
+              }
+
+              .pv-input-email {
+                width: 100% !important;
+                padding: 0.6rem 0.8rem !important;
+                font-size: 1rem !important;
+                border: 2px solid #555 !important;
+                border-radius: 4px !important;
+                background-color: #fff !important;
+                color: #111 !important;
+                box-sizing: border-box !important;
+              }
+
+              .pv-input-email::placeholder {
+                color: #555 !important;
+                opacity: 1 !important;
+                font-style: italic !important;
+              }
+
+              .pv-input-email:focus {
+                outline: 3px solid #1e90ff !important;
+                border-color: #1e90ff !important;
+                outline-offset: 1px !important;
+              }
+
+              .pv-button {
+                margin-top: 1rem !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 1rem !important;
+                background-color: #1e90ff !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                width: 100% !important;
+                font-weight: 600 !important;
+              }
+
+              .pv-button:hover,
+              .pv-button:focus {
+                background-color: #187bcd !important;
+              }
+            </style>
+
+            <form class="pv-accessible-form" onsubmit="return false;">
+              <label class="pv-label" for="email">Email address</label>
+              <input class="pv-input-email" type="email" id="email" name="email" placeholder="you@example.com">
+              <button class="pv-button" type="submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra cosa a tener en cuenta es que debes permitir al usuario modificar la entrada. Por ejemplo, si se trata de
+        un área de texto, no debes eliminar la posibilidad de cambiar su tamaño. La entrada también debe escalarse
+        adecuadamente cuando el usuario amplíe la página.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form class="accessible-form"&gt;
+  &lt;label for="message"&gt;Your message&lt;/label&gt;
+  &lt;textarea id="message" name="message" placeholder="Type your message here..."&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f9fafb</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#222</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">line-height</span><span class="tk-punctuation">:</span> <span class="tk-value">1.5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.accessible-form</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">480px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">label</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">600</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">textarea</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">min-height</span><span class="tk-punctuation">:</span> <span class="tk-value">120px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.8rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#111</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">resize</span><span class="tk-punctuation">:</span> <span class="tk-value">both</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">box-sizing</span><span class="tk-punctuation">:</span> <span class="tk-value">border-box</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">textarea::placeholder</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">opacity</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">textarea:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">3px solid #1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button:hover</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">button:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#187bcd</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-preview-wrap"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              /* Estilos internos para la vista previa */
+              .pv-preview-wrap .accessible-form {
+                max-width: 480px !important;
+                width: 90% !important;
+                margin: 0 auto !important;
+                font-family: 'Segoe UI', sans-serif !important;
+              }
+
+              .pv-preview-wrap label {
+                display: block !important;
+                font-weight: 600 !important;
+                margin-bottom: 0.5rem !important;
+                color: #222 !important;
+              }
+
+              .pv-preview-wrap textarea {
+                width: 100% !important;
+                min-height: 120px !important;
+                padding: 0.8rem !important;
+                font-size: 1rem !important;
+                border: 2px solid #555 !important;
+                border-radius: 4px !important;
+                background-color: #fff !important;
+                color: #111 !important;
+                resize: both !important;
+                box-sizing: border-box !important;
+                font-family: inherit !important;
+              }
+
+              .pv-preview-wrap textarea::placeholder {
+                color: #555 !important;
+                opacity: 1 !important;
+              }
+
+              .pv-preview-wrap textarea:focus {
+                outline: 3px solid #1e90ff !important;
+                border-color: #1e90ff !important;
+                outline-offset: 1px !important;
+              }
+
+              .pv-preview-wrap button {
+                margin-top: 1rem !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 1rem !important;
+                background-color: #1e90ff !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                font-weight: 600 !important;
+                width: 100% !important;
+              }
+
+              .pv-preview-wrap button:hover {
+                background-color: #187bcd !important;
+              }
+            </style>
+
+            <form class="accessible-form" onsubmit="return false;">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message" placeholder="Type your message here..."></textarea>
+              <button type="submit">Send</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los elementos de entrada también pueden recibir el foco. Cuando edites tus estilos, debes asegurarte de mantener
+        un indicador visible cuando el elemento reciba el foco, como un borde en negrita.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form class="accessible-form"&gt;
+  &lt;label for="name"&gt;Full name&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" placeholder="Enter your full name"&gt;
+
+  &lt;label for="email"&gt;Email address&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="you@example.com"&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f9fafb</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#222</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.accessible-form</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">360px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">label</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">600</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="text"<span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="email"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 0.8rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #666</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#111</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">border-color 0.2s, box-shadow 0.2s</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input::placeholder</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">opacity</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">box-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">0 0 0 3px rgba(30, 144, 255, 0.4)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1.5rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button:hover</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">button:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#187bcd</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation text-white">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-preview-wrap"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-preview-wrap .accessible-form {
+                max-width: 360px !important;
+                width: 90% !important;
+                margin: 0 auto !important;
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                color: #222 !important;
+              }
+
+              .pv-preview-wrap label {
+                display: block !important;
+                font-weight: 600 !important;
+                margin-top: 1rem !important;
+                margin-bottom: 0.5rem !important;
+              }
+
+              .pv-preview-wrap input[type="text"],
+              .pv-preview-wrap input[type="email"] {
+                width: 100% !important;
+                padding: 0.6rem 0.8rem !important;
+                font-size: 1rem !important;
+                border: 2px solid #666 !important;
+                border-radius: 4px !important;
+                background-color: #fff !important;
+                color: #111 !important;
+                box-sizing: border-box !important;
+                transition: border-color 0.2s, box-shadow 0.2s !important;
+              }
+
+              .pv-preview-wrap input::placeholder {
+                color: #555 !important;
+                opacity: 1 !important;
+              }
+
+              .pv-preview-wrap input:focus {
+                border-color: #1e90ff !important;
+                box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.4) !important;
+                outline: none !important;
+              }
+
+              .pv-preview-wrap button {
+                margin-top: 1.5rem !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 1rem !important;
+                background-color: #1e90ff !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                width: 100% !important;
+                font-weight: 600 !important;
+              }
+
+              .pv-preview-wrap button:hover {
+                background-color: #187bcd !important;
+              }
+            </style>
+
+            <form class="accessible-form" onsubmit="return false;">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name">
+
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com">
+
+              <button type="submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Además, hay que tener en cuenta el estado de error. Cuando el texto del usuario no supera la validación de
+        entrada, aparece un indicador visual que muestra que hay algún problema.
+        <br>
+        <br>
+        Para que el mensaje de error se actualice dinámicamente, es necesario utilizar JavaScript, que aprenderás en
+        lecciones posteriores.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form class="accessible-form"&gt;
+  &lt;label for="email"&gt;Email address&lt;/label&gt;
+  &lt;input 
+    type="email" 
+    id="email" 
+    name="email" 
+    placeholder="you@example.com" 
+    aria-describedby="email-error"
+  &gt;
+  &lt;p id="email-error" class="error-message"&gt;
+    Please enter a valid email address.
+  &lt;/p&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+  
+&lt;script src="index.js"&gt;&lt;/script&gt;
+</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f9fafb</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#222</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">system-ui, sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.accessible-form</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">360px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">label</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">600</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="email"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 0.8rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #666</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#111</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">border-color 0.2s, box-shadow 0.2s</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input::placeholder</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">opacity</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">box-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">0 0 0 3px rgba(30, 144, 255, 0.4)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation text-white">}</span>
+
+<span class="tk-selector">input.error</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#d93025</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff5f5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input.error:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#d93025</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">box-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">0 0 0 3px rgba(217, 48, 37, 0.4)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.error-message</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#d93025</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">0.95rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">0.4rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin-top</span><span class="tk-punctuation">:</span> <span class="tk-value">1.5rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.6rem 1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#1e90ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button:hover</span><span class="tk-punctuation">,</span>
+<span class="tk-selector">button:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#187bcd</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-preview-wrap"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-preview-wrap .accessible-form {
+                max-width: 360px !important;
+                width: 90% !important;
+                margin: 0 auto !important;
+                font-family: system-ui, -apple-system, sans-serif !important;
+              }
+
+              .pv-preview-wrap label {
+                display: block !important;
+                font-weight: 600 !important;
+                margin-bottom: 0.5rem !important;
+                color: #222 !important;
+              }
+
+              .pv-preview-wrap input[type="email"] {
+                width: 100% !important;
+                padding: 0.6rem 0.8rem !important;
+                font-size: 1rem !important;
+                border-radius: 4px !important;
+                box-sizing: border-box !important;
+                border: 2px solid #666 !important;
+                background-color: #fff !important;
+                color: #111 !important;
+                transition: border-color 0.2s, box-shadow 0.2s !important;
+              }
+
+              .pv-preview-wrap input.error {
+                border-color: #d93025 !important;
+                background-color: #fff5f5 !important;
+              }
+
+              .pv-preview-wrap input.error:focus {
+                border-color: #d93025 !important;
+                box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.4) !important;
+                outline: none !important;
+              }
+
+              .pv-preview-wrap .error-message {
+                color: #d93025 !important;
+                font-size: 0.95rem !important;
+                margin-top: 0.4rem !important;
+              }
+
+              .pv-preview-wrap button {
+                margin-top: 1.5rem !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 1rem !important;
+                background-color: #1e90ff !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                width: 100% !important;
+                font-weight: 600 !important;
+              }
+
+              .pv-preview-wrap button:hover {
+                background-color: #187bcd !important;
+              }
+            </style>
+
+            <form class="accessible-form" onsubmit="return false;">
+              <label for="email">Email address</label>
+              <input type="email" id="email" class="error" name="email" placeholder="you@example.com"
+                aria-describedby="email-error">
+              <p id="email-error" class="error-message">Please enter a valid email address.</p>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A medida que le das a tu elemento tu toque personal, debes asegurarte de que el estado de error siga siendo
+        perceptible y que no se parezca al indicador de enfoque. Teniendo todo esto en cuenta, ahora puedes crear
+        formularios de usuario cautivadores.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            Al diseñar los campos de entrada de texto, ¿cuál de las siguientes opciones NO se menciona como factor clave
+            para la accesibilidad?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Tamaño de la fuente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Contraste de color con el fondo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Legibilidad del texto de marcador de posición.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Velocidad de animación de las transiciones de enfoque.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué se recomienda con respecto a la capacidad de cambio de tamaño de un campo de <mark>textarea</mark>
+            input?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Eliminar la posibilidad de cambiar el tamaño para lograr un aspecto uniforme.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Permitir al usuario cambiar el tamaño.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Cambiar el tamaño automáticamente en función de la longitud del contenido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Bloquear el tamaño después de la carga inicial de la página.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se debe diseñar el estado de error de una entrada?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Debe ser idéntico al estado de enfoque.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Debe ser sutil para no distraer al usuario.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            Debe ser perceptible y diferenciarse del indicador de enfoque.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Solo debe indicarse mediante texto, no mediante estilos visuales.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cuándo se debe utilizar <code>appearance: none</code> para resolver problemas de
+        estilo en
+        campos de búsqueda y casillas de verificación?</h2>
+
+      <p>
+        Aprendamos cuándo utilizar <mark>appearance: none</mark> para resolver problemas de estilo en campos de
+        búsqueda, casillas de
+        verificación y botones de opción.
+      </p>
+      <p>
+        Los navegadores aplican un estilo predeterminado a muchos elementos. En el caso de los elementos de entrada, la
+        capacidad de aplicarles estilos con CSS puede resultar bastante limitada. Por lo tanto, es posible que desee
+        utilizar <mark>appearance: none</mark> para ocultar aspectos del elemento predeterminado y crear uno propio. Por
+        ejemplo,
+        esto ocultaría las casillas de verificación predeterminadas para un campo de entrada de casilla de verificación,
+        lo que le permitiría utilizar indicadores personalizados, como una marca verde y una X roja, para mostrar el
+        estado. En el caso de un campo de entrada de búsqueda, los navegadores basados en WebKit mostrarán un icono de
+        búsqueda predeterminado y un botón de cancelar. Ocultar estos elementos le permite crear sus propios indicadores
+        que aparecerían en todos los navegadores.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de una casilla de verificación personalizada:
+      </p>
+
+      <div class="nota">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink: 0; margin-top: 2px;">
+          <path
+            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5">
+          </path>
+          <line x1="9" y1="18" x2="15" y2="18"></line>
+          <line x1="10" y1="22" x2="14" y2="22"></line>
+        </svg>
+
+        <p class="p-nota">
+          <strong>NOTA:</strong> Parte del CSS de este ejemplo utiliza propiedades que aún no se han tratado. Esto es
+          solo para darte una
+          idea de cómo crear una casilla de verificación personalizada. Aprenderás cómo funciona todo esto en futuras
+          lecciones y talleres.
+        </p>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css" /&gt;
+&lt;form&gt;
+  &lt;label&gt;
+    &lt;input class="checkbox" type="checkbox" /&gt; Agree
+  &lt;/label&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.checkbox</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">appearance</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">18px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #ccc</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">inline-block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">all 0.25s ease</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">vertical-align</span><span class="tk-punctuation">:</span> <span class="tk-value">middle</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#888</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox:checked</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox:checked::after</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">content</span><span class="tk-punctuation">:</span> <span class="tk-value">""</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">0px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">5px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">solid white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-width</span><span class="tk-punctuation">:</span> <span class="tk-value">0 2px 2px 0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">rotate(45deg)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.checkbox:focus</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">outline</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #90caf9</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">outline-offset</span><span class="tk-punctuation">:</span> <span class="tk-value">2px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-cb-container"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #fff;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-cb-container label {
+                font-family: sans-serif !important;
+                font-size: 1.1rem !important;
+                cursor: pointer !important;
+                color: #333 !important;
+                user-select: none !important;
+              }
+
+              .pv-cb-container .checkbox {
+                appearance: none !important;
+                width: 18px !important;
+                height: 18px !important;
+                border: 2px solid #ccc !important;
+                border-radius: 4px !important;
+                display: inline-block !important;
+                position: relative !important;
+                cursor: pointer !important;
+                transition: all 0.25s ease !important;
+                vertical-align: middle !important;
+                margin-right: 8px !important;
+                background-color: #fff !important;
+                box-sizing: border-box !important;
+              }
+
+              .pv-cb-container .checkbox:hover {
+                border-color: #888 !important;
+              }
+
+              .pv-cb-container .checkbox:checked {
+                background-color: #4caf50 !important;
+                border-color: #4caf50 !important;
+              }
+
+              .pv-cb-container .checkbox:checked::after {
+                content: "" !important;
+                position: absolute !important;
+                left: 4px !important;
+                top: 0px !important;
+                width: 5px !important;
+                height: 10px !important;
+                border: solid white !important;
+                border-width: 0 2px 2px 0 !important;
+                transform: rotate(45deg) !important;
+              }
+
+              .pv-cb-container .checkbox:focus {
+                outline: 2px solid #90caf9 !important;
+                outline-offset: 2px !important;
+              }
+            </style>
+
+            <form onsubmit="return false;">
+              <label>
+                <input class="checkbox" type="checkbox" /> Agree
+              </label>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>WebKit</mark> es un motor de software que ayuda a los navegadores web a mostrar sitios web. Navegadores como Safari
+        utilizan <mark>WebKit</mark> para garantizar que las páginas web se vean y funcionen correctamente. La propiedad CSS
+        <mark>appearance: none</mark> te ofrece un control total sobre el estilo, pero hay algunas cosas que debes tener
+        en cuenta.
+        Los componentes interactivos predeterminados de los elementos de entrada incluyen características como
+        indicadores de enfoque y de error, que debes asegurarte de que no se pierdan.
+        <br><br>
+        Crear un estilo coherente en todas las plataformas es una buena razón para utilizar esta propiedad. También
+        puede utilizarla para asegurarse de que los objetivos táctiles en un dispositivo móvil sean lo suficientemente
+        grandes o que los colores de una casilla de verificación tengan suficiente contraste.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de utilizar <mark>appearance: none</mark> en los inputs?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Para mejorar los tiempos de carga de la página.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Para ocultar completamente el elemento input.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Para eliminar el estilo predeterminado del navegador y permitir un estilo personalizado.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Para hacer que el elemento input no sea interactivo.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO se menciona como ventaja de utilizar la <mark>appearance: none</mark> en
+            los elementos <mark>input</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Creación de un estilo coherente en todas las plataformas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Posibilidad de personalizar los indicadores de las casillas de verificación.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Mejora de la seguridad en el envío de formularios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Activación de objetivos táctiles más grandes en dispositivos móviles.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué inconveniente potencial del uso de la <mark>appearance: none</mark> se menciona en la lección?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Puede hacer que la entrada deje de funcionar.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Puede ralentizar considerablemente la página.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Puede eliminar funciones predeterminadas importantes, como los indicadores de enfoque.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            No es compatible con todos los navegadores modernos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Cuáles son los problemas más comunes al aplicar estilos a elementos de Input especiales?</h2>
+
+      <p>
+        Veamos algunos de los problemas más comunes al intentar aplicar estilos a elementos de entrada especiales, como
+        las entradas de <mark>datetime-local</mark> y de <mark>color</mark>.
+      </p>
+      <p>
+        Estos tipos especiales de entradas se basan en pseudoelementos complejos para crear elementos como los
+        selectores de fecha y color. Esto supone un reto importante a la hora de diseñar estas entradas. Uno de los
+        retos es que, dado que el diseño predeterminado depende totalmente del navegador, el CSS que hace que el
+        selector se vea bien en un navegador puede producir un resultado muy diferente en otro.
+      </p>
+      <p>
+        Aquí hay un ejemplo de una entrada de color:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form&gt;
+  &lt;label for="favorite-color"&gt;
+    Pick your favorite color:
+  &lt;/label&gt;
+  &lt;input 
+    type="color" 
+    id="favorite-color" 
+    name="favorite-color"
+  &gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">8px 12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">8px 0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">6px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #ccc</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector text-white">input</span><span class="tk-punctuation">[</span>type="color"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">40px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-color-wrap"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-color-wrap form {
+                text-align: center !important;
+                font-family: system-ui, sans-serif !important;
+              }
+
+              .pv-color-wrap label {
+                display: block !important;
+                margin-bottom: 5px !important;
+                font-weight: 600 !important;
+                color: #222 !important;
+              }
+
+              .pv-color-wrap input[type="color"] {
+                width: 60px !important;
+                height: 40px !important;
+                padding: 0 !important;
+                border: 2px solid #555 !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                background: none !important;
+                box-sizing: border-box !important;
+              }
+
+              /* Limpieza para navegadores basados en Webkit */
+              .pv-color-wrap input[type="color"]::-webkit-color-swatch-wrapper {
+                padding: 0 !important;
+              }
+
+              .pv-color-wrap input[type="color"]::-webkit-color-swatch {
+                border: none !important;
+                border-radius: 2px !important;
+              }
+            </style>
+
+            <form onsubmit="return false;">
+              <label for="favorite-color">Pick your favorite color:</label>
+              <input type="color" id="favorite-color" name="favorite-color" value="#1e90ff">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra puede ser la complejidad del pseudoelemento. Consideremos el selector de fecha: hay muchas partes móviles y
+        la compleja estructura del pseudoelemento puede suponer un reto importante a la hora de aplicar el estilo a las
+        áreas correctas.
+      </p>
+      <p>
+        Aquí tenemos un ejemplo de entrada de fecha:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;form&gt;
+  &lt;label for="birthdate"&gt;Select your birthdate:&lt;/label&gt;
+  &lt;input type="date" id="birthdate" name="birthdate"&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">input</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">8px 12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">8px 0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">6px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #ccc</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="date"<span class="tk-punctuation">]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">6px 10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #555</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">14px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">input</span><span class="tk-punctuation">[</span>type="date"<span class="tk-punctuation">]</span><span class="tk-selector">::-webkit-calendar-picker-indicator</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4CAF50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation text-white">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-date-wrap"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9fafb;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-date-wrap form {
+                font-family: 'Segoe UI', system-ui, sans-serif !important;
+                text-align: left !important;
+                width: 80% !important;
+              }
+
+              .pv-date-wrap label {
+                display: block !important;
+                margin-bottom: 4px !important;
+                font-weight: 600 !important;
+                color: #222 !important;
+              }
+
+              .pv-date-wrap input[type="date"] {
+                width: 100% !important;
+                padding: 6px 10px !important;
+                border: 2px solid #555 !important;
+                border-radius: 4px !important;
+                font-size: 14px !important;
+                cursor: pointer !important;
+                box-sizing: border-box !important;
+                background-color: #fff !important;
+              }
+
+              .pv-date-wrap input[type="date"]::-webkit-calendar-picker-indicator {
+                background-color: #4CAF50 !important;
+                padding: 5px !important;
+                border-radius: 4px !important;
+                cursor: pointer !important;
+                filter: invert(1) brightness(100%);
+                /* Hacemos el icono blanco para que resalte */
+              }
+            </style>
+
+            <form onsubmit="return false;">
+              <label for="birthdate">Select your birthdate:</label>
+              <input type="date" id="birthdate" name="birthdate">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por supuesto, con estos elementos complejos, también corres el riesgo de perder accidentalmente funciones
+        importantes al aplicarle estilos manualmente. No solo podrías perder indicadores importantes como el estado de
+        enfoque o el elemento seleccionado, sino que también podrías romper el selector por completo.
+      </p>
+      <p>
+        Por estas razones, muchos desarrolladores confían por completo en bibliotecas JavaScript o componentes
+        personalizados en lugar de utilizar los componentes integrados del navegador.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es uno de los principales retos a la hora de diseñar elementos de entrada especiales como
+            <mark>datetime-local</mark> y <mark>color</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Estos elementos no son compatibles con todos los navegadores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Su funcionalidad depende de pseudoelementos complejos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Requieren JavaScript adicional para funcionar correctamente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            No se les puede aplicar ningún estilo con CSS.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué el CSS escrito para dar estilo a un elemento de entrada especial puede funcionar de manera
+            diferente en distintos navegadores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Los diferentes navegadores utilizan diferentes motores JavaScript.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            El estilo predeterminado depende del navegador.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Algunos navegadores no admiten estos tipos de entrada.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Las propiedades CSS funcionan de manera diferente en cada navegador.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué enfoque adoptan muchos desarrolladores para abordar los retos que plantea el diseño de elementos de
+            entrada complejos?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Evitan por completo el uso de estos tipos de entrada.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Utilizan prefijos CSS específicos del navegador.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            Dependen de bibliotecas JavaScript o componentes personalizados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Utilizan únicamente estilos en línea para estos elementos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

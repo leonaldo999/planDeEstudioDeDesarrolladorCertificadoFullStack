@@ -1,0 +1,207 @@
+/* .form-container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 25px;
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #444;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 60%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+  outline: none;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #888;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+} */
+
+/* CSS 2 */
+/* ============================================
+  Variables del Sistema de Diseño
+============================================ */
+:root {
+  /* Colores */
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-light: rgba(16, 185, 129, 0.2);
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #d1d5db;
+  --color-border-focus: var(--color-primary);
+  --color-bg: #f9fafb;
+  --color-bg-focus: #ffffff;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-focus: 0 0 0 3px var(--color-primary-light);
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Espaciado */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+}
+
+/* ============================================
+  Contenedor del Formulario
+============================================ */
+.form-container {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+
+  /* Transición suave al recibir foco */
+  transition: box-shadow var(--transition-normal);
+}
+
+/* Feedback visual cuando un input tiene foco dentro del container */
+.form-container:focus-within {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+  Etiquetas (Labels)
+============================================ */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ============================================
+  Campos de Entrada (Input & Textarea)
+============================================ */
+input,
+textarea {
+  width: 60%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: white;
+
+  /* Transición combinada y optimizada */
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+/* Placeholder moderno */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Estado: Hover */
+input:hover,
+textarea:hover {
+  border-color: #9ca3af;
+}
+
+/* Estado: Focus (accesible) */
+input:focus,
+textarea:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+  background-color: var(--color-bg-focus);
+}
+
+/* ============================================
+  Botón
+============================================ */
+button {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-normal),
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast);
+}
+
+/* Estado: Hover */
+button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Estado: Active (presión) */
+button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Estado: Focus Visible (accesibilidad teclado) */
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Estado: Disabled */
+button:disabled {
+  background-color: var(--color-text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
