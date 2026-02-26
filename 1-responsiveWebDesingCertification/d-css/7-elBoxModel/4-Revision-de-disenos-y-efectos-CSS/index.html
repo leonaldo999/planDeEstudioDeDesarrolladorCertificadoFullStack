@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de diseños y efectos CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de formularios de estilo</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Overflow</a></li>
+      <li><a href="#tema2">Transform</a></li>
+      <li><a href="#tema3">Box Model</a></li>
+      <li><a href="#tema4">Márgenes</a></li>
+      <li><a href="#tema5">Content-box y Border-box</a></li>
+      <li><a href="#tema6">Reset CSS</a></li>
+      <li><a href="#tema7">Filter</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, revisaremos algunos de los problemas comunes que surgen al aplicar estilos a los diseños y
+        efectos CSS. En particular, nos centraremos en el modelo de caja, el uso de <code>box-sizing: border-box</code>
+        para controlar el tamaño de los elementos y los problemas comunes relacionados con el uso de <code>float</code>
+        para crear diseños.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Propiedad CSS <code>overflow</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: <code>overflow</code> se refiere a la forma en que los elementos manejan el
+            contenido que
+            excede, o «rebosa», el tamaño del elemento que lo contiene. El <code>overflow</code> es bidimensional.
+          </li>
+          <li>
+            <strong><code>overflow-x</code></strong>: el eje x determina el desbordamiento horizontal.
+          </li>
+          <li>
+            <strong><code>overflow-y</code></strong>: el eje y determina el desbordamiento vertical.
+          </li>
+          <li>
+            <strong><code>overflow</code></strong>: propiedad abreviada para <code>overflow-x</code> y
+            <code>overflow-y</code>. Si se le asigna un valor, ambos desbordamientos lo utilizarán. Si se le asignan dos
+            valores, <code>overflow-x</code> utilizará el primero y <code>overflow-y</code> utilizará el segundo.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="overflow-box"&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+  &lt;br /&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+  &lt;br /&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+  &lt;br /&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+  &lt;br /&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+  &lt;br /&gt;
+  This is very long content that 
+  will overflow horizontally and vertically.
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.overflow-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">140px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">70px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid black</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">overflow-x</span><span class="tk-punctuation">:</span> <span class="tk-value">auto</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">overflow-y</span><span class="tk-punctuation">:</span> <span class="tk-value">auto</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">white-space</span><span class="tk-punctuation">:</span> <span class="tk-value">nowrap</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-overflow-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f9f9f9; padding: 20px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-overflow-canvas .overflow-box {
+                width: 140px !important;
+                height: 70px !important;
+                border: 2px solid black !important;
+                overflow-x: auto !important;
+                overflow-y: auto !important;
+                white-space: nowrap !important;
+                background-color: white !important;
+                font-family: sans-serif !important;
+                font-size: 14px !important;
+                padding: 5px !important;
+              }
+            </style>
+
+            <div class="overflow-box">
+              This is very long content that will overflow horizontally and vertically.
+              <br />
+              This is very long content that will overflow horizontally and vertically.
+              <br />
+              This is very long content that will overflow horizontally and vertically.
+              <br />
+              This is very long content that will overflow horizontally and vertically.
+              <br />
+              This is very long content that will overflow horizontally and vertically.
+              <br />
+              This is very long content that will overflow horizontally and vertically.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Propiedad CSS <code>Transform</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: esta propiedad le permite aplicar diversas transformaciones a los elementos,
+            como rotarlos, escalarlos, inclinarlos o trasladarlos (moverlos) en un espacio 2D o 3D.
+          </li>
+          <li>
+            <strong>Función <code>translate()</code></strong>: esta función se utiliza para mover un elemento desde su
+            posición actual.
+          </li>
+          <li>
+            <strong>Función <code>scale()</code></strong>: esta función le permite cambiar el tamaño de un elemento.
+          </li>
+          <li>
+            <strong>Función <code>rotate()</code></strong>: esta función le permite rotar un elemento.
+          </li>
+          <li>
+            <strong>Función <code>skew()</code></strong>: esta función permite sesgar un elemento.
+          </li>
+          <li>
+            <strong>Transformaciones y accesibilidad</strong>: si utiliza transform para ocultar o revelar contenido,
+            asegúrese de que el contenido siga siendo accesible para los lectores de pantalla y la navegación por
+            teclado. El contenido oculto debe estar realmente oculto, por ejemplo, utilizando <code>display: none</code>
+            o <code>visibility: hidden</code>, en lugar de simplemente moverlo fuera de la pantalla.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="container"&gt;
+  &lt;div class="transform-box translate"&gt;Translate&lt;/div&gt;
+  &lt;div class="transform-box scale"&gt;Scale&lt;/div&gt;
+  &lt;div class="transform-box rotate"&gt;Rotate&lt;/div&gt;
+  &lt;div class="transform-box skew"&gt;Skew&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">column</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">16px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-wrap</span><span class="tk-punctuation">:</span> <span class="tk-value">wrap</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.transform-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">coral</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* translate() */</span>
+<span class="tk-selector">.translate</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">translateX(20px)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* scale() */</span>
+<span class="tk-selector">.scale</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">scale(1.2)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* rotate() */</span>
+<span class="tk-selector">.rotate</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">rotate(15deg)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* skew() */</span>
+<span class="tk-selector">.skew</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">skew(10deg, 5deg)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-transform-exact-canvas"
+            style="height: 100%; overflow-y: auto; background-color: #ffffff; padding: 30px 10px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-transform-exact-canvas .container {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 16px !important;
+                flex-wrap: wrap !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-transform-exact-canvas .transform-box {
+                width: 100px !important;
+                height: 100px !important;
+                background: coral !important;
+                color: white !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-weight: bold !important;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              .pv-transform-exact-canvas .translate {
+                transform: translateX(20px) !important;
+              }
+
+              .pv-transform-exact-canvas .scale {
+                transform: scale(1.2) !important;
+              }
+
+              .pv-transform-exact-canvas .rotate {
+                transform: rotate(15deg) !important;
+              }
+
+              .pv-transform-exact-canvas .skew {
+                transform: skew(10deg, 5deg) !important;
+              }
+            </style>
+
+            <div class="container">
+              <div class="transform-box translate">Translate</div>
+              <div class="transform-box scale">Scale</div>
+              <div class="transform-box rotate">Rotate</div>
+              <div class="transform-box skew">Skew</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>El Box Model</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: En el Box Model CSS, cada elemento está rodeado por una caja. Esta caja consta
+            de cuatro componentes: el área de <code>content</code>, el <code>padding</code>, el <code>border</code> y el
+            <code>margin</code>.
+          </li>
+          <li>
+            <strong>Área de contenido</strong>: El área de contenido es la parte más interna de la caja. Es el espacio
+            que contiene el contenido real de un elemento, como texto o imágenes.
+          </li>
+          <li>
+            <strong>Paddinig</strong>: el <code>padding</code> es el área inmediatamente posterior al área de contenido.
+            Es el espacio entre el área de contenido y el borde de un elemento.
+          </li>
+          <li>
+            <strong>Border</strong>: el <code>border</code> es el borde exterior o contorno de un elemento en el Box
+            Model CSS. Es el límite visual del elemento.
+          </li>
+          <li>
+            <strong>Margin</strong>: el <code>margin</code> es el espacio fuera del borde de un elemento. Determina la
+            distancia
+            entre un elemento y otros elementos a su alrededor.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="box-model"&gt;Content&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.box-model</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">120px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">16px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">4px solid teal</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-box-model-canvas"
+            style="height: 100%; display: flex; align-items: flex-start; justify-content: flex-start; background-color: #ffffff; padding: 10px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-box-model-canvas .box-model {
+                width: 120px !important;
+                background: lightblue !important;
+                padding: 16px !important;
+                border: 4px solid teal !important;
+                margin: 20px !important;
+                text-align: center !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                color: #333 !important;
+                box-sizing: content-box !important;
+              }
+            </style>
+
+            <div class="box-model">Content</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Colapso de márgenes</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: este comportamiento se produce cuando los márgenes verticales de elementos
+            adyacentes se superponen, lo que da como resultado un único margen igual al mayor de los dos. Este
+            comportamiento solo se aplica a los márgenes verticales (superior e inferior), no a los márgenes
+            horizontales (izquierdo y derecho).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema5">
+      <h2>Los valores de las propiedades <code>content-box</code> y <code>border-box</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Propiedad <code>box-sizing</code></strong>: esta propiedad se utiliza para determinar cómo se
+            calculan el <code>width</code> y el <code>height</code> finales de un elemento HTML.
+          </li>
+          <li>
+            <strong>Valor <code>content-box</code></strong>: en el modelo <code>content-box</code>, el
+            <code>width</code> y el <code>height</code> que se establecen para un elemento determinan las dimensiones
+            del <code>content</code>, pero no incluyen el <code>padding</code>, el <code>border</code> ni el
+            <code>margin</code>.
+          </li>
+          <li>
+            <strong>Valor <code>border-box</code></strong>: con <code>border-box</code>, el <code>width</code> y el
+            <code>height</code> de un elemento incluyen el <code>content</code>, el <code>padding</code> y el
+            <code>border</code>, pero no incluyen el <code>margin</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="sizing-box content-box"&gt;Content-box&lt;/div&gt;
+&lt;div class="sizing-box border-box"&gt;Border-box&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.sizing-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">150px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">4px solid teal</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">peachpuff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.content-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">box-sizing</span><span class="tk-punctuation">:</span> <span class="tk-value">content-box</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.border-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">box-sizing</span><span class="tk-punctuation">:</span> <span class="tk-value">border-box</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgreen</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-sizing-comparison-final"
+            style="height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; background-color: #ffffff; padding: 20px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-sizing-comparison-final .sizing-box {
+                width: 150px !important;
+                padding: 10px !important;
+                border: 4px solid teal !important;
+                margin-bottom: 10px !important;
+                background: peachpuff !important;
+                text-align: center !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                color: #333 !important;
+              }
+
+              .pv-sizing-comparison-final .content-box {
+                box-sizing: content-box !important;
+              }
+
+              .pv-sizing-comparison-final .border-box {
+                box-sizing: border-box !important;
+                background: lightgreen !important;
+              }
+            </style>
+
+            <div class="sizing-box content-box">Content-box</div>
+            <div class="sizing-box border-box">Border-box</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+      <h2>Restablecimiento de CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Un restablecimiento de CSS es una hoja de estilos que elimina todo o parte del
+            formato predeterminado que los navegadores web aplican a los elementos HTML. Entre las opciones de terceros
+            para el restablecimiento de CSS se incluyen <code>sanitize.css</code> y <code>normalize.css</code>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema7">
+      <h2>Propiedad CSS Filter</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: esta propiedad se puede utilizar para crear diversos efectos, como desenfoque,
+            cambio de color y ajuste de contraste.
+          </li>
+          <li>
+            <strong>Función <code>blur()</code></strong>: esta función aplica un desenfoque gaussiano al elemento. La
+            cantidad se define en píxeles y representa el radio del desenfoque.
+          </li>
+          <li>
+            <strong>Función <code>brightness()</code></strong>: esta función ajusta el brillo del elemento. Un valor del
+            0 % hará que el elemento sea completamente negro, mientras que los valores superiores al 100 % aumentarán el
+            brillo.
+          </li>
+          <li>
+            <strong>Función <code>contrast()</code></strong>: esta función ajusta el contraste del elemento. Un valor
+            del 0 % hará que el elemento sea completamente gris, el 100 % hará que el elemento se vea normalmente y los
+            valores superiores al 100 % aumentarán el contraste.
+          </li>
+          <li>
+            <strong>Función <code>grayscale()</code></strong>: esta función convierte el elemento a escala de grises. La
+            cantidad se define como un porcentaje, donde el 100 % es completamente escala de grises y el 0 % deja la
+            imagen sin cambios.
+          </li>
+          <li>
+            <strong>Función <code>sepia()</code></strong>: esta función aplica un tono sepia al elemento. Al igual que
+            grayscale, utiliza un valor porcentual.
+          </li>
+          <li>
+            <strong>Función <code>hue-rotate()</code></strong>: esta función aplica una rotación de tono al elemento. El
+            valor se define en grados y representa una rotación alrededor del círculo cromático.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="container"&gt;
+  &lt;img class="filter blur" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Blur" /&gt;
+  &lt;img class="filter brightness" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Brightness" /&gt;
+  &lt;img class="filter contrast" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Contrast" /&gt;
+  &lt;img class="filter grayscale" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Grayscale" /&gt;
+  &lt;img class="filter sepia" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Sepia" /&gt;
+  &lt;img class="filter hue" 
+    src="https://cdn.freecodecamp.org/
+curriculum/cat-photo-app/relaxing-cat.jpg" 
+    alt="Hue Rotate" /&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-wrap</span><span class="tk-punctuation">:</span> <span class="tk-value">wrap</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.filter</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">120px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* blur() */</span>
+<span class="tk-selector">.blur</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">blur(3px)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* brightness() */</span>
+<span class="tk-selector">.brightness</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">brightness(130%)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* contrast() */</span>
+<span class="tk-selector">.contrast</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">contrast(150%)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* grayscale() */</span>
+<span class="tk-selector">.grayscale</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">grayscale(100%)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* sepia() */</span>
+<span class="tk-selector">.sepia</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">sepia(100%)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* hue-rotate() */</span>
+<span class="tk-selector">.hue</span> <span class="tk-punctuation">{</span> <span class="tk-property">filter</span><span class="tk-punctuation">:</span> <span class="tk-value">hue-rotate(90deg)</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-filter-gallery-canvas"
+            style="height: 100%; overflow-y: auto; background-color: #ffffff; padding: 15px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-filter-gallery-canvas .container {
+                display: flex !important;
+                gap: 12px !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+              }
+
+              .pv-filter-gallery-canvas .filter {
+                width: 120px !important;
+                height: auto !important;
+                border-radius: 4px !important;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              .pv-filter-gallery-canvas .blur {
+                filter: blur(3px) !important;
+              }
+
+              .pv-filter-gallery-canvas .brightness {
+                filter: brightness(130%) !important;
+              }
+
+              .pv-filter-gallery-canvas .contrast {
+                filter: contrast(150%) !important;
+              }
+
+              .pv-filter-gallery-canvas .grayscale {
+                filter: grayscale(100%) !important;
+              }
+
+              .pv-filter-gallery-canvas .sepia {
+                filter: sepia(100%) !important;
+              }
+
+              .pv-filter-gallery-canvas .hue {
+                filter: hue-rotate(90deg) !important;
+              }
+            </style>
+
+            <div class="container">
+              <img class="filter blur" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="Blur" />
+              <img class="filter brightness"
+                src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Brightness" />
+              <img class="filter contrast" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="Contrast" />
+              <img class="filter grayscale" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="Grayscale" />
+              <img class="filter sepia" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="Sepia" />
+              <img class="filter hue" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="Hue Rotate" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
