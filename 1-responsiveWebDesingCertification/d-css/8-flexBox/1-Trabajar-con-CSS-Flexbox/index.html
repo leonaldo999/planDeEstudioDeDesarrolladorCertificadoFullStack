@@ -1,0 +1,3389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En este proyecto, se trabajará con CSS Flexbox para crear un diseño de página web que se adapte a diferentes tamaños de pantalla. Se utilizarán las propiedades de Flexbox para organizar y alinear los elementos de la página de manera eficiente.">
+  <meta name="keywords" content="CSS Flexbox, diseño web, responsive design, flexbox properties, web development">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con CSS Flexbox">
+  <meta property="og:description"
+    content="En este proyecto, se trabajará con CSS Flexbox para crear un diseño de página web que se adapte a diferentes tamaños de pantalla. Se utilizarán las propiedades de Flexbox para organizar y alinear los elementos de la página de manera eficiente.">
+  <meta property="og:image" content="./img/cssIcon.png">
+  <meta property="og:type" content="website">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con CSS Flexbox</title>
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajar con CSS Flexbox</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En este proyecto, se trabajará con CSS Flexbox para crear un diseño de página web que se adapte a diferentes
+        tamaños de pantalla. Se utilizarán las propiedades de Flexbox para organizar y alinear los elementos de la
+        página de manera eficiente.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es CSS Flexbox y cuándo se debe utilizar?</h2>
+
+      <p>
+        CSS Flexbox es un modelo de diseño unidimensional que permite organizar elementos en filas y columnas dentro de
+        un contenedor. También permite controlar su orden y orientación. Los desarrolladores web lo utilizan para crear
+        sitios web y aplicaciones web adaptables que se ajustan a diferentes tamaños y orientaciones de pantalla. Nos
+        referimos a Flexbox como un modelo de diseño unidimensional porque se centra en organizar elementos a lo largo
+        de un solo eje a la vez. El eje puede ser horizontal o vertical.
+      </p>
+      <p>
+        Hay dos conceptos clave que debes conocer antes de empezar a trabajar con Flexbox: contenedor flexible y
+        elemento flexible.
+      </p>
+      <p>
+        Un contenedor flexible es un elemento HTML con un diseño flexible. Puedes organizar y alinear elementos de
+        diversas formas dentro de un contenedor flexible. Para convertir un elemento HTML en un contenedor flexible,
+        debes añadir <mark>display: flex</mark> a sus estilos CSS.
+      </p>
+      <p>
+        Los elementos flexibles son los hijos directos de un contenedor flexible. Estos elementos se pueden organizar y
+        alinear dentro de un contenedor flexible en función de sus propiedades. También pueden reducirse o expandirse
+        para adaptarse al espacio disponible.
+      </p>
+      <p>
+        Este es un ejemplo con un contenedor <mark>main</mark> y tres elementos <mark>div</mark> secundarios:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f0f0f0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#e74c3c</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#2ecc71</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flexbox-intro-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #ddd;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flexbox-intro-canvas main {
+                display: flex !important;
+                gap: 10px !important;
+                padding: 10px !important;
+                background-color: #f0f0f0 !important;
+                border: 2px dashed #999 !important;
+                width: 90% !important;
+              }
+
+              .pv-flexbox-intro-canvas div {
+                width: 60px !important;
+                height: 60px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-weight: bold !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-flexbox-intro-canvas #first-div1 {
+                background-color: #e74c3c !important;
+              }
+
+              .pv-flexbox-intro-canvas #first-div1::after {
+                content: '1';
+              }
+
+              .pv-flexbox-intro-canvas #second-div1 {
+                background-color: #2ecc71 !important;
+              }
+
+              .pv-flexbox-intro-canvas #second-div1::after {
+                content: '2';
+              }
+
+              .pv-flexbox-intro-canvas #third-div1 {
+                background-color: #3498db !important;
+              }
+
+              .pv-flexbox-intro-canvas #third-div1::after {
+                content: '3';
+              }
+            </style>
+
+            <main>
+              <div id="first-div1"></div>
+              <div id="second-div1"></div>
+              <div id="third-div1"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si solo se establece el <mark>width</mark>, el <mark>height</mark> y el color de fondo de estos elementos
+        <mark>div</mark> en la hoja de estilos CSS, cada elemento secundario se colocará en su propia fila, ya que el
+        contenedor no es flexible por defecto.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-activation-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-activation-canvas main {
+                border: 2px dashed #bbb !important;
+                padding: 10px !important;
+                background: white !important;
+              }
+
+              .pv-flex-activation-canvas div {
+                width: 80px !important;
+                height: 50px !important;
+                margin-bottom: 2px !important;
+              }
+
+              .pv-flex-activation-canvas #first-div2 {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-activation-canvas #second-div2 {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-activation-canvas #third-div2 {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main>
+              <div id="first-div2"></div>
+              <div id="second-div2"></div>
+              <div id="third-div2"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Pero si agregas <mark>display: flex</mark> al contenedor <mark>main</mark>, los elementos <mark>div</mark> se
+        reorganizarán
+        para ajustarse a la misma
+        fila y se reducirán si es necesario (para ver las vistas previas, activa el editor interactivo):
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-row-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f0f2f5;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-row-canvas .conten {
+                display: flex !important;
+                background-color: white !important;
+                border: 2px solid #ddd !important;
+                padding: 10px !important;
+                width: 90% !important;
+              }
+
+              .pv-flex-row-canvas .div-con {
+                width: 80px !important;
+                height: 50px !important;
+              }
+
+              .pv-flex-row-canvas #first-div3 {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-row-canvas #second-div3 {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-row-canvas #third-div3 {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="conten">
+              <div class="div-con" id="first-div3"></div>
+              <div class="div-con" id="second-div3"></div>
+              <div class="div-con" id="third-div3"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por defecto, un contenedor flexible será un elemento de nivel de bloque, por lo que el contenedor en sí mismo
+        estará en su propia fila en relación con otros elementos y contenedores.
+      </p>
+      <p>
+        Ahora que sabes más sobre los contenedores flexibles y los elementos flexibles, también debes conocer las
+        propiedades flexibles. Estas propiedades determinan cómo se organizarán, redimensionarán y distribuirán los
+        elementos flexibles dentro del contenedor flexible. Algunas de las más utilizadas son
+        <mark>flex-direction</mark>,
+        <mark>justify-content</mark>, <mark>align-items</mark> y <mark>flex-wrap</mark>.
+      </p>
+      <p>
+        Genial. Ahora hablemos un poco sobre el modelo flexible. Este modelo define cómo se organizan los elementos
+        flexibles dentro de un contenedor flexible. Cada contenedor flexible tiene dos ejes:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            El eje principal.
+          </li>
+          <li class="list">
+            El eje transversal.
+          </li>
+        </ul>
+      </div>
+
+      <div class="img-sec">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640"
+          font-family="Georgia, 'Times New Roman', serif">
+          <defs>
+            <!-- Background gradient -->
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#0d1117" />
+              <stop offset="100%" style="stop-color:#161b27" />
+            </linearGradient>
+
+            <!-- Item gradient -->
+            <linearGradient id="itemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#e879f9" />
+              <stop offset="100%" style="stop-color:#ec4899" />
+            </linearGradient>
+
+            <!-- Container stroke gradient -->
+            <linearGradient id="containerStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#6366f1" />
+              <stop offset="100%" style="stop-color:#8b5cf6" />
+            </linearGradient>
+
+            <!-- Badge gradient green -->
+            <linearGradient id="greenBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+              <stop offset="100%" style="stop-color:#059669;stop-opacity:0.1" />
+            </linearGradient>
+
+            <!-- Badge gradient amber -->
+            <linearGradient id="amberBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.2" />
+              <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.1" />
+            </linearGradient>
+
+            <!-- Card gradient -->
+            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#1e2a3a" />
+              <stop offset="100%" style="stop-color:#162030" />
+            </linearGradient>
+
+            <!-- Glow filter -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- Shadow filter -->
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4" />
+            </filter>
+
+            <!-- Item glow -->
+            <filter id="itemGlow">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- Arrow markers -->
+            <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#10b981" />
+            </marker>
+            <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#f59e0b" />
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="900" height="640" fill="url(#bg)" />
+
+          <!-- Subtle grid lines -->
+          <g opacity="0.04" stroke="#6366f1" stroke-width="1">
+            <line x1="0" y1="80" x2="900" y2="80" />
+            <line x1="0" y1="400" x2="900" y2="400" />
+            <line x1="0" y1="480" x2="900" y2="480" />
+            <line x1="0" y1="560" x2="900" y2="560" />
+          </g>
+
+          <!-- Header area -->
+          <rect x="0" y="0" width="900" height="72" fill="#0a0e16" opacity="0.6" />
+          <line x1="0" y1="72" x2="900" y2="72" stroke="#6366f1" stroke-width="1" opacity="0.4" />
+
+          <!-- Title -->
+          <text x="450" y="30" font-size="11" font-weight="bold" fill="#6366f1" text-anchor="middle" letter-spacing="4"
+            opacity="0.9" font-family="'Courier New', monospace">CSS LAYOUT</text>
+          <text x="450" y="58" font-size="26" font-weight="bold" fill="#f1f5f9" text-anchor="middle"
+            letter-spacing="1">Modelo de Cajas Flexibles</text>
+
+          <!-- Tag -->
+          <rect x="738" y="22" width="90" height="24" rx="12" fill="#6366f1" opacity="0.2" stroke="#6366f1"
+            stroke-width="1" opacity="0.5" />
+          <text x="783" y="38" font-size="10" fill="#a5b4fc" text-anchor="middle" font-family="'Courier New', monospace"
+            letter-spacing="1">Flexbox</text>
+
+          <!-- ===== MAIN DIAGRAM AREA ===== -->
+          <!-- Container outer box with label -->
+          <rect x="60" y="100" width="600" height="240" rx="12" fill="#111827" stroke="#6366f1" stroke-width="2"
+            stroke-dasharray="10,5" opacity="0.85" />
+
+          <!-- Container label badge -->
+          <rect x="60" y="88" width="220" height="22" rx="6" fill="#6366f1" opacity="0.15" stroke="#6366f1"
+            stroke-width="1" stroke-opacity="0.5" />
+          <text x="74" y="103" font-size="11" fill="#a5b4fc" font-family="'Courier New', monospace"
+            letter-spacing="0.5">display: flex / flex-container</text>
+
+          <!-- Flex items -->
+          <!-- Item 1 -->
+          <rect x="90" y="135" width="100" height="80" rx="10" fill="url(#itemGrad)" filter="url(#itemGlow)"
+            opacity="0.95" />
+          <text x="140" y="182" font-size="28" font-weight="bold" fill="white" text-anchor="middle"
+            opacity="0.9">1</text>
+
+          <!-- Item 2 -->
+          <rect x="210" y="135" width="100" height="80" rx="10" fill="url(#itemGrad)" filter="url(#itemGlow)"
+            opacity="0.95" />
+          <text x="260" y="182" font-size="28" font-weight="bold" fill="white" text-anchor="middle"
+            opacity="0.9">2</text>
+
+          <!-- Item 3 -->
+          <rect x="330" y="135" width="100" height="80" rx="10" fill="url(#itemGrad)" filter="url(#itemGlow)"
+            opacity="0.95" />
+          <text x="380" y="182" font-size="28" font-weight="bold" fill="white" text-anchor="middle"
+            opacity="0.9">3</text>
+
+          <!-- Item 4 -->
+          <rect x="450" y="135" width="100" height="80" rx="10" fill="url(#itemGrad)" filter="url(#itemGlow)"
+            opacity="0.95" />
+          <text x="500" y="182" font-size="28" font-weight="bold" fill="white" text-anchor="middle"
+            opacity="0.9">4</text>
+
+          <!-- flex-item label -->
+          <rect x="215" y="248" width="130" height="20" rx="5" fill="#ec4899" opacity="0.15" stroke="#ec4899"
+            stroke-width="1" stroke-opacity="0.4" />
+          <text x="280" y="262" font-size="10" fill="#f9a8d4" text-anchor="middle"
+            font-family="'Courier New', monospace" letter-spacing="0.5">flex-items</text>
+
+          <!-- ===== MAIN AXIS ===== -->
+          <!-- Main axis line -->
+          <line x1="60" y1="296" x2="660" y2="296" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3"
+            opacity="0.6" />
+          <line x1="60" y1="296" x2="655" y2="296" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"
+            filter="url(#glow)" opacity="0.9" />
+
+          <!-- Main axis badge -->
+          <rect x="200" y="302" width="260" height="28" rx="8" fill="url(#greenBadge)" stroke="#10b981" stroke-width="1"
+            stroke-opacity="0.5" />
+          <text x="330" y="320" font-size="12" fill="#34d399" text-anchor="middle"
+            font-family="'Courier New', monospace">→ Eje Principal (main axis)</text>
+
+          <!-- main-start / main-end labels -->
+          <text x="58" y="292" font-size="10" fill="#6ee7b7" text-anchor="end" opacity="0.8">main‑start</text>
+          <text x="670" y="292" font-size="10" fill="#6ee7b7" text-anchor="start" opacity="0.8">main‑end</text>
+
+          <!-- ===== CROSS AXIS ===== -->
+          <!-- Cross axis line -->
+          <line x1="750" y1="340" x2="750" y2="100" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"
+            opacity="0.6" />
+          <line x1="750" y1="340" x2="750" y2="105" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrowAmber)"
+            filter="url(#glow)" opacity="0.9" />
+
+          <!-- Cross axis badge -->
+          <g transform="rotate(-90, 820, 220)">
+            <rect x="710" y="206" width="220" height="28" rx="" fill="url(#amberBadge)" stroke="#f59e0b"
+              stroke-width="1" stroke-opacity="0.5" />
+            <text x="820" y="224" font-size="12" fill="#fcd34d" text-anchor="middle"
+              font-family="'Courier New', monospace">Eje Transversal (cross axis)</text>
+          </g>
+
+          <!-- cross-start / cross-end -->
+          <text x="704" y="100" font-size="10" fill="#fde68a" opacity="0.8">cross‑start</text>
+          <text x="704" y="352" font-size="10" fill="#fde68a" opacity="0.8">cross‑end</text>
+
+          <!-- ===== PROPERTIES SECTION ===== -->
+          <text x="60" y="400" font-size="11" fill="#64748b" letter-spacing="3"
+            font-family="'Courier New', monospace">PROPIEDADES DEL CONTENEDOR</text>
+          <line x1="60" y1="407" x2="840" y2="407" stroke="#1e293b" stroke-width="2" />
+
+          <!-- Property cards - 4 columns -->
+
+          <!-- Card 1: flex-direction -->
+          <rect x="60" y="418" width="185" height="76" rx="10" fill="url(#cardGrad)" stroke="#334155"
+            stroke-width="1.5" />
+          <rect x="60" y="418" width="185" height="4" rx="2" fill="#6366f1" />
+          <text x="75" y="444" font-size="12" fill="#a5b4fc" font-family="'Courier New', monospace"
+            font-weight="bold">flex-direction</text>
+          <text x="75" y="462" font-size="11" fill="#475569">Dirección del eje principal</text>
+          <rect x="75" y="472" width="70" height="14" rx="4" fill="#1e293b" />
+          <text x="110" y="482" font-size="9" fill="#818cf8" text-anchor="middle"
+            font-family="'Courier New', monospace">row</text>
+          <rect x="152" y="472" width="75" height="14" rx="4" fill="#1e293b" />
+          <text x="189" y="482" font-size="9" fill="#818cf8" text-anchor="middle"
+            font-family="'Courier New', monospace">column</text>
+
+          <!-- Card 2: justify-content -->
+          <rect x="260" y="418" width="185" height="76" rx="10" fill="url(#cardGrad)" stroke="#334155"
+            stroke-width="1.5" />
+          <rect x="260" y="418" width="185" height="4" rx="2" fill="#10b981" />
+          <text x="275" y="444" font-size="12" fill="#6ee7b7" font-family="'Courier New', monospace"
+            font-weight="bold">justify-content</text>
+          <text x="275" y="462" font-size="11" fill="#475569">Alineación en eje principal</text>
+          <rect x="275" y="472" width="65" height="14" rx="4" fill="#1e293b" />
+          <text x="307" y="482" font-size="9" fill="#34d399" text-anchor="middle"
+            font-family="'Courier New', monospace">flex-start</text>
+          <rect x="347" y="472" width="80" height="14" rx="4" fill="#1e293b" />
+          <text x="387" y="482" font-size="9" fill="#34d399" text-anchor="middle"
+            font-family="'Courier New', monospace">space-between</text>
+
+          <!-- Card 3: align-items -->
+          <rect x="460" y="418" width="185" height="76" rx="10" fill="url(#cardGrad)" stroke="#334155"
+            stroke-width="1.5" />
+          <rect x="460" y="418" width="185" height="4" rx="2" fill="#f59e0b" />
+          <text x="475" y="444" font-size="12" fill="#fcd34d" font-family="'Courier New', monospace"
+            font-weight="bold">align-items</text>
+          <text x="475" y="462" font-size="11" fill="#475569">Alineación en eje transversal</text>
+          <rect x="475" y="472" width="65" height="14" rx="4" fill="#1e293b" />
+          <text x="507" y="482" font-size="9" fill="#fbbf24" text-anchor="middle"
+            font-family="'Courier New', monospace">center</text>
+          <rect x="547" y="472" width="80" height="14" rx="4" fill="#1e293b" />
+          <text x="587" y="482" font-size="9" fill="#fbbf24" text-anchor="middle"
+            font-family="'Courier New', monospace">stretch</text>
+
+          <!-- Card 4: flex-wrap -->
+          <rect x="660" y="418" width="185" height="76" rx="10" fill="url(#cardGrad)" stroke="#334155"
+            stroke-width="1.5" />
+          <rect x="660" y="418" width="185" height="4" rx="2" fill="#ec4899" />
+          <text x="675" y="444" font-size="12" fill="#f9a8d4" font-family="'Courier New', monospace"
+            font-weight="bold">flex-wrap</text>
+          <text x="675" y="462" font-size="11" fill="#475569">Ajuste de líneas</text>
+          <rect x="675" y="472" width="65" height="14" rx="4" fill="#1e293b" />
+          <text x="707" y="482" font-size="9" fill="#f472b6" text-anchor="middle"
+            font-family="'Courier New', monospace">nowrap</text>
+          <rect x="747" y="472" width="70" height="14" rx="4" fill="#1e293b" />
+          <text x="782" y="482" font-size="9" fill="#f472b6" text-anchor="middle"
+            font-family="'Courier New', monospace">wrap</text>
+
+          <!-- ===== ITEM PROPERTIES ===== -->
+          <text x="60" y="524" font-size="11" fill="#64748b" letter-spacing="3"
+            font-family="'Courier New', monospace">PROPIEDADES DEL ELEMENTO</text>
+          <line x1="60" y1="531" x2="840" y2="531" stroke="#1e293b" stroke-width="2" />
+
+          <!-- Item prop cards -->
+          <!-- flex-grow -->
+          <rect x="60" y="542" width="175" height="60" rx="10" fill="#0f1a2a" stroke="#1e3a5f" stroke-width="1.5" />
+          <text x="75" y="563" font-size="12" fill="#93c5fd" font-family="'Courier New', monospace">flex-grow</text>
+          <text x="75" y="580" font-size="10" fill="#475569">Expansión disponible</text>
+          <rect x="75" y="587" width="50" height="10" rx="3" fill="#1e3a5f" opacity="0.8" />
+          <rect x="75" y="587" width="30" height="10" rx="3" fill="#3b82f6" opacity="0.5" />
+
+          <!-- flex-shrink -->
+          <rect x="248" y="542" width="175" height="60" rx="10" fill="#0f1a2a" stroke="#1e3a5f" stroke-width="1.5" />
+          <text x="263" y="563" font-size="12" fill="#93c5fd" font-family="'Courier New', monospace">flex-shrink</text>
+          <text x="263" y="580" font-size="10" fill="#475569">Factor de contracción</text>
+          <rect x="263" y="587" width="50" height="10" rx="3" fill="#1e3a5f" opacity="0.8" />
+          <rect x="263" y="587" width="20" height="10" rx="3" fill="#3b82f6" opacity="0.5" />
+
+          <!-- flex-basis -->
+          <rect x="436" y="542" width="175" height="60" rx="10" fill="#0f1a2a" stroke="#1e3a5f" stroke-width="1.5" />
+          <text x="451" y="563" font-size="12" fill="#93c5fd" font-family="'Courier New', monospace">flex-basis</text>
+          <text x="451" y="580" font-size="10" fill="#475569">Tamaño base del elemento</text>
+          <text x="451" y="596" font-size="9" fill="#60a5fa" font-family="'Courier New', monospace">auto | 0 |
+            200px</text>
+
+          <!-- align-self -->
+          <rect x="624" y="542" width="220" height="60" rx="10" fill="#0f1a2a" stroke="#1e3a5f" stroke-width="1.5" />
+          <text x="639" y="563" font-size="12" fill="#93c5fd" font-family="'Courier New', monospace">align-self</text>
+          <text x="639" y="580" font-size="10" fill="#475569">Anula align-items individualmente</text>
+          <text x="639" y="596" font-size="9" fill="#60a5fa" font-family="'Courier New', monospace">auto | center |
+            flex-end</text>
+
+          <!-- Footer -->
+          <line x1="0" y1="622" x2="900" y2="622" stroke="#1e293b" stroke-width="1" />
+          <text x="450" y="635" font-size="10" fill="#334155" text-anchor="middle"
+            font-family="'Courier New', monospace" letter-spacing="2">CSS FLEXIBLE BOX LAYOUT MODULE — W3C
+            STANDARD</text>
+        </svg>
+      </div>
+
+      <p>
+        La orientación de estos ejes determina cómo las diferentes propiedades afectarán al diseño y la distribución de
+        los elementos flexibles. Por defecto, el eje principal de un contenedor flexible es horizontal y el eje
+        transversal es vertical. Los elementos flexibles se organizan en la dirección del eje principal. El eje
+        transversal es perpendicular al eje principal.
+      </p>
+      <p>
+        La propiedad <mark>flex-direction</mark> establece la dirección del eje principal. El valor predeterminado de
+        <mark>flex-direction</mark>
+        es <mark>row</mark>, que coloca todos los elementos flexibles en la misma fila, en la dirección del idioma
+        predeterminado de
+        tu navegador (de izquierda a derecha o de derecha a izquierda):
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-property">flex-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">row</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Default */</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-direction-row-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #ffffff; padding: 20px;">
+            <style>
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-flex-direction-row-canvas .flex-container {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 15px !important;
+                background: #f8f9fa !important;
+                padding: 20px !important;
+                border: 2px solid #ddd !important;
+                width: 90% !important;
+              }
+
+              .pv-flex-direction-row-canvas .item {
+                width: 60px !important;
+                height: 60px !important;
+                background-color: #4d70b2 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-weight: bold !important;
+                font-family: sans-serif !important;
+              }
+            </style>
+
+            <div class="flex-container">
+              <div class="item">1</div>
+              <div class="item">2</div>
+              <div class="item">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para invertir los elementos de la fila, puede utilizar <mark>flex-direction: row-reverse</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">row-reverse</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-row-reverse-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f4f4f9;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-row-reverse-canvas .main4 {
+                display: flex !important;
+                flex-direction: row-reverse !important;
+                background-color: white !important;
+                border: 2px solid #ccc !important;
+                padding: 10px !important;
+                width: 90% !important;
+              }
+
+              .pv-flex-row-reverse-canvas .div4 {
+                width: 80px !important;
+                height: 50px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+              }
+
+              .pv-flex-row-reverse-canvas #first-div4 {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-row-reverse-canvas #first-div4::after {
+                content: '1';
+              }
+
+              .pv-flex-row-reverse-canvas #second-div4 {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-row-reverse-canvas #second-div4::after {
+                content: '2';
+              }
+
+              .pv-flex-row-reverse-canvas #third-div4 {
+                background-color: #4da3b2 !important;
+              }
+
+              .pv-flex-row-reverse-canvas #third-div4::after {
+                content: '3';
+              }
+            </style>
+
+            <main class="main4">
+              <div class="div4" id="first-div4"></div>
+              <div class="div4" id="second-div4"></div>
+              <div class="div4" id="third-div4"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto invertirá el orden de los elementos flexibles. Si desea alinear los elementos flexibles verticalmente, solo
+        tiene que establecer <mark>flex-direction</mark> en <mark>column</mark> en el contenedor flexible. Esto cambiará
+        la dirección del eje principal:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">column</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-column-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f0f2f5;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-column-canvas main5 {
+                display: flex !important;
+                flex-direction: column !important;
+                background-color: white !important;
+                border: 2px solid #ddd !important;
+                padding: 15px !important;
+              }
+
+              .pv-flex-column-canvas .div5 {
+                width: 80px !important;
+                height: 50px !important;
+              }
+
+              .pv-flex-column-canvas #first-div5 {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-column-canvas #second-div5 {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-column-canvas #third-div5 {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="main5">
+              <div class="div5" id="first-div5"></div>
+              <div class="div5" id="second-div5"></div>
+              <div class="div5" id="third-div5"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora los elementos div se alinearán verticalmente porque el eje principal será vertical y el eje transversal
+        será horizontal.
+      </p>
+      <p>
+        También puede invertir el orden de los elementos flexibles verticalmente con <mark>flex-direction:
+          column-reverse</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">column-reverse</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-column-reverse-canvas"
+            style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: #f0f2f5;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-column-reverse-canvas .main6 {
+                display: flex !important;
+                flex-direction: column-reverse !important;
+                background-color: white !important;
+                border: 2px solid #ddd !important;
+                padding: 15px !important;
+                min-height: 200px !important;
+              }
+
+              .pv-flex-column-reverse-canvas .div6 {
+                width: 80px !important;
+                height: 50px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: white !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+              }
+
+              .pv-flex-column-reverse-canvas #first-div6 {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-column-reverse-canvas #first-div6::after {
+                content: '1';
+              }
+
+              .pv-flex-column-reverse-canvas #second-div6 {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-column-reverse-canvas #second-div6::after {
+                content: '2';
+              }
+
+              .pv-flex-column-reverse-canvas #third-div6 {
+                background-color: #4da3b2 !important;
+              }
+
+              .pv-flex-column-reverse-canvas #third-div6::after {
+                content: '3';
+              }
+            </style>
+
+            <main class="main6">
+              <div class="div6" id="first-div6"></div>
+              <div class="div6" id="second-div6"></div>
+              <div class="div6" id="third-div6"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        CSS flexbox es un potente modelo de diseño que proporciona una forma flexible y eficiente de organizar elementos
+        dentro de un contenedor. Al comprender los conceptos clave de los contenedores flexibles, los elementos
+        flexibles y las diversas propiedades flexibles, puede crear sitios web dinámicos y receptivos que se adapten a
+        diferentes tamaños y orientaciones de pantalla.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de CSS Flexbox?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para controlar el tamaño de fuente de los elementos de texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Para crear diseños adaptables y dinámicos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para definir el color de los elementos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Para ajustar el espaciado entre elementos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes propiedades CSS se utiliza para controlar la dirección en la que se organizan los
+            elementos secundarios dentro de un contenedor flexible?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            flex-wrap
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            align-items
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            justify-content
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            flex-direction
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el modelo flexible, ¿cuál es la relación entre el eje principal y el eje transversal?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El eje principal siempre es horizontal, mientras que el eje transversal siempre es vertical.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El eje principal siempre es vertical, mientras que el eje transversal siempre es horizontal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            El eje principal y el eje transversal siempre son perpendiculares entre sí.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El eje principal y el eje transversal siempre son paralelos entre sí.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son algunas propiedades flexibles comunes y cómo funcionan?</h2>
+
+      <p>
+        Las propiedades flexibles son propiedades que se pueden aplicar a contenedores flexibles para determinar la
+        distribución de los elementos secundarios. Cubriremos algunas de las más utilizadas: <mark>flex-wrap</mark>,
+        <mark>justify-content</mark>
+        y <mark>align-items</mark>.
+      </p>
+      <p>
+        Comencemos con <mark>flex-wrap</mark>. Esta propiedad determina cómo se ajustan los elementos flexibles dentro
+        de un
+        contenedor flexible para adaptarse al espacio disponible. <mark>flex-wrap</mark> puede tomar tres valores
+        posibles: <mark>nowrap</mark>,
+        <mark>wrap</mark> y <mark>wrap-reverse</mark>. <mark>nowrap</mark> es el valor predeterminado: los elementos
+        flexibles no se ajustarán a una nueva
+        línea, incluso si su ancho excede el ancho del contenedor.
+      </p>
+      <p>
+        En el código siguiente, tenemos tres elementos <mark>div</mark>. Centrémonos en el <mark>width</mark>. El
+        contenedor <mark>main</mark>, bordeado
+        en rojo, tiene un <mark>width</mark> de <mark>200px</mark>, mientras que sus tres elementos <mark>div</mark>
+        secundarios combinados tienen un
+        <mark>width</mark> de <mark>240px</mark> (<mark>80px</mark> cada uno):
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flex-shrink-check"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; justify-content: flex-start; align-items: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flex-shrink-check .f-container-wrap {
+                width: 200px !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                border: 2px solid red !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+              }
+
+              .pv-flex-shrink-check .f-box-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 1 !important;
+                margin: 0 !important;
+              }
+
+              .pv-flex-shrink-check #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flex-shrink-check #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flex-shrink-check #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-container-wrap">
+              <div id="first-div" class="f-box-item"></div>
+              <div id="second-div" class="f-box-item"></div>
+              <div id="third-div" class="f-box-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El ancho de los elementos <mark>div</mark> excede el ancho de su contenedor, pero por defecto se reducirán para
+        ajustarse al espacio disponible. Si desea ajustarlos cuando excedan el ancho de su contenedor, puede establecer
+        <mark>flex-wrap: wrap</mark> en el contenedor flexible:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-wrap</span><span class="tk-punctuation">:</span> <span class="tk-value">wrap</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-wrap-active-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; justify-content: flex-start; align-items: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-wrap-active-canvas .f-main-wrap-demo {
+                width: 200px !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-wrap-active-canvas .f-item-box-demo {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-wrap-active-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-wrap-active-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-wrap-active-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-wrap-demo">
+              <div id="first-div" class="f-item-box-demo"></div>
+              <div id="second-div" class="f-item-box-demo"></div>
+              <div id="third-div" class="f-item-box-demo"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los elementos <mark>div</mark> se reorganizarán en filas cuando superen el ancho de su contenedor. Puede
+        envolver los elementos flexibles en orden inverso con <mark>flex-wrap: wrap-reverse</mark>. La propiedad
+        <mark>flex-flow</mark> es una propiedad abreviada para <mark>flex-direction</mark> y <mark>flex-wrap</mark>. En
+        este ejemplo, establecemos <mark>flex-direction</mark> en <mark>column</mark> y <mark>flex-wrap</mark> en
+        <mark>wrap-reverse</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">flex-flow</span><span class="tk-punctuation">:</span> <span class="tk-value">column wrap-reverse</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-flow-shorthand-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; justify-content: start; align-items: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-flow-shorthand-canvas .f-flow-container {
+                width: 200px !important;
+                height: 155px !important;
+                display: flex !important;
+                flex-flow: column wrap-reverse !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-flow-shorthand-canvas .f-flow-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-flow-shorthand-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-flow-shorthand-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-flow-shorthand-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-flow-container">
+              <div id="first-div" class="f-flow-item"></div>
+              <div id="second-div" class="f-flow-item"></div>
+              <div id="third-div" class="f-flow-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Genial. Ahora hablemos de <mark>justify-content</mark>. <mark>justify-content</mark> alinea los elementos
+        secundarios a lo largo del eje
+        principal del contenedor flexible. Si asignas el valor <mark>flex-start</mark> a <mark>justify-content</mark>,
+        los elementos flexibles se
+        alinearán con el inicio del eje principal. Esto puede ser horizontal o vertical:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-justify-start-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-justify-start-canvas .f-justify-main {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-justify-start-canvas .f-box-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-justify-start-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-justify-start-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-justify-start-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-justify-main">
+              <div id="first-div" class="f-box-item"></div>
+              <div id="second-div" class="f-box-item"></div>
+              <div id="third-div" class="f-box-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Con <mark>justify-content: flex-end</mark>, los elementos flexibles se alinean al final del eje principal,
+        horizontal o
+        verticalmente.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-end</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-justify-end-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-justify-end-canvas .f-main-end {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: flex-end !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-justify-end-canvas .f-box-end {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-justify-end-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-justify-end-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-justify-end-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-end">
+              <div id="first-div" class="f-box-end"></div>
+              <div id="second-div" class="f-box-end"></div>
+              <div id="third-div" class="f-box-end"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para centrar los elementos flexibles a lo largo del eje principal, puede utilizar <mark>justify-content:
+          center</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-justify-center-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-justify-center-canvas .f-main-center {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-justify-center-canvas .f-box-center {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-justify-center-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-justify-center-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-justify-center-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-center">
+              <div id="first-div" class="f-box-center"></div>
+              <div id="second-div" class="f-box-center"></div>
+              <div id="third-div" class="f-box-center"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para distribuir los elementos de manera uniforme a lo largo del eje principal, puedes utilizar
+        <mark>justify-content: space-between</mark>. Esto añadirá algo de espacio entre los elementos flexibles si es
+        necesario.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">space-between</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-between-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-between-canvas .f-main-between {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-between-canvas .f-box-between {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-between-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-between-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-between-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-between">
+              <div id="first-div" class="f-box-between"></div>
+              <div id="second-div" class="f-box-between"></div>
+              <div id="third-div" class="f-box-between"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>justify-content: space-around</mark> distribuye los elementos flexibles de manera uniforme dentro del eje
+        principal, añadiendo un espacio antes del primer elemento y después del último. Este espacio adicional es la
+        mitad del espacio entre cada par de elementos adyacentes. Si solo hay un elemento que distribuir, se centrará.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">space-around</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-around-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-around-canvas .f-main-around {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-around !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-around-canvas .f-box-around {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-around-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-around-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-around-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-around">
+              <div id="first-div" class="f-box-around"></div>
+              <div id="second-div" class="f-box-around"></div>
+              <div id="third-div" class="f-box-around"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Y por último, pero no menos importante, tenemos <mark>justify-content: space-evenly</mark>, que distribuye los
+        elementos de manera uniforme a lo largo del eje principal. El espacio entre los elementos y el espacio antes y
+        después del primer y último elemento son exactamente iguales:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">space-evenly</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-evenly-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-evenly-canvas .f-main-evenly {
+                width: 95% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-evenly !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-evenly-canvas .f-box-evenly {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-evenly-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-evenly-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-evenly-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-main-evenly">
+              <div id="first-div" class="f-box-evenly"></div>
+              <div id="second-div" class="f-box-evenly"></div>
+              <div id="third-div" class="f-box-evenly"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Genial. Ahora ya sabes cómo distribuir elementos flexibles a lo largo del eje principal. Pero quizá también
+        quieras distribuirlos a lo largo del eje transversal. Recuerda que el eje transversal es perpendicular al eje
+        principal. Puedes hacerlo con la propiedad <mark>align-items</mark>. Para centrar los elementos a lo largo del
+        eje
+        transversal, solo tienes que añadir <mark>align-items: center</mark> al contenedor flexible:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-align-center-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-align-center-canvas .f-align-main {
+                height: 300px !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-align-center-canvas .f-align-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-align-center-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-align-center-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-align-center-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-align-main">
+              <div id="first-div" class="f-align-item"></div>
+              <div id="second-div" class="f-align-item"></div>
+              <div id="third-div" class="f-align-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, los elementos flexibles se centran a lo largo del eje transversal, que es vertical por defecto.
+        Si el eje transversal es horizontal, se centrarán horizontalmente. Por el contrario, <mark>align-items:
+          flex-start</mark>
+        alinea los elementos con el inicio del eje transversal:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-align-start-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-align-start-canvas .f-align-start-main {
+                height: 300px !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-align-start-canvas .f-align-start-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-align-start-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-align-start-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-align-start-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-align-start-main">
+              <div id="first-div" class="f-align-start-item"></div>
+              <div id="second-div" class="f-align-start-item"></div>
+              <div id="third-div" class="f-align-start-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Lo contrario es <mark>align-items: flex-end</mark>. Esto alineará los elementos flexibles al final del eje
+        transversal,
+        vertical u horizontalmente.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;main&gt;
+  &lt;div id="first-div"&gt;&lt;/div&gt;
+  &lt;div id="second-div"&gt;&lt;/div&gt;
+  &lt;div id="third-div"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-end</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid red</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#first-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4d70b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#second-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#5c4db2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">#third-div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4da3b2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-align-end-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-align-end-canvas .f-align-end-main {
+                height: 300px !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-end !important;
+                /* Alineación al fondo */
+                border: 2px solid red !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-align-end-canvas .f-align-end-item {
+                width: 80px !important;
+                height: 50px !important;
+                flex-shrink: 0 !important;
+              }
+
+              .pv-align-end-canvas #first-div {
+                background-color: #4d70b2 !important;
+              }
+
+              .pv-align-end-canvas #second-div {
+                background-color: #5c4db2 !important;
+              }
+
+              .pv-align-end-canvas #third-div {
+                background-color: #4da3b2 !important;
+              }
+            </style>
+
+            <main class="f-align-end-main">
+              <div id="first-div" class="f-align-end-item"></div>
+              <div id="second-div" class="f-align-end-item"></div>
+              <div id="third-div" class="f-align-end-item"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para estirar los elementos flexibles a lo largo del eje transversal, puede utilizar <mark>align-items:
+          stretch</mark>. Esto
+        también funciona con elementos cuyo tamaño se ajusta automáticamente, como aquellos sin <mark>width</mark> o
+        <mark>height</mark> definidos,
+        o con solo un <mark>width</mark> o <mark>height</mark> mínimos. Los elementos flexibles se estirarán para llenar
+        el contenedor en la
+        dirección del eje transversal.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;One&lt;/div&gt;
+  &lt;div class="box"&gt;Two&lt;/div&gt;
+  &lt;div class="box"&gt;Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">stretch</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #444</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>           
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #888</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-stretch-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-stretch-canvas .f-stretch-container {
+                display: flex !important;
+                align-items: stretch !important;
+                border: 2px solid #444 !important;
+                height: 200px !important;
+                width: 90% !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-stretch-canvas .f-stretch-box {
+                width: 100px !important;
+                border: 1px solid #888 !important;
+                background-color: lightblue !important;
+                color: #333 !important;
+                font-family: sans-serif !important;
+              }
+            </style>
+
+            <div class="f-stretch-container">
+              <div class="f-stretch-box">One</div>
+              <div class="f-stretch-box">Two</div>
+              <div class="f-stretch-box">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Y, por último, puedes utilizar la propiedad <mark>align-self</mark> para asignar una alineación diferente en el
+        eje
+        transversal a un elemento flexible individual. Por ejemplo, puedes estirarlo con <mark>align-self:
+          stretch</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;One&lt;/div&gt;
+  &lt;div class="box"&gt;Two&lt;/div&gt;
+  &lt;div class="box special"&gt;Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #444</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #888</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.special</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">align-self</span><span class="tk-punctuation">:</span> <span class="tk-value">stretch</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-self-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-self-canvas .f-self-container {
+                display: flex !important;
+                align-items: flex-start !important;
+                border: 2px solid #444 !important;
+                height: 200px !important;
+                width: 100% !important;
+                background-color: transparent !important;
+              }
+
+              .pv-self-canvas .f-self-box {
+                width: 100px !important;
+                height: 30px !important;
+                border: 1px solid #888 !important;
+                background-color: lightblue !important;
+                margin: 4px !important;
+                color: #333 !important;
+              }
+
+              .pv-self-canvas .f-self-special {
+                align-self: stretch !important;
+                /* Regla rebelde: estírate */
+                height: auto !important;
+                /* Reseteamos altura para que pueda estirar */
+                background-color: lightcoral !important;
+              }
+            </style>
+
+            <div class="f-self-container">
+              <div class="f-self-box">One</div>
+              <div class="f-self-box">Two</div>
+              <div class="f-self-box f-self-special">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puede centrarlo con <mark>align-self: center</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;One&lt;/div&gt;
+  &lt;div class="box"&gt;Two&lt;/div&gt;
+  &lt;div class="box special"&gt;Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #444</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #888</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.special</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">align-self</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-self-center-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-self-center-canvas .f-self-center-container {
+                display: flex !important;
+                align-items: flex-start !important;
+                /* General arriba */
+                border: 2px solid #444 !important;
+                height: 200px !important;
+                width: 100% !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-self-center-canvas .f-self-center-box {
+                width: 100px !important;
+                height: 30px !important;
+                border: 1px solid #888 !important;
+                background-color: lightblue !important;
+                margin: 4px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #333 !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-self-center-canvas .f-self-center-special {
+                align-self: center !important;
+                /* Individual al centro */
+                background-color: lightcoral !important;
+              }
+            </style>
+
+            <div class="f-self-center-container">
+              <div class="f-self-center-box">One</div>
+              <div class="f-self-center-box">Two</div>
+              <div class="f-self-center-box f-self-center-special">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puede alinearlo con el inicio del eje transversal con <mark>align-self: flex-start</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;One&lt;/div&gt;
+  &lt;div class="box"&gt;Two&lt;/div&gt;
+  &lt;div class="box special"&gt;Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #444</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #888</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.special</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">align-self</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-self-start-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-self-start-canvas .f-start-container {
+                display: flex !important;
+                align-items: flex-start !important;
+                border: 2px solid #444 !important;
+                height: 200px !important;
+                width: 100% !important;
+                background-color: transparent !important;
+              }
+
+              .pv-self-start-canvas .f-start-box {
+                width: 100px !important;
+                height: 30px !important;
+                border: 1px solid #888 !important;
+                background-color: lightblue !important;
+                margin: 4px !important;
+                padding: 0 !important;
+                color: #333 !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-self-start-canvas .f-start-special {
+                align-self: flex-start !important;
+                background-color: lightcoral !important;
+              }
+            </style>
+
+            <div class="f-start-container">
+              <div class="f-start-box">One</div>
+              <div class="f-start-box">Two</div>
+              <div class="f-start-box f-start-special">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        O puede alinearlo al final del eje transversal con <mark>align-self: flex-end</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;One&lt;/div&gt;
+  &lt;div class="box"&gt;Two&lt;/div&gt;
+  &lt;div class="box special"&gt;Three&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-start</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #444</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">200px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #888</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.special</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">align-self</span><span class="tk-punctuation">:</span> <span class="tk-value">flex-end</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-self-end-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 10px; display: flex; align-items: start; justify-content: start;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-self-end-canvas .f-self-end-container {
+                display: flex !important;
+                align-items: flex-start !important;
+                /* General arriba */
+                border: 2px solid #444 !important;
+                height: 200px !important;
+                width: 100% !important;
+                background-color: transparent !important;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+
+              .pv-self-end-canvas .f-self-end-box {
+                width: 100px !important;
+                height: 30px !important;
+                border: 1px solid #888 !important;
+                background-color: lightblue !important;
+                margin: 4px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #333 !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-self-end-canvas .f-self-end-special {
+                align-self: flex-end !important;
+                background-color: lightcoral !important;
+              }
+            </style>
+
+            <div class="f-self-end-container">
+              <div class="f-self-end-box">One</div>
+              <div class="f-self-end-box">Two</div>
+              <div class="f-self-end-box f-self-end-special">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Hay otras propiedades y valores flexibles entre los que puedes elegir para crear el diseño adaptable que
+        imaginas, pero estos son los más utilizados. Con estas propiedades flexibles de CSS y tus nuevos conocimientos
+        sobre el modelo flexible de CSS, puedes empezar a crear diseños adaptables para ofrecer una experiencia de
+        usuario fluida e inclusiva en todos los dispositivos.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS se utiliza para alinear horizontalmente (por defecto) los elementos secundarios dentro de un contenedor flexible?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            flex-direction
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            justify-content
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            align-items
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            flex-wrap
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS se utiliza para alinear los elementos secundarios verticalmente (por defecto) dentro de un contenedor flexible?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            flex-direction
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            justify-content
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            align-items
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            flex-wrap
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuáles de las siguientes propiedades se pueden combinar en la propiedad <mark>flex-flow</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            flex-direction y justify-content
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            flex-direction y align-items
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            flex-direction y align-content
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            flex-direction y flex-wrap
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
