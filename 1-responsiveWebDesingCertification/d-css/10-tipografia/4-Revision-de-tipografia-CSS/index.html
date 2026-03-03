@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de tipografía CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de tipografía CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Tipografía</a></li>
+      <li><a href="#tema2">Font-family</a></li>
+      <li><a href="#tema3">Fuentes seguras</a></li>
+      <li><a href="#tema4">@font-face</a></li>
+      <li><a href="#tema5">Fuentes externas</a></li>
+      <li><a href="#tema6">Text-shadow</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, revisaremos algunos de los problemas comunes que surgen al aplicar estilos a la tipografía en
+        CSS. En particular, nos centraremos en el uso de <code>font-family</code>, <code>font-size</code>,
+        <code>font-weight</code> y <code>line-height</code> para crear diseños tipográficos efectivos y legibles.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Introducción a la tipografía</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: La tipografía es el arte de elegir las fuentes y el formato adecuados para que
+            el texto resulte atractivo a la vista y fácil de leer. El "Type" se refiere al diseño y la disposición de
+            los caracteres individuales.
+          </li>
+          <li>
+            <strong>Definición de tipo de letra</strong>: un tipo de letra es el diseño y el estilo general de un
+            conjunto de caracteres, números y símbolos. Es como un plano para una familia de fuentes.
+          </li>
+          <li>
+            <strong>Definición de fuente</strong>: una fuente es una variación específica de un tipo de letra con
+            características concretas, como el tamaño, el grosor, el estilo y la anchura.
+          </li>
+          <li>
+            <strong>Tipo de letra <code>serif</code></strong>: este tipo de letra tiene un estilo clásico con pequeñas
+            líneas al final de los caracteres. Los tipos de letra <code>serif</code> se utilizan comúnmente para
+            materiales impresos, como libros.
+          </li>
+          <li>
+            <strong>Tipo de letra <code>sans-serif</code></strong>: este tipo de letra tiene un aspecto más moderno, sin
+            las pequeñas líneas al final de los caracteres. Los tipos de letra <code>sans-serif</code> se utilizan
+            comúnmente en el diseño digital porque son fáciles de leer en pantalla. Algunos ejemplos son
+            <code>Helvetica</code>, <code>Arial</code> y <code>Roboto</code>.
+          </li>
+          <li>
+            <strong>Grosor de la fuente</strong>: es el grosor de los caracteres, incluyendo <code>light</code>,
+            <code>regular</code>, <code>bold</code>, y <code>black</code>.
+          </li>
+          <li>
+            <strong>Estilo de la fuente</strong>: es la inclinación y orientación de los caracteres, como
+            <code>italic</code> y <code>oblique</code>.
+          </li>
+          <li>
+            <strong>Ancho de la fuente</strong>: es el espacio horizontal que ocupan los caracteres, como condensado y
+            expandido.
+          </li>
+          <li>
+            <strong>Línea base</strong>: es la línea imaginaria sobre la que descansan la mayoría de los caracteres.
+          </li>
+          <li>
+            <strong>Altura de mayúsculas</strong>: es la altura de las letras mayúsculas, medida desde la línea base
+            hasta la parte superior.
+          </li>
+          <li>
+            <strong>Altura x</strong>: es la altura media de las letras minúsculas, excluyendo los ascendentes y
+            descendentes.
+          </li>
+          <li>
+            <strong>Ascendentes</strong>: son las partes de las letras minúsculas que se extienden por encima de la
+            altura x, como la parte superior de las letras "h", "b", "d" y "f".
+          </li>
+          <li>
+            <strong>Descendentes</strong>: son las partes de las letras minúsculas que se extienden por debajo de la
+            línea de base, como las colas de las letras "y", "g", "p" y "q".
+          </li>
+          <li>
+            <strong>Kerning</strong>: es la forma en que se ajusta el espacio entre pares específicos de caracteres para
+            mejorar su legibilidad y estética. Por ejemplo, reducir el espacio entre las letras A y V.
+          </li>
+          <li>
+            <strong>Espaciado</strong>: es la forma en que se ajusta el espacio entre todos los caracteres de un bloque
+            de texto. Es esencialmente la distancia entre los caracteres. Afecta a la densidad y apertura del texto.
+          </li>
+          <li>
+            <strong>Interlineado</strong>: es el espacio vertical entre las líneas de texto. Se mide desde la línea de
+            base de una línea hasta la línea de base de la siguiente línea.
+          </li>
+          <li>
+            <strong>Mejores prácticas con la tipografía</strong>: Debes elegir fuentes claras y sencillas para que tus
+            diseños sean fáciles de entender. Esto es especialmente importante para el texto principal de tu sitio web.
+            Los usuarios se sentirán más atraídos por tu contenido si la fuente es fácil de leer. Debes utilizar dos o
+            tres fuentes como máximo para crear una coherencia visual. El uso de demasiadas fuentes puede dificultar la
+            lectura del texto y debilitar la identidad de tu marca. Esto también puede afectar a la experiencia del
+            usuario al aumentar el tiempo de carga del sitio web. Puede utilizar el tamaño de la fuente para crear una
+            jerarquía visual para los títulos, subtítulos, párrafos y otros elementos. Por ejemplo, el título principal
+            de una página web debe tener una fuente más grande, seguido de subtítulos con tamaños de fuente más
+            pequeños. Esto le dará a cada elemento de la jerarquía un tamaño de fuente específico que ayudará a los
+            usuarios a navegar visualmente por la estructura.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Propiedad <code>font-family</code> de CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Una familia tipográfica es un grupo de fuentes que comparten un diseño común.
+            Todas las fuentes que pertenecen a la misma familia se basan en el mismo tipo de letra básico, pero también
+            presentan variaciones en su estilo, grosor y anchura. Se pueden especificar varias familias tipográficas por
+            orden de prioridad, de mayor a menor, separándolas con comas. Estas fuentes alternativas actuarán como
+            opciones de reserva. Siempre se debe incluir una familia de fuentes genérica al final de la lista de
+            familias de fuentes.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">Arial, Lato, sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-family-stack-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-family-stack-canvas .f-stack-box {
+                border: 1px solid #e1e4e8 !important;
+                border-radius: 8px !important;
+                padding: 20px !important;
+                background: #fcfcfc !important;
+              }
+
+              .pv-family-stack-canvas .f-stack-item {
+                font-family: sans-serif !important;
+                margin-bottom: 10px !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 10px !important;
+              }
+
+              .pv-family-stack-canvas .f-stack-priority {
+                background: #61afef !important;
+                color: white !important;
+                width: 24px !important;
+                height: 24px !important;
+                border-radius: 50% !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                font-size: 0.8rem !important;
+                font-weight: bold !important;
+              }
+
+              .pv-family-stack-canvas .f-stack-name strong {
+                font-size: 1rem !important;
+                color: #333 !important;
+              }
+
+              .pv-family-stack-canvas .f-stack-fallback {
+                font-style: italic !important;
+                color: #888 !important;
+                font-size: 0.9rem !important;
+              }
+            </style>
+
+            <div class="f-stack-box">
+              <div class="f-stack-item">
+                <span class="f-stack-priority">1</span>
+                <span class="f-stack-name"><strong>Arial</strong> (Prioridad Máxima)</span>
+              </div>
+              <div class="f-stack-item">
+                <span class="f-stack-priority" style="background:#98c379;">2</span>
+                <span class="f-stack-name"><strong>Lato</strong> (Segunda opción)</span>
+              </div>
+              <div class="f-stack-item">
+                <span class="f-stack-priority" style="background:#abb2bf;">3</span>
+                <span class="f-stack-name f-stack-fallback"><strong>sans-serif</strong> (Reserva genérica)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Font Families comunes</strong>: Estas son algunas de las <code>font-family</code> más utilizadas en
+            CSS: <code>serif</code>, <code>sans-serif</code>, <code>monospace</code>, <code>italik</code>, <code>fantas</code>.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Fuentes seguras para web</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <!-- Primer punto: Definición -->
+          <li>
+            <strong>Definición</strong>: estas fuentes son un subconjunto de fuentes que es muy probable que estén
+            instaladas en una computadora o dispositivo. Cuando el navegador tiene que renderizar una fuente, intenta
+            encontrar el archivo de fuente en el sistema del usuario. Pero si no encuentra la fuente, normalmente
+            recurrirá a una fuente predeterminada del sistema.
+          </li>
+
+          <!-- Segundo punto: Fuentes seguras + SubLista -->
+          <li>
+            <strong>Fuentes seguras para web</strong>:
+
+            <!-- Sub-lista anidada -->
+            <ul class="sub-list">
+              <li>
+                Las fuentes <strong>sans-serif</strong> se utilizan habitualmente para el desarrollo web porque no
+                tienen pequeños "feet" o líneas al final de los caracteres, por lo que son fáciles de leer en pantalla.
+                Algunos ejemplos de fuentes sans-serif seguras para web son: <em>Arial, Verdana y Trebuchet MS</em>.
+              </li>
+              <li>
+                Por el contrario, las fuentes <strong>serif</strong> sí tienen pequeños "feet" al final de los
+                caracteres, por lo que se utilizan habitualmente para la impresión tradicional. Entre las fuentes serif
+                seguras para la web se incluyen: <em>Times New Roman y Georgia</em>.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Reglas @ y la regla <code>@font-face</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Las reglas @ son instrucciones que proporcionan indicaciones al navegador. Se
+            pueden utilizar para definir diversos aspectos de la hoja de estilos, como consultas de medios, fotogramas
+            clave, tipos de letra y mucho más.
+          </li>
+          <li>
+            <strong><code>@font-face</code></strong>: permite definir una fuente personalizada especificando el archivo
+            de fuente, el formato y otras propiedades importantes, como el grosor y el estilo. Para que la regla
+            <code>@font-face</code> sea válida, también es necesario especificar la propiedad <code>src</code>. Esta
+            propiedad
+            contiene referencias a los recursos de fuentes.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.woff")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.otf")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-at-rule-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+                font-weight: bold !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-at-rule-canvas .f-at-box {
+                border-left: 4px solid #c678dd !important;
+                background: #fdfaff !important;
+                padding: 15px !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-at-rule-canvas .f-at-title {
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                margin-bottom: 8px !important;
+              }
+
+              .pv-at-rule-canvas .f-at-text {
+                font-family: sans-serif !important;
+                font-size: 0.9rem !important;
+                color: #555 !important;
+                line-height: 1.4 !important;
+              }
+
+              .pv-at-rule-canvas .f-at-text strong {
+                color: #333;
+              }
+
+              .pv-at-rule-canvas .f-at-badge {
+                display: inline-block !important;
+                background: #c678dd !important;
+                color: white !important;
+                padding: 2px 6px !important;
+                border-radius: 3px !important;
+                font-family: monospace !important;
+                font-size: 0.85rem !important;
+              }
+            </style>
+
+            <div class="f-at-box">
+              <div class="f-at-title">Anatomía de una Regla @</div>
+              <p class="f-at-text">
+                La instrucción <span class="f-at-badge">@font-face</span> no estiliza un texto directamente, sino que
+                <strong>registra</strong> un recurso en la memoria del navegador.
+              </p>
+              <p class="f-at-text" style="margin-top: 10px;">
+                Sin el descriptor <code>src</code>, la regla es ignorada porque el navegador no sabría de dónde
+                descargar los archivos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Formatos de fuente</strong>: Para cada recurso de fuente, también puede especificar el formato. Esto
+            es opcional. Es una sugerencia para el navegador sobre el formato de fuente. Si se omite el formato, el
+            recurso se descargará y el formato se detectará después de la descarga. Si el formato no es válido, el
+            recurso no se descargará. Los formatos de fuente posibles incluyen <code>collection</code>,
+            <code>embedded-opentype</code>, <code>opentype</code>, <code>svg</code>, <code>truetype</code>,
+            <code>woff</code> y <code>woff2</code>.
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2") format("woff2")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.otf") format("opentype")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.woff") format("woff")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-formats-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+                font-weight: bold !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-formats-canvas .f-format-info {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                border-left: 4px solid #98c379 !important;
+                padding-left: 15px !important;
+              }
+
+              .pv-formats-canvas .f-format-title {
+                font-weight: bold !important;
+                margin-bottom: 8px !important;
+                color: #2c3e50 !important;
+              }
+
+              .pv-formats-canvas .f-format-text {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+                color: #555 !important;
+              }
+
+              .pv-formats-canvas .f-format-list {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 5px !important;
+                margin-top: 10px !important;
+              }
+
+              .pv-formats-canvas .f-format-tag {
+                background: #f0f4f8 !important;
+                color: #476582 !important;
+                padding: 2px 8px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-size: 0.8rem !important;
+                border: 1px solid #d1d9e1 !important;
+              }
+            </style>
+
+            <div class="f-format-info">
+              <div class="f-format-title">Sugerencias de Formato</div>
+              <p class="f-format-text">
+                Al usar <code>format()</code>, el navegador decide qué archivo descargar basándose en su compatibilidad
+                interna.
+              </p>
+              <div class="f-format-list">
+                <span class="f-format-tag">woff2</span>
+                <span class="f-format-tag">opentype</span>
+                <span class="f-format-tag">truetype</span>
+                <span class="f-format-tag">woff</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>woff y woff2</strong>: Para cada recurso de fuente, también puede especificar el formato. Esto
+            es opcional. Es una sugerencia para el navegador sobre el formato de fuente. Si se omite el formato, el
+            recurso se descargará y el formato se detectará después de la descarga. Si el formato no es válido, el
+            recurso no se descargará. Los formatos de fuente posibles incluyen <code>collection</code>,
+            <code>embedded-opentype</code>, <code>opentype</code>, <code>svg</code>, <code>truetype</code>,
+            <code>woff</code> y <code>woff2</code>.
+          </li>
+          <li>
+            <strong>Formatos de fuente</strong>: Para cada recurso de fuente, también puede especificar el formato. Esto
+            es opcional. Es una sugerencia para el navegador sobre el formato de fuente. Si se omite el formato, el
+            recurso se descargará y el formato se detectará después de la descarga. Si el formato no es válido, el
+            recurso no se descargará. Los formatos de fuente posibles incluyen <code>collection</code>,
+            <code>embedded-opentype</code>, <code>opentype</code>, <code>svg</code>, <code>truetype</code>,
+            <code>woff</code> y <code>woff2</code>.
+          </li>
+          <li>
+            <strong>Formatos de fuente</strong>: Para cada recurso de fuente, también puede especificar el formato. Esto
+            es opcional. Es una sugerencia para el navegador sobre el formato de fuente. Si se omite el formato, el
+            recurso se descargará y el formato se detectará después de la descarga. Si el formato no es válido, el
+            recurso no se descargará. Los formatos de fuente posibles incluyen <code>collection</code>,
+            <code>embedded-opentype</code>, <code>opentype</code>, <code>svg</code>, <code>truetype</code>,
+            <code>woff</code> y <code>woff2</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2") format("woff2")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.otf") format("opentype")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.woff") format("woff")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-format-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-format-canvas .f-font-info-box {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                border: 1px solid #e1e4e8 !important;
+                padding: 15px !important;
+                border-radius: 6px !important;
+                background-color: #f8f9fa !important;
+              }
+
+              .pv-format-canvas .f-font-format-title {
+                font-weight: bold !important;
+                margin-bottom: 10px !important;
+                color: #2c3e50 !important;
+                display: block !important;
+              }
+
+              .pv-format-canvas .f-font-format-desc {
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+                color: #555 !important;
+              }
+
+              .pv-format-canvas .f-font-format-tag {
+                display: inline-block !important;
+                background: #e5f1fb !important;
+                color: #0366d6 !important;
+                padding: 2px 6px !important;
+                border-radius: 3px !important;
+                font-family: monospace !important;
+                font-size: 0.85rem !important;
+              }
+            </style>
+
+            <div class="f-font-info-box">
+              <span class="f-font-format-title">Optimización con format()</span>
+              <p class="f-font-format-desc">
+                Al incluir <span class="f-font-format-tag">format("woff2")</span>, el navegador verifica si soporta esa
+                compresión antes de iniciar la descarga del archivo pesado.
+              </p>
+              <p class="f-font-format-desc" style="margin-top: 8px;">
+                Si no lo soporta, pasa inmediatamente al siguiente recurso en la lista.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>woff</code> y <code>woff2</code></strong>: <code>woff</code> significa <em>"Web Open Font
+              Format"</em>. Es un formato de fuente muy utilizado desarrollado por Mozilla en colaboración con Type
+            Supply, LettError y otras organizaciones. La diferencia entre <code>woff</code> y <code>woff2</code> es el
+            algoritmo utilizado para comprimir los datos.
+          </li>
+          <li>
+            <strong>OpenType</strong>: es un formato para fuentes informáticas escalables desarrollado por Microsoft y
+            Adobe que permite a los usuarios acceder a funciones adicionales en una fuente. Se utiliza ampliamente en
+            los principales sistemas operativos.
+          </li>
+          <li>
+            <strong><code>tech()</code></strong>: se utiliza para especificar la tecnología del recurso de fuente. Es
+            opcional.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2") format("woff2")</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.otf") format("opentype")
+        tech(color-COLRv1)</span><span class="tk-punctuation">,</span>
+       <span class="tk-value">url("path/to/font.woff") format("woff")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-tech-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+                font-weight: bold !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-tech-canvas .f-tech-info-box {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                border-left: 4px solid #d19a66 !important;
+                padding-left: 15px !important;
+                background: #fffdfa !important;
+              }
+
+              .pv-tech-canvas .f-tech-title {
+                font-weight: bold !important;
+                margin-bottom: 8px !important;
+                color: #2c3e50 !important;
+              }
+
+              .pv-tech-canvas .f-tech-text {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+                color: #555 !important;
+              }
+
+              .pv-tech-canvas .f-tech-tag {
+                background: #fff3e0 !important;
+                color: #e65100 !important;
+                padding: 2px 8px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-size: 0.85rem !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="f-tech-info-box">
+              <div class="f-tech-title">Soporte de Tecnología</div>
+              <p class="f-tech-text">
+                La función <span class="f-tech-tag">tech(color-COLRv1)</span> es crucial para fuentes de colores
+                modernas.
+              </p>
+              <p class="f-tech-text" style="margin-top: 10px;">
+                Permite que el navegador elija la fuente con la tecnología más avanzada que sea capaz de renderizar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema5">
+      <h2>Trabajar con fuentes externas</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: una fuente externa es un archivo de fuente que no se incluye directamente en
+            los archivos de su proyecto. Por lo general, se alojan en un servidor independiente. Para incluir estas
+            fuentes externas en su proyecto, puede utilizar un elemento de <code>link</code> o una instrucción
+            <code>@import</code> dentro de su CSS.
+          </li>
+          <li>
+            <strong>Google Fonts</strong>: se trata de un servicio de Google que ofrece una colección de fuentes, muchas
+            de las cuales están diseñadas específicamente para el desarrollo web.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        A continuación se muestra un ejemplo en el que se utiliza el elemento de <code>link</code>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.roboto-thin</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto", sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">100</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-ext-font-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-ext-font-canvas .f-ext-font-display {
+                font-family: "Roboto", sans-serif !important;
+                font-weight: 100 !important;
+                font-style: normal !important;
+                font-size: 2.5rem !important;
+                color: #2c3e50 !important;
+                margin: 0 !important;
+              }
+
+              .pv-ext-font-canvas .f-ext-font-label {
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #888 !important;
+                margin-top: 10px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+              }
+            </style>
+
+            <p class="f-ext-font-display">Roboto Thin</p>
+            <span class="f-ext-font-label">Fuente externa cargada</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí hay un ejemplo que utiliza la instrucción <code>@import</code>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@import</span> <span class="tk-value">url('https://fonts.googleapis.com/
+                css2?family=Roboto:ital,
+                wght@0,100;0,300;0,400;0,
+                500;0,700;0,900;1,100;
+                1,300;1,400;1,500;
+                1,700;1,900&display=swap')</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-imp-ext-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+                font-weight: bold !important;
+              }
+
+              .tk-value {
+                color: #98c379 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-imp-ext-canvas .f-imp-ext-card {
+                border: 1px solid #e1e4e8 !important;
+                border-radius: 10px !important;
+                padding: 20px !important;
+                background: #fcfcfc !important;
+                text-align: center !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+              }
+
+              .pv-imp-ext-canvas .f-imp-ext-title {
+                font-family: 'Roboto', sans-serif !important;
+                font-weight: 700 !important;
+                font-size: 1.4rem !important;
+                color: #2c3e50 !important;
+                margin-bottom: 10px !important;
+              }
+
+              .pv-imp-ext-canvas .f-imp-ext-text {
+                font-family: 'Roboto', sans-serif !important;
+                font-weight: 400 !important;
+                color: #586069 !important;
+                font-size: 0.95rem !important;
+              }
+            </style>
+
+            <div class="f-imp-ext-card">
+              <h3 class="f-imp-ext-title">Roboto vía @import</h3>
+              <p class="f-imp-ext-text">
+                Esta fuente se cargó directamente desde el archivo CSS, manteniendo el HTML limpio y organizado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Font Squirrel</strong>: Este es otro recurso popular que puedes utilizar para añadir fuentes
+            externas personalizadas a tus proyectos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@font-face</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">'my_custom_font'</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url('myfont-webfont.woff2') format('woff2')</span><span class="tk-punctuation">,</span>
+         <span class="tk-value">url('myfont-webfont.woff') format('woff')</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-squirrel-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-atrule {
+                color: #c678dd !important;
+                font-weight: bold !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-squirrel-canvas .f-squirrel-box {
+                border: 2px dashed #98c379 !important;
+                border-radius: 8px !important;
+                padding: 15px !important;
+                background: #f9fff8 !important;
+                text-align: center !important;
+              }
+
+              .pv-squirrel-canvas .f-squirrel-title {
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                color: #2c3e50 !important;
+                font-size: 1.1rem !important;
+                margin-bottom: 10px !important;
+              }
+
+              .pv-squirrel-canvas .f-squirrel-text {
+                font-family: sans-serif !important;
+                font-size: 0.9rem !important;
+                color: #555 !important;
+                line-height: 1.4 !important;
+              }
+
+              .pv-squirrel-canvas .f-squirrel-status {
+                margin-top: 10px !important;
+                display: inline-block !important;
+                background: #98c379 !important;
+                color: white !important;
+                padding: 3px 10px !important;
+                border-radius: 20px !important;
+                font-size: 0.75rem !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="f-squirrel-box">
+              <div class="f-squirrel-title">Webfont Generator</div>
+              <p class="f-squirrel-text">
+                Convierte fuentes locales en formatos optimizados para la web y genera el CSS automáticamente.
+              </p>
+              <span class="f-squirrel-status">Optimizado para WOFF2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+      <h2>Propiedad <code>text-shadow</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: esta propiedad se utiliza para aplicar sombras al texto. Debe especificar el
+            desplazamiento <code>X</code> e <code>Y</code>, que representan la distancia horizontal y vertical de la
+            sombra con respecto al texto, respectivamente. Estos valores son obligatorios. Los valores positivos del
+            desplazamiento <code>X</code> e <code>Y</code> moverán la sombra hacia la derecha y hacia abajo,
+            respectivamente, mientras que los valores negativos la moverán hacia la izquierda y hacia arriba.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Typography Shadow&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-ts-basic-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-ts-basic-canvas .f-ts-basic-p {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+                font-size: 2.2rem !important;
+                font-weight: bold !important;
+                color: #333 !important;
+                margin: 0 !important;
+                text-shadow: 3px 2px !important;
+              }
+
+              .pv-ts-basic-canvas .f-ts-basic-label {
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #777 !important;
+                margin-top: 15px !important;
+                background: #f0f0f0 !important;
+                padding: 2px 8px !important;
+                border-radius: 4px !important;
+              }
+            </style>
+
+            <p class="f-ts-basic-p">Typography Shadow</p>
+            <span class="f-ts-basic-label">X: 3px | Y: 2px (Sin blur ni color)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Color Shadow</strong>: también puede personalizar el color Shadow especificando este valor antes o
+            después del desplazamiento. Si no se especifica el color, el navegador lo determinará automáticamente, por
+            lo que suele ser mejor establecerlo explícitamente.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Colored Shadow&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px #00ffc3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-ts-color-canvas"
+            style="height: 100%; width: 100%; background-color: #121212; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-ts-color-canvas .f-ts-color-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.5rem !important;
+                color: #ffffff !important;
+                margin: 0 !important;
+                text-shadow: 3px 2px #00ffc3 !important;
+              }
+
+              .pv-ts-color-canvas .f-ts-color-badge {
+                font-family: monospace !important;
+                font-size: 0.9rem !important;
+                color: #00ffc3 !important;
+                margin-top: 15px !important;
+                border: 1px solid #00ffc3 !important;
+                padding: 4px 10px !important;
+                border-radius: 4px !important;
+                text-transform: uppercase !important;
+              }
+            </style>
+
+            <p class="f-ts-color-p">Colored Shadow</p>
+            <span class="f-ts-color-badge">Color: #00ffc3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Radio de desenfoque</strong>: El radio de desenfoque es opcional, pero hará que la sombra se vea
+            mucho más suave y sutil. El valor predeterminado del radio de desenfoque es cero. Cuanto mayor sea el valor,
+            mayor será el desenfoque, lo que significa que la sombra se volverá más clara.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Blurred Shadow&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px 3px #00ffc3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-ts-blur-canvas"
+            style="height: 100%; width: 100%; background-color: #1a1a1a; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 8px 8px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-ts-blur-canvas .f-ts-blur-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.5rem !important;
+                color: #ffffff !important;
+                margin: 0 !important;
+                text-shadow: 3px 2px 3px #00ffc3 !important;
+              }
+
+              .pv-ts-blur-canvas .f-ts-blur-info {
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #888 !important;
+                margin-top: 15px !important;
+                background: #333 !important;
+                padding: 4px 12px !important;
+                border-radius: 20px !important;
+              }
+
+              .pv-ts-blur-canvas .f-ts-blur-highlight {
+                color: #00ffc3 !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <p class="f-ts-blur-p">Blurred Shadow</p>
+            <span class="f-ts-blur-info">Blur Radius: <span class="f-ts-blur-highlight">3px</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Aplicación de múltiples Text Shadows</strong>: El texto puede tener más de una sombra. Las sombras
+            se aplicarán en capas, de adelante hacia atrás, con la primera sombra en la parte superior.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Multiple Shadows&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> 
+    <span class="tk-value">3px 2px 3px #00ffc3</span><span class="tk-punctuation">,</span> 
+    <span class="tk-value">-3px -2px 3px #0077ff</span><span class="tk-punctuation">,</span> 
+    <span class="tk-value">5px 4px 3px #dee7e5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-multi-stack-canvas"
+            style="height: 100%; width: 100%; background-color: #1a1a1a; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 8px 8px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-multi-stack-canvas .f-multi-stack-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.8rem !important;
+                color: #ffffff !important;
+                margin: 0 !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+                text-shadow:
+                  3px 2px 3px #00ffc3,
+                  -3px -2px 3px #0077ff,
+                  5px 4px 3px #dee7e5 !important;
+              }
+
+              .pv-multi-stack-canvas .f-multi-stack-legend {
+                font-family: sans-serif !important;
+                font-size: 0.75rem !important;
+                color: #888 !important;
+                margin-top: 25px !important;
+                display: flex !important;
+                gap: 15px !important;
+                border-top: 1px solid #333 !important;
+                padding-top: 10px !important;
+              }
+
+              .pv-multi-stack-canvas .f-multi-stack-dot {
+                display: inline-block !important;
+                width: 8px !important;
+                height: 8px !important;
+                border-radius: 50% !important;
+                margin-right: 5px !important;
+              }
+            </style>
+
+            <p class="f-multi-stack-p">Multiple Shadows</p>
+
+            <div class="f-multi-stack-legend">
+              <span><span class="f-multi-stack-dot" style="background:#00ffc3;"></span>Capa 1 (Frontal)</span>
+              <span><span class="f-multi-stack-dot" style="background:#0077ff;"></span>Capa 2</span>
+              <span><span class="f-multi-stack-dot" style="background:#dee7e5;"></span>Capa 3 (Fondo)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

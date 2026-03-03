@@ -30,7 +30,7 @@ Para aprobar el cuestionario, debes responder correctamente al menos 18 de las 2
    - [ ] a) El eje principal y el eje secundario.
    - [ ] b) El eje x y el eje y.
    - [x] c) El eje principal y el eje transversal. // ❎
-   - [ ] d) l eje horizontal y el eje vertical.
+   - [ ] d) El eje horizontal y el eje vertical.
 
 4. **¿Cuál de las siguientes reglas CSS organizará los elementos en una columna vecssrtical y también los centrará horizontalmente dentro de su contenedor?**
   

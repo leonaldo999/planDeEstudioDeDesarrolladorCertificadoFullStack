@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con fuentes en CSS para mejorar la tipografía de tus sitios web. Descubre cómo usar fuentes personalizadas, ajustar el tamaño y estilo de texto, y crear diseños atractivos con CSS.">
+  <meta name="keywords"
+    content="CSS, fuentes, tipografía, diseño web, fuentes personalizadas, tamaño de texto, estilo de texto, diseño atractivo">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con fuentes CSS">
+  <meta property="og:description"
+    content="Aprende a trabajar con fuentes en CSS para mejorar la tipografía de tus sitios web. Descubre cómo usar fuentes personalizadas, ajustar el tamaño y estilo de texto, y crear diseños atractivos con CSS.">
+  <meta property="og:image" content="./img/cssIcon.png">
+  <meta property="og:type" content="website">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con fuentes CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabajar con fuentes CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ cuest 3</a>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ cuest 4</a>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#cuest5" onclick="closeNavMobile()" tabindex="0">❓ cuest 5</a>
+      </li>
+      <li>
+        <a href="#tema6" onclick="closeNavMobile()" tabindex="0">💻 Tema 6</a>
+      </li>
+      <li>
+        <a href="#cuest6" onclick="closeNavMobile()" tabindex="0">❓ cuest 6</a>
+      </li>
+      <li>
+        <a href="#tema7" onclick="closeNavMobile()" tabindex="0">💻 Tema 7</a>
+      </li>
+      <li>
+        <a href="#cuest7" onclick="closeNavMobile()" tabindex="0">❓ cuest 7</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En este desafío, se te proporcionará un bloque de texto y se te pedirá que apliques estilos de fuente
+        específicos utilizando CSS. Deberás utilizar las propiedades de fuente para cambiar la apariencia del texto
+        según las instrucciones dadas.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Cuáles son los fundamentos de la tipografía?</h2>
+
+      <p>
+        La tipografía es el arte de elegir las fuentes y el formato adecuados para que el texto resulte atractivo a la
+        vista y fácil de leer. El "Type" se refiere al diseño y la disposición de los caracteres individuales. Al elegir
+        las fuentes adecuadas para su proyecto, puede evocar emociones, establecer jerarquías y reforzar la identidad de
+        su marca.
+      </p>
+      <p>
+        Comenzaremos hablando de los tipos de letra y las fuentes. Un tipo de letra es el diseño y el estilo general de
+        un conjunto de caracteres, números y símbolos. Es como un plano para una familia de fuentes. Una fuente es una
+        variación específica de un tipo de letra con características específicas, como el tamaño, el grosor, el estilo y
+        la anchura.
+      </p>
+      <p>
+        Dos ejemplos muy importantes de tipos de letra son <mark>Serif</mark> y <mark>Sans Serif</mark>. El tipo de
+        letra <mark>Serif</mark> tiene un estilo
+        clásico con pequeñas líneas al final de los caracteres. Los tipos de letra <mark>Serif</mark> se utilizan
+        comúnmente para
+        materiales impresos, como libros. Algunos ejemplos son <mark>Times New Roman</mark>, <mark>Georgia</mark> y
+        <mark>Garamond</mark>.
+      </p>
+      <p>
+        Por el contrario, el tipo de letra <mark>Sans Serif</mark> tiene un aspecto más moderno, sin las pequeñas líneas
+        al final de
+        los caracteres. Los tipos de letra <mark>Sans Serif</mark> se utilizan habitualmente en el diseño digital porque
+        son fáciles
+        de leer en pantalla. Algunos ejemplos son <mark>Helvetica</mark>, <mark>Arial</mark> y <mark>Roboto</mark>.
+        Existen otras clasificaciones de tipos de
+        letra, como <mark>Script</mark>, <mark>Blackletter</mark>, <mark>Monospaced</mark> y <mark>Decorative</mark>.
+      </p>
+      <p>
+        Hemos mencionado que los tipos de letra son como planos para las fuentes, ¿verdad? Pues bien, las fuentes
+        también se pueden agrupar si comparten un diseño similar. Se pueden combinar diferentes grosores y estilos. Por
+        ejemplo, <mark>Times New Roman</mark> incluye variaciones como <mark>Times New Roman Bold</mark>, <mark>Times
+          New Roman Italic</mark> y <mark>Times New Roman
+          Bold Italic</mark>. Estas variaciones dentro de la misma familia de fuentes suelen incluir:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>Peso</mark>: el grosor de los caracteres, incluyendo ligero, regular, negrita y negro.
+          </li>
+          <li class="list">
+            <mark>Estilo</mark>: la inclinación y orientación de los caracteres, como cursiva y oblicua.
+          </li>
+          <li class="list">
+            <mark>Ancho</mark>: el espacio horizontal que ocupan los caracteres, como condensado y expandido.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        <strong>Genial</strong>. Ahora exploremos los elementos fundamentales de la tipografía:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            La línea de base es la línea imaginaria sobre la que descansan la mayoría de los caracteres.
+          </li>
+          <li class="list">
+            La altura de las mayúsculas es la altura de las letras mayúsculas, medida desde la línea de base hasta la
+            parte superior.
+          </li>
+          <li class="list">
+            La altura x es la altura media de las letras minúsculas, excluyendo las ascendentes y descendentes.
+          </li>
+          <li class="list">
+            Las ascendentes son las partes de las letras minúsculas que se extienden por encima de la altura x, como la
+            parte superior de las letras <mark>h</mark>, <mark>b</mark>, <mark>d</mark> y <mark>f</mark>.
+          </li>
+          <li class="list">
+            Las descendentes son las partes de las letras minúsculas que se extienden por debajo de la línea base, como
+            las colas de las letras <mark>y</mark>, <mark>g</mark>, <mark>p</mark> y <mark>q</mark>.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        También hay conceptos más avanzados, como el <mark>kerning</mark>, el <mark>tracking</mark> y el
+        <mark>interlineado</mark>.
+      </p>
+      <p>
+        El <mark>kerning</mark> es la forma en que se ajusta el espacio entre pares específicos de caracteres para
+        mejorar su
+        legibilidad y estética. Por ejemplo, reducir el espacio entre las letras A y V. <br>El <mark>tracking</mark> es
+        la forma en que
+        se ajusta el espacio entre todos los caracteres de un bloque de texto. Es esencialmente la distancia entre los
+        caracteres. Afecta a la densidad y apertura del texto. <br>El <mark>interlineado</mark> es el espacio vertical
+        entre las líneas
+        de texto. Se mide desde la línea base de una línea hasta la línea base de la siguiente línea.
+      </p>
+      <p>
+        Es fundamental estar familiarizado con estos conceptos para elegir la fuente adecuada para su proyecto.
+      </p>
+      <p>
+        La longitud de la línea también puede tener un impacto significativo en la legibilidad. Si el texto es demasiado
+        estrecho, los lectores tendrán que volver a enfocar la vista con demasiada frecuencia. Si el texto es demasiado
+        ancho, pueden experimentar fatiga. Debe encontrar la longitud de línea óptima para una lectura cómoda.
+      </p>
+      <p>
+        Con la tipografía, también puedes crear una jerarquía visual, lo que ayuda a los lectores a comprender qué
+        partes del texto o de la interfaz de usuario son más importantes. Las fuentes más grandes suelen indicar que el
+        texto es más importante. Poner el texto en negrita también es útil para resaltarlo.
+      </p>
+      <p>
+        Subrayar el texto o presentarlo en cursiva es útil para resaltar los puntos clave. Proporcionar un espaciado
+        preciso alrededor del texto puede resaltar su importancia. Y el contraste de colores puede llamar la atención de
+        los lectores hacia partes específicas del texto.
+      </p>
+      <p>
+        Tener conocimientos básicos de tipografía es esencial para diseñar aplicaciones visualmente atractivas. Al
+        comprender las fuentes, el espaciado y la jerarquía, puede crear experiencias visuales que mejoren la
+        legibilidad de su contenido y refuercen la identidad de su marca.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones se refiere al diseño y la disposición de los caracteres individuales?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Glyph
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Type
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Beak
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Shoulder
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la diferencia entre un tipo de letra y una fuente?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Un tipo de letra es un estilo específico de una fuente, mientras que una fuente es el diseño general.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Una fuente es un estilo específico de un tipo de letra, mientras que un tipo de letra es el diseño general.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            No hay diferencia entre un tipo de letra y una fuente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Un tipo de letra es una colección de fuentes, mientras que una fuente es un solo carácter.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre las fuentes <mark>serif</mark> y <mark>sans-serif</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Las fuentes serif son manuscritas, mientras que las fuentes sans-serif son impresas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            Las fuentes serif tienen pequeñas líneas al final de los caracteres, mientras que las fuentes sans-serif no
+            las tienen.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Las fuentes serif se utilizan para los titulares, mientras que las fuentes sans-serif se utilizan para el
+            cuerpo del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Las fuentes serif son más antiguas que las fuentes sans-serif.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son algunas de las mejores prácticas para trabajar con tipografía en tus
+        diseños?</h2>
+
+      <p>
+        La tipografía es el arte y la técnica de organizar los tipos de letra para comunicar de forma eficaz. Implica
+        dar formato al texto y seleccionar las fuentes adecuadas. En esta lección, aprenderás las mejores prácticas para
+        utilizar la tipografía de forma que mejore <mark>la legibilidad</mark>, la <mark>jerarquía</mark> y la
+        <mark>accesibilidad</mark>.
+      </p>
+      <p>
+        Comencemos por <mark>la legibilidad</mark>. Debes elegir fuentes claras y sencillas para que tus diseños sean
+        fáciles de
+        entender. Esto es especialmente importante para el texto principal de tu sitio web. Los usuarios se sentirán más
+        atraídos por tu contenido si la fuente es fácil de leer. Algunas fuentes que se utilizan con frecuencia para el
+        desarrollo web son <mark>Roboto</mark>, <mark>Open Sans</mark>, <mark>Poppins</mark>, <mark>Lato</mark> y
+        <mark>Barlow</mark>. Pero hay muchas entre las que elegir y seguro que
+        encuentras una que se adapte a tus necesidades.
+      </p>
+      <p>
+        El texto también debe ser lo suficientemente grande como para que todo el mundo pueda leerlo. Debes intentar que
+        las líneas sean relativamente cortas. El número específico de caracteres por línea depende realmente de su
+        proyecto. Pero mantener las líneas cortas hará que el contenido sea más fácil de leer.
+      </p>
+      <p>
+        Puede utilizar el tamaño de la fuente para crear una <mark>jerarquía</mark> visual para los títulos, subtítulos,
+        párrafos y
+        otros elementos. Por ejemplo, el título principal de una página web debe tener una fuente más grande, seguido de
+        subtítulos con tamaños de fuente más pequeños. Esto le dará a cada elemento de la <mark>jerarquía</mark> un
+        tamaño de fuente
+        específico que ayudará a los usuarios a navegar visualmente por la estructura.
+      </p>
+      <p>
+        Debes utilizar dos o tres tipos de letra como máximo para crear una coherencia visual. Utilizar demasiados tipos
+        de letra puede dificultar la lectura del texto y debilitar la identidad de tu marca. Esto también puede afectar
+        a la experiencia del usuario al aumentar el tiempo de carga del sitio web.
+      </p>
+      <p>
+        Una vez que elijas estas dos o tres fuentes, úsalas de manera consistente en las diferentes páginas y elementos.
+        Estas fuentes deben ser coherentes con el diseño general de tu aplicación web, producto o servicio. También
+        debes utilizar espacios en blanco para crear un equilibrio visual y mejorar la legibilidad.
+      </p>
+      <p>
+        Por motivos de <mark>accesibilidad</mark>, debes seguir las Pautas de <mark>Accesibilidad al Contenido en la
+          Web</mark>. Estas pautas
+        establecen la relación de contraste recomendada para el texto. Una relación de contraste más alta facilita la
+        lectura del texto, especialmente para las personas con discapacidades visuales.
+      </p>
+      <p>
+        También debe ofrecer opciones para ajustar el tamaño de la fuente y evitar en la medida de lo posible las
+        fuentes complejas. Como regla general, debe utilizar fuentes sencillas siempre que sea posible. Si su contenido
+        es fácil de leer, los usuarios estarán más dispuestos a interactuar con él. Un último consejo para trabajar con
+        tipografía es asegurarse de que sus fuentes se muestran correctamente en diferentes tamaños de pantalla y
+        dispositivos.
+      </p>
+      <p>
+        La tipografía es una herramienta poderosa para crear diseños atractivos y experiencias de usuario interesantes.
+        Al comprender los fundamentos de la tipografía y aplicar estas prácticas recomendadas, podrá crear diseños
+        eficaces.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes es un factor muy importante para garantizar la legibilidad en la tipografía web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Utilizar una gran variedad de fuentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Maximizar el tamaño de la fuente para todos los elementos de texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Lograr un contraste óptimo entre el texto y el fondo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Alinear el texto al margen izquierdo.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            A la hora de elegir fuentes para un sitio web, por lo general se recomienda:
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Utilizar tantas fuentes diferentes como sea posible para lograr un mayor interés visual.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Limitar el número de font families para mejorar la coherencia.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Dar prioridad a las fuentes decorativas sobre la legibilidad.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Utilizar solo fuentes con serif para el cuerpo del texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones describe mejor el concepto de jerarquía visual en tipografía?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Utilizar un solo estilo de fuente en todo el diseño.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Dar prioridad a la información más importante mediante el tamaño y el estilo de la fuente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Mantener un espaciado uniforme entre las letras.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Asegurarse de que todo el texto esté centrado en la página.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Qué son las familias tipográficas y cómo funcionan?</h2>
+
+      <p>
+        Una <mark>font family</mark> es un grupo de fuentes que comparten un diseño común. Todas las fuentes que
+        pertenecen a
+        la misma familia se basan en el mismo tipo de letra básico, pero también tienen variaciones en su estilo, grosor
+        y
+        ancho. Se pueden considerar como hermanos que comparten características similares, pero que también tienen
+        algunas
+        diferencias. Por ejemplo, <mark>Arial</mark> es una <mark>font family</mark> que incluye variaciones como
+        <mark>Arial
+          Bold</mark> y <mark>Arial Italic</mark>.
+      </p>
+      <p>
+        En CSS, puedes establecer la <mark>font family</mark> con la propiedad <mark>font-family</mark>. A continuación
+        se
+        muestra un
+        ejemplo de cómo establecer la fuente del párrafo en <mark>Arial</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p id="arial-font"&gt;Example paragraph using Arial font.&lt;/p&gt;
+&lt;p&gt;Paragraph not using Arial font.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">#arial-font</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">Arial</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-font-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-font-canvas #arial-font {
+                font-family: Arial, Helvetica, sans-serif !important;
+                font-size: 1.2rem !important;
+                margin-bottom: 15px !important;
+                color: #222 !important;
+              }
+
+              .pv-font-canvas p:not(#arial-font) {
+                font-family: serif !important;
+                font-size: 1.2rem !important;
+                color: #222 !important;
+              }
+            </style>
+
+            <p id="arial-font">Example paragraph using Arial font.</p>
+            <p>Paragraph not using Arial font.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Pero, ¿qué pasa si no se encuentra la <mark>font family</mark>? Puede especificar varias familias tipográficas
+        por
+        orden de prioridad, de mayor a menor, separándolas con comas. Estas fuentes alternativas actuarán como opciones
+        de reserva. En este ejemplo, Arial es la fuente principal y Lato es la fuente alternativa:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p id="specified-font"&gt;Example paragraph using specified fonts.&lt;/p&gt;
+&lt;p&gt;Paragraph not using specified fonts.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">#specified-font</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">Arial, Lato</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-fallback-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-fallback-canvas .f-fallback-p {
+                font-size: 1.1rem !important;
+                margin: 10px 0 !important;
+                color: #333 !important;
+              }
+
+              .pv-fallback-canvas #specified-font {
+                font-family: Arial, Lato, sans-serif !important;
+                color: #000 !important;
+              }
+
+              .pv-fallback-canvas p:not(#specified-font) {
+                font-family: "Times New Roman", Times, serif !important;
+              }
+            </style>
+
+            <p id="specified-font" class="f-fallback-p">Example paragraph using specified fonts.</p>
+            <p class="f-fallback-p">Paragraph not using specified fonts.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El navegador mostrará la primera fuente (Arial) si la encuentra en el dispositivo. Si no es así, se mostrará la
+        segunda fuente (Lato).
+      </p>
+      <p>
+        También debes saber cómo funciona este proceso entre bastidores. El proceso de selección no se detiene si la
+        primera fuente está disponible. La <mark>font family</mark> se elige carácter por carácter, por lo que si a una
+        fuente
+        le falta un carácter específico, el navegador lo busca en las fuentes de menor prioridad. Interesante, ¿verdad?
+      </p>
+      <p>
+        En el contexto del desarrollo web, también encontrarás familias de fuentes genéricas. Son muy importantes. Una
+        <mark>font family</mark> genéricas es una fuente predeterminada que los navegadores web mostrarán cuando las
+        fuentes
+        de mayor prioridad no estén disponibles. Para garantizar que el contenido siga siendo legible, el navegador
+        sustituye la fuente original por la fuente más adecuada que encuentra, basándose en la <mark>font family</mark>
+        genéricas especificada. Algunas de las más utilizadas son:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>serif</mark>
+          </li>
+          <li class="list">
+            <mark>sans-serif</mark>
+          </li>
+          <li class="list">
+            <mark>monospace</mark>
+          </li>
+          <li class="list">
+            <mark>cursive</mark>
+          </li>
+          <li class="list">
+            <mark>fantasy</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Pero hay más opciones entre las que elegir. En el código siguiente, tenemos tres <mark>font family</mark>
+        alternativas:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p id="specified-font"&gt;Example paragraph using specified fonts.&lt;/p&gt;
+&lt;p&gt;Paragraph not using specified fonts.&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">#specified-font</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">Arial, Lato, sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-stack-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-stack-canvas .f-stack-p {
+                font-size: 1.1rem !important;
+                margin: 10px 0 !important;
+                color: #333 !important;
+              }
+
+              .pv-stack-canvas #specified-font {
+                font-family: Arial, Lato, sans-serif !important;
+                color: #000 !important;
+              }
+
+              .pv-stack-canvas p:not(#specified-font) {
+                font-family: serif !important;
+                color: #222 !important;
+              }
+            </style>
+
+            <p id="specified-font" class="f-stack-p">Example paragraph using specified fonts.</p>
+            <p class="f-stack-p">Paragraph not using specified fonts (Fallback default).</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Arial tiene la máxima prioridad. Si no se encuentra Arial, el navegador intentará renderizar Lato. Si no se
+        encuentra ninguna de las dos, el navegador utilizará la <mark>font family sans-serif</mark> genérica,
+        seleccionando
+        una fuente con estas características de entre las instaladas en el sistema del usuario.
+      </p>
+      <p>
+        Siempre debes incluir una <mark>font family</mark> genéricas al final de la lista de <mark>font family</mark>.
+        Ten en
+        cuenta que la fuente genérica puede tener un aspecto diferente al de la fuente que habías previsto originalmente
+        en tu diseño, por lo que siempre es útil comprobar cómo se ven estas fuentes alternativas en diferentes
+        navegadores.
+      </p>
+      <p>
+        Para que la experiencia del usuario sea lo más coherente posible, también se recomienda utilizar fuentes seguras
+        para la web. Estas <mark>font family</mark> suelen estar instaladas en la mayoría de los dispositivos, por lo
+        que es
+        muy probable que se encuentren y se representen correctamente para la mayoría de los usuarios. Aprenderás más
+        sobre ellas en las próximas lecciones.
+      </p>
+      <p>
+        Las <mark>font family</mark> son esenciales en el mundo del diseño web. Mediante el uso de la propiedad
+        <mark>font family</mark>,
+        puedes transformar instantáneamente el aspecto y la sensación de tu texto.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la propiedad CSS <mark>font-family</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Establecer el color del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Controlar el tamaño de la fuente del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            Definir el tipo de letra utilizado para el texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            Ajustar el interlineado del texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes es una familia tipográfica genérica común?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Helvetica
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Times New Roman
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Sans-Serif
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Arial
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se pueden especificar varias familias de fuentes como alternativa en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            Separándolas con comas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Utilizando declaraciones de familia de fuentes anidadas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Utilizando el carácter &.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Utilizando el carácter |.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2>Tema 4: ¿Qué son las fuentes seguras para web?</h2>
+
+      <p>
+        Las fuentes seguras para web son un subconjunto de fuentes que es muy probable que estén instaladas en una
+        computadora o dispositivo. Son ampliamente compatibles con diferentes sistemas operativos y navegadores web, por
+        lo que es muy probable que se representen y muestren de manera consistente. Veamos cómo funciona esto.
+      </p>
+      <p>
+        Los navegadores son responsables de interpretar y mostrar las fuentes en un sitio web. Cuando el navegador tiene
+        que representar una fuente, intenta encontrar el archivo de fuente en el sistema del usuario. Pero si no
+        encuentra la fuente, normalmente recurre a una fuente predeterminada del sistema. Esto garantiza que el
+        contenido siga siendo legible, incluso si falta la fuente específica que debería representarse en el sitio web.
+      </p>
+      <p>
+        Sin embargo, la fuente alternativa seleccionada por el navegador puede tener un aspecto muy diferente al de la
+        fuente que se suponía que debía representarse originalmente. Esto puede tener un impacto crítico en el diseño
+        general y la experiencia del usuario. Para evitarlo, debe utilizar fuentes seguras para la web siempre que sea
+        posible. Tiene dos opciones. Puede utilizarlas como fuentes principales o puede utilizar fuentes personalizadas
+        con una fuente segura para la web como opción alternativa. De esta manera, puede controlar el aspecto del sitio
+        web en caso de que no se encuentre la fuente personalizada.
+      </p>
+      <p>
+        Veamos algunos ejemplos de fuentes seguras para la web. En una lección anterior, aprendiste que las fuentes
+        sans-serif se utilizan comúnmente para el desarrollo web porque no tienen pequeños «pies» o líneas al final de
+        los caracteres, por lo que son fáciles de leer en pantalla. Algunos ejemplos de fuentes sans-serif seguras para
+        la web son:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>Arial</mark>
+          </li>
+          <li class="list">
+            <mark>Verdana</mark>
+          </li>
+          <li class="list">
+            <mark>Trebuchet MS</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Por el contrario, las fuentes serif tienen pequeños "feet" al final de los caracteres, por lo que se utilizan
+        habitualmente en la impresión tradicional. Pero si alguna vez necesitas utilizarlas para el desarrollo web, las
+        fuentes serif seguras para la web incluyen:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>Times New Roman</mark>
+          </li>
+          <li class="list">
+            <mark>Georgia</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Al utilizar fuentes seguras para web, puedes asegurarte de que tu diseño se vea consistente en todos los
+        dispositivos y plataformas. También pueden mejorar la accesibilidad para los usuarios con discapacidades
+        visuales, ya que son sencillas y fáciles de leer. Por último, las fuentes seguras para web pueden reducir el
+        tiempo de carga de la página, ya que no es necesario descargarlas si ya están instaladas.
+      </p>
+      <p>
+        Ahora que ya sabe qué son las fuentes seguras para web, puede empezar a utilizarlas y asignarlas como
+        alternativas para crear experiencias de usuario fiables en todos los navegadores y plataformas.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes es una característica clave de las fuentes seguras para la web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Son difíciles de leer.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Están diseñadas para tipos específicos de contenido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            Son ampliamente compatibles con diferentes plataformas y navegadores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Solo están disponibles en estilos serif.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes no es una fuente segura para la web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Arial
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Verdana
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            Georgia
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            Dancing Script
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo son especialmente útiles las fuentes seguras para web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Para diseños web complejos y visualmente exigentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Cuando una fuente personalizada específica es esencial para fines de marca.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            Para el diseño web básico y cuando la prioridad es una representación coherente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            Para crear fuentes personalizadas.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2>Tema 5: ¿Qué es la regla <code>@font-face</code> y cómo funciona?</h2>
+
+      <p>
+        Antes de profundizar en el tema, debes saber qué es una regla en CSS. Las reglas son instrucciones que se
+        proporcionan al navegador. Se pueden utilizar para definir diversos aspectos de la hoja de estilos, como
+        consultas de medios, fotogramas clave, tipos de letra y mucho más. Aprenderás más sobre conceptos como consultas
+        de medios y fotogramas clave en lecciones futuras. En esta ocasión, aprenderás sobre la regla
+        <mark>@font-face</mark>.
+      </p>
+      <p>
+        Con <mark>@font-face</mark>, puedes definir una fuente personalizada especificando el archivo de fuente, el
+        formato y otras
+        propiedades importantes, como el peso y el estilo. Esta es la sintaxis básica. Puedes ver
+        <mark>@font-face</mark> seguido de
+        un bloque entre llaves:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* Descriptors */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-face-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-face-canvas .f-face-info {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                line-height: 1.6 !important;
+              }
+
+              .pv-face-canvas .f-face-info p {
+                color: #333 !important;
+              }
+
+              .pv-face-canvas .f-face-tag {
+                display: inline-block !important;
+                background: #f0f0f0 !important;
+                padding: 2px 8px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-weight: bold !important;
+                color: #e06c75 !important;
+              }
+            </style>
+
+            <div class="f-face-info">
+              <p>Dentro del bloque <span class="f-face-tag">@font-face</span>, los <strong>descriptores</strong> más
+                comunes que usaremos son:</p>
+              <ul style="margin-top: 10px;">
+                <li><span class="f-face-tag">font-family</span>: El nombre que tú le inventas a la fuente.</li>
+                <li><span class="f-face-tag">src</span>: La ruta (URL) donde vive el archivo de la fuente (.woff2,
+                  .ttf).</li>
+                <li><span class="f-face-tag">font-weight</span>: Define si esta fuente es negrita, delgada, etc.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dentro de las llaves, deberá incluir descriptores para personalizar su tipo de letra. Veamos algunos de los más
+        utilizados. El descriptor <mark>font-family</mark> especifica el nombre que utilizará en toda la hoja de estilos
+        para referirse a ese tipo de letra. Por ejemplo, supongamos que define esta <mark>@font-face rule</mark>. Tiene
+        definido el descriptor <mark>font-family</mark> y su valor es <mark>MyCustomFont</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-face-name-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-face-name-canvas .f-name-title {
+                font-family: sans-serif !important;
+                color: #2c3e50 !important;
+                font-size: 1.2rem !important;
+                margin-bottom: 15px !important;
+                font-weight: bold !important;
+              }
+
+              .pv-face-name-canvas .f-name-desc {
+                font-family: sans-serif !important;
+                color: #555 !important;
+                line-height: 1.5 !important;
+                font-size: 1rem !important;
+              }
+
+              .pv-face-name-canvas .f-name-code-inline {
+                background: #f4f4f4 !important;
+                padding: 2px 5px !important;
+                border-radius: 3px !important;
+                font-family: monospace !important;
+                color: #e06c75 !important;
+              }
+            </style>
+
+            <h3 class="f-name-title">Descriptor: font-family</h3>
+            <p class="f-name-desc">
+              Este es el <strong>identificador</strong>. Al poner <span
+                class="f-name-code-inline">"MyCustomFont"</span>, le estás diciendo al navegador que cada vez que
+              escribas ese nombre en una regla normal, debe intentar usar esta fuente específica.
+            </p>
+            <p class="f-name-desc" style="margin-top: 10px; font-style: italic; color: #888;">
+              Nota: Aún falta decirle al navegador de dónde sacar el archivo, ¡pero el nombre ya está reservado!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En ese caso, tendrías que utilizar ese nombre en tu hoja de estilos siempre que quieras asignar esa familia de
+        fuentes personalizada a todos los elementos que coincidan con un selector CSS. Por ejemplo, lo utilizarías como
+        valor de <mark>font-family</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span> 
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-usage-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-usage-canvas .f-usage-box {
+                border: 2px dashed #ccc !important;
+                padding: 15px !important;
+                border-radius: 8px !important;
+              }
+
+              .pv-usage-canvas .f-usage-p {
+                font-family: 'Arial', sans-serif !important;
+                font-size: 1.2rem !important;
+                color: #2c3e50 !important;
+                margin: 0 !important;
+                text-align: center !important;
+              }
+
+              .pv-usage-canvas .f-usage-label {
+                display: block !important;
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #888 !important;
+                margin-bottom: 10px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+              }
+            </style>
+
+            <div class="f-usage-box">
+              <span class="f-usage-label">Vista Previa del Body</span>
+              <p class="f-usage-p">
+                Este texto ahora utiliza "MyCustomFont" en todo el documento.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Pero para que la regla <mark>@font-face</mark> sea válida, también es necesario especificar el <mark>src</mark>.
+        Este contiene referencias
+        a los recursos de fuentes. Básicamente, es una lista de referencias externas o nombres de fuentes instaladas
+        localmente separados por comas. También puede incluir indicaciones sobre el formato y la tecnología de los
+        recursos de fuentes.
+      </p>
+      <p>
+        En el código siguiente, se define el <mark>src</mark>. El valor es una lista de URL separadas por comas y
+        colocadas en líneas
+        separadas para mejorar la legibilidad:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2")</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.woff")</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.otf")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-src-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-src-canvas .f-src-card {
+                border-left: 4px solid #98c379 !important;
+                background: #f9f9f9 !important;
+                padding: 15px !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-src-canvas .f-src-title {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                font-weight: bold !important;
+                margin-bottom: 8px !important;
+              }
+
+              .pv-src-canvas .f-src-list {
+                font-family: sans-serif !important;
+                font-size: 0.9rem !important;
+                color: #555 !important;
+                list-style: none !important;
+                padding: 0 !important;
+              }
+
+              .pv-src-canvas .f-src-list li {
+                margin-bottom: 5px !important;
+              }
+
+              .pv-src-canvas .f-src-ext {
+                font-family: monospace !important;
+                color: #e06c75 !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="f-src-card">
+              <div class="f-src-title">Jerarquía de descarga:</div>
+              <ul class="f-src-list">
+                <li>1. <span class="f-src-ext">.woff2</span>: Súper comprimido (Moderno).</li>
+                <li>2. <span class="f-src-ext">.woff</span>: Estándar para web.</li>
+                <li>3. <span class="f-src-ext">.otf / .ttf</span>: Formatos clásicos de escritorio.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puede llamar a la función <mark>url()</mark> para incluir un archivo en su hoja de estilos. En este caso,
+        estamos incluyendo
+        los archivos de fuentes. Deberá escribir la ruta del archivo entre paréntesis y comillas, incluyendo la
+        extensión del archivo. Para mejorar la legibilidad, puede escribir cada recurso en una línea diferente, pero el
+        último debe terminar con un punto y coma.
+      </p>
+      <p>
+        Para cada recurso de fuente, también puedes especificar el formato. Esto es opcional. Es una pista para el
+        navegador sobre el formato de la fuente. Si se omite el formato, el recurso se descargará y el formato se
+        detectará después de la descarga. Si el formato no es válido, el recurso no se descargará.
+      </p>
+      <p>
+        Los formatos de fuente posibles incluyen <mark>collection</mark>, <mark>embedded-opentype</mark>,
+        <mark>opentype</mark>, <mark>svg</mark>, <mark>truetype</mark>, <mark>woff</mark> y <mark>woff2</mark>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo con formatos de fuente. Observe cómo escribimos el formato específico entre
+        paréntesis y comillas:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2") format("woff2")</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.otf") format("opentype")</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.woff") format("woff")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-format-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-format-canvas .f-format-info {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                border-left: 4px solid #61afef !important;
+                padding-left: 15px !important;
+              }
+
+              .pv-format-canvas .f-format-title {
+                font-weight: bold !important;
+                margin-bottom: 10px !important;
+                color: #2c3e50 !important;
+              }
+
+              .pv-format-canvas .f-format-text {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                color: #555 !important;
+              }
+
+              .pv-format-canvas .f-format-hint {
+                display: inline-block !important;
+                background: #e5f1fb !important;
+                color: #1e88e5 !important;
+                padding: 2px 6px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-size: 0.9rem !important;
+              }
+            </style>
+
+            <div class="f-format-info">
+              <div class="f-format-title">¿Por qué usar format()?</div>
+              <p class="f-format-text">
+                Al escribir <span class="f-format-hint">format("woff2")</span>, el navegador verifica si soporta esa
+                tecnología <strong>antes</strong> de iniciar la descarga.
+              </p>
+              <p class="f-format-text" style="margin-top: 10px;">
+                Si el navegador es viejo y no conoce WOFF2, simplemente lo ignora y pasa al siguiente, ahorrando tiempo
+                valioso.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, puede ver que estamos especificando el formato <mark>WOFF2</mark>, el formato
+        <mark>OpenType</mark> y el formato <mark>WOFF</mark>.
+      </p>
+      <p>
+        <mark>WOFF</mark> significa "<mark>Web Open Font Format</mark>" (formato de fuente abierto para web). La
+        diferencia entre <mark>WOFF</mark> y <mark>WOFF2</mark> es
+        el algoritmo utilizado para comprimir los datos. <mark>OpenType</mark> es un formato para fuentes informáticas
+        escalables
+        desarrollado por Microsoft y Adobe que permite a los usuarios acceder a funciones adicionales en una fuente. Se
+        utiliza ampliamente en los principales sistemas operativos.
+      </p>
+      <p>
+        Además de especificar el formato, también se puede especificar la tecnología del recurso de fuente. Esto también
+        es opcional. A continuación se muestra un ejemplo en el que especificamos la tecnología del segundo recurso de
+        fuente.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@font-face</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"MyCustomFont"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">src</span><span class="tk-punctuation">:</span> <span class="tk-value">url("path/to/font.woff2") format("woff2")</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.otf") format("opentype") tech(color-COLRv1)</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">url("path/to/font.woff") format("woff")</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-tech-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-tech-canvas .f-tech-info {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                border-left: 4px solid #c678dd !important;
+                padding-left: 15px !important;
+              }
+
+              .pv-tech-canvas .f-tech-title {
+                font-weight: bold !important;
+                margin-bottom: 8px !important;
+                color: #2c3e50 !important;
+              }
+
+              .pv-tech-canvas .f-tech-text {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                color: #555 !important;
+              }
+
+              .pv-tech-canvas .f-tech-tag {
+                display: inline-block !important;
+                background: #fdf2ff !important;
+                color: #a333c8 !important;
+                padding: 2px 6px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="f-tech-info">
+              <div class="f-tech-title">Diferencia entre Format y Tech</div>
+              <p class="f-tech-text">
+                Mientras que <span class="f-tech-tag">format("opentype")</span> define el tipo de archivo (.otf), <span
+                  class="f-tech-tag">tech(color-COLRv1)</span> le dice al navegador que la fuente contiene
+                <strong>vectores de color modernos</strong>.
+              </p>
+              <p class="f-tech-text" style="margin-top: 10px;">
+                Si el navegador soporta el formato pero no la tecnología, pasará automáticamente al siguiente recurso.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos son los fundamentos de la regla <mark>@font-face</mark>. Con esta regla, puedes especificar el archivo de
+        fuente para definir fuentes personalizadas para tus diseños únicos.
+      </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la regla <mark>@font-face</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Definir el color del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Controlar el tamaño de la fuente del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <!-- correcto -->
+            Definir fuentes personalizadas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            Ajustar el interlineado del texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes propiedades se requiere dentro de la regla <mark>@font-face</mark> para especificar
+            el archivo de fuente?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            font-name
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            <!-- correcto -->
+            src
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            font-weight
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            font-style
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal ventaja de utilizar fuentes personalizadas definidas con <mark>@font-face</mark> en
+            comparación con utilizar únicamente fuentes seguras para web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Mayor compatibilidad con los navegadores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            <!-- correcto -->
+            Opciones mejoradas de personalización y branding.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Tiempos de carga de página más rápidos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Gestión de fuentes simplificada.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-labelledby="tema6-titulo">
+
+      <h2>Tema 6: ¿Cómo se trabaja con fuentes externas como <code>Font Squirrel</code> y <code>Google Fonts</code>?
+      </h2>
+
+      <p>
+        Una fuente externa es un archivo de fuente que no está incluido directamente en los archivos de tu proyecto. Por
+        lo general, se alojan en un servidor independiente. Un servidor es una computadora que proporciona datos o
+        servicios a otras computadoras a través de una red. Aprenderás más sobre los servidores en futuras lecciones.
+        Las fuentes externas te ofrecen más flexibilidad, ya que puedes utilizar fuentes personalizadas que pueden no
+        estar instaladas en el dispositivo del usuario.
+      </p>
+      <p>
+        <mark>Google Fonts</mark> y <mark>Font Squirrel</mark> son recursos en línea muy populares para buscar y
+        utilizar fuentes gratuitas para
+        el desarrollo web. Puedes incorporarlas a tus proyectos muy fácilmente.
+      </p>
+      <p>
+        Comencemos con <mark>Google Fonts</mark>. Se trata de un servicio de Google que ofrece una colección de fuentes,
+        muchas de
+        las cuales están diseñadas específicamente para el desarrollo web. En la interfaz de usuario de <mark>Google
+          Fonts</mark>,
+        puedes ver muchos elementos diferentes. Repasemos uno por uno. En la barra lateral izquierda, encontrarás:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Una sección para ver, buscar y filtrar fuentes.
+          </li>
+          <li class="list">
+            Una sección especial sobre Noto, una colección de fuentes de alta calidad con diferentes grosores, anchuras
+            y estilos, perfectas para comunicarse en más de 1000 idiomas y más de 150 sistemas de escritura.
+          </li>
+          <li class="list">
+            Una sección donde puedes buscar y descargar íconos para tus proyectos web.
+          </li>
+          <li class="list">
+            Una sección donde puedes aprender más sobre las fuentes y sus mejores prácticas, seguida de preguntas
+            frecuentes.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Para agregar una fuente de Google a tu sitio web, debes ir a la primera sección (Fuentes). Puedes personalizar
+        el texto de vista previa en la barra lateral izquierda, donde dice "Preview." Solo escribe el texto que te
+        gustaría ver y se actualizará automáticamente. Esto es útil para obtener una vista previa de la fuente con el
+        texto que ya tienes en mente para tu sitio web. También puedes ajustar el tamaño de la fuente y filtrar las
+        fuentes según sus características.
+      </p>
+      <p>
+        Para obtener más información sobre una fuente, solo tienes que hacer clic en ella y verás información importante
+        sobre la fuente, como quién la diseñó, el texto de vista previa y los diferentes estilos, como ligero, normal,
+        medio, negrita y negro. Si haces clic en las opciones de la parte superior, puedes ir al probador de tipos, ver
+        los glifos individuales y obtener más información sobre la fuente y su licencia.
+      </p>
+      <p>
+        Puede personalizar el tamaño de la fuente del texto de vista previa con el control deslizante azul situado junto
+        al campo donde puede introducir el texto de vista previa. Cuando esté listo para añadir la fuente a su proyecto,
+        haga clic en el botón azul «Obtener fuente» situado en la parte superior. Se le redirigirá a una página de
+        resumen donde verá las fuentes que ha seleccionado actualmente. Puede seleccionar varias fuentes al mismo
+        tiempo.
+      </p>
+      <p>
+        A continuación, debes elegir si deseas descargar los archivos de fuentes para añadirlos a tu proyecto como
+        archivos locales o si deseas utilizarlos como fuentes externas y descargarlos de los servidores de Google cuando
+        un usuario entre en tu sitio web. Haz clic en «Descargar todo» si deseas descargarlos, pero si prefieres
+        utilizarlos como fuentes externas en los servidores de Google, haz clic en «Obtener código de inserción». Si
+        haces clic en «Obtener código de inserción», verás las instrucciones que debes seguir para añadir estas fuentes
+        externas a tu proyecto.
+      </p>
+      <p>
+        Para los proyectos de desarrollo web, tienes dos opciones. Puedes utilizar un elemento de <mark>link</mark> o
+        <mark>@import</mark>. Si
+        eliges la opción del elemento de <mark>link</mark>, puedes copiar y pegar el fragmento de código HTML y las
+        reglas CSS para
+        añadirlos a tu proyecto. Debes incrustar el código en el elemento head de tu archivo HTML y añadir las reglas
+        CSS que se ajusten a tus necesidades.
+      </p>
+      <p>
+        Aquí tienes un ejemplo del uso de todos los estilos Roboto:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;p class="roboto-thin"&gt;roboto-thin&lt;/p&gt;
+&lt;p class="roboto-light"&gt;roboto-light&lt;/p&gt;
+&lt;p class="roboto-regular"&gt;roboto-regular&lt;/p&gt;
+&lt;p class="roboto-medium"&gt;roboto-medium&lt;/p&gt;
+&lt;p class="roboto-bold"&gt;roboto-bold&lt;/p&gt;
+&lt;p class="roboto-black"&gt;roboto-black&lt;/p&gt;
+
+&lt;p class="roboto-thin-italic"&gt;roboto-thin-italic&lt;/p&gt;
+&lt;p class="roboto-light-italic"&gt;roboto-light-italic&lt;/p&gt;
+&lt;p class="roboto-regular-italic"&gt;roboto-regular-italic&lt;/p&gt;
+&lt;p class="roboto-medium-italic"&gt;roboto-medium-italic&lt;/p&gt;
+&lt;p class="roboto-bold-italic"&gt;roboto-bold-italic&lt;/p&gt;
+&lt;p class="roboto-black-italic"&gt;roboto-black-italic&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.roboto-thin</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">100</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-light</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">300</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-regular</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">400</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-medium</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">500</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-bold</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">700</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-black</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">900</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">normal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-thin-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">100</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-light-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">300</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-regular-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">400</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-medium-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">500</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-bold-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">700</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.roboto-black-italic</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">"Roboto"</span><span class="tk-punctuation">,</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">900</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-rb-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 20px; overflow-y: auto;">
+            <link
+              href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+
+            <style>
+              .pv-rb-canvas p {
+                margin: 8px 0 !important;
+                font-family: "Roboto", sans-serif !important;
+                border-bottom: 1px solid #f0f0f0;
+                padding-bottom: 4px;
+              }
+
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-rb-canvas p {
+                color: #222
+              }
+
+              .pv-rb-canvas .f-rb-thin {
+                font-weight: 100 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-light {
+                font-weight: 300 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-regular {
+                font-weight: 400 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-medium {
+                font-weight: 500 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-bold {
+                font-weight: 700 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-black {
+                font-weight: 900 !important;
+                font-style: normal !important;
+              }
+
+              .pv-rb-canvas .f-rb-thin-italic {
+                font-weight: 100 !important;
+                font-style: italic !important;
+              }
+
+              .pv-rb-canvas .f-rb-light-italic {
+                font-weight: 300 !important;
+                font-style: italic !important;
+              }
+
+              .pv-rb-canvas .f-rb-regular-italic {
+                font-weight: 400 !important;
+                font-style: italic !important;
+              }
+
+              .pv-rb-canvas .f-rb-medium-italic {
+                font-weight: 500 !important;
+                font-style: italic !important;
+              }
+
+              .pv-rb-canvas .f-rb-bold-italic {
+                font-weight: 700 !important;
+                font-style: italic !important;
+              }
+
+              .pv-rb-canvas .f-rb-black-italic {
+                font-weight: 900 !important;
+                font-style: italic !important;
+              }
+            </style>
+
+            <p class="f-rb-thin">roboto-thin</p>
+            <p class="f-rb-light">roboto-light</p>
+            <p class="f-rb-regular">roboto-regular</p>
+            <p class="f-rb-medium">roboto-medium</p>
+            <p class="f-rb-bold">roboto-bold</p>
+            <p class="f-rb-black">roboto-black</p>
+            <p class="f-rb-thin-italic">roboto-thin-italic</p>
+            <p class="f-rb-light-italic">roboto-light-italic</p>
+            <p class="f-rb-regular-italic">roboto-regular-italic</p>
+            <p class="f-rb-medium-italic">roboto-medium-italic</p>
+            <p class="f-rb-bold-italic">roboto-bold-italic</p>
+            <p class="f-rb-black-italic">roboto-black-italic</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Hay una regla CSS para cada estilo de fuente. Cada regla asigna las fuentes personalizadas con fuentes
+        alternativas en caso de que las fuentes personalizadas no se carguen correctamente.
+      </p>
+      <p>
+        Si eliges la opción <mark>@import</mark>, tendrás que añadir esa regla a tu archivo CSS. Aquí tienes un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@import</span> <span class="tk-value">url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-import-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-import-canvas .f-import-card {
+                border: 1px solid #e1e4e8 !important;
+                border-radius: 6px !important;
+                padding: 15px !important;
+                background: #f8f9fa !important;
+              }
+
+              .pv-import-canvas .f-import-title {
+                font-family: 'Roboto', sans-serif !important;
+                font-weight: 700 !important;
+                font-size: 1.2rem !important;
+                color: #24292e !important;
+                margin-bottom: 10px !important;
+              }
+
+              .pv-import-canvas .f-import-text {
+                font-family: 'Roboto', sans-serif !important;
+                font-weight: 300 !important;
+                color: #586069 !important;
+                line-height: 1.5 !important;
+              }
+            </style>
+
+            <div class="f-import-card">
+              <h3 class="f-import-title">Fuente cargada vía @import</h3>
+              <p class="f-import-text">
+                Esta tarjeta utiliza Roboto Light. Al usar @import, la fuente se vuelve parte integral de tu hoja de
+                estilos CSS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Las reglas CSS son exactamente las mismas.
+      </p>
+      <p>
+        Si solo quieres incluir estilos de fuente específicos, también tienes la opción de eliminarlos de estos
+        fragmentos. Los fragmentos HTML y CSS se actualizarán automáticamente.
+      </p>
+      <p>
+        Y esto es <mark>Google Fonts</mark>. Es una de las opciones más populares para encontrar fuentes gratuitas y de
+        código
+        abierto para proyectos de desarrollo web.
+      </p>
+      <p>
+        Otra gran opción es <mark>Font Squirrel</mark>, donde puedes encontrar y descargar las fuentes personalizadas
+        que imaginas
+        para tu diseño. Si buscas una fuente y haces clic en un resultado, verás más detalles sobre la fuente,
+        incluyendo muestras, prueba, glifos y kit de fuentes web. También puedes ver muestras de los diferentes estilos
+        y variaciones de la fuente, como fina, ligera, media, negrita y negra.
+      </p>
+      <p>
+        Una vez que hayas decidido la fuente que quieres utilizar en tu proyecto, ve a la pestaña "Webfont Kit".
+        Aquí puedes comprobar si la licencia de la fuente te permite utilizarla en incrustaciones CSS
+        <mark>@font-face</mark>.
+        También puedes elegir el subconjunto y el formato.
+      </p>
+      <p>
+        Al hacer clic en el botón "Download @font-face Kit" , se descargará un archivo comprimido (zip). Al
+        descomprimirlo, encontrará una carpeta llamada "web fonts", la licencia en forma de archivo de texto y un
+        archivo HTML con instrucciones sobre cómo utilizar las fuentes web. La carpeta "web fonts" contiene todos los
+        archivos de fuentes que necesita para su proyecto. Los encontrará agrupados en carpetas específicas para los
+        diferentes estilos de fuentes.
+      </p>
+      <p>
+        Si abre el archivo HTML en un navegador, encontrará instrucciones sobre cómo añadir las fuentes a su proyecto,
+        cómo incluirlas en la hoja de estilos con la declaración <mark>@font-face</mark> y cómo utilizarlas en las
+        reglas CSS.
+      </p>
+      <p>
+        Así es como puede agregar fuentes personalizadas de <mark>Font Squirrel</mark> a su proyecto. También puede
+        alojarlas en un
+        servidor independiente y utilizarlas como fuentes externas. Las fuentes externas son muy útiles para
+        personalizar el aspecto y el diseño general de su sitio web. Pueden hacer que su sitio web sea realmente único.
+      </p>
+      <p>
+        Sin embargo, también debe tener en cuenta que el uso de varias fuentes externas puede aumentar el tiempo de
+        carga del sitio web, lo que afecta a su rendimiento general. Siempre debe esforzarse por encontrar un equilibrio
+        entre el estilo y la eficiencia.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal ventaja de utilizar fuentes externas de servicios como <mark>Font Squirrel</mark> o
+            <mark>Google Fonts?</mark>
+          </legend>
+
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Reducción del tamaño de los archivos de fuentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Mayor velocidad de renderización de fuentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            <!-- correcto -->
+            Mayor selección y variedad de fuentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest15" tabindex="0">
+            Mejora de la compatibilidad con los navegadores.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la posible desventaja de utilizar varias fuentes externas?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            <!-- correcto -->
+            Aumento del tiempo de carga del sitio web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            Mayor probabilidad de que se produzcan errores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            Opciones de personalización limitadas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest16" tabindex="0">
+            Mayor compatibilidad con los navegadores.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la importancia de proporcionar fuentes alternativas cuando se utilizan fuentes externas?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            Para crear un diseño más atractivo visualmente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            Para mejorar el rendimiento de la representación de fuentes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            <!-- correcto -->
+            Para mostrar el texto correctamente, incluso si la fuente externa no se carga correctamente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest17" tabindex="0">
+            Tiempos de carga más rápidos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema7" aria-labelledby="tema7-titulo">
+
+      <h2>Tema 7: ¿Qué es la propiedad <code>text-shadow</code> y cómo funciona?</h2>
+
+      <p>
+        CSS no aplica sombras al texto de forma predeterminada. Este es un ejemplo de un párrafo sin sombras. Pero si
+        necesitas añadir sombras, puedes utilizar la propiedad <mark>text-shadow</mark>.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-comment">/* Values */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-shadow-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-shadow-canvas .f-shadow-info {
+                font-family: sans-serif !important;
+                color: #333 !important;
+                line-height: 1.6 !important;
+              }
+
+              .pv-shadow-canvas .f-shadow-info p {
+                color: #333 !important;
+              }
+
+              .pv-shadow-canvas .f-shadow-tag {
+                display: inline-block !important;
+                background: #e5f1fb !important;
+                padding: 2px 8px !important;
+                border-radius: 4px !important;
+                font-family: monospace !important;
+                font-weight: bold !important;
+                color: #1e88e5 !important;
+              }
+            </style>
+
+            <div class="f-shadow-info">
+              <p>Para que la sombra funcione, necesitas definir estos valores en orden:</p>
+              <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
+                <li>1. <span class="f-shadow-tag">h-shadow</span>: Desplazamiento horizontal (derecha/izquierda).</li>
+                <li>2. <span class="f-shadow-tag">v-shadow</span>: Desplazamiento vertical (arriba/abajo).</li>
+                <li>3. <span class="f-shadow-tag">blur-radius</span>: Qué tan difuminada se ve (opcional).</li>
+                <li>4. <span class="f-shadow-tag">color</span>: El color de la sombra (opcional).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En CSS, puedes describir una sombra mediante una combinación de su desplazamiento <mark>X</mark>, desplazamiento
+        <mark>Y</mark>, radio de
+        desenfoque y color. En primer lugar, debes especificar el desplazamiento <mark>X</mark> e <mark>Y</mark>, que
+        representan la distancia
+        horizontal y vertical de la sombra con respecto al texto, respectivamente. Estos valores son obligatorios.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo aplicar un desplazamiento <mark>X</mark> e <mark>Y</mark> a una
+        sombra. Aplicamos la
+        propiedad <mark>text-shadow</mark> con un <em>desplazamiento x</em> de <mark>3px</mark> y un <em>desplazamiento
+          y</em> de <mark>2px</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-shadow-coords-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-shadow-coords-canvas .f-shadow-p {
+                font-family: sans-serif !important;
+                font-size: 2.5rem !important;
+                font-weight: bold !important;
+                margin: 0 !important;
+                color: #333 !important;
+                text-shadow: 3px 2px !important;
+              }
+
+              .pv-shadow-coords-canvas .f-shadow-label {
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #888 !important;
+                margin-top: 15px !important;
+              }
+            </style>
+
+            <p class="f-shadow-p">Hello, World!</p>
+            <span class="f-shadow-label">Sombra: 3px (X) y 2px (Y)</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el navegador, el texto y la sombra tendrán un aspecto similar, pero también podemos personalizar el color de
+        la sombra especificando el valor antes o después del desplazamiento. Vamos a establecer el color de la sombra.
+        Aquí utilizaremos un color hexadecimal, pero puedes utilizar cualquier formato de color válido.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px #00ffc3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-shadow-color-canvas"
+            style="height: 100%; width: 100%; background-color: #1a1a1a; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 8px 8px;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-shadow-color-canvas .f-shadow-p-color {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.8rem !important;
+                margin: 0 !important;
+                color: #ffffff !important;
+                text-shadow: 3px 2px #00ffc3 !important;
+              }
+
+              .pv-shadow-color-canvas .f-shadow-tag-info {
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #00ffc3 !important;
+                margin-top: 10px !important;
+                letter-spacing: 1px !important;
+                text-transform: uppercase !important;
+              }
+            </style>
+
+            <p class="f-shadow-p-color">Hello, World!</p>
+            <span class="f-shadow-tag-info">Shadow Color: #00ffc3</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estamos escribiendo el color después del desplazamiento, pero también puedes escribir el color antes del
+        desplazamiento si lo prefieres. Es equivalente:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">#00ffc3 3px 2px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-shadow-order-canvas"
+            style="height: 100%; width: 100%; background-color: #222222; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-shadow-order-canvas .f-shadow-order-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.5rem !important;
+                margin: 0 !important;
+                color: #fff !important;
+                text-shadow: #00ffc3 3px 2px !important;
+              }
+
+              .pv-shadow-order-canvas .f-shadow-order-info {
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #888 !important;
+                margin-top: 15px !important;
+                background: #333 !important;
+                padding: 4px 10px !important;
+                border-radius: 20px !important;
+              }
+            </style>
+
+            <p class="f-shadow-order-p">Hello, World!</p>
+            <span class="f-shadow-order-info">Orden: Color | X | Y</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el navegador, la sombra tendrá un color específico, por lo que podremos distinguirla fácilmente del texto.
+        Ahora que podemos diferenciar la sombra del texto, también es importante ver cómo los valores positivos y
+        negativos afectan al desplazamiento de la sombra. Los valores positivos del desplazamiento <mark>X</mark> y del
+        desplazamiento <mark>Y</mark> moverán la sombra hacia la derecha y hacia abajo, respectivamente, mientras que
+        los valores
+        negativos la moverán hacia la izquierda y hacia arriba. A continuación se muestra un ejemplo que utiliza valores
+        negativos:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">-3px -2px #00ffc3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-shadow-neg-canvas"
+            style="height: 100%; width: 100%; background-color: #222222; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-shadow-neg-canvas .f-shadow-neg-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.5rem !important;
+                margin: 0 !important;
+                color: #fff !important;
+                text-shadow: -3px -2px #00ffc3 !important;
+              }
+
+              .pv-shadow-neg-canvas .f-shadow-neg-info {
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #00ffc3 !important;
+                margin-top: 15px !important;
+                border: 1px solid #00ffc3 !important;
+                padding: 4px 12px !important;
+                border-radius: 4px !important;
+              }
+            </style>
+
+            <p class="f-shadow-neg-p">Hello, World!</p>
+            <span class="f-shadow-neg-info">Offset: -3px (Izquierda) | -2px (Arriba)</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora la sombra se moverá hacia la izquierda y hacia arriba en relación con el texto. Genial. Pero la sombra no
+        se ve muy bien, porque se ve exactamente igual que el texto original, pero colocada detrás de él. Para que se
+        vea mejor, necesitamos agregar un tercer valor, el radio de desenfoque. Este valor es opcional, pero hace que la
+        sombra se vea mucho más suave y sutil. El valor predeterminado del radio de desenfoque es cero. Cuanto mayor sea
+        el valor, mayor será el desenfoque, lo que significa que la sombra se vuelve más clara.
+      </p>
+      <p>
+        Aquí, estamos estableciendo el radio de desenfoque en <mark>3px</mark> y volvemos a valores positivos para el
+        desplazamiento:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> <span class="tk-value">3px 2px 3px #00ffc3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-blur-canvas"
+            style="height: 100%; width: 100%; background-color: #1a1a1a; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-blur-canvas .f-blur-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 2.5rem !important;
+                margin: 0 !important;
+                color: #fff !important;
+                text-shadow: 3px 2px 3px #00ffc3 !important;
+              }
+
+              .pv-blur-canvas .f-blur-info {
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #888 !important;
+                margin-top: 15px !important;
+                background: #333 !important;
+                padding: 5px 15px !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-blur-canvas .f-blur-highlight {
+                color: #00ffc3 !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <p class="f-blur-p">Hello, World!</p>
+            <div class="f-blur-info">
+              Blur Radius: <span class="f-blur-highlight">3px</span> (Efecto Suave)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora empieza a parecer una sombra. Es más borrosa y sutil, por lo que podemos centrarnos en el texto principal
+        mientras que la sombra añade algo de estilo al fondo. A partir de aquí, podemos ajustar un poco los valores
+        hasta encontrar una combinación de desplazamiento, color y radio de desenfoque que se adapte a nuestras
+        necesidades.
+      </p>
+      <p>
+        También es útil saber que el texto puede tener más de una sombra. Solo tienes que escribirlas en la misma
+        propiedad <mark>text-shadow</mark> separadas por comas. Se aplicarán en capas, de delante hacia atrás, con la
+        primera sombra
+        en la parte superior.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de un párrafo con tres sombras aplicadas en capas. Fíjate en que todas estas sombras se
+        definen en la misma propiedad <mark>text-shadow</mark> y se separan por comas:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">text-shadow</span><span class="tk-punctuation">:</span> 
+    <span class="tk-value">3px 2px 3px #00ffc3</span><span class="tk-punctuation">,</span> 
+    <span class="tk-value">-3px -2px 3px #0077ff</span><span class="tk-punctuation">,</span> 
+    <span class="tk-value">5px 4px 3px #dee7e5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-multi-canvas"
+            style="height: 100%; width: 100%; background-color: #1a1a1a; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-multi-canvas .f-multi-p {
+                font-family: 'Arial Black', sans-serif !important;
+                font-size: 3rem !important;
+                margin: 0 !important;
+                color: #fff !important;
+                text-shadow:
+                  3px 2px 3px #00ffc3,
+                  -3px -2px 3px #0077ff,
+                  5px 4px 3px #dee7e5 !important;
+              }
+
+              .pv-multi-canvas .f-multi-legend {
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #888 !important;
+                margin-top: 20px !important;
+                text-align: center !important;
+              }
+
+              .pv-multi-canvas .f-multi-dot {
+                display: inline-block !important;
+                width: 8px !important;
+                height: 8px !important;
+                border-radius: 50% !important;
+                margin-right: 5px !important;
+              }
+            </style>
+
+            <p class="f-multi-p">Hello, World!</p>
+
+            <div class="f-multi-legend">
+              Capas aplicadas:<br>
+              <span class="f-multi-dot" style="background:#00ffc3;"></span>Cian (Frente) |
+              <span class="f-multi-dot" style="background:#0077ff;"></span>Azul (Medio) |
+              <span class="f-multi-dot" style="background:#dee7e5;"></span>Gris (Fondo)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>text-shadow</mark> es una potente propiedad CSS que permite resaltar el texto. También puede mejorar el
+        diseño general de su aplicación web. Al elegir el desplazamiento, el desenfoque y el color, puede crear una
+        amplia gama de efectos de sombra.
+      </p>
+
+    </section>
+
+    <section class="section" id="cuest7" aria-labelledby="cuest7-titulo">
+      <h2 id="cuest7-titulo">🧠 Cuestionario 7</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la propiedad CSS <mark>text-shadow</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            Ajustar el tamaño de la fuente del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            Cambiar el color del texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            <!-- correcto -->
+            Crear un efecto de sombra para el texto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest18" tabindex="0">
+            Controlar el espaciado entre las líneas de texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede crear una sombra de texto negra con un desplazamiento horizontal hacia la derecha y un radio de desenfoque de 5px?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            text-shadow: 5px 0px 0px black;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            <!-- correcto -->
+            text-shadow: 5px 0px 5px black;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            text-shadow: 5px 5px 0px black;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest19" tabindex="0">
+            text-shadow: 0px 5px 0px black;
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Cómo se puede crear un efecto de sombra de texto con varias capas?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            <!-- correcto -->
+            Definiendo varias sombras en la propiedad text-shadow.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            Anidando elementos unos dentro de otros.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            Utilizando la propiedad filter.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest20" tabindex="0">
+            Aplicando una imagen de fondo.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

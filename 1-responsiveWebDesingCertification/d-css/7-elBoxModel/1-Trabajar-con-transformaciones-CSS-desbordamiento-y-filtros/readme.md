@@ -468,6 +468,8 @@ En este caso, el relleno de un píxel en el elemento padre evita que el margen s
 
 Comprender el colapso de márgenes es importante para controlar con precisión el diseño y el espaciado en CSS. Aunque a veces puede dar lugar a resultados inesperados, se trata de una característica diseñada para crear un espaciado más agradable estéticamente y coherente en los documentos. Si sabes cuándo se produce el colapso de márgenes y cómo evitarlo cuando sea necesario, podrás crear diseños más predecibles y fáciles de mantener en tus diseños web.
 
+---
+
 ## Cuestionario 4
 
 1. **¿En qué dirección se produce el colapso del margen?**
@@ -879,8 +881,8 @@ Controla qué tan "vivos" son los colores. `0%` es blanco y negro (como el grays
 
     - [ ] a) `filter: blur(5px) + sepia(50%);`
     - [ ] b) `filter: blur(5px), sepia(50%);`
-    - [x] c) `filter: blur(5px) sepia(50%);` //correcto`
-    - [ ] d) `filter: blur(5px) && sepia(50%);
+    - [x] c) `filter: blur(5px) sepia(50%);` //correcto
+    - [ ] d) `filter: blur(5px) && sepia(50%);`
 
 [☝️](#trabajar-con-transformacionetransforms-desbordamientosoverflow-y-filtrosfilters-css)
 
