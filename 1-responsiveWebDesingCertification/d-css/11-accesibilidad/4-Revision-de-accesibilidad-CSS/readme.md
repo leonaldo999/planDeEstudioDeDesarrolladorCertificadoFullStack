@@ -164,6 +164,8 @@ En esta sección, revisaremos algunos aspectos de accesibilidad relacionados con
   >
   > **`hidden`**: Es el método más radical de HTML5. Si un elemento tiene este atributo, es como si no existiera en la página (ni se ve, ni se lee, ni ocupa espacio).
 
+---
+
   > [!TIP]
   > A diferencia de las clases de CSS, el atributo `hidden` es puramente **semántico**. Si usas JavaScript para ocultar elementos, es mucho más limpio hacer `elemento.hidden = true` que andar quitando y poniendo clases de CSS.
 
@@ -179,6 +181,8 @@ En esta sección, revisaremos algunos aspectos de accesibilidad relacionados con
 > **Pérdida de Memoria a Corto Plazo:** En cuanto el usuario hace clic y escribe una letra, el placeholder desaparece. Si el usuario se distrae, ya no sabe si el campo pedía "Usuario", "Email" o "Nombre".
 > **Contraste Insuficiente:** Por defecto, los navegadores renderizan el placeholder en un gris muy claro que no cumple con las normas **WCAG** de contraste, haciéndolo invisible para personas con visión reducida.
 > **Lectores de Pantalla:** Muchos lectores de pantalla no leen el placeholder o lo hacen de forma inconsistente. Sin una etiqueta `<label>` real, el campo es un "agujero negro" para ellos.
+
+---
 
 > [!TIP]
 > Si por diseño "necesitas" que no se vea el label, usa la técnica de `.sr-only` que vimos antes. Así el label existe para la accesibilidad pero no estorba visualmente.

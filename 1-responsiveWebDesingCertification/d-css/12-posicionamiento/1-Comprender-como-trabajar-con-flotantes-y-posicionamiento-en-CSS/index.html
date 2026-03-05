@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende cómo trabajar con flotantes y posicionamiento en CSS para crear diseños web más complejos y flexibles.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Comprender cómo trabajar con flotantes y posicionamiento en CSS">
+  <meta property="og:description"
+    content="Aprende cómo trabajar con flotantes y posicionamiento en CSS para crear diseños web más complejos y flexibles.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprender cómo trabajar con flotantes y posicionamiento en CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Comprender cómo trabajar con flotantes y posicionamiento en CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+      <li>
+        <a href="#tema3" onclick="closeNavMobile()" tabindex="0">💻 Tema 3</a>
+      </li>
+      <li>
+        <a href="#cuest3" onclick="closeNavMobile()" tabindex="0">❓ Cuest 3</a>
+      </li>
+      <li>
+        <a href="#tema4" onclick="closeNavMobile()" tabindex="0">💻 Tema 4</a>
+      </li>
+      <li>
+        <a href="#cuest4" onclick="closeNavMobile()" tabindex="0">❓ Cuest 4</a>
+      </li>
+      <li>
+        <a href="#tema5" onclick="closeNavMobile()" tabindex="0">💻 Tema 5</a>
+      </li>
+      <li>
+        <a href="#cuest5" onclick="closeNavMobile()" tabindex="0">❓ Cuest 5</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En esta sección, aprenderás sobre dos técnicas fundamentales para controlar la disposición de los elementos en
+        una página web: los flotantes y el posicionamiento en CSS. Estas técnicas te permitirán crear diseños más
+        complejos y flexibles, y entender cómo los elementos interactúan entre sí en el flujo del documento.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Cuáles son los casos de uso más comunes de los flotantes y cómo funcionan?
+      </h2>
+
+      <p>
+        Los flotantes en CSS son una técnica diseñada originalmente para permitir que el texto se ajuste alrededor de un
+        elemento, como una imagen. Sin embargo, con el tiempo, los desarrolladores encontraron nuevas formas de utilizar
+        los flotantes, aplicándolos al diseño de maquetación de forma creativa. Aunque ahora se utilizan más comúnmente
+        métodos de maquetación modernos como Flexbox y Grid, sigue siendo importante comprender los flotantes,
+        especialmente cuando se trabaja con código antiguo o se necesitan efectos de maquetación específicos.
+      </p>
+      <p>
+        Cuando un elemento se flota, se saca del flujo normal del documento y se desplaza a la izquierda o a la derecha
+        de su contenedor. El contenido que le sigue se ajusta alrededor del elemento flotante, llenando el espacio
+        restante. Un uso clásico es ajustar el texto alrededor de las imágenes, donde una imagen se flota a un lado y el
+        texto se ajusta a su alrededor. Esta técnica sigue siendo muy utilizada, especialmente en artículos y blogs
+        donde es necesario colocar imágenes junto al texto. Aquí está el ejemplo de código:
+      </p>
+
+      <div class="ide-container" id="ide-float-final">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;img</span> <span class="tk-attr">src</span>=<span class="tk-string">"https://placehold.co/150x150"</span> 
+  <span class="tk-attr">alt</span>=<span class="tk-string">"Placeholder Image"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid black</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">img</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-right</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-float-final-demo"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 20px; border-radius: 0 0 8px 8px; overflow-y: auto;">
+
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              .tk-attr {
+                color: #d19a66 !important;
+              }
+
+              .tk-string {
+                color: #98c379 !important;
+              }
+
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #56b6c2 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              #pv-float-final-demo .container {
+                border: 1px solid black !important;
+                padding: 10px !important;
+                background: #f9f9f9 !important;
+                display: flow-root !important;
+              }
+
+              #pv-float-final-demo img {
+                float: left !important;
+                margin-right: 20px !important;
+                width: 100px !important;
+                border-radius: 2px !important;
+              }
+
+              #pv-float-final-demo p {
+                font-family: Arial, sans-serif !important;
+                font-size: 0.9rem !important;
+                color: #222 !important;
+                margin: 0 !important;
+              }
+            </style>
+
+            <div class="container">
+              <img src="https://placehold.co/150x150" alt="Placeholder Image">
+              <p>
+                <strong>Resultado Visual:</strong> Como puedes ver en el código de arriba (ahora con colores), la imagen
+                tiene un <code>float: left</code>. Esto permite que este texto se acomode a su derecha de forma
+                elegante, simulando un diseño de revista.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el contenedor no envuelve la imagen flotante. La imagen está fuera del flujo normal del
+        documento y el contenedor se ha reducido a una altura cero porque no "see" los elementos secundarios flotantes.
+      </p>
+      <p>
+        Los flotantes también eran populares para crear diseños de varias columnas antes de que Flexbox y Grid se
+        generalizaran. Al flotar elementos uno al lado del otro, los desarrolladores podían crear columnas alineadas
+        horizontalmente. Sin embargo, al utilizar flotantes, es importante manejar el problema del colapso de los
+        elementos padres cuando sus elementos hijos flotan. La solución de la técnica clearfix se aplica al elemento
+        clase de la <mark>container</mark> para solucionar este problema.
+      </p>
+
+      <div class="ide-container" id="ide-clearfix-lesson">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;img</span> 
+    <span class="tk-attr">src</span>=<span class="tk-string">"https://placehold.co/150x150"</span> 
+    <span class="tk-attr">alt</span>=<span class="tk-string">"Placeholder Image"</span>
+  <span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;p&gt;</span> 
+    This is an example of text 
+    flowing around a floated image.
+  <span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Clearfix CSS */</span>
+<span class="tk-selector">.container::after</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">content</span><span class="tk-punctuation">:</span> <span class="tk-string">""</span><span class="tk-punctuation">;</span>  
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">clear</span><span class="tk-punctuation">:</span> <span class="tk-value">both</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">img</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-right</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-clearfix-demo"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; border-radius: 0 0 8px 8px; font-family: 'Segoe UI', sans-serif;">
+
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              .tk-attr {
+                color: #d19a66 !important;
+              }
+
+              .tk-string {
+                color: #98c379 !important;
+              }
+
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #56b6c2 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              #pv-clearfix-demo .container {
+                border: 1px solid black !important;
+                background: #fdfdfd !important;
+                padding: 5px !important;
+              }
+
+              #pv-clearfix-demo .container::after {
+                content: "" !important;
+                display: block !important;
+                clear: both !important;
+              }
+
+              #pv-clearfix-demo img {
+                float: left !important;
+                margin-right: 20px !important;
+                width: 100px !important;
+                height: auto !important;
+              }
+
+              #pv-clearfix-demo p {
+                margin: 0 !important;
+                color: #333 !important;
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+              }
+
+              #pv-clearfix-demo .f-info {
+                margin-top: 15px !important;
+                background: #e1f5fe !important;
+                padding: 10px !important;
+                border-radius: 4px !important;
+                font-size: 0.8rem !important;
+                color: #0277bd !important;
+                display: block !important;
+              }
+
+              #pv-clearfix-demo .f-info strong {
+                color: #333 !important;
+              }
+
+              #pv-clearfix-demo .f-info code {
+                color: #333 !important;
+              }
+            </style>
+
+            <div class="container">
+              <img src="https://placehold.co/150x150" alt="Placeholder Image">
+              <p> This is an example of text flowing around a floated image.</p>
+            </div>
+
+            <span class="f-info">
+              <strong>💡 Clearfix activo:</strong> El borde negro rodea la imagen completamente. Si quitaras el
+              <code>::after</code>, el borde negro colapsaría y dejaría la imagen "flotando" fuera del recuadro.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            <mark>::after</mark> es un pseudoelemento que añade un bloque invisible después del contenido del
+            contenedor.
+          </li>
+          <li class="list">
+            <mark>content: ""</mark> garantiza que el pseudoelemento esté presente, pero no muestra ningún contenido.
+          </li>
+          <li class="list">
+            <mark>display: block</mark> convierte el pseudoelemento en un elemento de nivel de bloque.
+          </li>
+          <li class="list">
+            <mark>clear: both</mark> garantiza que el pseudoelemento borre ambos lados de cualquier elemento flotante
+            que se encuentre encima de él.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        En el ejemplo anterior, hemos añadido un nuevo elemento de párrafo para que el colapso sea más notable. Dado que
+        el párrafo permanece en el flujo normal del documento, el contenedor se expande lo suficiente como para
+        envolverlo. A continuación, aplicamos la técnica clearfix para corregir el colapso y hacer que el borde del
+        contenedor se muestre correctamente. Puede intentar eliminar la regla clearfix para ver cómo el contenedor
+        vuelve a colapsarse.
+      </p>
+      <p>
+        La técnica clearfix garantiza que el elemento padre envuelva correctamente a sus hijos flotantes. Clearfix
+        obliga al contenedor padre a "see" los elementos hijos flotantes añadiendo una propiedad clear después del
+        contenido flotante.
+      </p>
+      <p>
+        Aunque los flotantes ya no son el método más utilizado para diseños complejos debido a técnicas más modernas
+        como Flexbox y Grid, siguen desempeñando un papel esencial en determinados escenarios. Tanto si envuelve texto
+        alrededor de imágenes como si trabaja en proyectos heredados, comprender cómo funcionan los flotantes y cómo
+        eliminarlos correctamente es clave para mantener diseños bien estructurados y adaptables.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es un caso de uso común para utilizar flotantes en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Centrar un elemento verticalmente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Ajustar el texto alrededor de las imágenes.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Crear un encabezado fijo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Aplicar un color de fondo.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS se utiliza a menudo para borrar los flotantes y mantener el flujo del diseño?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            float
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            margin
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            clear
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            padding
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo afecta la aplicación de <mark>float: left;</mark> a un elemento su posición en el diseño?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El elemento se centra en la página.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El elemento se desplaza hacia el lado derecho de su contenedor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            El elemento se elimina del flujo normal del documento y se desplaza hacia el lado izquierdo de su
+            contenedor.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            El elemento permanece en el flujo normal del documento y se alinea con la parte superior de su contenedor.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Qué es el posicionamiento relativo y en qué se diferencia del posicionamiento
+        estático predeterminado?</h2>
+
+      <p>
+        En CSS, el posicionamiento nos permite controlar cómo se distribuyen los elementos en una página. Dos tipos
+        comunes de posicionamiento son el posicionamiento estático y el posicionamiento relativo. De forma
+        predeterminada, los elementos se posicionan de forma estática. Esto significa que siguen el flujo normal del
+        documento, uno tras otro, de arriba abajo y de izquierda a derecha.
+      </p>
+      <p>
+        El posicionamiento estático es el predeterminado para todos los elementos y no necesita ninguna declaración
+        especial en CSS. No notarás ninguna diferencia al utilizar el posicionamiento estático, ya que simplemente
+        mantiene los elementos en el lugar donde aparecen naturalmente en el documento. A continuación se muestra un
+        ejemplo de un párrafo que utiliza el posicionamiento estático predeterminado:
+      </p>
+
+      <div class="ide-container" id="ide-static-pos">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;p&gt;</span>This paragraph is statically positioned.<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-static-demo"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 0 0 8px 8px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              #pv-static-demo p {
+                background-color: #e8f4fd !important;
+                border: 2px solid #61afef !important;
+                padding: 15px !important;
+                color: #282c34 !important;
+                margin: 0 !important;
+                position: static !important;
+                top: 50px !important;
+                left: 100px !important;
+              }
+
+              #pv-static-demo .f-hint {
+                display: block !important;
+                margin-top: 15px !important;
+                font-size: 0.8rem !important;
+                color: #666 !important;
+                font-style: italic !important;
+              }
+            </style>
+
+            <p>This paragraph is statically positioned.</p>
+
+            <span class="f-hint">
+              Nota: Aunque este párrafo tiene <code>top: 50px</code> en el CSS interno, no se mueve porque el
+              posicionamiento estático ignora esas coordenadas.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando se muestra en el navegador, este párrafo aparecerá en su posición natural, siguiendo el flujo normal del
+        documento. No se aplica ningún estilo especial para moverlo, y permanece donde aparecería naturalmente en el
+        diseño.
+      </p>
+      <p>
+        El posicionamiento relativo, por otro lado, permite que un elemento se desplace de su posición normal sin
+        interrumpir el flujo del documento. Piensa en ello como mover el elemento de su posición estática predeterminada
+        dándole nuevas coordenadas. Así es como se puede aplicar el posicionamiento relativo:
+      </p>
+
+      <div class="ide-container" id="ide-relative-pos">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;p</span> <span class="tk-attr">class</span>=<span class="tk-string">"relative"</span><span class="tk-tag">&gt;</span>This paragraph is positioned relatively.<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">solid 1px black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.relative</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-relative-demo"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 20px; border-radius: 0 0 8px 8px; font-family: 'Segoe UI', sans-serif;">
+
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              .tk-attr {
+                color: #d19a66 !important;
+              }
+
+              .tk-string {
+                color: #98c379 !important;
+              }
+
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #56b6c2 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              #pv-relative-demo .f-body-sim {
+                border: 1px solid black !important;
+                height: 150px !important;
+                position: relative !important;
+                background: #fdfdfd !important;
+              }
+
+              #pv-relative-demo .relative {
+                position: relative !important;
+                top: 30px !important;
+                left: 30px !important;
+                background-color: #d4edda !important;
+                border: 2px solid #28a745 !important;
+                padding: 10px !important;
+                margin: 0 !important;
+                width: fit-content !important;
+                z-index: 10 !important;
+              }
+
+              #pv-relative-demo .f-ghost {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 250px !important;
+                height: 40px !important;
+                border: 1px dashed #ccc !important;
+                background: #f0f0f0 !important;
+                color: #999 !important;
+                font-size: 0.7rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+              }
+            </style>
+
+            <div class="f-body-sim">
+              <div class="f-ghost">Posición original (vacía)</div>
+
+              <p class="relative">This paragraph is positioned relatively.</p>
+            </div>
+
+            <p style="margin-top: 50px; font-size: 0.8rem; color: #666;">
+              <strong>Nota:</strong> El párrafo se movió 30px hacia abajo y 30px a la derecha desde su esquina superior
+              izquierda original.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el párrafo aparecerá <mark>30px</mark> más abajo y <mark>30px</mark> a la derecha de su
+        posición original. Sin embargo, el espacio que habría ocupado en el flujo normal se mantiene. El posicionamiento
+        relativo es muy útil cuando se desea mover un elemento ligeramente sin afectar al resto del diseño.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la posición predeterminada para todos los elementos?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            absolute
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            relative
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            fixed
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            static
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué le hace el posicionamiento relativo a un elemento?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Lo mueve del flujo normal del documento.acen que los sitios web se carguen más lentamente.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Lo mueve en relación con su posición normal.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Lo fija a la ventana gráfica.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Lo apila sobre otros elementos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué se diferencia el posicionamiento relativo del posicionamiento estático?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            El posicionamiento relativo elimina el elemento del flujo del documento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            El posicionamiento estático permite desplazar los elementos de su posición predeterminada.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            El posicionamiento relativo permite desplazar un elemento sin alterar el flujo del documento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            El posicionamiento estático fija el elemento en su lugar, como una imagen de fondo.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2>Tema 3: ¿Qué es el posicionamiento absoluto y cómo funciona?</h2>
+
+      <p>
+        El posicionamiento absoluto te permite sacar un elemento del flujo normal del documento, haciendo que se
+        comporte de forma independiente de otros elementos. Cuando un elemento se posiciona de forma absoluta, se coloca
+        en su propia capa, completamente separada de todo lo demás en el diseño. Esto lo hace útil para crear elementos
+        flotantes de la interfaz de usuario, como modales, información sobre herramientas o menús desplegables, que
+        pueden superponerse a otros elementos de la página.
+      </p>
+      <p>
+        De forma predeterminada, los elementos posicionados de forma absoluta se colocan en relación con el antecesor
+        posicionado más cercano. Si no se encuentra ningún antecesor posicionado, el elemento se posicionará en relación
+        con el bloque contenedor inicial, que suele ser la ventana gráfica del navegador. Puede mover el elemento
+        posicionado de forma absoluta utilizando las propiedades <mark>top</mark>, <mark>bottom</mark>,
+        <mark>left</mark> y <mark>right</mark> para especificar la distancia
+        a la que debe estar de los bordes de su elemento contenedor.
+      </p>
+      <p>
+        Por ejemplo, al establecer <mark>top: 30px</mark> y <mark>left: 30px</mark>, el elemento se desplazará
+        <mark>30px</mark> desde los bordes superior e
+        izquierdo del bloque contenedor. A continuación se muestra un ejemplo de cómo aplicar el posicionamiento
+        absoluto a un elemento en CSS:
+      </p>
+
+      <div class="ide-container" id="ide-absolute-pos">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"positioned"</span><span class="tk-tag">&gt;</span>Absolutely Positioned<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#eeeeee</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.positioned</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">coral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-absolute-demo"
+            style="height: 100%; width: 100%; background-color: #eeeeee; position: relative; border-radius: 0 0 8px 8px; min-height: 200px;">
+
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              .tk-attr {
+                color: #d19a66 !important;
+              }
+
+              .tk-string {
+                color: #98c379 !important;
+              }
+
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #56b6c2 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              #pv-absolute-demo .positioned {
+                position: absolute !important;
+                top: 30px !important;
+                left: 30px !important;
+                background-color: coral !important;
+                padding: 15px !important;
+                color: white !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              #pv-absolute-demo .f-background-text {
+                padding: 20px !important;
+                color: #bbb !important;
+                font-family: sans-serif !important;
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+              }
+            </style>
+
+            <div class="f-background-text">
+              Este es un texto de fondo en el flujo normal. Como el elemento naranja es <strong>absolute</strong>, el
+              navegador lo "arranca" de aquí y lo pone encima, ignorando que este texto existe.
+            </div>
+
+            <div class="positioned">Absolutely Positioned</div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando se aplica este código, el elemento se elimina del flujo normal del documento y se coloca a
+        <mark>30px</mark> de
+        distancia de la parte superior e izquierda del bloque que lo contiene.
+      </p>
+      <p>
+        El posicionamiento absoluto puede ser especialmente útil para crear elementos que deben flotar sobre el resto
+        del contenido, como superposiciones o ventanas modales. Sin embargo, dado que el elemento se elimina del flujo
+        del documento, también puede crear espacios o provocar que otros elementos se colapsen si no se maneja
+        correctamente.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué componente del modelo de caja CSS define el espacio entre el área de contenido y el borde?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El elemento se coloca en su flujo normal del documento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            <!-- correcto -->
+            El elemento se superpone a otros elementos y se coloca en su propia capa.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El elemento se oculta.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest6" tabindex="0">
+            El elemento se mueve a la parte superior de la página.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se desplaza un elemento con posición absoluta 30px alejándolo de los bordes superior e izquierdo del
+            bloque que lo contiene?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            <!-- correcto -->
+            Establezca top: 30px y left: 30px.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Establezca margin-top: 30px y margin-left: 30px.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Establezca position: relative.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest7" tabindex="0">
+            Establezca padding: 30px.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si no se encuentra ningún antepasado posicionado, ¿dónde se coloca un elemento posicionado de forma
+            absoluta?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            En relación con el cuerpo.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            En relación con el elemento fijo más cercano.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            <!-- correcto -->
+            En relación con el bloque contenedor inicial (normalmente la ventana gráfica del navegador).
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest8" tabindex="0">
+            Se queda en el mismo lugar.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2>Tema 4: ¿Qué es el posicionamiento fijo-<code>Fixed</code> y adherente-<code>Sticky</code>, y en qué se
+        diferencia del posicionamiento absoluto?</h2>
+
+      <p>
+        El posicionamiento fijo y adherente son dos estrategias importantes de posicionamiento CSS, cada una de las
+        cuales ofrece comportamientos distintos en comparación con el posicionamiento absoluto. Cuando un elemento se
+        posiciona con <mark>position: fixed</mark>, se elimina del flujo normal del documento y se coloca en relación
+        con la ventana
+        gráfica, lo que significa que permanece en la misma posición incluso cuando el usuario se desplaza. Esto se
+        utiliza a menudo para elementos como encabezados o barras de navegación que deben permanecer visibles en todo
+        momento. Por ejemplo, si desea que un encabezado permanezca fijo en la parte superior de la página, puede
+        utilizar el siguiente código:
+      </p>
+
+      <div class="ide-container" id="ide-fixed-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;h1&gt;</span>Fixed Header<span class="tk-tag">&lt;/h1&gt;</span>
+
+<span class="tk-tag">&lt;p&gt;</span>Lorem ipsum dolor sit amet...<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;p&gt;</span>Sed nisi. Nulla quis sem...<span class="tk-tag">&lt;/p&gt;</span>
+...</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding-top</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">Arial, sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">line-height</span><span class="tk-punctuation">:</span> <span class="tk-value">1.6</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">fixed</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">500px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">2px solid #ccc</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">600px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">20px auto</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-sticky-fix-box"
+            style="height: 100%; width: 100%; overflow-y: scroll; background-color: #fff; padding: 20px;">
+            <style>
+              .tk-tag {
+                color: #e06c75;
+              }
+
+              .tk-attr {
+                color: #d19a66;
+              }
+
+              .tk-string {
+                color: #98c379;
+              }
+
+              .tk-selector {
+                color: #61afef;
+              }
+
+              .tk-property {
+                color: #56b6c2;
+              }
+
+              .tk-value {
+                color: #d19a66;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-sticky-fix-box .sticky-header {
+                position: sticky !important;
+                top: 0 !important;
+                background: #4facfe !important;
+                color: white !important;
+                padding: 15px !important;
+                font-family: sans-serif !important;
+                z-index: 10 !important;
+              }
+
+              #pv-sticky-fix-box .sticky-p {
+                color: #333 !important;
+              }
+            </style>
+
+            <h1 class="sticky-header">Fixed Header</h1>
+            <p class="sticky-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+              libero. Sed cursus ante dapibus diam.</p>
+            <p class="sticky-p">Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
+              mauris.</p>
+            <p class="sticky-p">Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget
+              nulla.</p>
+            <p class="sticky-p">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos.</p>
+            <p class="sticky-p">Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.</p>
+            <p class="sticky-p">Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis.</p>
+            <p class="sticky-p">Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus
+              risus.</p>
+            <p class="sticky-p">Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper
+              orci.</p>
+            <p class="sticky-p">Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus
+              vestibulum.</p>
+            <p class="sticky-p">Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in
+              blandit.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el elemento <mark>h1</mark> se mantendrá en la parte superior de la ventana gráfica e, incluso
+        cuando el
+        usuario se desplace, permanecerá en su lugar. Esto resulta especialmente útil para crear elementos de interfaz
+        de usuario persistentes, como encabezados fijos o navegación siempre visible.
+      </p>
+      <p>
+        La <mark>position: sticky</mark> se comporta como un híbrido entre el posicionamiento relativo y el fijo.
+        Inicialmente, el
+        elemento se comporta como si estuviera posicionado de forma relativa, permaneciendo dentro del flujo del
+        documento. Sin embargo, una vez que el usuario se desplaza más allá de un punto determinado, el elemento se
+        "pega" a la ventana gráfica (normalmente en la parte superior) y se comporta como si estuviera fijo. Esto es
+        ideal para crear elementos como barras de navegación fijas, que solo se fijan cuando el usuario se desplaza
+        hasta una posición determinada. A continuación se muestra cómo se puede aplicar el posicionamiento fijo:
+      </p>
+
+      <div class="ide-container" id="ide-sticky-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;h1&gt;</span>Sticky Header<span class="tk-tag">&lt;/h1&gt;</span>
+
+<span class="tk-tag">&lt;p&gt;</span>Lorem ipsum dolor sit amet...<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;p&gt;</span>Sed nisi. Nulla quis sem...<span class="tk-tag">&lt;/p&gt;</span>
+...</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">sticky</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-sticky-demo-container"
+            style="height: 100%; overflow-y: auto; background-color: white; padding: 20px;">
+            <style>
+              .tk-tag {
+                color: #e06c75;
+              }
+
+              .tk-attr {
+                color: #d19a66;
+              }
+
+              .tk-string {
+                color: #98c379;
+              }
+
+              .tk-selector {
+                color: #61afef;
+              }
+
+              .tk-property {
+                color: #56b6c2;
+              }
+
+              .tk-value {
+                color: #d19a66;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-sticky-demo-container h1 {
+                position: sticky !important;
+                top: 10px !important;
+                background: transparent !important;
+                color: black !important;
+                padding: 10px !important;
+                margin-bottom: 20px !important;
+                z-index: 11 !important;
+                font-family: Arial, sans-serif !important;
+              }
+
+              #pv-sticky-demo-container p {
+                color: #333 !important;
+                font-family: Arial, sans-serif !important;
+                line-height: 1.6 !important;
+              }
+            </style>
+
+            <h1>Sticky Header</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus
+              ante dapibus diam.</p>
+            <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            <p>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+            <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.</p>
+            <p>Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis.</p>
+            <p>Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus.</p>
+            <p>Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.</p>
+            <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.</p>
+            <p>Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el elemento <mark>h1</mark> se comportará normalmente hasta que el usuario se desplace
+        <mark>30px</mark> desde la
+        parte superior, momento en el que se "stick" a la parte superior de la ventana gráfica.
+      </p>
+      <p>
+        Estas son algunas diferencias clave entre el posicionamiento absoluto, fijo y pegajoso:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            El posicionamiento absoluto elimina un elemento del flujo del documento y lo posiciona en relación con el
+            antecesor posicionado más cercano, o con el bloque contenedor inicial si no existe ninguno. El elemento
+            permanece en esa posición independientemente del desplazamiento.
+          </li>
+          <li class="list">
+            El posicionamiento fijo también elimina el elemento del flujo del documento, pero lo fija en relación con la
+            ventana gráfica, lo que significa que permanecerá visible en el mismo lugar incluso cuando se desplace la
+            página.
+          </li>
+          <li class="list">
+            El posicionamiento fijo mantiene el elemento en el flujo normal inicialmente, pero permite que se mantenga
+            en su lugar después de desplazarse más allá de un umbral definido.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Estas estrategias le permiten crear diseños que incluyen elementos flotantes, encabezados fijos y componentes de
+        interfaz de usuario más dinámicos, lo que mejora la experiencia del usuario al hacer que la información
+        importante sea siempre accesible.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre el posicionamiento <mark>fixed</mark> y el <mark>sticky</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            <!-- correcto -->
+            El fixed permanece en su lugar en relación con la ventana gráfica, mientras que el sticky se mueve en
+            función de la posición de desplazamiento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            El sticky permanece en su lugar en relación con la ventana gráfica, mientras que el fixed se mueve en
+            función de la posición de desplazamiento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Tanto el fixed como el sticky se comportan de la misma manera.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest9" tabindex="0">
+            Ninguno de los dos funciona para los encabezados ni las barras de navegación.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad se debe definir para que funcione el posicionamiento <mark>sticky</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            position: absolute
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            position: fixed
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            <!-- correcto -->
+            position: sticky
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest10" tabindex="0">
+            z-index
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué se diferencia el posicionamiento <mark>fixed</mark> del posicionamiento <mark>absolute</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            <!-- correcto -->
+            El posicionamiento fixed es relativo a la ventana gráfica, mientras que el absolute es relativo al elemento
+            posicionado más cercano.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            El posicionamiento fixed no permite el desplazamiento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            El posicionamiento absolute mantiene el elemento dentro del flujo normal del documento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest11" tabindex="0">
+            El posicionamiento fixed oculta el elemento cuando se desplaza.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2>Tema 5: ¿Qué es la propiedad Z-Index y cómo funciona para controlar el apilamiento de elementos posicionados?
+      </h2>
+
+      <p>
+        La propiedad <mark>z-index</mark> en CSS se utiliza para controlar el orden de apilamiento vertical de los
+        elementos
+        posicionados que se superponen en la página. Cuando varios elementos se apilan unos encima de otros, el valor
+        <mark>z-index</mark> determina qué elemento aparece en la parte superior. Cuanto mayor sea el valor de
+        <mark>z-index</mark>, más cerca
+        estará el elemento del espectador, mientras que los valores más bajos colocan el elemento más atrás en la pila.
+      </p>
+      <p>
+        Sin embargo, el <mark>z-index</mark> solo funciona en elementos que están posicionados, lo que significa que el
+        elemento debe
+        tener un valor de posición distinto como <mark>static</mark>, <mark>relative</mark>, <mark>absolute</mark>, o
+        <mark>fixed</mark>. El valor predeterminado de
+        <mark>z-index</mark> es <mark>auto</mark>, que coloca el elemento en el orden de apilamiento predeterminado.
+        Veamos un ejemplo con tres
+        cuadros:
+      </p>
+
+      <div class="ide-container" id="ide-zindex-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box1"</span><span class="tk-tag">&gt;</span>Box 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box2"</span><span class="tk-tag">&gt;</span>Box 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box3"</span><span class="tk-tag">&gt;</span>Box 3<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-zindex-box" style="height: 100%; width: 100%; padding: 20px; background: #f4f4f4;">
+            <style>
+              .tk-tag {
+                color: #e06c75;
+              }
+
+              .tk-attr {
+                color: #d19a66;
+              }
+
+              .tk-string {
+                color: #98c379;
+              }
+
+              .tk-selector {
+                color: #61afef;
+              }
+
+              .tk-property {
+                color: #56b6c2;
+              }
+
+              .tk-value {
+                color: #d19a66;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-zindex-box div {
+                width: 150px;
+                height: 100px;
+                margin-bottom: -50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+              }
+
+              #pv-zindex-box .box1 {
+                background: #e06c75;
+              }
+
+              #pv-zindex-box .box2 {
+                background: #61afef;
+              }
+
+              #pv-zindex-box .box3 {
+                background: #98c379;
+              }
+            </style>
+            <div class="box1">Box 1</div>
+            <div class="box2">Box 2</div>
+            <div class="box3">Box 3</div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora, podemos aplicar algunos estilos para posicionar los recuadros de manera que se superpongan entre sí, así:
+      </p>
+
+      <div class="ide-container" id="ide-zindex-stack-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box1"</span><span class="tk-tag">&gt;</span>Box 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box2"</span><span class="tk-tag">&gt;</span>Box 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box3"</span><span class="tk-tag">&gt;</span>Box 3<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box1</span> <span class="tk-punctuation">{</span> 
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span> <span class="tk-property">z-index</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span> <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span> <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box2</span> <span class="tk-punctuation">{</span> 
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span> <span class="tk-property">z-index</span><span class="tk-punctuation">:</span> <span class="tk-value">3</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">gold</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">40px</span><span class="tk-punctuation">;</span> <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">40px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span> <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box3</span> <span class="tk-punctuation">{</span> 
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span> <span class="tk-property">z-index</span><span class="tk-punctuation">:</span> <span class="tk-value">2</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgreen</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span> <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span> <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-zindex-stack" style="height: 100%; width: 100%; position: relative; padding: 20px;">
+            <style>
+              .tk-tag {
+                color: #e06c75;
+              }
+
+              .tk-attr {
+                color: #d19a66;
+              }
+
+              .tk-string {
+                color: #98c379;
+              }
+
+              .tk-selector {
+                color: #61afef;
+              }
+
+              .tk-property {
+                color: #56b6c2;
+              }
+
+              .tk-value {
+                color: #d19a66;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-zindex-stack .container {
+                position: relative !important;
+                width: 300px !important;
+                height: 300px !important;
+                border: 1px solid black !important;
+                background: white !important;
+              }
+
+              #pv-zindex-stack .box1 {
+                position: absolute !important;
+                z-index: 1 !important;
+                background: lightcoral !important;
+                top: 20px !important;
+                left: 20px !important;
+                width: 100px !important;
+                height: 100px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+              }
+
+              #pv-zindex-stack .box2 {
+                position: absolute !important;
+                z-index: 3 !important;
+                background: gold !important;
+                top: 40px !important;
+                left: 40px !important;
+                width: 100px !important;
+                height: 100px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+              }
+
+              #pv-zindex-stack .box3 {
+                position: absolute !important;
+                z-index: 2 !important;
+                background: lightgreen !important;
+                top: 60px !important;
+                left: 60px !important;
+                width: 100px !important;
+                height: 100px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+              }
+            </style>
+            <div class="container">
+              <div class="box1">Box 1</div>
+              <div class="box2">Box 2</div>
+              <div class="box3">Box 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para el contenedor, el posicionamiento se establecerá como <mark>relative</mark> y todos los cuadros anidados en
+        su interior
+        se establecerán como posicionamiento <mark>absolute</mark>. Cada cuadro tiene un valor diferente para el
+        <mark>z-index</mark>, lo que da
+        como resultado que los cuadros se superpongan unos sobre otros.
+      </p>
+      <p>
+        Puedes pensar en el <mark>z-index</mark> como una forma de crear capas en una página web, y los elementos con
+        valores de
+        <mark>z-index</mark> más altos se colocarán encima de los que tienen valores más bajos. Esto es especialmente
+        útil para
+        controlar cómo se comportan los elementos superpuestos en diseños complejos, como modales, ventanas emergentes o
+        información sobre herramientas.
+      </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué controla la propiedad <mark>z-index</mark> en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            El color de un elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            <!-- correcto -->
+            El orden de apilamiento vertical de los elementos posicionados.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            El tamaño de un elemento.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest12" tabindex="0">
+            La alineación horizontal del texto.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Para que la propiedad <mark>z-index</mark> funcione, ¿qué debe cumplirse con respecto al elemento?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Debe tener un ancho fixed.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            <!-- correcto -->
+            Debe tener un valor de position distinto de static.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Debe tener un display con valor de block.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest13" tabindex="0">
+            Debe tener un color de fondo establecido.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué valor de <mark>z-index</mark> coloca un elemento encima de todos los demás?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            Elz-index: 0;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            <!-- correcto -->
+            z-index: 5;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            z-index: auto;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest14" tabindex="0">
+            z-index: -1;
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
