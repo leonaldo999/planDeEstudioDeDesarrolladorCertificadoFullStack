@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de accesibilidad CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de accesibilidad CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#tema1">Contraste de colores</a></li>
+      <li><a href="#tema2">Árbol de accesibilidad</a></li>
+      <li><a href="#tema3">Función max()</a></li>
+      <li><a href="#tema4">Mejores prácticas</a></li>
+      <li><a href="#tema5">Ocultar contenido</a></li>
+      <li><a href="#tema6">Atributo placeholder</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, revisaremos algunos aspectos de accesibilidad relacionados con CSS. La accesibilidad web es
+        fundamental para garantizar que todas las personas, independientemente de sus habilidades o discapacidades,
+        puedan acceder y utilizar los sitios web de manera efectiva.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Herramientas de contraste de colores</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Verificador de contraste de colores de WebAIM</strong>: esta herramienta en línea le permite
+            introducir los colores de primer plano y de fondo de su diseño y ver al instante si cumplen con los
+            estándares de las Pautas de Accesibilidad al Contenido en la Web (WCAG).
+          </li>
+          <li>
+            <strong>Analizador de contraste de colores de TPGi</strong>: se trata de un verificador de contraste de
+            colores gratuito que le permite comprobar si sus sitios web y aplicaciones cumplen con los estándares de las
+            Pautas de Accesibilidad al Contenido en la Web (WCAG). Esta herramienta también incluye una función de
+            simulador de daltonismo que le permite ver cómo se ve su sitio web o aplicación para las personas con
+            problemas de visión del color.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema2">
+      <h2>Árbol de accesibilidad</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Árbol de accesibilidad</strong>: es una estructura utilizada por tecnologías de asistencia, como
+            los lectores de pantalla, para interpretar e interactuar con el contenido de una página web.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tema3">
+      <h2>Función <code>max()</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>La función <code>max()</code></strong>: devuelve el mayor valor de un conjunto de valores
+            separados por comas:
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;img src="https://cdn.freecodecamp.org/
+  curriculum/css-photo-gallery/9.jpg" 
+  alt="A cat sitting on a table"&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">img</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">max(250px, 25vw)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-max-canvas"
+            style="height: 100%; width: 100%; background-color: #f0f2f5; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden;">
+            <style>
+              .tk-selector {
+                color: #61afef !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-max-canvas .f-max-img {
+                /* Aplicamos tu lógica de max() */
+                width: max(150px, 25%) !important;
+                /* Ajustado proporcionalmente para la ventana del IDE */
+                height: auto !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+                border: 3px solid #fff !important;
+              }
+
+              .pv-max-canvas .f-max-info {
+                margin-top: 15px !important;
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                color: #555 !important;
+                background: #fff !important;
+                padding: 8px 15px !important;
+                border-radius: 20px !important;
+                text-align: center !important;
+              }
+
+              .pv-max-canvas .f-max-info code {
+                color: #555 !important;
+              }
+            </style>
+
+            <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/9.jpg" class="f-max-img"
+              alt="A cat sitting on a table">
+
+            <div class="f-max-info">
+              La imagen nunca medirá menos de <code>250px</code> (valor base).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el ancho de la imagen será de <code>250px</code> si el ancho de la ventana gráfica es
+        inferior a <code>1000px</code>. Si el ancho de la ventana gráfica es superior a <code>1000px</code>, el ancho de
+        la imagen será de <code>25vw</code>. Esto se debe a que <code>25vw</code> es igual al <code>25%</code> del ancho
+        de la ventana gráfica.
+      </p>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Mejores prácticas con CSS y accesibilidad</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>display: none;</code></strong>: El uso de <code>display: none;</code> significa que los
+            lectores de pantalla y otras tecnologías de asistencia no podrán acceder a este contenido, ya que no está
+            incluido en el árbol de accesibilidad. Por lo tanto, es importante utilizar este método solo cuando se desee
+            eliminar completamente el contenido tanto de la presentación visual como de la accesibilidad.
+          </li>
+          <li>
+            <strong><code>visibility: hidden;</code></strong>: Esta propiedad y este valor ocultan el contenido
+            visualmente, pero lo mantienen en el flujo del documento, lo que significa que sigue ocupando espacio en la
+            página. Estos elementos tampoco serán leídos por los lectores de pantalla, ya que se habrán eliminado del
+            árbol de accesibilidad.
+          </li>
+          <li>
+            <strong>Clase CSS <code>.sr-only</code></strong>: Se trata de una técnica habitual que se utiliza para
+            ocultar visualmente el contenido, pero manteniéndolo accesible para los lectores de pantalla.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;span&gt;This span element can be read&lt;/span&gt;
+&lt;span class="sr-only"&gt;This span element 
+can only be read by screen readers&lt;/span&gt;
+&lt;p style="display: none"&gt;
+  This text is hidden with 
+  display: none and 
+  is NOT accessible to screen readers.
+&lt;/p&gt;
+&lt;p style="visibility: hidden"&gt;
+  This text is hidden with visibility: hidden 
+  and is NOT read by screen readers,
+  but it still takes up space.
+&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.sr-only</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">-1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">overflow</span><span class="tk-punctuation">:</span> <span class="tk-value">hidden</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">clip</span><span class="tk-punctuation">:</span> <span class="tk-value">rect(0, 0, 0, 0)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">white-space</span><span class="tk-punctuation">:</span> <span class="tk-value">nowrap</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-comp-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 20px; font-family: sans-serif;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-comp-canvas .f-comp-item {
+                border: 1px solid #eee !important;
+                margin-bottom: 10px !important;
+                padding: 8px !important;
+                border-radius: 4px !important;
+              }
+
+              .pv-comp-canvas .f-comp-sr-only {
+                position: absolute !important;
+                width: 1px !important;
+                height: 1px !important;
+                padding: 0 !important;
+                margin: -1px !important;
+                overflow: hidden !important;
+                clip: rect(0, 0, 0, 0) !important;
+                white-space: nowrap !important;
+                border: 0 !important;
+              }
+
+              .pv-comp-canvas .f-comp-label {
+                font-size: 0.7rem !important;
+                font-weight: bold !important;
+                color: #999 !important;
+                text-transform: uppercase !important;
+                display: block !important;
+                margin-bottom: 4px !important;
+              }
+
+              .pv-comp-canvas .f-comp-status {
+                float: right !important;
+                font-size: 0.65rem !important;
+                padding: 2px 6px !important;
+                border-radius: 10px !important;
+              }
+
+              .pv-comp-canvas .f-status-on {
+                background: #e8f5e9 !important;
+                color: #2e7d32 !important;
+              }
+
+              .pv-comp-canvas .f-status-off {
+                background: #ffebee !important;
+                color: #c62828 !important;
+              }
+            </style>
+
+            <div class="f-comp-item">
+              <span class="f-comp-label">Normal Span <span class="f-comp-status f-status-on">Visible &
+                  Accessible</span></span>
+              <span>This span element can be read</span>
+            </div>
+
+            <div class="f-comp-item" style="background: #fffdf0 !important;">
+              <span class="f-comp-label">SR-Only <span class="f-comp-status f-status-on"
+                  style="background:#e3f2fd !important; color:#1565c0 !important;">Accessible ONLY</span></span>
+              <span class="f-comp-sr-only">This span element can only be read by screen readers</span>
+              <em style="font-size: 0.8rem; color: #666;">(Aquí hay texto, pero no lo ves)</em>
+            </div>
+
+            <div class="f-comp-item">
+              <span class="f-comp-label">Display: None <span class="f-comp-status f-status-off">Dead</span></span>
+              <p style="display: none;">Este texto no existe para nadie.</p>
+              <em style="font-size: 0.8rem; color: #666;">Sin rastro en el diseño.</em>
+            </div>
+
+            <div class="f-comp-item">
+              <span class="f-comp-label">Visibility: Hidden <span class="f-comp-status f-status-off">Ghost</span></span>
+              <p style="visibility: hidden; margin:0 !important;">Este texto ocupa espacio pero es invisible.</p>
+              <div style="border: 1px dashed red; height: 20px; text-align: center; font-size: 0.7rem; color: red;">
+                Espacio ocupado arriba ↑</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>scroll-behavior: smooth;</code></strong>: Esta propiedad y este valor permiten un
+            desplazamiento suave.
+          </li>
+          <li>
+            <strong><code>prefers-reduced-motion</code> feature</strong>: Se trata de una función multimedia que se
+            puede utilizar para detectar las preferencias del usuario en cuanto a animaciones.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-smooth-scroll">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href="#section1"&gt;Section 1&lt;/a&gt;
+    &lt;a href="#section2"&gt;Section 2&lt;/a&gt;
+    &lt;a href="#section3"&gt;Section 3&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;section id="section1"&gt;
+    &lt;h2&gt;Section 1&lt;/h2&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section id="section2"&gt;
+    &lt;h2&gt;Section 2&lt;/h2&gt;
+    &lt;p&gt;Mauris vel arcu enim...&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section id="section3"&gt;
+    &lt;h2&gt;Section 3&lt;/h2&gt;
+    &lt;p&gt;Praesent sed finibus lectus...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-atrule">@media</span> <span class="tk-value">(prefers-reduced-motion: no-preference)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">#pv-unique-scroll-demo</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">scroll-behavior</span><span class="tk-punctuation">:</span> <span class="tk-value">smooth</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-unique-scroll-demo"
+            style="height: 100%; width: 100%; overflow-y: scroll; background-color: #ffffff; border-radius: 0 0 8px 8px; position: relative;">
+
+            <style>
+              #pv-unique-scroll-demo .nav-ide {
+                position: sticky !important;
+                top: 0 !important;
+                background: #282c34 !important;
+                padding: 10px 20px !important;
+                display: flex !important;
+                gap: 15px !important;
+                z-index: 10 !important;
+                border: none !important;
+                margin: 0 !important;
+              }
+
+              #pv-unique-scroll-demo .nav-ide .a-ide {
+                color: #61afef !important;
+                text-decoration: none !important;
+                font-family: sans-serif !important;
+                font-size: 0.85rem !important;
+                font-weight: bold !important;
+                padding: 5px !important;
+              }
+
+              #pv-unique-scroll-demo .sec-ide {
+                padding: 60px 20px !important;
+                border-bottom: 1px solid #eee !important;
+                background: white !important;
+                display: block !important;
+              }
+
+              #pv-unique-scroll-demo .h2-ide {
+                color: #2c3e50 !important;
+                font-family: sans-serif !important;
+                margin-top: 0 !important;
+                font-size: 1.5rem !important;
+              }
+
+              #pv-unique-scroll-demo .p-ide {
+                color: #555 !important;
+                line-height: 1.6 !important;
+                font-family: 'Segoe UI', Tahoma, sans-serif !important;
+                font-size: 0.95rem !important;
+              }
+
+              .p-ide strong {
+                color: #333 !important;
+              }
+
+              .p-ide code {
+                color: #333 !important;
+              }
+
+              @media (prefers-reduced-motion: no-preference) {
+                #pv-unique-scroll-demo {
+                  scroll-behavior: smooth !important;
+                }
+              }
+            </style>
+
+            <nav class="nav-ide">
+              <a class="a-ide" href="#section1">Section 1</a>
+              <a class="a-ide" href="#section2">Section 2</a>
+              <a class="a-ide" href="#section3">Section 3</a>
+            </nav>
+
+            <section id="section1" class="sec-ide">
+              <h2 class="h2-ide">Section 1</h2>
+              <p class="p-ide">Este contenido está aislado. Aunque tengas otros <strong>h2</strong> o
+                <strong>nav</strong> fuera del
+                IDE, estos estilos no se "escaparán" porque usamos el selector <code>#pv-unique-scroll-demo</code>.
+              </p>
+            </section>
+
+            <section id="section2" class="sec-ide">
+              <h2 class="h2-ide">Section 2</h2>
+              <p class="p-ide">Mauris vel arcu enim. Nunc bibendum tincidunt dapibus. Nulla bibendum diam eget rutrum
+                commodo. Quisque
+                congue, erat eu tempus tincidunt, lacus ligula condimentum mi.</p>
+            </section>
+
+            <section id="section3" class="sec-ide">
+              <h2 class="h2-ide">Section 3</h2>
+              <p class="p-ide">Praesent sed finibus lectus, vel ultricies sem. Nam nec suscipit turpis. Duis vehicula
+                posuere magna,
+                sed laoreet leo scelerisque id. Suspendisse iaculis vulputate nisl id porttitor.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el desplazamiento suave se habilita si el usuario no tiene configurada ninguna
+        preferencia de animación en su dispositivo.
+      </p>
+
+    </section>
+
+    <section id="tema5">
+      <h2>Ocultar contenido con atributos HTML</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Atributo <code>aria-hidden</code></strong>: se utiliza para ocultar un elemento a las personas que
+            utilizan tecnologías de asistencia, como lectores de pantalla. Por ejemplo, se puede utilizar para ocultar
+            imágenes decorativas que no aportan ningún contenido significativo.
+          </li>
+          <li>
+            <strong>Atributo <code>hidden</code></strong>: este atributo es compatible con la mayoría de los navegadores
+            modernos y oculta el contenido tanto visualmente como en el árbol de accesibilidad. Se puede activar y
+            desactivar fácilmente con JavaScript.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-attr-hiding">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;p aria-hidden="true"&gt;
+  This paragraph is 
+  visible for sighted users, but is 
+  hidden from assistive technology.
+&lt;/p&gt;
+&lt;p hidden&gt;
+  This paragraph is hidden from both 
+  bsighted users and assistive technology.
+&lt;/p&gt;
+&lt;p&gt;This is a normal paragraph&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-attr-hiding-demo"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; border-radius: 0 0 8px 8px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+
+            <style>
+              #pv-attr-hiding-demo p {
+                margin: 10px 0 !important;
+                padding: 10px !important;
+                border-radius: 4px !important;
+                font-size: 0.95rem !important;
+                line-height: 1.4 !important;
+              }
+
+              #pv-attr-hiding-demo .f-aria-notice {
+                background-color: #fff3cd !important;
+                border: 1px solid #ffeeba !important;
+                color: #856404 !important;
+                position: relative !important;
+              }
+
+              #pv-attr-hiding-demo .f-normal-p {
+                background-color: #d4edda !important;
+                border: 1px solid #c3e6cb !important;
+                color: #155724 !important;
+              }
+
+              #pv-attr-hiding-demo .f-label {
+                font-size: 0.7rem !important;
+                font-weight: bold !important;
+                display: block !important;
+                margin-bottom: 5px !important;
+                text-transform: uppercase !important;
+              }
+
+              #pv-attr-hiding-demo .f-status-icon {
+                float: right !important;
+                font-size: 1.2rem !important;
+              }
+            </style>
+
+            <div class="f-aria-notice">
+              <span class="f-label">Atributo: aria-hidden="true"</span>
+              <span class="f-status-icon">👁️ ✅ 🔊 ❌</span>
+              <p aria-hidden="true" style="margin:0 !important; padding:0 !important;">
+                This paragraph is visible for sighted users, but is hidden from assistive technology.
+              </p>
+            </div>
+
+            <p hidden>This paragraph is hidden from both sighted users and assistive technology.</p>
+
+            <div class="f-normal-p" style="margin-top: 15px !important;">
+              <span class="f-label">Párrafo Normal</span>
+              <span class="f-status-icon">👁️ ✅ 🔊 ✅</span>
+              <p style="margin:0 !important; padding:0 !important;">
+                This is a normal paragraph
+              </p>
+            </div>
+
+            <div
+              style="margin-top: 20px; font-size: 0.8rem; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              <strong style="color: #333;">Nota:</strong> El párrafo con el atributo <code
+                style="color: #333;">hidden</code> no aparece en el recuadro porque el
+              navegador lo elimina visualmente.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema6">
+      <h2>Problema de accesibilidad del atributo <code>placeholder</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>El uso de texto <code>placeholder</code></strong>: no es muy adecuado para la accesibilidad. Con
+            demasiada frecuencia, los usuarios confunden el texto <code>placeholder</code> con un valor de entrada real:
+            piensan que ya hay un valor en el campo de entrada.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-placeholder-issue">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;form&gt;
+  &lt;!-- 
+    Mala práctica: 
+    placeholder como única etiqueta 
+  --&gt;
+  &lt;input 
+    type="text" 
+    placeholder="Escribe tu nombre aquí"
+  &gt;
+  
+  &lt;!-- 
+    Buena práctica: Etiqueta visible 
+  --&gt;
+  &lt;label for="nombre"&gt;
+    Nombre completo:
+  &lt;/label&gt;
+  &lt;input 
+    type="text" 
+    id="nombre" 
+    name="nombre"
+  &gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">form input</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">8px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-placeholder-a11y-demo"
+            style="height: 100%; width: 100%; background-color: #fdfdfd; padding: 25px; border-radius: 0 0 8px 8px; font-family: 'Segoe UI', sans-serif; overflow-y: auto;">
+
+            <style>
+              #pv-placeholder-a11y-demo .f-bad-practice {
+                border-left: 4px solid #dc3545 !important;
+                padding-left: 15px !important;
+                margin-bottom: 30px !important;
+              }
+
+              #pv-placeholder-a11y-demo .f-good-practice {
+                border-left: 4px solid #28a745 !important;
+                padding-left: 15px !important;
+              }
+
+              #pv-placeholder-a11y-demo h3 {
+                font-size: 0.9rem !important;
+                margin: 0 0 10px 0 !important;
+                color: #333 !important;
+                text-transform: uppercase !important;
+              }
+
+              #pv-placeholder-a11y-demo input {
+                width: 100% !important;
+                max-width: 250px !important;
+                padding: 8px !important;
+                margin-bottom: 10px !important;
+                border: 1px solid #ccc !important;
+                border-radius: 4px !important;
+                display: block !important;
+              }
+
+              #pv-placeholder-a11y-demo label {
+                display: block !important;
+                font-weight: bold !important;
+                margin-bottom: 5px !important;
+                font-size: 0.9rem !important;
+                color: #2c3e50 !important;
+              }
+
+              #pv-placeholder-a11y-demo .f-warning {
+                font-size: 0.8rem !important;
+                color: #721c24 !important;
+                background: #f8d7da !important;
+                padding: 5px !important;
+                border-radius: 3px !important;
+                display: inline-block !important;
+              }
+            </style>
+
+            <div class="f-bad-practice">
+              <h3>Mala Práctica (Solo Placeholder)</h3>
+              <input type="text" placeholder="Escribe tu nombre aquí">
+              <span class="f-warning">⚠️ ¿Qué campo era este si ya escribí algo?</span>
+            </div>
+
+            <div class="f-good-practice">
+              <h3>Buena Práctica (Label Visible)</h3>
+              <label for="nombre-demo">Nombre completo:</label>
+              <input type="text" id="nombre-demo" name="nombre">
+              <p style="font-size: 0.75rem; color: #666; margin: 0 !important;">
+                ✅ El usuario siempre sabe qué información se le pide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

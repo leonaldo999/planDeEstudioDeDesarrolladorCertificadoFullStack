@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En este módulo, aprenderás sobre las mejores prácticas para la accesibilidad y CSS. Cubriremos temas como el uso de colores contrastantes, la importancia de la tipografía legible, y cómo asegurarte de que tu diseño sea accesible para todos los usuarios.">
+  <meta name="keywords"
+    content="accesibilidad, CSS, mejores prácticas, colores contrastantes, tipografía legible, diseño accesible">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mejores prácticas para la accesibilidad y CSS">
+  <meta property="og:description"
+    content="En este módulo, aprenderás sobre las mejores prácticas para la accesibilidad y CSS. Cubriremos temas como el uso de colores contrastantes, la importancia de la tipografía legible, y cómo asegurarte de que tu diseño sea accesible para todos los usuarios.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mejores prácticas para la accesibilidad y CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Mejores prácticas para la accesibilidad y CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        En este módulo, aprenderás sobre las mejores prácticas para la accesibilidad y CSS. Cubriremos temas como el uso
+        de colores contrastantes, la importancia de la tipografía legible, y cómo asegurarte de que tu diseño sea
+        accesible para todos los usuarios.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué herramientas existen para comprobar el contraste de colores en los sitios web?
+      </h2>
+
+      <p>
+        Al diseñar sitios web, garantizar un buen contraste de colores es fundamental para la accesibilidad y la
+        legibilidad. Existen varias herramientas que ayudan a los desarrolladores y diseñadores a comprobar y mantener
+        los ratios de contraste de colores adecuados en sus sitios web. Una herramienta muy popular es el verificador de
+        contraste de colores de WebAIM.
+      </p>
+      <p>
+        Esta herramienta en línea le permite introducir los colores de primer plano y de fondo de su diseño y ver al
+        instante si cumplen con los estándares de las Pautas de Accesibilidad al Contenido en la Web (WCAG). Es fácil de
+        usar y proporciona información inmediata sobre si sus elecciones de color cumplen o no los requisitos de
+        contraste.
+      </p>
+      <p>
+        Para utilizar el verificador de contraste de colores de WebAIM, solo tiene que visitar su sitio web e introducir
+        los códigos hexadecimales de los colores de primer plano y de fondo. A continuación, la herramienta calculará la
+        relación de contraste e indicará si cumple con los estándares WCAG 2.0 de nivel AA o AAA. A continuación se
+        muestra un ejemplo de cómo se pueden utilizar los valores de color en su CSS:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#FFFFFF</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#333333</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-contrast-canvas"
+            style="height: 100%; width: 100%; background-color: #FFFFFF; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0 0 8px 8px;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-contrast-canvas .f-contrast-p {
+                font-family: sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: bold !important;
+                color: #333333 !important;
+                margin: 0 !important;
+              }
+
+              .pv-contrast-canvas .f-contrast-badge {
+                margin-top: 15px !important;
+                padding: 5px 12px !important;
+                background-color: #2e7d32 !important;
+                color: white !important;
+                border-radius: 4px !important;
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <p class="f-contrast-p">Hello, World!</p>
+            <div class="f-contrast-badge">CONTRASTE WCAG: AAA (PASSED)</div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, hemos establecido un fondo blanco (<mark>#FFFFFF</mark>) y un texto gris oscuro
+        (<mark>#333333</mark>). Puede introducir
+        estos códigos de color en la herramienta WebAIM para comprobar su relación de contraste.
+      </p>
+      <p>
+        Otra herramienta muy útil es el analizador de contraste de colores TPGi. Esta aplicación de escritorio ofrece
+        funciones más avanzadas en comparación con las herramientas en línea. Le permite analizar páginas web completas,
+        no solo pares de colores individuales. Puede utilizar su selector de colores para seleccionar colores
+        directamente desde la pantalla, lo que facilita la comprobación de las relaciones de contraste de los diseños
+        existentes.
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;div class="card"&gt;
+  &lt;h1&gt;TPGi Analysis&lt;/h1&gt;
+  &lt;p&gt;Check your contrast ratio.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.card</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#005a9c</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Azul Corporativo */</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#ffffff</span><span class="tk-punctuation">;</span>            <span class="tk-comment">/* Blanco Puro */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-tpgi-canvas"
+            style="height: 100%; width: 100%; background-color: #f4f7f6; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .tk-comment {
+                color: #5c6370 !important;
+                font-style: italic !important;
+              }
+
+              .pv-tpgi-canvas .f-tpgi-card {
+                background-color: #005a9c !important;
+                color: #ffffff !important;
+                padding: 20px !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                width: 80% !important;
+                font-family: sans-serif !important;
+              }
+
+              .pv-tpgi-canvas .f-tpgi-results {
+                margin-top: 15px !important;
+                background: white !important;
+                border: 1px solid #ddd !important;
+                padding: 10px !important;
+                border-radius: 5px !important;
+                font-size: 0.75rem !important;
+                font-family: monospace !important;
+                color: #333 !important;
+              }
+
+              .pv-tpgi-canvas .f-tpgi-pass {
+                color: #2e7d32 !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <div class="f-tpgi-card">
+              <h2 style="margin:0; font-size: 1.2rem;">TPGi Analysis</h2>
+              <p style="margin:5px 0 0; font-size: 0.9rem;">Contrast Ratio: 8.11:1</p>
+            </div>
+
+            <div class="f-tpgi-results">
+              WCAG 2.1 AA: <span class="f-tpgi-pass">Pass</span><br>
+              WCAG 2.1 AAA: <span class="f-tpgi-pass">Pass</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El analizador de contraste de colores TPGi también ofrece simulaciones para diferentes tipos de deficiencias en
+        la visión del color, lo que le ayuda a garantizar que su diseño sea accesible para usuarios con diversas formas
+        de daltonismo.
+      </p>
+      <p>
+        Para utilizar el Analizador de contraste de colores de TPGi, descargue e instale la aplicación en su
+        computadora. Una vez instalada, puede utilizar su herramienta cuentagotas para seleccionar colores de su
+        pantalla y ver al instante la relación de contraste. Esto resulta especialmente útil cuando se trabaja con
+        diseños complejos o se comprueba el contraste en sitios web activos.
+      </p>
+      <p>
+        Ambas herramientas son muy valiosas para crear sitios web accesibles y legibles. Ayudan a garantizar que el
+        texto sea legible sobre el fondo, lo cual es esencial para todos los usuarios, pero especialmente importante
+        para aquellos con discapacidad visual. Recuerde que, aunque estas herramientas son extremadamente útiles, deben
+        utilizarse junto con pruebas manuales y comentarios de los usuarios. Los diferentes contextos y necesidades de
+        los usuarios pueden requerir ajustes que van más allá de lo que pueden sugerir las herramientas automatizadas.
+      </p>
+      <p>
+        Al utilizar regularmente herramientas como el verificador de contraste de colores de WebAIM y el analizador de
+        contraste de colores de TPGi, puede crear diseños que no solo sean visualmente atractivos, sino también
+        inclusivos y accesibles para un público más amplio. Esta atención al detalle en el contraste de colores puede
+        mejorar significativamente la experiencia de usuario de su sitio web para todos los visitantes.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de utilizar herramientas de verificación del contraste de colores como el
+            verificador de contraste de colores de WebAIM?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Hacer que los sitios web sean más coloridos.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            Garantizar que el texto sea legible sobre el fondo para facilitar la accesibilidad.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Reducir el número de colores utilizados en un sitio web.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            Aumentar la velocidad de carga del sitio web.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué función ofrece el Analizador de contraste de colores de TPGi que no ofrecen la mayoría de los
+            verificadores de contraste en línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Puede verificar las relaciones de contraste.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Proporciona códigos de color hexadecimales.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            Puede analizar páginas web completas y simular deficiencias en la visión del color.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            Sugiere combinaciones de colores.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿A qué se refieren los estándares WCAG 2.0 de nivel AA y AAA en el contexto de las herramientas de contraste
+            de colores?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            A los niveles de brillo de los colores.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Al tamaño de los archivos de imagen.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            A las relaciones de contraste mínimas necesarias para la accesibilidad.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Al número de colores utilizados en un diseño.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son las mejores prácticas para ocultar contenido sin que se vuelva
+        inaccesible?</h2>
+
+      <p>
+        Ocultar contenido en una página web es una práctica habitual en el desarrollo web, pero es fundamental hacerlo
+        de forma que no se comprometa la accesibilidad. Las diferentes técnicas de ocultación pueden tener distintos
+        efectos en la forma en que las tecnologías de asistencia interpretan y presentan el contenido a los usuarios.
+        Veamos algunas prácticas recomendadas para ocultar contenido sin comprometer la accesibilidad. Un método
+        habitual para ocultar contenido es utilizar <mark>display: none</mark>. Veamos un ejemplo:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p class="hidden"&gt;Hidden text&lt;/p&gt;
+&lt;p&gt;Visible text&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.hidden</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-hide-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-hide-canvas .f-hide-container {
+                border: 2px dashed #ccc !important;
+                padding: 20px !important;
+                text-align: center !important;
+                width: 90% !important;
+              }
+
+              .pv-hide-canvas .f-hide-hidden {
+                display: none !important;
+                /* código */
+              }
+
+              .pv-hide-canvas .f-hide-visible {
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                color: #2e7d32 !important;
+                font-size: 1.2rem !important;
+                margin: 0 !important;
+              }
+
+              .pv-hide-canvas .f-hide-info {
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #666 !important;
+                margin-top: 10px !important;
+              }
+            </style>
+
+            <div class="f-hide-container">
+              <p class="f-hide-hidden">Hidden text</p>
+              <p class="f-hide-visible">Visible text</p>
+            </div>
+            <p class="f-hide-info">
+              El texto oculto <strong>no ocupa espacio</strong> en el recuadro.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque esto oculta el contenido de forma visual, también lo elimina del árbol de accesibilidad. El árbol de
+        accesibilidad es una estructura que utilizan las tecnologías de asistencia, como los lectores de pantalla, para
+        interpretar e interactuar con el contenido de una página web. Representa el contenido y su significado semántico
+        de una forma que las tecnologías de asistencia pueden entender y presentar al usuario.
+      </p>
+      <p>
+        El uso de <mark>display: none</mark> significa que los lectores de pantalla y otras tecnologías de asistencia no
+        podrán
+        acceder a este contenido, ya que no está incluido en el árbol de accesibilidad. Por lo tanto, es importante
+        utilizar este método solo cuando se desee eliminar completamente el contenido tanto de la presentación visual
+        como de la accesibilidad.
+      </p>
+      <p>
+        Otro método para ocultar contenido es utilizar <mark>visibility: hidden</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p class="hidden"&gt;Hidden text&lt;/p&gt;
+&lt;p&gt;Visible text&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.hidden</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">visibility</span><span class="tk-punctuation">:</span> <span class="tk-value">hidden</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-vis-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-vis-canvas .f-vis-container {
+                border: 2px dashed #61afef !important;
+                padding: 10px !important;
+                width: 90% !important;
+                background: #f0f7ff !important;
+              }
+
+              .pv-vis-canvas .f-vis-hidden {
+                visibility: hidden !important;
+                /* código */
+                background: #ffebee !important;
+                margin: 10px 0 !important;
+              }
+
+              .pv-vis-canvas .f-vis-visible {
+                font-family: sans-serif !important;
+                background: #e8f5e9 !important;
+                padding: 10px !important;
+                border: 1px solid #2e7d32 !important;
+                margin: 0 !important;
+                text-align: center !important;
+              }
+
+              .pv-vis-canvas .f-vis-indicator {
+                font-family: sans-serif !important;
+                font-size: 0.75rem !important;
+                color: #61afef !important;
+                font-style: italic !important;
+                text-align: center !important;
+              }
+            </style>
+
+            <div class="f-vis-container">
+              <div class="f-vis-indicator">↑ Espacio reservado aquí ↑</div>
+              <p class="f-vis-hidden">Hidden text</p>
+              <p class="f-vis-visible">Visible text</p>
+            </div>
+            <p style="font-family: sans-serif; font-size: 0.8rem; margin-top: 10px; color: #666; text-align: center;">
+              Nota como el "Visible text" se mantiene abajo porque el texto oculto <strong>aún ocupa su lugar</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>visibility: hidden</mark> oculta el contenido visualmente, pero lo mantiene en el flujo del documento, lo
+        que significa
+        que sigue ocupando espacio en la página. Al igual que <mark>display: none</mark>, <mark>visibility:
+          hidden</mark> también elimina el
+        contenido del árbol de accesibilidad. Esto significa que las tecnologías de asistencia, como los lectores de
+        pantalla, no podrán acceder al contenido oculto. Utilice <mark>visibility: hidden</mark> solo cuando desee
+        ocultar contenido
+        a todo el mundo, incluidas las personas que utilizan tecnologías de asistencia.
+      </p>
+      <p>
+        Para el contenido que debe ocultarse visualmente pero seguir siendo accesible para los lectores de pantalla,
+        puede utilizar una técnica que a menudo se denomina "visually hidden" o "screen reader only". A
+        continuación se muestra un ejemplo en el que se utiliza la clase CSS <mark>.sr-only</mark>, una técnica habitual
+        para ocultar
+        visualmente el contenido y mantenerlo accesible para los lectores de pantalla:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;p class="sr-only"&gt;Hidden text&lt;/p&gt;
+&lt;p&gt;Visible text&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.sr-only</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">-1px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">overflow</span><span class="tk-punctuation">:</span> <span class="tk-value">hidden</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">clip</span><span class="tk-punctuation">:</span> <span class="tk-value">rect(0, 0, 0, 0)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">white-space</span><span class="tk-punctuation">:</span> <span class="tk-value">nowrap</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-sr-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-selector {
+                color: #c678dd !important;
+              }
+
+              .tk-property {
+                color: #98c379 !important;
+              }
+
+              .tk-value {
+                color: #d19a66 !important;
+              }
+
+              .tk-punctuation {
+                color: #abb2bf !important;
+              }
+
+              .pv-sr-canvas .f-sr-box {
+                border: 2px solid #333 !important;
+                padding: 20px !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                position: relative !important;
+              }
+
+              /* code */
+              .pv-sr-canvas .f-sr-only {
+                position: absolute !important;
+                width: 1px !important;
+                height: 1px !important;
+                padding: 0 !important;
+                margin: -1px !important;
+                overflow: hidden !important;
+                clip: rect(0, 0, 0, 0) !important;
+                white-space: nowrap !important;
+                border: 0 !important;
+              }
+
+              .pv-sr-canvas .f-sr-visible {
+                font-family: 'Segoe UI', sans-serif !important;
+                font-weight: bold !important;
+                color: #333 !important;
+                font-size: 1.4rem !important;
+                margin: 0 !important;
+              }
+
+              .pv-sr-canvas .f-sr-announcement {
+                margin-top: 15px !important;
+                font-family: sans-serif !important;
+                font-size: 0.8rem !important;
+                color: #61afef !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+              }
+            </style>
+
+            <div class="f-sr-box">
+              <p class="f-sr-only">Hidden text</p>
+              <p class="f-sr-visible">Visible text</p>
+            </div>
+
+            <div class="f-sr-announcement">
+              <span style="font-size: 1.2rem;">🔊</span>
+              <span>El lector de pantalla dice: "Hidden text, Visible text"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos propiedades como <mark>position</mark>, <mark>clip</mark> y
+        <mark>white-space</mark>, que aprenderás en lecciones
+        posteriores. Por ahora, solo tienes que saber que esta regla CSS oculta eficazmente el contenido a la vista,
+        pero lo mantiene accesible para los lectores de pantalla. Es útil para proporcionar contexto adicional a los
+        usuarios de lectores de pantalla sin afectar al diseño visual.
+      </p>
+      <p>
+        Para alternar la visibilidad del contenido, considera la posibilidad de utilizar el atributo
+        <mark>hidden</mark>:
+      </p>
+
+      <div class="ide-container">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'html')">index.html</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;p</span> <span class="tk-attr">hidden</span><span class="tk-tag">&gt;</span>This content is hidden<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;p&gt;</span>This content is visible<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="preview-result pv-attr-hidden-canvas"
+            style="height: 100%; width: 100%; background-color: #ffffff; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <style>
+              .tk-tag {
+                color: #e06c75 !important;
+              }
+
+              .tk-attr {
+                color: #d19a66 !important;
+              }
+
+              .pv-attr-hidden-canvas .f-attr-hidden-box {
+                border: 2px solid #abb2bf !important;
+                padding: 20px !important;
+                border-radius: 8px !important;
+                background-color: #fafafa !important;
+                width: 80% !important;
+                text-align: center !important;
+              }
+
+              .pv-attr-hidden-canvas p {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+                margin: 10px 0 !important;
+              }
+
+              .pv-attr-hidden-canvas .f-attr-hidden-label {
+                font-size: 0.8rem !important;
+                color: #999 !important;
+                margin-top: 10px !important;
+              }
+            </style>
+
+            <div class="f-attr-hidden-box">
+              <p hidden>This content is hidden</p>
+              <p style="color: #2c3e50; font-weight: bold; font-size: 1.2rem;">This content is visible</p>
+            </div>
+
+            <span class="f-attr-hidden-label">El primer párrafo existe en el HTML pero es invisible.</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El atributo <mark>hidden</mark> es compatible con la mayoría de los navegadores modernos y oculta el contenido tanto
+        visualmente como del árbol de accesibilidad. Se puede activar y desactivar fácilmente con JavaScript. Por
+        último, tenga cuidado al ocultar contenido importante. Si la información es crucial para comprender o utilizar
+        el sitio web, debe ser visible y accesible para todos los usuarios. Solo oculte contenido cuando ello mejore
+        realmente la experiencia del usuario. Si sigue estas prácticas recomendadas, se asegurará de que su contenido
+        siga siendo accesible para todos los usuarios, independientemente de cómo interactúen con su sitio web.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el principal problema de accesibilidad al utilizar las declaraciones de estilo <mark>display: none</mark> y <mark>visibility: hidden</mark>, o el atributo <mark>hidden</mark> para ocultar contenido?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Estos métodos hacen que solo las tecnologías de asistencia, como los lectores de pantalla, puedan acceder al contenido oculto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            El contenido solo permanece oculto hasta que los usuarios pasan el ratón por encima.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Estos métodos eliminan el contenido del árbol de accesibilidad, lo que imposibilita que las tecnologías de asistencia, como los lectores de pantalla, accedan al contenido oculto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Estos métodos no funcionan con algunos navegadores.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la técnica CSS "visually hidden" o "screen reader only"?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Ocultar contenido a todos los usuarios.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Hacer que el contenido solo sea visible en dispositivos móviles.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            Ocultar contenido visualmente, pero mantenerlo accesible para los lectores de pantalla.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            Crear transiciones animadas para el contenido.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo se debe ocultar contenido en una página web?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Cuando el contenido que se oculta es menos importante que otro contenido de la página.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Cuando el contenido que se oculta es incorrecto.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Solo cuando realmente mejora la experiencia del usuario.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Siempre que se desee.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

@@ -161,7 +161,7 @@ En CSS, puedes establecer la `font family` con la propiedad `font-family`. A con
   ```
   
   ```css
-    #arial-font {
+  #arial-font {
     font-family: Arial;
   }
   ```
