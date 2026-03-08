@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #e4fbfc 0%, #e4f7fc 60%, #90ee90 60%, #90ee90 100%);
+}
+
+/* 
+  ELEMENTO PRINCIPAL (#house)
+  - Posición relativa para contener a los hijos.
+  - Ancho y alto fijos.
+  - Sin min/max width/height.
+*/
+#house {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background-color: #fce4ec;
+  /* Un color pared ejemplo */
+  border: 2px solid black;
+  margin: 0 auto;
+  /* Opcional: para centrar la casa en pantalla */
+}
+
+/* 
+  CHIMENEA (#chimney)
+  - Tu ajuste: top -100px para que sobresalga bastante hacia arriba.
+  - z-index negativo para irse detrás de la casa.
+*/
+#chimney {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  background-color: #8d6e63;
+  border: 2px solid black;
+  top: -100px;
+  /* <-- TU AJUSTE SOLICITADO */
+  left: 76%;
+  /* Posición horizontal */
+  z-index: -1;
+  /* Detrás de la casa */
+}
+
+/* 
+  TECHO (#roof)
+  - Pegado al borde superior (top: 0).
+*/
+#roof {
+  position: absolute;
+  width: 500px;
+  height: 40px;
+  background-color: #5d4037;
+  border: 2px solid black;
+  top: 0;
+}
+
+/* 
+  VENTANAS (#window-1 y #window-2)
+  - Debajo del techo y encima de la puerta.
+  - Usamos left y right para separarlas.
+*/
+#window-1 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to right, #90caf9 0%, #90caf9 48%, black 48%, black 52%, #90caf9 52%, #90caf9 100%);
+  border: 2px solid black;
+  top: 100px;
+  left: 7.5%;
+}
+
+#window-2 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to right, #90caf9 0%, #90caf9 48%, black 48%, black 52%, #90caf9 52%, #90caf9 100%);
+  border: 2px solid black;
+  top: 100px;
+  right: 7.5%;
+}
+
+/* 
+  PUERTA (#door)
+  - Pegada al fondo (bottom: 0).
+  - Usamos 'left' para posicionarla (Cálculo: (500 ancho casa - 100 ancho puerta) / 2 = 200px).
+  - Esto cumple el requisito "set either left or right".
+*/
+#door {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background-color: #795548;
+  border: 2px solid black;
+  bottom: 0%;
+  left: 193px;
+}

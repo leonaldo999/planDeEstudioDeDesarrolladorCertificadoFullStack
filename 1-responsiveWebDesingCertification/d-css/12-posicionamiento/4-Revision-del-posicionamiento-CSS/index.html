@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión del posicionamiento CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión del posicionamiento CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">Flotantes</a></li>
+      <li><a href="#tema2">Static, Relative, Absolute</a></li>
+      <li><a href="#tema3">Fixed y Sticky</a></li>
+      <li><a href="#tema4">Z-index</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        En esta sección, repasaremos los conceptos básicos del posicionamiento CSS, incluyendo los tipos de
+        posicionamiento y cómo trabajar con flotantes.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Trabajar con flotantes</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Los flotantes se utilizan para eliminar un elemento de su flujo normal en la
+            página y colocarlo a la izquierda o a la derecha de su contenedor. Cuando esto ocurre, el texto se ajustará
+            alrededor del contenido flotante.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-float-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Los flotantes mueven el elemento a los lados */</span>
+<span class="tk-selector">.img-left</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-right</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.img-right</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">right</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-left</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-float-container"
+            style="height: 100%; width: 100%; padding: 20px; background: #fff; overflow-y: auto;">
+            <style>
+              #ide-float-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-float-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-float-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-float-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-float-demo .tk-comment {
+                color: #5c6370;
+                font-style: italic;
+              }
+
+              #pv-float-container .preview-box {
+                width: 80px;
+                height: 80px;
+                background-color: #4facfe;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-family: sans-serif;
+                margin-bottom: 10px;
+              }
+
+              #pv-float-container .f-left {
+                float: left;
+                margin-right: 15px;
+              }
+
+              #pv-float-container .f-right {
+                float: right;
+                margin-left: 15px;
+              }
+
+              #pv-float-container p {
+                font-family: Arial, sans-serif;
+                line-height: 1.4;
+                color: #333;
+                font-size: 14px;
+                text-align: justify;
+              }
+
+              #pv-float-container::after {
+                content: "";
+                display: table;
+                clear: both;
+              }
+            </style>
+
+            <div class="preview-box f-left">LEFT</div>
+            <p>
+              Este texto está envolviendo al elemento con <strong
+                style="color: #333;padding: 0;background: none;">float: left</strong>. Como puedes ver, el elemento se
+              desplaza a la izquierda y el contenido del flujo normal fluye a su alrededor por el lado derecho.
+            </p>
+
+            <div style="clear: both; margin-top: 20px;"></div>
+
+            <div class="preview-box f-right">RIGHT</div>
+            <p>
+              Aquí el elemento tiene <strong style="color: #333;padding: 0;background: none;">float: right</strong>. Se
+              pega al borde derecho de su contenedor y el texto
+              se ajusta automáticamente al espacio restante en el lado izquierdo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Borrar flotantes</strong>: La propiedad <code>clear</code> se utiliza para determinar si un elemento
+            debe moverse debajo del contenido flotante. Cuando hay varios elementos flotantes apilados uno al lado del
+            otro, pueden surgir problemas de superposición y colapso en los diseños. Por eso se creó un truco
+            <code>clearfix</code> para solucionar este problema.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-clearfix-section">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"clearfix"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box left"</span><span class="tk-tag">&gt;</span>Left<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box right"</span><span class="tk-tag">&gt;</span>Right<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">line-height</span><span class="tk-punctuation">:</span> <span class="tk-value">60px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.left</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">teal</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.right</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">right</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">purple</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.clearfix::after</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">content</span><span class="tk-punctuation">:</span> <span class="tk-string">""</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">clear</span><span class="tk-punctuation">:</span> <span class="tk-value">both</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-clearfix-wrap" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              /* Tokens de color */
+              #ide-clearfix-section .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-clearfix-section .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-clearfix-section .tk-string {
+                color: #98c379;
+              }
+
+              #ide-clearfix-section .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-clearfix-section .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-clearfix-section .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-clearfix-section .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-clearfix-wrap .clearfix {
+                border: 2px dashed #cbd5e0 !important;
+                padding: 10px !important;
+                background-color: #f7fafc !important;
+              }
+
+              #pv-clearfix-wrap .box {
+                width: 100px !important;
+                height: 60px !important;
+                color: white !important;
+                text-align: center !important;
+                line-height: 60px !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+              }
+
+              #pv-clearfix-wrap .left {
+                float: left !important;
+                background: teal !important;
+              }
+
+              #pv-clearfix-wrap .right {
+                float: right !important;
+                background: purple !important;
+              }
+
+              #pv-clearfix-wrap .clearfix::after {
+                content: "" !important;
+                display: block !important;
+                clear: both !important;
+              }
+
+              #pv-clearfix-wrap p {
+                margin-top: 20px;
+                color: #4a5568;
+                font-family: sans-serif;
+                font-size: 14px;
+              }
+            </style>
+
+            <div class="clearfix">
+              <div class="box left">Left</div>
+              <div class="box right">Right</div>
+            </div>
+            <p class="p-clear">El borde punteado es el contenedor padre. Gracias al <strong
+                style="color: #333;padding: 0;background: none;">clearfix</strong>, el padre
+              mantiene su
+              altura y contiene a los hijos flotantes.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Posicionamiento <code>Static</code>, <code>Relative</code> y <code>Absolute</code>
+        </code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento estático</strong>: este es el flujo normal del documento. Los elementos se
+            posicionan de arriba abajo y de izquierda a derecha, uno tras otro.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-static-position-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box-one"</span><span class="tk-tag">&gt;</span>Box 1<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box-two"</span><span class="tk-tag">&gt;</span>Box 2<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box-three"</span><span class="tk-tag">&gt;</span>Box 3<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.box-one</span> <span class="tk-punctuation">{</span> <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">.box-two</span> <span class="tk-punctuation">{</span> <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">steelblue</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">.box-three</span> <span class="tk-punctuation">{</span> <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgreen</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box-one, .box-two, .box-three</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">static</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-static-flow" style="padding: 20px; background-color: #fff; height: 100%;">
+            <style>
+              /* Tokens de sintaxis */
+              #ide-static-position-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-static-position-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-static-position-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-static-position-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-static-position-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-static-position-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-static-position-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              /* Estilos de previsualización */
+              #pv-static-flow .box-one,
+              #pv-static-flow .box-two,
+              #pv-static-flow .box-three {
+                width: 100px !important;
+                height: 50px !important;
+                margin: 10px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-family: sans-serif !important;
+                color: white !important;
+                font-weight: bold !important;
+              }
+
+              #pv-static-flow .box-one {
+                background: lightcoral !important;
+              }
+
+              #pv-static-flow .box-two {
+                background: steelblue !important;
+              }
+
+              #pv-static-flow .box-three {
+                background: lightgreen !important;
+              }
+            </style>
+
+            <div class="box-one">Box 1</div>
+            <div class="box-two">Box 2</div>
+            <div class="box-three">Box 3</div>
+
+            <p style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #555;">
+              Los elementos se apilan respetando el orden del HTML (flujo normal).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento relativo</strong>: permite utilizar las propiedades <code>top</code>,
+            <code>left</code>, <code>right</code> y <code>bottom</code> para posicionar el elemento dentro del flujo
+            normal del documento. También se puede utilizar el posicionamiento relativo para hacer que los elementos se
+            superpongan con otros elementos de la página.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-relative-position-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"relative"</span><span class="tk-tag">&gt;</span>Relative Element<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.relative</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-relative-container"
+            style="padding: 20px; background-color: #ffffff; height: 100%; position: relative;">
+            <style>
+              #ide-relative-position-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-relative-position-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-relative-position-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-relative-position-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-relative-position-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-relative-position-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-relative-position-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-relative-container .static-box {
+                background-color: #edf2f7;
+                border: 1px solid #cbd5e0;
+                padding: 10px;
+                color: #718096;
+                font-family: sans-serif;
+                margin-bottom: 5px;
+              }
+
+              #pv-relative-container .relative {
+                position: relative !important;
+                top: 30px !important;
+                left: 30px !important;
+                background-color: #4facfe !important;
+                color: white !important;
+                padding: 15px !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                z-index: 1 !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+              }
+            </style>
+
+            <div class="static-box">Elemento Estático (Anterior)</div>
+            <div class="relative">Relative Element</div>
+            <div class="static-box">Elemento Estático (Siguiente)</div>
+
+            <p style="margin-top: 50px; font-family: sans-serif; font-size: 13px; color: #666;">
+              Nota cómo el <strong style="color: #333;padding: 0;background: none;">Relative Element</strong> se
+              desplazó 30px desde su lugar original, pero el "Elemento
+              Siguiente" no subió a ocupar su espacio vacío.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento absoluto</strong>: esto te permite sacar un elemento del flujo normal del documento,
+            haciendo que se comporte de forma independiente al resto de elementos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-absolute-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"parent"</span><span class="tk-tag">&gt;</span>
+  Parent
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"positioned"</span><span class="tk-tag">&gt;</span>Absolute<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.parent</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">120px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">#eee</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.positioned</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">coral</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-absolute-container" style="padding: 20px; background-color: #fff; height: 100%;">
+            <style>
+              #ide-absolute-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-absolute-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-absolute-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-absolute-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-absolute-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-absolute-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-absolute-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-absolute-container .parent {
+                position: relative !important;
+                height: 120px !important;
+                background: #eee !important;
+                border: 1px dashed #999 !important;
+                padding: 10px !important;
+                font-family: sans-serif !important;
+                color: #666 !important;
+              }
+
+              #pv-absolute-container .positioned {
+                position: absolute !important;
+                top: 30px !important;
+                left: 30px !important;
+                background-color: coral !important;
+                color: white !important;
+                padding: 10px 20px !important;
+                font-weight: bold !important;
+                font-family: sans-serif !important;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1) !important;
+              }
+            </style>
+
+            <div class="parent">
+              Parent (Relative)
+              <div class="positioned">Absolute</div>
+            </div>
+
+            <p style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #444;">
+              Observa cómo <strong style="color: #333;padding: 0;background: none;">Absolute</strong> ignora el texto
+              del padre y se posiciona exactamente a 30px de los
+              bordes superior e izquierdo del contenedor gris.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Posicionamiento <code>fixed</code> y <code>sticky</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento <code>fixed</code></strong>: cuando un elemento se posiciona con
+            <code>position: fixed;</code>, se
+            elimina del
+            flujo normal del documento y se coloca en relación con la ventana gráfica, lo que significa que permanece en
+            la misma posición incluso cuando el usuario se desplaza. Esto se utiliza a menudo para elementos como
+            encabezados o barras de navegación que deben permanecer visibles en todo momento.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-fixed-navbar-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"navbar"</span><span class="tk-tag">&gt;</span>Fixed Navbar<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">style</span>=<span class="tk-string">"height: 600px;"</span><span class="tk-tag">&gt;&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.navbar</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">fixed</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">0</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">#0077ff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">8px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-fixed-nav-scroll"
+            style="height: 100%; width: 100%; overflow-y: auto; background-color: #f0f2f5; position: relative;">
+            <style>
+              /* Colores del Editor */
+              #ide-fixed-navbar-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-fixed-navbar-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-fixed-navbar-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-fixed-navbar-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-fixed-navbar-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-fixed-navbar-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-fixed-navbar-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              /* Simulación de fixed para la Preview */
+              #pv-fixed-nav-scroll .navbar {
+                position: sticky !important;
+                /* Usamos sticky para que se quede arriba del scroll del div */
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: #0077ff !important;
+                color: white !important;
+                padding: 8px !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                z-index: 100 !important;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              #pv-fixed-nav-scroll .content-spacer {
+                height: 1000px !important;
+                /* Altura suficiente para probar el scroll */
+                padding: 20px !important;
+                text-align: center !important;
+                font-family: sans-serif !important;
+                color: #4a5568 !important;
+              }
+            </style>
+
+            <div class="navbar">Fixed Navbar</div>
+            <div class="content-spacer">
+              <p style="margin-top: 20px;"><b>↓ Haz scroll aquí adentro ↓</b></p>
+              <p style="margin-top: 150px;">El contenido sube...</p>
+              <p style="margin-top: 150px;">Pero la Navbar azul se queda arriba.</p>
+              <p style="margin-top: 150px;">¡Efecto Fixed simulado con éxito!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento <code>sticky</code></strong>: este tipo de posicionamiento actuará como un híbrido
+            entre el posicionamiento relativo y el <code>sticky</code>. Inicialmente, el elemento se comporta como si
+            estuviera posicionado de forma relativa, permaneciendo dentro del flujo del documento. Sin embargo, una vez
+            que el usuario desplaza el elemento más allá de un punto determinado, este se «pega» a la ventana gráfica
+            (normalmente la parte superior) y se comporta como si fuera <code>sticky</code>. Esto es ideal para crear
+            elementos como barras de navegación fijas, que solo se fijan una vez que el usuario se desplaza hasta una
+            posición determinada.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-sticky-demo-v2">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;p&gt;</span>Scroll down<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"positioned"</span><span class="tk-tag">&gt;</span>Sticky Element<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">style</span>=<span class="tk-string">"height: 500px;"</span><span class="tk-tag">&gt;&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.positioned</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">sticky</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">#4caf50</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">6px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-sticky-scroll-area"
+            style="height: 100%; width: 100%; overflow-y: auto; background-color: #fff; position: relative;">
+            <style>
+              #ide-sticky-demo-v2 .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-sticky-demo-v2 .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-sticky-demo-v2 .tk-string {
+                color: #98c379;
+              }
+
+              #ide-sticky-demo-v2 .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-sticky-demo-v2 .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-sticky-demo-v2 .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-sticky-demo-v2 .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-sticky-scroll-area .positioned {
+                position: sticky !important;
+                top: 30px !important;
+                left: 30px !important;
+                background: #4caf50 !important;
+                color: white !important;
+                padding: 10px !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                z-index: 10 !important;
+                display: inline-block !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              #pv-sticky-scroll-area p {
+                padding: 20px !important;
+                font-family: sans-serif !important;
+                color: #666 !important;
+              }
+            </style>
+
+            <p>Comienza el contenido... sigue bajando para ver el efecto.</p>
+            <div class="positioned">Sticky Element</div>
+            <div style="height: 600px; padding: 20px; font-family: sans-serif; color: #ccc;">
+              <p>↑ Al hacer scroll, verás que el cuadro verde se detiene exactamente a 30px del borde superior y se
+                queda ahí.</p>
+              <p>Contenido de relleno para generar scroll...</p>
+              <p>Más contenido...</p>
+              <p>Casi al final...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Trabajar con la propiedad <code>z-index</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: La propiedad <code>z-index</code> en CSS se utiliza para controlar el orden de
+            apilamiento vertical de los elementos posicionados que se superponen en la página.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-zindex-control">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box box1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box box2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">relative</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span> <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">300px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">position</span><span class="tk-punctuation">:</span> <span class="tk-value">absolute</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span> <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">align-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span> <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">z-index</span><span class="tk-punctuation">:</span> <span class="tk-value">1</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box2</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">steelblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">top</span><span class="tk-punctuation">:</span> <span class="tk-value">40px</span><span class="tk-punctuation">;</span> <span class="tk-property">left</span><span class="tk-punctuation">:</span> <span class="tk-value">40px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">z-index</span><span class="tk-punctuation">:</span> <span class="tk-value">2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-zindex-overlap" style="padding: 20px; background-color: #f8f9fa; height: 100%;">
+            <style>
+              /* Estilos de sintaxis para el editor */
+              #ide-zindex-control .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-zindex-control .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-zindex-control .tk-string {
+                color: #98c379;
+              }
+
+              #ide-zindex-control .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-zindex-control .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-zindex-control .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-zindex-control .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              /* Estilos de la vista previa */
+              #pv-zindex-overlap .container {
+                position: relative !important;
+                width: 200px !important;
+                height: 200px !important;
+                border: 2px solid #333 !important;
+                background-color: white !important;
+              }
+
+              #pv-zindex-overlap .box {
+                position: absolute !important;
+                width: 80px !important;
+                height: 80px !important;
+                color: white !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-family: sans-serif !important;
+                font-weight: bold !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+              }
+
+              #pv-zindex-overlap .box1 {
+                background: lightcoral !important;
+                top: 20px !important;
+                left: 20px !important;
+                z-index: 1 !important;
+              }
+
+              #pv-zindex-overlap .box2 {
+                background: steelblue !important;
+                top: 50px !important;
+                left: 50px !important;
+                z-index: 2 !important;
+              }
+            </style>
+
+            <div class="container">
+              <div class="box box1">1</div>
+              <div class="box box2">2</div>
+            </div>
+
+            <p style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #555;">
+              El cuadro 2 tiene un <code style="color: #333;">z-index</code> mayor, por eso se superpone al cuadro 1.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
