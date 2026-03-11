@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión de los selectores de atributos CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión de los selectores de atributos CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">Selectores de atributos</a></li>
+      <li><a href="#tema2">Atributos lang y data-lang</a></li>
+      <li><a href="#tema3">Listas ordenadas y atributo type</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        Revisión de los selectores de atributos CSS para seleccionar elementos HTML en función de sus atributos, como
+        href o title. Aprenderemos a usar diferentes tipos de selectores de atributos para aplicar estilos específicos a
+        elementos que cumplen ciertas condiciones.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Trabajar con diferentes selectores de atributos y enlaces</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: El selector de atributos le permite seleccionar elementos HTML en función de
+            sus atributos, como los atributos href o title.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-attr-selector-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"https://www.freecodecamp.org"</span><span class="tk-tag">&gt;</span>Link with href<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a&gt;</span>No href<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[href]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">blue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">underline</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">gray</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-attr-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-attr-selector-review .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-attr-selector-review .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-attr-selector-review .tk-string {
+                color: #98c379;
+              }
+
+              #ide-attr-selector-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-attr-selector-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-attr-selector-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-attr-selector-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-attr-review-container a {
+                display: block !important;
+                margin-bottom: 10px !important;
+                font-family: sans-serif !important;
+                color: gray !important;
+                text-decoration: none !important;
+              }
+
+              #pv-attr-review-container a[href] {
+                color: blue !important;
+                text-decoration: underline !important;
+                font-weight: bold !important;
+              }
+            </style>
+
+            <a href="https://www.freecodecamp.org">Link with href (Active)</a>
+            <a>No href (Inactive)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Análisis:</strong> El primer enlace es azul y
+              subrayado porque el selector <code style="color: #333;">a[href]</code>
+              detectó la presencia del atributo. El segundo se mantiene gris.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Atributo <code>title</code></strong>: este atributo proporciona información adicional sobre un
+            elemento. A continuación se muestra cómo se pueden seleccionar enlaces con el atributo <code>title</code>:
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-title-review-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"#"</span> <span class="tk-attr">title</span>=<span class="tk-string">"Tooltip"</span><span class="tk-tag">&gt;</span>Link with title<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"#"</span><span class="tk-tag">&gt;</span>Normal link<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[title]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#e67e22</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-title-review" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-title-review-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-title-review-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-title-review-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-title-review-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-title-review-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-title-review-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-title-review-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-title-review-demo .tk-comment {
+                color: #5c6370;
+                font-style: italic;
+              }
+
+              #pv-title-review a {
+                display: block !important;
+                margin-bottom: 10px !important;
+                font-family: sans-serif !important;
+                color: #333 !important;
+              }
+
+              #pv-title-review a[title] {
+                font-weight: bold !important;
+                text-decoration: none !important;
+                color: #e67e22 !important;
+                border-left: 3px solid #e67e22 !important;
+                padding-left: 8px !important;
+              }
+            </style>
+
+            <a href="#" title="Tooltip">Link with title (Hover me!)</a>
+            <a href="#">Normal link</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> Solo el enlace con el
+              atributo <code style="color: #333;">title</code> recibe el peso de fuente
+              negrita y el color especial.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Combina selectores para encontrar enlaces que tengan los atributos <code>href</code> y
+              <code>title</code></strong>: Combina varios selectores de atributos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-combined-review-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"#"</span> <span class="tk-attr">title</span>=<span class="tk-string">"Info"</span><span class="tk-tag">&gt;</span>Href + Title<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"#"</span><span class="tk-tag">&gt;</span>Only href<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[href][title]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-combined-review" style="padding: 20px; background-color: #f8f9fa; height: 100%;">
+            <style>
+              #ide-combined-review-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-combined-review-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-combined-review-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-combined-review-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-combined-review-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-combined-review-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-combined-review-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-combined-review a {
+                display: block !important;
+                margin-bottom: 10px !important;
+                font-family: sans-serif !important;
+                color: #333 !important;
+                text-decoration: none !important;
+              }
+
+              #pv-combined-review a[href][title] {
+                color: #27ae60 !important;
+                font-weight: bold !important;
+                border: 1px solid #27ae60 !important;
+                padding: 4px 8px !important;
+                width: fit-content !important;
+                border-radius: 4px !important;
+              }
+            </style>
+
+            <a href="#" title="Info">Href + Title (Estilizado)</a>
+            <a href="#">Only href (Normal)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #ddd; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%; background: none;">Revisión Full Stack:</strong> El
+              encadenamiento de atributos aumenta la precisión sin necesidad
+              de crear clases CSS adicionales en tu HTML.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Busca una sola palabra dentro de una lista separada por espacios</strong>: busca enlaces que tengan
+            una palabra de clase específica.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-tilde-selector-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">class</span>=<span class="tk-string">"link primary"</span><span class="tk-tag">&gt;</span>Primary link<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">class</span>=<span class="tk-string">"link secondary"</span><span class="tk-tag">&gt;</span>Secondary link<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[class~="primary"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">red</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#333</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-tilde-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-tilde-selector-review .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-tilde-selector-review .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-tilde-selector-review .tk-string {
+                color: #98c379;
+              }
+
+              #ide-tilde-selector-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-tilde-selector-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-tilde-selector-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-tilde-selector-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-tilde-review-container a {
+                display: block !important;
+                margin-bottom: 10px !important;
+                font-family: sans-serif !important;
+                text-decoration: none !important;
+                color: #333 !important;
+              }
+
+              #pv-tilde-review-container a[class~="primary"] {
+                color: #e74c3c !important;
+                font-weight: bold !important;
+                padding-left: 5px !important;
+                border-left: 4px solid #e74c3c !important;
+              }
+            </style>
+
+            <a class="link primary">Primary link (Match!)</a>
+            <a class="link secondary">Secondary link (No match)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333; padding: 0%;background: none;">Dato de revisión:</strong> El selector <code
+                style="color: #333;">[class~="primary"]</code> es más flexible que
+              <code style="color: #333;">[class="primary"]</code>, ya que este último fallaría si hay más de una clase
+              presente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Buscar valores que empiecen por un prefijo específico</strong>: Busca enlaces que empiecen por
+            <code>https://</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-starts-with-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"https://www.freecodecamp.org"</span><span class="tk-tag">&gt;</span>HTTPS link<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"http://www.freecodecamp.org"</span><span class="tk-tag">&gt;</span>HTTP link<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[href^="https://"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">underline</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#e74c3c</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Rojo para los no seguros en esta prueba */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-starts-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-starts-with-review .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-starts-with-review .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-starts-with-review .tk-string {
+                color: #98c379;
+              }
+
+              #ide-starts-with-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-starts-with-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-starts-with-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-starts-with-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-starts-with-review .tk-comment {
+                color: #5c6370;
+                font-style: italic;
+              }
+
+              #pv-starts-review-container a {
+                display: block !important;
+                margin-bottom: 12px !important;
+                font-family: sans-serif !important;
+                text-decoration: none !important;
+                color: #e74c3c !important;
+              }
+
+              #pv-starts-review-container a[href^="https://"] {
+                color: #27ae60 !important;
+                text-decoration: underline !important;
+                font-weight: bold !important;
+              }
+
+              #pv-starts-review-container a[href^="https://"]::before {
+                content: '🔒 ' !important;
+              }
+            </style>
+
+            <a href="https://www.freecodecamp.org">HTTPS link (Secure)</a>
+            <a href="http://www.freecodecamp.org">HTTP link (Not secure)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Observa cómo el selector
+              ignoró el enlace <code style="color: #333;">http</code>. Solo el que
+              comienza exactamente con <code style="color: #333;">https://</code> activó la regla verde y el candado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Buscar valores que terminen con un sufijo específico</strong>: Busca enlaces que terminen en
+            <code>.jpg</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-ends-with-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"photo.jpg"</span><span class="tk-tag">&gt;</span>Image link<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"index.html"</span><span class="tk-tag">&gt;</span>HTML link<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[href$=".jpg"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkgreen</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">underline dotted</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#333</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-ends-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-ends-with-review .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-ends-with-review .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-ends-with-review .tk-string {
+                color: #98c379;
+              }
+
+              #ide-ends-with-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-ends-with-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-ends-with-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-ends-with-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-ends-review-container a {
+                display: block !important;
+                margin-bottom: 12px !important;
+                font-family: sans-serif !important;
+                text-decoration: none !important;
+                color: #333 !important;
+              }
+
+              #pv-ends-review-container a[href$=".jpg"] {
+                color: #006400 !important;
+                text-decoration: underline dotted !important;
+                font-weight: bold !important;
+              }
+
+              #pv-ends-review-container a[href$=".jpg"]::after {
+                content: ' 🖼️' !important;
+              }
+            </style>
+
+            <a href="photo.jpg">Image link (.jpg)</a>
+            <a href="https://www.freecodecamp.org/news" target="_blank">HTML link (.html)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Solo el enlace que termina
+              exactamente en <code style="color: #333;">.jpg</code> recibió el color
+              verde oscuro y el subrayado punteado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Coincidir valores que contengan una subcadena en cualquier lugar</strong>: busca enlaces que
+            contengan <code>https</code> en cualquier parte del valor.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-contains-wildcard-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"https://www.freecodecamp.org"</span><span class="tk-tag">&gt;</span>Secure link<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"page.html?ref=https"</span><span class="tk-tag">&gt;</span>Local link with https param<span class="tk-tag">&lt;/a&gt;</span>
+<span class="tk-tag">&lt;a</span> <span class="tk-attr">href</span>=<span class="tk-string">"page.html"</span><span class="tk-tag">&gt;</span>Normal Local link<span class="tk-tag">&lt;/a&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">a[href*="https"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">teal</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">a</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">12px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-decoration</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#333</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-contains-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-contains-wildcard-review .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-contains-wildcard-review .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-contains-wildcard-review .tk-string {
+                color: #98c379;
+              }
+
+              #ide-contains-wildcard-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-contains-wildcard-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-contains-wildcard-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-contains-wildcard-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-contains-review-container a {
+                display: block !important;
+                margin-bottom: 12px !important;
+                font-family: sans-serif !important;
+                text-decoration: none !important;
+                color: #333 !important;
+              }
+
+              #pv-contains-review-container a[href*="https"] {
+                color: #008080 !important;
+                font-weight: bold !important;
+                border-left: 3px solid #008080 !important;
+                padding-left: 10px !important;
+              }
+            </style>
+
+            <a href="https://www.freecodecamp.org">Secure link (Matches at start)</a>
+            <a href="page.html?ref=https">Local link with https param (Matches in middle)</a>
+            <a href="page.html">Normal Local link (No match)</a>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Análisis de Revisión:</strong> Fíjate cómo el
+              segundo enlace se pintó de color
+              <code style="color: #333;">teal</code> aunque no empieza con "https". El asterisco lo encontró perdido
+              dentro de la URL.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Resumen</strong>: Estos patrones facilitan el diseño coherente de los enlaces en función de sus
+            atributos y valores.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Selección de elementos con los atributos <code>lang</code> y <code>data-lang</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Atributo <code>lang</code></strong>: Este atributo se utiliza en HTML para especificar el idioma del
+            contenido de un elemento. Es posible que desee aplicar estilos diferentes a los elementos en función del
+            idioma en el que estén escritos, especialmente en un sitio web multilingüe.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-lang-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;p</span> <span class="tk-attr">lang</span>=<span class="tk-string">"en"</span><span class="tk-tag">&gt;</span>English text<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;p</span> <span class="tk-attr">lang</span>=<span class="tk-string">"fr"</span><span class="tk-tag">&gt;</span>French text<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">p[lang="en"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#2c3e50</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">p</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-lang-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-lang-review-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-lang-review-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-lang-review-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-lang-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-lang-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-lang-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-lang-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-lang-review-container p {
+                font-family: 'Segoe UI', Tahoma, sans-serif !important;
+                margin-bottom: 10px !important;
+                color: #333 !important;
+              }
+
+              #pv-lang-review-container p[lang="en"] {
+                font-style: italic !important;
+                color: #2c3e50 !important;
+                border-left: 3px solid #3498db !important;
+                padding-left: 10px !important;
+              }
+            </style>
+
+            <p lang="en">English text (Italicized by CSS)</p>
+            <p lang="fr">French text (Standard style)</p>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> El selector detecta el
+              código de idioma y aplica el estilo automáticamente.
+              Esto es mejor que usar clases como <code style="color: #333;">.english-text</code> porque ya estás usando
+              un atributo estándar
+              de HTML.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Atributo <code>data-lang</code></strong>: Los atributos de datos personalizados, como el atributo
+            <code>data-lang</code>, se utilizan habitualmente para almacenar información adicional en los elementos,
+            como especificar el idioma utilizado en una sección concreta del texto. A continuación se muestra cómo se
+            puede aplicar estilo a los elementos basándose en el atributo <code>data-lang</code>:
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-datalang-review-final">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">data-lang</span>=<span class="tk-string">"fr"</span><span class="tk-tag">&gt;</span>French content<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">data-lang</span>=<span class="tk-string">"en"</span><span class="tk-tag">&gt;</span>English content<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">div[data-lang="fr"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">blue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin-bottom</span><span class="tk-punctuation">:</span> <span class="tk-value">5px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-datalang-review-box" style="padding: 20px; background-color: #fdfdfd; height: 100%;">
+            <style>
+              #ide-datalang-review-final .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-datalang-review-final .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-datalang-review-final .tk-string {
+                color: #98c379;
+              }
+
+              #ide-datalang-review-final .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-datalang-review-final .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-datalang-review-final .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-datalang-review-final .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-datalang-review-box div {
+                padding: 10px !important;
+                margin-bottom: 5px !important;
+                font-family: Arial, sans-serif !important;
+                border: 1px solid #eee !important;
+                border-radius: 4px !important;
+                color: #333 !important;
+              }
+
+              #pv-datalang-review-box div[data-lang="fr"] {
+                color: blue !important;
+                font-weight: bold !important;
+                background-color: #eef2ff !important;
+                border-color: blue !important;
+              }
+            </style>
+
+            <div data-lang="fr">French content (Applied style)</div>
+            <div data-lang="en">English content (Standard style)</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 12px; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333; padding: 0%; background: none;">Dato de revisión:</strong> Al usar
+              <code style="color: #333;">data-*</code>, el navegador no aplica comportamientos
+              por defecto (como lo haría con <code style="color: #333;">lang</code>), dándote control total sobre el
+              diseño.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Trabajar con el selector de atributos, elementos de listas ordenadas y el atributo <code>type</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Atributo <code>type</code></strong>: al trabajar con listas ordenadas en HTML, el atributo
+            <code>type</code> permite especificar el estilo de numeración utilizado, como numérico, alfabético o números
+            romanos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-list-type-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+
+<span class="tk-tag">&lt;ol</span> <span class="tk-attr">type</span>=<span class="tk-string">"A"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;li&gt;</span>Alpha<span class="tk-tag">&lt;/li&gt;</span>
+  <span class="tk-tag">&lt;li&gt;</span>Beta<span class="tk-tag">&lt;/li&gt;</span>
+<span class="tk-tag">&lt;/ol&gt;</span>
+
+<span class="tk-tag">&lt;ol</span> <span class="tk-attr">type</span>=<span class="tk-string">"i"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;li&gt;</span>One<span class="tk-tag">&lt;/li&gt;</span>
+  <span class="tk-tag">&lt;li&gt;</span>Two<span class="tk-tag">&lt;/li&gt;</span>
+<span class="tk-tag">&lt;/ol&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">ol[type="A"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">purple</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">ol[type="i"]</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkgreen</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-style</span><span class="tk-punctuation">:</span> <span class="tk-value">italic</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-list-type-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-list-type-demo .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-list-type-demo .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-list-type-demo .tk-string {
+                color: #98c379;
+              }
+
+              #ide-list-type-demo .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-list-type-demo .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-list-type-demo .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-list-type-demo .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-list-type-container ol {
+                margin-bottom: 20px !important;
+                font-family: sans-serif !important;
+              }
+
+              #pv-list-type-container ol[type="A"] {
+                color: purple !important;
+                font-weight: bold !important;
+              }
+
+              #pv-list-type-container ol[type="i"] {
+                color: darkgreen !important;
+                font-style: italic !important;
+              }
+            </style>
+
+            <ol type="A">
+              <li>Alpha</li>
+              <li>Beta</li>
+            </ol>
+
+            <ol type="i">
+              <li>One</li>
+              <li>Two</li>
+            </ol>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Análisis:</strong> El CSS seleccionó automáticamente cada lista por su atributo
+              <code>type</code> y le aplicó un estilo distinto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

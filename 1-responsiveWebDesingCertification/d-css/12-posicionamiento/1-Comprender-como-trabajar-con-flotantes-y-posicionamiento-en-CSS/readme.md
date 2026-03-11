@@ -14,7 +14,7 @@
   - [Cuestionario 2](#cuestionario-2)
   - [Tema 3: ¿Qué es el posicionamiento absoluto y cómo funciona?](#tema-3-qué-es-el-posicionamiento-absoluto-y-cómo-funciona)
     - [💡 El Secreto del "Padre Posicionado"](#-el-secreto-del-padre-posicionado)
-  - [## Cuestionario 3](#-cuestionario-3)
+  - [Cuestionario 3](#cuestionario-3)
   - [Tema 4: ¿Qué es el posicionamiento fijo(`Fixed`) y adherente(`Sticky`), y en qué se diferencia del posicionamiento absoluto?](#tema-4-qué-es-el-posicionamiento-fijofixed-y-adherentesticky-y-en-qué-se-diferencia-del-posicionamiento-absoluto)
   - [Cuestionario 4](#cuestionario-4)
   - [Tema 5: ¿Qué es la propiedad Z-Index y cómo funciona para controlar el apilamiento de elementos posicionados?](#tema-5-qué-es-la-propiedad-z-index-y-cómo-funciona-para-controlar-el-apilamiento-de-elementos-posicionados)
@@ -292,7 +292,7 @@ El posicionamiento absoluto puede ser especialmente útil para crear elementos q
 
 ---
 
-## ## Cuestionario 3
+## Cuestionario 3
 
 1. **¿Qué sucede cuando un elemento se posiciona de manera absoluta en CSS?**
 
