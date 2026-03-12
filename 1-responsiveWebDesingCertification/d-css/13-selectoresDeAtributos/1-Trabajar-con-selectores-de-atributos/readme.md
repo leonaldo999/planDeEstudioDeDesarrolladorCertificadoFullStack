@@ -1,9 +1,9 @@
 # Trabajar con selectores de atributos
 
-## **Navegación**
+## Navegación
 
 - [Trabajar con selectores de atributos](#trabajar-con-selectores-de-atributos)
-  - [**Navegación**](#navegación)
+  - [Navegación](#navegación)
   - [Tema 1: ¿Qué es el selector de atributos y cómo se puede utilizar para seleccionar enlaces con los atributos `href` y `title`?](#tema-1-qué-es-el-selector-de-atributos-y-cómo-se-puede-utilizar-para-seleccionar-enlaces-con-los-atributos-href-y-title)
   - [Cuestionario 1](#cuestionario-1)
   - [Tema 2: ¿Cómo utilizar el selector de atributos para seleccionar elementos con los atributos lang y data-lang?](#tema-2-cómo-utilizar-el-selector-de-atributos-para-seleccionar-elementos-con-los-atributos-lang-y-data-lang)

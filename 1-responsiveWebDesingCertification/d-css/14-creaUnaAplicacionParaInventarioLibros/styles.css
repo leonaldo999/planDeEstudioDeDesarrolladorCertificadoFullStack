@@ -1,0 +1,160 @@
+/* General body and container */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Main heading */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+tbody tr {
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  transform: scale(1.01);
+}
+
+/* Row backgrounds with gradients */
+tr[class="read"] {
+  background-image: linear-gradient(to right, #e6f4ea, #d4edda);
+}
+
+tr[class="to-read"] {
+  background-image: linear-gradient(to right, #fff7e6, #fff3cd);
+}
+
+tr[class="in-progress"] {
+  background-image: linear-gradient(to right, #e6f0ff, #cce5ff);
+}
+
+/* Status badges */
+span[class="status"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Status by class */
+tr[class="read"] span[class="status"] {
+  border: 2px solid #28a745;
+  background-image: linear-gradient(to right, #c3e6cb, #e9f9ec);
+}
+
+tr[class="to-read"] span[class="status"] {
+  border: 2px solid #fd7e14;
+  background-image: linear-gradient(to right, #ffeeba, #fff3cd);
+}
+
+tr[class="in-progress"] span[class="status"] {
+  border: 2px solid #007bff;
+  background-image: linear-gradient(to right, #b8daff, #e3f2ff);
+}
+
+td {
+  padding: 3px 9px;
+}
+
+/* Status and rate sizing */
+span[class^="rate"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 25px;
+  width: 80px;
+  padding: 3px;
+}
+
+/* Stars inside rate */
+span[class^="rate"]>span {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #e0e0e0;
+  transition: background 0.3s ease;
+}
+
+/* Rating stars */
+span[class~="one"] span:first-child,
+span[class~="two"] span:nth-child(1),
+span[class~="two"] span:nth-child(2),
+span[class~="three"] span {
+  background-image: linear-gradient(to bottom, gold, orange);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+  }
+}

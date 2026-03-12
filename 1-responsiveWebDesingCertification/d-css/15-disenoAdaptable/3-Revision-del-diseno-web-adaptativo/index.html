@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisión del diseño web adaptativo</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión del diseño web adaptativo</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">Adaptativo</a></li>
+      <li><a href="#tema2">Media queries</a></li>
+      <li><a href="#tema3">Breakpoints</a></li>
+      <li><a href="#tema4">Mobile first</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        El diseño web adaptativo es un enfoque de diseño que se centra en crear sitios web que se adapten a diferentes
+        tamaños de pantalla y dispositivos. Utiliza técnicas como cuadrículas fluidas, imágenes flexibles y consultas de
+        medios para garantizar que el contenido se muestre de manera óptima en cualquier dispositivo.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Diseño web adaptativo</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: El principio fundamental del diseño adaptativo es la adaptabilidad, es decir,
+            la capacidad de un sitio web para ajustar su diseño y contenido en función del tamaño de la pantalla y las
+            capacidades del dispositivo en el que se visualiza.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-adaptive-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* DEFINICIÓN: ADAPTABILIDAD */</span>
+<span class="tk-selector">.adaptive-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">all 0.3s ease</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">@media (min-width: 768px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.adaptive-container</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">80%</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0 auto</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-adaptive-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-adaptive-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-adaptive-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-adaptive-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-adaptive-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-adaptive-review-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-adaptive-review-container .adaptive-container {
+                background: #f0f0f0;
+                padding: 20px;
+                border: 1px solid #ddd;
+                text-align: center;
+                color: #333;
+              }
+            </style>
+
+            <div class="adaptive-container">
+              Contenido Adaptativo
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> La adaptabilidad es la
+              capacidad de ajustar el layout y
+              el contenido según el dispositivo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Grids fluidas</strong>: utilizan unidades relativas, como porcentajes, en lugar de unidades
+            fijas, como píxeles, lo que permite que el contenido cambie de tamaño y se reajuste en función del tamaño de
+            la pantalla.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-fluid-grid-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* GRIDS FLUIDAS: Unidad relativa (porcentaje) */</span>
+<span class="tk-selector">.column-main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">70%</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Flexible respecto al padre */</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.column-sidebar</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">30%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">float</span><span class="tk-punctuation">:</span> <span class="tk-value">left</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-fluid-grid-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-fluid-grid-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-fluid-grid-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-fluid-grid-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-fluid-grid-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-fluid-grid-review .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-fluid-grid-container .fluid-row {
+                display: flex;
+                border: 2px solid #ccc;
+                padding: 5px;
+              }
+
+              #pv-fluid-grid-container .main {
+                background: #3498db;
+                color: white;
+                width: 70%;
+                padding: 10px;
+              }
+
+              #pv-fluid-grid-container .sidebar {
+                background: #95a5a6;
+                color: white;
+                width: 30%;
+                padding: 10px;
+              }
+            </style>
+
+            <div class="fluid-row">
+              <div class="main">70%</div>
+              <div class="sidebar">30%</div>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333; padding: 0%;background: none;">Revisión:</strong> Al usar porcentajes, si
+              el contenedor padre cambia de
+              tamaño, las columnas se reajustan proporcionalmente de forma automática.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Imágenes flexibles</strong>: están configuradas para cambiar de tamaño dentro de los elementos que
+            las contienen, lo que garantiza que no se salgan de sus contenedores en pantallas más pequeñas.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-flexible-images-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* IMÁGENES FLEXIBLES: Control total */</span>
+<span class="tk-selector">img</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">max-width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Nunca supera su contenedor */</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">auto</span><span class="tk-punctuation">;</span>     <span class="tk-comment">/* Mantiene proporción original */</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>   <span class="tk-comment">/* Elimina espacios inferiores */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-flexible-images-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-flexible-images-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-flexible-images-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-flexible-images-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-flexible-images-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-flexible-images-review .tk-comment {
+                color: #5c6370;
+              }
+
+              .img-container-demo {
+                border: 2px dashed #999;
+                width: 50%;
+                margin: 0 auto;
+                padding: 10px;
+              }
+            </style>
+
+            <div class="img-container-demo">
+              <div
+                style="background: #e0e0e0; height: 100px; display: flex; align-items: center; justify-content: center;">
+                Imagen Flexible (100%)
+              </div>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Al usar <code
+                style="color: #333;">max-width: 100%</code>, le decimos a la
+              imagen: "puedes ser pequeña si tu contenedor lo es, pero nunca te hagas más grande que tu tamaño real".
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>Consultas de @media queries</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: permiten a los desarrolladores aplicar diferentes estilos en función de las
+            características del dispositivo, principalmente el ancho de la ventana gráfica.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-media-queries-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;p</span> <span class="tk-attr">class</span>=<span class="tk-string">"mq-example"</span><span class="tk-tag">&gt;</span>
+  The background changes at 768px.
+<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.mq-example</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightyellow</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Breakpoint en 768px */</span>
+<span class="tk-selector">@media screen and (min-width: 768px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.mq-example</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-mq-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-media-queries-review-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-media-queries-review-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-media-queries-review-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-media-queries-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-media-queries-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-media-queries-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-media-queries-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-media-queries-review-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-mq-review-container .mq-example {
+                padding: 10px;
+                border: 1px solid #ccc;
+                background-color: lightyellow;
+                color: #333;
+              }
+
+              @media (min-width: 400px) {
+                #pv-mq-review-container .mq-example {
+                  background-color: lightblue;
+                }
+              }
+            </style>
+
+            <p class="mq-example">The background of this paragraph will change when the viewport is at least 768px wide.
+            </p>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> El navegador reevalúa las
+              media queries en tiempo real.
+              ¡No necesitas recargar la página para ver cómo tu diseño se transforma!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Tipos de medios de <code>all</code></strong>: adecuado para todos los dispositivos. Es el valor
+            predeterminado si no se especifica ningún tipo de medio.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-media-type-all-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* TIPO DE MEDIO: all (Global) */</span>
+
+<span class="tk-comment">/* Estas reglas se aplican
+   a TODOS los dispositivos */</span>
+<span class="tk-selector">@media all {</span>
+  <span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Equivalente a escribir
+   solo el selector sin @media */</span>
+<span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-media-all-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-media-type-all-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-media-type-all-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-media-type-all-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-media-type-all-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-media-type-all-review .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 20px; background: #f0f0f0; border-left: 5px solid #61afef; color: #333;">
+              <strong style="color: #333;background: none;padding: 0%;">Nota:</strong> <code
+                style="color: #333;">@media all</code> es la configuración base. Se usa para estilos que no
+              deben cambiar nunca, sin importar dónde se vea la web.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Tipos de medios de <code>print</code></strong>: destinado a material paginado y documentos que se
+            visualizan en una pantalla en modo de vista previa de <code>print</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-media-type-print-review">
+        <div class="ide-editor">
+          <div class="ide-editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="ide-editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* TIPO DE MEDIO: print */</span>
+
+<span class="tk-selector">@media print</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">nav, .sidebar, .ads</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Ocultar elementos innecesarios */</span>
+  <span class="tk-punctuation">}</span>
+
+  <span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">black</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">12pt</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Ajuste para impresión */</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-media-print-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-media-type-print-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-media-type-print-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-media-type-print-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-media-type-print-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-media-type-print-review .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div
+              style="padding: 20px;color: #333; background: #fff; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <strong style="color: #333;background: none;padding: 0%;">Nota:</strong> Al usar
+              <code>@media print</code>, puedes definir una hoja de estilos limpia, ideal
+              para que el lector solo obtenga el contenido relevante.
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> Esta configuración es la
+              que activa el navegador cuando
+              el usuario selecciona "Archivo > Imprimir" o presiona Ctrl+P.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Tipos de medios de <code>screen</code></strong>: destinado principalmente a screens.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-media-type-screen-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* TIPO DE MEDIO: screen */</span>
+
+<span class="tk-selector">@media screen</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* Solo se aplica en dispositivos
+     con pantalla */</span>
+  <span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f4f4f4</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Combinado con otras condiciones */</span>
+<span class="tk-selector">@media screen and (min-width: 1024px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.sidebar</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-media-screen-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-media-type-screen-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-media-type-screen-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-media-type-screen-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-media-type-screen-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-media-type-screen-review .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 20px; background: #eef9fe; border-left: 5px solid #61afef;color: #333;">
+              <strong style="color: #333;padding: 0%;background: none;">Nota:</strong> <code
+                style="color: #333;">@media screen</code> es esencial para separar estilos de pantalla de los
+              estilos de impresión (<code style="color: #333;">print</code>) o de síntesis de voz (<code
+                style="color: #333;">speech</code>).
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Aunque la mayoría de los
+              estilos hoy en día están
+              pensados para pantallas, declarar explícitamente <code style="color: #333;">screen</code> es una buena
+              práctica para mantener
+              tu código semánticamente correcto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>aspect-ratio</code></strong>: describe la relación entre la anchura y la altura de la ventana
+            gráfica.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-aspect-ratio-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* ASPECT-RATIO: Relación ancho/alto */</span>
+
+<span class="tk-comment">/* Pantallas panorámicas (16:9 o más) */</span>
+<span class="tk-selector">@media (min-aspect-ratio: 16/9)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">body</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f0f8ff</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Pantallas verticales (portrait) */</span>
+<span class="tk-selector">@media (max-aspect-ratio: 1/1)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">body</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#fff0f0</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-aspect-ratio-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-aspect-ratio-review .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-aspect-ratio-review .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-aspect-ratio-review .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-aspect-ratio-review .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-aspect-ratio-review .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 20px; background: #eee; border: 1px dashed #666; text-align: center;color: #333;">
+              <strong style="color: #333;padding: 0%;background: none;">Nota:</strong> <code
+                style="color: #333;">aspect-ratio</code> es ideal para evitar que el contenido se vea "aplastado"
+              en formatos de pantalla inusuales.
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Esta propiedad nos permite
+              ir un paso más allá del
+              simple ancho, enfocándonos en la geometría del espacio disponible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>Orientation</code></strong>: se utiliza para indicar si el dispositivo está en orientación
+            horizontal o vertical.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-orientation-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* ORIENTATION: Vertical o Horizontal */</span>
+
+<span class="tk-comment">/* Vertical (Portrait) */</span>
+<span class="tk-selector">@media (orientation: portrait)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.sidebar</span> <span class="tk-punctuation">{</span> <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Horizontal (Landscape) */</span>
+<span class="tk-selector">@media (orientation: landscape)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.sidebar</span> <span class="tk-punctuation">{</span> <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">block</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-orientation-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-orientation-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-orientation-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-orientation-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-orientation-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-orientation-review-box .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 20px; background: #fff; border: 1px solid #ddd; text-align: center;color: #333;">
+              <strong style="color: #333;padding: 0%;background: none;">Nota:</strong> <code
+                style="color: #333;">orientation</code> ayuda a optimizar el espacio útil. En <em>portrait</em>,
+              priorizamos el contenido vertical; en <em>landscape</em>, aprovechamos el ancho extra.
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Esta propiedad es
+              fundamental para que el usuario no
+              tenga que hacer scroll infinito en dispositivos móviles cuando los gira.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>resolution</code></strong>: Se utiliza para describir la resolución del dispositivo de salida
+            en puntos por pulgada (ppp) o puntos por centímetro (ppc).
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-resolution-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* RESOLUTION: Densidad de píxeles */</span>
+
+<span class="tk-comment">/* Alta densidad de píxeles (Retina, 4K, etc.) */</span>
+<span class="tk-selector">@media (min-resolution: 300dpi)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.logo</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-image</span><span class="tk-punctuation">:</span> <span class="tk-value">url('logo-hd.png')</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Densidad estándar */</span>
+<span class="tk-selector">@media (min-resolution: 72dpi) and (max-resolution: 299dpi)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.logo</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-image</span><span class="tk-punctuation">:</span> <span class="tk-value">url('logo-std.png')</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-resolution-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-resolution-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-resolution-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-resolution-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-resolution-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-resolution-review-box .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 20px; background: #fff; border: 1px solid #ddd; text-align: center;color: #333;">
+              <strong style="color: #333;padding: 0%;background: none;">Nota:</strong> Usar <codestyle="color: #333;">
+                resolution</code> es clave para optimizar recursos. Evita enviar
+                imágenes de alta resolución a dispositivos que no tienen la densidad de píxeles para mostrar el detalle
+                extra.
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Aunque solemos usar <code
+                style="color: #333;">min-resolution</code>, también puedes usar
+              <code style="color: #333;">dppx</code> (dots per pixel unit), que es la unidad estándar actual para
+              manejar resoluciones de
+              pantalla.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>hover</code></strong>: Se utiliza para comprobar si el mecanismo de entrada principal puede
+            situarse sobre los elementos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-hover-interaction-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"interactive-btn"</span><span class="tk-tag">&gt;</span>Hover over me<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.interactive-btn</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px 20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* 
+  Solo aplicar hover en dispositivos con cursor preciso
+*/</span>
+<span class="tk-selector">@media (hover: hover)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.interactive-btn:hover</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">yellow</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-hover-interaction-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-hover-interaction-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-hover-interaction-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-hover-interaction-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-hover-interaction-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-hover-interaction-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-hover-interaction-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-hover-interaction-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-hover-interaction-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-hover-interaction-container .interactive-btn {
+                padding: 10px 20px;
+                background-color: lightgray;
+                border: 1px solid #999;
+                cursor: pointer;
+              }
+
+              #pv-hover-interaction-container .interactive-btn:hover {
+                background-color: yellow;
+              }
+            </style>
+
+            <button class="interactive-btn">Hover over me</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> Esta técnica es una
+              excelente práctica de diseño
+              adaptable, ya que evita que los estados de <code style="color: #333;">:hover</code> se "peguen" o se
+              comporten erráticamente en
+              dispositivos móviles (donde el toque es el evento principal).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>prefers-color-scheme</code></strong>: Se utiliza para detectar si el usuario ha solicitado un
+            tema de colores claros u oscuros.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-color-scheme-review-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"theme-box"</span><span class="tk-tag">&gt;</span>
+  Contenido adaptativo según sistema.
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Colores por defecto (Light Mode) */</span>
+<span class="tk-selector">.theme-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#ffffff</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#000000</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Detección de tema oscuro */</span>
+<span class="tk-selector">@media (prefers-color-scheme: dark)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.theme-box</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#121212</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#ffffff</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-color-scheme-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-color-scheme-review-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-color-scheme-review-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-color-scheme-review-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-color-scheme-review-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-color-scheme-review-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-color-scheme-review-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-color-scheme-review-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-color-scheme-review-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-color-scheme-container .theme-box {
+                padding: 20px;
+                border: 1px solid #ccc;
+                color: #333;
+              }
+            </style>
+
+            <div class="theme-box">Contenido adaptativo según sistema.</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> Esta media query es
+              increíble porque respeta la
+              configuración que el usuario ya eligió en su sistema operativo, brindando una experiencia mucho más
+              natural.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Consultas de medios y operadores lógicos</strong>: El operador <code>and</code> se utiliza para
+            combinar varias
+            características de medios, mientras que <code>not</code> y <code>only</code> solo se pueden utilizar para
+            negar o aislar consultas de
+            medios.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-logical-operators-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;p</span> <span class="tk-attr">class</span>=<span class="tk-string">"logical-example"</span><span class="tk-tag">&gt;</span>
+  Cambio condicional complejo.
+<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Operadores: and, not, only */</span>
+<span class="tk-selector">@media screen and (min-width: 768px) and (orientation: landscape)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.logical-example</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightcoral</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Ejemplo de negación */</span>
+<span class="tk-selector">@media not print</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* Solo para dispositivos que NO sean impresión */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-logical-operators-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-logical-operators-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-logical-operators-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-logical-operators-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-logical-operators-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-logical-operators-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-logical-operators-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-logical-operators-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-logical-operators-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-logical-operators-container .logical-example {
+                padding: 10px;
+                border: 1px solid #ccc;
+                background-color: lightyellow;
+                color: #333;
+              }
+            </style>
+
+            <div class="logical-example">This paragraph's background will change when the screen is at least 768px wide
+              AND in landscape orientation.</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;background: none;padding: 0%;">Revisión:</strong> El operador <code
+                style="color: #333;">only</code> se usa para ocultar
+              estilos de navegadores antiguos que no soportan media queries. Es una capa extra de seguridad para tu
+              código.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema3">
+      <h2>Breakpoints comunes en los @media</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Los Breakpoints en los media son puntos específicos en el diseño de un sitio
+            web en los que el diseño y el contenido se ajustan para adaptarse a diferentes tamaños de pantalla. Existen
+            algunos Breakpoints generales que se pueden utilizar para adaptarse a teléfonos, tabletas y pantallas de
+            computadoras de escritorio. Sin embargo, no es aconsejable intentar abarcar todos los tamaños de pantalla
+            posibles para los diferentes dispositivos.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-breakpoints-technical-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;p</span> <span class="tk-attr">class</span>=<span class="tk-string">"breakpoint-example"</span><span class="tk-tag">&gt;</span>
+  This text changes at 768px.
+<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.breakpoint-example</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Breakpoint: Tablets y superior */</span>
+<span class="tk-selector">@media screen and (min-width: 768px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.breakpoint-example</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1.125rem</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-breakpoints-technical-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-breakpoints-technical-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-breakpoints-technical-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-breakpoints-technical-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-breakpoints-technical-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-breakpoints-technical-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-breakpoints-technical-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-breakpoints-technical-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-breakpoints-technical-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-breakpoints-technical-container .breakpoint-example {
+                padding: 10px;
+                border: 1px solid #ccc;
+                font-family: sans-serif;
+                color: #333;
+              }
+            </style>
+
+            <p class="breakpoint-example">This text will change size when the viewport width is at least 768px.</p>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> Recuerda: no busques el
+              "pixel perfecto" para cada modelo de dispositivo;
+              busca los puntos donde tu contenido deja de verse cómodo y ahí, aplica tu breakpoint.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Dispositivos pequeños (smartphones)</strong>: hasta 640 píxeles
+          </li>
+          <li>
+            <strong>Dispositivos medianos (tabletas)</strong>: de 641 a 1024 píxeles
+          </li>
+          <li>
+            <strong>Dispositivos grandes (computadoras de escritorio)</strong>: 1025 píxeles y más
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section id="tema4">
+      <h2>Enfoque <code>mobile first</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: El enfoque <code>mobile first</code> es una filosofía de diseño y una
+            estrategia de desarrollo en el diseño web adaptativo que da prioridad a la creación de sitios web para
+            dispositivos móviles antes que al diseño para pantallas más grandes.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-mobile-first-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"mobile-first-container"</span><span class="tk-tag">&gt;</span>
+  Diseño escalable.
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Estilos base: Mobile (default) */</span>
+<span class="tk-selector">.mobile-first-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Tablet: Escalando hacia arriba */</span>
+<span class="tk-selector">@media screen and (min-width: 768px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.mobile-first-container</span> <span class="tk-punctuation">{</span> <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">750px</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Desktop: Pantallas grandes */</span>
+<span class="tk-selector">@media screen and (min-width: 1024px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">.mobile-first-container</span> <span class="tk-punctuation">{</span> <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">960px</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-mobile-first-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-mobile-first-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-mobile-first-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-mobile-first-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-mobile-first-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-mobile-first-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-mobile-first-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-mobile-first-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-mobile-first-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-mobile-first-container .mobile-first-container {
+                padding: 20px;
+                border: 1px solid #ccc;
+                margin: 0 auto;
+                color: #333;
+              }
+            </style>
+
+            <div class="mobile-first-container">The width of this container changes based on the viewport size.</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #333;padding: 0%;background: none;">Revisión:</strong> El código es más limpio
+              porque no tienes que "sobreescribir" estilos
+              complejos de desktop para móviles; simplemente construyes sobre una base sencilla.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" title="Ir al inicio">🚀</button>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
