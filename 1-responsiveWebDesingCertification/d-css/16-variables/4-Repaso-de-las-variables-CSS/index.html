@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de las variables CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo">
+    </figure>
+    <h1>Revisión del diseño web adaptativo</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation">
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul id="nav-list">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#tema1">CSS Variables</a></li>
+      <li><a href="#tema2">Regla @property</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="intro">
+      <h2>🚀 Introducción</h2>
+
+      <p>
+        Repasaremos el uso de variables CSS, también conocidas como propiedades personalizadas de CSS, para crear
+        estilos reutilizables y mantener un código más limpio. Las variables CSS nos permiten definir valores que pueden
+        ser reutilizados en todo el documento, lo que facilita la gestión de estilos y la creación de temas
+        personalizados.
+      </p>
+    </section>
+
+    <section id="tema1">
+      <h2>Propiedades personalizadas de CSS (variables CSS)</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: Las propiedades personalizadas de CSS, también conocidas como variables CSS,
+            son entidades definidas por los autores de CSS que contienen valores específicos para ser reutilizados en
+            todo el documento. Se trata de una potente función que permite crear hojas de estilo más eficientes, fáciles
+            de mantener y flexibles. Las propiedades personalizadas resultan especialmente útiles para crear diseños
+            personalizables. Puedes definir un conjunto de propiedades para diferentes temas:
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-css-vars-review-theming">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* 1. Valores Globales (Tema Claro) */</span>
+<span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--bg-color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--text-color</span><span class="tk-punctuation">:</span> <span class="tk-value">black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* 2. Sobreescritura para Tema Oscuro */</span>
+<span class="tk-selector">.dark-theme</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--bg-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#333</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--text-color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* 3. Aplicación de Variables */</span>
+<span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--bg-color)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--text-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-vars-review-container"
+            style="padding: 20px; background-color: #f0f0f0; height: 100%; display: flex; flex-direction: column; gap: 15px;">
+            <style>
+              #ide-css-vars-review-theming .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-css-vars-review-theming .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-css-vars-review-theming .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-review-theming .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-css-vars-review-theming .tk-comment {
+                color: #5c6370;
+              }
+
+              .theme-preview-box {
+                padding: 15px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                font-family: sans-serif;
+                transition: all 0.3s ease;
+              }
+
+              .light-box {
+                background-color: white;
+                color: black;
+              }
+
+              .dark-box {
+                background-color: #333;
+                color: white;
+              }
+            </style>
+
+            <div class="theme-preview-box light-box">
+              <strong style="padding: 0%;background: none;color: #333;">Vista: Tema Claro</strong>
+              <p style="font-size: 12px; margin: 5px 0 0;">Usando variables de :root</p>
+            </div>
+
+            <div class="theme-preview-box dark-box">
+              <strong style="padding: 0%;background: none;color: #999;">Vista: Tema Oscuro</strong>
+              <p style="font-size: 12px; margin: 5px 0 0;">Usando clase .dark-theme</p>
+            </div>
+
+            <p
+              style="margin-top: 10px; font-family: sans-serif; font-size: 13px; color: #666; border-top: 1px solid #ddd; padding-top: 10px;">
+              💡 <strong style="padding: 0%;background: none;color: #333;">Dato de repaso:</strong> Al usar <code
+                style="color: #333;">var()</code> en el <code style="color: #333;">body</code>, no importa cuántas
+              veces cambies el tema, el CSS de los elementos se mantiene igual, ¡solo cambian los valores de las
+              variables!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="tema2">
+      <h2>La regla <code>@property</code></h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: La regla <code>@property</code> es una potente función de CSS que permite a los
+            desarrolladores definir propiedades personalizadas con un mayor control sobre su comportamiento, incluyendo
+            cómo se animan y sus valores iniciales.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-at-property-review-schema">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Definición de la Regla @property */</span>
+
+<span class="tk-selector">@property --nombre-de-propiedad</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;tipo&gt;'</span><span class="tk-punctuation">;</span>
+  <span class="tk-comment">/* Ej: &lt;color&gt;, &lt;length&gt;, &lt;percentage&gt; */</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">true | false</span><span class="tk-punctuation">;</span>
+  <span class="tk-comment">/* ¿Pasa el valor a los hijos? */</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">valor</span><span class="tk-punctuation">;</span>
+  <span class="tk-comment">/* Valor por defecto obligatorio */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Ejemplo aplicado */</span>
+<span class="tk-selector">.mi-caja</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--nombre-de-propiedad)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-at-property-review-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-at-property-review-schema .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-at-property-review-schema .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-at-property-review-schema .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-at-property-review-schema .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-at-property-review-schema .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div
+              style="padding: 15px; border: 1px dashed #c678dd; border-radius: 8px; font-family: sans-serif; background-color: #fcfaff;">
+              <strong style="color: #c678dd;background: none;padding: 0%;">Concepto Clave:</strong>
+              <p style="font-size: 13px; color: #444; margin-top: 10px; line-height: 1.5;">
+                Al definir el <code style="color: #000;">initial-value</code>, le das al navegador un plan de respaldo
+                automático. Si por
+                error asignas un valor que no corresponde al <code style="color: #000;">syntax</code>, el CSS no se
+                rompe, simplemente vuelve
+                a su valor inicial.
+              </p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong style="color: #000;background: none;padding: 0%;">Revisión:</strong> Recuerda que el <code
+                style="color: #000;">initial-value</code> es <strong
+                style="color: #000;background: none;padding: 0%;">requerido</strong> si
+              <code style="color: #000;">inherits</code> es falso. Es la base de la seguridad de tipos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><code>--property-name</code></strong>: Este es el nombre de la propiedad personalizada que estás
+            definiendo. Al igual que todas las propiedades
+            personalizadas, debe comenzar con dos guiones.
+            <code>syntax</code>: Define el tipo de la propiedad, que puede ser, por ejemplo, <code>&lt;color&gt;</code>,
+            <code>&lt;length&gt;</code>, <code>&lt;number&gt;</code>, <code>&lt;percentage&gt;</code> o tipos más
+            complejos.
+          </li>
+          <li>
+            <strong><code>inherits</code></strong>: Esto especifica si la propiedad debe heredar su valor del elemento
+            padre.
+          </li>
+          <li>
+            <strong><code>initial-value</code></strong>: Esto establece el valor predeterminado de la propiedad.
+          </li>
+          <li>
+            <strong>Ejemplo de degradado utilizando la regla <code>@property</code></strong>: Este ejemplo crea un
+            degradado que se anima suavemente al pasar el cursor sobre el elemento.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-review-gradient-animation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"gradient-box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@property --gradient-angle</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">"&lt;angle&gt;"</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">0deg</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.gradient-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">linear-gradient(
+    var(--gradient-angle), red, blue)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">--gradient-angle 0.5s</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.gradient-box:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--gradient-angle</span><span class="tk-punctuation">:</span> <span class="tk-value">90deg</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-review-gradient-container"
+            style="padding: 20px; background-color: #ffffff; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <style>
+              #ide-review-gradient-animation .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-review-gradient-animation .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-review-gradient-animation .tk-string {
+                color: #98c379;
+              }
+
+              #ide-review-gradient-animation .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-review-gradient-animation .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-review-gradient-animation .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-review-gradient-animation .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-review-gradient-container .gradient-box {
+                width: 100px;
+                height: 100px;
+                border-radius: 8px;
+                background: linear-gradient(0deg, red, blue);
+                transition: background 0.5s ease;
+                cursor: pointer;
+              }
+
+              #pv-review-gradient-container .gradient-box:hover {
+                background: linear-gradient(90deg, red, blue);
+              }
+            </style>
+
+            <div class="gradient-box"></div>
+            <p style="margin-top: 15px; font-family: sans-serif; font-size: 12px; color: #555; text-align: center;">
+              Pasa el mouse para ver la transición del ángulo.
+            </p>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px; width: 100%;">
+              💡 <strong style="color: #000;padding: 0%;background: none;">Revisión final:</strong> Al declarar <code
+                style="color: #000;">syntax: "&lt;angle&gt;"</code>, el navegador puede
+              calcular los grados intermedios (10deg, 20deg...) durante el <code style="color: #000;">transition</code>.
+              ¡Espectacular!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Valores de reserva (<code>Fallbacks</code>)</strong>: Al utilizar la propiedad personalizada, puedes
+            proporcionar un valor de reserva mediante la función <code>var()</code>, tal como lo harías con las
+            propiedades personalizadas estándar:
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-review-fallback-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Uso de var() con valor de reserva (fallback) */</span>
+
+<span class="tk-selector">.button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* Si --main-color no está definida, aplica #3498db */</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color, #3498db)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">12px 24px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">6px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-review-fallback-container"
+            style="padding: 20px; background-color: #ffffff; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <style>
+              #ide-review-fallback-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-review-fallback-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-review-fallback-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-review-fallback-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-review-fallback-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-review-fallback-container .button-demo {
+                background-color: #3498db;
+                /* Simulación del fallback activo */
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 6px;
+                font-family: sans-serif;
+                font-weight: bold;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              }
+            </style>
+
+            <button class="button-demo">Botón con Fallback</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px; width: 100%;">
+              💡 <strong style="color: #000;padding: 0%;background: none;">Revisión:</strong> Esta técnica es especialmente útil cuando tus variables dependen de archivos
+              externos o temas dinámicos que podrían tardar en cargar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    &copy;
+    <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

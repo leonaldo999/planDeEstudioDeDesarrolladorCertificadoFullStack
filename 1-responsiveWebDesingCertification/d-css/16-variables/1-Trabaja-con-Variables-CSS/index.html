@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con Variables CSS, también conocidas como Custom Properties, para almacenar valores reutilizables en tu hoja de estilos y mejorar la mantenibilidad de tu código CSS.">
+  <meta name="keywords"
+    content="Variables CSS, Custom Properties, CSS Variables, Reusable Values, CSS Stylesheet, CSS Code Maintenance">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabaja con Variables CSS">
+  <meta property="og:description"
+    content="Aprende a trabajar con Variables CSS, también conocidas como Custom Properties, para almacenar valores reutilizables en tu hoja de estilos y mejorar la mantenibilidad de tu código CSS.">
+  <meta property="og:type" content="website">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabaja con Variables CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <figure class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </figure>
+    <h1>Trabaja con Variables CSS</h1>
+  </header>
+
+  <nav id="main-nav" class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav"
+      tabindex="0">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+    <ul>
+      <li>
+        <a href="#tema1" onclick="closeNavMobile()" tabindex="0">💻 Tema 1</a>
+      </li>
+      <li>
+        <a href="#cuest1" onclick="closeNavMobile()" tabindex="0">❓ Cuest 1</a>
+      </li>
+      <li>
+        <a href="#tema2" onclick="closeNavMobile()" tabindex="0">💻 Tema 2</a>
+      </li>
+      <li>
+        <a href="#cuest2" onclick="closeNavMobile()" tabindex="0">❓ Cuest 2</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+
+      <p>
+        Las variables CSS, también conocidas como Custom Properties, son una característica poderosa que permite
+        almacenar valores reutilizables en tu hoja de estilos. Esto facilita la gestión de estilos y mejora la
+        mantenibilidad de tu código CSS.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son las propiedades personalizadas CSS y cómo funcionan?
+      </h2>
+
+      <p>
+        Las propiedades personalizadas CSS, también conocidas como variables CSS, son entidades definidas por los
+        autores CSS que contienen valores específicos para ser reutilizados a lo largo de un documento. Son una potente
+        característica que permite crear hojas de estilo más eficientes, fáciles de mantener y flexibles.
+      </p>
+      <p>
+        La sintaxis para declarar una propiedad personalizada es muy sencilla. Comienza con dos guiones
+        (<mark>--</mark>) seguidos
+        del nombre de la propiedad:
+      </p>
+
+      <div class="ide-container" id="ide-css-vars-root-declaration">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* DECLARACIÓN GLOBAL */</span>
+<span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* Sintaxis: --nombre: valor; */</span>
+  <span class="tk-property">--main-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--secondary-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#2ecc71</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--font-base</span><span class="tk-punctuation">:</span> <span class="tk-value">16px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Las variables declaradas en :root son heredadas
+   por todos los elementos del HTML */</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-vars-root-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-css-vars-root-declaration .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-css-vars-root-declaration .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-css-vars-root-declaration .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-root-declaration .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-css-vars-root-declaration .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div style="padding: 15px; border: 2px solid #3498db; border-radius: 8px; font-family: sans-serif;">
+              <h4 style="margin: 0; color: #3498db;">Concepto: :root</h4>
+              <p style="font-size: 13px; color: #555; line-height: 1.5; margin-top: 10px;">
+                Al declarar <code>--main-color</code> aquí, cualquier etiqueta (<code>div</code>, <code>p</code>,
+                <code>button</code>) podrá usarla simplemente llamándola. Es como crear el "ADN" de colores de tu sitio.
+              </p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> ¿Sabías que también puedes declarar variables dentro de selectores
+              específicos para que solo existan en ese contenedor?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, declaramos una propiedad personalizada denominada <mark>--main-color</mark> con un valor de
+        <mark>#3498db</mark>. La
+        pseudoclase <mark>:root</mark> se utiliza habitualmente para declarar propiedades personalizadas globales, ya
+        que representa
+        el elemento padre de mayor nivel en el árbol DOM.
+      </p>
+      <p>
+        Para utilizar una propiedad personalizada, se emplea la función <mark>var()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-using-var-function-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"button"</span><span class="tk-tag">&gt;</span>Click Me<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--main-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-using-var-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-using-var-function-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-using-var-function-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-using-var-function-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-using-var-function-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-using-var-function-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-using-var-function-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-using-var-function-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-using-var-container .button {
+                padding: 10px 20px;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: sans-serif;
+                background-color: #3498db;
+              }
+            </style>
+
+            <button class="button">Click Me</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> La función <code>var()</code> actúa como un puente que busca el valor
+              almacenado en <code>--main-color</code>. Si cambias el valor en el <code>:root</code>, el botón se
+              actualizará automáticamente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto establece el color de fondo de los elementos con la clase <mark>button</mark> al valor almacenado en
+        <mark>--main-color</mark>.
+      </p>
+      <p>
+        Una de las características clave de las propiedades personalizadas es que siguen la cascada CSS. Esto significa
+        que puedes redefinirlas para elementos o contextos específicos:
+      </p>
+
+      <div class="ide-container" id="ide-css-vars-cascade-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"alert"</span><span class="tk-tag">&gt;</span>This is an alert message.<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.alert</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--main-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#e74c3c</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Redefinición local */</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-vars-cascade-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-css-vars-cascade-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-css-vars-cascade-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-cascade-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-css-vars-cascade-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-css-vars-cascade-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-css-vars-cascade-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-cascade-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-css-vars-cascade-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-vars-cascade-container .alert {
+                --main-color: #e74c3c;
+                background-color: var(--main-color);
+                color: white;
+                padding: 15px;
+                border-radius: 4px;
+                font-family: sans-serif;
+                font-weight: bold;
+              }
+            </style>
+
+            <div class="alert">This is an alert message.</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Al declarar la variable dentro de <code>.alert</code>, cualquier elemento
+              hijo de esta caja también heredará el color rojo en lugar del azul global del <code>:root</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, los elementos con la clase <mark>alert</mark> utilizarán un valor <mark>--main-color</mark>
+        diferente, anulando la
+        definición global.
+      </p>
+      <p>
+        Las propiedades personalizadas también admiten valores alternativos. Si una propiedad personalizada no está
+        definida o no es válida, puede proporcionar un valor alternativo:
+      </p>
+
+      <div class="ide-container" id="ide-css-vars-fallback-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"text"</span><span class="tk-tag">&gt;</span>This is some text.<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--text-color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.text</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* var(variable, fallback) */</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--text-color, green)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-vars-fallback-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-css-vars-fallback-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-css-vars-fallback-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-fallback-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-css-vars-fallback-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-css-vars-fallback-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-css-vars-fallback-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-css-vars-fallback-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-css-vars-fallback-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-vars-fallback-container .text {
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: green;
+              }
+            </style>
+
+            <div class="text">This is some text.</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Es importante notar que el fallback solo se activa si la variable <strong>no
+                existe</strong>. Si la variable existe pero tiene un valor inválido (como un error tipográfico), el
+              fallback no siempre funcionará como esperas; el navegador usará el valor heredado o inicial.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, si no se define <mark>--text-color</mark>, el <mark>color</mark> predeterminado será el
+        <mark>green</mark>.
+      </p>
+      <p>
+        Las propiedades personalizadas son especialmente útiles para crear diseños personalizables. Puede definir un
+        conjunto de propiedades para diferentes temas:
+      </p>
+
+      <div class="ide-container" id="ide-css-theming-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"light-theme"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;p&gt;</span>This is some light themed text.<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--bg-color</span><span class="tk-punctuation">:</span> <span class="tk-value">black</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--bg-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.light-theme</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--bg-color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--text-color</span><span class="tk-punctuation">:</span> <span class="tk-value">black</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--bg-color)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--text-color)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-theming-container" style="padding: 20px; background-color: #111; height: 100%;">
+            <style>
+              #ide-css-theming-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-css-theming-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-css-theming-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-css-theming-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-css-theming-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-css-theming-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-css-theming-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-theming-container .light-theme {
+                --bg-color: white;
+                --text-color: black;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                padding: 10px;
+                border-radius: 4px;
+                font-family: sans-serif;
+              }
+            </style>
+
+            <div class="light-theme">
+              <p style="margin: 0;color: #333;">This is some light themed text.</p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #555; border-top: 1px solid #333; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Observa cómo el contenedor exterior simula el <code>body</code> oscuro,
+              mientras que la clase <code>.light-theme</code> redefine las variables localmente para crear el contraste.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cambiar de tema es tan sencillo como añadir o eliminar una clase del elemento <mark>body</mark>.
+      </p>
+      <p>
+        Las propiedades personalizadas también se pueden utilizar con consultas de medios para crear diseños adaptables:
+      </p>
+
+      <div class="ide-container" id="ide-responsive-vars-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"card"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;h2&gt;</span>Responsive Design<span class="tk-tag">&lt;/h2&gt;</span>
+  <span class="tk-tag">&lt;p&gt;</span>Resize the window to see the card adapt!<span class="tk-tag">&lt;/p&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--card-width</span><span class="tk-punctuation">:</span> <span class="tk-value">90%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--card-bg</span><span class="tk-punctuation">:</span> <span class="tk-value">#f0f0f0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">--card-padding</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Tablet: Solo actualizamos los valores */</span>
+<span class="tk-selector">@media (min-width: 600px)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">--card-width</span><span class="tk-punctuation">:</span> <span class="tk-value">70%</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">--card-bg</span><span class="tk-punctuation">:</span> <span class="tk-value">#e8f5e9</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.card</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--card-width)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--card-bg)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--card-padding)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-responsive-vars-container"
+            style="padding: 20px; background-color: #fafafa; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <style>
+              #ide-responsive-vars-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-responsive-vars-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-responsive-vars-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-responsive-vars-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-responsive-vars-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-responsive-vars-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-responsive-vars-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-responsive-vars-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-responsive-vars-container .card {
+                width: 80%;
+                background-color: #e8f5e9;
+                padding: 1.5rem;
+                color: #333;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                font-family: sans-serif;
+              }
+            </style>
+
+            <div class="card">
+              <h2 style="margin: 0 0 10px 0;">Responsive Design</h2>
+              <p style="margin: 0;">Resize the window to see the card adapt!</p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px; width: 100%;">
+              💡 <strong>Revisión:</strong> Nota que el selector <code>.card</code> se escribe <strong>una sola
+                vez</strong>. Las Media Queries solo se encargan de cambiar los datos (las variables), no la estructura.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este enfoque permite diseños adaptables más fáciles de mantener, ya que puedes cambiar los valores en un solo
+        lugar en lugar de hacerlo en toda la hoja de estilos. Esto puede reducir significativamente la repetición en tus
+        hojas de estilos, especialmente en el caso de valores complejos y de uso frecuente.
+      </p>
+      <p>
+        Las propiedades personalizadas también pueden hacer referencia a otras propiedades personalizadas:
+      </p>
+
+      <div class="ide-container" id="ide-vars-referencing-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"button"</span><span class="tk-tag">&gt;</span>Click Me<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--primary-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+  <span class="tk-comment">/* Referencia a otra variable */</span>
+  <span class="tk-property">--button-bg</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--primary-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--button-bg)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px 20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-vars-referencing-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-vars-referencing-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-vars-referencing-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-vars-referencing-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-vars-referencing-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-vars-referencing-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-vars-referencing-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-vars-referencing-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-vars-referencing-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-vars-referencing-container .button {
+                background-color: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: sans-serif;
+              }
+            </style>
+
+            <button class="button">Click Me</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Esta técnica se llama "mapeo de variables". Te permite separar los **valores
+              básicos** (paleta de colores) de los **tokens de componentes** (el color específico de un botón),
+              facilitando cambios globales masivos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto permite crear relaciones entre diferentes aspectos de estilo, lo que facilita mantener temas coherentes en
+        todo el sitio.
+      </p>
+      <p>
+        Aunque las propiedades personalizadas ofrecen muchas ventajas, es importante tener en cuenta su compatibilidad
+        con los navegadores. Son compatibles con los navegadores modernos, pero es posible que los navegadores más
+        antiguos no las reconozcan. Siempre hay que tener un plan alternativo cuando se utilizan funciones de
+        vanguardia.
+      </p>
+      <p>
+        En conclusión, las propiedades personalizadas de CSS proporcionan una forma poderosa de crear hojas de estilo
+        más dinámicas, flexibles y fáciles de mantener. Permiten la creación de diseños personalizables, simplifican los
+        diseños adaptables y permiten la manipulación de estilos en tiempo de ejecución.
+      </p>
+      <p>
+        A medida que el desarrollo web sigue evolucionando, las propiedades personalizadas se están convirtiendo en una
+        herramienta cada vez más importante en el kit de herramientas de los desarrolladores, ya que ofrecen nuevas
+        posibilidades para crear CSS adaptables y eficientes.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la sintaxis correcta para declarar una propiedad personalizada de CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            $main-color: #3498db;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            @main-color: #3498db;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            <!-- correcto -->
+            --main-color: #3498db;
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest" tabindex="0">
+            main-color: #3498db;
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se utiliza una propiedad personalizada de CSS en una declaración de estilo?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            use(--main-color)
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            <!-- correcto -->
+            var(--main-color)
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            @main-color
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest1" tabindex="0">
+            $(--main-color)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué debes tener en cuenta al utilizar propiedades personalizadas de CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Se pueden utilizar con versiones anteriores de CSS.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            <!-- correcto -->
+            Es posible que los navegadores más antiguos no las admitan.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Pueden contribuir a que las páginas se carguen más rápido.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest2" tabindex="0">
+            Aumentan la repetición en tus hojas de estilo.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Qué es la regla <code>@property</code> y cómo funciona con los valores de reserva?
+      </h2>
+
+      <p>
+        La regla <mark>@property</mark> es una potente función de CSS que permite a los desarrolladores definir
+        propiedades
+        personalizadas con un mayor control sobre su comportamiento, incluyendo cómo se animan y cuáles son sus valores
+        iniciales.
+      </p>
+      <p>
+        Esta regla ofrece una forma de mejorar la funcionalidad de las propiedades personalizadas de CSS y brinda mayor
+        flexibilidad en su aplicación.
+      </p>
+      <p>
+        La sintaxis básica de la regla <mark>@property</mark> es la siguiente:
+      </p>
+
+      <div class="ide-container" id="ide-at-property-rule-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Definición avanzada de una propiedad personalizada */</span>
+
+<span class="tk-selector">@property --my-color</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;color&gt;'</span><span class="tk-punctuation">;</span>       <span class="tk-comment">/* Tipo de dato */</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>         <span class="tk-comment">/* ¿Se hereda a los hijos? */</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>  <span class="tk-comment">/* Valor por defecto */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Ejemplo de uso */</span>
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--my-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-at-property-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-at-property-rule-box .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-at-property-rule-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-at-property-rule-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-at-property-rule-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-at-property-rule-box .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div
+              style="padding: 15px; border: 1px solid #ddd; border-left: 5px solid #c678dd; border-radius: 4px; font-family: sans-serif;">
+              <strong style="color: #333;">¿Por qué usar @property?</strong>
+              <p style="font-size: 13px; color: #666; margin-top: 8px; line-height: 1.4;">
+                Al definir el <code>initial-value</code>, te aseguras de que el diseño nunca se rompa. Además, al
+                especificar la <code>syntax</code> como <code>&lt;color&gt;</code>, el navegador ahora entiende cómo
+                hacer una transición suave entre dos colores.
+              </p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Esta regla es parte de **CSS Houdini**, una colección de APIs que nos dan
+              acceso directo al motor del navegador.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El <mark>--property-name</mark> es el nombre de la propiedad personalizada que estás definiendo. Al igual que
+        todas las
+        propiedades personalizadas, debe comenzar con dos guiones.
+      </p>
+      <p>
+        <mark>syntax</mark> define el tipo de la propiedad, que puede ser, por ejemplo, <mark>&lt;color&gt;</mark>,
+        <mark>&lt;length&gt;</mark>,
+        <mark>&lt;number&gt;</mark>, <mark>&lt;percentage&gt;</mark> o tipos más complejos.
+      </p>
+      <p>
+        <mark>inherits</mark> especifica si la propiedad debe heredar su valor del elemento padre.
+      </p>
+      <p>
+        <mark>initial-value</mark> establece el valor predeterminado de la propiedad.
+      </p>
+      <p>
+        A continuación, se muestra un ejemplo práctico del uso de la regla <mark>@property</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-at-property-anatomy-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"button"</span><span class="tk-tag">&gt;</span>Click Me<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@property --main-color</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;color&gt;'</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-at-property-anatomy-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-at-property-anatomy-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-at-property-anatomy-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-at-property-anatomy-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-at-property-anatomy-box .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-at-property-anatomy-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-at-property-anatomy-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-at-property-anatomy-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-at-property-anatomy-container .button {
+                padding: 10px 20px;
+                border: none;
+                color: white;
+                background-color: #3498db;
+                cursor: pointer;
+                border-radius: 4px;
+              }
+            </style>
+
+            <button class="button">Click Me</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> El valor <code>inherits: false</code> es muy útil para encapsular estilos y
+              evitar que tu propiedad personalizada se filtre accidentalmente a elementos hijos que no deberían
+              heredarla.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, definimos una propiedad personalizada <mark>--main-color</mark> como un valor de
+        <mark>color</mark>, establecemos que no
+        se herede y le asignamos un valor inicial de <mark>#3498db</mark>.
+      </p>
+      <p>
+        Una de las principales ventajas de la regla <mark>@property</mark> es que permite animar propiedades
+        personalizadas, algo que
+        antes no era posible:
+      </p>
+
+      <div class="ide-container" id="ide-at-property-gradient-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"gradient-box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@property --gradient-angle</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;angle&gt;'</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">0deg</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.gradient-box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">linear-gradient(var(--gradient-angle), red, blue)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">--gradient-angle 0.5s</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.gradient-box:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--gradient-angle</span><span class="tk-punctuation">:</span> <span class="tk-value">90deg</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-at-property-gradient-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-at-property-gradient-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-at-property-gradient-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-at-property-gradient-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-at-property-gradient-box .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-at-property-gradient-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-at-property-gradient-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-at-property-gradient-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-at-property-gradient-container .gradient-box {
+                width: 100px;
+                height: 100px;
+                background: linear-gradient(0deg, red, blue);
+                transition: background 0.5s ease;
+              }
+
+              #pv-at-property-gradient-container .gradient-box:hover {
+                background: linear-gradient(90deg, red, blue);
+              }
+            </style>
+
+            <div class="gradient-box"></div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Esta capacidad de animar gradientes es el estándar de oro para crear efectos
+              visuales complejos, como fondos con "brillo" animado o rotaciones suaves de color, sin tocar JavaScript.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El código anterior crea un degradado que se anima suavemente al pasar el cursor por encima del elemento, algo
+        que no se podía lograr con las propiedades personalizadas estándar.
+      </p>
+      <p>
+        Ahora, veamos cómo funciona la regla <mark>@property</mark> con los valores de reserva.
+      </p>
+      <p>
+        Los valores de reserva son cruciales en CSS para garantizar que los estilos se degraden de forma elegante en los
+        navegadores que no admiten ciertas características. Con <mark>@property</mark>, los valores de reserva funcionan
+        en dos
+        niveles: para la regla en sí y para el uso de la propiedad personalizada.
+      </p>
+      <p>
+        Para los navegadores que no admiten la regla <mark>@property</mark>, puedes proporcionar un valor de reserva
+        declarando la
+        propiedad personalizada de la manera tradicional:
+      </p>
+
+      <div class="ide-container" id="ide-at-property-fallback-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Respaldo para navegadores antiguos */</span>
+<span class="tk-selector">:root</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">--main-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">/* Mejora para navegadores modernos */</span>
+<span class="tk-selector">@property --main-color</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;color&gt;'</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">#3498db</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-at-property-fallback-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-at-property-fallback-box .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-at-property-fallback-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-at-property-fallback-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-at-property-fallback-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-at-property-fallback-box .tk-comment {
+                color: #5c6370;
+              }
+            </style>
+
+            <div
+              style="padding: 15px; border: 1px solid #ccc;border-radius: 3px; font-family: sans-serif;background-color: #3498db">
+              <strong style="color: #e4e3e3;">Compatibilidad Garantizada:</strong>
+              <p style="font-size: 13px; color: #e4e2e2;background: #035191;padding: 3px; margin-top: 8px;">
+                Navegadores antiguos usan la variable definida en <code>:root</code>. Navegadores modernos sobreescriben
+                ese comportamiento con la definición estricta de <code>@property</code>.
+              </p>
+            </div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Esta técnica es oro puro para producción, ya que permite usar
+              características de vanguardia sin sacrificar la experiencia de los usuarios con navegadores
+              desactualizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, los navegadores que admiten <mark>@property</mark> utilizarán la versión definida de forma más
+        estricta,
+        mientras que los demás recurrirán a la declaración estándar de propiedades personalizadas.
+      </p>
+      <p>
+        Al utilizar la propiedad personalizada, puedes proporcionar un valor de reserva mediante la función
+        <mark>var()</mark>, tal y
+        como lo harías con las propiedades personalizadas estándar:
+      </p>
+
+      <div class="ide-container" id="ide-fallback-var-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"button"</span><span class="tk-tag">&gt;</span>Click Me<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-comment">/* Si --main-color no existe o es inválida,
+   se usará #3498db */</span>
+<span class="tk-selector">.button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--main-color, #3498db)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px 20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">4px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-fallback-var-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-fallback-var-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-fallback-var-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-fallback-var-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-fallback-var-box .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-fallback-var-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-fallback-var-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-fallback-var-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #ide-fallback-var-box .tk-comment {
+                color: #5c6370;
+              }
+
+              #pv-fallback-var-container .button {
+                background-color: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: sans-serif;
+              }
+            </style>
+
+            <button class="button">Click Me</button>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> El fallback dentro de <code>var()</code> es independiente de la
+              configuración del <code>@property</code>. Es una capa extra de seguridad que nunca está de más.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto garantiza que, incluso si la propiedad <mark>--main-color</mark> no está definida o no es válida, el botón
+        seguirá
+        teniendo un color de fondo.
+      </p>
+      <p>
+        La regla <mark>@property</mark> también permite escenarios de alternativa más complejos. Por ejemplo, puedes
+        usarla para
+        proporcionar alternativas seguras en cuanto al tipo:
+      </p>
+
+      <div class="ide-container" id="ide-type-safety-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" onclick="switchTab(event, 'html')">index.html</button>
+              <button class="tab active" onclick="switchTab(event, 'css')">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" onclick="copiarCodigoIDE(this)">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display: none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;</span>Colored box<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@property --padding</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">syntax</span><span class="tk-punctuation">:</span> <span class="tk-value">'&lt;length&gt;'</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">inherits</span><span class="tk-punctuation">:</span> <span class="tk-value">false</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">initial-value</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkred</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">var(--padding)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div id="pv-type-safety-container" style="padding: 20px; background-color: #ffffff; height: 100%;">
+            <style>
+              #ide-type-safety-box .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-type-safety-box .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-type-safety-box .tk-string {
+                color: #98c379;
+              }
+
+              #ide-type-safety-box .tk-selector {
+                color: #c678dd;
+              }
+
+              #ide-type-safety-box .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-type-safety-box .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-type-safety-box .tk-punctuation {
+                color: #abb2bf;
+              }
+
+              #pv-type-safety-container .box {
+                width: 100px;
+                height: 100px;
+                background-color: darkred;
+                color: white;
+                padding: 10px;
+                font-family: sans-serif;
+                font-size: 12px;
+              }
+            </style>
+
+            <div class="box">Colored box</div>
+
+            <p
+              style="margin-top: 20px; font-family: sans-serif; font-size: 13px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+              💡 <strong>Revisión:</strong> Si intentas hacer <code>.box { --padding: blue; }</code> en tu CSS, el
+              navegador ignorará esa línea y seguirá usando los <code>10px</code> definidos en el
+              <code>initial-value</code>. ¡Adiós a los estilos rotos por error de usuario!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, si alguien intenta establecer <mark>--padding</mark> con un valor no válido, como un color, el
+        navegador
+        recurrirá al valor inicial de <mark>10px</mark>, lo que garantiza la seguridad de tipos.
+      </p>
+      <p>
+        La regla <mark>@property</mark> de CSS se considera ampliamente compatible con todos los principales motores de
+        navegadores
+        modernos (como Chrome, Edge, Opera, Firefox y Safari) desde principios de 2024. Si deseas ofrecer compatibilidad
+        con navegadores anteriores, debes proporcionar un CSS alternativo como se ha explicado anteriormente.
+      </p>
+      <p>
+        En conclusión, la regla <mark>@property</mark> representa un avance significativo en la forma en que trabajamos
+        con
+        propiedades personalizadas en CSS. Proporciona más control y permite nuevas posibilidades, como la animación de
+        propiedades personalizadas. Sin embargo, es importante utilizarla con prudencia y proporcionar siempre
+        alternativas adecuadas para garantizar una buena experiencia en todos los navegadores. Al igual que con
+        cualquier tecnología web de vanguardia, la clave es mejorar la experiencia para los navegadores que la admiten,
+        al tiempo que se garantiza la funcionalidad básica para aquellos que no lo hacen.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la regla @property en CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Crear nuevas propiedades CSS.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            <!-- correcto -->
+            Definir y controlar el comportamiento de las propiedades personalizadas.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Reemplazar las propiedades CSS estándar.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest3" tabindex="0">
+            Crear animaciones.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es un descriptor válido en la regla <mark>@property</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            syntax
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            inherits
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            initial-value
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest4" tabindex="0">
+            <!-- correcto -->
+            animation
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede ofrecer una alternativa para los navegadores que no admiten la regla <mark>@property</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Utiliza un polyfill.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            <!-- correcto -->
+            Declara la propiedad personalizada mediante el método estándar.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            Utiliza la regla @supports.
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="quest5" tabindex="0">
+            No es posible ofrecer una alternativa.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class=" to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ir al inicio"
+    aria-label="Ir al inicio de la página" tabindex="0">
+    🚀
+  </button>
+
+  <footer>
+    &copy; <small>2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
