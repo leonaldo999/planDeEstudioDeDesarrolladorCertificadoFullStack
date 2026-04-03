@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección se explican las mejores prácticas para crear animaciones accesibles en la web, incluyendo consideraciones para usuarios con discapacidades visuales o cognitivas.">
+  <meta name="keywords"
+    content="animaciones accesibles, diseño web inclusivo, animaciones para discapacitados, accesibilidad web, diseño web para todos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Animaciones y accesibilidad">
+  <meta property="og:description"
+    content="En esta sección se explican las mejores prácticas para crear animaciones accesibles en la web, incluyendo consideraciones para usuarios con discapacidades visuales o cognitivas.">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animaciones y accesibilidad
+  </title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Animaciones y accesibilidad</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, exploraremos cómo las animaciones CSS pueden afectar la accesibilidad de tu sitio web y cómo
+        puedes utilizarlas de manera responsable para mejorar la experiencia del usuario sin causar molestias.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son las animaciones CSS y cómo funcionan?</h2>
+
+      <p>
+        Las animaciones CSS te permiten crear efectos dinámicos y visualmente atractivos en páginas web sin necesidad de
+        JavaScript ni de una programación compleja. Ofrecen una forma de realizar transiciones fluidas entre diferentes
+        estilos de los elementos durante un tiempo determinado.
+      </p>
+      <p>
+        En esencia, una animación CSS consta de dos componentes principales: la regla <mark>@keyframes</mark> y la
+        propiedad
+        animation.
+      </p>
+      <p>
+        La regla <mark>@keyframes</mark> define las etapas y los estilos de la animación. Especifica qué estilos debe
+        tener el
+        elemento en distintos momentos durante la animación.
+      </p>
+      <p>
+        Aquí tienes un ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de gap">
+          <code class="language-css">
+            <span class="token function">@keyframes slide-in</span> <span class="token keyword">{</span>
+              <span class="token function">0%</span> <span class="token keyword">{</span>
+                <span class="token function">transform</span>: <span class="token function"><span class="token value">translateX(-100%)</span><span class="token punctuation">;</span>
+              <span class="token keyword">}</span>
+              <span class="token function">100%</span> <span class="token keyword">{</span>
+                <span class="token function">transform</span>: <span class="token function"><span class="token value">translateX(0)</span><span class="token punctuation">;</span>
+              <span class="token keyword">}</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Esta regla <mark>@keyframes</mark>, denominada <mark>slide-in</mark>, define una animación que desplaza un
+        elemento de izquierda a
+        derecha. Los porcentajes representan el progreso de la animación, siendo el <mark>0%</mark> el inicio y el
+        <mark>100%</mark> el final.
+      </p>
+      <p>
+        La función <mark>translateX</mark> en tu animación <mark>@keyframes</mark> controla la posición horizontal de un
+        elemento a medida que se
+        anima para aparecer en pantalla.
+      </p>
+      <p>
+        Para aplicar esta animación a un elemento, utiliza la propiedad <mark>animation</mark>. Este ejemplo también
+        repite la
+        animación infinitamente para que puedas verla en acción (deberás habilitar el editor interactivo para ver las
+        vistas previas):
+      </p>
+
+      <div class="ide-container" id="ide-animation-translateX">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">@keyframes slide-in</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">0%</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">translateX(-100%)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-property">100%</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">translateX(0)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.sliding-element</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">animation</span><span class="tk-punctuation">:</span> <span class="tk-value">slide-in 2s ease-out infinite</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#ff4757</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">8px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"sliding-element"</span><span class="tk-tag">&gt;</span>Hello, I slide in!<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body" style="overflow: hidden; background: #f9f9f9; padding: 20px;">
+            <style>
+              @keyframes preview-slide-in {
+                0% {
+                  transform: translateX(-110%);
+                  opacity: 0;
+                }
+
+                100% {
+                  transform: translateX(0);
+                  opacity: 1;
+                }
+              }
+
+              .preview-box {
+                animation: preview-slide-in 2s ease-out infinite;
+                background-color: #ff4757;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 8px;
+                font-family: sans-serif;
+                font-weight: bold;
+                box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+              }
+            </style>
+            <div class="preview-box">Hello, I slide in!</div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:12px; color:#888; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Dato:</strong> <code style="color: #e54f4f;">ease-out</code> hace que la animación comience
+              rápido y desacelere al
+              final, dando un efecto más natural.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto aplica la animación de <mark>slide-in</mark> al elemento, con una duración de 2 segundos y una función de
+        transición
+        <mark>ease-out</mark>.
+      </p>
+      <p>
+        La propiedad <mark>animation</mark> es, en realidad, una forma abreviada de varias propiedades individuales:
+      </p>
+      <p>
+        <mark>animation-name</mark>, que especifica la regla <mark>@keyframes</mark> que se debe utilizar.
+      </p>
+      <p>
+        <mark>animation-duration</mark>, que establece cuánto tiempo debe tardar la animación en completarse.
+      </p>
+      <p>
+        <mark>animation-timing-function</mark>, que define cómo progresa la animación a lo largo del tiempo, por
+        ejemplo, <mark>ease</mark>,
+        <mark>linear</mark>, <mark>ease-in-out</mark>.
+      </p>
+      <p>
+        <mark>animation-delay</mark>, que especifica un retraso antes de que comience la animación.
+      </p>
+      <p>
+        <mark>animation-iteration-count</mark>, que establece cuántas veces debe repetirse la animación.
+      </p>
+      <p>
+        <mark>animation-direction</mark>, que determina si la animación debe reproducirse hacia adelante, hacia atrás o
+        de forma
+        alterna.
+      </p>
+      <p>
+        <mark>animation-fill-mode</mark>, que especifica cómo debe verse el elemento antes y después de la animación.
+      </p>
+      <p>
+        <mark>animation-play-state</mark>, que te permite pausar y reanudar la animación.
+      </p>
+      <p>
+        Puedes usar estas propiedades individualmente para un control más preciso:
+      </p>
+
+      <div class="ide-container" id="ide-animation-properties">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.complex-animation</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">animation-name</span><span class="tk-punctuation">:</span> <span class="tk-value">color-change</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">animation-duration</span><span class="tk-punctuation">:</span> <span class="tk-value">3s</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">animation-timing-function</span><span class="tk-punctuation">:</span> <span class="tk-value">linear</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">animation-delay</span><span class="tk-punctuation">:</span> <span class="tk-value">1s</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">animation-iteration-count</span><span class="tk-punctuation">:</span> <span class="tk-value">infinite</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">animation-direction</span><span class="tk-punctuation">:</span> <span class="tk-value">alternate</span><span class="tk-punctuation">;</span>
+  
+  <span class="tk-comment">/* Estilos visuales */</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-family</span><span class="tk-punctuation">:</span> <span class="tk-value">sans-serif</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-weight</span><span class="tk-punctuation">:</span> <span class="tk-value">bold</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">@keyframes color-change</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">0%</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">red</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+  <span class="tk-property">50%</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">blue</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+  <span class="tk-property">100%</span> <span class="tk-punctuation">{</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">green</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"complex-animation"</span><span class="tk-tag">&gt;</span>Watch my colors change!<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: #eee; padding: 30px; display: flex; justify-content: center; align-items: center; min-height: 150px;">
+            <style>
+              @keyframes preview-color-change {
+                0% {
+                  background-color: red;
+                }
+
+                50% {
+                  background-color: blue;
+                }
+
+                100% {
+                  background-color: green;
+                }
+              }
+
+              .preview-box-complex {
+                animation: preview-color-change 3s linear 1s infinite alternate;
+                padding: 20px;
+                color: white;
+                text-align: center;
+                font-family: sans-serif;
+                font-weight: bold;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 80%;
+              }
+            </style>
+            <div class="preview-box-complex">Watch my colors change!</div>
+          </div>
+          <p
+            style="margin: 0 15px 15px; font-family:sans-serif; font-size:12px; color:#666; border-top:1px solid #ddd; padding-top:10px;">
+            💡 <strong>Tip:</strong> El <code style="color: #e54f4f;">animation-delay: 1s</code> hace que el elemento
+            espere un segundo antes de
+            empezar su ciclo de colores.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Esto crea una animación que cambia continuamente el color de fondo de un elemento entre rojo, azul y verde.
+      </p>
+      <p>
+        Las animaciones CSS pueden activarse mediante diversos eventos, como al pasar el cursor por encima de un
+        elemento:
+      </p>
+
+      <div class="ide-container" id="ide-transition-hover">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.button</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">blue</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">15px 30px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">none</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border-radius</span><span class="tk-punctuation">:</span> <span class="tk-value">5px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">cursor</span><span class="tk-punctuation">:</span> <span class="tk-value">pointer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">1rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transition</span><span class="tk-punctuation">:</span> <span class="tk-value">background-color 0.3s, transform 0.2s</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.button:hover</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">red</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">transform</span><span class="tk-punctuation">:</span> <span class="tk-value">scale(1.05)</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Un pequeño extra de efecto */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;button</span> <span class="tk-attr">class</span>=<span class="tk-string">"button"</span><span class="tk-tag">&gt;</span>Hover over me!<span class="tk-tag">&lt;/button&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: #fff; padding: 40px; display: flex; justify-content: center; align-items: center;">
+            <style>
+              .preview-btn {
+                background-color: blue;
+                color: white;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: sans-serif;
+                font-weight: bold;
+                transition: background-color 0.3s, transform 0.2s;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+
+              .preview-btn:hover {
+                background-color: red;
+                transform: scale(1.05);
+              }
+            </style>
+            <button class="preview-btn">Hover over me!</button>
+          </div>
+          <p
+            style="margin: 0 15px 15px; font-family:sans-serif; font-size:12px; color:#666; border-top:1px solid #ddd; padding-top:10px;">
+            💡 <strong>Análisis:</strong> La propiedad <code style="color: #e54f4f;">transition</code> suaviza el cambio
+            de color. Sin ella, el
+            cambio de azul a rojo sería instantáneo y brusco.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de la regla <mark>@keyframes</mark> en las animaciones CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Especificar la duración de la animación.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Definir las etapas y los estilos de la animación.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Establecer la función de sincronización de la animación.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Determinar cuántas veces se repite la animación.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el siguiente código CSS, ¿qué significa <mark>2s</mark>?
+            <pre>
+              <code>
+                .element {
+                  animation: fade-in 2s ease-in;
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            El tiempo de espera antes de que comience la animación.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El número de veces que se repite la animación.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            La duración de la animación.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El porcentaje de avance de la animación.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedad CSS usarías para que una animación se repitiera indefinidamente?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            nimation-loop: infinite;
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            animation-repeat: always;
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            animation-iteration-count: infinite;
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            animation-duration: endless;
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son las preocupaciones en materia de accesibilidad relacionadas con el uso
+        de animaciones y cómo puede ayudar la propiedad <mark>prefers-reduced-motion</mark></h2>
+
+      <p>
+        Las animaciones pueden mejorar considerablemente el atractivo visual y la experiencia del usuario en un sitio
+        web. Sin embargo, también pueden plantear importantes retos de accesibilidad para ciertos usuarios. Es
+        fundamental comprender estas preocupaciones e implementar soluciones para garantizar que tu sitio web siga
+        siendo accesible para todos los usuarios.
+      </p>
+      <p>
+        Una de las principales preocupaciones en materia de accesibilidad con respecto a las animaciones es que pueden
+        causar molestias o incluso daños físicos a algunos usuarios. Las personas con trastornos vestibulares o
+        sensibilidad al movimiento pueden experimentar mareos, náuseas o dolores de cabeza cuando se exponen a ciertos
+        tipos de movimiento en la pantalla.
+      </p>
+      <p>
+        Además, las animaciones pueden distraer a los usuarios con discapacidades cognitivas o trastornos de atención.
+        Los efectos de destellos rápidos o estroboscópicos son particularmente problemáticos. Pueden desencadenar
+        convulsiones en personas con epilepsia fotosensible. Como regla general, evite cualquier contenido que destelle
+        más de tres veces por segundo.
+      </p>
+      <p>
+        Otro problema es que las animaciones pueden dificultar que algunos usuarios se concentren en el contenido o lo
+        lean. Esto es especialmente cierto en el caso de los usuarios con baja visión o dificultades de lectura, a
+        quienes les puede resultar complicado seguir el texto en movimiento o los diseños cambiantes.
+      </p>
+      <p>
+        Para abordar estas preocupaciones, CSS ofrece la consulta de medios <mark>prefers-reduced-motion</mark>. Esta
+        función permite
+        a los desarrolladores web detectar si el usuario ha solicitado animaciones o efectos de movimiento mínimos a
+        nivel del sistema.
+      </p>
+      <p>
+        A continuación te mostramos cómo puedes utilizar <mark>prefers-reduced-motion</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de gap">
+          <code class="language-css">
+            <span class="token function">@media</span> <span class="token value">(prefers-reduced-motion: <span class="token keyword">reduce</span>)</span> <span class="token punctuation">{</span>
+              <span class="token function">*</span> <span class="token punctuation">{</span>
+                <span class="token value">animation-duration</span><span class="token punctuation">:</span> 0.01ms <span class="token function">!important</span><span class="token punctuation">;</span>
+                <span class="token value">animation-iteration-count</span><span class="token punctuation">:</span> 1 <span class="token function">!important</span><span class="token punctuation">;</span>
+                <span class="token value">transition-duration</span><span class="token punctuation">:</span> 0.01ms <span class="token function">!important</span><span class="token punctuation">;</span>
+                <span class="token value">scroll-behavior</span><span class="token punctuation">:</span> auto <span class="token function">!important</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Este fragmento de código CSS desactiva de manera efectiva la mayoría de las animaciones y transiciones para los
+        usuarios que han indicado su preferencia por un movimiento reducido. Analicémoslo:
+      </p>
+      <p>
+        La regla de consulta <mark>@media</mark> comprueba si el usuario prefiere un movimiento reducido. Si es así,
+        aplica los
+        estilos incluidos.
+      </p>
+      <p>
+        Dentro de la consulta de medios, nos dirigimos a todos los elementos (<mark>*</mark>) y anulamos las propiedades
+        de animación
+        y transición.
+      </p>
+      <p>
+        Establecemos <mark>animation-duration</mark> y <mark>transition-duration</mark> en un valor extremadamente
+        pequeño (0.01 ms). Esto
+        básicamente desactiva las animaciones, pero permite que se completen, lo cual puede ser importante para ciertas
+        funcionalidades.
+      </p>
+      <p>
+        <mark>animation-iteration-count: 1</mark> garantiza que cualquier animación en bucle solo se reproduzca una vez.
+      </p>
+      <p>
+        <mark>scroll-behavior: auto</mark> desactiva los efectos de desplazamiento suave.
+      </p>
+      <p>
+        La declaración <mark>!important</mark> se utiliza para garantizar que estas reglas tengan prioridad sobre otros
+        estilos de
+        animación.
+      </p>
+      <p>
+        Es importante señalar que, si bien este método reduce eficazmente el movimiento, se trata de un enfoque general.
+        Para un control más preciso, es posible que desees definir alternativas específicas de movimiento reducido para
+        tus animaciones.
+      </p>
+      <p>
+        A continuación, te mostramos un ejemplo de un enfoque más específico:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de gap">
+          <code class="language-css">
+            <span class="token function">.animated-element</span> <span class="token punctuation">{</span>
+              <span class="token keyword">transition</span><span class="token punctuation">:</span> transform 0.3s ease-in-out<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token function">@media</span> <span class="token punctuation">(</span><span class="token keyword">prefers-reduced-motion<span class="token punctuation">:</span></span> <span class="token function">reduce</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token function">.animated-element</span> <span class="token punctuation">{</span>
+                <span class="token keyword">transition</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este caso, solo desactivamos la <mark>transition</mark> de un elemento específico cuando se prefiere un movimiento
+        reducido. Esto te permite ofrecer experiencias alternativas con menos movimiento a los usuarios que lo
+        necesiten.
+      </p>
+      <p>
+        Recuerda que el objetivo no es eliminar por completo todo el movimiento de tu sitio web, sino ofrecer opciones
+        que permitan a todos los usuarios interactuar cómodamente con tu contenido. Cierto grado de movimiento puede
+        seguir siendo beneficioso para la usabilidad y la retroalimentación, incluso para los usuarios que prefieren un
+        movimiento reducido.
+      </p>
+      <p>
+        Al implementar animaciones, considere usarlas de manera reflexiva en lugar de solo como decoración. Evite
+        movimientos grandes e inesperados y proporcione controles para pausar, detener u ocultar animaciones cuando sea
+        posible. Es importante que utilice la consulta <mark>prefers-reduced-motion</mark> para ofrecer una alternativa con poco
+        movimiento, asegurando que su contenido siga siendo accesible y cómodo para todos los usuarios, incluidos
+        aquellos sensibles al movimiento.
+      </p>
+      <p>
+        Al tener en cuenta estas cuestiones de accesibilidad y utilizar herramientas como <mark>prefers-reduced-motion</mark>, puedes
+        crear experiencias animadas atractivas que sean inclusivas y accesibles para todos los usuarios.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la consulta de medios <mark>prefers-reduced-motion</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Aumentar la velocidad de todas las animaciones.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Detectar si un usuario ha solicitado animaciones mínimas a nivel del sistema.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Añadir automáticamente más animaciones a un sitio web.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            GCambiar la combinación de colores de las animaciones.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es una preocupación habitual en materia de accesibilidad relacionada con las animaciones?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Pueden causar molestias a los usuarios con trastornos vestibulares.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Pueden distraer a los usuarios con discapacidades cognitivas.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Siempre mejoran la legibilidad para todos los usuarios.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Pueden provocar convulsiones en personas con epilepsia fotosensible.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el contexto de <mark>prefers-reduced-motion</mark>, ¿qué se consigue al establecer <mark>animation-duration: 0.01ms !important;</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Hace que las animaciones duren exactamente 0,01 milisegundos.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Aumenta la velocidad de las animaciones.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Desactiva las animaciones de manera efectiva, pero permite que se completen.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Hace que las animaciones duren indefinidamente.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

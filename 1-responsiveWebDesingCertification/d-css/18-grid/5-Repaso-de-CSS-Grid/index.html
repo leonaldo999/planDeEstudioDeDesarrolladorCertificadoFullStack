@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Repaso de CSS Grid: conceptos clave, propiedades personalizadas y diseño responsivo.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Repaso de CSS Grid">
+  <meta property="og:description" content="Repasa los conceptos fundamentales de CSS Grid de forma rápida y visual.">
+  <meta property="og:image" content="./img/cssIcon.png">
+  <meta property="og:type" content="website">
+
+  <title>Repaso de CSS Grid</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/css-3-svgrepo-com.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Repaso de CSS Grid</h1>
+    <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-list">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-list">
+      <li><a href="#intro"><span aria-hidden="true">🚀</span> Intro</a></li>
+      <li><a href="#tema1"><span aria-hidden="true">🎨</span> CSS Grid</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">📐</span> Depuración</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <!-- INTRO -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección repasaremos los conceptos básicos de CSS Grid, un sistema de diseño bidimensional que permite
+        crear diseños complejos en páginas web. CSS Grid es una herramienta esencial para cualquier desarrollador web
+        que quiera crear sitios modernos y responsivos.
+      </p>
+    </section>
+
+    <!-- TEMA 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Conceptos básicos de CSS Grid</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Definición</strong>: CSS Grid es un sistema de diseño bidimensional para crear
+            diseños complejos en páginas web. Las cuadrículas constan de filas y columnas con espacios entre ellas.
+            Para definir un diseño de cuadrícula, hay que establecer la propiedad <mark>display</mark> en
+            <mark>grid</mark>.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>La unidad <mark>fr</mark> (fraccional)</strong>: Esta unidad representa una fracción del espacio
+            dentro del contenedor de la cuadrícula. Puedes usar la unidad <mark>fr</mark> para crear cuadrículas
+            flexibles.
+          </li>
+          <li>
+            <strong>Creación de espacios entre pistas</strong>: Hay tres formas de crear espacios entre pistas en la
+            cuadrícula CSS. Puedes usar la propiedad <mark>column-gap</mark> para crear espacios entre columnas. Puedes
+            usar la propiedad <mark>row-gap</mark> para crear espacios entre filas. O puedes usar la propiedad abreviada
+            <mark>gap</mark> para crear espacios tanto entre filas como entre columnas.
+          </li>
+          <li>
+            <strong><mark>grid-template-columns</mark></strong>: Se utiliza para establecer los nombres de las líneas y
+            el tamaño de las columnas de la pista de la cuadrícula.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+              <span class="token property">width</span><span class="token punctuation">:</span> <span class="token value">100%</span><span class="token punctuation">;</span>
+              <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token value">30px 1fr</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><mark>grid-template-rows</mark></strong>: Se utiliza para definir los nombres y el tamaño de las
+            filas de la cuadrícula.
+          </li>
+          <li>
+            <strong><mark>grid-auto-flow</mark></strong>: Determina cómo se ajustan en la cuadrícula los elementos
+            colocados automáticamente.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+              <span class="token property">width</span><span class="token punctuation">:</span> <span class="token value">100%</span><span class="token punctuation">;</span>
+              <span class="token property">grid-auto-flow</span><span class="token punctuation">:</span> <span class="token value">column</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><mark>grid-auto-columns</mark></strong>: Se utiliza para establecer el tamaño de las columnas
+            creadas de forma implícita.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+              <span class="token property">width</span><span class="token punctuation">:</span> <span class="token value">100%</span><span class="token punctuation">;</span>
+              <span class="token property">grid-auto-columns</span><span class="token punctuation">:</span> <span class="token value">auto</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><mark>place-items</mark></strong>: Se utiliza para alinear elementos tanto en dirección de bloque
+            como en línea.
+          </li>
+          <li>
+            <strong><mark>align-items</mark></strong>: Se utiliza para establecer la alineación de los elementos dentro
+            de un contenedor de cuadrícula.
+          </li>
+          <li>
+            <strong>Función <mark>repeat()</mark></strong>: Esta función se utiliza para repetir secciones en la lista
+            de pistas. En lugar de escribir `<mark>grid-template-columns: 1fr 1fr 1fr;</mark>, puedes utilizar la
+            función <mark>repeat()</mark>.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+              <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token value">repeat(3, 1fr)</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Grid explícita</strong>: Puedes especificar el número de líneas o pistas mediante las propiedades
+            <mark>grid-template-columns</mark> o <mark>grid-template-rows</mark>.
+          </li>
+          <li>
+            <strong>Grid implícita</strong>: Cuando se colocan elementos fuera de la cuadrícula, se crean
+            automáticamente filas y columnas para esos elementos externos.
+          </li>
+          <li>
+            <strong>Función <mark>minmax()</mark></strong>: Esta función se utiliza para establecer los tamaños mínimo y
+            máximo de una pista.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">display</span><span class="token punctuation">:</span> <span class="token value">grid</span><span class="token punctuation">;</span>
+              <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token value">repeat(4, 1fr)</span><span class="token punctuation">;</span>
+              <span class="token property">grid-auto-rows</span><span class="token punctuation">:</span> <span class="token value">minmax(150px, auto)</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>Posicionamiento basado en líneas</strong>: Todas las cuadrículas tienen líneas. Para especificar
+            dónde comienza el elemento en una línea, puedes usar las propiedades <mark>grid-column-start</mark> y
+            <mark>grid-row-start</mark>. Para especificar dónde termina el elemento en la línea, puedes usar las
+            propiedades <mark>grid-column-end</mark> y <mark>grid-row-end</mark>. También puedes optar por usar las
+            propiedades abreviadas <mark>grid-column</mark> o <mark>grid-row</mark>.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        A continuación se muestra un ejemplo del uso de la propiedad <mark>grid-column</mark> para hacer que un elemento
+        se extienda a lo largo de todas las columnas.
+      </p>
+
+      <!-- Bloque de código simple -->
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: ejemplo de contenedor">
+          <code class="language-css">
+            <span class="token function">.element</span> <span class="token keyword">{</span>
+              <span class="token property">grid-column</span><span class="token punctuation">:</span> <span class="token value">1 / -1</span><span class="token punctuation">;</span>
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong><mark>grid-template-areas</mark></strong>: Esta propiedad se utiliza para asignar un nombre a los
+            elementos que se van a colocar en la cuadrícula.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bloque de código ide -->
+      <div class="ide-container" id="ide-areas-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">200px 1fr</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">auto 1fr auto</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">grid-template-areas</span><span class="tk-punctuation">:</span>
+    <span class="tk-string">"header header"</span>
+    <span class="tk-string">"sidebar main"</span>
+    <span class="tk-string">"footer footer"</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span> 
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.header</span> <span class="tk-punctuation">{</span> <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">header</span><span class="tk-punctuation">;</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4CAF50</span><span class="tk-punctuation">;</span> <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">.sidebar</span> <span class="tk-punctuation">{</span> <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">sidebar</span><span class="tk-punctuation">;</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#f4f4f4</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">.main</span> <span class="tk-punctuation">{</span> <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">main</span><span class="tk-punctuation">;</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#e0e0e0</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span>
+<span class="tk-selector">.footer</span> <span class="tk-punctuation">{</span> <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">footer</span><span class="tk-punctuation">;</span> <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#4CAF50</span><span class="tk-punctuation">;</span> <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span> <span class="tk-punctuation">}</span></code></pre>
+            </div>
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"header"</span><span class="tk-tag">&gt;</span>Header<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"sidebar"</span><span class="tk-tag">&gt;</span>Sidebar<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"main"</span><span class="tk-tag">&gt;</span>Main Content<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"footer"</span><span class="tk-tag">&gt;</span>Footer<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: 80px 1fr; grid-template-rows: auto 80px auto; grid-template-areas: 'header header' 'sidebar main' 'footer footer'; gap: 10px; font-family: sans-serif;">
+              <div style="grid-area: header; background: #4CAF50; color: white; padding: 10px; text-align: center;">
+                Header</div>
+              <div
+                style="grid-area: sidebar; background: #f4f4f4; padding: 10px; text-align: center; border: 1px solid #ddd; font-size: 12px;">
+                Sidebar</div>
+              <div
+                style="grid-area: main; background: #e0e0e0; padding: 10px; text-align: center; border: 1px solid #ddd;">
+                Main Content</div>
+              <div style="grid-area: footer; background: #4CAF50; color: white; padding: 10px; text-align: center;">
+                Footer</div>
+            </div>
+            <p
+              style="margin-top:16px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong style="background: none;padding: 0%;color: #333;">Repaso:</strong> En el CSS, <code style="color: #333;">"header header"</code> indica que el área con nombre "header"
+              debe ocupar las dos columnas de la primera fila.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TEMA 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Depuración de CSS</h2>
+
+      <div class="list-wrapper">
+        <ul class="lis">
+          <li>
+            <strong>DevTools (Herramientas de desarrollador)</strong>: DevTools te permite inspeccionar y modificar tu CSS en tiempo real. El panel <em>"Styles"</em> muestra todas las reglas CSS aplicadas al elemento seleccionado, incluidos los estilos heredados. Puedes activar y desactivar propiedades individuales, editar valores e incluso añadir nuevas reglas directamente en el navegador. Esta respuesta inmediata resulta increíblemente útil para experimentar con diferentes estilos sin modificar tu código fuente.
+          </li>
+          <li>
+            <strong>Validadores de CSS</strong>: Los validadores se utilizan para comparar tu CSS con las especificaciones oficiales e informar de cualquier error o advertencia. Un validador popular que puedes utilizar es el validador de CSS del W3C.
+          </li>
+          <li>
+            <strong>Depuración de diseños adaptativos</strong>: DevTools tiene una opción que te permite simular cómo se ve tu sitio en diferentes tamaños de pantalla y dispositivos. Esto puede ayudarte a identificar problemas de puntos de ruptura o estilos que no se adaptan bien a diferentes tamaños de ventana gráfica.
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Botón volver arriba -->
+  <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS · Repaso. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

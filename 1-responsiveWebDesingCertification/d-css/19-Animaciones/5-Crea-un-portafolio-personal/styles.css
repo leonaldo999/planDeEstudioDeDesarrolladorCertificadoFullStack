@@ -1,0 +1,318 @@
+/* Variables CSS para colores y fuentes */
+:root {
+  --primary-color: #3498db;
+  /* Azul */
+  --secondary-color: #2ecc71;
+  /* Verde */
+  --dark-text: #333;
+  --light-text: #fff;
+  --background-light: #f4f4f4;
+  --background-dark: #2c3e50;
+  /* Azul oscuro */
+  --font-family: 'Arial', sans-serif;
+}
+
+/* Estilos Generales */
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  color: var(--dark-text);
+  /* scroll-behavior: smooth; Esto es un intento de desplazamiento suave nativo del navegador */
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  color: var(--dark-text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Elimina espacio extra debajo de las imágenes */
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Barra de Navegación */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-dark);
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  /* Asegura que la barra de navegación esté siempre encima */
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#navbar a {
+  color: var(--light-text);
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#navbar a:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+#profile-link i {
+  margin-left: 8px;
+}
+
+/* Sección de Bienvenida */
+#welcome-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* La altura de la sección de bienvenida es igual a la altura de la ventana gráfica */
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: var(--light-text);
+  text-align: center;
+  padding-top: 60px;
+  /* Para evitar que el contenido se oculte debajo de la navbar */
+  box-sizing: border-box;
+  /* Incluye padding en la altura total */
+}
+
+.welcome-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  color: var(--light-text);
+}
+
+.welcome-content p {
+  font-size: 1.5em;
+  opacity: 0.9;
+}
+
+/* Sección de Proyectos */
+#projects {
+  background-color: var(--background-light);
+  padding-top: 80px;
+  /* Espacio para la barra de navegación fija */
+}
+
+#projects h2 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-tile {
+  background-color: var(--light-text);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.project-tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-tile img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.project-tile h3 {
+  font-size: 1.5em;
+  padding: 15px 20px 5px;
+  color: var(--dark-text);
+}
+
+.project-tile p {
+  font-size: 0.95em;
+  padding: 0px 20px 15px;
+  color: #666;
+}
+
+.project-tile .project-link {
+  display: block;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-tile .project-link:hover {
+  background-color: var(--secondary-color);
+}
+
+.project-link i {
+  margin-left: 10px;
+}
+
+/* Sección de Contacto */
+#contact {
+  background-color: var(--background-dark);
+  color: var(--light-text);
+  padding: 80px 20px;
+}
+
+#contact h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+#contact p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Permite que los enlaces se envuelvan en pantallas pequeñas */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.contact-details {
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  color: var(--light-text);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-details:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-5px);
+}
+
+.contact-details i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #bbb;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+  #navbar ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #navbar a {
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .welcome-content h1 {
+    font-size: 2.5em;
+  }
+
+  .welcome-content p {
+    font-size: 1.2em;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    /* Una columna en pantallas pequeñas */
+  }
+
+  .project-tile {
+    max-width: 400px;
+    /* Limita el ancho de los proyectos en móvil */
+    margin: 0 auto;
+  }
+
+  #contact h2 {
+    font-size: 2em;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-details {
+    width: 90%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #navbar {
+    padding: 10px 0;
+  }
+
+  #navbar ul {
+    gap: 10px;
+  }
+
+  .welcome-content h1 {
+    font-size: 2em;
+  }
+
+  .welcome-content p {
+    font-size: 1em;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+}

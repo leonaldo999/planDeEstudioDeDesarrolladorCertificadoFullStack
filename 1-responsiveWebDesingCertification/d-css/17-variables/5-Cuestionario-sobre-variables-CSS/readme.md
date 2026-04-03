@@ -172,7 +172,6 @@ Para aprobar el cuestionario, debes responder correctamente al menos 18 de las 2
     ```
 
     - [ ] a) Ignorará la propiedad `color`.
-          ```
     - [ ] b) Aplicará `--secondary-color`.
     - [x] c) Aplicará el color `orange`. // ❎
     - [ ] d) Aplicará el color `black`.

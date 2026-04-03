@@ -415,14 +415,14 @@ Estas estrategias le permiten crear diseños que incluyen elementos flotantes, e
     - [ ] c) Tanto el `fixed` como el `sticky` se comportan de la misma manera.
     - [ ] d) Ninguno de los dos funciona para los encabezados ni las barras de navegación.
 
-1. **¿Qué propiedad se debe definir para que funcione el posicionamiento `sticky`?**
+2. **¿Qué propiedad se debe definir para que funcione el posicionamiento `sticky`?**
 
     - [ ] a) `position: absolute`
     - [ ] b) `position: fixed`
     - [x] c) `position: sticky` //correcto
     - [ ] d) `z-index`
 
-1. **¿En qué se diferencia el posicionamiento `fixed` del posicionamiento `absolute`?**
+3. **¿En qué se diferencia el posicionamiento `fixed` del posicionamiento `absolute`?**
 
     - [x] a) El posicionamiento `fixed` es relativo a la ventana gráfica, mientras que el `absolute` es relativo al elemento posicionado más cercano. //correcto
     - [ ] b) El posicionamiento `fixed` no permite el desplazamiento.

@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description" content="Aprende a usar CSS Grid para crear diseños de página complejos y responsivos.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabaja con CSS Grid">
+  <meta property="og:description"
+    content="Aprende a usar CSS Grid para crear diseños de página complejos y responsivos.">
+  <meta property="og:image" content="./img/cssIcon.png">
+  <meta property="og:type" content="website">
+
+  <title>Trabaja con CSS Grid</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabaja con CSS Grid</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+      <li><a href="#tema5"><span aria-hidden="true">💻</span> Tema 5</a></li>
+      <li><a href="#cuest5"><span aria-hidden="true">❓</span> Cuest 5</a></li>
+      <li><a href="#tema6"><span aria-hidden="true">💻</span> Tema 6</a></li>
+      <li><a href="#cuest6"><span aria-hidden="true">❓</span> Cuest 6</a></li>
+      <li><a href="#tema7"><span aria-hidden="true">💻</span> Tema 7</a></li>
+      <li><a href="#cuest7"><span aria-hidden="true">❓</span> Cuest 7</a></li>
+      <li><a href="#tema8"><span aria-hidden="true">💻</span> Tema 8</a></li>
+      <li><a href="#cuest8"><span aria-hidden="true">❓</span> Cuest 8</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar CSS Grid para crear diseños de página complejos y responsivos. CSS Grid es un
+        sistema de diseño bidimensional que te permite organizar el contenido en filas y columnas, facilitando la
+        creación de layouts flexibles y adaptables a diferentes tamaños de pantalla.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es CSS Grid y en qué se diferencia de Flexbox?</h2>
+
+      <p>
+        CSS Grid es un potente sistema de diseño que permite a los desarrolladores web crear diseños de páginas web
+        complejos y adaptativos con facilidad.
+      </p>
+      <p>
+        Imagina que estás colocando muebles en una habitación: CSS Grid es como tener una cuadrícula invisible en el
+        piso que te ayuda a colocar todo exactamente donde quieres.
+      </p>
+      <p>
+        Cuando creamos sitios web, a menudo necesitamos organizar diferentes elementos en la página.
+      </p>
+      <p>Antes de CSS Grid, esto a veces resultaba complicado, especialmente para diseños complejos. CSS Grid simplifica
+        este proceso al dividir tu página web en filas y columnas, creando una estructura similar a una cuadrícula.
+      </p>
+      <p>Imaginemos que estás trabajando con un <mark>div</mark> contenedor con varios elementos anidados en su
+        interior, como este:
+      </p>
+
+      <div class="ide-container" id="ide-grid-raw-structure">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 6<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="font-family:sans-serif;">
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 1</div>
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 2</div>
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 3</div>
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 4</div>
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 5</div>
+              <div
+                style="background:#eee;border:1px solid #ccc;padding:10px;margin-bottom:5px;border-radius:4px;color:#000;">
+                Item 6</div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong style="color:#000;">Estado inicial:</strong> Sin reglas de Grid, los elementos se apilan
+              verticalmente porque los <code>div</code> son elementos de bloque por defecto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si quieres aplicar estilos a esos elementos en formato de cuadrícula, puedes establecer la propiedad
+        <mark>display</mark> en <mark>grid</mark> y aplicar columnas de la siguiente manera:
+      </p>
+
+      <div class="ide-container" id="ide-grid-basic-layout">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 6<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #ccc</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-gap:20px;font-family:sans-serif;">
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 1</div>
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 2</div>
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 3</div>
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 4</div>
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 5</div>
+              <div
+                style="background:lightgray;padding:20px;text-align:center;border:1px solid #ccc;border-radius:4px;color:#000;">
+                Item 6</div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> Observa cómo <code>grid-gap</code> crea ese espacio perfecto entre las cajas
+              sin necesidad de márgenes complicados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, le indicamos al navegador que cree una cuadrícula con tres columnas de igual ancho eso es lo
+        que significa <mark>1fr 1fr 1fr</mark> y añadimos un espacio de <mark>20px</mark> entre cada elemento de la
+        cuadrícula.
+      </p>
+      <p>
+        Ahora, tal vez te estés preguntando: "<em>¿Y qué hay de Flexbox? ¿No se usa también para diseños?</em>"
+      </p>
+      <p>
+        <strong>¡Tienes razón!</strong> Flexbox es otro modelo de diseño CSS, y también es bastante útil. Pero hay
+        algunas diferencias
+        clave.
+      </p>
+      <p>
+        <strong>Flexbox es unidimensional</strong>, mientras que Grid es bidimensional. Esto significa que Flexbox
+        funciona muy bien
+        para diseñar elementos en una sola fila o columna, mientras que Grid se destaca en la creación de diseños con
+        filas y columnas.
+      </p>
+      <p>
+        Flexbox prioriza el contenido, lo que significa que ajusta el diseño en función del contenido. Grid, por otro
+        lado, prioriza el diseño, lo que te permite crear el diseño y luego colocar elementos en él.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de Flexbox para comparar:
+      </p>
+
+      <div class="ide-container" id="ide-flexbox-comparison-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item"</span><span class="tk-tag">&gt;</span>Item 6<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">flex</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">justify-content</span><span class="tk-punctuation">:</span> <span class="tk-value">space-between</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">lightgray</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid #ccc</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:flex;justify-content:space-between;font-family:sans-serif;">
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 1
+              </div>
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 2
+              </div>
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 3
+              </div>
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 4
+              </div>
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 5
+              </div>
+              <div style="background:lightgray;padding:10px;border:1px solid #ccc;border-radius:4px;color:#000;">Item 6
+              </div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> ¿Ves la diferencia? Flexbox empuja todo a una sola línea. Si quisiéramos que
+              saltaran de fila, necesitaríamos <code>flex-wrap: wrap</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un contenedor Flex en el que los elementos se distribuyen de manera uniforme a lo largo del eje
+        principal.
+      </p>
+      <p>
+        Tanto Grid como Flexbox tienen sus ventajas y, a menudo, los mejores diseños combinan ambos. Podrías utilizar
+        Grid para el diseño general de la página y, a continuación, Flexbox para alinear los elementos dentro de cada
+        área de la cuadrícula.
+      </p>
+      <p>
+        En resumen, CSS Grid es una herramienta poderosa que permite crear diseños bidimensionales precisos. Aunque al
+        principio pueda parecer complejo, con la práctica se convierte en una herramienta invaluable para crear diseños
+        web adaptables y complejos.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre CSS Grid y Flexbox?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Grid es más reciente que Flexbox.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Grid es bidimensional, mientras que Flexbox es unidimensional.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Grid solo funciona con columnas, Flexbox solo con filas.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Grid es solo para diseños de escritorio, Flexbox para dispositivos
+            móviles.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el ejemplo de CSS Grid, ¿qué significa <mark>1fr 1fr 1fr</mark> en
+            <mark>grid-template-columns</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Crear 3 columnas, cada una de 1 píxel de ancho.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Crear 3 columnas, cada una de las cuales ocupe un tercio del espacio
+            disponible.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Crear 1 columna que sea 3 veces más ancha que las demás.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Crear una sola columna dividida en 3 partes iguales.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones sobre CSS Grid es cierta?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Solo se puede utilizar para diseños de escritorio.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Requiere JavaScript para funcionar correctamente.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Permite colocar elementos con precisión tanto en filas como en
+            columnas.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Ajusta automáticamente el diseño en función del tamaño del
+            contenido.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo se pueden crear cuadrículas flexibles con la unidad <code>fr</code>?</h2>
+
+      <p>
+        En la lección anterior, te presentamos las cuadrículas CSS, que se pueden utilizar para crear diseños complejos
+        y fluidos en tus páginas web. En esta lección, veremos cómo crear diseños de
+        cuadrícula flexibles utilizando la unidad <mark>fr</mark>.
+      </p>
+      <p>
+        Comencemos con este código HTML, que representará nuestro contenedor de cuadrícula:
+      </p>
+
+      <div class="ide-container" id="ide-grid-fr-structure">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="font-family:sans-serif;">
+              <div
+                style="border:2px dashed #ccc;height:50px;margin-bottom:5px;display:flex;align-items:center;justify-content:center;background:#fafafa;color:#bbb;font-size:12px;">
+                Empty Column</div>
+              <div
+                style="border:2px dashed #ccc;height:50px;margin-bottom:5px;display:flex;align-items:center;justify-content:center;background:#fafafa;color:#bbb;font-size:12px;">
+                Empty Column</div>
+              <div
+                style="border:2px dashed #ccc;height:50px;margin-bottom:5px;display:flex;align-items:center;justify-content:center;background:#fafafa;color:#bbb;font-size:12px;">
+                Empty Column</div>
+              <div
+                style="border:2px dashed #ccc;height:50px;display:flex;align-items:center;justify-content:center;background:#fafafa;color:#bbb;font-size:12px;">
+                Empty Column</div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Nota:</strong> Bordes punteados para identificar los <code>div.col</code> vacíos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        LEn el CSS, establecemos la propiedad <mark>display</mark> en <mark>grid</mark> para el contenedor.
+      </p>
+
+      <div class="ide-container" id="ide-grid-fr-refactor">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr 1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkgray</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.col</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkslateblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:15px;background-color:darkgray;height:150px;width:90%;margin:0 auto;">
+              <div style="background-color:darkslateblue;min-height:50px;"></div>
+              <div style="background-color:darkslateblue;min-height:50px;"></div>
+              <div style="background-color:darkslateblue;min-height:50px;"></div>
+              <div style="background-color:darkslateblue;min-height:50px;"></div>
+            </div>
+            <p
+              style="margin-top:15px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> La unidad <code>fr</code> es flexible; si cambias el <code>gap</code> las
+              columnas se encogerán solas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La propiedad <mark>grid-template-columns</mark> se utiliza para establecer el tamaño de cada columna. En este
+        caso, el
+        tamaño de cada columna será del <mark>25%</mark> del contenedor. A continuación, se utiliza la propiedad
+        <mark>gap</mark> para crear
+        espacio alrededor de cada columna.
+      </p>
+      <p>
+        Hasta ahora hemos estado utilizando porcentajes para el tamaño de las columnas, pero también podemos usar la
+        unidad <mark>fr</mark>.
+      </p>
+      <p>
+        La unidad <mark>fr</mark> es una unidad fraccionaria que representa una fracción del espacio del contenedor de
+        la
+        cuadrícula.
+      </p>
+      <p>
+        Así es como se verá el código cuando se refactorice para usar unidades <mark>fr</mark> en lugar de porcentajes.
+      </p>
+
+      <div class="ide-container" id="ide-grid-update-final">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <style>
+              #ide-grid-update-final .tk-tag {
+                color: #e06c75;
+              }
+
+              #ide-grid-update-final .tk-attr {
+                color: #d19a66;
+              }
+
+              #ide-grid-update-final .tk-string {
+                color: #98c379;
+              }
+
+              #ide-grid-update-final .tk-selector {
+                color: #61afef;
+              }
+
+              #ide-grid-update-final .tk-property {
+                color: #56b6c2;
+              }
+
+              #ide-grid-update-final .tk-value {
+                color: #d19a66;
+              }
+
+              #ide-grid-update-final .tk-punctuation {
+                color: #abb2bf;
+              }
+            </style>
+
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"col"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">html,
+body</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">90%</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">50%</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr 1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">15px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkgray</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100%</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.col</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkslateblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body" style="padding: 20px; background-color: white;">
+            <div
+              style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:15px; background-color:darkgray; height:150px; width:90%; margin:0 auto;">
+              <div style="background-color:darkslateblue;"></div>
+              <div style="background-color:darkslateblue;"></div>
+              <div style="background-color:darkslateblue;"></div>
+              <div style="background-color:darkslateblue;"></div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Revisión:</strong> Se han aplicado 4 columnas flexibles con <code>1fr</code>. El
+              <code>gap</code> de 15px separa perfectamente los elementos <code>darkslateblue</code> sobre el fondo
+              <code>darkgray</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cada columna ocupará una fracción del espacio disponible. Dado que hay cuatro columnas, cada una de ellas tendrá
+        una parte igual del espacio disponible en el contenedor de la cuadrícula.
+      </p>
+      <p>
+        A medida que comiences a crear tus diseños de cuadrícula, te darás cuenta de que querrás utilizar las unidades
+        <mark>fr</mark> con más frecuencia, ya que ofrecen una forma flexible y proporcional de distribuir el espacio,
+        lo que te
+        permite crear diseños adaptables que se ajustan a diferentes tamaños de pantalla sin necesidad de ajustar
+        manualmente los valores en píxeles.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+        <fieldset>
+
+          <legend>
+            ¿Cuál es la función de <mark>grid-template-columns</mark> en un contenedor de cuadrícula CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Establece el color de las columnas.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Establece el tamaño de las columnas.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Establece el espacio entre las columnas.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Especifica el número de filas de la cuadrícula.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué se diferencia la unidad <mark>fr</mark> del uso de porcentajes?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Las unidades fr generan desbordamiento en los contenedores, mientras que
+            los porcentajes no.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Las unidades fr asignan espacio en función del espacio disponible
+            restante, no del total.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Las unidades fr se utilizan para crear diseños flexibles, mientras que
+            los porcentajes no.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            No hay ninguna diferencia entre las unidades fr y los
+            porcentajes.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se usa <mark>grid-template-columns: 1fr 1fr 1fr 1fr;</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            El contenedor tendrá cuatro columnas, cada una del 10% del
+            ancho del contenedor.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Las columnas se apilarán verticalmente.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Las columnas estarán espaciadas uniformemente con tamaños fijos.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Las columnas ocuparán fracciones iguales y se ajustarán automáticamente
+            al cambiar el tamaño del contenedor.
+          </label>
+        </fieldset>
+
+      </form>
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+
+      <h2 id="tema3-titulo">Tema 3: ¿Cómo se pueden crear espacios entre las pistas de una cuadrícula?</h2>
+
+      <p>
+        En esta lección, profundizaremos en cómo utilizar las propiedades <mark>row-gap</mark>, <mark>column-gap</mark>
+        y <mark>gap</mark> en un diseño de cuadrícula.
+      </p>
+      <p>
+        Pero primero debemos repasar qué es una pista en la cuadrícula CSS. Una pista es el espacio entre dos líneas de
+        cuadrícula contiguas. Estas líneas se crean automáticamente cuando usas la cuadrícula CSS. En este contexto, las
+        pistas generalmente se refieren a las filas y columnas que componen el diseño de cuadrícula.
+      </p>
+      <p>
+        Para crear espacios entre columnas en una cuadrícula CSS, puedes usar la propiedad <mark>column-gap</mark>. Los
+        valores
+        aceptables para esta propiedad incluyen píxeles, la unidad <mark>em</mark>, porcentajes o la palabra clave
+        <mark>normal</mark>.
+      </p>
+      <p>
+        Si usas el valor <mark>normal</mark> para la propiedad <mark>column-gap</mark>, el resultado será <mark>0</mark>
+        para diseños de cuadrícula y
+        <mark>1em</mark> para diseños de varias columnas.
+      </p>
+      <p>
+        Aquí hay un ejemplo del marcado para un diseño de cuadrícula de cuatro columnas:
+      </p>
+
+      <div class="ide-container" id="ide-grid-html-skeleton">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body" style="padding: 20px; background-color: white;">
+            <div style="border: 1px solid #e69292; padding: 10px;">
+              <div style="height: 20px; border: 1px dashed #000; margin-bottom: 5px; background: #fafafa;"></div>
+              <div style="height: 20px; border: 1px dashed #000; margin-bottom: 5px; background: #fafafa;"></div>
+              <div style="height: 20px; border: 1px dashed #000; margin-bottom: 5px; background: #fafafa;"></div>
+              <div style="height: 20px; border: 1px dashed #000; background: #fafafa;"></div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Estructura:</strong> Los elementos <code>div</code> se apilan verticalmente siguiendo el flujo
+              normal del documento antes de aplicar CSS Grid.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el CSS, establecemos la propiedad <mark>display</mark> en <mark>grid</mark> y la propiedad
+        <mark>column-gap</mark> en <mark>10px</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-grid-column-gap-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr 1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">column-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display:grid;height:100px;grid-template-columns:1fr 1fr 1fr 1fr;column-gap:10px;background-color:#f0f0f0;">
+              <div style="background-color:darkblue;"></div>
+              <div style="background-color:darkblue;"></div>
+              <div style="background-color:darkblue;"></div>
+              <div style="background-color:darkblue;"></div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> El <code>column-gap</code> solo afecta al espacio <strong>entre</strong> las
+              columnas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si quisiéramos modificar el ejemplo para que tuviera dos filas de cuadros azules y crear más espacio entre las
+        filas, podemos utilizar la propiedad <mark>row-gap</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-grid-gap-shorthand-box">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">30px 10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px 10px;">
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> Recuerda: <code>gap: [FILA] [COLUMNA]</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo revisado, establecemos la propiedad <mark>row-gap</mark> en <mark>30px</mark> y modificamos
+        <mark>grid-template-columns</mark> para que utilice solo dos unidades de <mark>1fr</mark> en lugar de cuatro,
+        con el fin de crear dos
+        filas de cuadros.
+      </p>
+      <p>
+        Al igual que la propiedad <mark>column-gap</mark>, los valores válidos para la propiedad <mark>row-gap</mark>
+        pueden incluir
+        porcentajes, <mark>em</mark> y píxeles.
+      </p>
+      <p>
+        Si quieres usar una forma abreviada para crear espacios entre filas y columnas, puedes usar la propiedad
+        <mark>gap</mark>.
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de gap">
+          <code class="language-css">
+            <span class="token function">gap</span>: <span class="token value">row-value optional-column-value</span>;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Si se especifica un valor para la propiedad <mark>gap</mark>, dicho valor se aplicará tanto a las filas como a
+        las
+        columnas. Si se especifican dos valores, el primero se aplicará a la fila y el segundo a la columna:
+      </p>
+
+      <div class="ide-container" id="ide-grid-gap-logic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">30px 10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px 10px;">
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Anatomía del Gap:</strong> El valor <code>30px</code> separa las filas (arriba/abajo) y
+              <code>10px</code> separa las columnas (lados).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los valores válidos para la propiedad abreviada <mark>gap</mark> incluyen porcentajes, píxeles, <mark>em</mark>
+        e incluso valores de
+        <mark>calc()</mark>. Sin embargo, aquí no se pueden utilizar unidades <mark>fr</mark>.
+      </p>
+      <p>
+        Las propiedades <mark>row-gap</mark>, <mark>column-gap</mark> y <mark>gap</mark> ofrecen formas flexibles de
+        controlar el espaciado entre los
+        elementos en un diseño de cuadrícula CSS. Al utilizar estas propiedades, puedes crear fácilmente cuadrículas
+        visualmente atractivas con espacios uniformes y ajustables entre filas y columnas.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la función de <mark>column-gap</mark> en un diseño de cuadrícula CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            Establece el espacio entre las columnas de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Define el tamaño de los elementos de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Define el número de columnas de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Establece el espacio entre las filas de la cuadrícula.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si se usa el valor predeterminado de <mark>column-gap</mark> en un diseño de cuadrícula?
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            El espacio entre columnas se establece en 10.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            El espacio entre columnas se establece en -1.
+          </label>
+          <label>
+            <input type="radio" name="q8">El espacio entre columnas se establece en 14.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            El espacio entre columnas se establece en 0.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la propiedad correcta para crear espacios entre filas y columnas a la vez?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            gapsAndSpaces
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            space
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            rowGapColumnGap
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            gap
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+
+      <h2 id="tema4-titulo">Tema 4: ¿Cómo se pueden repetir las entradas de una lista en un diseño de cuadrícula?</h2>
+
+      <p>
+        En las lecciones anteriores, hemos estado trabajando con la propiedad <mark>grid-template-columns</mark> y
+        asignándole valores fraccionarios.
+      </p>
+
+      <div class="ide-container" id="grid-template-columns-basic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">1fr 1fr 1fr 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">column-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;column-gap:10px;">
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque el siguiente código es totalmente válido, hay una forma más sencilla de repetir una sección o todas las
+        entradas de la lista de pistas.
+      </p>
+      <p>
+        La función <mark>repeat()</mark> se utiliza para repetir una sección o todas las pistas en columnas o filas.
+        Esta función
+        toma como parámetros el número de repeticiones y las pistas que deseas repetir.
+      </p>
+      <p>
+        Aquí tienes una versión revisada del ejemplo anterior utilizando la función repeat:
+      </p>
+
+      <div class="ide-container" id="ide-grid-repeat-function">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">column-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.box</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">width</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:10px;">
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+              <div style="height:100px;background-color:darkblue;border-radius:4px;"></div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Dato PRO:</strong> Puedes repetir patrones: <code>repeat(2, 1fr 2fr)</code> crea 4 columnas con
+              tamaños 1fr, 2fr, 1fr, 2fr.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        No habrá ningún cambio en los estilos del navegador, pero esta es una forma más concisa de escribir valores
+        repetidos para las columnas.
+      </p>
+      <p>
+        La función <mark>repeat()</mark> acepta cualquier patrón válido que se pueda utilizar para filas o columnas.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que se utiliza la función <mark>repeat()</mark> para establecer la
+        primera y la
+        tercera columna en 20 píxeles, y la segunda y la cuarta columna en una unidad fraccionaria.
+      </p>
+
+      <div class="ide-container" id="ide-grid-repeat-pattern">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"box"</span><span class="tk-tag">&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(2, 20px 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">column-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">height</span><span class="tk-punctuation">:</span> <span class="tk-value">100px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">darkblue</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display: grid; grid-template-columns: repeat(2, 20px 1fr); column-gap: 10px;">
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+              <div style="height: 100px; background-color: darkblue;"></div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Patrón detectado:</strong> Las columnas 1 y 3 son de 20px (fijas), mientras que las 2 y 4 son
+              de 1fr (flexibles).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A veces, es posible que prefieras escribir cada valor por separado en lugar de usar la función
+        <mark>repeat()</mark>. Sin embargo, hay ocasiones en las que esta función resulta muy útil, sobre todo cuando
+        quieres repetir un patrón concreto en la lista de canciones.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la sintaxis correcta para usar <mark>repeat()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            <pre>
+              <code>
+                .grid-container {
+                  grid-template-columns: repeat(1fr times 4); 
+                }
+              </code>
+            </pre>
+          </label>
+
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            <pre>
+              <code>
+                .grid-container { 
+                  grid-template-columns: repeat(4, 1fr); 
+                }
+              </code>
+            </pre>
+          </label>
+
+          <label>
+            <input type="radio" name="q10">
+            <pre>
+              <code>
+                .grid-container {
+                  grid-template-columns: multiply(4, 1fr); 
+                }
+              </code>
+            </pre>
+          </label>
+
+          <label>
+            <input type="radio" name="q10">
+            <pre>
+              <code>
+                .grid-container {
+                  grid-template-columns: repeatSections(4, 1fr); 
+                }
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal ventaja de usar <mark>repeat()</mark> en <mark>grid-template-columns</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            Permite repetir las definiciones de columnas de forma más
+            concisa.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Hace que el código se ejecute más rápido.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Da como resultado un código sin errores.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Hace que la página web sea más receptiva automáticamente.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado de <mark>repeat(2, 20px 1fr)</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            Crea cuatro columnas, todas con ancho de 1fr.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Crea dos columnas, cada una con ancho de 20px.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            Crea cuatro columnas: 1ª y 3ª de 20px, 2ª y 4ª de 1fr.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Crea tres columnas, dos de 20px y una de 1fr.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+
+      <h2 id="tema5-titulo">Tema 5: ¿Cuál es la diferencia entre una cuadrícula implícita y una explícita?</h2>
+
+      <p>
+        Una cuadrícula implícita se refiere a las filas y columnas que el navegador crea automáticamente al colocar
+        elementos en un diseño de cuadrícula, es decir, aquellas que no se definen explícitamente mediante
+        <mark>grid-template-rows</mark> o <mark>grid-template-columns</mark>.
+      </p>
+      <p>
+        Las propiedades que controlan las columnas y filas creadas implícitamente por el navegador son
+        <mark>grid-auto-columns</mark> y <mark>grid-auto-rows</mark>.
+      </p>
+      <p>
+        La cuadrícula implícita también se refiere a las filas y columnas adicionales que el navegador genera
+        automáticamente cuando se coloca un elemento fuera de las filas y columnas definidas explícitamente.
+      </p>
+      <p>
+        Por ejemplo, supongamos que defines solo dos columnas explícitas en un diseño de cuadrícula de esta manera:
+      </p>
+
+      <div class="ide-container" id="ide-grid-implicit-explicit">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-item"</span><span class="tk-tag">&gt;</span>Item 6<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">100px 100px</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Solo 2 columnas explícitas */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-item</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">burlywood</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">border</span><span class="tk-punctuation">:</span> <span class="tk-value">1px solid orangered</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">margin</span><span class="tk-punctuation">:</span> <span class="tk-value">0.5rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div style="display:grid;grid-template-columns:100px 100px;border:2px dashed #ccc;width:fit-content;">
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 1</div>
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 2</div>
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 3</div>
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 4</div>
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 5</div>
+              <div
+                style="background:burlywood;border:1px solid orangered;padding:0.5rem;margin:0.5rem;font-family:sans-serif;font-size:14px;color:#000;">
+                Item 6</div>
+            </div>
+            <p
+              style="margin-top:15px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Revisión:</strong> Solo definiste 2 columnas. El navegador creó 3 filas automáticamente
+              (implícitas).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dos elementos ocupaban la primera fila utilizando las dos columnas explícitas: el <mark>Item 1</mark> en la
+        primera columna
+        y el <mark>Item 2</mark> en la segunda columna.
+      </p>
+      <p>
+        Los siguientes elementos comienzan una nueva fila: el <mark>Item 3</mark> va en la primera columna de la segunda
+        fila y el
+        <mark>Item 4</mark> en la segunda columna de la segunda fila, y así sucesivamente.
+      </p>
+      <p>
+        Como ya has visto, las cuadrículas explícitas son las áreas de la cuadrícula que configuras intencionalmente. Es
+        decir, las filas y columnas que defines explícitamente para un diseño de cuadrícula utilizando las propiedades
+        <mark>grid-template-rows</mark> y <mark>grid-template-columns</mark>.
+      </p>
+      <p>
+        <strong>Aquí hay una tabla que resume las diferencias entre las cuadrículas implícitas y explícitas:</strong>
+      </p>
+
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th>Grid explícita</th>
+              <th>Grid implícita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Característica">Control de tamaño</td>
+              <td data-label="Grid explícita">Personalizable con <code>grid-template-rows</code> y
+                <code>grid-template-columns</code>.
+              </td>
+              <td data-label="Grid implícita">Controlado por <code>grid-auto-rows</code> y
+                <code>grid-auto-columns</code>, o por defecto <code>auto</code>.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Comportamiento</td>
+              <td data-label="Grid explícita">No cambia a menos que se defina explícitamente.</td>
+              <td data-label="Grid implícita">Se adapta automáticamente a elementos fuera de la cuadrícula explícita.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Complejidad</td>
+              <td data-label="Grid explícita">Requiere mayor planificación.</td>
+              <td data-label="Grid implícita">Más fácil para contenido no estructurado o variable.</td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Flexibilidad</td>
+              <td data-label="Grid explícita">Estructura rígida con filas y columnas definidas.</td>
+              <td data-label="Grid implícita">Flexible y se adapta al contenido dinámico.</td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Rendimiento</td>
+              <td data-label="Grid explícita">Potencialmente mejor ya que el diseño está predefinido.</td>
+              <td data-label="Grid implícita">Puede requerir cálculos adicionales del navegador.</td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Caso de uso</td>
+              <td data-label="Grid explícita">Útil cuando la estructura es predecible y está definida.</td>
+              <td data-label="Grid implícita">Útil para diseños dinámicos con contenido variable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedades controlan las columnas y filas creadas implícitamente por el navegador?
+          </legend>
+
+          <label>
+            <input type="radio" name="q13">
+            cols y rows
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            col y row
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            implicit-columns y implicit-rows
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            <!-- correcto -->
+            grid-auto-columns y grid-auto-rows
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué propiedades se usan para definir filas y columnas explícitas?
+          </legend>
+
+          <label>
+            <input type="radio" name="q14">
+            row y fr
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            grid-explicit-rows y grid-explicit-columns
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            <!-- correcto -->
+            grid-template-rows y grid-template-columns
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            grid-gap y grid-flow
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de estos fragmentos crea un grid con solo 2 columnas explícitas de 100px?
+          </legend>
+
+          <label>
+            <input type="radio" name="q15">
+            <!-- correcto -->
+            <pre>
+              <code>
+                .grid-container {
+                  display: grid;
+                  grid-template-columns: 100px 100px;
+                }
+                </code>
+              </pre>
+          </label>
+          <label><input type="radio" name="q15">
+            <pre>
+              <code>
+                .grid-container {
+                  display: grid;
+                  grid-template-columns: 100px 100px 100px 100px;
+                }
+                </code>
+              </pre>
+          </label>
+          <label><input type="radio" name="q15">
+            <pre>
+              <code>.grid-container {
+                display: grid;
+                grid-template-rows: 100px 100px;
+              }
+              </code>
+            </pre>
+          </label>
+          <label><input type="radio" name="q15">
+            <pre>
+              <code>
+                .grid-container {
+                  display: grid;
+                  grid-column-start: 100px 100px;
+                }
+                </code>
+              </pre>
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-labelledby="tema6-titulo">
+
+      <h2 id="tema6-titulo">Tema 6: ¿Qué es la función <code>minmax()</code> y cómo funciona?</h2>
+
+      <p>
+        La función <mark>minmax()</mark> define el rango del tamaño de una pista de la cuadrícula, especificando cuánto
+        espacio puede
+        ocupar una fila o columna.
+      </p>
+      <p>
+        Recuerda que puedes establecer el tamaño de la pista con unidades como <mark>px</mark>(píxeles),
+        <mark>rem</mark> o incluso <mark>em</mark>, y con
+        unidades fraccionarias (<mark>fr</mark>).
+      </p>
+      <p>
+        La función <mark>minmax()</mark> va un poco más allá al permitirte establecer un tamaño mínimo y un tamaño
+        máximo para la
+        pista de la cuadrícula.
+      </p>
+      <p>
+        Esta es la sintaxis de la función <mark>minmax()</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de minmax()">
+          <code class="language-css">
+            <span class="token function">minmax</span><span class="token punctuation">(</span><span class="token property">min</span>, <span class="token property">max</span><span class="token punctuation">)</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>min</mark> es el tamaño mínimo de la pista de la cuadrícula, que se puede establecer en píxeles,
+        porcentaje o <mark>auto</mark>. Y
+        <mark>max</mark> es el tamaño máximo de la pista de la cuadrícula, que se puede establecer con las mismas
+        unidades.
+      </p>
+      <p>
+        Estos dos valores funcionan juntos de la siguiente manera:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">El valor <mark>min</mark> garantiza que la pista nunca se reduzca por debajo de un tamaño
+            establecido.</li>
+          <li class="list">El valor <mark>max</mark> limita el tamaño máximo que puede alcanzar la pista.</li>
+        </ul>
+      </div>
+
+      <p>
+        El tamaño de la pista de la cuadrícula se ajusta dinámicamente entre los valores min y max en función del
+        contenido y del tamaño del contenedor.
+      </p>
+      <p>
+        Veamos un ejemplo práctico:
+      </p>
+
+      <div class="ide-container" id="ide-grid-minmax-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button"><span class="btn-text">Copiar</span></button>
+          </div>
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;h2&gt;</span>Item 1<span class="tk-tag">&lt;/h2&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div&gt;&lt;h2&gt;</span>Item 2<span class="tk-tag">&lt;/h2&gt;&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">minmax(150px, 300px) 1fr</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid-container > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">20px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">text-align</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ide-preview">
+          <!-- FIX: clase corregida de grid-containert a grid-container — bug crítico -->
+          <div class="ide-preview-body" style="overflow-x:auto;">
+            <div style="display:grid;grid-template-columns:minmax(150px,300px) 1fr;gap:20px;">
+              <div
+                style="background:crimson;padding:20px;text-align:center;color:white;font-family:sans-serif;border-radius:4px;">
+                <h2 style="margin:0;font-size:1.2rem;color:white;">Item 1</h2>
+              </div>
+              <div
+                style="background:crimson;padding:20px;text-align:center;color:white;font-family:sans-serif;border-radius:4px;">
+                <h2 style="margin:0;font-size:1.2rem;color:white;">Item 2</h2>
+              </div>
+            </div>
+            <p
+              style="margin-top:20px;font-family:sans-serif;font-size:13px;color:#777;border-top:1px solid #eee;padding-top:10px;">
+              💡 <strong>Prueba esto:</strong> El Item 1 nunca medirá menos de 150px ni más de 300px. El Item 2 se lleva
+              todo el espacio restante.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <em>¿Qué está pasando aquí?</em>
+      </p>
+      <p>
+        La primera columna, <mark>minmax(150px, 300px)</mark>, siempre tendrá un ancho mínimo de <mark>150px</mark> y un
+        ancho máximo de <mark>300px</mark>,
+        dependiendo del espacio disponible.
+      </p>
+      <p>
+        Por otro lado, la segunda columna, <mark>1fr</mark>, ocupará todo el espacio restante disponible en el
+        contenedor de la
+        cuadrícula, ya que no hay columnas adicionales con las que compartir el espacio.
+      </p>
+      <p>
+        La ventaja de la función <mark>minmax()</mark> sobre los tamaños fijos e incluso las unidades <mark>fr</mark> es
+        que es más flexible, lo
+        que la hace ideal para la adaptabilidad y la capacidad de respuesta.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué función define el rango del tamaño de una pista de cuadrícula?
+          </legend>
+
+          <label>
+            <input type="radio" name="q16">
+            clamp()
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            <!-- correcto -->
+            minmax()
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            max-width()
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            calc()
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se comporta el tamaño de la pista al usar <mark>minmax()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q17">
+            El tamaño es fijo entre los valores mínimo y máximo.
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            <!-- correcto -->
+            El tamaño se ajusta dinámicamente entre mínimo y máximo según el
+            contenido y el contenedor.
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            El tamaño siempre se establece en el valor máximo.
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            El tamaño solo responde al contenido, no al contenedor.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué controlan los valores <mark>min</mark> y <mark>max</mark> en la función minmax()?
+          </legend>
+
+          <label>
+            <input type="radio" name="q18">
+            El valor min permite que la pista de la cuadrícula se reduzca, mientras que el valor max establece un tamaño
+            fijo.
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            <!-- correcto -->
+            El valor min garantiza que la pista de la cuadrícula no se reduzca por debajo de un tamaño establecido, y el
+            valor max limita el tamaño máximo que puede alcanzar.
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            El valor min limita el crecimiento, y el valor max determina el tamaño mínimo.
+          </label>
+          <label><input type="radio" name="q18">
+            Ambos valores establecen tamaños fijos para la pista de la cuadrícula.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema7" aria-labelledby="tema7-titulo">
+
+      <h2 id="tema7-titulo">Tema 7: ¿Cómo funcionan las propiedades <code>grid-column</code> y <code>grid-row</code>?
+      </h2>
+
+      <p>
+        Las propiedades <mark>grid-column</mark> y <mark>grid-row</mark> te permiten especificar la ubicación horizontal
+        y vertical de los
+        elementos de la cuadrícula dentro de un diseño de cuadrícula.
+      </p>
+      <p>
+        En otras palabras, ambas te permiten controlar dónde comienza y termina un elemento de la cuadrícula haciendo
+        referencia a las líneas de la cuadrícula. Estas líneas de la cuadrícula son los límites que separan las filas y
+        columnas que ya has definido utilizando las propiedades <mark>grid-template-rows</mark> y
+        <mark>grid-template-columns</mark>.
+      </p>
+      <p>
+        Echemos un vistazo a la sintaxis tanto de <mark>grid-row</mark> como de <mark>grid-column</mark>, y también a un
+        ejemplo práctico.
+      </p>
+      <p>
+        Esta es la sintaxis de la propiedad <mark>grid-row</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de minmax()">
+          <span class="token function">grid-row</span>: &lt;<span class="token value">start-line</span>&gt; / &lt;<span class="token value">end-line</span>&gt;;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Y de <mark>grid-column</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de minmax()">
+          <span class="token function">grid-column</span>: &lt;<span class="token value">start-line</span>&gt; / &lt;<span class="token value">end-line</span>&gt;;
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>&lt;start-line&gt;</mark> es la línea de cuadrícula donde comienza el elemento y
+        <mark>&lt;end-line&gt;</mark> es la línea de cuadrícula donde
+        termina el elemento. Ambas se indexan a partir del 1, es decir, se empieza a contar desde el 1, no desde el
+        0.
+      </p>
+      <p>
+        Recuerda que las líneas de cuadrícula de las filas se generan en función del número de filas especificado en la
+        propiedad <mark>grid-template-rows</mark>. Lo mismo se aplica a las columnas con la propiedad
+        <mark>grid-template-columns</mark>.
+      </p>
+      <p>
+        Para el ejemplo práctico, comencemos con las líneas generadas por el navegador cuando se utilizan las
+        propiedades <mark>grid-template-rows</mark> y <mark>grid-template-columns</mark>.
+      </p>
+      <p>
+        Aquí hay un ejemplo de cuadrícula con 4 columnas y 3 filas:
+      </p>
+
+      <div class="ide-container" id="ide-grid-line-indexing">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item3"</span><span class="tk-tag">&gt;</span>3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item4"</span><span class="tk-tag">&gt;</span>4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item5"</span><span class="tk-tag">&gt;</span>5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item6"</span><span class="tk-tag">&gt;</span>6<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item7"</span><span class="tk-tag">&gt;</span>7<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item8"</span><span class="tk-tag">&gt;</span>8<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item9"</span><span class="tk-tag">&gt;</span>9<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item10"</span><span class="tk-tag">&gt;</span>10<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item11"</span><span class="tk-tag">&gt;</span>11<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item12"</span><span class="tk-tag">&gt;</span>12<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* 4 columnas = 5 líneas */</span>
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(3, 100px)</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* 3 filas = 4 líneas */</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">place-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Ajustado para el preview */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 80px); gap: 10px; font-family: sans-serif;">
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">1
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">2
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">3
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">4
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">5
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">6
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">7
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">8
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">9
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">10
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">11
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">12
+              </div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Dato clave:</strong> Para la primera columna, la <code>start-line</code> es 1 y la
+              <code>end-line</code> es 2. ¡Nunca olvides que empezamos en 1!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al examinar el contenedor de la cuadrícula (la clase <mark>grid</mark>), se observa que cada fila y columna está
+        delimitada
+        por dos líneas: una línea inicial al comienzo de la fila o columna y una línea final al final de la misma.
+      </p>
+      <p>
+        Puedes centrarte en estas líneas para empezar a utilizar las propiedades <mark>grid-row</mark> y
+        <mark>grid-column</mark> y determinar
+        dónde debes colocar un elemento.
+      </p>
+      <p>
+        A continuación te mostramos cómo puedes hacer que el primer elemento de la cuadrícula ocupe las dos primeras
+        columnas:
+      </p>
+
+      <div class="ide-container" id="ide-grid-column-span">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item3"</span><span class="tk-tag">&gt;</span>3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item4"</span><span class="tk-tag">&gt;</span>4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item5"</span><span class="tk-tag">&gt;</span>5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item6"</span><span class="tk-tag">&gt;</span>6<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item7"</span><span class="tk-tag">&gt;</span>7<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item8"</span><span class="tk-tag">&gt;</span>8<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item9"</span><span class="tk-tag">&gt;</span>9<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item10"</span><span class="tk-tag">&gt;</span>10<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item11"</span><span class="tk-tag">&gt;</span>11<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item12"</span><span class="tk-tag">&gt;</span>12<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(3, 100px)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">place-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* Ajustado para el preview */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / 3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 60px); gap: 10px; font-family: sans-serif;">
+              <div
+                style="grid-column: 1 / 3; display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">
+                1</div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">2
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">3
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">4
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">5
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">6
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">7
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">8
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">9
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">10
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">11
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">12
+              </div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Análisis:</strong> El ítem 1 ahora ocupa el espacio de dos columnas. Nota cómo el ítem 2 se
+              desplaza automáticamente a la derecha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Con esto, estás indicando que el primer elemento de la cuadrícula debe comenzar en la columna 1 y terminar justo
+        antes de la columna 3.
+      </p>
+      <p>
+        Ahora, el primer elemento ocupará dos columnas, y el cuarto elemento se desplazará a la segunda fila. ¡Genial!
+      </p>
+      <p>
+        Si además quieres que el primer elemento ocupe dos filas, puedes especificar un valor de <mark>grid-row</mark>
+        de <mark>1/3</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-grid-row-span">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item3"</span><span class="tk-tag">&gt;</span>3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item4"</span><span class="tk-tag">&gt;</span>4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item5"</span><span class="tk-tag">&gt;</span>5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item6"</span><span class="tk-tag">&gt;</span>6<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item7"</span><span class="tk-tag">&gt;</span>7<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item8"</span><span class="tk-tag">&gt;</span>8<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item9"</span><span class="tk-tag">&gt;</span>9<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item10"</span><span class="tk-tag">&gt;</span>10<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item11"</span><span class="tk-tag">&gt;</span>11<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item12"</span><span class="tk-tag">&gt;</span>12<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(3, 100px)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">place-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">2rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / 3</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-row</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / 3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 60px); gap: 10px; font-family: sans-serif;">
+              <div
+                style="grid-column: 1 / 3; grid-row: 1 / 3; display: grid; place-items: center; background: crimson; color: white; font-size: 2rem; font-weight: bold;">
+                1</div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">2
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">3
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">4
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">5
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">6
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">7
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">8
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">9
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">10
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">11
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">12
+              </div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Impacto Visual:</strong> El Ítem 1 ahora ocupa desde la línea de fila 1 a la 3, y desde la
+              línea de columna 1 a la 3. ¡Es un cuadrado gigante!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También puedes usar la palabra clave <mark>span</mark> para indicar al elemento de la cuadrícula qué fila y
+        columna debe
+        abarcar. Por ejemplo, <mark>1 / 3</mark> es lo mismo que <mark>1 / span 2</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-grid-span-keyword">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item3"</span><span class="tk-tag">&gt;</span>3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item4"</span><span class="tk-tag">&gt;</span>4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item5"</span><span class="tk-tag">&gt;</span>5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item6"</span><span class="tk-tag">&gt;</span>6<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item7"</span><span class="tk-tag">&gt;</span>7<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item8"</span><span class="tk-tag">&gt;</span>8<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item9"</span><span class="tk-tag">&gt;</span>9<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item10"</span><span class="tk-tag">&gt;</span>10<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item11"</span><span class="tk-tag">&gt;</span>11<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item12"</span><span class="tk-tag">&gt;</span>12<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(3, 100px)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">place-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">4rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / span 2</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-row</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / span 2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 60px); gap: 10px; font-family: sans-serif;">
+              <div
+                style="grid-column: 1 / span 2; grid-row: 1 / span 2; display: grid; place-items: center; background: crimson; color: white; font-size: 2rem; font-weight: bold;">
+                1</div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">2
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">3
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">4
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">5
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">6
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">7
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">8
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">9
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">10
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">11
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.2rem;">12
+              </div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Anatomía del Span:</strong> Usar <code>span 2</code> le dice al navegador que el ítem debe
+              extenderse a través de dos celdas, independientemente de los números de línea.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puedes seguir aplicando esta técnica a cualquier elemento de la cuadrícula y colocarlos donde quieras.
+      </p>
+      <p>
+        Siguiendo con el proceso, así es como hemos creado un diseño en estilo "masonry" con los elementos.
+      </p>
+      <p>
+        Este es un nuevo ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-grid-masonry-basic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item1"</span><span class="tk-tag">&gt;</span>1<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item2"</span><span class="tk-tag">&gt;</span>2<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item3"</span><span class="tk-tag">&gt;</span>3<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item4"</span><span class="tk-tag">&gt;</span>4<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item5"</span><span class="tk-tag">&gt;</span>5<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item6"</span><span class="tk-tag">&gt;</span>6<span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"item7"</span><span class="tk-tag">&gt;</span>7<span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-columns</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 1fr)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-rows</span><span class="tk-punctuation">:</span> <span class="tk-value">repeat(4, 100px)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.grid > div</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">place-items</span><span class="tk-punctuation">:</span> <span class="tk-value">center</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background</span><span class="tk-punctuation">:</span> <span class="tk-value">crimson</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">white</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">font-size</span><span class="tk-punctuation">:</span> <span class="tk-value">4rem</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / span 2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item4</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / span 3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item6</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">1 / span 2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.item7</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-column</span><span class="tk-punctuation">:</span> <span class="tk-value">3 / span 2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 60px); gap: 10px; font-family: sans-serif;">
+              <div
+                style="grid-column: 1 / span 2; display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">
+                1</div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">2
+              </div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">3
+              </div>
+              <div
+                style="grid-column: 1 / span 3; display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">
+                4</div>
+              <div style="display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">5
+              </div>
+              <div
+                style="grid-column: 1 / span 2; display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">
+                6</div>
+              <div
+                style="grid-column: 3 / span 2; display: grid; place-items: center; background: crimson; color: white; font-size: 1.5rem;">
+                7</div>
+            </div>
+            <p
+              style="margin-top:15px; font-family:sans-serif; font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
+              💡 <strong>Análisis:</strong> El Ítem 4 ocupa 3 columnas, mientras que el 7 comienza en la línea 3 y
+              abarca 2, lo que lo empuja hasta el final del borde derecho.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="cuest7" aria-labelledby="cuest7-titulo">
+
+      <h2 id="cuest7-titulo">🧠 Cuestionario 7</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué especifican las propiedades <mark>grid-column</mark> y <mark>grid-row</mark> en un diseño de
+            <mark>grid</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q19">
+            El tamaño del contenedor de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            La alineación de toda la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            <!-- correcto -->
+            La ubicación horizontal y vertical de los elementos de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            El tamaño de las pistas de la cuadrícula.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué determina el número de líneas de cuadrícula que se generan para las filas y columnas en un diseño de
+            cuadrícula?
+          </legend>
+
+          <label>
+            <input type="radio" name="q20">
+            La propiedad grid-gap.
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            <!-- correcto -->
+            Las propiedades grid-template-rows y grid-template-columns.
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            Las propiedades grid-auto-rows y grid-auto-columns.
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            La propiedad grid-area.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede especificar la forma en que los elementos de la cuadrícula se extienden a lo largo de las
+            filas o columnas en un diseño de cuadrícula?
+          </legend>
+
+          <label>
+            <input type="radio" name="q21">
+            Utilizando la propiedad grid-template.
+            fijo.
+          </label>
+          <label>
+            <input type="radio" name="q21">
+            Especificando auto en grid-column o grid-row.
+          </label>
+          <label>
+            <input type="radio" name="q21">
+            <!-- correcto -->
+            Utilizando la palabra clave span o un rango como 1 / 3.
+          </label>
+          <label><input type="radio" name="q21">
+            Definiendo el tamaño de grid-gap.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema8" aria-labelledby="tema8-titulo">
+
+      <h2 id="tema8-titulo">Tema 8: ¿Cómo se pueden colocar elementos en la cuadrícula utilizando la propiedad
+        <code>grid-template-areas</code>?
+      </h2>
+
+      <p>
+        La propiedad <mark>grid-template-areas</mark> te permite diseñar un diseño de cuadrícula visual mediante el uso
+        de etiquetas
+        con nombre.
+      </p>
+      <p>
+        A continuación, asignas las etiquetas a elementos específicos de la cuadrícula utilizando la propiedad
+        grid-area. En otras palabras, esas etiquetas con nombre también se denominan «nombres de áreas de cuadrícula».
+      </p>
+      <p>
+        Esta es la sintaxis básica de la propiedad <mark>grid-template-areas</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de minmax()">
+          <span class="token function">grid-template-areas:</span>
+            <span class="token value">'header header header'</span>
+            <span class="token value">'left-sidebar main right-sidebar'</span>
+            <span class="token value">'footer footer footer'</span><span class="token function">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Estos son los puntos clave que hay que recordar sobre la sintaxis básica:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Los valores como <mark>header</mark> y <mark>main</mark> son los nombres de las áreas de la cuadrícula.
+          </li>
+          <li class="list">
+            Cada valor separado por un espacio dentro de una cadena corresponde a una columna.
+          </li>
+          <li class="list">
+            Cada cadena representa una fila de la cuadrícula.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Por lo tanto, en la sintaxis, tenemos un contenedor de cuadrícula de 3 por 3.
+      </p>
+      <p>
+        Una vez definida la plantilla, debes utilizar la propiedad <mark>grid-area</mark> y las etiquetas (o áreas) con
+        nombre como
+        valores para indicar a CSS que un elemento específico pertenece a esa área de la cuadrícula.
+      </p>
+      <p>
+        La propiedad <mark>grid-area</mark> vincula el elemento de la cuadrícula a la región con nombre que definas en
+        <mark>grid-template-areas</mark>.
+      </p>
+      <p>
+        Una forma muy común de demostrar las capacidades de la propiedad <mark>grid-template-areas</mark> es creando el
+        clásico
+        diseño «Holy Grail».
+      </p>
+      <p>
+        Si no sabes qué es, el diseño Holy Grail es un patrón de diseño web con un encabezado, un pie de página, dos
+        barras laterales y un área de contenido principal. Asegura que el contenido principal tenga prioridad, mientras
+        que las barras laterales y otras secciones se ajustan de manera adaptativa dentro del diseño.
+      </p>
+      <p>
+        Existen muchas soluciones para implementar el diseño Holy Grail, pero usar <mark>grid-template-areas</mark> y la
+        propiedad
+        <mark>grid-area</mark> es la forma más sencilla de crearlo.
+      </p>
+      <p>
+        Aquí tienes un ejemplo del diseño Holy Grail:
+      </p>
+
+      <div class="ide-container" id="ide-grid-holy-grail">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab active" type="button" data-lang="css">styles.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers"></div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"styles.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"grid-container"</span><span class="tk-tag">&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"header"</span><span class="tk-tag">&gt;</span>
+    <span class="tk-tag">&lt;h2&gt;</span>Header<span class="tk-tag">&lt;/h2&gt;</span>
+  <span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"sidebar-left"</span><span class="tk-tag">&gt;</span>
+    <span class="tk-tag">&lt;h2&gt;</span>Left Sidebar<span class="tk-tag">&lt;/h2&gt;</span>
+  <span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"main"</span><span class="tk-tag">&gt;&lt;h2&gt;</span>Main Content<span class="tk-tag">&lt;/h2&gt;&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"sidebar-right"</span><span class="tk-tag">&gt;</span>
+    <span class="tk-tag">&lt;h2&gt;</span>Right Sidebar<span class="tk-tag">&lt;/h2&gt;</span>
+  <span class="tk-tag">&lt;/div&gt;</span>
+  <span class="tk-tag">&lt;div</span> <span class="tk-attr">class</span>=<span class="tk-string">"footer"</span><span class="tk-tag">&gt;</span>
+    <span class="tk-tag">&lt;h2&gt;</span>Footer<span class="tk-tag">&lt;/h2&gt;</span>
+  <span class="tk-tag">&lt;/div&gt;</span>
+<span class="tk-tag">&lt;/div&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content active" data-lang="css">
+              <div class="line-numbers"></div>
+              <pre><code class="language-css"><span class="tk-selector">.grid-container</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">display</span><span class="tk-punctuation">:</span> <span class="tk-value">grid</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-template-areas</span><span class="tk-punctuation">:</span>
+    <span class="tk-string">'header header header'</span>
+    <span class="tk-string">'sidebar-left main sidebar-right'</span>
+    <span class="tk-string">'footer footer footer'</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">grid-gap</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">#2196F3</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">padding</span><span class="tk-punctuation">:</span> <span class="tk-value">10px</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.header</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">header</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(255, 255, 255, 0.8)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.sidebar-left</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">sidebar-left</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(255, 255, 255, 0.8)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.main</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">main</span><span class="tk-punctuation">;</span> 
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(255, 255, 255, 0.8)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.sidebar-right</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">sidebar-right</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(255, 255, 255, 0.8)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">.footer</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">grid-area</span><span class="tk-punctuation">:</span> <span class="tk-value">footer</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">background-color</span><span class="tk-punctuation">:</span> <span class="tk-value">rgba(255, 255, 255, 0.8)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body">
+            <div
+              style="display: grid; grid-template-areas: 'header header header' 'sidebar-left main sidebar-right' 'footer footer footer'; grid-gap: 8px; background-color: #2196F3; padding: 10px; font-family: sans-serif; font-size: 10px;">
+              <div
+                style="grid-area: header; background: white; padding: 10px; text-align: center; border: 1px solid #ddd;">
+                <strong style="color: #000;">Header</strong>
+              </div>
+              <div
+                style="grid-area: sidebar-left; background: white; padding: 10px; text-align: center; border: 1px solid #ddd;">
+                <strong style="color: #000;">Left Sidebar</strong>
+              </div>
+              <div
+                style="grid-area: main; background: white; padding: 10px; text-align: center; border: 1px solid #ddd; min-height: 80px;">
+                <strong style="color: #000;">Main Content</strong>
+              </div>
+              <div
+                style="grid-area: sidebar-right; background: white; padding: 10px; text-align: center; border: 1px solid #ddd;">
+                <strong style="color: #000;">Right Sidebar</strong>
+              </div>
+              <div
+                style="grid-area: footer; background: white; padding: 10px; text-align: center; border: 1px solid #ddd;">
+                <strong style="color: #000;">Footer</strong>
+              </div>
+            </div>
+            <p
+              style="margin-top:10px; font-family:sans-serif; font-size:12px; color:#555; border-top:1px solid #eee; padding-top:8px;">
+              💡 <strong>Holy Grail:</strong> Nota cómo el <code>header</code> y <code>footer</code> ocupan 3 columnas
+              automáticamente porque repetimos su nombre 3 veces en la plantilla.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ten en cuenta que las propiedades <mark>grid-template-areas</mark> y <mark>grid-area</mark> pueden utilizarse de forma independiente entre
+        sí.
+      </p>
+      <p>
+        La propiedad <mark>grid-template-areas</mark> se utiliza específicamente para definir un diseño visual mediante la asignación
+        de áreas de cuadrícula con nombre dentro del contenedor de cuadrícula.
+      </p>
+      <p>
+        Por otro lado, la propiedad <mark>grid-area</mark> se utiliza para posicionar elementos de cuadrícula individuales, ya sea
+        especificando sus posiciones de fila y columna o haciendo referencia a las áreas con nombre definidas con la
+        propiedad <mark>grid-template-areas</mark>.
+      </p>
+
+    </section>
+
+    <section id="cuest8" aria-labelledby="cuest8-titulo">
+
+      <h2 id="cuest8-titulo">🧠 Cuestionario 8</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se diseña un diseño de cuadrícula con la propiedad <mark>grid-template-areas</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q22">
+            on valores separados por comas, como 1 / 4, para representar las diferentes filas y columnas del diseño.
+          </label>
+          <label>
+            <input type="radio" name="q22">
+            Con valores separados por comas, como header y footer.
+          </label>
+          <label>
+            <input type="radio" name="q22">
+            <!-- correcto -->
+            Con cadenas de valores separados por espacios para representar las diferentes filas y columnas del diseño.
+          </label>
+          <label>
+            <input type="radio" name="q22">
+            Con valores separados por espacios, como 2fr 1fr 1fr.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Con qué propiedad se utiliza la propiedad <mark>grid-template-areas</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q23">
+            grid-column
+          </label>
+          <label>
+            <input type="radio" name="q23">
+            grid-row
+          </label>
+          <label>
+            <input type="radio" name="q23">
+            grid-gap
+          </label>
+          <label>
+            <input type="radio" name="q23">
+            <!-- correcto -->
+            grid-area
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el uso específico de la propiedad <mark>grid-area</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q24">
+            Para especificar un área de la cuadrícula que se debe excluir.
+          </label>
+          <label>
+            <input type="radio" name="q24">
+            Para especificar el tamaño de los elementos de la cuadrícula.
+          </label>
+          <label>
+            <input type="radio" name="q24">
+            <!-- correcto -->
+            Para colocar elementos individuales de la cuadrícula especificando sus posiciones en filas y columnas.
+          </label>
+          <label><input type="radio" name="q24">
+            Para crear una representación visual de la cuadrícula.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

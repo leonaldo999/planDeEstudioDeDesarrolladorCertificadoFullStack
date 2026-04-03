@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación de Desarrollo Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>Conceptos Clave de Desarrollo Web</header>
+    <a class="nav-link" href="#Introducción_a_HTML">Introducción a HTML</a>
+    <a class="nav-link" href="#CSS:_Fundamentos">CSS: Fundamentos</a>
+    <a class="nav-link" href="#JavaScript_Esencial">JavaScript Esencial</a>
+    <a class="nav-link" href="#Frameworks_y_Librerías">Frameworks y Librerías</a>
+    <a class="nav-link" href="#Buenas_Prácticas">Buenas Prácticas</a>
+  </nav>
+
+  <main id="main-doc">
+    <section class="main-section" id="Introducción_a_HTML">
+      <header>Introducción a HTML</header>
+      <p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web.</p>
+      <p>Define la estructura y el contenido de una página web mediante una serie de elementos.</p>
+      <code>&lt;!DOCTYPE html&gt;</code>
+      <code>&lt;html lang="es"&gt;</code>
+      <p>Cada documento HTML comienza con una declaración <code>&lt;!DOCTYPE html&gt;</code> para definir el tipo de
+        documento.</p>
+      <p>El elemento raíz es <code>&lt;html&gt;</code>, que envuelve todo el contenido de la página.</p>
+      <ul>
+        <li>Etiquetas de encabezado: <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code></li>
+        <li>Etiquetas de párrafo: <code>&lt;p&gt;</code></li>
+        <li>Etiquetas de enlace: <code>&lt;a&gt;</code></li>
+        <li>Etiquetas de imagen: <code>&lt;img&gt;</code></li>
+        <li>Etiquetas de lista: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></li>
+      </ul>
+      <p>Los atributos se utilizan para proporcionar información adicional sobre un elemento HTML.</p>
+      <p>Por ejemplo, el atributo <code>src</code> en la etiqueta <code>&lt;img&gt;</code> especifica la fuente de la
+        imagen.</p>
+      <p>Es fundamental comprender la semántica de HTML para construir páginas accesibles y optimizadas para SEO.</p>
+      <p>La semántica se refiere al significado de los elementos.</p>
+      <p>HTML5 introdujo nuevos elementos semánticos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+        <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>,
+        <code>&lt;footer&gt;</code>.
+      </p>
+      <p>Estos elementos ayudan a los navegadores y a las tecnologías de asistencia a entender mejor la estructura del
+        contenido.</p>
+    </section>
+
+    <section class="main-section" id="CSS:_Fundamentos">
+      <header>CSS: Fundamentos</header>
+      <p>CSS (Cascading Style Sheets) es un lenguaje de hojas de estilo utilizado para describir la presentación de un
+        documento escrito en HTML.</p>
+      <p>Controla los colores, las fuentes, el diseño y otros aspectos visuales de una página web.</p>
+      <code>p { color: blue; }</code>
+      <code>.clase { font-size: 16px; }</code>
+      <p>Existen tres formas principales de incluir CSS en un documento HTML: en línea, interno y externo.</p>
+      <p>El CSS externo es el más recomendado para proyectos grandes, ya que permite la reutilización de estilos.</p>
+      <ul>
+        <li>Selectores de tipo (ej. <code>p</code>)</li>
+        <li>Selectores de clase (ej. <code>.mi-clase</code>)</li>
+        <li>Selectores de ID (ej. <code>#mi-id</code>)</li>
+        <li>Selectores de atributo (ej. <code>[type="text"]</code>)</li>
+      </ul>
+      <p>La cascada en CSS determina qué regla de estilo se aplica cuando hay reglas conflictivas.</p>
+      <p>La especificidad, el orden y la importancia son factores clave en la cascada.</p>
+      <p>El modelo de caja de CSS describe cómo los elementos se visualizan en la página.</p>
+      <p>Incluye contenido, padding, borde y margen.</p>
+      <p>Comprender el modelo de caja es crucial para el diseño y la maquetación.</p>
+    </section>
+
+    <section class="main-section" id="JavaScript_Esencial">
+      <header>JavaScript Esencial</header>
+      <p>JavaScript es un lenguaje de programación de alto nivel, interpretado y multiparadigma, conocido por su
+        versatilidad.</p>
+      <p>Permite crear interactividad en las páginas web, desde animaciones hasta formularios dinámicos.</p>
+      <code>console.log("¡Hola, mundo!");</code>
+      <code>function saludar() { /* ... */ }</code>
+      <p>Las variables en JavaScript se declaran con <code>var</code>, <code>let</code> o <code>const</code>.</p>
+      <p><code>let</code> y <code>const</code> fueron introducidos en ES6 y ofrecen un mejor control sobre el alcance.
+      </p>
+      <ul>
+        <li>Tipos de datos: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>,
+          <code>undefined</code>, <code>object</code>, <code>symbol</code>, <code>bigint</code>.
+        </li>
+        <li>Operadores: aritméticos, de comparación, lógicos, de asignación.</li>
+        <li>Estructuras de control: <code>if/else</code>, <code>switch</code>, <code>for</code>, <code>while</code>.
+        </li>
+      </ul>
+      <p>El DOM (Document Object Model) es una interfaz de programación para documentos HTML y XML.</p>
+      <p>Permite que JavaScript acceda y manipule el contenido y la estructura de una página web.</p>
+      <p>Los eventos son acciones que ocurren en el navegador (ej. clic de un botón, envío de un formulario).</p>
+      <p>JavaScript permite "escuchar" estos eventos y ejecutar funciones en respuesta.</p>
+      <p>La programación asíncrona es fundamental para operaciones que toman tiempo, como las solicitudes de red.</p>
+      <p>Se utiliza <code>callbacks</code>, <code>Promises</code> y <code>async/await</code> para manejarla.</p>
+    </section>
+
+    <section class="main-section" id="Frameworks_y_Librerías">
+      <header>Frameworks y Librerías</header>
+      <p>Los frameworks y librerías de JavaScript simplifican y aceleran el desarrollo de aplicaciones web complejas.
+      </p>
+      <p>Proporcionan herramientas, patrones y componentes predefinidos.</p>
+      <code>import React from 'react';</code>
+      <code>Vue.createApp({});</code>
+      <p><strong>React:</strong> Una librería declarativa y eficiente para construir interfaces de usuario.</p>
+      <p>Se basa en componentes y un Virtual DOM para optimizar el rendimiento.</p>
+      <ul>
+        <li>Componentes funcionales y de clase</li>
+        <li>Hooks (useState, useEffect, useContext)</li>
+        <li>Manejo de estado (Context API, Redux)</li>
+      </ul>
+      <p><strong>Angular:</strong> Un framework completo y robusto mantenido por Google.</p>
+      <p>Ofrece una estructura MVC (Model-View-Controller) y una gran cantidad de características integradas.</p>
+      <p><strong>Vue.js:</strong> Un framework progresivo y versátil, conocido por su facilidad de aprendizaje.</p>
+      <p>Puede ser adoptado incrementalmente en proyectos existentes.</p>
+    </section>
+
+    <section class="main-section" id="Buenas_Prácticas">
+      <header>Buenas Prácticas</header>
+      <p>Adoptar buenas prácticas de desarrollo web es crucial para crear aplicaciones robustas, mantenibles y
+        escalables.</p>
+      <p>Esto incluye la legibilidad del código, el rendimiento y la seguridad.</p>
+      <code>// Comentarios claros y concisos</code>
+      <code>const MAX_ITEMS = 10;</code>
+      <p><strong>Organización del código:</strong> Mantener una estructura de archivos lógica y modular.</p>
+      <p>Utilizar convenciones de nomenclatura consistentes.</p>
+      <ul>
+        <li>Separación de preocupaciones (HTML para estructura, CSS para estilo, JS para interactividad)</li>
+        <li>Uso de control de versiones (Git)</li>
+        <li>Pruebas unitarias y de integración</li>
+      </ul>
+      <p><strong>Optimización del rendimiento:</strong> Minimizar y comprimir archivos (HTML, CSS, JS).</p>
+      <p>Optimizar imágenes y usar el lazy loading.</p>
+      <p><strong>Accesibilidad (A11y):</strong> Diseñar sitios web que sean utilizables por todas las personas,
+        incluyendo aquellas con discapacidades.</p>
+      <p>Utilizar etiquetas semánticas, texto alternativo para imágenes y contraste de colores adecuado.</p>
+      <p><strong>Seguridad:</strong> Proteger contra vulnerabilidades comunes como inyección SQL y XSS.</p>
+      <p>Validar la entrada del usuario y usar HTTPS.</p>
+    </section>
+  </main>
+</body>
+
+</html>

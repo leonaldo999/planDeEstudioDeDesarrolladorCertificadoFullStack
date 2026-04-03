@@ -1,0 +1,365 @@
+/* @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1a1209;
+  --paper: #f5f0e8;
+  --aged: #e8dfc8;
+  --rule: #2a1f0a;
+  --accent: #8b1a1a;
+  --muted: #5c4a2a;
+  --column-rule: 1px solid #b8a882;
+}
+
+body {
+  background: #d4c9a8;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Crimson Text', Georgia, serif;
+} */
+
+/* ── GRID LAYOUT ── */
+
+/* .newspaper-layout {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto repeat(3, 1fr);
+  display: grid;
+  gap: 1.25rem;
+  grid-template-areas:
+    "title title title"
+    "feature-article feature-article cover-image"
+    "secondary-article secondary-article cover-image"
+    "small-article1 small-article2 small-article3";
+
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 3px double var(--rule);
+  padding: 2rem;
+  box-shadow:
+    4px 4px 0 #b8a882,
+    8px 8px 0 #a09070,
+    12px 12px 24px rgba(0, 0, 0, 0.35);
+} */
+
+/* ── GRID AREAS ── */
+
+/* .title {
+  grid-area: title;
+}
+
+.feature-article {
+  grid-area: feature-article;
+}
+
+.secondary-article {
+  grid-area: secondary-article;
+}
+
+.cover-image {
+  grid-area: cover-image;
+}
+
+.small-article1 {
+  grid-area: small-article1;
+}
+
+.small-article2 {
+  grid-area: small-article2;
+}
+
+.small-article3 {
+  grid-area: small-article3;
+} */
+
+/* ── MASTHEAD ── */
+
+/* .title {
+  text-align: center;
+  border-bottom: 4px double var(--rule);
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.title::before,
+.title::after {
+  content: '✦ ✦ ✦';
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.5em;
+  margin-bottom: 0.25rem;
+}
+
+.title::after {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.4rem;
+  content: 'Est. MDCCCXLVII  ·  Vol. CLXXIX  ·  Monday, March 23, 2026  ·  Price: 50¢';
+  font-family: 'Crimson Text', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.title h1 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+} */
+
+/* ── FEATURE ARTICLE ── */
+
+/* .feature-article {
+  padding-right: 1.25rem;
+  border-right: var(--column-rule);
+}
+
+.feature-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.feature-article p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+  text-align: justify;
+  hyphens: auto;
+  columns: 2;
+  column-gap: 1.25rem;
+  column-rule: var(--column-rule);
+} */
+
+/* ── SECONDARY ARTICLE ── */
+
+/* .secondary-article {
+  padding-right: 1.25rem;
+  border-right: var(--column-rule);
+  border-top: 2px solid var(--rule);
+  padding-top: 0.85rem;
+}
+
+.secondary-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.secondary-article p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  text-align: justify;
+  hyphens: auto;
+} */
+
+/* ── COVER IMAGE ── */
+
+/* .cover-image {
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  position: relative;
+  background: var(--aged);
+}
+
+.cover-image::after {
+  content: 'PHOTOGRAPH OF THE DAY';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 18, 9, 0.82);
+  color: var(--paper);
+  font-family: 'Crimson Text', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-align: center;
+  padding: 0.35rem;
+}
+
+.cover-image img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(30%) contrast(1.05);
+} */
+
+/* ── SMALL ARTICLES ── */
+
+/* .small-article1,
+.small-article2,
+.small-article3 {
+  border-top: 3px double var(--rule);
+  padding-top: 0.75rem;
+}
+
+.small-article1 {
+  border-right: var(--column-rule);
+  padding-right: 1rem;
+}
+
+.small-article2 {
+  padding: 0.75rem 1rem 0;
+  border-right: var(--column-rule);
+}
+
+.small-article3 {
+  padding-top: 0.75rem;
+}
+
+.small-article1 h3,
+.small-article2 h3,
+.small-article3 h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.small-article1 p,
+.small-article2 p,
+.small-article3 p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #2e2010;
+  text-align: justify;
+  hyphens: auto;
+} */
+
+/* ── RESPONSIVE ── */
+
+/* @media (max-width: 700px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .newspaper-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "title"
+      "feature-article"
+      "cover-image"
+      "secondary-article"
+      "small-article1"
+      "small-article2"
+      "small-article3";
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .feature-article,
+  .secondary-article,
+  .small-article1,
+  .small-article2 {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .feature-article p {
+    columns: 1;
+  }
+
+  .cover-image {
+    height: 260px;
+  }
+} */
+
+
+/* opcion 2 q si paso el test */
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.newspaper-layout {
+  display: grid;
+
+  /* 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* filas: primera auto, resto iguales */
+  grid-template-rows: auto 1fr 1fr 1fr;
+
+  /* áreas del grid */
+  grid-template-areas:
+    "title title title"
+    "feature-article feature-article cover-image"
+    "secondary-article secondary-article cover-image"
+    "small-article1 small-article2 small-article3";
+
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Asignación de áreas */
+.title {
+  grid-area: title;
+}
+
+.feature-article {
+  grid-area: feature-article;
+}
+
+.secondary-article {
+  grid-area: secondary-article;
+}
+
+.cover-image {
+  grid-area: cover-image;
+}
+
+.small-article1 {
+  grid-area: small-article1;
+}
+
+.small-article2 {
+  grid-area: small-article2;
+}
+
+.small-article3 {
+  grid-area: small-article3;
+}
+
+/* Imagen responsive */
+.cover-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* (Opcional pero recomendado para mejor look) */
+article, header, figure {
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+}

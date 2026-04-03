@@ -1,0 +1,72 @@
+/* ── Story 1: Center everything with 100vh flex body ── */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #0a0a1a;
+}
+
+/* ── Story 5 & 6: .space — 200×200px, relative ── */
+.space {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+/* ── Stories 7 & 8: .earth — 100×100px, absolute, centered in parent ── */
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  /* Story 10: shift back by half its own size using transform */
+  transform: translate(-50%, -50%);
+  /* Story 14: background color + circle */
+  background-color: #2e86de;
+  border-radius: 50%;
+}
+
+/* ── Stories 9 & 10: .orbit — 200×200px, absolute, transform -50% ── */
+.orbit {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  /* Story 10: bottom-right corner at center of .space, then shift -50% */
+  top: 50%;
+  left: 50%;
+  transform: rotate(0deg) translate(-50%, -50%);
+  /* Story 11: circular orbit path */
+  /* border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.2); */
+  /* Story 16: apply orbit animation */
+  animation: orbit 5s linear infinite;
+}
+
+/* ── Stories 12 & 13: .moon — 30×30px, absolute, top of orbit, centered ── */
+.moon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  /* Story 12: top of orbit, centered horizontally */
+  top: 0;
+  left: 50%;
+  /* Story 13: shift left by half its own width using transform */
+  transform: translateX(-50%);
+  /* Story 15: background color + circle */
+  background-color: #c0c0c0;
+  border-radius: 50%;
+}
+
+/* ── Story 16: @keyframes orbit — 360deg rotation ── */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}

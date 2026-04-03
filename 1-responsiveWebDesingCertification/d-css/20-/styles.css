@@ -1,0 +1,781 @@
+/* ==========================================================================
+  1. CONFIGURACIÓN Y VARIABLES
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(20px);
+
+  --text-primary: #ffffff;
+  --text-secondary: #d6ecff;
+
+  --bg-primary: #0f0f23;
+
+  --accent-blue: #00ccff;
+
+  --border-radius: 14px;
+  --border-radius-small: 8px;
+
+  --transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --ide-bg: #0d0d1a;
+  --ide-tab-active: rgba(51, 169, 220, 0.15);
+
+  /* Editor */
+  --sp-bg-dark: #0d1b2a;
+  --sp-bg-editor: #0d1b2a;
+  --sp-border: #1b3a57;
+  --sp-text: #d6ecff;
+  --sp-text-muted: #41a7eb;
+  --sp-accent: #33a9dc;
+
+  --sp-font-code: "JetBrains Mono", monospace;
+
+  /* Accesibilidad */
+  --focus-ring: #66d9ff;
+}
+
+/* ==========================================================================
+  2. RESET Y BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Fondo animado — mismo patrón, tonos verdes */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(21, 114, 182, 0.25), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(51, 169, 220, 0.18), transparent 50%);
+  z-index: -1;
+  will-change: transform;
+  animation: bgFloat 20s ease-in-out infinite;
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+mark {
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(51, 169, 220, 0.12);
+  color: var(--accent-blue);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid rgba(51, 169, 220, 0.3);
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+strong {
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(180deg, transparent 60%, rgba(5, 135, 168, 0.4) 40%);
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+  3. LAYOUT (HEADER Y NAV)
+   ========================================================================== */
+.header {
+  margin: 1rem;
+  padding: 2.5rem 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea accent superior — diferenciador sutil del proyecto A */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+}
+
+.header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+/* Badge "REPASO" — diferenciador visual principal */
+.header-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #33a9dc;
+  background: rgba(51, 169, 220, 0.12);
+  border: 1px solid rgba(51, 169, 220, 0.3);
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(0, 229, 176, 0.45));
+  margin-bottom: 1rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 1rem;
+  z-index: 1000;
+  margin: 1rem;
+  padding: 0.8rem;
+  background: rgba(51, 169, 220, 0.12);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav ul li a {
+  display: block;
+  padding: 0.6rem 1.1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius-small);
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.nav ul li a:hover {
+  background: var(--accent-gradient);
+  color: #0a0f1a;
+  font-weight: 600;
+}
+
+.nav ul li a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1100;
+  transition: var(--transition);
+}
+
+.hamburger-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.hamburger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+  4. COMPONENTES (IDE INTERACTIVO)
+   ========================================================================== */
+.ide-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  height: 480px;
+  margin: 2rem auto;
+  background: var(--ide-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.ide-editor {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.2);
+  border-right: 1px solid var(--glass-border);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  height: 45px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.tabs {
+  display: flex;
+  height: 100%;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0 15px;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  opacity: 0.8;
+  color: var(--accent-blue);
+}
+
+.tab.active {
+  opacity: 1;
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue);
+  background: var(--ide-tab-active);
+}
+
+.tab:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--focus-ring);
+}
+
+.editor-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.code-content {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.code-content.active {
+  display: flex;
+}
+
+.line-numbers {
+  padding: 1.5rem 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: #2a4d46;
+  text-align: right;
+  min-width: 35px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  user-select: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.line-numbers span {
+  display: block;
+}
+
+.ide-editor pre {
+  margin: 0;
+  padding: 1.5rem;
+  flex: 1;
+  background: transparent;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--sp-text);
+}
+
+/* Tokens del IDE — scoped */
+.ide-editor .tk-tag {
+  color: #73d4b8;
+}
+
+.ide-editor .tk-attr {
+  color: #d4a96a;
+}
+
+.ide-editor .tk-string {
+  color: #7ec98a;
+}
+
+.ide-editor .tk-selector {
+  color: #5fcfb0;
+}
+
+.ide-editor .tk-property {
+  color: #4db8a0;
+}
+
+.ide-editor .tk-value {
+  color: #d4a96a;
+}
+
+.ide-editor .tk-punctuation {
+  color: #6a9e94;
+}
+
+.ide-editor .tk-comment {
+  color: #363a5e;
+}
+
+.ide-preview {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.ide-preview-body {
+  flex: 1;
+  padding: 20px;
+  color: #1a1a1a;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+/* Botón copiar mini */
+.copy-btn-mini {
+  background: rgba(51, 169, 220, 0.15);
+  border: 1px solid rgba(51, 169, 220, 0.3);
+  border-radius: 4px;
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  transition: var(--transition);
+}
+
+.copy-btn-mini:hover {
+  background: rgba(51, 169, 220, 0.25);
+  border-color: var(--accent-blue);
+}
+
+.copy-btn-mini:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ==========================================================================
+  5. BLOQUES DE CÓDIGO SIMPLES (.code-container)
+   ========================================================================== */
+.code-container {
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  background-color: var(--sp-bg-dark);
+  border: 1px solid var(--sp-border);
+  border-radius: 10px;
+}
+
+pre.language-css,
+pre.language-html {
+  background-color: var(--sp-bg-editor);
+  color: var(--sp-text);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--sp-font-code);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+}
+
+/* Tokens scoped a .code-container */
+.code-container .token.function {
+  color: #4ec9b0;
+}
+
+.code-container .token.punctuation {
+  color: #ffff00;
+}
+
+.code-container .token.keyword {
+  color: #70c0ff;
+  /* azul claro */
+}
+
+.code-container .token.property {
+  color: #739dd4;
+}
+
+.code-container .token.value {
+  color: #d4a96a;
+}
+
+.code-container .language-html .token.tag {
+  color: #73d4b8;
+}
+
+.code-container .language-html .token.attr-name {
+  color: #7ec98a;
+}
+
+.code-container .language-html .token.attr-value {
+  color: #d4a96a;
+}
+
+.code-container .language-html .token.punctuation {
+  color: #ff0;
+}
+.code-container .language-html .token.coment {
+  color: #e3e3ea;
+}
+
+pre[role="region"] {
+  outline: none;
+}
+
+pre[role="region"]:focus {
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* .codeEjm — bloques de código simples */
+.codeEjm {
+  position: relative;
+  margin: 1.5rem 0;
+  background: var(--sp-bg-dark);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+}
+
+.code-label {
+  padding: 8px 15px;
+  background: rgba(51, 169, 220, 0.05);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sp-text-muted);
+  border-bottom: 1px solid var(--sp-border);
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  background: rgba(51, 169, 220, 0.15);
+  border: 1px solid rgba(51, 169, 220, 0.3);
+  border-radius: 4px;
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: rgba(51, 169, 220, 0.25);
+}
+
+/* ==========================================================================
+  6. SECCIONES Y LISTAS
+   ========================================================================== */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  animation: fadeInUp 0.6s ease-out;
+  scroll-margin-top: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea accent superior en secciones */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent-gradient);
+}
+
+section h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.list-wrapper {
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(51, 169, 220, 0.04);
+  border: 1px solid rgba(51, 169, 220, 0.1);
+  border-radius: var(--border-radius-small);
+}
+
+.lis {
+  padding: 0;
+  list-style: none;
+}
+
+.lis li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.lis li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+}
+
+.lis li ul.sub-list {
+  margin-top: 0.75rem;
+  margin-left: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.lis li ul.sub-list li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: rgba(216, 238, 233, 0.8);
+  padding-left: 1.25rem;
+}
+
+.lis li ul.sub-list li::before {
+  content: "▪";
+  color: rgba(0, 229, 176, 0.5);
+}
+
+/* ==========================================================================
+  7. FOOTER Y UTILIDADES
+   ========================================================================== */
+footer {
+  margin: 3rem 1rem 5rem;
+  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--sp-text-muted);
+  font-size: 1rem;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  opacity: 0;
+  transform: scale(0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-top:hover {
+  transform: scale(1.1);
+}
+
+.to-top:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ==========================================================================
+  8. ANIMACIONES
+   ========================================================================== */
+@keyframes bgFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-15px, 20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+  9. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 50px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 26, 23, 0.97);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav ul.active {
+    display: flex;
+  }
+
+  .nav ul li a {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .ide-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .ide-editor {
+    height: 350px;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .ide-preview {
+    height: 250px;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .header {
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .nav {
+    margin: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .copy-btn {
+    padding: 3px 7px;
+    font-size: 0.65rem;
+  }
+}

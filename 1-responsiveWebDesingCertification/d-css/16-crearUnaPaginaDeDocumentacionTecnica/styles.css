@@ -1,0 +1,182 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* Usamos flexbox para el layout principal */
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Barra de navegación */
+#navbar {
+  width: 300px;
+  min-width: 250px;
+  /* Asegura un ancho mínimo en pantallas grandes */
+  height: 100vh;
+  position: fixed;
+  /* Fija la barra de navegación */
+  top: 0;
+  left: 0;
+  background-color: #2c3e50;
+  /* Color oscuro para la barra */
+  color: #ecf0f1;
+  overflow-y: auto;
+  /* Permite desplazamiento si el contenido es largo */
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  /* Asegura que la barra de navegación esté por encima de otros elementos */
+}
+
+#navbar header {
+  font-size: 1.8em;
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #3498db;
+  /* Color de acento */
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  border-bottom: 1px solid #34495e;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #34495e;
+  color: #ffffff;
+  padding-left: 25px;
+  /* Pequeño efecto al pasar el mouse */
+}
+
+/* Contenido principal */
+#main-doc {
+  margin-left: 320px;
+  /* Deja espacio para la barra de navegación fija */
+  padding: 30px;
+  flex-grow: 1;
+  /* Permite que el contenido principal ocupe el espacio restante */
+}
+
+.main-section {
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.main-section header {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  /* Línea de acento debajo del encabezado de sección */
+  font-weight: 600;
+}
+
+.main-section p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+.main-section ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+.main-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+code {
+  display: block;
+  background-color: #eee;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 5px solid #3498db;
+  overflow-x: auto;
+  /* Permite desplazamiento horizontal para código largo */
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.95em;
+  color: #c0392b;
+  /* Color para el texto del código */
+  border-radius: 4px;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 850px) {
+  body {
+    flex-direction: column;
+    /* Apila los elementos en pantallas pequeñas */
+  }
+
+  #navbar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    /* La barra de navegación se convierte en parte del flujo del documento */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+  }
+
+  #navbar header {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .nav-link {
+    text-align: center;
+    border-bottom: none;
+    /* Elimina bordes para una mejor apariencia en móvil */
+    padding: 10px;
+  }
+
+  #main-doc {
+    margin-left: 0;
+    /* Elimina el margen izquierdo cuando la barra de navegación no está fija */
+    padding: 20px;
+  }
+
+  .main-section header {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  #navbar header {
+    font-size: 1.3em;
+  }
+
+  .nav-link {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .main-section header {
+    font-size: 1.6em;
+  }
+
+  .main-section p,
+  .main-section li {
+    font-size: 0.9em;
+  }
+
+  code {
+    font-size: 0.85em;
+    padding: 10px;
+  }
+}

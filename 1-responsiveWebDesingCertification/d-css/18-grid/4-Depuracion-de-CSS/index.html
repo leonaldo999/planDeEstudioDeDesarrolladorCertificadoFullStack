@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="En esta sección, se presentan algunos consejos y técnicas para depurar CSS de manera efectiva. La depuración de CSS puede ser un proceso desafiante, pero con las herramientas adecuadas y un enfoque sistemático, puedes identificar y solucionar problemas de estilo en tus proyectos web.">
+  <meta name="keywords" content="CSS, depuración, DevTools, validadores de CSS, emulación de dispositivos, herramientas de desarrollo, errores de CSS, optimización de CSS">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Depuración de CSS">
+  <meta property="og:description" content="En esta sección, se presentan algunos consejos y técnicas para depurar CSS de manera efectiva. La depuración de CSS puede ser un proceso desafiante, pero con las herramientas adecuadas y un enfoque sistemático, puedes identificar y solucionar problemas de estilo en tus proyectos web.">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Depuración de CSS</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/cssIcon.png" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Depuración de CSS</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, se presentan algunos consejos y técnicas para depurar CSS de manera efectiva. La depuración de
+        CSS puede ser un proceso desafiante, pero con las herramientas adecuadas y un enfoque sistemático, puedes
+        identificar y solucionar problemas de estilo en tus proyectos web.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo puedes utilizar la herramienta de inspección de <code>DevTools</code> y los validadores de
+        CSS para depurar tu CSS?</h2>
+
+      <p>
+        Las herramientas de desarrollo, las herramientas de inspección y los validadores de CSS son recursos esenciales
+        para depurar problemas de CSS y garantizar que tus hojas de estilo estén libres de errores y optimizadas.
+      </p>
+      <p>
+        Estas herramientas proporcionan información muy valiosa sobre cómo se aplica tu CSS y pueden ayudar a
+        identificar posibles problemas.
+      </p>
+      <p>
+        Comencemos con las herramientas de desarrollo del navegador, comúnmente conocidas como <strong>DevTools</strong>. La mayoría de
+        los navegadores modernos, incluidos <em>Chrome</em>, <em>Firefox</em> y <em>Safari</em>, vienen con <strong>DevTools</strong> integradas. Para acceder a
+        ellas, puedes hacer clic con el botón derecho del ratón en un elemento de tu página web y seleccionar
+        <em>"Inspect" </em> o utilizar atajos de teclado como <mark>F12</mark> o <mark>Cmd+Opción+I</mark> (en macOS).
+      </p>
+      <p>
+        <strong>DevTools</strong> te permite inspeccionar y modificar tu CSS en tiempo real. El panel <em>Styles</em> muestra todas las reglas
+        CSS aplicadas al elemento seleccionado, incluidos los estilos heredados.
+      </p>
+      <p>
+        Puedes activar y desactivar propiedades individuales, editar valores e incluso agregar nuevas reglas
+        directamente en el navegador. Esta retroalimentación inmediata es increíblemente útil para experimentar con
+        diferentes estilos sin modificar tu código fuente.
+      </p>
+      <p>
+        La herramienta de inspección, que forma parte de <strong>DevTools</strong>, te permite pasar el cursor sobre los elementos de tu
+        página y ver su modelo de caja, incluyendo márgenes, bordes, relleno y área de contenido. Esto es
+        particularmente útil para diagnosticar problemas de diseño o comprender por qué los elementos están posicionados
+        de cierta manera.
+      </p>
+      <p>
+        Los validadores de CSS son otra herramienta importante para la depuración. El validador de CSS del W3C es una
+        opción popular. Comprueba tu CSS con respecto a las especificaciones oficiales e informa de cualquier error o
+        advertencia. Para utilizarlo, puedes subir tu archivo CSS, introducir tu CSS directamente o proporcionar una URL
+        para validar.
+      </p>
+      <p>
+        Por ejemplo, supongamos que estás trabajando con el siguiente CSS:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-css" role="region" aria-label="CSS: sintaxis de gap">
+          <code class="language-css">
+            <span class="token function">.container</span> <span class="token keyword">{</span>
+              <span class="token property">width</span>: <span class="token value">100%</span>;
+              <span class="token property">height</span>: <span class="token value">200px</span>
+              <span class="token property">background-color</span>: <span class="token value">#F0F0F0</span>;
+            <span class="token keyword">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        El validador señalaría que falta un punto y coma después de la propiedad <em>"height"</em>. Este tipo de error puede
+        pasarse por alto fácilmente, pero puede causar problemas importantes en tu hoja de estilos.
+      </p>
+      <p>
+        A la hora de depurar diseños adaptativos, la función de emulación de dispositivos de <strong>DevTools</strong> resulta
+        invaluable. Te permite simular cómo se ve tu sitio en distintos tamaños de pantalla y dispositivos. Esto puede
+        ayudarte a identificar problemas con los puntos de ruptura o estilos que no se adaptan bien a los diferentes
+        tamaños de ventana gráfica.
+      </p>
+      <p>
+        Recuerda que una depuración eficaz de CSS suele implicar una combinación de estas herramientas. Puedes empezar
+        utilizando un validador para detectar cualquier error de sintaxis, luego usar <strong>DevTools</strong> para inspeccionar
+        elementos específicos y experimentar con cambios. La herramienta de emulación de dispositivos puede ayudarte a
+        garantizar que tus estilos funcionen en diferentes tamaños de pantalla.
+      </p>
+      <p>
+        Al dominar estas herramientas, puedes acelerar significativamente tu proceso de depuración de CSS y crear hojas
+        de estilo más robustas y libres de errores.
+      </p>
+      <p>
+        El uso regular de estas técnicas de depuración no solo te ayudará a resolver problemas inmediatos, sino que
+        también mejorará tu comprensión general de CSS y de cómo interactúa con tu HTML.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es una de las principales ventajas de utilizar las herramientas de desarrollo del navegador para depurar CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Corrige automáticamente todos los errores de CSS.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Permite inspeccionar y modificar el CSS en tiempo real.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Comprime los archivos CSS.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Genera nuevas reglas CSS automáticamente.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es una característica típica de los validadores de CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Comprobar que el CSS cumple con las especificaciones oficiales.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Informar de errores de sintaxis.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Ofrecer sugerencias para mejorar el rendimiento del CSS.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Identificar los puntos y comas que faltan.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo puede ayudar la función de emulación de dispositivos de DevTools en la depuración de CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Ajusta automáticamente tu CSS para todos los dispositivos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Muestra cómo se ve tu sitio en diferentes tamaños de pantalla y dispositivos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Crea archivos CSS independientes para cada dispositivo.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Optimiza las imágenes para dispositivos móviles.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
