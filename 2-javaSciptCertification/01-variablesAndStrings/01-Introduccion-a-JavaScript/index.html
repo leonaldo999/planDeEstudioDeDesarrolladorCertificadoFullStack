@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Introducción a JavaScript">
+  <meta name="keywords" content="JavaScript, programación, web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Introducción a JavaScript">
+  <meta property="og:description" content="Introducción a JavaScript">
+  <meta property="og:type" content="website">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Introducción a JavaScript</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        JavaScript es un lenguaje de programación que se utiliza principalmente para crear contenido interactivo en
+        sitios web. Fue creado por Brendan Eich en 1995 y se ha convertido en uno de los lenguajes de programación más
+        populares del mundo.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es JavaScript y cómo funciona con HTML y CSS?</h2>
+
+      <p>
+        JavaScript es un potente lenguaje de programación que aporta interactividad y comportamiento dinámico a los
+        sitios web.
+      </p>
+      <p>
+        Mientras que HTML y CSS son lenguajes de marcado que se utilizan para estructurar el contenido y aplicar estilos
+        a los elementos de una página, JavaScript va más allá al permitir funcionalidades más complejas, como gestionar
+        las entradas del usuario, animar elementos e incluso crear aplicaciones web completas.
+      </p>
+      <p>
+        Por ejemplo, cuando haces clic en un botón, envías un formulario o pasas el cursor por encima de un menú,
+        JavaScript determina cómo se comporta la página.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de cómo funcionan estos tres juntos:
+      </p>
+
+      <div class="ide-container" id="ide-js-integration">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="html">index.html</button>
+              <button class="tab" type="button" data-lang="css">style.css</button>
+              <button class="tab" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tk-tag">&lt;html&gt;</span>
+<span class="tk-tag">&lt;head&gt;</span>
+  <span class="tk-tag">&lt;link</span> <span class="tk-attr">rel</span>=<span class="tk-string">"stylesheet"</span> <span class="tk-attr">href</span>=<span class="tk-string">"style.css"</span><span class="tk-tag">&gt;</span>
+<span class="tk-tag">&lt;/head&gt;</span>
+<span class="tk-tag">&lt;body&gt;</span>
+
+  <span class="tk-tag">&lt;h1&gt;</span>Hello, World!<span class="tk-tag">&lt;/h1&gt;</span>
+  <span class="tk-tag">&lt;button</span> <span class="tk-attr">onclick</span>=<span class="tk-string">"alert('Button clicked!')"</span><span class="tk-tag">&gt;</span>Click me<span class="tk-tag">&lt;/button&gt;</span>
+
+  <span class="tk-tag">&lt;script</span> <span class="tk-attr">src</span>=<span class="tk-string">"script.js"</span><span class="tk-tag">&gt;&lt;/script&gt;</span>
+<span class="tk-tag">&lt;/body&gt;</span>
+<span class="tk-tag">&lt;/html&gt;</span></code></pre>
+            </div>
+
+            <div class="code-content" data-lang="css" style="display:none;">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-css"><span class="tk-selector">h1</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">color</span><span class="tk-punctuation">:</span> <span class="tk-value">#22c55e</span><span class="tk-punctuation">;</span> <span class="tk-comment">/* El "green" que pediste */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+
+            <div class="code-content" data-lang="js" style="display:none;">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Aquí iría la lógica externa</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"El script está listo."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 30px; font-family: 'Inter', sans-serif; text-align: center;">
+            <h1 style="color: #22c55e; margin-bottom: 20px; font-size: 28px;">Hello, World!</h1>
+            <button
+              style="background: var(--accent-gradient); border: none; padding: 12px 24px; border-radius: var(--border-radius-small); color: #1a1a1a; font-weight: bold; cursor: pointer; box-shadow: var(--shadow-glow);"
+              onclick="alert('Button clicked!')">
+              Click me
+            </button>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: black; line-height: 1.4;">
+              ✅ <strong>Dato clave:</strong> Aunque usamos el <code style="color: red;">onclick</code> directo en el
+              HTML para este ejemplo
+              básico, la buena práctica es mover esa lógica al archivo <code style="color: red;">script.js</code> para
+              mantener el código
+              limpio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, se utiliza HTML para definir el contenido: un encabezado (un elemento <mark>h1</mark>) y un
+        botón (el
+        elemento <mark>button</mark>).
+
+        Se utiliza CSS para aplicar estilos al encabezado, como, por ejemplo, poner el texto en verde. Se utiliza
+        JavaScript para mostrar un mensaje de alerta cuando se hace clic en el botón.
+
+        En resumen, HTML proporciona la estructura, CSS añade el estilo y JavaScript habilita el comportamiento, creando
+        así una experiencia web completa e interactiva.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué papel desempeña JavaScript en el desarrollo web en comparación con HTML y CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            JavaScript aporta estructura a la página web y garantiza que el código esté libre de errores.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            JavaScript proporciona los estilos de la página web y formatea automáticamente el código.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            JavaScript aporta funcionalidad interactiva y comportamiento dinámico a la página web.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            JavaScript solo se utiliza para crear animaciones avanzadas para aplicaciones web.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo suele interactuar JavaScript con el HTML y el CSS en una página web?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            JavaScript añade más estilos al archivo CSS y más elementos al archivo HTML.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            JavaScript crea una nueva versión del HTML para la página, de modo que el código HTML se ejecute más rápido.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            JavaScript interactúa con la página para cambiar el contenido y los estilos de forma dinámica.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            JavaScript solo funciona en el back-end y rara vez se utiliza en el front-end.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones es cierta en cuanto a la relación entre JavaScript, HTML y CSS?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            HTML y CSS son lenguajes de programación, mientras que JavaScript es un lenguaje de marcado.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            HTML y CSS son lenguajes de marcado, mientras que JavaScript es un lenguaje de programación.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            JavaScript puede sustituir a HTML y CSS.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            JavaScript no funciona con HTML y CSS.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué es un tipo de datos y cuáles son los diferentes tipos de datos en JavaScript?
+      </h2>
+
+      <p>
+        En JavaScript, un tipo de datos es el tipo de valor que se almacena, como un número o una cadena de texto.
+      </p>
+      <p>
+        Una variable es un contenedor con nombre que almacena un valor de un tipo de datos específico, lo que te permite
+        hacer referencia a él y manipularlo en todo el código.
+      </p>
+      <p>
+        Quizás recuerdes haber trabajado con variables como estas en clase de matemáticas:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            x = 2
+            y = 4
+            
+            x + y
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Pudiste crear variables como <mark>x</mark> e <mark>y</mark> y luego hacer referencia a ellas a lo largo de tu
+        programa y realizar
+        operaciones matemáticas como la suma. Se trata de un concepto similar en programación. Puedes crear tus propios
+        nombres de variables y asignarles valores. Estos valores serán de diferentes tipos de datos.
+      </p>
+      <p>
+        Los tipos de datos ayudan al programa a comprender el tipo de datos con los que está trabajando, ya sea un
+        número, texto o cualquier otra cosa.
+      </p>
+      <p>
+        JavaScript tiene varios tipos de datos básicos que usarás en tus programas. Exploraremos cada tipo de datos con
+        mayor detalle en lecciones futuras. Por ahora, aquí tienes una breve introducción a los diferentes tipos de
+        datos en JavaScript.
+      </p>
+      <p>
+        El primer tipo de datos que veremos es el tipo <mark>Number</mark>.
+      </p>
+      <p>
+        Un <mark>Number</mark> representa tanto valores enteros como de punto flotante. Algunos ejemplos de números
+        enteros son <mark>7</mark>, <mark>19</mark>
+        y <mark>90</mark>.
+      </p>
+
+      <div class="nota">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink: 0; margin-top: 2px;">
+          <path
+            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5">
+          </path>
+          <line x1="9" y1="18" x2="15" y2="18"></line>
+          <line x1="10" y1="22" x2="14" y2="22"></line>
+        </svg>
+        <p class="p-nota">
+          <strong>NOTA:</strong> <mark>console.log()</mark> es una función que muestra información en la consola, que es
+          una parte de tu
+          navegador web
+          utilizada para depurar código. Aprenderás más sobre <mark>console.log()</mark> en lecciones futuras. Además,
+          los
+          símbolos <mark>//</mark>
+          se utilizan para añadir comentarios en tu código. Los comentarios son notas para ti mismo u otros
+          programadores
+          que se ignoran cuando se ejecuta el código.
+        </p>
+      </div>
+
+      <p>
+        Activa el editor interactivo e intenta cambiar algunos de los números enteros para ver cómo se actualiza en la
+        consola.
+      </p>
+
+      <div class="ide-container" id="ide-js-data-types">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Ejemplos de números enteros (Integers)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">-67</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Operación matemática básica</span>
+<span class="tk-property">const</span> <span class="tk-selector">x</span> = <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">y</span> = <span class="tk-number">4</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span> + <span class="tk-selector">y</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #333; padding-bottom: 5px;">
+                DEBUG CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #ff8a65;">> 3</div>
+                <div style="color: #ff8a65;">> 5</div>
+                <div style="color: #ff8a65;">> -67</div>
+                <div style="color: #9ccc65; margin-top: 5px; border-top: 1px solid #222; padding-top: 5px;">> Result (x
+                  + y): 6</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: var(--info-box-bg); border-top: 1px solid var(--info-box-border);">
+            <p
+              style="margin: 0; font-family: sans-serif; font-size: 12px; color: var(--info-box-text); line-height: 1.4;">
+              📝 <strong>Nota:</strong> Los números en JS no llevan comillas. Si escribes <code
+                style="color: red;">"3"</code>, el navegador
+              lo tratará como texto y no podrás hacer matemáticas con él.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Un número de coma flotante es un número que tiene un punto decimal. Algunos ejemplos de números de coma flotante
+        son <mark>3.14</mark> y <mark>5.2</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-floats">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Ejemplos de números de coma flotante</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">3.14</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">7.2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">-14.5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Combinando entero y decimal</span>
+<span class="tk-property">const</span> <span class="tk-selector">precio</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">impuesto</span> = <span class="tk-number">1.18</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">precio</span> * <span class="tk-selector">impuesto</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                JS CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #ff8a65;">> 3.14</div>
+                <div style="color: #ff8a65;">> 7.2</div>
+                <div style="color: #ff8a65;">> -14.5</div>
+                <div style="color: #9ccc65; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px;">> Total:
+                  11.8</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: var(--info-box-bg); border-top: 1px solid var(--info-box-border);">
+            <p
+              style="margin: 0; font-family: sans-serif; font-size: 12px; color: var(--info-box-text); line-height: 1.4;">
+              ⚠️ <strong>Atención:</strong> En programación usamos el <strong>punto (.)</strong> para los decimales, no
+              la coma (,). Si usas una coma, JavaScript pensará que estás separando elementos en una lista.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El siguiente tipo de datos es una <mark>cadena</mark>.
+      </p>
+      <p>
+        Una <mark>cadena</mark> es una secuencia de caracteres, o texto, entre comillas. A continuación se muestra un
+        ejemplo de
+        cadena con comillas dobles:
+      </p>
+
+      <div class="ide-container" id="ide-js-strings">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Ejemplo de String con comillas dobles</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"I love to code!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                JS CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> "I love to code!"</div>
+                <div style="color: #9ccc65;">> "Aprendiendo JavaScript"</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: black; line-height: 1.4;">
+              🚀 <strong>Pro Tip:</strong> Si quieres incluir comillas dentro de una String, puedes alternarlas:
+              <code style="color: red;">"Dijo: 'Hola'"</code> o usar la barra invertida para "escapar" el carácter:
+              <code style="color: red;">"Dijo: \"Hola\""</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí hay un ejemplo en el que se utilizan comillas simples:
+      </p>
+
+      <div class="ide-container" id="ide-js-single-quotes">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Ejemplo con comillas simples</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'I love to code!'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Muy útil si el texto contiene comillas dobles</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'Ella dijo: "¡Esto es genial!"'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DEBUGGER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> "I love to code!"</div>
+                <div style="color: #9ccc65;">> "Ella dijo: "¡Esto es genial!""</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: black; line-height: 1.4;">
+              💡 <strong>Dato:</strong> Si usas comillas simples por fuera, puedes poner comillas dobles por dentro sin
+              errores, y viceversa. ¡Es un truco muy útil!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A menudo utilizarás cadenas de caracteres para representar nombres, etiquetas, mensajes de alerta, etc.
+      </p>
+      <p>
+        Otro tipo de datos que se utiliza en JavaScript es el tipo <mark>booleano</mark>.
+      </p>
+      <p>
+        Un valor <mark>booleano</mark> representa uno de dos valores: <mark>true</mark> o <mark>false</mark>. Por
+        ejemplo, un programa podría comprobar si
+        un usuario ha iniciado sesión (<mark>true</mark>) o no (<mark>false</mark>) y cambiar la página en función de
+        ello. Si el usuario ha
+        iniciado sesión, probablemente querrás mostrarle la página del panel de control. De lo contrario, querrás
+        mostrarle la página de inicio de sesión.
+      </p>
+      <p>
+        Los siguientes dos tipos de datos utilizados en JavaScript son <mark>undefined</mark> y <mark>null</mark>.
+      </p>
+      <p>
+        <mark>undefined</mark> significa que se ha declarado una variable, pero aún no se le ha asignado un valor.
+        Aprenderás más
+        sobre esto en la próxima lección.
+      </p>
+      <p>
+        <mark>null</mark> significa que la variable se ha establecido intencionalmente en «nada» y no contiene ningún
+        valor.
+        Exploraremos más sobre cómo funciona esto en lecciones futuras.
+      </p>
+      <p>
+        Los últimos tres tipos de datos son de naturaleza más compleja. Estos son objetos, símbolos y
+        <mark>BigInt</mark>.
+      </p>
+      <p>
+        Un <mark>Object</mark> es una colección de pares clave-valor.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            {
+              <span class="token property">name</span>: <span class="token string">"Alice"</span>,
+              <span class="token property">age</span>: <span class="token number">30</span>
+            };
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Los objetos son ideales para agrupar información relacionada. En un módulo posterior aprenderás más sobre cómo
+        trabajar con objetos.
+      </p>
+      <p>
+        Un <mark>Symbol</mark> es un tipo especial de valor en JavaScript que siempre es único y no se puede modificar.
+        Se suele
+        utilizar para crear etiquetas o identificadores únicos para las propiedades:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token property">Symbol</span> <span class="token punctuation">(</span><span class="token value">'mySymbol'</span><span class="token punctuation">);</span> 
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>BigInt</mark> se utiliza para números muy grandes que superan el límite del tipo Number:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token property">1234567890123456789012345678901234567890n</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este ejemplo, creamos un <mark>BigInt</mark> añadiendo un <mark>n</mark> al final de un número muy grande.
+      </p>
+      <p>
+        <mark>Symbol</mark> y <mark>BigInt</mark> son dos tipos que se utilizan con menos frecuencia, pero que es
+        importante conocer.
+      </p>
+      <p>
+        Comprender estos tipos de datos te ayuda a manejar y trabajar con diversos tipos de datos en tus programas, ya
+        que cada tipo tiene sus propias características y comportamientos.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es un tipo de datos de cadena?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            "Hello"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            42
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            false
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            null
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué tipo de datos representa un valor que puede ser verdadero o falso?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Number
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            String
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Boolean
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Undefined
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si se ha declarado una variable pero no se le ha asignado un valor, ¿cuál es su tipo de datos?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            String
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Number
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Undefined
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Null
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Qué son las variables y cuáles son las pautas para nombrarlas en JavaScript?
+      </h2>
+
+      <p>
+        En JavaScript, las variables actúan como contenedores para almacenar datos a los que puedes acceder y modificar
+        a lo largo de tu programa.
+      </p>
+      <p>
+        Puedes pensar en las variables como cajas que contienen valores. Con las variables, puedes llevar un registro de
+        elementos como números o texto y hacer referencia a estos valores siempre que los necesites en tu programa.
+      </p>
+      <p>
+        Una forma de declarar una variable en JavaScript es usar la palabra clave <mark>let</mark>. Aprenderás más sobre
+        la palabra
+        clave <mark>let</mark>, así como otras formas de declarar variables, en lecciones futuras.
+      </p>
+      <p>
+        Aquí hay un ejemplo del uso de <mark>let</mark> para declarar una variable llamada <mark>age</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">let</span> <span class="token operator">age</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este momento, la variable «age» no tiene ningún valor asignado. Si intentas usarla, devolverá «undefined», lo
+        que significa que no tiene ningún valor.
+      </p>
+      <p>
+        Aquí tienes un ejemplo.
+      </p>
+
+      <div class="nota">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="flex-shrink: 0; margin-top: 2px;">
+          <path
+            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5">
+          </path>
+          <line x1="9" y1="18" x2="15" y2="18"></line>
+          <line x1="10" y1="22" x2="14" y2="22"></line>
+        </svg>
+        <p class="p-nota">
+          <strong>NOTA:</strong> <mark>console.log()</mark> es una función que muestra información en la consola, que es
+          una parte de tu navegador web utilizada para depurar código. Aprenderás más sobre <mark>console.log()</mark>
+          en lecciones futuras. Además, los símbolos // se utilizan para añadir comentarios en tu código. Los
+          comentarios son notas para ti mismo u otros programadores que se ignoran cuando se ejecuta el código.
+        </p>
+      </div>
+
+      <div class="ide-container" id="ide-js-variables-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Declaramos la variable pero no le damos valor</span>
+<span class="tk-property">let</span> <span class="tk-selector">age</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Al consultarla, JS nos dice que es undefined</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                CONSOLE OUTPUT</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: var(--sp-text-muted);">> undefined</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Importante:</strong> <code style="color: red;">undefined</code> no es un error, es simplemente
+              un estado que indica
+              que la variable ya existe en memoria pero aún no tiene un dato asignado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para asignar un valor a una variable, debes utilizar el operador de asignación de la siguiente manera:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">let</span> <span class="token operator">age</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Ahora, cuando utilices la variable <mark>age</mark>, te devolverá el valor <mark>25</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-initialization">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Declaración e Inicialización en una sola línea</span>
+<span class="tk-property">let</span> <span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Ahora la consola nos devuelve el valor real</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 25</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #ff8a65;">> 25</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato curioso:</strong> Puedes cambiar el valor de <code style="color: red;">age</code> más
+              adelante simplemente
+              escribiendo <code style="color: red;">age = 30;</code> sin necesidad de volver a usar la palabra <code
+                style="color: red;">let</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de asignación tiene el aspecto de un signo igual (<mark>=</mark>), pero no comprueba si hay
+        igualdad. En
+        lecciones futuras aprenderás cuáles son los operadores correctos para comprobar la igualdad.
+      </p>
+      <p>
+        El operador de asignación se utiliza para asignar un valor a una variable. Este proceso de asignar un valor a
+        una variable se conoce como inicialización.
+      </p>
+      <p>
+        Una ventaja de usar la palabra clave <mark>let</mark> para declarar variables es que puedes reasignarles
+        valores. En
+        programación, la reasignación significa darle un nuevo valor a una variable que ya tiene uno.
+      </p>
+      <p>
+        Aquí hay un ejemplo de reasignación del valor de la variable <mark>age</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-reassignment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Muestra 25</span>
+
+<span class="tk-comment">// Reasignamos SIN usar 'let' de nuevo</span>
+<span class="tk-selector">age</span> = <span class="tk-number">30</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Ahora muestra 30</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LIVE CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #ff8a65;">> 25</div>
+                <div style="color: #ffd600; font-weight: bold; margin-top: 5px;">> 30 (Valor actualizado)</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Caso de uso:</strong> Imagina una variable <code style="color: red;">puntos</code>. Cada vez
+              que el jugador atrapa
+              una moneda, reasignas: <code style="color: red;">puntos = puntos + 10;</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora la variable <mark>age</mark> tiene el valor <mark>30</mark>. Fíjate en que no ha sido necesario volver a
+        usar la palabra clave <mark>let</mark>,
+        ya que la variable <mark>age</mark> ya estaba declarada, por lo que no hay necesidad de declararla por segunda
+        vez.
+      </p>
+      <p>
+        Al utilizar la reasignación, solo necesitas hacer referencia al nombre de la variable. La reasignación es útil
+        porque te permite actualizar y cambiar el valor almacenado en una variable mientras se ejecuta el programa. Un
+        buen ejemplo de esto sería actualizar los puntos en un juego.
+      </p>
+      <p>
+        Nombrar variables puede parecer sencillo, pero existen algunas reglas y mejores prácticas para garantizar que tu
+        código sea legible y funcional.
+      </p>
+      <p>
+        Los nombres de tus variables deben describir lo que representan los datos. Por ejemplo, en lugar de usar un
+        nombre como <mark>x</mark>, un nombre más descriptivo, como <mark>age</mark> o <mark>points</mark>, hace que tu
+        código sea más fácil de entender.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token comment">// Bad variable names</span>
+            <span class="token keyword">let</span> <span class="token operator">x</span> = <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">let</span> <span class="token operator">y</span> = <span class="token string">"John"</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// Good variable names</span>
+            <span class="token keyword">let</span> <span class="token operator">age</span> = <span class="token number">10</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Las variables en JavaScript deben comenzar con una letra, un guión bajo (<mark>_</mark>) o un signo de dólar
+        (<mark>$</mark>). No pueden comenzar con un número.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token comment">// Valid variable names</span>
+            <span class="token keyword">let</span> <span class="token operator">age</span><span class="token punctuation">;</span>
+            <span class="token keyword">let</span> <span class="token operator">_score</span><span class="token punctuation">;</span>
+            <span class="token keyword">let</span> <span class="token operator">$total</span><span class="token punctuation">;</span>
+            
+            <span class="token comment">// Invalid variable names</span>
+            <span class="token keyword">let</span> <span class="token operator">1stPlace</span><span class="token punctuation">;</span> <span class="token comment">// starts with a number</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Los nombres de las variables distinguen entre mayúsculas y minúsculas, lo que significa que la palabra
+        <mark>age</mark>
+        escrita íntegramente en minúsculas y la palabra <mark>Age</mark> con la <mark>A</mark> mayúscula se consideran
+        variables diferentes.
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-rules">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Case Sensitivity: Son dos cajas distintas</span>
+<span class="tk-property">let</span> <span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">Age</span> = <span class="tk-number">30</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Imprime 25</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Imprime 30</span>
+
+<span class="tk-comment">// Nombres válidos: _score, $total, user1</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VAR CHECKER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> age: 25</div>
+                <div style="color: #9ccc65;">> Age: 30</div>
+                <div style="color: #ef5350; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px;">✖ Error:
+                  1stPlace is invalid</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Mejor Práctica:</strong> En JS usamos <strong>camelCase</strong>. Si el nombre tiene dos
+              palabras, la primera va en minúscula y la segunda empieza en MAYÚSCULA (ej:
+              <code style="color: red;">miNombreDeUsuario</code>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por eso es importante seguir una convención de nomenclatura coherente, como camelCase. En camelCase, la primera
+        palabra se escribe íntegramente en minúsculas y cada palabra posterior comienza con una letra mayúscula.
+      </p>
+      <p>
+        A continuación, se muestra un ejemplo del uso de la convención de nomenclatura camelCase para una variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-conventions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Convención camelCase (Recomendado)</span>
+<span class="tk-property">let</span> <span class="tk-selector">userName</span> = <span class="tk-string">"John"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">userAge</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">isStudentActive</span> = <span class="tk-number">true</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Esto daría ERROR (Palabra reservada)</span>
+<span class="tk-comment">// let let = "Error"; </span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">userName</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                NAMING LINTER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">✔ userName (OK)</div>
+                <div style="color: #9ccc65;">✔ isStudentActive (OK)</div>
+                <div style="color: #ef5350; margin-top: 5px;">✖ Error: 'let' is a reserved word</div>
+                <div style="color: #ef5350;">✖ Error: 'user!' contains special chars</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Recuerda:</strong> Un buen nombre de variable debe responder a la pregunta: <em>"¿Qué hay
+                dentro de esta caja?"</em> sin tener que leer el resto del código.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Hay ciertas palabras clave en JavaScript que no se pueden usar como nombres de variables, como <mark>let</mark>,
+        <mark>const</mark>,
+        <mark>function</mark> o <mark>return</mark>, ya que están reservadas para el propio lenguaje.
+      </p>
+      <p>
+        También debes evitar usar caracteres especiales como signos de exclamación (<mark>!</mark>) o símbolos de arroba
+        (<mark>@</mark>) en los
+        nombres de tus variables. Lo mejor es que los nombres de las variables sean legibles utilizando letras, números,
+        guiones bajos o signos de dólar.
+      </p>
+      <p>
+        Si sigues estas pautas, tu código será más limpio y manejable a medida que aumente su complejidad.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué palabra clave usarías para declarar una variable en JavaScript cuando tienes pensado actualizar su
+            valor más adelante?
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            set
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            let
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            declarate
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            variable
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es un nombre de variable válido en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            1stPlace
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            total-score!
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            player1Score
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            const
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué es importante usar nombres descriptivos para tus variables?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Es un requisito de JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Los nombres descriptivos hacen que tu código sea más fácil de entender y mantener.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Los nombres descriptivos hacen que el código se ejecute más rápido.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Los nombres descriptivos te permiten evitar el uso de let.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+      <h2 id="tema4-titulo">Tema 4: ¿En qué se diferencian let y const en cuanto a la declaración, asignación y
+        reasignación de variables?
+      </h2>
+
+      <p>
+        Al trabajar con JavaScript, a menudo declararás variables para almacenar datos que planeas utilizar a lo largo
+        de tu programa.
+      </p>
+      <p>
+        En JavaScript moderno, <mark>let</mark> y <mark>const</mark> son las formas preferidas de declarar variables,
+        pero difieren en cómo
+        manejan la asignación y reasignación de valores.
+      </p>
+      <p>
+        En esta lección, exploraremos en qué se diferencian <mark>let</mark> y <mark>const</mark> en la declaración,
+        asignación y reasignación de
+        variables.
+      </p>
+      <p>
+        La palabra clave <mark>let</mark> te permite declarar variables que se pueden actualizar o reasignar más
+        adelante. Puedes
+        pensar en <mark>let</mark> como un contenedor flexible: una vez que has almacenado un valor en él, puedes
+        cambiar ese valor
+        según sea necesario a lo largo de tu programa.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de cómo declarar y asignar una variable con <mark>let</mark>:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token keyword">let</span> <span class="token operator">score</span> <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este caso, se declara la variable <mark>score</mark> y se le asigna el valor <mark>10</mark>. Si quieres
+        actualizar el valor más
+        adelante, puedes hacerlo fácilmente:
+      </p>
+
+      <div class="ide-container" id="ide-js-let-flexibility">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Declaración inicial</span>
+<span class="tk-property">let</span> <span class="tk-selector">score</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10</span>
+
+<span class="tk-comment">// El usuario gana puntos: Reasignación</span>
+<span class="tk-selector">score</span> = <span class="tk-number">20</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 20</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                GAME LOG</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Initial Score: 10</div>
+                <div style="color: #f7df1e; font-weight: bold; margin-top: 5px;">> New Score: 20 ✅</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🏃 <strong>Escenario real:</strong> Si estás programando un carrito de compras, usarías
+              <code style="color: red;">let total</code> porque el precio cambiará cada vez que el cliente agregue un
+              producto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora, <mark>score</mark> tiene el valor <mark>20</mark>. Esto hace que <mark>let</mark> sea especialmente útil
+        cuando sabes que el valor de una
+        variable cambiará a medida que se ejecute el programa.
+      </p>
+      <p>
+        Por otro lado, <mark>const</mark> se utiliza para declarar variables que son constantes. Una vez que asignas un
+        valor a una
+        variable declarada con <mark>const</mark>, no puedes volver a asignarle otro.
+      </p>
+      <p>
+        Esto hace que <mark>const</mark> sea ideal para valores que no quieres cambiar accidentalmente durante la
+        ejecución de tu
+        programa.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de cómo declarar y asignar una variable con <mark>const</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-const-stability">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Declaración de una constante</span>
+<span class="tk-property">const</span> <span class="tk-selector">maxScore</span> = <span class="tk-number">100</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">maxScore</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 100</span>
+
+<span class="tk-comment">// Si intentas reasignar: maxScore = 150;</span>
+<span class="tk-comment">// El navegador lanzará un "TypeError"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                READ-ONLY LOG</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> maxScore: 100</div>
+                <div style="color: #ef5350; margin-top: 10px; border-top: 1px solid #333; padding-top: 5px;">
+                  ⚠️ System: Attempting to reassign const...
+                </div>
+                <div style="color: #ef5350; font-weight: bold;">
+                  TypeError: Assignment to constant variable.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔒 <strong>Dato clave:</strong> A diferencia de <code style="color: red;">let</code>, una variable <code
+                style="color: red;">const</code>
+              <strong>debe</strong> ser inicializada (darle valor) en el mismo momento en que la declaras.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Una vez que se le asigna el valor <mark>100</mark> a <mark>maxScore</mark>, no se puede modificar:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token operator">maxScore</span> <span class="token operator">=</span> <span class="token number">200</span> <span class="token punctuation">;</span> <span class="token comment">// TypeError: Assignment to constant variable.</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Si intentas reasignar un valor a una variable <mark>const</mark>, aparecerá un error en la consola de
+        JavaScript, ya que las
+        variables <mark>const</mark> son inmutables una vez que se les ha asignado un valor.
+      </p>
+      <p>
+        Puedes declarar una variable <mark>let</mark> sin asignarle un valor de inmediato, y asignarle un valor más
+        adelante:
+      </p>
+
+      <div class="ide-container" id="ide-js-let-deferred">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">age</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined (Caja vacía)</span>
+
+<span class="tk-comment">// Asignamos el valor más tarde</span>
+<span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 25 (Caja con contenido)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FLOW CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: var(--text-secondary); opacity: 0.6;">> Step 1: undefined</div>
+                <div style="color: #9ccc65; margin-top: 5px;">> Step 2: 25 ✅</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚫 <strong>Contraste:</strong> Si intentas hacer <code style="color: red;">const points;</code> (sin el =
+              valor), recibirás un
+              <strong>SyntaxError</strong> de inmediato: <em>'Missing initializer in const declaration'</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Las variables declaradas con <mark>const</mark> deben recibir un valor en el momento de la declaración. Si
+        intentas declarar una variable <mark>const</mark> sin asignarle un valor, aparecerá un error:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token keyword">const</span> <span class="token operator">age</span><span class="token punctuation">;</span> <span class="token comment">// Error: Missing initializer in const declaration.</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Debes usar <mark>let</mark> cuando necesites declarar variables que se volverán a asignar más adelante. Por
+        ejemplo, para
+        llevar un registro de una puntuación que cambia o actualizar un valor a lo largo del tiempo en tu programa.
+      </p>
+      <p>
+        Usa <mark>const</mark> cuando quieras declarar variables que deben permanecer constantes, como valores de
+        configuración o
+        ajustes que no deben modificarse accidentalmente.
+      </p>
+      <p>
+        También puedes usar la palabra clave <mark>var</mark>, pero ya no es tan recomendable. <mark>var</mark> es
+        similar a <mark>let</mark>, excepto que
+        tiene un alcance más amplio, lo que es más probable que cause problemas en tu programa.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si intentas reasignar un valor a una variable declarada con ,<mark>const</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            El valor cambiará sin problemas.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            El valor original se actualizará, pero se mostrará una advertencia.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            Se generará un error porque las variables const no se pueden reasignar.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            El nuevo valor se ignorará y el valor original permanecerá igual.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la forma correcta de asignar el número <mark>100</mark> a una constante
+            llamada <mark>maxScore</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            const maxScore === 100;
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            const maxScore = 100;
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            const maxScore <= 100; </label>
+              <label>
+                <input type="radio" name="q11">
+                const maxScore == 100;
+              </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Se puede declarar una variable <mark>const</mark> sin asignarle un valor?
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            Sí, pero hay que asignarle un valor más adelante.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            No, las variables const deben inicializarse en el momento de la declaración.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Sí, pero solo se puede asignar un número como valor inicial.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            No, las variables const deben declararse y reasignarse en la misma línea.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

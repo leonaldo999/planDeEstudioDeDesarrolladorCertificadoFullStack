@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Introducción a Strings en JavaScript">
+  <meta name="keywords" content="JavaScript, strings, cadenas de texto">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Introducción a Strings en JavaScript">
+  <meta property="og:description"
+    content="Aprende sobre los strings en JavaScript, cómo se crean, manipulan y utilizan en tus programas.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a Strings</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Introducción a Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás sobre los strings (cadenas de texto) en JavaScript, cómo se crean, manipulan y
+        utilizan en tus programas. Los strings son una parte fundamental de la programación, ya que nos permiten
+        trabajar con texto y mostrar información al usuario.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es una String en JavaScript y qué es la inmutabilidad de los Strings?</h2>
+
+      <p>
+        En JavaScript, un String es una secuencia de caracteres que se utiliza para representar datos de texto. Los
+        Strings son uno de los tipos de datos primitivos del lenguaje, junto con los <mark>números</mark>, los
+        <mark>booleanos</mark>, <mark>null</mark> y
+        <mark>undefined</mark>.
+      </p>
+      <p>
+        Para crear una String en JavaScript, puedes usar comillas simples (<mark>'</mark>) o comillas dobles
+        (<mark>"</mark>).
+      </p>
+      <p>
+        A continuación, te mostramos un ejemplo de cómo crear dos variables que contienen valores de String:
+      </p>
+
+      <div class="ide-container" id="ide-js-string-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Correcto: Comillas simples</span>
+<span class="tk-property">let</span> <span class="tk-selector">singleQuotes</span> = <span class="tk-string">'This is a string'</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">singleQuotes</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Correcto: Comillas dobles</span>
+<span class="tk-property">let</span> <span class="tk-selector">doubleQuotes</span> = <span class="tk-string">"This is also a string"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">doubleQuotes</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> "This is a string"</div>
+                <div style="color: #9ccc65;">> "This is also a string"</div>
+                <div style="color: #ef5350; margin-top: 10px; border-top: 1px solid #333; padding-top: 5px;">
+                  ✖ SyntaxError: Invalid or unexpected token
+                </div>
+                <div style="color: #ef5350; font-size: 11px;">
+                  (Ocurre si mezclas " con ')
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Regla de Oro:</strong> Elige un estilo y mantente fiel a él. En el mundo de JS, las comillas
+              simples son muy populares, pero las dobles son el estándar en archivos JSON.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque puedes utilizar comillas simples o dobles para crear Strings, es importante ser coherente. Si un string
+        comienza con una comilla simple, también debe terminar con una comilla simple.
+      </p>
+      <p>
+        Lo mismo se aplica a las comillas dobles. El siguiente ejemplo generará un error porque comienza con una comilla
+        doble y termina con una comilla simple:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token keyword">const</span> improperStr <span class="token punctuation">=</span> <span class="token string">"Do not do this'</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Otra cosa que hay que tener en cuenta es que los Strings son inmutables. En programación, la inmutabilidad
+        significa que, una vez que se crea algo, no se puede modificar. Por lo tanto, cuando creas una cadena, no puedes
+        cambiar sus caracteres directamente. En su lugar, si quieres realizar cambios, debes crear una nueva cadena.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo asignar una nueva cadena a una variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-string-immutability">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">developer</span> = <span class="tk-string">"Jessica"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developer</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Jessica"</span>
+
+<span class="tk-comment">// No modificamos "Jessica", creamos una NUEVA cadena</span>
+<span class="tk-selector">developer</span> = <span class="tk-string">"Quincy"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developer</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Quincy"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MEMORY LOG</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Initial value: "Jessica"</div>
+                <div style="color: #ff8a65; margin-top: 5px;">> Notice: Original string was replaced.</div>
+                <div style="color: #9ccc65; font-weight: bold;">> Current value: "Quincy"</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato avanzado:</strong> Intentar hacer <code style="color: red;">developer[0] = "K"</code> no
+              dará error, pero
+              simplemente <strong>no hará nada</strong>. La cadena seguirá igual porque es inmutable.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que los string son inmutables, no podemos actualizar la primera cadena directamente. Por eso estamos
+        asignando una nueva cadena a la variable <mark>developer</mark>.
+      </p>
+      <p>
+        Los string son una parte importante de la programación y, en futuras lecciones, aprenderás técnicas avanzadas
+        para manipularlas y aprovechar todo su potencial con el fin de crear aplicaciones dinámicas e interactivas.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la sintaxis correcta para crear strings en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            const str = &lt;this is a string&gt;</this>
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            const str = [this is a string]
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            const str = "this is a string"
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            const str = //this is a string//
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué ocurre si un string empieza con una comilla simple y termina con una comilla doble?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Se crea un string válida.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Se producirá un error de sintaxis.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Se crea un string que contiene ambas comillas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El intérprete de JavaScript la ignorará.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué se considera que las strings son inmutables en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            No se pueden crear strings utilizando variables.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Una vez creada una string, no se pueden modificar sus caracteres directamente.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Las strings solo se pueden crear mediante literales.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Se pueden modificar las strings, pero solo a través de variables globales.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué es la concatenación de strings y cómo se pueden concatenar strings con
+        variables?
+      </h2>
+
+      <p>
+        En JavaScript, trabajar con texto es una parte esencial de la programación y, a menudo, necesitarás combinar o
+        unir fragmentos de texto. Este proceso se denomina concatenación de strings.
+      </p>
+      <p>
+        En esta lección, nos centraremos en cómo funciona la concatenación de strings, concretamente utilizando el
+        operador <mark>+</mark>, el operador <mark>+=</mark> y el método <mark>concat()</mark>.
+      </p>
+      <p>
+        El operador <mark>+</mark> es uno de los métodos más sencillos y más utilizados para concatenar strings. Te
+        permite unir
+        varias strings o combinar strings con variables que contienen texto.
+      </p>
+      <p>
+        He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-concatenation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">firstName</span> = <span class="tk-string">"John"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">lastName</span> = <span class="tk-string">"Doe"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Unimos todo: Variable + Espacio + Variable</span>
+<span class="tk-property">let</span> <span class="tk-selector">fullName</span> = <span class="tk-selector">firstName</span> + <span class="tk-string">" "</span> + <span class="tk-selector">lastName</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fullName</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "John Doe"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING BUILDER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Input 1: "John"</div>
+                <div style="color: #9ccc65;">> Input 2: "Doe"</div>
+                <div
+                  style="color: #f7df1e; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; font-weight: bold;">
+                  > Output: "John Doe"
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato curioso:</strong> Si intentas sumar un número y una string, ej: <code
+                style="color: red;">"Edad: " + 25</code>,
+              JavaScript convertirá el número a texto automáticamente y el resultado será <code
+                style="color: red;">"Edad: 25"</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, hemos utilizado el operador <mark>+</mark> para concatenar las variables <mark>firstName</mark>
+        y <mark>lastName</mark> junto con un
+        espacio (<mark>" "</mark>) y formar así el nombre completo.
+      </p>
+      <p>
+        Una desventaja de utilizar el operador <mark>+</mark> para la concatenación de strings es que puede provocar
+        problemas de
+        espaciado si no se controla cuidadosamente el espacio entre las strings concatenadas.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo en el que falta un espacio:
+      </p>
+
+      <div class="ide-container" id="ide-js-spacing-issue">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">firstName</span> = <span class="tk-string">"John"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">lastName</span> = <span class="tk-string">"Doe"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// ERROR COMÚN: Falta el espacio intermedio</span>
+<span class="tk-property">let</span> <span class="tk-selector">fullName</span> = <span class="tk-selector">firstName</span> + <span class="tk-selector">lastName</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fullName</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "JohnDoe"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DEBUGGER OUTPUT</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> firstName: "John"</div>
+                <div style="color: #9ccc65;">> lastName: "Doe"</div>
+                <div
+                  style="color: #ef5350; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; font-weight: bold;">
+                  > Result: "JohnDoe" ❌
+                </div>
+                <div style="color: #ff8a65; font-size: 11px;">(Falta el carácter de espacio)</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔍 <strong>Consejo:</strong> Para arreglarlo, podrías hacer <code
+                style="color: red;">firstName + " " + lastName</code> o
+              añadir el espacio directamente al final de la primera variable: <code style="color: red;">"John "</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Siempre que utilices el operador <mark>+</mark> para concatenar strings, es importante que compruebes
+        minuciosamente si hay
+        algún problema relacionado con los espacios.
+      </p>
+      <p>
+        Si necesitas añadir o concatenar texto a una string ya existente, puedes utilizar el operador <mark>+=</mark>.
+        Esto resulta
+        útil cuando quieres ampliar una string añadiéndole más texto a lo largo del tiempo.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo de cómo concatenar una string a otra utilizando el operador
+        <mark>+=</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-plus-equal">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">greeting</span> = <span class="tk-string">'Hello'</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">greeting</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello"</span>
+
+<span class="tk-comment">// Usamos el atajo += para añadir más texto</span>
+<span class="tk-selector">greeting</span> += <span class="tk-string">', John!'</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">greeting</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, John!"</span>
+
+<span class="tk-comment">// ¡Podemos seguir añadiendo!</span>
+<span class="tk-selector">greeting</span> += <span class="tk-string">" How are you?"</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STEP CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Initial: "Hello"</div>
+                <div style="color: #9ccc65; margin-top: 5px;">> After += : "Hello, John!"</div>
+                <div style="color: #f7df1e; margin-top: 5px; font-weight: bold;">> Final: "Hello, John! How are you?"
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🏗️ <strong>Estructura:</strong> Recuerda que <code style="color: red;">a += b</code> es exactamente lo
+              mismo que
+              <code style="color: red;">a = a + b</code>. Es simplemente una forma más limpia de escribirlo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es importante recordar que las strings son inmutables, lo que significa que, una vez creada una string, no se
+        puede modificar.
+      </p>
+      <p>
+        En este caso, la string original <mark>Hello</mark> no se modifica. En su lugar, greeting ahora hace referencia
+        a la nueva
+        string <mark>Hello, John!</mark>.
+      </p>
+      <p>
+        Otra forma de concatenar strings es utilizando el método <mark>concat()</mark>.
+      </p>
+      <p>
+        Antes de empezar a aprender sobre el método <mark>concat()</mark>, es importante comprender primero qué son un
+        método y una
+        función a un nivel más general.
+      </p>
+      <p>
+        En programación, una función es un bloque de código reutilizable que realiza una tarea específica y puede
+        invocarse con diversas entradas. Un método, por otro lado, es un tipo de función asociada a un objeto, lo que
+        significa que opera sobre los datos contenidos en ese objeto.
+      </p>
+      <p>
+        En futuras lecciones, profundizaremos mucho más en cómo funcionan las funciones, los objetos y los métodos en
+        JavaScript. Pero, por ahora, es importante comprender que JavaScript tiene docenas de métodos que puedes
+        utilizar, como el método <mark>concat()</mark>.
+      </p>
+      <p>
+        Aquí tienes un ejemplo del uso del método <mark>concat()</mark> para unir dos strings:
+      </p>
+
+      <div class="ide-container" id="ide-js-concat-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">str1</span> = <span class="tk-string">'Hello'</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">str2</span> = <span class="tk-string">'World'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// El método puede recibir muchos pedazos a la vez</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">str1</span><span class="tk-punctuation">.</span><span class="tk-value">concat</span><span class="tk-punctuation">(</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-selector">str2</span><span class="tk-punctuation">,</span> <span class="tk-string">'!'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello World!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                METHOD CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> str1: "Hello"</div>
+                <div style="color: #9ccc65;">> str2: "World"</div>
+                <div
+                  style="color: #f7df1e; margin-top: 5px; border-top: 1px solid #333; padding-top: 5px; font-weight: bold;">
+                  > .concat() result: "Hello World!"
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚙️ <strong>Nota Técnica:</strong> Al igual que con el operador +, <code
+                style="color: red;">.concat()</code> no modifica la
+              string original (inmutabilidad), sino que devuelve una nueva.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos el método <mark>concat()</mark> para unir <mark>str1</mark>, un espacio (<mark>'
+          '</mark>) y <mark>str2</mark> en una sola string.
+      </p>
+      <p>
+        En resumen, el operador <mark>+</mark> es el más adecuado para concatenaciones sencillas, especialmente cuando
+        necesitas
+        combinar unas pocas strings o variables.
+      </p>
+      <p>
+        El operador <mark>+=</mark> resulta útil cuando se construye una string paso a paso o se añade nuevo contenido a
+        una variable
+        de string ya existente.
+      </p>
+      <p>
+        Por último, el método <mark>concat()</mark> resulta útil cuando necesitas concatenar varias strings.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el uso principal del operador <mark>+</mark> en la concatenación de strings?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Para comparar dos strings.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Para unir dos o más strings.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Para comprobar si dos strings son iguales.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Para eliminar caracteres de una string.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la forma correcta de concatenar strings?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <pre>
+              <code>
+                let greeting = "Hi";
+                greeting -= " there!";
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <pre>
+              <code>
+                let greeting = "Hi";
+                greeting =+ " there!";
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            <pre>
+              <code>
+                let greeting = "Hi";
+                greeting += " there!";
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <pre>
+              <code>
+                let greeting = "Hi";
+                greeting == " there!";
+              </code>
+            </pre>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es el método correcto para concatenar varias strings?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            concatenate()
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            concat()
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            concatenating()
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            concats()
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Para qué sirve <mark>console.log</mark> y cómo funciona?
+      </h2>
+
+      <p>
+        En las lecciones anteriores ya te presentamos <mark>console.log()</mark>, pero en esta lección profundizaremos
+        en su
+        finalidad y su uso.
+      </p>
+      <p>
+        En JavaScript, <mark>console.log()</mark> es una herramienta sencilla pero potente que se utiliza para mostrar
+        mensajes o
+        enviar información a la consola del navegador. Los desarrolladores la utilizan principalmente para depurar e
+        inspeccionar el código mientras trabajan en sus programas.
+      </p>
+      <p>
+        Puedes utilizar <mark>console.log()</mark> para registrar texto o variables en la consola y asegurarte de que tu
+        código se
+        ejecuta correctamente.
+      </p>
+      <p>
+        Para utilizar <mark>console.log()</mark>, debes llamar al método con el valor o mensaje que deseas mostrar entre
+        paréntesis.
+        A continuación te mostramos algunos ejemplos:
+      </p>
+
+      <div class="ide-container" id="ide-js-console-log">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Imprimir un mensaje directo</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, world!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Imprimir el valor de una variable</span>
+<span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+
+<span class="tk-comment">// ¡Puedes imprimir varias cosas a la vez!</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"El número es:"</span><span class="tk-punctuation">,</span> <span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BROWSER CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> "Hello, world!"</div>
+                <div style="color: #ff8a65;">> 5</div>
+                <div style="color: #f7df1e; margin-top: 5px; font-weight: bold;">> "El número es:" 5</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛠️ <strong>Pro Tip:</strong> Puedes pasar múltiples valores a <code
+                style="color: red;">console.log</code> separándolos por
+              comas. Esto te ayuda a etiquetar tus datos para no confundirte cuando veas muchos números en la consola.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El primer ejemplo muestra <mark>¡Hola, mundo!</mark> en la consola del navegador, mientras que el segundo
+        ejemplo muestra el
+        valor <mark>5</mark>.
+      </p>
+      <p>
+        Aquí tienes otro ejemplo de cómo utilizar <mark>console.log()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-log-concatenation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">name</span> = <span class="tk-string">"Alice"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Concatenamos texto estático con la variable</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> + <span class="tk-selector">name</span> + <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-comment">// Resultado esperado: "Hello, Alice!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LIVE CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> "Hello, Alice!"</div>
+                <div style="color: var(--text-secondary); margin-top: 5px; font-size: 11px;">
+                  (String + Variable + String)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Fíjate:</strong> El espacio después de la coma en <code style="color: red;">"Hello, "</code> es
+              fundamental. Si lo quitas, la consola mostraría <code style="color: red;">"Hello,Alice!"</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También puedes pasar varios valores a <mark>console.log()</mark> separados por comas. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-console-multi">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">name</span> = <span class="tk-string">"Alice"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Pasamos 4 valores separados por comas</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Name:"</span><span class="tk-punctuation">,</span> <span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-string">"Age:"</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-comment">// Salida: Name: Alice Age: 25</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MULTIVALUE CONSOLE</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; gap: 8px;">
+                  <span style="color: #888;">"Name:"</span>
+                  <span style="color: #9ccc65;">"Alice"</span>
+                  <span style="color: #888;">"Age:"</span>
+                  <span style="color: #ff8a65;">25</span>
+                </div>
+                <div style="color: var(--text-secondary); margin-top: 10px; font-size: 11px; font-style: italic;">
+                  (JS añadió los espacios automáticamente entre argumentos)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato extra:</strong> No hay límite para cuántos valores puedes poner en un solo
+              <code style="color: red;">console.log()</code>. ¡Úsalo para crear reportes detallados de lo que hace tu
+              código!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto resulta útil para registrar varios datos a la vez.
+      </p>
+      <p>
+        El método <mark>console.log()</mark> te ayuda a supervisar tu código mientras se ejecuta, lo que facilita la
+        detección de
+        errores y la comprensión del comportamiento de tu programa.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el método console.log() en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            Revisa tu código en busca de errores y muestra los resultados en la consola del navegador.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            Se utiliza para registrar datos y mostrar el resultado en la consola del navegador.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Almacena valores tanto en una base de datos como en la consola del navegador.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Modifica el contenido HTML de la página y muestra los cambios en la consola del navegador.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué se registrará en la consola?
+            <pre>
+              <code>
+                const age = 10;
+                console.log(age);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            10
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "10"
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            age
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "age"
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué es útil <mark>console.log()</mark> al desarrollar aplicaciones web?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Se utiliza habitualmente para comprobar el rendimiento de una aplicación y ver los resultados en la consola.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Los desarrolladores suelen utilizarlo para depurar e inspeccionar valores o expresiones en su código durante
+            el desarrollo.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Se utiliza habitualmente para detectar errores de linting en el código y mostrarlos en la consola.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Se utiliza habitualmente para garantizar que el código JavaScript se ajusta a las mejores prácticas.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

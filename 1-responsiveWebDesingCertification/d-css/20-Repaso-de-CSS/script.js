@@ -1,73 +1,151 @@
 /**
- * script.js — optimizado para DOM mínimo
- *
- * Estrategias aplicadas:
- * 1. IntersectionObserver: los IDEs insertan su contenido
- *    solo cuando entran en el viewport (lazy render).
- * 2. Tabs inactivos: se inyectan al hacer clic, no al cargar.
- * 3. Spans de nav: emoji via CSS ::before — sin nodos extra.
- * 4. Un solo scroll listener passive + rAF.
+ * script.js — Repaso CSS con sidebar
+ * Incluye: sidebar drawer, búsqueda de temas,
+ * scroll spy, tabs IDE, copiar código, lazy render,
+ * scroll unificado passive + rAF.
  */
 
 // =====================
-//  UTILIDADES INTERNAS
+//  1. SIDEBAR
 // =====================
+
+const sidebar = document.getElementById('main-sidebar');
+const overlay = document.getElementById('sidebar-overlay');
+const toggleBtn = document.getElementById('sidebar-toggle-btn');
+const sidebarFooter = document.getElementById('sidebar-footer');
+const searchInput = document.getElementById('nav-search');
+const navLinks = document.querySelectorAll('[data-nav]');
 
 /**
- * Genera spans de números de línea a partir del texto de un <code>.
- * // @param {HTMLElement} codeEl
- * // @param {HTMLElement} lineNumEl
+ * Abre o cierra el sidebar (usado en mobile/tablet).
+ * @param {boolean} open
  */
-function generateLineNumbers(codeEl, lineNumEl) {
-  if (!codeEl || !lineNumEl) return;
-  const text = codeEl.textContent.trim();
-  if (!text) return;
-  const lines = text.split('\n');
-  lineNumEl.innerHTML = lines.map((_, i) => `<span>${i + 1}</span>`).join('');
+function setSidebar(open) {
+  if (!sidebar || !overlay || !toggleBtn) return;
+
+  sidebar.classList.toggle('open', open);
+  overlay.classList.toggle('visible', open);
+  toggleBtn.classList.toggle('open', open);
+  toggleBtn.setAttribute('aria-expanded', String(open));
+  toggleBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  document.body.style.overflow = open ? 'hidden' : '';
+  overlay.setAttribute('aria-hidden', String(!open));
 }
 
-/**
- * Elimina la indentación mínima común de un bloque de código.
- * Opera sobre innerHTML para preservar el highlighting de spans.
- * // @param {HTMLElement} codeEl
- */
-function trimCodeIndentation(codeEl) {
-  let html = codeEl.innerHTML;
-  if (html.startsWith('\n')) html = html.substring(1);
-
-  const lines = html.split('\n');
-  let min = Infinity;
-  lines.forEach(l => {
-    if (l.trim()) min = Math.min(min, l.search(/\S|$/));
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = sidebar.classList.contains('open');
+    setSidebar(!isOpen);
   });
-
-  if (min > 0 && min !== Infinity) {
-    const pad = ' '.repeat(min);
-    html = lines.map(l => l.startsWith(pad) ? l.slice(min) : l).join('\n');
-  }
-  codeEl.innerHTML = html;
 }
+
+if (overlay) {
+  overlay.addEventListener('click', () => setSidebar(false));
+}
+
+// Cerrar sidebar al hacer clic en un link (mobile)
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) setSidebar(false);
+  });
+});
+
+// Cerrar con Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
+    setSidebar(false);
+    toggleBtn?.focus();
+  }
+});
+
+// =====================
+//  2. BÚSQUEDA EN EL SIDEBAR
+// =====================
+
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    navLinks.forEach(link => {
+      const text = link.textContent.toLowerCase();
+      const match = !q || text.includes(q);
+      link.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    // Mostrar/ocultar group-labels vacíos
+    document.querySelectorAll('.nav-group').forEach(group => {
+      const hasVisible = [...group.querySelectorAll('[data-nav]')]
+        .some(a => a.style.display !== 'none');
+      group.style.display = hasVisible ? '' : 'none';
+    });
+
+    if (sidebarFooter) {
+      sidebarFooter.textContent = q
+        ? `${visible} resultado${visible !== 1 ? 's' : ''}`
+        : '65 temas';
+    }
+  });
+}
+
+// =====================
+//  3. SCROLL SPY — resalta el link activo
+// =====================
+
+const sections = document.querySelectorAll('section[id]');
+
+// Throttling para mejor performance
+let scrollThrottle = false;
+function updateActiveLink() {
+  if (scrollThrottle) return;
+  scrollThrottle = true;
+  setTimeout(() => {
+    const scrollY = window.scrollY;
+    const offset = window.innerWidth <= 768
+      ? parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) + 20
+      : 80;
+
+    let current = '';
+    sections.forEach(section => {
+      if (section.offsetTop - offset <= scrollY) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      link.classList.toggle('active', href === current);
+    });
+
+    // Auto-scroll del sidebar para mostrar el link activo
+    const activeLink = sidebar?.querySelector('[data-nav].active');
+    if (activeLink && sidebar) {
+      const nav = sidebar.querySelector('.sidebar-nav');
+      if (nav) {
+        const linkTop = activeLink.offsetTop;
+        const navTop = nav.scrollTop;
+        const navH = nav.clientHeight;
+        if (linkTop < navTop || linkTop > navTop + navH - 60) {
+          nav.scrollTo({ top: linkTop - navH / 2, behavior: 'smooth' });
+        }
+      }
+    }
+    scrollThrottle = false;
+  }, 100);
+}
+
+// =====================
+//  4. TABS DEL IDE
+// =====================
 
 /**
- * Inicializa el editor activo de un contenedor IDE.
- * // @param {HTMLElement} container — .ide-container
+ * Cambia el tab activo. Lee data-lang del botón.
+ * @param {HTMLElement} btn
  */
-function initializeEditor(container) {
-  const active = container.querySelector('.code-content.active');
-  if (!active) return;
-  const code = active.querySelector('code');
-  const nums = active.querySelector('.line-numbers');
-  if (!code) return;
-  trimCodeIndentation(code);
-  if (nums) generateLineNumbers(code, nums);
-}
-
-// =====================
-//  1. TABS DEL IDE
-// =====================
-
 function switchTab(btn) {
   const container = btn.closest('.ide-container');
+  if (!container) return;
 
   container.querySelectorAll('.code-content').forEach(b => {
     b.style.display = 'none';
@@ -81,7 +159,6 @@ function switchTab(btn) {
     target.style.display = 'flex';
     target.classList.add('active');
 
-    // Lazy init: solo se inicializa la primera vez que se activa
     if (!target.dataset.initialized) {
       target.dataset.initialized = 'true';
       const code = target.querySelector('code');
@@ -94,34 +171,40 @@ function switchTab(btn) {
 }
 
 // =====================
-//  2. COPIAR CÓDIGO — IDE
+//  5. COPIAR CÓDIGO — IDE
 // =====================
 
 function copiarCodigoIDE(btn) {
   const editor = btn.closest('.ide-editor');
   const active = editor?.querySelector('.code-content.active code');
-  if (!active) {
-    console.error('No se encontró un bloque de código activo.');
-    return;
-  }
+  if (!active) return;
 
   navigator.clipboard.writeText(active.innerText.trim()).then(() => {
     const span = btn.querySelector('.btn-text');
     if (!span) return;
     const orig = span.innerText;
     span.innerText = '¡Copiado!';
-    btn.style.borderColor = 'var(--accent-blue, #00ccff)';
-    btn.style.color = 'var(--accent-blue, #00ccff)';
+    btn.style.borderColor = 'var(--accent-blue)';
+    btn.style.color = 'var(--accent-blue)';
     setTimeout(() => {
       span.innerText = orig;
       btn.style.borderColor = '';
       btn.style.color = '';
     }, 2000);
-  }).catch(err => console.error('Error al copiar:', err));
+  }).catch(err => {
+    console.error('Error al copiar:', err);
+    // Fallback: usar document.execCommand si clipboard falla
+    const textArea = document.createElement('textarea');
+    textArea.value = active.innerText.trim();
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  });
 }
 
 // =====================
-//  3. COPIAR CÓDIGO — .codeEjm
+//  6. COPIAR CÓDIGO — .codeEjm
 // =====================
 
 async function handleCopyClick(e) {
@@ -130,56 +213,82 @@ async function handleCopyClick(e) {
   if (!container) return;
   const codeEl = container.querySelector('code');
   if (!codeEl) return;
-
   try {
     await navigator.clipboard.writeText(codeEl.innerText.trim());
     const orig = btn.textContent;
     btn.textContent = '¡Copiado!';
-    btn.style.background = 'rgba(0, 204, 255, 0.25)';
-    setTimeout(() => {
-      btn.textContent = orig;
-      btn.style.background = '';
-    }, 2000);
-  } catch (err) {
-    console.error('Error al copiar:', err);
-  }
+    btn.style.background = 'rgba(0,204,255,0.25)';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  } catch (err) { console.error(err); }
 }
 
 // =====================
-//  4. LAZY RENDER DE IDES
-//  IntersectionObserver: el <pre><code> se inicializa
-//  solo cuando el IDE entra en el viewport.
-//  Reduce el trabajo de estilo inicial en ~65%.
+//  7. NÚMEROS DE LÍNEA
+// =====================
+
+function generateLineNumbers(codeEl, lineNumEl) {
+  if (!codeEl || !lineNumEl) return;
+  const text = codeEl.textContent.trim();
+  if (!text) return;
+  const lines = text.split('\n');
+  let count = lines.length;
+  if (text.endsWith('\n') && count > 1) count--;
+  lineNumEl.innerHTML = Array.from({ length: count }, (_, i) => `<span>${i + 1}</span>`).join('');
+}
+
+// =====================
+//  8. LIMPIEZA DE INDENTACIÓN
+// =====================
+
+function trimCodeIndentation(codeEl) {
+  let html = codeEl.innerHTML;
+  if (html.startsWith('\n')) html = html.substring(1);
+  const lines = html.split('\n');
+  let min = Infinity;
+  lines.forEach(l => { if (l.trim()) min = Math.min(min, l.search(/\S|$/)); });
+  if (min > 0 && min !== Infinity) {
+    const pad = ' '.repeat(min);
+    html = lines.map(l => l.startsWith(pad) ? l.slice(min) : l).join('\n');
+  }
+  codeEl.innerHTML = html;
+}
+
+// =====================
+//  9. INICIALIZAR EDITOR
+// =====================
+
+function initializeEditor(container) {
+  const active = container.querySelector('.code-content.active');
+  if (!active) return;
+  const code = active.querySelector('code');
+  const nums = active.querySelector('.line-numbers');
+  if (!code) return;
+  trimCodeIndentation(code);
+  if (nums) generateLineNumbers(code, nums);
+}
+
+// =====================
+//  10. LAZY RENDER DE IDES
 // =====================
 
 function setupLazyIDEs() {
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
       const container = entry.target;
-      // Evitar re-inicialización
       if (container.dataset.ideReady) return;
       container.dataset.ideReady = 'true';
-
-      // Inicializar solo el tab activo al entrar en viewport
       initializeEditor(container);
-
-      // Dejar de observar — ya inicializado
       observer.unobserve(container);
     });
-  }, {
-    // Empieza a cargar cuando el IDE está a 200px del viewport
-    rootMargin: '200px 0px',
-    threshold: 0
-  });
+  }, { rootMargin: '200px 0px', threshold: 0 });
 
   document.querySelectorAll('.ide-container').forEach(c => observer.observe(c));
 }
 
 // =====================
-//  5. SCROLL UNIFICADO
-//  Un solo listener passive + rAF
+//  11. SCROLL UNIFICADO
+//  passive + rAF
 // =====================
 
 let toTopBtn = null;
@@ -188,12 +297,6 @@ let scrollScheduled = false;
 function onScroll() {
   const y = window.scrollY;
 
-  // Parallax sutil en el header (solo desktop)
-  if (window.innerWidth > 768) {
-    const header = document.querySelector('.header');
-    if (header) header.style.transform = `translateY(${y * 0.08}px)`;
-  }
-
   // Botón to-top
   if (toTopBtn) {
     const show = y > 300;
@@ -201,6 +304,9 @@ function onScroll() {
     toTopBtn.style.transform = show ? 'scale(1)' : 'scale(0.8)';
     toTopBtn.style.pointerEvents = show ? 'auto' : 'none';
   }
+
+  // Scroll spy
+  updateActiveLink();
 }
 
 window.addEventListener('scroll', () => {
@@ -214,52 +320,34 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // =====================
-//  6. DOMCONTENTLOADED
+//  12. DOMCONTENTLOADED
 // =====================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Garantizar type="button" en botones sin tipo
+  // type="button" en todos los botones sin tipo
   document.querySelectorAll('button:not([type])').forEach(btn => {
     btn.setAttribute('type', 'button');
   });
 
-  // Tabs: delegación de eventos en .tabs
-  document.querySelectorAll('.ide-container').forEach(container => {
-    container.querySelector('.tabs')?.addEventListener('click', e => {
-      const btn = e.target.closest('.tab');
-      if (btn) switchTab(btn);
-    });
-
-    const copyBtn = container.querySelector('.copy-btn-mini');
-    copyBtn?.addEventListener('click', () => copiarCodigoIDE(copyBtn));
+  // Delegación de eventos para tabs IDE y copiar
+  document.addEventListener('click', e => {
+    const tabBtn = e.target.closest('.tab');
+    if (tabBtn) {
+      switchTab(tabBtn);
+      return;
+    }
+    const copyBtnIDE = e.target.closest('.copy-btn-mini');
+    if (copyBtnIDE) {
+      copiarCodigoIDE(copyBtnIDE);
+      return;
+    }
+    const copyBtnEjm = e.target.closest('.copy-btn');
+    if (copyBtnEjm) {
+      handleCopyClick(e);
+      return;
+    }
   });
-
-  // Copiar en bloques simples
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', handleCopyClick);
-  });
-
-  // Hamburguesa + delegación en nav
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('#nav-menu, #nav-list');
-
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      navMenu.classList.toggle('active');
-      hamburger.setAttribute('aria-expanded', String(!expanded));
-      hamburger.style.transform = !expanded ? 'rotate(180deg)' : 'rotate(0deg)';
-    });
-
-    navMenu.addEventListener('click', e => {
-      if (e.target.closest('a')) {
-        navMenu.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.style.transform = 'rotate(0deg)';
-      }
-    });
-  }
 
   // Botón to-top
   toTopBtn = document.querySelector('.to-top');
@@ -267,11 +355,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Estado inicial del to-top (por si el usuario carga con scroll ya bajado)
+  // Estado inicial
   if (toTopBtn) onScroll();
 
-  // Lazy render de IDEs — el más impactante para el DOM
+  // Lazy IDEs
   setupLazyIDEs();
 
-});
+  // Scroll spy inicial
+  updateActiveLink();
 
+});
