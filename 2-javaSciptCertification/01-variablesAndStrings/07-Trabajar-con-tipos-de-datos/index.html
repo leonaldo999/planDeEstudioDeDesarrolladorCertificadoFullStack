@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a trabajar con diferentes tipos de datos en JavaScript, como cadenas de texto (strings), números, booleanos, objetos y arrays. También aprenderás a realizar operaciones básicas con estos tipos de datos y cómo manipularlos para crear programas más complejos.">
+  <meta name="keywords"
+    content="JavaScript, tipos de datos, cadenas de texto, strings, números, booleanos, objetos, arrays, operaciones básicas, manipulación de datos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con tipos de datos">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a trabajar con diferentes tipos de datos en JavaScript, como cadenas de texto (strings), números, booleanos, objetos y arrays. También aprenderás a realizar operaciones básicas con estos tipos de datos y cómo manipularlos para crear programas más complejos.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con tipos de datos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con tipos de datos</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con diferentes tipos de datos en JavaScript, como cadenas de texto
+        (strings), números, booleanos, objetos y arrays. También aprenderás a realizar operaciones básicas con estos
+        tipos de datos y cómo manipularlos para crear programas más complejos.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es el tipado dinámico en JavaScript y en qué se diferencia de los lenguajes de
+        tipado estático?</h2>
+
+      <p>
+        JavaScript es un lenguaje de tipado dinámico, lo que significa que no es necesario especificar el tipo de datos
+        de una variable al declararla. En su lugar, el tipo se determina en función del valor que se le asigna a la
+        variable mientras el programa se está ejecutando. Esto permite cambiar el tipo de una variable a lo largo del
+        programa.
+      </p>
+      <p>
+        Veamos un ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token keyword">let</span> <span class="token operator">example</span> <span class="token punctuation">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token operator">example</span> <span class="token punctuation">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una variable llamada <mark>example</mark> con el tipo de datos <mark>string</mark>. Sin
+        embargo, luego le
+        asignamos un valor <mark>number</mark>.
+      </p>
+      <p>
+        La flexibilidad del tipado dinámico hace que JavaScript sea más tolerante y fácil de manejar para la creación
+        rápida de scripts, pero también puede generar errores que pueden ser más difíciles de detectar, especialmente a
+        medida que el programa se vuelve más grande.
+      </p>
+      <p>
+        En lenguajes de tipado estático como C# o C++, debes declarar el tipo de datos de una variable al crearla, y ese
+        tipo no puede cambiar.
+      </p>
+      <p>
+        Por ejemplo, si declaras una variable como <mark>entero</mark>, solo puedes asignarle valores enteros. Si
+        intentas asignarle
+        un tipo diferente, el programa generará un error.
+      </p>
+      <p>
+        Aquí hay un ejemplo en lenguaje C#:
+      </p>
+
+      <div class="ide-container" id="ide-js-typing-comparison">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">ejemplo.cs</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">int</span> <span class="tk-selector">data</span> = <span class="tk-number">42</span><span class="tk-punctuation">;</span> <span class="tk-comment">// data must always be an integer</span>
+<span class="tk-selector">data</span> = <span class="tk-string">"Hello"</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This would cause an error in C#</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COMPILER LOG (STATIC)</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">Line 1: variable 'data' is int. OK.</div>
+                <div style="color: #ef5350; font-weight: bold; margin-top: 5px;">
+                  ✖ Error at Line 2:
+                </div>
+                <div style="color: #ef5350;">
+                  Cannot implicitly convert type 'string' to 'int'.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚖️ <strong>Balance:</strong> En JavaScript, esto NO daría error, pero si luego intentas hacer una
+              operación matemática con "Hello", ¡ahí es donde empiezan los problemas!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La diferencia entre el tipado dinámico y el tipado estático radica en la flexibilidad frente a la seguridad del
+        código. Los lenguajes de tipado dinámico ofrecen flexibilidad, pero a costa de posibles errores en tiempo de
+        ejecución.
+      </p>
+      <p>
+        Los lenguajes de tipado estático imponen reglas más estrictas que pueden evitar ciertos errores, pero requieren
+        más declaraciones previas y ofrecen menos flexibilidad a la hora de cambiar los tipos.
+      </p>
+      <p>
+        A continuación se muestra otro ejemplo de cómo crear una variable con un tipo establecido como
+        <mark>number</mark> y luego
+        cambiarlo para que sea de <mark>string</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-dynamic-change">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">data</span> = <span class="tk-number">100</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Initially a number</span>
+<span class="tk-selector">data</span> = <span class="tk-string">"New data"</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Dynamically changes to a string</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                RUNTIME MONITOR</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Step 1: data = 100 <span style="color: #888;">(Type: Number)</span></div>
+                <div style="color: #f7df1e; margin-top: 5px;">> Step 2: data = "New data" <span
+                    style="color: #888;">(Type: String)</span></div>
+                <div
+                  style="color: #81d4fa; margin-top: 10px; font-weight: bold; border-top: 1px solid #333; padding-top: 5px;">
+                  > Status: Variable mutated successfully! ✅
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Reflexión:</strong> ¿Qué pasaría si después de la línea 2 intentas hacer <code
+                style="color: blue;">data / 2</code>?
+              En Java el código no compilaría, en JS obtendrías un <code style="color: blue;">NaN</code> (Not a Number).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En un lenguaje de tipado estático, este tipo de cambio no estaría permitido, ya que el tipo de datos sería fijo.
+      </p>
+      <p>
+        En conclusión, el tipado dinámico de JavaScript permite que las variables cambien de tipo libremente, lo que
+        ofrece flexibilidad, pero puede provocar errores inesperados durante la ejecución.
+      </p>
+      <p>
+        Los lenguajes de tipado estático, como Java, exigen especificar los tipos de las variables desde el principio,
+        lo que ayuda a detectar errores antes de que se ejecute el programa, pero ofrece menos flexibilidad.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones describe mejor el tipado dinámico en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Debes declarar el tipo de la variable antes de asignarle un valor.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            El tipo de datos de una variable se determina cuando se le asigna un valor.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Las variables solo pueden contener un tipo de datos.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            JavaScript no permite cambiar el tipo de las variables una vez declaradas.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la diferencia clave entre los lenguajes de tipado dinámico y los de tipado estático?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Los lenguajes de tipado dinámico exigen declarar los tipos de las variables antes de asignarles valores.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Los lenguajes de tipado estático permiten cambiar los tipos de las variables en tiempo de ejecución.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Los lenguajes de tipado estático imponen un tipo fijo para las variables.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Los lenguajes de tipado dinámico no permiten la reasignación de variables.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En JavaScript, ¿qué sucede si declaras una variable y luego le asignas un valor de un tipo diferente?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            JavaScript generará un error en tiempo de compilación.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            La variable cambiará al nuevo tipo sin generar ningún error.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            La variable conservará su tipo original e ignorará el nuevo valor.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            El programa se bloqueará.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo funciona el operador <mark>typeof</mark> y qué es el error de <mark>typeof
+          null</mark> en JavaScript?
+      </h2>
+
+      <p>
+        El operador <mark>typeof</mark> en JavaScript es una herramienta sencilla pero potente que permite conocer el tipo de datos
+        de una variable o un valor. Siempre devuelve una cadena que indica el tipo.
+      </p>
+      <p>
+        Veamos algunos ejemplos:
+      </p>
+
+      <div class="ide-container" id="ide-js-typeof-basic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">42</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "number"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                TYPE SCANNER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Variable: num (value: 42)</div>
+                <div style="color: #81d4fa; margin-top: 5px; font-weight: bold;">
+                  > Result: "number"
+                </div>
+                <div style="color: #888; font-size: 11px; margin-top: 5px;">
+                  (El resultado es una String que describe el tipo)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔍 <strong>Curiosidad:</strong> Al ser un operador, puedes usarlo con paréntesis <code
+                style="color: blue;">typeof(num)</code>
+              o sin ellos <code style="color: blue;">typeof num</code>. ¡Ambos funcionan igual!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este primer ejemplo, hemos creado una variable llamada <mark>num</mark> y le hemos asignado el número 42.
+        Cuando utilices
+        el operador <mark>typeof</mark> con la variable llamada <mark>num</mark>, este devolverá la cadena
+        <mark>number</mark>.
+      </p>
+      <p>
+        Aquí tienes otro ejemplo del uso del operador <mark>typeof</mark> con la variable llamada
+        <mark>isUserLoggedIn</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-typeof-boolean">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">auth.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isUserLoggedIn</span> = <span class="tk-boolean">true</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">isUserLoggedIn</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "boolean"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LOGIC SCANNER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Variable: isUserLoggedIn (value: true)</div>
+                <div style="color: #81d4fa; margin-top: 5px; font-weight: bold;">
+                  > Result: "boolean"
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Tip:</strong> Las variables que guardan booleanos suelen empezar con prefijos como
+              <code style="color: blue;">is</code>, <code style="color: blue;">has</code> o <code
+                style="color: blue;">can</code> para que sea obvio que solo pueden ser verdadero o
+              falso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando utilizas el operador <mark>typeof</mark> con la variable <mark>isUserLoggedIn</mark>, este devolverá una
+        cadena <mark>boolean</mark>, ya que a
+        la variable se le asignó el valor booleano <mark>true</mark>.
+      </p>
+      <p>
+        El uso del operador <mark>typeof</mark> puede resultar especialmente útil cuando estás depurando o tratando de
+        entender con
+        qué tipo de datos estás trabajando en tu código.
+      </p>
+      <p>
+        Sin embargo, hay una peculiaridad bien conocida en JavaScript cuando se trata de <mark>null</mark>.
+      </p>
+      <p>
+        Veamos un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-typeof-null">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">exampleVariable</span> = <span class="tk-boolean">null</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">exampleVariable</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "object"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LEGACY SCANNER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Value detected: null</div>
+                <div style="color: #ef5350; margin-top: 5px; font-weight: bold;">
+                  > typeof result: "object" ⚠️
+                </div>
+                <div style="color: #ffb74d; font-size: 11px; margin-top: 10px;">
+                  Nota: Esto es un error histórico de JS (Bug).
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato importante:</strong> Si necesitas verificar si algo es realmente <code
+                style="color: blue;">null</code>, no
+              uses <code style="color: blue;">typeof</code>. Simplemente compáralo directamente: <code
+                style="color: blue;">variable === null</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una variable llamada <mark>exampleVariable</mark> a la que le hemos asignado el valor
+        <mark>null</mark>. Sin
+        embargo, cuando utilizamos el operador <mark>typeof</mark>, este devuelve la cadena <mark>object</mark>.
+      </p>
+      <p>
+        Esto se considera generalmente un error en JavaScript, que se remonta a sus inicios. La razón de este
+        comportamiento tiene su origen en la forma en que se diseñó originalmente JavaScript.
+      </p>
+      <p>
+        Cuando se implementó el lenguaje por primera vez, valores como <mark>null</mark> se representaban como un tipo
+        especial de
+        objeto, lo que daba lugar a este resultado inesperado.
+      </p>
+      <p>
+        Desafortunadamente, esto se ha convertido en parte del lenguaje y, aunque resulte confuso, es algo que debes
+        tener en cuenta.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué devuelve el operador <mark>typeof</mark> cuando se aplica a una cadena en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            "string"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "text"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "character"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "object"
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué se considera un error que <mark>typeof null</mark> devuelva null en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Devuelve "null" en lugar de "undefined".
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Devuelve "object" en lugar de "null".
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            No funciona con "null".
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Devuelve un error.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué devuelve el operador <mark>typeof</mark> cuando se aplica a un número en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            "number"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "integer"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "numeric"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "float"
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

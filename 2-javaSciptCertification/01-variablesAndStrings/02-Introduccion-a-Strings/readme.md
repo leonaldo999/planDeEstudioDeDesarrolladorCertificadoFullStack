@@ -79,7 +79,7 @@ Los string son una parte importante de la programación y, en futuras lecciones,
     - [ ] c) Se crea una string que contiene ambas comillas.
     - [ ] d) El intérprete de JavaScript la ignorará.
 
-3. **¿¿Por qué se considera que las strings son inmutables en JavaScript?**
+3. **¿Por qué se considera que las strings son inmutables en JavaScript?**
 
     - [ ] a) No se pueden crear strings utilizando variables.
     - [x] b) Una vez creada una string, no se pueden modificar sus caracteres directamente. //correcto

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Aprende a escribir código claro y legible en JavaScript">
+  <meta name="keywords" content="JavaScript, código claro, programación">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Comprender la claridad del código">
+  <meta property="og:description" content="Aprende a escribir código claro y legible en JavaScript">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprender la claridad del código</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Introducción a Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta Sección, aprenderás a escribir código claro y legible. Esto es importante porque el código que escribes
+        no solo lo leerás tú, sino también otros desarrolladores que puedan trabajar en el mismo proyecto en el futuro.
+        Un código claro facilita la colaboración y el mantenimiento del proyecto a largo plazo.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cuál es la función de los puntos y comas en JavaScript y en la programación en
+        general?</h2>
+
+      <p>
+        En JavaScript, y en muchos otros lenguajes de programación, los puntos y comas ayudan a delimitar las sentencias
+        y mejoran la legibilidad del código.
+      </p>
+      <p>
+        En JavaScript, se utiliza un punto y coma (<mark>;</mark>) para indicar el final de una instrucción.
+      </p>
+      <p>
+        Al igual que un punto (<mark>.</mark>) marca el final de una oración en español, un punto y coma indica el final
+        de una línea
+        de código ejecutable. Esto permite al motor de JavaScript distinguir entre comandos separados.
+      </p>
+      <p>
+        Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-semicolons">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">variableOne</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span> 
+<span class="tk-property">let</span> <span class="tk-selector">variableTwo</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// El punto y coma permite incluso poner dos órdenes
+    en la misma línea (aunque no se recomienda)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">variableOne</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">variableTwo</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INTERPRETER VIEW</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">> Semicolon found: Ending statement 1.</div>
+                <div style="color: #9ccc65;">> Semicolon found: Ending statement 2.</div>
+                <div style="color: #f7df1e; margin-top: 5px; font-weight: bold;">> Status: Code parsed successfully! ✅
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato curioso:</strong> Hay programadores que prefieren no usarlos, pero en proyectos grandes y
+              profesionales, usarlos es la norma para evitar errores silenciosos que son muy difíciles de encontrar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, los puntos y comas al final de cada línea marcan el final de cada instrucción. Sin ellos, el
+        motor de JavaScript podría tener dificultades para interpretar dónde termina una instrucción y dónde comienza
+        otra.
+      </p>
+      <p>
+        Los puntos y comas se utilizan principalmente para marcar el final de una instrucción. Esto ayuda al motor de
+        JavaScript a distinguir las instrucciones individuales, lo cual es importante para una ejecución correcta.
+      </p>
+
+      <div class="ide-container" id="ide-js-semicolon-safety">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">1</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Instrucción finalizada</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">2</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Nueva instrucción</span>
+
+<span class="tk-comment">// Sin el punto y coma, en ciertos casos avanzados </span>
+<span class="tk-comment">// (como al usar paréntesis en la línea siguiente),</span>
+<span class="tk-comment">// JS podría intentar unir las dos líneas y fallar.</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> + <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                PARSER DEBUGGER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #9ccc65;">[INFO] Parsing line 1: Semicolon OK.</div>
+                <div style="color: #9ccc65;">[INFO] Parsing line 2: Semicolon OK.</div>
+                <div style="color: #81d4fa; margin-top: 5px;">> Result (a + b): 3</div>
+                <div style="color: #f7df1e; font-size: 11px; margin-top: 5px;">No ambiguities detected.</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Nota sobre ASI:</strong> Aunque JS es inteligente, confiar ciegamente en la inserción
+              automática puede causar que el código se comporte de forma distinta a la que esperabas en situaciones
+              complejas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque JavaScript cuenta con la función de inserción automática de punto y coma (ASI), que puede añadir puntos y
+        comas automáticamente, incluirlos de forma explícita mejora la claridad del código y ayuda a evitar errores que
+        puedan surgir debido a un comportamiento inesperado de la ASI.
+      </p>
+      <p>
+        Los puntos y comas se utilizan en muchos lenguajes de programación, como C, C++ y Java.
+      </p>
+      <p>
+        Los puntos y comas marcan el final de las sentencias o instrucciones, lo que ayuda al compilador o al intérprete
+        a analizar el código correctamente. Un compilador traduce el código de un lenguaje de programación de alto nivel
+        a código legible por la máquina, lo que crea un archivo ejecutable.
+      </p>
+      <p>
+        Al delimitar claramente las sentencias, los puntos y comas contribuyen a la legibilidad y al mantenimiento del
+        código. Los puntos y comas ayudan a prevenir ambigüedades en la ejecución del código y garantizan que las
+        sentencias terminen correctamente.
+      </p>
+      <p>
+        Los puntos y comas son una parte fundamental de JavaScript y de muchos otros lenguajes de programación.
+      </p>
+      <p>
+        Marcan el final de las sentencias, mejoran la legibilidad del código y ayudan a evitar errores relacionados con
+        la inserción automática de puntos y comas.
+      </p>
+      <p>
+        Al comprender y utilizar los puntos y comas correctamente, puedes escribir código más confiable y fácil de
+        mantener.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la función principal del punto y coma en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Separar variables.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Marcar el final de una instrucción.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Crear comentarios.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Indicar el inicio de una función.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué puede pasar si se omiten los puntos y comas en el código JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            El código no se ejecutará en absoluto.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El motor de JavaScript siempre añadirá los puntos y comas correctamente.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Puede provocar un comportamiento inesperado debido a la inserción automática de puntos y comas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Corregirá automáticamente los errores de sintaxis.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué es recomendable usar puntos y comas de forma explícita, aunque JavaScript cuente con la función de
+            inserción automática de puntos y comas?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Para aumentar la velocidad de ejecución del código.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Para mejorar la legibilidad del código y evitar errores sutiles.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Para añadir comentarios al código.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Para cambiar la forma en que se declaran las variables.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los comentarios en JavaScript y cuándo se deben usar?
+      </h2>
+
+      <p>
+        Los comentarios en programación se utilizan para proporcionar contexto adicional al código o para dejar notas
+        para uno mismo y para otros.
+      </p>
+      <p>
+        Los comentarios son líneas o bloques de texto que el motor de JavaScript ignora cuando se ejecuta el código. Su
+        única finalidad es facilitar la lectura del código, ya sea para ti o para otra persona.
+      </p>
+      <p>
+        JavaScript ofrece dos formas de añadir comentarios a tu código: comentarios de una sola línea y comentarios de
+        varias líneas.
+      </p>
+      <p>
+        Los comentarios de una sola línea se crean utilizando dos barras inclinadas (<mark>//</mark>). Aquí tienes un
+        ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token comment">// I am a single line comment in JavaScript</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Este tipo de comentario es ideal para explicaciones breves o aclaraciones.
+      </p>
+      <p>
+        Aquí tienes un ejemplo real extraído de los archivos de proyectos del plan de estudios de freeCodeCamp:
+      </p>
+
+      <div class="ide-container" id="ide-js-real-comments">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">script.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// This is to allow English to build without
+  having to download the i18n files.</span>
+<span class="tk-comment">// It fails when trying to resolve the
+  i18n-curriculum path if they don't exist.</span>
+<span class="tk-property">const</span> <span class="tk-selector">curriculumLocale</span> = <span class="tk-selector">process</span><span class="tk-punctuation">.</span><span class="tk-selector">env</span><span class="tk-punctuation">.</span><span class="tk-selector">CURRICULUM_LOCALE</span> ?? <span class="tk-string">'english'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">I18N_CURRICULUM_DIR</span> = <span class="tk-selector">path</span><span class="tk-punctuation">.</span><span class="tk-value">resolve</span><span class="tk-punctuation">(</span>
+  <span class="tk-selector">__dirname</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">curriculumLocale</span> === <span class="tk-string">'english'</span> ? <span class="tk-string">'.'</span> : <span class="tk-string">'i18n-curriculum/curriculum'</span>
+<span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DOCUMENTATION PREVIEW</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #81d4fa;">ℹ️ Logic: Building English Locale</div>
+                <div style="color: #9ccc65; margin-top: 10px;">
+                  <span style="border-left: 3px solid #444; padding-left: 10px; display: block;">
+                    "The comments explain that this configuration avoids errors when local translations aren't present."
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Regla de oro:</strong> Si tu código necesita un comentario muy largo para ser entendido, a
+              veces es mejor intentar que el código sea más simple. Pero para decisiones de "negocio" como esta, ¡los
+              comentarios son obligatorios!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        No te preocupes por intentar entender qué hace realmente el código, ya que es más avanzado de lo que has
+        aprendido hasta ahora. En su lugar, concéntrate en el comentario que dejó el desarrollador. Este comentario
+        ofrece un contexto importante sobre por qué existe este código.
+      </p>
+      <p>
+        Los comentarios como este son importantes para quienes trabajan en equipo por dos razones:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Los demás desarrolladores que trabajan en el proyecto entenderán el propósito de este código.
+          </li>
+          <li class="list">
+            Ayuda a evitar cambios o eliminaciones innecesarias sin consultar al equipo, lo que podría provocar errores
+            o problemas.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Otro tipo de comentario son los comentarios de varias líneas. Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token comment">
+/*
+  I am a multiline comment.
+  This is helpful for longer explanations.
+*/
+</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Los comentarios de varias líneas son útiles cuando necesitas escribir descripciones, explicaciones o notas más
+        largas en tu código.
+      </p>
+      <p>
+        Echemos otro vistazo a los archivos de proyectos del plan de estudios de freeCodeCamp para ver cómo se pueden
+        utilizar los comentarios de varias líneas en la práctica.
+      </p>
+
+      <div class="ide-container" id="ide-js-multiline-comments">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">certifications.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">/* Since there can be more than one way to complete a certification (using the
+legacy curriculum or the new one, for instance), we need a certification
+field to track which certification this belongs to. */</span>
+<span class="tk-property">const</span> <span class="tk-selector">dupeCertifications</span> = <span class="tk-punctuation">[</span>
+  <span class="tk-punctuation">{</span>
+    <span class="tk-property">certification</span><span class="tk-punctuation">:</span> <span class="tk-string">'responsive-web-design'</span><span class="tk-punctuation">,</span>
+    <span class="tk-property">dupe</span><span class="tk-punctuation">:</span> <span class="tk-string">'2022/responsive-web-design'</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">hasDupe</span> = <span class="tk-selector">dupeCertifications</span><span class="tk-punctuation">.</span><span class="tk-value">find</span><span class="tk-punctuation">(</span>
+  <span class="tk-selector">cert</span> <span class="tk-punctuation">=></span> <span class="tk-selector">cert</span><span class="tk-punctuation">.</span><span class="tk-selector">dupe</span> === <span class="tk-selector">meta</span><span class="tk-punctuation">.</span><span class="tk-selector">superBlock</span>
+<span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+            <div class="code-content" data-lang="html" style="display:none;">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-html"><span class="tk-tag">&lt;h2&gt;</span>Documentación de Bloque<span class="tk-tag">&lt;/h2&gt;</span>
+<span class="tk-tag">&lt;p&gt;</span>El texto entre /* y */ es ignorado por el navegador.<span class="tk-tag">&lt;/p&gt;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXECUTION FLOW</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; font-style: italic;">[Skip: Multi-line comment block (lines 1-3)]</div>
+                <div style="color: #9ccc65; margin-top: 10px;">> Memory: dupeCertifications initialized.</div>
+                <div style="color: #81d4fa; margin-top: 5px;">> Status: Ready for logic processing.</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 12px; background: var(--high-contrast-nav-bg); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> No puedes "anidar" comentarios de bloque. Si pones un <code
+                style="color: blue;">/* */</code>
+              dentro de otro <code style="color: blue;">/* */</code>, JavaScript se confundirá y arrojará un error.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al igual que antes, ignora todo el código JavaScript, ya que utiliza conceptos que aún no se han enseñado. En su
+        lugar, concéntrate en el comentario que dejó el desarrollador.
+      </p>
+      <p>
+        Un desarrollador del equipo, o incluso un nuevo colaborador que trabaje en el proyecto, puede entender por qué
+        está aquí este fragmento de código y tener el contexto completo antes de trabajar en esta parte del proyecto.
+      </p>
+      <p>
+        Aunque los comentarios son útiles en programación, es importante evitar el exceso de comentarios. No es
+        necesario comentar cada línea de código, especialmente si el código es sencillo y se explica por sí mismo.
+      </p>
+      <p>
+        Aquí hay un ejemplo del uso de comentarios para explicar lo obvio:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token comment">// This code uses the const keyword to create a new variable called price.</span>
+<span class="token comment">// We are assigning the number 10 to the price variable.</span>
+<span class="token keyword">const</span> <span class="token operator">price</span> <span class="token punctuation">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En esta situación, no es necesario añadir comentarios aquí, ya que el código se explica por sí mismo. El
+        objetivo es mejorar la legibilidad, no saturar el código con explicaciones innecesarias.
+      </p>
+      <p>
+        Si quieres añadir comentarios a tus proyectos personales mientras aprendes a programar, no hay problema. Pero
+        una vez que empieces a trabajar en proyectos reales con otros desarrolladores, es importante no usar comentarios
+        en código que se explique por sí mismo.
+      </p>
+      <p>
+        También es importante no usar comentarios para justificar código confuso, demasiado complicado o mal escrito. En
+        esas situaciones, lo mejor es refactorizar, o cambiar, tu código para que otros desarrolladores entiendan mejor
+        lo que está pasando.
+      </p>
+      <p>
+        Los comentarios son herramientas poderosas para documentar tu código y facilitar su comprensión. Debes usar
+        comentarios para proporcionar contexto o dejar notas para ti mismo y para otros.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones crea correctamente un comentario de una sola línea en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            &lt;!-- This is a comment --&gt;
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            /* This is a comment */
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            // This is a comment
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            # This is a comment
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo se utiliza un comentario de varias líneas en lugar de uno de una sola línea?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Cuando necesitas desactivar temporalmente una línea de código.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Cuando quieres escribir una breve explicación sobre una variable.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Cuando necesitas explicar una sección extensa de código o proporcionar información detallada.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Cuando escribes comentarios HTML.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una buena práctica al usar comentarios en tu código?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Comentar cada línea de código.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Usar comentarios para proporcionar contexto y dejar notas para ti mismo y para otros desarrolladores.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Usar comentarios para explicar incluso el código más sencillo.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Evitar por completo los comentarios para mantener el código limpio.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
