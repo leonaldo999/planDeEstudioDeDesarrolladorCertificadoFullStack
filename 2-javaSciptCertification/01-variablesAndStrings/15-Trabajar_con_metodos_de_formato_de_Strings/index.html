@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a trabajar con métodos de formato de Strings en JavaScript. Estos métodos te permiten modificar y formatear Strings de diversas maneras, como cambiar su caso, eliminar espacios en blanco o reemplazar partes del String.">
+  <meta name="keywords"
+    content="JavaScript, Strings, Métodos de formato, Modificar Strings, Formatear Strings, Cambiar caso, Eliminar espacios en blanco, Reemplazar partes del String">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con métodos de formato de Strings">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a trabajar con métodos de formato de Strings en JavaScript. Estos métodos te permiten modificar y formatear Strings de diversas maneras, como cambiar su caso, eliminar espacios en blanco o reemplazar partes del String.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con métodos de formato de Strings</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de formato de Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con métodos de formato de Strings en JavaScript. Estos métodos te
+        permiten modificar y formatear Strings de diversas maneras, como cambiar su caso, eliminar espacios en blanco o
+        reemplazar partes del String.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo se puede cambiar el formato de mayúsculas y minúsculas de un String?
+      </h2>
+
+      <p>
+        Al trabajar con Strings en JavaScript, hay muchas situaciones en las que puede ser necesario ajustar el formato
+        de mayúsculas y minúsculas del texto, como por ejemplo, convertir todas las letras a mayúsculas para un título o
+        convertir el texto a minúsculas para mantener la uniformidad.
+      </p>
+      <p>
+        Afortunadamente, JavaScript facilita esta tarea con dos métodos integrados: <mark>toUpperCase()</mark> y
+        <mark>toLowerCase()</mark>.
+      </p>
+      <p>
+        El método <mark>toUpperCase()</mark> convierte todos los caracteres a mayúsculas y devuelve un nuevo String con
+        todos los
+        caracteres en mayúsculas. Esto es útil cuando se desea resaltar texto o crear coherencia en el formato de los
+        Strings.
+      </p>
+
+      <div class="ide-container" id="ide-js-uppercase-format">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">formatter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">greeting</span> = <span class="tk-string">"Hello, World!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">uppercaseGreeting</span> = <span class="tk-selector">greeting</span><span class="tk-punctuation">.</span><span class="tk-value">toUpperCase</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">uppercaseGreeting</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "HELLO, WORLD!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                CASE TRANSFORMER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 15px;">
+                  <div style="color: #888; font-size: 11px;">Original:</div>
+                  <div style="color: var(--text-primary); padding-left: 10px; border-left: 2px solid #555;">"Hello,
+                    World!"</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: var(--sp-accent);">
+                  <span>↓</span> <span style="font-size: 10px; text-transform: uppercase;">Applying
+                    .toUpperCase()</span>
+                </div>
+
+                <div
+                  style="background: rgba(162, 245, 122, 0.05); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px;">
+                  <div style="color: #888; font-size: 11px;">Resultado:</div>
+                  <div style="color: #9ccc65; font-size: 16px; font-weight: bold; letter-spacing: 1px;">"HELLO, WORLD!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Recordatorio de Inmutabilidad:</strong> Si después de esto revisas la variable
+              <code style="color: red;">greeting</code>, ¡seguirá siendo <code
+                style="color: red;">"Hello, World!"</code>!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, el método <mark>toUpperCase()</mark> transforma todo el string en mayúsculas.
+      </p>
+      <p>
+        El string original permanece sin cambios porque <mark>toUpperCase()</mark> devuelve un nueva string, en lugar de
+        modificar la
+        original.
+      </p>
+      <p>
+        Por otro lado, el método <mark>toLowerCase()</mark> convierte todos los caracteres de un string a minúsculas.
+        Esto resulta
+        útil cuando necesitas estandarizar la entrada, como al comparar texto proporcionado por el usuario o al realizar
+        verificaciones que no distinguen entre mayúsculas y minúsculas.
+      </p>
+      <p>
+        Veamos un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-lowercase-format">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">normalizer.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">shout</span> = <span class="tk-string">"I AM LEARNING JAVASCRIPT!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">lowercaseShout</span> = <span class="tk-selector">shout</span><span class="tk-punctuation">.</span><span class="tk-value">toLowerCase</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">lowercaseShout</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "i am learning javascript!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING NORMALIZER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 12px;">
+                  <div style="color: #ef5350; font-size: 11px; text-transform: uppercase; font-weight: bold;">Input
+                    (Uppercase):</div>
+                  <div
+                    style="color: var(--text-primary); background: rgba(239, 83, 80, 0.1); padding: 5px 10px; border-radius: 4px; margin-top: 4px;">
+                    "I AM LEARNING JAVASCRIPT!"</div>
+                </div>
+
+                <div style="text-align: center; color: var(--sp-accent); margin: 10px 0;">
+                  <span style="font-size: 18px;">⬇</span>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <div style="color: #66d9ef; font-size: 11px; text-transform: uppercase; font-weight: bold;">Output
+                    (Lowercase):</div>
+                  <div style="color: #66d9ef; font-size: 15px; font-weight: normal;">"i am learning javascript!"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Uso común:</strong> Es una excelente práctica usar <code
+                style="color: red;">toLowerCase()</code> antes de comparar dos strings con <code
+                style="color: red;">==</code> o <code style="color: red;">===</code> para evitar fallos por mayúsculas
+              accidentales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El método <mark>toLowerCase()</mark> convierte todos los caracteres a minúsculas, lo que suaviza el tono del
+        string, sin
+        modificar el string original.
+      </p>
+      <p>
+        En resumen, los métodos <mark>toUpperCase()</mark> y <mark>toLowerCase()</mark> de JavaScript son herramientas
+        poderosas para transformar
+        strings en mayúsculas o minúsculas.
+      </p>
+      <p>
+        Estos métodos son especialmente útiles para estandarizar la entrada de texto, realizar comparaciones que no
+        distingan entre mayúsculas y minúsculas, y garantizar la coherencia del diseño.
+      </p>
+      <p>
+        Con estos métodos sencillos pero eficaces, puedes manejar la manipulación de texto de una manera más controlada
+        y predecible.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el método <mark>toUpperCase()</mark> cuando se aplica a un string en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Convierte solo la primera letra del string a mayúscula.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Convierte todos los caracteres del string a mayúsculas.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Convierte todos los caracteres del string a minúsculas.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Invierte el orden del string.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let phrase = "JavaScript is Fun!";
+                console.log(phrase.toLowerCase());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            JAVASCRIPT IS FUN!
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            JavaScript is fun!
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            javascript is fun!
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Javascript Is Fun!
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situación serías más propenso a usar el método <mark>toLowerCase()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Cuando quieras asegurarte de que la entrada del usuario esté estandarizada para realizar comparaciones que
+            no distingan entre mayúsculas y minúsculas.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Cuando necesites poner en mayúscula la primera letra de cada palabra de una oración.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Cuando quieras reemplazar los espacios de un string por guiones bajos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Cuando quieras invertir el orden de los caracteres de un string.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo se pueden eliminar los espacios en blanco de un string?
+      </h2>
+
+      <p>
+        Al trabajar con strings en JavaScript, es habitual encontrarse con espacios en blanco no deseados al principio o
+        al final de un string. Los espacios en blanco pueden interferir en operaciones como la comparación, el
+        almacenamiento o la visualización, por lo que es importante saber cómo eliminarlos de manera eficiente.
+      </p>
+      <p>
+        En esta lección, exploraremos cómo puedes eliminar los espacios en blanco utilizando los métodos
+        <mark>trim()</mark>,
+        <mark>trimStart()</mark> y <mark>trimEnd()</mark> de JavaScript.
+      </p>
+      <p>
+        Los espacios en blanco se refieren a espacios, tabulaciones o saltos de línea que aparecen en un string pero que
+        no son caracteres visibles. Por ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token property">let</span> <span class="token operator">greeting</span> <span class="token punctuation">=</span> <span class="token string">"   Hello, world!   "</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este caso, hay espacios antes y después del texto visible, <mark>Hello, world!</mark>.
+      </p>
+      <p>
+        El método <mark>trim()</mark> es la forma más habitual de eliminar los espacios en blanco tanto al principio
+        como al final de
+        un string. A continuación se muestra un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-trim-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">cleaner.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"   Hello!   "</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">message</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "   Hello!   "</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">trimmedMessage</span> = <span class="tk-selector">message</span><span class="tk-punctuation">.</span><span class="tk-value">trim</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">trimmedMessage</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Hello!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                WHITESPACE CLEANER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 12px;">
+                  <div style="color: #888; font-size: 11px;">Original (con espacios):</div>
+                  <div
+                    style="background: rgba(239, 83, 80, 0.1); color: var(--text-primary); padding: 5px; border-radius: 4px; display: inline-block;">
+                    <span style="background: #ef5350; opacity: 0.3;">&nbsp;&nbsp;&nbsp;</span>Hello!<span
+                      style="background: #ef5350; opacity: 0.3;">&nbsp;&nbsp;&nbsp;</span>
+                  </div>
+                </div>
+
+                <div style="color: var(--sp-accent); margin: 5px 0; font-size: 16px;">⬇ .trim()</div>
+
+                <div
+                  style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px; display: inline-block;">
+                  <div style="color: #9ccc65; font-size: 11px; text-transform: uppercase; font-weight: bold;">Resultado:
+                  </div>
+                  <div style="color: #9ccc65; font-size: 16px; font-weight: bold;">"Hello!"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato clave:</strong> <code style="color: red;">trim()</code> elimina espacios, tabulaciones
+              (\t) y saltos de línea
+              (\n). ¡Es una limpieza profunda!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el método <mark>trim()</mark> elimina todos los espacios al principio y al final, dejando solo
+        <mark>Hello!</mark>. Ten en
+        cuenta que <mark>trim()</mark> no afecta a los espacios en blanco que haya dentro del string (entre palabras,
+        por ejemplo).
+      </p>
+      <p>
+        A veces, es posible que solo quieras eliminar los espacios en blanco del principio o del final de un string,
+        pero no de ambos. Aquí es donde entran en juego <mark>trimStart()</mark> y <mark>trimEnd()</mark>.
+      </p>
+      <p>
+        <mark>trimStart()</mark> elimina los espacios en blanco del principio (o inicio) del string.
+      </p>
+
+      <div class="ide-container" id="ide-js-trimstart-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">start_cleaner.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">greeting</span> = <span class="tk-string">"   Hello!   "</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">trimmedStart</span> = <span class="tk-selector">greeting</span><span class="tk-punctuation">.</span><span class="tk-value">trimStart</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">trimmedStart</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Hello!   "</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LEFT-SIDE CLEANER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 15px;">
+                  <div style="color: #888; font-size: 11px;">Input:</div>
+                  <div
+                    style="display: inline-block; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">
+                    <span
+                      style="background: rgba(239, 83, 80, 0.2); color: #ef5350;">&nbsp;·&nbsp;·&nbsp;</span>"Hello!"<span
+                      style="background: rgba(162, 245, 122, 0.2); color: #9ccc65;">&nbsp;·&nbsp;·&nbsp;</span>
+                  </div>
+                </div>
+
+                <div style="color: var(--sp-accent); margin-bottom: 15px;">
+                  <span>➔ .trimStart()</span>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px; display: inline-block;">
+                  <div style="color: #66d9ef; font-size: 11px; text-transform: uppercase; font-weight: bold;">Output:
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 16px;">
+                    "Hello!<span
+                      style="background: rgba(162, 245, 122, 0.2); color: #9ccc65;">&nbsp;·&nbsp;·&nbsp;</span>"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⭐ <strong>Dato técnico:</strong> <code style="color: red;">trimStart()</code> tiene un alias llamado <code
+                style="color: red;">trimLeft()</code>.
+              Aunque funcionan igual, se recomienda usar el estándar actual: <code
+                style="color: red;">trimStart()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>trimEnd()</mark> elimina los espacios en blanco del final del string.
+      </p>
+
+      <div class="ide-container" id="ide-js-trimend-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">end_cleaner.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">greeting</span> = <span class="tk-string">"   Hello!   "</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">trimmedEnd</span> = <span class="tk-selector">greeting</span><span class="tk-punctuation">.</span><span class="tk-value">trimEnd</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">trimmedEnd</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "   Hello!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                RIGHT-SIDE CLEANER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 15px;">
+                  <div style="color: #888; font-size: 11px;">Input:</div>
+                  <div
+                    style="display: inline-block; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">
+                    <span
+                      style="background: rgba(162, 245, 122, 0.2); color: #9ccc65;">&nbsp;·&nbsp;·&nbsp;</span>"Hello!"<span
+                      style="background: rgba(239, 83, 80, 0.2); color: #ef5350;">&nbsp;·&nbsp;·&nbsp;</span>
+                  </div>
+                </div>
+
+                <div style="color: var(--sp-accent); margin-bottom: 15px;">
+                  <span>➔ .trimEnd()</span>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px; display: inline-block;">
+                  <div style="color: #66d9ef; font-size: 11px; text-transform: uppercase; font-weight: bold;">Output:
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 16px;">
+                    "<span
+                      style="background: rgba(162, 245, 122, 0.2); color: #9ccc65;">&nbsp;·&nbsp;·&nbsp;</span>Hello!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota:</strong> Al igual que <code style="color: red;">trimStart()</code>, este método tiene un
+              alias llamado
+              <code style="color: red;">trimRight()</code>. Ambos funcionan exactamente igual.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estos métodos te permiten controlar con mayor precisión qué parte del string deseas limpiar.
+      </p>
+      <p>
+        En resumen, eliminar los espacios en blanco es una parte esencial del trabajo con strings en JavaScript. Tanto
+        si deseas limpiar los datos de entrada como si quieres garantizar comparaciones de strings coherentes, puedes
+        utilizar <mark>trim()</mark> para eliminar los espacios en blanco de ambos extremos de un string, o bien
+        utilizar <mark>trimStart()</mark>
+        y <mark>trimEnd()</mark> para centrarte en un extremo específico.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el método <mark>trim()</mark> con un string en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Elimina todos los espacios dentro de un string.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Elimina todos los espacios en blanco del principio y del final de un string.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Elimina solo los espacios entre palabras.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Reemplaza todos los caracteres de un string por espacios en blanco.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué método usarías si solo quisieras eliminar los espacios en blanco del principio de un string?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            trim()
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            trimEnd()
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            trimStart()
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            replace()
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let str = "   Code   ";
+                console.log(str.trimEnd());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            "Code"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            "   Code"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "Code   "
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            " Code "
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a trabajar con métodos de modificación de Strings en JavaScript. Estos métodos te permiten modificar y transformar Strings de diversas maneras, como eliminar espacios en blanco, reemplazar partes del String o cambiar su formato.">
+  <meta name="keywords"
+    content="JavaScript, Strings, métodos de modificación, eliminar espacios en blanco, reemplazar partes del String, cambiar formato de String">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con métodos de modificación de Strings">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a trabajar con métodos de modificación de Strings en JavaScript. Estos métodos te permiten modificar y transformar Strings de diversas maneras, como eliminar espacios en blanco, reemplazar partes del String o cambiar su formato.">
+  <meta property="og:type" content="article">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con métodos de modificación de Strings</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de modificación de Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con métodos de modificación de Strings en JavaScript. Estos métodos te
+        permiten modificar y transformar Strings de diversas maneras, como eliminar espacios en blanco, reemplazar
+        partes del String o cambiar su formato.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo se pueden sustituir partes de un string por otra?
+      </h2>
+
+      <p>
+        En JavaScript, hay muchos casos en los que puede ser necesario sustituir una parte de un string por otro string.
+      </p>
+      <p>
+        Por ejemplo, es posible que necesites actualizar la información de un usuario en una URL, cambiar el formato de
+        las fechas o corregir errores en contenido generado por el usuario.
+      </p>
+      <p>
+        El método <mark>replace()</mark> en JavaScript te permite buscar un valor específico (como una palabra o un
+        carácter) en un
+        string y reemplazarlo por otro valor. El método devuelve un nuevo string con el reemplazo y deja la original sin
+        cambios, ya que los strings de JavaScript son inmutables.
+      </p>
+      <p>
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token operator">string</span><span class="token punctuation">.</span><span class="token property">replace</span><span class="token punctuation">(</span><span class="token operator">searchValue</span><span class="token punctuation">,</span> <span class="token operator">newValue</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>searchValue</mark> es el valor que quieres buscar en el string. Puede ser un string o una expresión
+        regular (regex),
+        que describe patrones en el texto. Esto te permite buscar y manipular strings de una manera flexible y eficaz.
+        Aprenderás más sobre las expresiones regulares en lecciones futuras.
+      </p>
+      <p>
+        <mark>newValue</mark> es el valor que sustituirá a <mark>searchValue</mark>. Aquí tienes un ejemplo sencillo:
+      </p>
+
+      <div class="ide-container" id="ide-js-replace-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">replacer.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">text</span> = <span class="tk-string">"I love JavaScript!"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "I love JavaScript!"</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">newText</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">replace</span><span class="tk-punctuation">(</span><span class="tk-string">"JavaScript"</span><span class="tk-punctuation">,</span> <span class="tk-string">"coding"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newText</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "I love coding!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING REPLACE ENGINE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 12px;">
+                  <div style="color: #888; font-size: 11px;">Input:</div>
+                  <div style="color: var(--text-primary);">
+                    "I love <span style="color: #ef5350; text-decoration: line-through;">JavaScript</span>!"
+                  </div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: var(--sp-accent);">
+                  <span style="font-size: 10px;">SEARCH: "JavaScript"</span>
+                  <span>➔</span>
+                  <span style="font-size: 10px;">REPLACE: "coding"</span>
+                </div>
+
+                <div
+                  style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px;">
+                  <div style="color: #9ccc65; font-size: 11px; text-transform: uppercase; font-weight: bold;">Output:
+                  </div>
+                  <div style="color: #9ccc65; font-size: 16px; font-weight: bold;">"I love coding!"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Atención:</strong> Si el texto fuera <code style="color: red;">"Java and Java"</code> y usas
+              <code style="color: red;">replace("Java", "JS")</code>, el resultado sería <code
+                style="color: red;">"JS and Java"</code>. Para cambiar todos,
+              usarías <code style="color: red;">replaceAll()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, la palabra <mark>JavaScript</mark> se encuentra dentro del string y se reemplaza por
+        <mark>coding</mark>.
+      </p>
+      <p>
+        El método <mark>replace()</mark> distingue entre mayúsculas y minúsculas, lo que significa que solo encontrará
+        coincidencias
+        exactas del <mark>searchValue</mark>. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-replace-case-sensitive">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_replace.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">sentence</span> = <span class="tk-string">"I enjoy working with JavaScript."</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">sentence</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "I enjoy working with JavaScript."</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">updatedSentence</span> = <span class="tk-selector">sentence</span><span class="tk-punctuation">.</span><span class="tk-value">replace</span><span class="tk-punctuation">(</span><span class="tk-string">"javascript"</span><span class="tk-punctuation">,</span> <span class="tk-string">"coding"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">updatedSentence</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "I enjoy working with JavaScript."</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRICT MATCH SENSOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 12px;">
+                  <div style="color: #888; font-size: 11px;">Buscando (Search): <span
+                      style="color: #ef5350;">"javascript"</span></div>
+                  <div style="color: var(--text-primary); margin-top: 5px;">"I enjoy working with <span
+                      style="border-bottom: 2px solid #ef5350;">JavaScript</span>."</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; gap: 10px; background: rgba(239, 83, 80, 0.1); padding: 8px; border-radius: 4px; border: 1px solid rgba(239, 83, 80, 0.3);">
+                  <span style="color: #ef5350; font-weight: bold;">✕ NO MATCH FOUND</span>
+                  <span style="color: #888; font-size: 11px;">(Case Mismatch)</span>
+                </div>
+
+                <div style="margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888; font-size: 11px;">Resultado Final:</div>
+                  <div style="color: var(--text-primary); font-size: 14px;">"I enjoy working with JavaScript."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333;; line-height: 1.4;">
+              💡 <strong>Tip Pro:</strong> Si necesitas que ignore mayúsculas, puedes usar una expresión regular:
+              <code style="color: red;">.replace(/javascript/i, "coding")</code>. La <code style="color: red;">i</code>
+              significa "insensitive".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, dado que <mark>javascript</mark> (con <mark>j</mark> minúscula) no coincide con
+        <mark>JavaScript</mark> (con <mark>J</mark> mayúscula), no se realiza
+        la sustitución.
+      </p>
+      <p>
+        Por defecto, el método <mark>replace()</mark> solo sustituye la primera aparición del <mark>searchValue</mark>.
+        Si el valor aparece varias
+        veces en la cadena, solo se sustituirá la primera:
+      </p>
+
+      <div class="ide-container" id="ide-js-replace-first-only">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">first_match.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">phrase</span> = <span class="tk-string">"Hello, world! Welcome to the world of coding."</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">updatedPhrase</span> = <span class="tk-selector">phrase</span><span class="tk-punctuation">.</span><span class="tk-value">replace</span><span class="tk-punctuation">(</span><span class="tk-string">"world"</span><span class="tk-punctuation">,</span> <span class="tk-string">"universe"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">updatedPhrase</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Solo cambia el primer "world"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FIRST-MATCH REPLACER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 15px;">
+                  <div style="color: #888; font-size: 11px; margin-bottom: 5px;">Escaneo de texto:</div>
+                  <div
+                    style="color: var(--text-primary); background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px;">
+                    Hello, <span
+                      style="color: #ef5350; font-weight: bold; border-bottom: 2px solid #ef5350;">world</span>! Welcome
+                    to the <span style="color: #888; text-decoration: underline;">world</span> of coding.
+                  </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; align-items: center; gap: 10px; color: #9ccc65;">
+                    <span style="font-weight: bold;">[✓] Match 1:</span>
+                    <span>Replaced by "universe"</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px; color: #888;">
+                    <span style="font-weight: bold;">[✕] Match 2:</span>
+                    <span>Ignored (Process finished)</span>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 20px; background: rgba(162, 245, 122, 0.05); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px;">
+                  <div style="color: #9ccc65; font-size: 11px; text-transform: uppercase; font-weight: bold;">Final
+                    String:</div>
+                  <div style="color: #f8f8f2; font-size: 14px;">"Hello, <span
+                      style="color: #9ccc65; font-weight: bold;">universe</span>! Welcome to the world of coding."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Próximo nivel:</strong> Si necesitas cambiar todos los "world", la solución moderna es usar
+              <code style="color: red;">phrase.replaceAll("world", "universe")</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Fíjate en que solo se reemplaza la primera aparición de <mark>world</mark> por <mark>universe</mark>.
+      </p>
+      <p>
+        El método <mark>replace()</mark> de JavaScript es una herramienta potente y flexible para la manipulación de
+        strings.
+      </p>
+      <p>
+        Te permite reemplazar partes específicas de una string, ya sea que se trate de caracteres individuales, palabras
+        o patrones complejos mediante expresiones regulares.
+      </p>
+      <p>
+        Aunque es ideal para reemplazos sencillos, comprender su distinción entre mayúsculas y minúsculas y su
+        comportamiento predeterminado (como reemplazar solo la primera aparición) puede ayudarte a utilizarlo de manera
+        más eficaz.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el comportamiento predeterminado del método <mark>replace()</mark> en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Reemplaza todas las apariciones del valor de búsqueda.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Reemplaza solo la primera aparición del valor de búsqueda.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            No hace nada si no se encuentra el valor de búsqueda.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Reemplaza cada dos apariciones del valor de búsqueda.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let phrase = "freeCodeCamp is awesome!";
+                let updatedPhrase = phrase.replace("freecodecamp", "fCC");
+                
+                console.log(updatedPhrase);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            fcc is awesome!"
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            "fCC is awesome!"
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            "freeCodeCamp is awesome!"
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            undefined
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let phrase = "Good morning, morning people!";
+                let updatedPhrase = phrase.replace("morning", "evening");
+                
+                console.log(updatedPhrase);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            "Good morning, evening people!"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            "Good evening, morning people!"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            "Good evening, evening people!"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            "Good morning, morning people!"
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo se puede repetir un string x veces?
+      </h2>
+
+      <p>
+        Al trabajar con JavaScript, es posible que te encuentres con situaciones en las que necesites repetir un string
+        un número específico de veces.
+      </p>
+      <p>
+        Ya sea que estés generando patrones repetitivos o simplemente duplicando texto, el método <mark>repeat()</mark>
+        ofrece una
+        forma sencilla y eficaz de lograrlo.
+      </p>
+      <p>
+        El método <mark>repeat()</mark> es una función integrada en JavaScript que te permite repetir un string un
+        número determinado
+        de veces. Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token operator">string</span><span class="token punctuation">.</span><span class="token property">repeat</span><span class="token punctuation">(</span><span class="token operator">count</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>string</mark> es el string que quieres repetir, y <mark>count</mark> es el número de veces que quieres que
+        se repita el string. Aquí tienes un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-repeat-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">repeater.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">word</span> = <span class="tk-string">"Hello!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">repeatedWord</span> = <span class="tk-selector">word</span><span class="tk-punctuation">.</span><span class="tk-value">repeat</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">repeatedWord</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Hello!Hello!Hello!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING MULTIPLIER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="color: var(--text-primary); background: rgba(162, 245, 122, 0.1); padding: 5px 10px; border: 1px dashed #9ccc65; border-radius: 4px;">
+                    "Hello!"</div>
+                  <div style="color: var(--sp-accent); font-weight: bold;"> x 3 </div>
+                </div>
+
+                <div style="text-align: center; color: var(--sp-accent); margin: 5px 0;">
+                  <span>⬇</span>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <div style="color: #66d9ef; font-size: 11px; text-transform: uppercase; font-weight: bold;">Resulting
+                    String:</div>
+                  <div style="color: #f8f8f2; font-size: 14px; word-break: break-all; margin-top: 5px;">
+                    "<span style="color: var(--accent-yellow);">Hello!</span><span
+                      style="color: #66d9ef;">Hello!</span><span style="color: var(--accent-yellow);">Hello!</span>"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> Evita usar números extremadamente grandes, ya que podrías quedarte sin
+              memoria RAM rápidamente al crear un string gigante.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, la cadena <mark>Hello!</mark> se repite tres veces, lo que da como resultado
+        <mark>Hello!Hello!Hello!</mark>.
+      </p>
+      <p>
+        Aunque el método <mark>repeat()</mark> es útil, hay algunas excepciones y limitaciones que debes tener en
+        cuenta.
+      </p>
+      <p>
+        El parámetro <mark>count</mark> debe ser un número no negativo. Si pasas un número negativo, JavaScript generará
+        un error
+        <mark>RangeError</mark>.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token property">let</span> <span class="token operator">word</span> <span class="token punctuation">=</span> <span class="token string">"Test"</span><span class="token punctuation">;</span>
+<span class="token operator">console</span><span class="token punctuation">.</span><span class="token property">log</span><span class="token punctuation">(</span><span class="token operator">word</span><span class="token punctuation">.</span><span class="token property">repeat</span><span class="token punctuation">(</span><span class="token property">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Throws RangeError: Invalid count value</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        El <mark>count</mark> debe ser un número finito. Si intentas repetir una cadena un número infinito de veces o
+        utilizas
+        <mark>Infinity</mark> como recuento, también obtendrás un error <mark>RangeError</mark>.
+      </p>
+      <p>
+        En JavaScript, <mark>Infinity</mark> es un valor especial que representa una cantidad infinita. Se utiliza para
+        denotar
+        números que son mayores que cualquier número finito.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token property">let</span> <span class="token operator">word</span> <span class="token punctuation">=</span> <span class="token string">"Test"</span><span class="token punctuation">;</span>
+<span class="token operator">console</span><span class="token punctuation">.</span><span class="token property">log</span><span class="token punctuation">(</span><span class="token operator">word</span><span class="token punctuation">.</span><span class="token property">repeat</span><span class="token punctuation">(</span><span class="token property">Infinity</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Throws RangeError: Invalid count value</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Si el recuento no es un número entero (por ejemplo, un decimal como <mark>2,5</mark>), el método
+        <mark>repeat()</mark> lo redondeará hacia abajo al entero más cercano.
+      </p>
+
+      <div class="ide-container" id="ide-js-repeat-exceptions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">limits.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">word</span> = <span class="tk-string">"Test"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// 1. Decimales (se redondea hacia abajo)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">word</span><span class="tk-punctuation">.</span><span class="tk-value">repeat</span><span class="tk-punctuation">(</span><span class="tk-number">2.5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "TestTest"</span>
+
+<span class="tk-comment">// 2. Negativos o Infinito (lanzan error)</span>
+<span class="tk-comment">// console.log(word.repeat(-1)); // RangeError</span>
+<span class="tk-comment">// console.log(word.repeat(Infinity)); // RangeError</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ERROR & LIMITS CONSOLE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="margin-bottom: 15px;">
+                  <div style="color: #888;">> repeat(2.5)</div>
+                  <div style="color: #9ccc65; font-weight: bold;">"TestTest" <span
+                      style="color: #555; font-size: 10px; font-weight: normal;">(2.5 ➔ 2)</span></div>
+                </div>
+
+                <div
+                  style="background: rgba(239, 83, 80, 0.1); border: 1px solid #ef5350; padding: 10px; border-radius: 4px;">
+                  <div style="color: #ef5350; font-weight: bold; font-size: 11px;">🚫 Uncaught RangeError:</div>
+                  <div style="color: #f8f8f2; margin-top: 4px;">Invalid count value at repeat (negative or Infinity)
+                  </div>
+                </div>
+
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                  <span
+                    style="color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 2px 5px; font-size: 9px; border-radius: 3px;">NEGATIVE:
+                    ✕</span>
+                  <span
+                    style="color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 2px 5px; font-size: 9px; border-radius: 3px;">INFINITY:
+                    ✕</span>
+                  <span
+                    style="color: #9ccc65; border: 1px solid #9ccc65; padding: 2px 5px; font-size: 9px; border-radius: 3px;">FLOATS:
+                    ✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Regla de oro:</strong> Antes de usar un valor dinámico en <code
+                style="color: red;">repeat(n)</code>, asegúrate de
+              que <code style="color: red;">n >= 0</code> para evitar que tu aplicación se detenga por un error.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si pasas <mark>0</mark> como recuento, el método repeat() devolverá un <mark>string</mark> vacía.
+      </p>
+
+      <div class="ide-container" id="ide-js-repeat-zero">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">zero_repeat.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">word</span> = <span class="tk-string">"Test"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">word</span><span class="tk-punctuation">.</span><span class="tk-value">repeat</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "" (String vacío)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ZERO MULTIPLICATION</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="color: var(--text-primary); background: rgba(255, 255, 255, 0.05); padding: 5px 10px; border: 1px solid #444; border-radius: 4px; opacity: 0.5;">
+                    "Test"</div>
+                  <div style="color: #ef5350; font-weight: bold;"> x 0 </div>
+                </div>
+
+                <div style="text-align: center; color: #ef5350; margin: 5px 0;">
+                  <span style="font-size: 18px;">⬇</span>
+                </div>
+
+                <div
+                  style="background: rgba(239, 83, 80, 0.05); border: 1px dashed #ef5350; padding: 15px; border-radius: 4px; text-align: center;">
+                  <div
+                    style="color: #ef5350; font-size: 11px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px;">
+                    Resulting String:</div>
+                  <div style="color: #888; font-style: italic; font-size: 14px;">(Empty String "")</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Dato útil:</strong> <code style="color: red;">"".length</code> siempre devolverá <code
+                style="color: red;">0</code>. Es una forma segura
+              de limpiar una interfaz si el contador de repetición no se cumple.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El método <mark>repeat()</mark> puede simplificar las tareas que implican la duplicación de strings, lo que hace
+        que tu
+        código sea más conciso y legible.
+      </p>
+      <p>
+        Ya sea que estés generando patrones de texto repetidos o llenando un espacio con caracteres,
+        <mark>repeat()</mark> te puede
+        ahorrar tener que escribir bucles o código más complejo.
+      </p>
+      <p>
+        No estás limitado a pasar un número directamente al método <mark>repeat()</mark>. También puedes pasar una
+        variable que
+        almacene un valor numérico.
+      </p>
+
+      <div class="ide-container" id="ide-js-repeat-dynamic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">dynamic_repeat.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">count</span> = <span class="tk-number">4</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">word</span> = <span class="tk-string">"Test"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">repeatedWord</span> = <span class="tk-selector">word</span><span class="tk-punctuation">.</span><span class="tk-value">repeat</span><span class="tk-punctuation">(</span><span class="tk-selector">count</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">repeatedWord</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// TestTestTestTest</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VARIABLE INPUT MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div
+                  style="display: flex; justify-content: space-between; margin-bottom: 15px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px;">
+                  <div style="color: #888;">Variable <span style="color: var(--sp-accent);">count</span>:</div>
+                  <div style="color: var(--accent-yellow); font-weight: bold;">4</div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                  <div style="color: #888; font-size: 11px;">Procesando: word.repeat(count)</div>
+                  <div style="display: flex; gap: 4px; margin-top: 5px;">
+                    <span
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 2px 6px; border-radius: 3px; color: #9ccc65;">Test</span>
+                    <span
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 2px 6px; border-radius: 3px; color: #9ccc65;">Test</span>
+                    <span
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 2px 6px; border-radius: 3px; color: #9ccc65;">Test</span>
+                    <span
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 2px 6px; border-radius: 3px; color: #9ccc65;">Test</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888; font-size: 11px;">Final String Output:</div>
+                  <div style="color: #f8f8f2; font-size: 15px; font-weight: bold; letter-spacing: 0.5px;">
+                    "TestTestTestTest"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛠️ <strong>Tip:</strong> Si el valor de tu variable viene de un <code style="color: red;">input</code> de
+              HTML, recuerda
+              convertirlo a número con <code style="color: red;">Number()</code> o <code
+                style="color: red;">parseInt()</code> antes de usar
+              <code style="color: red;">repeat()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, la variable <mark>count</mark> almacena el número de repeticiones. Esto puede resultar útil
+        cuando el número de repeticiones depende de la entrada del usuario o de otros valores dinámicos del programa.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado de ejecutar <mark>"Hello".repeat(3);</mark> en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            "HelloHelloHello"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "Hello Hello Hello"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "Hello!"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "HelloHello"
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si intentas llamar a <mark>repeat()</mark> con un número negativo?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            El string se repite una vez.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            El string se repite tantas veces como sea el valor absoluto del número negativo.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Se genera un error RangeError.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Se devuelve una string vacía.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Si llamas a <mark>"*".repeat(0)</mark>, ¿cuál es el resultado?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            "*"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            ""
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "*****"
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

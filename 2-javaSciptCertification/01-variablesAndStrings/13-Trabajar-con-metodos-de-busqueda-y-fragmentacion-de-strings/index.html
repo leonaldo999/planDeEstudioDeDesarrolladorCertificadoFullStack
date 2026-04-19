@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Aprende a usar métodos de búsqueda y fragmentación de strings en JavaScript">
+  <meta name="keywords" content="JavaScript, cadenas, métodos de búsqueda, fragmentación de strings">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con métodos de búsqueda y fragmentación de strings">
+  <meta property="og:description" content="Aprende a usar métodos de búsqueda y fragmentación de strings en JavaScript">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con métodos de búsqueda y fragmentación de strings</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de búsqueda y fragmentación de strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar métodos de búsqueda y fragmentación de strings para manipular texto en
+        JavaScript. Estos métodos te permiten encontrar la posición de caracteres o subString dentro de un String, así
+        como dividir un String en partes más pequeñas.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo se puede comprobar si una String contiene una subString?
+      </h2>
+
+      <p>
+        Al trabajar con Strings en JavaScript, hay muchos casos en los que puede ser necesario comprobar si un String
+        contiene un subString específica, es decir, una parte más pequeña de es String.
+      </p>
+      <p>
+        Por ejemplo, es posible que quieras verificar si la entrada de un usuario incluye una palabra o un carácter
+        específico antes de realizar alguna acción. Una forma de lograrlo es utilizando el método
+        <mark>includes()</mark>.
+      </p>
+      <p>
+        El método <mark>includes()</mark> se utiliza para verificar si un String contiene una subString específica. Si
+        el subString
+        se encuentra dentro del String, el método devuelve <mark>true</mark> de lo contrario, devuelve
+        <mark>false</mark>.
+      </p>
+      <p>
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token operator">string</span><span class="token punctuation">.</span><span class="token property">includes</span><span class="token punctuation">(</span><span class="token operator">searchValue</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En cuanto a la sintaxis, <mark>searchValue</mark> es el subString que quieres buscar dentro del String. Y aquí
+        tienes un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-method">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">search_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">phrase</span> = <span class="tk-string">"JavaScript is awesome!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">phrase</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"awesome"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BOOLEAN SEARCH SENSOR</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888;">// Escaneando presencia de subString...</div>
+                <div
+                  style="margin-top: 10px; padding: 10px; background: rgba(162, 245, 122, 0.05); border: 1px solid #9ccc65; border-radius: 4px;">
+                  <span style="color: #f8f8f2;">"JavaScript is </span><span
+                    style="color: #9ccc65; font-weight: bold; text-decoration: underline;">awesome</span><span
+                    style="color: #f8f8f2;">!"</span>
+                </div>
+                <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                  <span style="color: #888;">Result:</span>
+                  <span
+                    style="background: #9ccc65; color: #1a1a1a; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 12px;">TRUE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recordatorio:</strong> Al igual que <code style="color: red;">indexOf()</code>, el método <code
+                style="color: red;">includes()</code>
+              es <strong>case-sensitive</strong>. Si buscas <code style="color: red;">"Awesome"</code> con mayúscula, te
+              devolverá
+              <code style="color: red;">false</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, la palabra <mark>awesome</mark> aparece dentro del string <mark>JavaScript is awesome!</mark>,
+        por lo que el método
+        <mark>includes()</mark> devuelve <mark>true</mark>.
+      </p>
+      <p>
+        Es importante tener en cuenta que el método <mark>includes()</mark> distingue entre mayúsculas y minúsculas.
+        Esto significa
+        que se requiere una coincidencia exacta de los caracteres, incluyendo su mayúscula o minúscula.
+      </p>
+      <p>
+        Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-case-sensitive">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">case_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">phrase</span> = <span class="tk-string">"JavaScript is awesome!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">phrase</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"Awesome"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRICT MATCH SENSOR</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888;">// Comparando caracteres exactos...</div>
+                <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="color: #f8f8f2;">Target: <span style="color: #9ccc65;">"awesome"</span> (lowercase)</div>
+                  <div style="color: #f8f8f2;">Search: <span style="color: #ef5350;">"Awesome"</span> (uppercase)</div>
+                </div>
+                <div
+                  style="margin-top: 15px; display: flex; align-items: center; gap: 10px; border-top: 1px solid #333; padding-top: 10px;">
+                  <span style="color: #888;">Result:</span>
+                  <span
+                    style="background: #ef5350; color: #fff; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 12px;">FALSE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Tip de oro:</strong> Si quieres que tu búsqueda ignore las mayúsculas, usa: <br>
+              <code style="color: red;">phrase.toLowerCase().includes("awesome")</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que <mark>Awesome</mark> (con <mark>A</mark> mayúscula) no coincide con <mark>awesome</mark> (con
+        <mark>a</mark> minúscula), el resultado es <mark>false</mark>.
+      </p>
+      <p>
+        También puedes usar el método <mark>includes()</mark> para comprobar si hay una subString que comience en un
+        índice
+        específico de la String, indicando un segundo parámetro:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-offset">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">offset_search.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">text</span> = <span class="tk-string">"Hello, JavaScript world!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"JavaScript"</span><span class="tk-punctuation">,</span> <span class="tk-number">7</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SCANNER STARTING AT INDEX 7</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; text-decoration: line-through; opacity: 0.5;">[0...6] "Hello, "</div>
+                <div style="color: #9ccc65; font-weight: bold;">[7] ➔ Empezando escaneo...</div>
+                <div style="margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">... </span><span
+                    style="color: var(--accent-yellow); font-weight: bold;">JavaScript</span><span
+                    style="color: #f8f8f2;"> world!</span>
+                </div>
+                <div style="margin-top: 15px; color: var(--sp-accent); font-weight: bold;">
+                  > Found: YES (true)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato pro:</strong> Si el índice de inicio es mayor que el lugar donde aparece la palabra,
+              devolverá <code style="color: red;">false</code> aunque la palabra esté al principio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, la búsqueda de la subcadena <mark>JavaScript</mark> comienza en la séptima posición de la cadena,
+        lo que
+        garantiza que se omitan todos los caracteres anteriores a esa posición.
+      </p>
+      <p>
+        El método <mark>includes()</mark> solo devuelve un resultado <mark>true</mark> o <mark>false</mark>. No
+        proporciona información sobre dónde se
+        encuentra la subcadena dentro de la cadena ni cuántas veces aparece. Si necesitas ese nivel de detalle, otros
+        métodos, como el método <mark>indexOf()</mark>, podrían ser más adecuados.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué devuelve el método <mark>includes()</mark> cuando se encuentra una subString en una String?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            El índice de la subString.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            La longitud de la subString.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            true
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            false
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones sobre el método <mark>includes()</mark> es correcta?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            No distingue entre mayúsculas y minúsculas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Distinge entre mayúsculas y minúsculas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Reemplaza la subString encontrada por otro valor.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Devuelve el número de veces que aparece la subString.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let message = "JavaScript is great!";
+                let result = message.includes("script");
+                console.log(result);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Da un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo se extrae una subString de una String?
+      </h2>
+
+      <p>
+        Al trabajar con Strings en JavaScript, a menudo es necesario extraer una parte o subString de una String más
+        largo.
+      </p>
+      <p>
+        Por ejemplo, es posible que quieras extraer parte de una palabra, una secuencia específica de caracteres o
+        simplemente un fragmento de una oración.
+      </p>
+      <p>
+        JavaScript ofrece varios métodos para esta tarea, siendo uno de los más utilizados el método
+        <mark>slice()</mark>.
+      </p>
+      <p>
+        El método <mark>slice()</mark> te permite extraer una parte de un String y devuelve un nuevo String, sin
+        modificar el String
+        original. Toma dos parámetros: el índice de inicio y el índice de finalización opcional.
+      </p>
+      <p>
+        Esta es la sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token operator">string</span><span class="token punctuation">.</span><span class="token property">slice</span><span class="token punctuation">(</span><span class="token operator">startIndex</span><span class="token punctuation">,</span> <span class="token operator">endIndex</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>startIndex</mark> es la posición en la que comienza la extracción. <mark>endIndex</mark> es la posición en
+        la que termina la
+        extracción. Si no se especifica, la función <mark>slice()</mark> extrae hasta el final del string.
+      </p>
+      <p>
+        Veamos un ejemplo sencillo de cómo extraer parte de un string:
+      </p>
+
+      <div class="ide-container" id="ide-js-slice-basic">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">slicer.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"Hello, world!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">greeting</span> = <span class="tk-selector">message</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">greeting</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Hello</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRING SLICE SIMULATOR</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; font-size: 11px; margin-bottom: 5px;">Índices: 0 1 2 3 4 | 5 6 7...</div>
+                <div style="display: flex; gap: 2px;">
+                  <span
+                    style="background: rgba(162, 245, 122, 0.2); color: #9ccc65; padding: 2px 4px; border: 1px dashed #9ccc65; border-radius: 2px; font-weight: bold;">Hello</span>
+                  <span style="color: #444; padding: 2px 4px;">, world!</span>
+                </div>
+                <div style="margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888;">Acción: slice(0, 5)</div>
+                  <div style="color: var(--accent-yellow); font-size: 16px; font-weight: bold; margin-top: 5px;">
+                    > Result: "Hello"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✂️ <strong>Nota importante:</strong> El índice final <strong>no se incluye</strong>. Si quieres la coma
+              (índice 5), tendrías que usar <code style="color: red;">slice(0, 6)</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>slice(0, 5)</mark> extrae los caracteres que van desde el índice <mark>0</mark> hasta el
+        índice <mark>5</mark>, sin incluir este
+        último. Como resultado, se extrae la palabra <mark>Hello</mark>.
+      </p>
+      <p>
+        Si se omite el segundo parámetro, <mark>slice()</mark> extraerá todo desde el índice inicial hasta el final del
+        string:
+      </p>
+
+      <div class="ide-container" id="ide-js-slice-to-end">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">slice_end.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"Hello, world!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">world</span> = <span class="tk-selector">message</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">7</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">world</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// world!</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FULL END EXTRACTION</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; font-size: 11px; margin-bottom: 5px;">[0]...[6] (Omitido) | [7]...[12]</div>
+                <div style="display: flex; gap: 2px; align-items: center;">
+                  <span style="color: #444; text-decoration: line-through;">Hello, </span>
+                  <span
+                    style="background: rgba(102, 217, 239, 0.2); color: #66d9ef; padding: 2px 6px; border: 1px solid #66d9ef; border-radius: 4px; font-weight: bold;">world!</span>
+                </div>
+                <div style="margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888;">Input: slice(7)</div>
+                  <div style="color: var(--sp-accent); font-size: 16px; font-weight: bold; margin-top: 5px;">
+                    > Output: "world!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Dato curioso:</strong> Si usas un número mayor que la longitud de la cadena (por ejemplo
+              <code style="color: red;">slice(50)</code>), JavaScript simplemente te devolverá una cadena vacía <code
+                style="color: red;">""</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, la función <mark>slice(7)</mark> extrae el string desde el índice <mark>7</mark> hasta el final del
+        string, lo que da como resultado
+        <mark>world!</mark>.
+      </p>
+      <p>
+        También puedes usar números negativos como índices. Cuando usas un número negativo, se cuenta hacia atrás desde
+        el final del string:
+      </p>
+
+      <div class="ide-container" id="ide-js-slice-negative">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">negative_slice.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"JavaScript is fun!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">lastWord</span> = <span class="tk-selector">message</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">-4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">lastWord</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// fun!</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BACKWARD SLICE ENGINE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; font-size: 11px; margin-bottom: 8px;">// Contando desde el final (índices
+                  negativos)</div>
+
+                <div
+                  style="display: flex; gap: 5px; align-items: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px;">
+                  <span style="color: #444;">JavaScript is </span>
+
+                  <div
+                    style="position: relative; background: rgba(247, 223, 30, 0.1); border: 1px solid var(--sp-accent); padding: 2px 5px; border-radius: 4px;">
+                    <span style="color: var(--sp-accent); font-weight: bold;">fun!</span>
+
+                    <div
+                      style="position: absolute; top: -18px; left: 0; width: 100%; display: flex; justify-content: space-between; font-size: 9px; color: var(--accent-yellow); letter-spacing: 2px;">
+                      <span>-4</span><span>-3</span><span>-2</span><span>-1</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 25px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888; font-size: 12px;">Comando ejecutado: <span
+                      style="color: #66d9ef;">.slice(-4)</span></div>
+                  <div style="color: #9ccc65; font-size: 16px; font-weight: bold; margin-top: 5px;">
+                    > Result: "fun!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato clave:</strong> El índice <code style="color: red;">-1</code> siempre representa el último
+              carácter de
+              cualquier String, sin importar su longitud.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>slice(-4)</mark> extrae los últimos cuatro caracteres del string, lo que nos da
+        <mark>fun!</mark>.
+      </p>
+      <p>
+        Supongamos que quieres extraer una sección del centro de un string. Puedes indicar tanto el índice inicial como
+        el final para controlar con precisión qué parte del string deseas:
+      </p>
+
+      <div class="ide-container" id="ide-js-slice-precise">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">precise_slice.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"I love JavaScript!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">language</span> = <span class="tk-selector">message</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">7</span><span class="tk-punctuation">,</span> <span class="tk-number">17</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">language</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// JavaScript</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SUBSTRING ANALYZER</h3>
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="color: #888; font-size: 11px; margin-bottom: 5px;">Index Map: [0] I [2] love [7] JavaScript
+                  [17] !</div>
+                <div
+                  style="display: flex; gap: 2px; align-items: center; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px;">
+                  <span style="color: #444;">I love </span>
+                  <span style="color: #9ccc65; font-weight: bold; border-bottom: 2px solid #9ccc65;">JavaScript</span>
+                  <span style="color: #444;">!</span>
+                </div>
+                <div style="margin-top: 15px; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #888;">Command: .slice(7, 17)</div>
+                  <div style="color: var(--sp-accent); font-size: 16px; font-weight: bold; margin-top: 5px;">
+                    > Extracted: "JavaScript"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Regla práctica:</strong> Si restas el índice inicial al final ($17 - 7 = 10$), obtendrás
+              exactamente la longitud de la cadena resultante.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, <mark>slice(7, 17)</mark> extrae el subString que comienza en el índice <mark>7</mark> y termina justo
+        antes del índice <mark>17</mark>, que es
+        la palabra <mark>JavaScript</mark>.
+      </p>
+      <p>
+        El método <mark>slice()</mark> es una herramienta muy útil para extraer partes de un String en JavaScript.
+      </p>
+      <p>
+        Se especifican los índices de inicio y fin, y el método devuelve un nuevo String que contiene la parte
+        extraída.
+      </p>
+      <p>
+        Con opciones para índices positivos, negativos y omitidos, puedes adaptarlo a diversas situaciones sin alterar
+        el String original.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let text = "JavaScript is awesome!";
+                let result = text.slice(0, 9);
+                
+                console.log(result);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            JavaScript
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            JavaScrip
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Java
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            awesome
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones sobre el método <mark>slice()</mark> es correcta?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Modifica el String original.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Devuelve un nuevo String que contiene la parte extraída.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Incluye el índice final en el subString extraída.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            No admite índices negativos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado devolverá el siguiente código?
+            <pre>
+              <code>
+                let sentence = "Learning JavaScript is fun!";
+                let extracted = sentence.slice(9, -5);
+                
+                console.log(extracted);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            JavaScript is
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            JavaScript
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Learning
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            fun!
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso CSS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
