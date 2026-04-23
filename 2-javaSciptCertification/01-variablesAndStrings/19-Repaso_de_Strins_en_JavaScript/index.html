@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de Strins en JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/js-icon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de Strins en JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> Conceptos básicos</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> Strings de plantilla</a>
+          <a href="#tema3" data-nav><span class="nav-num">03</span> charCodeAt() y fromCharCode()</a>
+          <a href="#tema4" data-nav><span class="nav-num">04</span> Métodos comunes de Strings</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        04 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/js-icon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de Strins en JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem;border-radius: 1rem;">
+        🌓 Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta sección, repasaremos algunos conceptos básicos sobre las cadenas de texto (strings) en JavaScript. Las
+          cadenas de texto son una secuencia de caracteres que se utilizan para representar texto en un programa. En
+          JavaScript, las cadenas de texto se pueden crear utilizando comillas simples (' '), comillas dobles (" ") o
+          backticks (` `).
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: Conceptos básicos sobre strings</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Un string es una secuencia de caracteres entre comillas simples, comillas
+              dobles o comillas invertidas. Los strings son tipos de datos primitivos y son inmutables. La inmutabilidad
+              significa que, una vez creada un string, no se puede modificar.
+            </li>
+            <li>
+              <strong>Acceso a los caracteres de un string</strong>: Para acceder a un carácter de un string, puedes
+              usar la notación entre corchetes y pasar el número de índice. Un índice es la posición de un carácter
+              dentro de un string, y se cuenta a partir de cero.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-string-basics">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">basics.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">developer</span> = <span class="tk-string">"Jessica"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Acceso mediante índice [0]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developer</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "J"</span>
+
+<span class="tk-comment">// La inmutabilidad impide cambios directos:</span>
+<span class="tk-selector">developer</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span> = <span class="tk-string">"Y"</span><span class="tk-punctuation">;</span> <span class="tk-comment">// No surte efecto</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  STRING INDEX VISUALIZER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                  <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 20px;">
+                    <div style="display: flex; gap: 8px; justify-content: center;">
+                      <span style="color: #888; width: 20px; text-align: center;">0</span>
+                      <span style="color: #888; width: 20px; text-align: center;">1</span>
+                      <span style="color: #888; width: 20px; text-align: center;">2</span>
+                      <span style="color: #888; width: 20px; text-align: center;">3</span>
+                      <span style="color: #888; width: 20px; text-align: center;">4</span>
+                      <span style="color: #888; width: 20px; text-align: center;">5</span>
+                      <span style="color: #888; width: 20px; text-align: center;">6</span>
+                    </div>
+                    <div style="display: flex; gap: 8px; justify-content: center;">
+                      <span
+                        style="background: var(--sp-accent); color: var(--bg-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-weight: bold;">J</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">e</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">s</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">s</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">i</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">c</span>
+                      <span
+                        style="background: rgba(255,255,255,0.1); color: var(--text-primary); width: 20px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px;">a</span>
+                    </div>
+                  </div>
+
+                  <div style="border-top: 1px solid #333; padding-top: 10px;">
+                    <div style="color: #888; font-size: 11px;">Acceso developer[0]:</div>
+                    <div style="color: var(--sp-accent); font-size: 16px; font-weight: bold;">➔ "J"</div>
+                  </div>
+
+                  <div
+                    style="margin-top: 10px; padding: 8px; background: rgba(239, 83, 80, 0.1); border-radius: 4px; border: 1px solid rgba(239, 83, 80, 0.2);">
+                    <div style="color: #ef5350; font-size: 11px; font-weight: bold;">AVISO DE INMUTABILIDAD:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">Intentar cambiar "J" por "Y" fallará silenciosamente.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: white; line-height: 1.4;">
+                🚩 <strong>Dato clave:</strong> El primer índice es siempre <code style="color: yellow;">0</code> y el
+                último es siempre
+                <code style="color: yellow;">longitud - 1</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong><mark>\n</mark> (Carácter de salto de línea)</strong>: Puedes crear un salto de línea en un string
+              utilizando el carácter de salto de línea <mark>\n</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-newline-character">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">poem.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">poem</span> = <span class="tk-string">"Roses are red,\nViolets are blue,\nJavaScript is fun,\nAnd so are you."</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">poem</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  CONSOLE OUTPUT</h3>
+
+                <div
+                  style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6; color: #f8f8f2; white-space: pre-wrap;">
+                  <div style="color: #888; font-size: 11px; margin-bottom: 10px;">// Ejecutando script...</div>
+                  Roses are red,
+                  Violets are blue,
+                  JavaScript is fun,
+                  And so are you.
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: white; line-height: 1.4;">
+                ✨ <strong>Dato curioso:</strong> Aunque en el código ves <code style="color: yellow;">\n</code> como dos
+                caracteres, si mides
+                su longitud (<code style="color: yellow;">"\n".length</code>), ¡JavaScript te dirá que solo mide
+                <strong>1</strong>!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Caracteres de escape en strings</strong>: Puedes convertir los caracteres de un string en
+              caracteres de escape colocando barras invertidas (<mark>\</mark>) delante de las comillas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-escape-quotes">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">escape.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">statement</span> = <span class="tk-string">"She said, \"Hello!\""</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">statement</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// She said, "Hello!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  STRING PARSER VIEW</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="color: #888; font-size: 11px; margin-bottom: 5px;">Cómo lo lee el navegador:</div>
+                  <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; color: #f8f8f2;">
+                    She said, <span style="color: var(--sp-accent); font-weight: bold;">"</span>Hello!<span
+                      style="color: var(--sp-accent); font-weight: bold;">"</span>
+                  </div>
+
+                  <div style="margin-top: 15px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: #a6e22e; border-radius: 50%;"></div>
+                    <span style="color: #888; font-size: 11px;">La barra <code style="color: var(--sp-accent);">\</code>
+                      desaparece en el resultado final.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Pro-tip:</strong> Una forma de evitar las barras invertidas es alternar comillas:
+                <code style="color: yellow;">'She said, "Hello!"'</code>. ¡JavaScript es muy flexible!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Literales de plantilla (strings de plantilla) e interpolación de strings</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Los literales de plantilla se definen con comillas invertidas (`). Permiten
+              manipular strings más fácilmente, incluyendo la inserción directa de variables dentro de una string, una
+              característica conocida como interpolación de strings.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-template-literals">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">templates.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">name</span> = <span class="tk-string">"Jessica"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">greeting</span> = <span class="tk-string">`Hello, ${<span class="tk-selector">name</span>}!`</span><span class="tk-punctuation">;</span> 
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">greeting</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, Jessica!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  STRING INTERPOLATION ENGINE</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div style="color: #888; font-size: 11px;">Variable:</div>
+                      <div
+                        style="background: rgba(255, 255, 255, 0.1); padding: 2px 8px; border-radius: 4px; color: #f8f8f2;">
+                        name = <span style="color: #a6e22e;">"Jessica"</span></div>
+                    </div>
+
+                    <div
+                      style="color: var(--sp-accent); padding: 8px; border: 1px solid var(--sp-accent); border-radius: 4px; background: rgba(102, 217, 239, 0.05); text-align: center;">
+                      `Hello, <span
+                        style="background: var(--sp-accent); color: var(--bg-primary); padding: 0 4px; border-radius: 2px;">${name}</span>!`
+                    </div>
+
+                    <div style="text-align: center; color: var(--sp-accent); font-size: 18px;">⬇</div>
+
+                    <div
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px;">
+                      <div style="color: #9ccc65; font-size: 11px; text-transform: uppercase; font-weight: bold;">
+                        Output:</div>
+                      <div style="color: #f8f8f2; font-size: 16px;">"Hello, <span
+                          style="color: #9ccc65; font-weight: bold;">Jessica</span>!"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🚀 <strong>Súper poder:</strong> Puedes hacer cálculos reales dentro: <code
+                  style="color: yellow;">`2 + 2 = ${2 + 2}`</code>
+                resultará en <code style="color: yellow;">"2 + 2 = 4"</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 3 -->
+      <section id="tema3" aria-labelledby="tema3-titulo">
+        <h2 id="tema3-titulo">Tema 3: ASCII, el método <mark>charCodeAt()</mark> y el método <mark>fromCharCode()</mark>
+        </h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>ASCII</strong>: ASCII (Código Estándar Americano para el Intercambio de Información) es un
+              estándar de codificación de caracteres que se utiliza para representar caracteres básicos del inglés
+              mediante valores numéricos. En lecciones anteriores se presentan los métodos <mark>charCodeAt()</mark> y
+              <mark>fromCharCode()</mark> con ejemplos basados en ASCII.
+            </li>
+            <li>
+              <strong>Unicode</strong>: Los strings de JavaScript utilizan Unicode internamente, concretamente la
+              codificación UTF-16. Para los primeros 128 caracteres (letras latinas básicas, dígitos y símbolos
+              comunes), los valores Unicode coinciden con los códigos ASCII. Por eso los ejemplos basados en ASCII
+              siguen funcionando en JavaScript.
+            </li>
+            <li>
+              <strong>El método <mark>charCodeAt()</mark></strong>: Este método devuelve la unidad de código UTF-16 del
+              carácter en un índice especificado. Para los caracteres latinos básicos, este valor coincide con el código
+              ASCII.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-charcode-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">encoder.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">letter</span> = <span class="tk-string">"A"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">letter</span><span class="tk-punctuation">.</span><span class="tk-value">charCodeAt</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 65</span>
+
+<span class="tk-comment">// ¿Y la "a" minúscula?</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"a"</span><span class="tk-punctuation">.</span><span class="tk-value">charCodeAt</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 97</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  CHAR CODE DETECTOR</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; align-items: center; justify-content: space-around; margin: 10px 0;">
+                    <div style="text-align: center;">
+                      <div style="color: #888; font-size: 10px;">CHAR</div>
+                      <div style="font-size: 24px; color: var(--sp-accent); font-weight: bold;">"A"</div>
+                    </div>
+                    <div style="color: #444; font-size: 20px;">➔</div>
+                    <div style="text-align: center;">
+                      <div style="color: #888; font-size: 10px;">ASCII/UTF-16</div>
+                      <div style="font-size: 24px; color: var(--accent-yellow); font-weight: bold;">65</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px; margin-top: 15px;">
+                    <div style="color: #66d9ef; font-size: 11px; font-weight: bold;">¿POR QUÉ ES ÚTIL?</div>
+                    <div style="color: #f8f8f2; font-size: 12px; margin-top: 5px;">
+                      Permite validar entradas, crear algoritmos de cifrado o comparar caracteres basándose en su valor
+                      numérico.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Curiosidad:</strong> Los números (0-9) también tienen códigos. El código del carácter
+                <code style="color: yellow;">"0"</code> es el <strong>48</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>fromCharCode()</mark></strong>: Este método convierte un código ASCII en su
+              carácter correspondiente.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-fromcharcode-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">decoder.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">char</span> = <span class="tk-selector">String</span><span class="tk-punctuation">.</span><span class="tk-value">fromCharCode</span><span class="tk-punctuation">(</span><span class="tk-number">65</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">char</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "A"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  REVERSE CODE DECODER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; align-items: center; justify-content: space-around; margin: 10px 0;">
+                    <div style="text-align: center;">
+                      <div style="color: #888; font-size: 10px;">CODE</div>
+                      <div style="font-size: 24px; color: var(--accent-yellow); font-weight: bold;">65</div>
+                    </div>
+                    <div style="color: var(--sp-accent); font-size: 20px;">➔</div>
+                    <div style="text-align: center;">
+                      <div style="color: #888; font-size: 10px;">CHARACTER</div>
+                      <div style="font-size: 24px; color: var(--sp-accent); font-weight: bold;">"A"</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(162, 245, 122, 0.05); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px; margin-top: 15px;">
+                    <div style="color: #9ccc65; font-size: 11px; font-weight: bold;">MULTI-REARME:</div>
+                    <div style="color: #f8f8f2; font-size: 12px; margin-top: 5px;">
+                      ¡Puedes pasar varios números a la vez! <br>
+                      <code>String.fromCharCode(72, 105)</code> ➔ <span style="color: #9ccc65;">"Hi"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🧠 <strong>Nota importante:</strong> Recuerda que es <code style="color: yellow;">String</code> (con S
+                mayúscula) porque es un
+                método del objeto global, no de una instancia específica.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 4 -->
+      <section id="tema4" aria-labelledby="tema4-titulo">
+        <h2 id="tema4-titulo">Tema 4: Otros métodos comunes de Strings</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>indexOf</mark></strong>: Este método se utiliza para buscar un subString dentro de
+              un String. Si se encuentra la subString, <mark>indexOf</mark> devuelve el índice (o posición) de la
+              primera aparición de dicha subString. Si no se encuentra la subString, <mark>indexOf</mark> devuelve -1,
+              lo que indica que la búsqueda no tuvo éxito.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-indexof-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">search.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"The quick brown fox jumps over the lazy dog."</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"fox"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 16</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"cat"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// -1</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  STRING SEARCH RADAR</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                  <div style="margin-bottom: 15px;">
+                    <div style="color: #888; font-size: 10px; margin-bottom: 5px;">Buscando "fox":</div>
+                    <div
+                      style="background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; overflow-x: auto; white-space: nowrap; color: #f8f8f2;">
+                      The quick brown <span
+                        style="background: var(--sp-accent); color: var(--bg-primary); font-weight: bold; padding: 0 4px; border-radius: 2px;">fox</span>
+                      jumps...
+                    </div>
+                    <div style="color: var(--sp-accent); margin-top: 5px; font-weight: bold;">Found at Index: 16</div>
+                  </div>
+
+                  <div style="border-top: 1px solid #333; padding-top: 10px;">
+                    <div style="color: #888; font-size: 10px; margin-bottom: 5px;">Buscando "cat":</div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <span style="color: #ef5350; font-weight: bold;">NOT FOUND</span>
+                      <span
+                        style="background: rgba(239, 83, 80, 0.1); color: #ef5350; padding: 2px 6px; border-radius: 4px; font-size: 14px; font-weight: bold;">-1</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Cuidado:</strong> Si la palabra aparece varias veces, <code
+                  style="color: yellow;">indexOf()</code> solo te
+                devolverá la posición de la <strong>primera</strong> que encuentre.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>includes()</mark></strong>: Este método se utiliza para comprobar si un String
+              contiene un subString específico. Si el subString se encuentra dentro del String, el método devuelve <mark>true</mark>.
+              De lo contrario, devuelve <mark>false</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-includes-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">check.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"The quick brown fox jumps over the lazy dog."</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"fox"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"cat"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  BOOLEAN SEARCH ENGINE</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                  <div
+                    style="margin-bottom: 15px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; color: #f8f8f2; font-style: italic;">
+                    "The quick brown fox..."
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; background: rgba(162, 245, 122, 0.1); padding: 8px; border-radius: 4px; border: 1px solid rgba(162, 245, 122, 0.2);">
+                      <span style="color: #888;">Contains "fox"?</span>
+                      <span style="color: #a6e22e; font-weight: bold;">true</span>
+                    </div>
+
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; background: rgba(239, 83, 80, 0.1); padding: 8px; border-radius: 4px; border: 1px solid rgba(239, 83, 80, 0.2);">
+                      <span style="color: #888;">Contains "cat"?</span>
+                      <span style="color: #ef5350; font-weight: bold;">false</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ✨ <strong>Dato pro:</strong> Este método es ideal para usar en sentencias <code
+                  style="color: yellow;">if</code>, ya que no
+                tienes que compararlo con -1.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>slice()</mark></strong>: Este método extrae una parte de un string y devuelve un
+              nuevo string, sin modificar el string original. Toma dos parámetros: el índice inicial y el índice final
+              (opcional).
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-slice-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">slicer.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"freeCodeCamp"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "free"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">8</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Code"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">8</span><span class="tk-punctuation">,</span> <span class="tk-number">12</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Camp"</span>
+
+</code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  SLICE EXTRACTION MAP</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 11px; line-height: 1.6;">
+                  <div style="display: flex; gap: 2px; margin-bottom: 15px; justify-content: center;">
+                    <div style="text-align: center;">
+                      <div style="color: #888;">0</div>
+                      <div style="background: var(--sp-accent); color: #000; width: 22px; padding: 4px 0;">f</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">1</div>
+                      <div style="background: var(--sp-accent); color: #000; width: 22px; padding: 4px 0;">r</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">2</div>
+                      <div style="background: var(--sp-accent); color: #000; width: 22px; padding: 4px 0;">e</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">3</div>
+                      <div style="background: var(--sp-accent); color: #000; width: 22px; padding: 4px 0;">e</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #ef5350;">4</div>
+                      <div style="background: #444; color: #fff; width: 22px; padding: 4px 0;">C</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">5</div>
+                      <div style="background: #444; color: #fff; width: 22px; padding: 4px 0;">o</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">6</div>
+                      <div style="background: #444; color: #fff; width: 22px; padding: 4px 0;">d</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div style="color: #888;">7</div>
+                      <div style="background: #444; color: #fff; width: 22px; padding: 4px 0;">e</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); padding: 10px; border-radius: 4px; border: 1px solid var(--sp-accent);">
+                    <div style="color: var(--sp-accent); font-weight: bold;">text.slice(0, 4)</div>
+                    <div style="color: #f8f8f2; font-size: 14px; margin-top: 4px;">➔ "free"</div>
+                    <div style="color: #888; font-size: 10px; margin-top: 2px;">(Toma 0 hasta antes de 4)</div>
+                  </div>
+
+                  <div
+                    style="margin-top: 10px; padding: 8px; border-left: 3px solid var(--accent-yellow); background: rgba(247, 223, 30, 0.05);">
+                    <span style="color: #f8f8f2;">Si omites el segundo parámetro, <code>slice(4)</code>, extraerá desde
+                      el índice 4 hasta el final.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+                💡 <strong>Pro-tip:</strong> ¡También acepta números negativos! <code
+                  style="color: yellow;">slice(-4)</code> te devolverá los
+                últimos 4 caracteres del string.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>toUpperCase()</mark></strong>: Este método convierte todos los caracteres a
+              mayúsculas y devuelve una nueva cadena con todos los caracteres en mayúsculas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-touppercase-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">uppercase.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"Hello, world!"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">toUpperCase</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "HELLO, WORLD!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  TEXT CASE TRANSFORMER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <span style="color: #888; font-size: 11px; width: 60px;">INPUT:</span>
+                      <span
+                        style="color: #f8f8f2; background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;">"Hello,
+                        world!"</span>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 10px; color: var(--sp-accent);">
+                      <span style="font-size: 18px; margin-left: 80px;">⬇</span>
+                      <span style="font-size: 10px; font-weight: bold; letter-spacing: 1px;">.toUpperCase()</span>
+                    </div>
+
+                    <div
+                      style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 12px; border-radius: 4px;">
+                      <div
+                        style="color: #66d9ef; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">
+                        Final Output:</div>
+                      <div style="color: #f8f8f2; font-size: 16px; font-weight: 900; letter-spacing: 1px;">"HELLO,
+                        WORLD!"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚡ <strong>Uso común:</strong> Se utiliza mucho para normalizar datos antes de compararlos, asegurando
+                que "ADMIN" sea igual a "admin".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>toLowerCase()</mark></strong>: Este método convierte todos los caracteres de un
+              string a minúsculas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-tolowercase-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">lowercase.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"HELLO, WORLD!"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">toLowerCase</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "hello, world!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  LOWERCASE CONVERTER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <span style="color: #ef5350; font-size: 10px; font-weight: bold; width: 60px;">SHOUTING:</span>
+                      <span
+                        style="color: #f8f8f2; background: rgba(239, 83, 80, 0.1); padding: 4px 8px; border-radius: 4px; font-weight: 800;">"HELLO,
+                        WORLD!"</span>
+                    </div>
+
+                    <div style="text-align: center; color: var(--sp-accent); font-size: 14px;">
+                      <span style="font-weight: bold;">.toLowerCase()</span>
+                      <div style="margin-top: -5px;">⬇</div>
+                    </div>
+
+                    <div
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 12px; border-radius: 4px;">
+                      <div
+                        style="color: #9ccc65; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">
+                        Friendly Output:</div>
+                      <div style="color: #f8f8f2; font-size: 16px; font-weight: 400;">"hello, world!"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Caso de uso:</strong> Es muy común usarlo al buscar correos electrónicos en una base de
+                datos, ya que <code style="color: yellow;">Juan@Email.com</code> y <code
+                  style="color: yellow;">juan@email.com</code> deben ser tratados como el mismo
+                usuario.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>replace()</mark></strong>: Este método te permite buscar un valor específico (como
+              una palabra o un carácter) en un string y sustituirlo por otro valor. El método devuelve un nuevo string
+              con la sustitución y deja la original sin cambios, ya que los strings de JavaScript son inmutables.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-replace-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">replace.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"I like cats"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">newText</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">replace</span><span class="tk-punctuation">(</span><span class="tk-string">"cats"</span><span class="tk-punctuation">,</span> <span class="tk-string">"dogs"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newText</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "I like dogs"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  TEXT SWAPPER ENGINE</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="border-left: 3px solid #ef5350; padding-left: 10px;">
+                      <div style="color: #888; font-size: 10px; text-transform: uppercase;">Original:</div>
+                      <div style="color: #f8f8f2;">"I like <span
+                          style="text-decoration: line-through; color: #ef5350;">cats</span>"</div>
+                    </div>
+
+                    <div
+                      style="display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--sp-accent);">
+                      <span
+                        style="font-size: 10px; border: 1px solid var(--sp-accent); padding: 2px 5px; border-radius: 3px;">cats</span>
+                      <span>➔</span>
+                      <span
+                        style="font-size: 10px; border: 1px solid #a6e22e; color: #a6e22e; padding: 2px 5px; border-radius: 3px;">dogs</span>
+                    </div>
+
+                    <div
+                      style="border-left: 3px solid #a6e22e; padding-left: 10px; background: rgba(166, 226, 46, 0.05); padding-top: 5px; padding-bottom: 5px;">
+                      <div style="color: #888; font-size: 10px; text-transform: uppercase;">Nuevo String:</div>
+                      <div style="color: #f8f8f2;">"I like <span style="color: #a6e22e; font-weight: bold;">dogs</span>"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato extra:</strong> Si necesitas cambiar todas las apariciones de una palabra, puedes usar
+                <code style="color: yellow;">replaceAll()</code> o una Expresión Regular con la bandera global <code
+                  style="color: yellow;">/g</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>replaceAll()</mark></strong>: Este método permite buscar todas las apariciones de
+              un valor específico (una palabra, un carácter o un patrón) en un string y sustituirlas por otro valor.
+              Funciona igual que <mark>replace()</mark>, pero en lugar de detenerse tras la primera coincidencia,
+              actualiza todas las coincidencias que encuentre en el string.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-replaceall-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">global_replace.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"I love cats and cats are so much fun!"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">newText</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">replaceAll</span><span class="tk-punctuation">(</span><span class="tk-string">"cats"</span><span class="tk-punctuation">,</span> <span class="tk-string">"dogs"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newText</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "I love dogs and dogs are so much fun!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  GLOBAL SWAP MONITOR</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div
+                      style="background: rgba(255, 255, 255, 0.03); padding: 10px; border-radius: 4px; border: 1px dashed #555;">
+                      <span style="color: #888; font-size: 10px;">TEXTO ORIGINAL:</span><br>
+                      <span style="color: #f8f8f2;">I love <span style="color: #ef5350;">cats</span> and <span
+                          style="color: #ef5350;">cats</span> are fun!</span>
+                    </div>
+
+                    <div style="text-align: center; color: var(--sp-accent);">
+                      <div style="font-size: 10px; font-weight: bold;">.replaceAll("cats", "dogs")</div>
+                      <div>⬇</div>
+                    </div>
+
+                    <div
+                      style="background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 4px; border: 1px solid #a6e22e;">
+                      <span style="color: #888; font-size: 10px;">RESULTADO GLOBAL:</span><br>
+                      <span style="color: #f8f8f2;">I love <span style="color: #a6e22e; font-weight: bold;">dogs</span>
+                        and <span style="color: #a6e22e; font-weight: bold;">dogs</span> are fun!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Dato importante:</strong> Si usas una Expresión Regular con <code
+                  style="color: yellow;">replaceAll()</code>,
+                <strong>debe</strong> tener la bandera global <code style="color: yellow;">/g</code>, de lo contrario
+                JavaScript lanzará un
+                error.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>repeat()</mark></strong>: Este método se utiliza para repetir un string un número
+              determinado de veces.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-repeat-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">repeater.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"Hello"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">shout</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">repeat</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">shout</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "HelloHelloHello"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  STRING CLONER MONITOR</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <span style="color: #888; font-size: 10px; width: 60px;">INPUT:</span>
+                      <span
+                        style="color: #f8f8f2; background: rgba(255, 255, 255, 0.05); padding: 2px 8px; border-radius: 4px;">"Hello"</span>
+                    </div>
+
+                    <div style="text-align: center; color: var(--accent-yellow);">
+                      <span style="font-weight: bold;">.repeat(3)</span>
+                      <div style="font-size: 18px;">⬇</div>
+                    </div>
+
+                    <div
+                      style="background: rgba(247, 223, 30, 0.05); border: 1px solid var(--accent-yellow); padding: 12px; border-radius: 4px;">
+                      <div
+                        style="color: var(--accent-yellow); font-size: 10px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;">
+                        Resulting String:</div>
+                      <div style="display: flex; gap: 2px; flex-wrap: wrap;">
+                        <span style="color: #f8f8f2;">"Hello</span><span style="color: #f8f8f2;">Hello</span><span
+                          style="color: #f8f8f2;">Hello"</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🚩 <strong>Ojo con esto:</strong> Si intentas repetir un string un número negativo de veces, JavaScript
+                lanzará un <code style="color: yellow;">RangeError</code>. Si usas <code
+                  style="color: yellow;">0</code>, obtendrás un string vacío <code style="color: yellow;">""</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>trim()</mark></strong>: Este método se utiliza para eliminar los espacios en
+              blanco tanto al principio como al final de un string.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-trim-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">cleaner.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"   Hello, world!   "</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">cleanText</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">trim</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">cleanText</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, world!"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  WHITE SPACE VACUUM</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                      <div style="color: #888; font-size: 10px; text-transform: uppercase;">Original (con espacios
+                        invisibles):</div>
+                      <div
+                        style="background: rgba(239, 83, 80, 0.1); padding: 8px; border-radius: 4px; border: 1px dashed #ef5350; color: #f8f8f2;">
+                        <span style="background: #ef5350; opacity: 0.3;">···</span>Hello, world!<span
+                          style="background: #ef5350; opacity: 0.3;">···</span>
+                      </div>
+                    </div>
+
+                    <div style="text-align: center; color: var(--sp-accent);">
+                      <span style="font-weight: bold; font-size: 11px;">.trim()</span>
+                      <div>⬇</div>
+                    </div>
+
+                    <div
+                      style="background: rgba(162, 245, 122, 0.1); border: 1px solid #9ccc65; padding: 10px; border-radius: 4px;">
+                      <div style="color: #9ccc65; font-size: 10px; font-weight: bold; text-transform: uppercase;">
+                        Resultado final:</div>
+                      <div style="color: #f8f8f2; font-weight: bold;">"Hello, world!"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato útil:</strong> También existen <code style="color: yellow;">trimStart()</code> (o <code
+                  style="color: yellow;">trimLeft()</code>) y
+                <code style="color: yellow;">trimEnd()</code> (o <code style="color: yellow;">trimRight()</code>) si
+                solo necesitas limpiar un lado específico.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>trimStart()</mark></strong>: Este método elimina los espacios en blanco del
+              principio (o "inicio") del string.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-trimstart-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">start_clean.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"   Hello, world!   "</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">trimStart</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"'"</span> + <span class="tk-selector">result</span> + <span class="tk-string">"'"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 'Hello, world!   '</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  START-ONLY CLEANER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                      <div style="color: #888; font-size: 10px; margin-bottom: 5px;">ESTADO DE LOS ESPACIOS:</div>
+                      <div
+                        style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; color: #f8f8f2; position: relative; overflow: hidden;">
+                        <span style="background: rgba(239, 83, 80, 0.4); text-decoration: line-through; padding: 2px;">
+                        </span><span style="border-left: 2px solid var(--sp-accent); padding-left: 5px;">Hello,
+                          world!</span><span style="background: rgba(162, 245, 122, 0.2); padding: 2px;"> </span>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; font-size: 11px;">
+                      <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 8px; height: 8px; background: rgba(239, 83, 80, 0.6);"></div>
+                        <span style="color: #888;">Eliminado</span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 8px; height: 8px; background: rgba(162, 245, 122, 0.4);"></div>
+                        <span style="color: #888;">Preservado</span>
+                      </div>
+                    </div>
+
+                    <div
+                      style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                      <div style="color: #66d9ef; font-size: 10px; font-weight: bold;">OUTPUT CONSOLE:</div>
+                      <div style="color: #f8f8f2;">"Hello, world! "</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato histórico:</strong> Antiguamente se usaba <code
+                  style="color: yellow;">trimLeft()</code>, que todavía funciona
+                como alias, pero el nombre estándar moderno es <code style="color: yellow;">trimStart()</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>trimEnd()</mark></strong>: Este método elimina los espacios en blanco del final
+              del string.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-trimend-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">end_clean.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">text</span> = <span class="tk-string">"  Hello, world!  "</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-selector">text</span><span class="tk-punctuation">.</span><span class="tk-value">trimEnd</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"'"</span> + <span class="tk-selector">result</span> + <span class="tk-string">"'"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// '  Hello, world!'</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  END-ONLY CLEANER</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div>
+                      <div style="color: #888; font-size: 10px; margin-bottom: 5px;">PROCESAMIENTO DE COLA:</div>
+                      <div
+                        style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; color: #f8f8f2; position: relative;">
+                        <span style="background: rgba(162, 245, 122, 0.2); padding: 2px;"> </span><span
+                          style="border-right: 2px solid var(--sp-accent); padding-right: 5px;">Hello,
+                          world!</span><span
+                          style="background: rgba(239, 83, 80, 0.4); text-decoration: line-through; padding: 2px;">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; font-size: 11px;">
+                      <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 8px; height: 8px; background: rgba(162, 245, 122, 0.4);"></div>
+                        <span style="color: #888;">Mantenido (Inicio)</span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 5px;">
+                        <div style="width: 8px; height: 8px; background: rgba(239, 83, 80, 0.6);"></div>
+                        <span style="color: #888;">Eliminado (Final)</span>
+                      </div>
+                    </div>
+
+                    <div
+                      style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                      <div style="color: #a6e22e; font-size: 10px; font-weight: bold;">OUTPUT FINAL:</div>
+                      <div style="color: #f8f8f2;">" Hello, world!"</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato:</strong> Al igual que con el inicio, puedes encontrarlo en códigos antiguos como
+                <code style="color: yellow;">trimRight()</code>, pero el estándar actual prefiere <code
+                  style="color: yellow;">trimEnd()</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>El método <mark>prompt()</mark></strong>: Este método del window se utiliza para obtener
+              información del usuario a través de un cuadro de diálogo. Este método toma dos argumentos. El primer
+              argumento es el mensaje que aparecerá dentro del cuadro de diálogo, que normalmente solicita al usuario
+              que introduzca información. El segundo es un valor predeterminado, que es opcional y que rellenará
+              inicialmente el campo de entrada.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-prompt-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">input.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">answer</span> = <span class="tk-selector">window</span><span class="tk-punctuation">.</span><span class="tk-value">prompt</span><span class="tk-punctuation">(</span><span class="tk-string">"What's your favorite animal?"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Cat"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"The user likes: "</span> + <span class="tk-selector">answer</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                  PROMPT SIMULATOR</h3>
+
+                <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                  <div
+                    style="background: #333; border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #555;">
+                    <div style="color: #f8f8f2; margin-bottom: 12px; font-size: 14px;">What's your favorite animal?
+                    </div>
+                    <div
+                      style="background: #fff; color: #000; padding: 5px 10px; border-radius: 4px; margin-bottom: 15px;">
+                      Cat</div>
+                    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                      <div
+                        style="background: #eee; color: #333; padding: 4px 12px; border-radius: 4px; font-size: 11px; cursor: pointer;">
+                        Cancel</div>
+                      <div
+                        style="background: var(--sp-accent); color: #000; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer;">
+                        OK</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="margin-top: 20px; padding: 10px; background: rgba(102, 217, 239, 0.05); border-radius: 4px; border-left: 3px solid var(--sp-accent);">
+                    <div style="color: #888; font-size: 10px;">VARIABLE "answer" RECIBE:</div>
+                    <div style="color: #a6e22e; font-weight: bold;">"Cat"</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+              <p
+                style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Nota:</strong> Aunque es genial para aprender, en aplicaciones modernas se prefieren
+                formularios HTML porque el <code style="color: yellow;">prompt()</code> bloquea todo el navegador hasta que se cierra.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

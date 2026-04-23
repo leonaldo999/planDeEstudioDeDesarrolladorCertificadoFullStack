@@ -40,8 +40,8 @@ Para aprobar el cuestionario, debes responder correctamente al menos 18 de las 2
 6. **¿Por qué se considera que las cadenas son inmutables en JavaScript?**
   
    - [ ] a) No se pueden crear cadenas utilizando variables.
-   - [x] b) Las cadenas solo se pueden crear mediante literales.
-   - [ ] c) Una vez creada una cadena, no se pueden modificar sus caracteres directamente. // ❎
+   - [ ] b) Las cadenas solo se pueden crear mediante literales.
+   - [x] c) Una vez creada una cadena, no se pueden modificar sus caracteres directamente. // ❎
    - [ ] d) Se pueden modificar las cadenas, pero solo a través de variables globales.
 
 7. **¿Cómo se imprime la cadena `Hello, world!` en la consola en JavaScript?**

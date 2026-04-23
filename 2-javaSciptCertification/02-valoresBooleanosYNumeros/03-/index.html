@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con el comportamiento de los operadores en JavaScript. Descubre cómo los operadores afectan el flujo de tu código y cómo utilizarlos de manera efectiva para lograr resultados deseados.">
+  <meta name="keywords" content="JavaScript, operadores, comportamiento de operadores, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con el comportamiento de los operadores en JavaScript">
+  <meta property="og:description"
+    content="Aprende a trabajar con el comportamiento de los operadores en JavaScript. Descubre cómo los operadores afectan el flujo de tu código y cómo utilizarlos de manera efectiva para lograr resultados deseados.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con el comportamiento de los operadores</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de modificación de Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esata sección, aprenderás a trabajar con el comportamiento de los operadores. Esto incluye aprender a usar
+        operadores de comparación, operadores lógicos y operadores de asignación.
+        números.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo funciona la precedencia de los operadores?
+      </h2>
+
+      <p>
+        Si escribes una expresión con varios operadores en JavaScript, ¿cómo decide JavaScript cuál evaluar primero?
+        Aquí es donde entra en juego la precedencia de los operadores. Exploremos la precedencia de los operadores en
+        detalle con ejemplos de código, y también qué sucede cuando los operadores tienen la misma precedencia.
+      </p>
+      <p>
+        La precedencia de los operadores determina el orden en el que se evalúan las operaciones en una expresión. Los
+        operadores con mayor precedencia se evalúan antes que los que tienen menor precedencia. Piensa en la precedencia
+        de los operadores como en las matemáticas, donde la división y la multiplicación se realizan antes que la suma y
+        la resta.
+      </p>
+      <p>
+        Sin seguir esta regla, las ecuaciones básicas te darían una respuesta incorrecta. JavaScript funciona de la
+        misma manera. Tiene sus propias reglas sobre qué operadores van primero, segundo, y así sucesivamente. Por
+        ejemplo, echa un vistazo a la siguiente expresión:
+      </p>
+
+      <div class="ide-container" id="ide-js-operator-precedence-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">precedencia.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">2</span> <span class="tk-operator">+</span> <span class="tk-number">3</span> <span class="tk-operator">*</span> <span class="tk-number">4</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 14</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                PRECEDENCE ANALYZER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #888; font-size: 10px;">PASO 1: MULTIPLICACIÓN (Alta
+                      prioridad)</div>
+                    <div style="font-size: 16px; color: #f8f8f2;">3 <span style="color: #f92672;">*</span> 4 = <span
+                        style="color: #a6e22e; font-weight: bold;">12</span></div>
+                  </div>
+
+                  <div style="padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #888; font-size: 10px;">PASO 2: SUMA (Baja prioridad)</div>
+                    <div style="font-size: 16px; color: #f8f8f2;">2 <span style="color: #f92672;">+</span> <span
+                        style="color: #a6e22e;">12</span> = <span
+                        style="color: var(--sp-accent); font-weight: bold;">14</span></div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #66d9ef; font-size: 11px;">
+                    <span style="color: #66d9ef;">INFO:</span> JS ignora el orden visual (izq a der) para respetar la
+                    jerarquía de operadores.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato:</strong> La multiplicación tiene una precedencia de 13, mientras que la suma tiene una de
+              12. ¡Cuanto más alto el número, antes se evalúa!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si JavaScript evaluara esta expresión de izquierda a derecha, cabría esperar que <mark>2 + 3 = 5</mark> y, a
+        continuación, <mark>5
+          * 4 = 20</mark>. Sin embargo, dado que la multiplicación tiene mayor prioridad que la suma, JavaScript evalúa
+        primero
+        la parte <mark>3 * 4</mark>, lo que da como resultado <mark>2 + 12 = 14</mark>.
+      </p>
+      <p>
+        A veces, es posible que quieras que ciertas partes de tu expresión se ejecuten primero, independientemente de
+        las reglas de precedencia. Puedes usar paréntesis, <mark>()</mark>, para hacer esto. Todo lo que esté dentro de
+        los
+        paréntesis se evalúa primero, sin importar qué. Hagamos que la parte <mark>2 + 3</mark> del ejemplo anterior se
+        evalúe
+        primero:
+      </p>
+
+      <div class="ide-container" id="ide-js-parentheses-priority">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">priority.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-punctuation">(</span><span class="tk-number">2</span> <span class="tk-operator">+</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span> <span class="tk-operator">*</span> <span class="tk-number">4</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 20</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                PARENTHESES OVERRIDE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="padding: 12px; background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #66d9ef; font-size: 10px; font-weight: bold;">PASO 1: DENTRO
+                      DEL PARÉNTESIS</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">(2 <span style="color: #f92672;">+</span> 3) = <span
+                        style="color: #a6e22e; font-weight: bold;">5</span></div>
+                  </div>
+
+                  <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #888; font-size: 10px;">PASO 2: MULTIPLICACIÓN FINAL</div>
+                    <div style="font-size: 18px; color: #f8f8f2;"><span style="color: #a6e22e;">5</span> <span
+                        style="color: #f92672;">*</span> 4 = <span
+                        style="color: var(--sp-accent); font-weight: bold;">20</span></div>
+                  </div>
+
+                  <div
+                    style="font-size: 10px; color: #888; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 10px;">
+                    <span>Sin (): 14</span>
+                    <span>Con (): 20</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Regla de oro:</strong> Si una expresión es larga y compleja, usa paréntesis aunque no sean
+              obligatorios. Tu "yo" del futuro te lo agradecerá al leer el código.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, los paréntesis obligan a JavaScript a calcular primero <mark>2 + 3</mark> y, a
+        continuación,
+        multiplicar el resultado por <mark>4</mark>. Esto da como resultado <mark>20</mark> en lugar de <mark>14</mark>.
+      </p>
+      <p>
+        El operador de división también tiene mayor prioridad que la suma o la resta:
+      </p>
+
+      <div class="ide-container" id="ide-js-division-precedence">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">division_order.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">2</span> <span class="tk-operator">+</span> <span class="tk-number">6</span> <span class="tk-operator">/</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INTERNAL MATH ENGINE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <span style="color: #f8f8f2;">2 +</span>
+                    <div
+                      style="border: 1px solid #66d9ef; padding: 5px 10px; border-radius: 4px; background: rgba(102, 217, 239, 0.1);">
+                      <span style="color: #66d9ef; font-weight: bold;">6 / 3</span>
+                    </div>
+                  </div>
+
+                  <div style="text-align: center; color: #888;">↓</div>
+
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px; background: rgba(166, 226, 46, 0.1); border-radius: 6px; border: 1px dashed #a6e22e;">
+                    <span style="color: #f8f8f2;">2 +</span>
+                    <span style="color: #a6e22e; font-weight: bold; font-size: 16px;">2</span>
+                    <span style="color: #f8f8f2;">=</span>
+                    <span style="color: var(--sp-accent); font-weight: bold; font-size: 18px;">4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚙️ <strong>Sistema:</strong> La división y la multiplicación tienen el mismo nivel de precedencia (13).
+              Cuando aparecen juntas, se resuelven de izquierda a derecha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si JavaScript evaluara esta expresión de izquierda a derecha, cabría esperar que <mark>2 + 6 = 8</mark> y, a
+        continuación, <mark>8
+          / 3 = 2,67</mark>. Pero, dado que la división tiene mayor prioridad que la suma, JavaScript evalúa primero la
+        división:
+        <mark>6 / 3 = 2</mark>, y luego suma <mark>2 + 2</mark>, lo que da como resultado <mark>4</mark>.
+      </p>
+      <p>
+        Por lo tanto, tanto en la multiplicación como en la división, esas operaciones siempre se realizarán antes que
+        la suma y la resta, a menos que utilices paréntesis para cambiar el orden. Entonces, ¿qué sucede si los
+        operadores tienen la misma prioridad? JavaScript utiliza la asociatividad para determinar el orden en que
+        evaluarlos.
+      </p>
+      <p>
+        La asociatividad es lo que le indica a JavaScript si debe evaluar los operadores de izquierda a derecha o de
+        derecha a izquierda. Para la mayoría de los operadores, como la suma y la multiplicación, la asociatividad es de
+        izquierda a derecha. Por lo tanto, JavaScript procesa estos desde el extremo izquierdo de la expresión hacia la
+        derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-associativity-left">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">associativity.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">10</span> <span class="tk-operator">-</span> <span class="tk-number">2</span> <span class="tk-operator">+</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 11</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ASSOCIATIVITY MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <span style="color: #888; width: 60px;">PASO 1:</span>
+                    <span style="color: #f8f8f2;"><b style="color:#a6e22e">10 - 2</b> + 3</span>
+                    <span style="color: var(--sp-accent); font-weight: bold; margin-left: auto;">8</span>
+                  </div>
+
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <span style="color: #888; width: 60px;">PASO 2:</span>
+                    <span style="color: #f8f8f2;"><b style="color:#66d9ef">8 + 3</b></span>
+                    <span style="color: var(--sp-accent); font-weight: bold; margin-left: auto;">11</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⬅️ <strong>Dirección:</strong> La resta y la suma tienen la misma precedencia (12), por lo que se ejecutan
+              estrictamente de izquierda a derecha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Primero, <mark>10 - 2 = 8;</mark> luego, <mark>8 + 3 = 11</mark>. En este caso, JavaScript evalúa la expresión
+        de izquierda a derecha. Algunos operadores, como el de asignación (<mark>=</mark>), son asociativos de derecha a
+        izquierda. Esto significa que se evalúa primero el lado derecho de la expresión:
+      </p>
+
+      <div class="ide-container" id="ide-js-associativity-right">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">assignment.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">a</span> <span class="tk-operator">=</span> <span class="tk-selector">b</span> <span class="tk-operator">=</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">+</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                RIGHT-TO-LEFT FLOW</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px;">
+                    <span style="color: #66d9ef;">a</span>
+                    <span style="color: #f92672;">←</span>
+                    <span style="color: #66d9ef;">b</span>
+                    <span style="color: #f92672;">←</span>
+                    <span
+                      style="color: #ae81ff; font-weight: bold; border: 1px solid #ae81ff; padding: 2px 8px; border-radius: 4px;">5</span>
+                  </div>
+
+                  <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; font-size: 11px;">
+                    <div style="margin-bottom: 5px;"><span style="color: #888;">1. Se resuelve:</span> <span
+                        style="color: #ae81ff;">b = 5</span></div>
+                    <div style="margin-bottom: 5px;"><span style="color: #888;">2. El resultado (5) se pasa a:</span>
+                      <span style="color: #66d9ef;">a</span>
+                    </div>
+                    <div style="border-top: 1px solid #444; margin-top: 5px; padding-top: 5px;">
+                      <span style="color: #a6e22e;">Ambas variables ahora valen 5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Atención:</strong> Aunque esto es válido, en código profesional se usa poco porque puede ser
+              menos legible que asignar valores por separado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, JavaScript asigna primero el valor <mark>5</mark> a <mark>b</mark> y, a continuación,
+        asigna el valor de <mark>b</mark> (que
+        ahora es <mark>5</mark>) a <mark>a</mark>.
+      </p>
+      <p>
+        El operador exponencial también es asociativo de derecha a izquierda:
+      </p>
+
+      <div class="ide-container" id="ide-js-exponent-associativity">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">exponent_flow.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">2</span> <span class="tk-operator">**</span> <span class="tk-number">3</span> <span class="tk-operator">**</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 512</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXPONENT STACKING</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <div style="display: inline-block; position: relative; font-size: 24px;">
+                      <span style="color: #f8f8f2;">2</span>
+                      <span
+                        style="position: absolute; top: -10px; right: -15px; font-size: 16px; color: #a6e22e;">3<span
+                          style="position: absolute; top: -8px; right: -10px; font-size: 10px; color: #66d9ef;">2</span></span>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
+                    <div
+                      style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding-bottom: 4px;">
+                      <span style="color: #888;">Step 1 (Right):</span>
+                      <span>3 ** 2 = <b style="color: #66d9ef;">9</b></span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888;">Step 2 (Left):</span>
+                      <span>2 ** <b style="color: #66d9ef;">9</b> = <b style="color: var(--sp-accent);">512</b></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Nota:</strong> Si realmente necesitas que sea 64, deberás usar paréntesis:
+              <code style="color: red;">(2 ** 3) ** 2</code>. ¡Siempre manda el paréntesis!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En primer lugar, JavaScript evalúa <mark>3 ** 2</mark>, que es igual a 9; a continuación, evalúa <mark>2 **
+          9</mark>, que es igual a <mark>512</mark>. Si el operador exponencial tuviera asociatividad de izquierda a
+        derecha, JavaScript habría calculado primero <mark>2 ** 3</mark> para obtener <mark>8</mark> y, a continuación,
+        <mark>8 ** 2</mark> para obtener <mark>64</mark>.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿En qué se diferencia la precedencia de los operadores en JavaScript de la matemática?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            La suma se realiza antes que la multiplicación y la división.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            La división y la multiplicación se realizan antes que la suma y la resta, igual que en matemática.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Todas las operaciones se realizan en el orden en que aparecen.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            La resta tiene precedencia sobre todas las demás operaciones.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede anular la precedencia de los operadores en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Utilizando el operador de suma (+) para cambiar el orden de las operaciones.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Utilizando paréntesis para forzar que ciertas partes de la expresión se evalúen primero.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Invirtiendo el orden de los operadores en la expresión.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Realizando todas las operaciones de izquierda a derecha, independientemente de la precedencia.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo evalúa JavaScript las expresiones con el operador exponencial (<mark>**</mark>)?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            De izquierda a derecha.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            De derecha a izquierda, lo que significa que evalúa primero la elevación a la potencia situada más a la
+            derecha.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Multiplicando la base por sí misma el número de veces indicado.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Summando primero los exponentes y calculando después el resultado.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo funcionan los operadores de incremento y decremento?
+      </h2>
+
+      <p>
+        Si estás trabajando con números y necesitas aumentar o disminuir un valor en uno, los operadores de incremento y
+        decremento te facilitan la tarea. Veámoslo de forma sencilla.
+      </p>
+      <p>
+        Los operadores de incremento y decremento se representan con <mark>++</mark> y <mark>--</mark>, respectivamente.
+        Ambos te permiten ajustar
+        el valor de una variable en <mark>1</mark>.
+      </p>
+      <p>
+        En lugar de escribir algo como <mark>x = x + 1</mark> o <mark>x = x - 1</mark>, puedes simplemente usar
+        <mark>x++</mark> para sumar <mark>1</mark>, o <mark>x--</mark> para
+        restar <mark>1</mark>. Es más rápido, más limpio y más fácil de leer.
+      </p>
+      <p>
+        Hay un matiz en el funcionamiento de los operadores de incremento y decremento: existen en dos formas, prefijo y
+        posfijo, y la diferencia radica en cuándo se actualiza el valor. Para el operador de incremento, el prefijo es
+        <mark>++x</mark> y el posfijo es <mark>x++</mark>.
+      </p>
+      <p>
+        El prefijo (<mark>++x</mark>) aumenta primero el valor de la variable y luego devuelve un nuevo valor. El
+        posfijo (<mark>x++</mark>)
+        devuelve primero el valor actual de la variable y luego lo aumenta:
+      </p>
+
+      <div class="ide-container" id="ide-js-prefix-increment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">prefix.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">x</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">++</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 6 (Suma y luego muestra)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 6</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                PREFIX EXECUTION (++x)</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="padding: 10px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #a6e22e; font-size: 10px; font-weight: bold;">1. INCREMENTO
+                      INMEDIATO</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">5 <span style="color: #f92672;">+ 1</span> = <span
+                        style="color: #a6e22e; font-weight: bold;">6</span></div>
+                  </div>
+
+                  <div style="padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #888; font-size: 10px;">2. SE ENTREGA EL RESULTADO</div>
+                    <div style="font-size: 16px; color: #f8f8f2;">console.log(<span style="color: #a6e22e;">6</span>)
+                    </div>
+                  </div>
+
+                  <div
+                    style="font-size: 10px; color: #888; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 10px;">
+                    <span>Variable original: 5</span>
+                    <span>Valor final: 6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>En resumen:</strong> Con <code style="color: red;">++x</code>, la variable se actualiza
+              <strong>antes</strong> de
+              que se evalúe la expresión actual.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el código anterior, <mark>++x</mark> significa "incrementa <mark>x</mark> primero y luego utilízalo". Por lo
+        tanto, cuando registras
+        <mark>++x</mark>, obtienes inmediatamente el valor incrementado, que es <mark>6</mark>.
+      </p>
+      <p>
+        Ahora, veamos un ejemplo en el que se utiliza el sintaxis posfijo:
+      </p>
+
+      <div class="ide-container" id="ide-js-postfix-increment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">postfix.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">y</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5 (Muestra y luego suma)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 6</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                POSTFIX EXECUTION (y++)</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="padding: 10px; background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #66d9ef; font-size: 10px; font-weight: bold;">1. ENTREGA
+                      VALOR ACTUAL</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">console.log(<span
+                        style="color: #66d9ef; font-weight: bold;">5</span>)</div>
+                  </div>
+
+                  <div
+                    style="padding: 10px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 6px; text-align: center;">
+                    <div style="margin-bottom: 5px; color: #a6e22e; font-size: 10px; font-weight: bold;">2. INCREMENTO
+                      POSTERIOR</div>
+                    <div style="font-size: 16px; color: #f8f8f2;">5 <span style="color: #f92672;">+ 1</span> ➔ <span
+                        style="color: #a6e22e; font-weight: bold;">y = 6</span></div>
+                  </div>
+
+                  <div
+                    style="font-size: 10px; color: #888; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 10px;">
+                    <span>En pantalla: 5</span>
+                    <span>En memoria: 6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⏳ <strong>Diferencia clave:</strong> A diferencia de <code style="color: red;">++y</code>, aquí la
+              expresión se evalúa con el
+              valor <strong>viejo</strong> antes de que el nuevo tome su lugar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>y++</mark> significa "usa <mark>y</mark> primero y luego incrémentala". Cuando registras
+        y<mark>++</mark>, obtienes <mark>5</mark>, pero <mark>y</mark> pasa a ser <mark>6</mark> después de esa línea de
+        código.
+      </p>
+      <p>
+        El operador de decremento hace lo mismo que el de incremento, excepto que disminuye el valor en <mark>1</mark>.
+        De nuevo, hay
+        dos formas: el prefijo (<mark>--x</mark>) disminuye primero el valor de la variable y luego devuelve el nuevo
+        valor. Y el
+        posfijo (<mark>x--</mark>) devuelve primero el valor actual y luego lo disminuye:
+      </p>
+
+      <div class="ide-container" id="ide-js-decrement-comparison">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">decrement.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">x</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">--</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4 (Resta y luego muestra)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 4</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">y</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-operator">--</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5 (Muestra y luego resta)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 4</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DECREMENT MONITOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                  <span style="color: #f92672; font-size: 10px; font-weight: bold;">PREFIX (--x):</span>
+                  <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="color: #888;">Logged Value:</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">4</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                  <span style="color: #66d9ef; font-size: 10px; font-weight: bold;">POSTFIX (y--):</span>
+                  <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="color: #888;">Logged Value:</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 10px; margin-top: 10px;">
+                <span>Initial: 5</span>
+                <span>Final Memory: 4</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recordatorio:</strong> Al igual que con el incremento, estos operadores <strong>modifican la
+                variable original</strong> en memoria.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Entonces, ¿qué deberías usar: prefijo o posfijo? En muchos casos, no importa cuál uses. Ambos cumplen su
+        función. Sin embargo, si vas a utilizar el valor inmediatamente en una expresión, la diferencia cobra
+        importancia. Veamos este ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-assignment-timing-comparison">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">timing_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-operator">++</span><span class="tk-selector">a</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Incrementa -> Asigna</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 6</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">c</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">d</span> = <span class="tk-selector">c</span><span class="tk-operator">++</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Asigna -> Incrementa</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">d</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ASSIGNMENT RACE CONDITION</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                  <span style="color: #a6e22e; font-size: 10px; font-weight: bold;">PREFIJO (++a):</span>
+                  <div
+                    style="display: flex; align-items: center; gap: 8px; margin-top: 5px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px;">
+                    <span style="color: #f8f8f2;">a: 5 ➔ <b style="color:#a6e22e">6</b></span>
+                    <span style="color: #888;">|</span>
+                    <span style="color: #f8f8f2;">b toma <b style="color:#a6e22e">6</b></span>
+                  </div>
+                </div>
+
+                <div>
+                  <span style="color: #66d9ef; font-size: 10px; font-weight: bold;">POSFIJO (c++):</span>
+                  <div
+                    style="display: flex; align-items: center; gap: 8px; margin-top: 5px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px;">
+                    <span style="color: #f8f8f2;">d toma <b style="color:#66d9ef">5</b></span>
+                    <span style="color: #888;">|</span>
+                    <span style="color: #f8f8f2;">c: 5 ➔ <b style="color:#66d9ef">6</b></span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                <span>b = 6 (Nuevo)</span>
+                <span>d = 5 (Viejo)</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Conclusión:</strong> Usa prefijo cuando el resultado de la operación sea necesario para el
+              siguiente paso de la misma línea.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por lo tanto, si necesitas el valor actualizado de inmediato, utiliza el prefijo. Si prefieres obtener primero
+        el valor actual y no te importa el incremento hasta más adelante, opta por el sufijo.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué operadores de JavaScript te permiten incrementar el valor de una variable en 1?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            + y -
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            * y /
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            ++ y --
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            && y ||
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué forma del operador de incremento o decremento debes usar si necesitas el valor actualizado de inmediato
+            en una expresión?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Posfijo (valor++ o valor--).
+          </label>
+          <label>
+            <!-- correcto -->
+            <input type="radio" name="q5">
+            Prefijo (++valor o --valor).
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Tanto prefijo como posfijo, da igual.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Ninguno; en su lugar, debes usar la suma o la resta.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué formas se presentan los operadores de incremento y decremento en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Prefijo y posfijo.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Suma y resta.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Multiplicación y división.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Izquierda y derecha.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Qué son los operadores de asignación compuestos en JavaScript y cómo funcionan?
+      </h2>
+
+      <p>
+        En JavaScript, todos los operadores aritméticos tienen una forma de asignación compuesta. Los operadores de
+        asignación compuestos ofrecen una forma concisa de realizar una operación sobre una variable y, a continuación,
+        almacenar el resultado en esa misma variable. Combinan la operación y la asignación en una forma más breve, como
+        <mark>x += y</mark>, que equivale a escribir <mark>x = x + y</mark>, pero sin repetir el nombre de la variable.
+        En lugar de escribir algo como esto:
+      </p>
+
+      <div class="ide-container" id="ide-js-traditional-assignment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">assignment.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">num</span> = <span class="tk-selector">num</span> <span class="tk-operator">+</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Forma larga</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VARIABLE RE-ASSIGNMENT</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px;">
+                    <span style="color: #888;">Initial Value:</span>
+                    <span style="color: #ae81ff;">5</span>
+                  </div>
+
+                  <div style="text-align: center; color: #f92672; font-size: 18px;">
+                    5 <span style="color: #f8f8f2;">+</span> 2
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px; text-align: center;">
+                    <div style="color: #a6e22e; font-size: 10px; margin-bottom: 2px;">NEW STORED VALUE</div>
+                    <div style="color: #f8f8f2; font-size: 20px; font-weight: bold;">7</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px; text-align: center;">
+                "Toma el valor actual, súmale 2 y guarda el resultado"
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Dato:</strong> Aunque funciona perfecto, ¡podemos hacerlo más elegante con la forma compuesta!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puedes escribir algo como esto:
+      </p>
+
+      <div class="ide-container" id="ide-js-compound-assignment-plus">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">compound.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">num</span> <span class="tk-operator">+=</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Equivale a: num = num + 2</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SYNTAX COMPARISON</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; text-align: center;">
+                  <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px;">
+                    <div style="color: #888; font-size: 10px;">TRADICIONAL</div>
+                    <code style="color: #f8f8f2;">num = num + 2</code>
+                  </div>
+                  <div style="color: #f92672; font-size: 20px;">➔</div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                    <div style="color: #a6e22e; font-size: 10px;">COMPUESTA</div>
+                    <code style="color: #f8f8f2; font-weight: bold;">num += 2</code>
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 10px; background: rgba(102, 217, 239, 0.05); border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <span style="color: #66d9ef; font-weight: bold;">Acción:</span> Toma el valor inicial (5), añade el
+                  operando derecho (2) y reasigna el total (7) a la variable.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Limpieza:</strong> Menos código significa menos lugares donde esconder errores.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Fíjate en cómo <mark>num += 2</mark> combina los pasos de suma y asignación en uno solo. Esto ahorra tiempo y
+        reduce la
+        complejidad del código. Profundicemos en los operadores de asignación compuestos más comunes en JavaScript.
+      </p>
+      <p>
+        Como ya has visto, el operador <mark>+=</mark> te permite sumar un valor a una variable existente. Se conoce
+        como el operador
+        de asignación por suma. El operador de asignación por suma toma el valor actual de la variable, le suma el
+        número especificado y luego asigna el resultado de nuevo a la variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-addition-assignment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">total_sum.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">total</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">total</span> <span class="tk-operator">+=</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Acumula: 10 + 5</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">total</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ACCUMULATION FLOW</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; color: #888; font-size: 11px;">
+                  <span>MEMORY STATE</span>
+                  <span>VALUE</span>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px;">
+                  <span style="color: #66d9ef;">total (initial)</span>
+                  <span style="color: #f8f8f2;">10</span>
+                </div>
+
+                <div style="text-align: center; color: #f92672; font-weight: bold; font-size: 14px;">
+                  + 5
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <span style="color: #a6e22e; font-weight: bold;">total (updated)</span>
+                  <span style="color: #f8f8f2; font-weight: bold; font-size: 16px;">15</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * El valor original de 10 ha sido reemplazado permanentemente por 15.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Tip:</strong> También puedes usar <code style="color: red;">+=</code> con strings para
+              concatenar texto de forma
+              rápida: <code style="color: red;">msj += "!"</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como te puedes imaginar, existe un operador de asignación de resta que se denota con <mark>-=</mark>. El
+        operador de asignación de resta resta el valor especificado del valor actual de la variable y asigna el nuevo
+        valor a la variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-subtraction-assignment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">score_update.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">score</span> = <span class="tk-number">20</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">score</span> <span class="tk-operator">-=</span> <span class="tk-number">7</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// Reducción: 20 - 7</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 13</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SUBTRACTION PROCESS</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px;">
+                  <span style="color: #66d9ef;">score (initial)</span>
+                  <span style="color: #f8f8f2;">20</span>
+                </div>
+
+                <div style="text-align: center;">
+                  <div
+                    style="display: inline-block; background: rgba(249, 38, 114, 0.1); color: #f92672; padding: 4px 12px; border-radius: 20px; font-weight: bold; border: 1px solid #f92672;">
+                    - 7
+                  </div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <span style="color: #a6e22e; font-weight: bold;">score (current)</span>
+                  <span style="color: #f8f8f2; font-weight: bold; font-size: 16px;">13</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * La expresión score -= 7 es puramente azúcar sintáctica para score = score - 7.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎮 <strong>Tip de Juego:</strong> Muy útil para reducir "puntos de vida" (HP) de manera dinámica.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si no hubieras utilizado la asignación de resta, habrías hecho algo como esto:
+      </p>
+
+      <div class="ide-container" id="ide-js-subtraction-expanded">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">traditional.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">score</span> = <span class="tk-number">20</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">score</span> = <span class="tk-selector">score</span> <span class="tk-operator">-</span> <span class="tk-number">7</span><span class="tk-punctuation">;</span> <span class="tk-comment">// El nombre se repite</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 13</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                REDUNDANCY CHECK</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 6px; border: 1px dashed #f92672;">
+                  <div style="color: #f92672; font-size: 10px; margin-bottom: 5px; font-weight: bold;">REPETICIÓN
+                    DETECTADA:</div>
+                  <div style="font-size: 14px; color: #f8f8f2; text-align: center;">
+                    <span style="border-bottom: 2px solid #f92672;">score</span> = <span
+                      style="border-bottom: 2px solid #f92672;">score</span> - 7
+                  </div>
+                </div>
+
+                <div style="font-size: 11px; color: #888; line-height: 1.4;">
+                  <p style="margin: 0;">1. JavaScript busca el valor de <span style="color: #66d9ef;">score</span> (20).
+                  </p>
+                  <p style="margin: 0;">2. Realiza la resta (20 - 7 = 13).</p>
+                  <p style="margin: 0;">3. Guarda el 13 de nuevo en <span style="color: #66d9ef;">score</span>.</p>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px; text-align: center;">
+                "Escribir lo mismo dos veces aumenta el riesgo de typos."
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Nota:</strong> En variables con nombres cortos como <code style="color: red;">x</code> o <code
+                style="color: red;">i</code> no se nota
+              tanto, pero imagina hacerlo con <code style="color: red;">totalProjectExpenses</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de asignación de multiplicación se representa con <mark>*=</mark>. Multiplica el valor actual de la
+        variable por el número especificado y lo reasigna a la variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-multiplication-assignment">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">multiplication.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">points</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">points</span> <span class="tk-operator">*=</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Multiplica: 5 * 3</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">points</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MULTIPLICATION ENGINE</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; align-items: center; justify-content: center; gap: 15px; padding: 10px; background: rgba(174, 129, 255, 0.05); border: 1px solid rgba(174, 129, 255, 0.2); border-radius: 6px;">
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px;">BASE</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">5</div>
+                  </div>
+                  <div style="color: #f92672; font-size: 20px;">×</div>
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px;">FACTOR</div>
+                    <div style="font-size: 18px; color: #ae81ff;">3</div>
+                  </div>
+                  <div style="color: #f92672; font-size: 20px;">=</div>
+                  <div style="text-align: center;">
+                    <div style="color: #a6e22e; font-size: 9px;">TOTAL</div>
+                    <div style="font-size: 22px; color: #a6e22e; font-weight: bold;">15</div>
+                  </div>
+                </div>
+
+                <div
+                  style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 5px;">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>points = points * 3;</span>
+                    <span style="color: #66d9ef;">[OK]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⭐ <strong>Dato curioso:</strong> Si multiplicas por 1 (<code style="color: red;">points *= 1</code>), el
+              valor no cambia, pero
+              la operación de reasignación ocurre de todos modos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por último, existe un operador de asignación de división que se denota con <mark>/=</mark>. Al igual que los
+        anteriores, te permite dividir el valor actual de una variable por un número que especifiques y, a continuación,
+        asignar el resultado a la variable:
+      </p>
+
+      <div class="ide-container" id="ide-js-division-assignment-final">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">division.js</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+              <button class="tab" type="button" data-lang="css">style.css</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">balance</span> = <span class="tk-number">100</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">balance</span> <span class="tk-operator">/=</span> <span class="tk-number">4</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Equivale a: balance = balance / 4</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">balance</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 25</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXTENDED ASSIGNMENT OPERATORS</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 8px; border-radius: 4px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                    <code style="color: #66d9ef; font-weight: bold;">%=</code> <span style="color: #888;">Resto</span>
+                  </div>
+                  <div
+                    style="background: rgba(174, 129, 255, 0.05); padding: 8px; border-radius: 4px; border: 1px solid rgba(174, 129, 255, 0.2);">
+                    <code style="color: #ae81ff; font-weight: bold;">**=</code> <span
+                      style="color: #888;">Potencia</span>
+                  </div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); padding: 8px; border-radius: 4px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                    <code style="color: #a6e22e; font-weight: bold;">&=</code> <span style="color: #888;">AND Bit</span>
+                  </div>
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); padding: 8px; border-radius: 4px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                    <code style="color: #f92672; font-weight: bold;">|=</code> <span style="color: #888;">OR Bit</span>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">
+                  <div style="color: #888; font-size: 10px; margin-bottom: 5px;">RESULTADO DE LA DIVISIÓN</div>
+                  <div style="color: #f8f8f2; font-size: 18px;">100 / 4 = <b style="color: #66d9ef;">25</b></div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Nota: Todos estos operadores tienen una asociatividad de derecha a izquierda.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato:</strong> Los operadores de bits (<code style="color: red;">&=</code>, <code
+                style="color: red;">|=</code>) son menos comunes en
+              desarrollo web estándar, pero vitales en criptografía o manipulación de datos binarios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Recuerda que en JavaScript hay un operador de asignación compuesto para cada operador. Así pues, además de los
+        cuatro ya mencionados, también tenemos:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            El operador de asignación de resto (<mark>%=</mark>), que divide una variable por el número especificado y
+            asigna el resto a la variable.
+          </li>
+          <li class="list">
+            El operador de asignación exponencial (<mark>**=</mark>), que eleva una variable a la potencia del número
+            especificado y reasigna el resultado a la variable.
+          </li>
+          <li class="list">
+            El operador de asignación AND bit a bit (<mark>&=</mark>), que realiza una operación AND bit a bit con el
+            número especificado y reasigna el resultado a la variable.
+          </li>
+          <li class="list">
+            El operador de asignación OR bit a bit (<mark>|=</mark>), que realiza una operación OR bit a bit con el
+            número especificado y reasigna el resultado a la variable.
+          </li>
+        </ul>
+      </div>
+
+      <div class="ide-container" id="ide-js-special-assignments">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">special_ops.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// 1. Resto (Residuo)</span>
+<span class="tk-property">let</span> <span class="tk-selector">rem</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">rem</span> <span class="tk-operator">%=</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// 10 / 3 sobra 1. rem = 1</span>
+
+<span class="tk-comment">// 2. Exponencial</span>
+<span class="tk-property">let</span> <span class="tk-selector">exp</span> = <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">exp</span> <span class="tk-operator">**=</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 2 elevado a 3. exp = 8</span>
+
+<span class="tk-comment">// 3. AND Bit a bit (Binary: 5 es 101, 3 es 011)</span>
+<span class="tk-property">let</span> <span class="tk-selector">andBit</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">andBit</span> <span class="tk-operator">&=</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Compara bits. andBit = 1 (001)</span>
+
+<span class="tk-comment">// 4. OR Bit a bit (Binary: 5 es 101, 2 es 010)</span>
+<span class="tk-property">let</span> <span class="tk-selector">orBit</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">orBit</span> <span class="tk-operator">|=</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Une bits. orBit = 7 (111)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DEBUGGER CONSOLE</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 8px;">
+                <div
+                  style="display: flex; justify-content: space-between; background: rgba(102, 217, 239, 0.05); padding: 6px 10px; border-radius: 4px;">
+                  <span style="color: #66d9ef;">rem (10 % 3)</span>
+                  <span style="color: #f8f8f2;">➔ 1</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; background: rgba(174, 129, 255, 0.05); padding: 6px 10px; border-radius: 4px;">
+                  <span style="color: #ae81ff;">exp (2 ** 3)</span>
+                  <span style="color: #f8f8f2;">➔ 8</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; background: rgba(166, 226, 46, 0.05); padding: 6px 10px; border-radius: 4px;">
+                  <span style="color: #a6e22e;">andBit (101 & 011)</span>
+                  <span style="color: #f8f8f2;">➔ 1</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; background: rgba(249, 38, 114, 0.05); padding: 6px 10px; border-radius: 4px;">
+                  <span style="color: #f92672;">orBit (101 | 010)</span>
+                  <span style="color: #f8f8f2;">➔ 7</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Los resultados bit a bit se calculan convirtiendo los números a binario internamente.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato:</strong> El operador <code style="color: red;">%=</code> es vital para saber si un número es par
+              (<code style="color: red;">n % 2 === 0</code>) o para crear ciclos que se reinician.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

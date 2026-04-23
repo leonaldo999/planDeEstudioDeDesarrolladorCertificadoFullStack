@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Aprende a trabajar con números y operadores aritméticos en JavaScript">
+  <meta name="keywords" content="JavaScript, números, operadores aritméticos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con números y operadores aritméticos en JavaScript">
+  <meta property="og:description" content="Aprende a trabajar con números y operadores aritméticos en JavaScript">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con números y operadores aritméticos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de modificación de Strings</h1>
+  </header>
+
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En JavaScript, los números se representan utilizando el tipo de datos <mark>number</mark>. Este tipo de datos
+        puede representar tanto números enteros como números de punto flotante (decimales). Además, JavaScript
+        proporciona una variedad de operadores aritméticos que te permiten realizar operaciones matemáticas con estos
+        números.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué es el tipo <mark>Number</mark> en JavaScript y cuáles son los diferentes tipos
+        de números
+        disponibles?
+      </h2>
+
+      <p>
+        El tipo <mark>Number</mark> es uno de los tipos de datos más utilizados en JavaScript y en otros lenguajes de
+        programación.
+        Los números pueden parecer sencillos, pero hay mucho que explorar en lo que respecta a los números en
+        JavaScript. Así que vamos a profundizar en el tema. En JavaScript, el tipo de datos <mark>Number</mark>
+        representa un valor
+        numérico.
+      </p>
+      <p>
+        A diferencia de muchos otros lenguajes de programación que separan los números enteros y los números de punto
+        flotante en tipos diferentes, JavaScript utiliza un tipo <mark>Number</mark> unificado para representar los
+        números. Esto
+        significa que puedes trabajar con números enteros, decimales e incluso valores numéricos especiales, todos bajo
+        el mismo tipo de datos <mark>Number</mark>.
+      </p>
+      <p>
+        Aquí tienes un ejemplo básico que muestra que los números enteros, los números de punto flotante y los números
+        negativos son todos del tipo <mark>Number</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">numbers.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">wholeNumber</span> = <span class="tk-number">50</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">decimalNumber</span> = <span class="tk-number">4.5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">negativeNumber</span> = <span class="tk-number">-7</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">wholeNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">decimalNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">negativeNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span><span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                NUMBER TYPE INSPECTOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                  <div
+                    style="background: rgba(247, 223, 30, 0.05); border: 1px solid var(--accent-yellow); padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="color: #888; font-size: 10px;">VALOR</div>
+                    <div style="color: var(--accent-yellow); font-size: 16px; font-weight: bold;">50</div>
+                    <div style="color: #a6e22e; font-size: 9px; margin-top: 4px;">typeof: number</div>
+                  </div>
+                  <div
+                    style="background: rgba(247, 223, 30, 0.05); border: 1px solid var(--accent-yellow); padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="color: #888; font-size: 10px;">VALOR</div>
+                    <div style="color: var(--accent-yellow); font-size: 16px; font-weight: bold;">4.5</div>
+                    <div style="color: #a6e22e; font-size: 9px; margin-top: 4px;">typeof: number</div>
+                  </div>
+                  <div
+                    style="background: rgba(247, 223, 30, 0.05); border: 1px solid var(--accent-yellow); padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="color: #888; font-size: 10px;">VALOR</div>
+                    <div style="color: var(--accent-yellow); font-size: 16px; font-weight: bold;">-7</div>
+                    <div style="color: #a6e22e; font-size: 9px; margin-top: 4px;">typeof: number</div>
+                  </div>
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: #66d9ef; font-size: 10px; font-weight: bold; text-align: center;">UNIFIED
+                      TYPE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>¿Sabías que...?</strong> Internamente, JavaScript trata casi todos los números como valores de
+              punto flotante de 64 bits (estándar IEEE 754), incluso si parecen enteros.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El tipo <mark>Number</mark> de JavaScript incluye diversos tipos de valores numéricos, que van desde simples
+        números enteros
+        y números de punto flotante hasta casos especiales como <mark>Infinity</mark> y <mark>NaN</mark> (por sus siglas
+        en inglés, "Not a
+        Number"). Analicemos los principales tipos con los que te encontrarás. Los números enteros son números sin parte
+        fraccionaria ni decimal. Pueden ser positivos, negativos o cero. A continuación, te mostramos algunos ejemplos:
+      </p>
+
+      <div class="ide-container" id="ide-js-integer-values">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">integers.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">positiveInteger</span> = <span class="tk-number">100</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">negativeInteger</span> = <span class="tk-number">-25</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">zero</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">positiveInteger</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">negativeInteger</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">zero</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 10px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INTEGER NUMBER LINE</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0; position: relative;">
+                  <div style="position: absolute; width: 100%; height: 2px; background: #555; top: 50%; z-index: 1;">
+                  </div>
+
+                  <div style="z-index: 2; text-align: center;">
+                    <div
+                      style="width: 10px; height: 10px; background: #ef5350; border-radius: 50%; margin: 0 auto 5px;">
+                    </div>
+                    <div style="color: #ef5350; font-weight: bold;">-25</div>
+                    <div style="font-size: 9px; color: #888;">Negative</div>
+                  </div>
+
+                  <div style="z-index: 2; text-align: center;">
+                    <div
+                      style="width: 12px; height: 12px; background: var(--sp-accent); border-radius: 50%; margin: 0 auto 5px; border: 2px solid #fff;">
+                    </div>
+                    <div style="color: #fff; font-weight: bold;">0</div>
+                    <div style="font-size: 9px; color: #888;">Origin</div>
+                  </div>
+
+                  <div style="z-index: 2; text-align: center;">
+                    <div
+                      style="width: 10px; height: 10px; background: #a6e22e; border-radius: 50%; margin: 0 auto 5px;">
+                    </div>
+                    <div style="color: #a6e22e; font-weight: bold;">100</div>
+                    <div style="font-size: 9px; color: #888;">Positive</div>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 4px; border: 1px solid #444;">
+                  <div style="color: var(--accent-yellow); font-size: 11px;">💡 Todos estos valores comparten el mismo
+                    tipo de dato en memoria.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato curioso:</strong> Aunque para nosotros son "enteros", JavaScript los almacena como
+              flotantes. Por eso <code style="color: red;">10.0 === 10</code> es <code style="color: red;">true</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los números de punto flotante son números con decimales. Los desarrolladores de JavaScript suelen referirse a
+        ellos simplemente como <mark>floats</mark>. Los <mark>floats</mark> resultan útiles cuando se necesita mayor
+        precisión, como al trabajar con medidas o divisas. A continuación, te mostramos algunos ejemplos:
+      </p>
+
+      <div class="ide-container" id="ide-js-float-values">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">floats.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">floatingPointNumber</span> = <span class="tk-number">4.5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">anotherFloat</span> = <span class="tk-number">89.56</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">oneMoreFloat</span> = <span class="tk-number">16.462</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">floatingPointNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">anotherFloat</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">oneMoreFloat</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FLOAT PRECISION SCANNER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div
+                    style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; border-left: 4px solid var(--sp-accent);">
+                    <div
+                      style="display: flex; align-items: baseline; justify-content: center; font-size: 20px; gap: 2px;">
+                      <span style="color: #f8f8f2;">16</span>
+                      <span style="color: var(--sp-accent); font-weight: bold;">.</span>
+                      <span style="color: var(--accent-yellow);">462</span>
+                    </div>
+                    <div
+                      style="display: flex; justify-content: center; gap: 20px; margin-top: 5px; font-size: 9px; text-transform: uppercase; color: #888;">
+                      <span>Entero</span>
+                      <span>Punto</span>
+                      <span>Decimal</span>
+                    </div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div
+                      style="background: rgba(255,255,255,0.03); padding: 8px; border-radius: 4px; text-align: center;">
+                      <span style="color: #888; display: block; font-size: 9px;">VALUE A</span>
+                      <span style="color: #f8f8f2;">4.5</span>
+                    </div>
+                    <div
+                      style="background: rgba(255,255,255,0.03); padding: 8px; border-radius: 4px; text-align: center;">
+                      <span style="color: #888; display: block; font-size: 9px;">VALUE B</span>
+                      <span style="color: #f8f8f2;">89.56</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Pro-tip:</strong> Si un número empieza por cero, como <code style="color: red;">0.5</code>,
+              puedes escribirlo
+              simplemente como <code style="color: red;">.5</code> en JavaScript y funcionará igual.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        JavaScript puede representar números que superan el límite máximo mediante el valor <mark>Infinity</mark>. Esto
+        ocurre cuando intentas dividir un número entre cero o, en raras ocasiones, cuando se supera el límite superior
+        del tipo <mark>Number</mark>. A continuación, te mostramos un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-infinity-concept">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">infinity.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">infiniteNumber</span> = <span class="tk-number">1</span> <span class="tk-operator">/</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">infiniteNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// Infinity</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">infiniteNumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MATH LIMIT MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <span style="color: #f8f8f2;">1</span>
+                    <span style="color: #f92672; margin: 0 10px;">÷</span>
+                    <span style="color: #f8f8f2;">0</span>
+                    <span style="color: var(--sp-accent); margin: 0 10px;">=</span>
+                    <span style="color: var(--sp-accent); font-weight: bold; font-size: 18px;">∞</span>
+                  </div>
+
+                  <div style="border-top: 1px solid #444; padding-top: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                      <span style="color: #888; font-size: 11px;">VALOR:</span>
+                      <span style="color: var(--sp-accent);">Infinity</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888; font-size: 11px;">TYPEOF:</span>
+                      <span style="color: #a6e22e;">"number"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato importante:</strong> <code style="color: red;">1 / 0</code> es <code
+                style="color: red;">Infinity</code>, pero <code style="color: red;">0 / 0</code>
+              no es infinito, es <strong>NaN</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A veces, en JavaScript, algunas operaciones matemáticas no dan como resultado un número válido. Por ejemplo, si
+        intentas realizar una operación matemática con algo que no es un número, obtendrás <mark>NaN</mark>, que
+        significa "Not a
+        Number" (no es un número):
+      </p>
+
+      <div class="ide-container" id="ide-js-nan-value">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nan_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">notANumber</span> = <span class="tk-string">'hello world'</span> <span class="tk-operator">/</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">notANumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">notANumber</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INVALID OPERATION DETECTED</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(239, 83, 80, 0.05); padding: 10px; border-radius: 6px; border: 1px dashed #ef5350;">
+                    <span style="color: #a6e22e;">"hello"</span>
+                    <span style="color: #f92672; font-weight: bold;">/</span>
+                    <span style="color: var(--accent-yellow);">2</span>
+                    <span style="color: #f8f8f2;">➔</span>
+                    <span style="color: #ef5350; font-weight: bold; font-size: 16px;">NaN</span>
+                  </div>
+
+                  <div style="font-size: 11px; color: #888; text-align: center;">
+                    Error: Cannot perform division on a non-numeric String.
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888; font-size: 10px;">IDENTITY CHECK:</span>
+                      <span style="color: #f8f8f2;">NaN</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888; font-size: 10px;">TYPE CLASSIFICATION:</span>
+                      <span style="color: #a6e22e;">"number"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔍 <strong>Tip de oro:</strong> Para saber si una variable es <code style="color: red;">NaN</code>, no
+              uses <code style="color: red;">==</code>.
+              Usa la función especial <code style="color: red;">isNaN(tu_variable)</code> o <code
+                style="color: red;">Number.isNaN()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sorprendentemente, el tipo de <mark>NaN</mark> también es <mark>Number</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-bases">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bases.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Prefijos: 0b (binario), 0o (octal), 0x (hex)</span>
+<span class="tk-property">const</span> <span class="tk-selector">binary</span> = <span class="tk-number">0b1010</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// 10 en decimal</span>
+<span class="tk-property">const</span> <span class="tk-selector">octal</span> = <span class="tk-number">0o12</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// 10 en decimal</span>
+<span class="tk-property">const</span> <span class="tk-selector">hexadecimal</span> = <span class="tk-number">0xA</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// 10 en decimal</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">binary</span> <span class="tk-operator">===</span> <span class="tk-selector">hexadecimal</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">hexadecimal</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BASE COMPARISON (VALUE: 10)</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <table style="width: 100%; color: #f8f8f2; border-collapse: collapse;">
+                  <thead>
+                    <tr style="text-align: left; color: #888; font-size: 10px;">
+                      <th style="padding: 5px; border-bottom: 1px solid #333;">SISTEMA</th>
+                      <th style="padding: 5px; border-bottom: 1px solid #333;">SINTAXIS JS</th>
+                      <th style="padding: 5px; border-bottom: 1px solid #333;">REPRESENTACIÓN</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Binario</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222; color: var(--sp-accent);">0b1010</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Base 2</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Octal</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222; color: var(--sp-accent);">0o12</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Base 8</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Hexadecimal</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222; color: var(--sp-accent);">0xA</td>
+                      <td style="padding: 8px 5px; border-bottom: 1px solid #222;">Base 16</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato:</strong> Independientemente de cómo los escribas, JavaScript los almacena internamente
+              igual. Al hacer <code style="color: red;">console.log()</code>, por defecto siempre los verás en decimal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Además del sistema decimal estándar (base 10), JavaScript también admite números en diferentes bases, como
+        binaria, octal y hexadecimal. El binario es un sistema de base 2 que utiliza solo los dígitos 1 y 0. El octal es
+        un sistema de base 8 que utiliza solo los dígitos del 0 al 7. El hexadecimal es un sistema de base 16 que
+        utiliza los dígitos del 0 al 9 y las letras de la a a la f, como se ve en los colores hexadecimales de CSS.
+
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            Cuál de las siguientes opciones describe mejor el tipo <mark>Number</mark> de JavaScript
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Solo incluye números enteros.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Abarca tanto números enteros como números de punto flotante, además de casos especiales como el infinito y
+            NaN.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Se limita a operaciones aritméticas simples.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Excluye valores especiales como el infinito y NaN.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo resultan más útiles los números de punto flotante en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Al trabajar con números enteros.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Cuando necesitas realizar operaciones aritméticas sencillas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Cuando necesitas mayor precisión, como en mediciones o divisas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Cuando trabajas exclusivamente con números enteros.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situaciones puedes encontrarte con el valor <mark>Infinity</mark> en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Al multiplicar dos números cualesquiera.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Cuando un número supera el límite inferior del tipo Number.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Al concatenar strings.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Al dividir un número entre cero o al superar el límite superior del tipo Number.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cuáles son los diferentes operadores aritméticos en JavaScript?
+      </h2>
+
+      <p>
+        JavaScript ofrece herramientas para realizar operaciones aritméticas básicas con números, como la suma, la
+        resta, la multiplicación y la división. JavaScript también incluye operadores para operaciones aritméticas más
+        complejas, como el resto y la elevación a una potencia.
+      </p>
+      <p>
+        Todas estas herramientas se denominan operadores aritméticos. Veamos estos operadores en detalle, cómo usarlos y
+        cómo combinarlos.
+      </p>
+      <p>
+        El operador de suma es el signo más (<mark>+</mark>). El operador de suma te permite hallar el total de dos o
+        más números. En
+        las operaciones de suma, el orden de los números no importa:
+      </p>
+
+      <div class="ide-container" id="ide-js-addition-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">addition.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num3</span> = <span class="tk-number">15</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result1</span> = <span class="tk-selector">num1</span> <span class="tk-operator">+</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result2</span> = <span class="tk-selector">num2</span> <span class="tk-operator">+</span> <span class="tk-selector">num1</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result3</span> = <span class="tk-selector">num2</span> <span class="tk-operator">+</span> <span class="tk-selector">num1</span> <span class="tk-operator">+</span> <span class="tk-selector">num3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 30</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ARITHMETIC ENGINE: ADDITION</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                    <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OP 1: num1 + num2</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #f8f8f2;">10 + 5</span>
+                      <span style="color: #a6e22e; font-weight: bold;">= 15</span>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                    <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OP 3: num2 + num1 + num3</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #f8f8f2;">5 + 10 + 15</span>
+                      <span style="color: #66d9ef; font-weight: bold;">= 30</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Recordatorio:</strong> En JavaScript, <code style="color: red;">"10" + 5</code> resultaría en
+              <code style="color: red;">"105"</code>
+              (concatenación). ¡Asegúrate siempre de que tus operandos sean números!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de resta es el signo menos (<mark>-</mark>). Permite calcular la diferencia entre dos números. Usa
+        el signo menos
+        cuando quieras restar un número de otro, normalmente uno más pequeño de uno más grande:
+      </p>
+
+      <div class="ide-container" id="ide-js-subtraction-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">subtraction.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">difference</span> = <span class="tk-number">10</span> <span class="tk-operator">-</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">difference</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SUBTRACTION VISUALIZER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div
+                      style="width: 100px; height: 10px; background: #555; border-radius: 5px; position: relative; overflow: hidden;">
+                      <div style="width: 100%; height: 100%; background: var(--sp-accent);"></div>
+                      <div style="width: 50%; height: 100%; background: #ef5350; position: absolute; right: 0;"></div>
+                    </div>
+                    <span style="color: #888; font-size: 11px;">10 - 5</span>
+                  </div>
+
+                  <div
+                    style="background: rgba(239, 83, 80, 0.05); border: 1px solid rgba(239, 83, 80, 0.2); padding: 12px; border-radius: 4px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #f8f8f2;">Resultado:</span>
+                      <span style="color: #ef5350; font-weight: bold; font-size: 18px;">5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Dato:</strong> Si restas un número mayor a uno menor (ej. <code
+                style="color: red;">5 - 10</code>), JavaScript te
+              devolverá un número negativo (<code style="color: red;">-5</code>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si el número más pequeño aparece primero, obtendrás un resultado negativo:
+      </p>
+
+      <div class="ide-container" id="ide-js-negative-subtraction">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">negative.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">difference</span> = <span class="tk-number">5</span> <span class="tk-operator">-</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">difference</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// -5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                NEGATIVE RESULT MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                  <div style="position: relative; height: 40px; margin: 10px 0; display: flex; align-items: center;">
+                    <div style="position: absolute; width: 100%; height: 2px; background: #444;"></div>
+                    <div
+                      style="position: absolute; left: 50%; height: 12px; width: 2px; background: #fff; transform: translateY(-5px);">
+                    </div>
+                    <span style="position: absolute; left: 48%; top: 25px; color: #fff; font-size: 10px;">0</span>
+
+                    <div
+                      style="position: absolute; left: 70%; width: 8px; height: 8px; background: #66d9ef; border-radius: 50%;">
+                    </div>
+                    <div
+                      style="position: absolute; left: 30%; width: 8px; height: 8px; background: #ef5350; border-radius: 50%;">
+                    </div>
+                    <div
+                      style="position: absolute; left: 30%; width: 40%; height: 2px; background: #ef5350; opacity: 0.5;">
+                    </div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center;">
+                    <div style="background: rgba(102, 217, 239, 0.1); padding: 10px; border-radius: 4px;">
+                      <div style="color: #888; font-size: 9px;">START</div>
+                      <div style="color: #66d9ef; font-weight: bold;">5</div>
+                    </div>
+                    <div style="background: rgba(239, 83, 80, 0.1); padding: 10px; border-radius: 4px;">
+                      <div style="color: #888; font-size: 9px;">RESULT</div>
+                      <div style="color: #ef5350; font-weight: bold;">-5</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota:</strong> Al igual que con los números positivos, puedes verificar su tipo con
+              <code style="color: red;">typeof</code> y seguirá siendo un <code style="color: red;">number</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También puedes asignar los números a variables y realizar la resta utilizando los nombres de las variables:
+      </p>
+
+      <div class="ide-container" id="ide-js-variable-subtraction">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">vars_sub.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-selector">num1</span> <span class="tk-operator">-</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VARIABLE FLOW INSPECTOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px;">
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px;">
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px; margin-bottom: 4px;">num1</div>
+                    <div
+                      style="background: rgba(102, 217, 239, 0.2); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px; color: #fff;">
+                      10</div>
+                  </div>
+
+                  <div style="color: #f92672; font-size: 20px; font-weight: bold;">-</div>
+
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px; margin-bottom: 4px;">num2</div>
+                    <div
+                      style="background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px; color: #fff;">
+                      5</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(247, 223, 30, 0.05); border: 1px solid var(--sp-accent); padding: 12px; border-radius: 6px; text-align: center;">
+                  <div style="color: #888; font-size: 10px; text-transform: uppercase;">Variable result almacena:</div>
+                  <div style="color: var(--sp-accent); font-size: 24px; font-weight: bold; margin-top: 5px;">5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✔ <strong>Ventaja:</strong> Si mañana el valor de <code style="color: red;">num1</code> cambia, no tienes
+              que reescribir la
+              operación; el resultado se actualizará automáticamente en la siguiente ejecución.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En JavaScript, el operador de multiplicación se representa con un asterisco (<mark>*</mark>) y se utiliza para
+        calcular el producto de dos o más números. El orden de los números que se multiplican no importa:
+      </p>
+
+      <div class="ide-container" id="ide-js-multiplication-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">multiply.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num3</span> = <span class="tk-number">15</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result1</span> = <span class="tk-selector">num1</span> <span class="tk-operator">*</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result2</span> = <span class="tk-selector">num2</span> <span class="tk-operator">*</span> <span class="tk-selector">num1</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result3</span> = <span class="tk-selector">num2</span> <span class="tk-operator">*</span> <span class="tk-selector">num1</span> <span class="tk-operator">*</span> <span class="tk-selector">num3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 50</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 50</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 750</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MULTIPLICATION VISUALIZER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div>
+                    <div style="color: #888; font-size: 10px; margin-bottom: 5px;">REPRESENTACIÓN (10 × 5):</div>
+                    <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px;">
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                      <div style="height: 6px; background: var(--sp-accent); border-radius: 1px; opacity: 0.8;"></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888;">RESULTADO FINAL:</span>
+                      <span style="color: #a6e22e; font-weight: bold;">50</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato:</strong> La multiplicación ocurre antes que la suma si las combinas en una misma línea, a
+              menos que uses paréntesis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En JavaScript, el operador de división es la barra (<mark>/</mark>), que difiere del símbolo de división
+        utilizado en las matemáticas tradicionales (<mark>÷</mark>). Las operaciones de división se realizan con el
+        operador de división. En este caso, el orden de los números que se dividen es importante:
+      </p>
+
+      <div class="ide-container" id="ide-js-division-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">division.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num3</span> = <span class="tk-number">15</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result1</span> = <span class="tk-selector">num1</span> <span class="tk-operator">/</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result2</span> = <span class="tk-selector">num2</span> <span class="tk-operator">/</span> <span class="tk-selector">num1</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">result3</span> = <span class="tk-selector">num2</span> <span class="tk-operator">/</span> <span class="tk-selector">num1</span> <span class="tk-operator">/</span> <span class="tk-selector">num3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0.5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0.0333...</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DIVISION PRECISION MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <span style="color: #888; font-size: 10px;">ORDER A: 10 / 5</span>
+                    <div style="color: #66d9ef; font-weight: bold; font-size: 16px;">2</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <span style="color: #888; font-size: 10px;">ORDER B: 5 / 10</span>
+                    <div style="color: #a6e22e; font-weight: bold; font-size: 16px;">0.5</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <span style="color: #888; font-size: 10px;">CHAINED: 5 / 10 / 15</span>
+                    <div style="color: #f92672; font-weight: bold; font-size: 14px; word-break: break-all;">
+                      0.03333333333333333</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recordatorio:</strong> Recuerda que dividir por <code style="color: red;">0</code> no da error,
+              ¡da
+              <code style="color: red;">Infinity</code>!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es importante tener en cuenta que, si intentas dividir entre cero, JavaScript devolverá <mark>Infinity</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-division-zero">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">zero_division.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">10</span> <span class="tk-operator">/</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Infinity</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MATH EXCEPTION MONITOR</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="text-align: center; padding: 20px; background: rgba(239, 83, 80, 0.1); border: 1px dashed #ef5350; border-radius: 8px;">
+                    <div
+                      style="color: #ef5350; font-weight: bold; font-size: 10px; margin-bottom: 8px; letter-spacing: 1px;">
+                      DIVISION BY ZERO</div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                      <span style="color: #f8f8f2; font-size: 18px;">10</span>
+                      <span style="color: #f92672; font-size: 20px;">/</span>
+                      <span style="color: #f8f8f2; font-size: 18px;">0</span>
+                      <span style="color: var(--sp-accent); font-size: 18px;">➔</span>
+                      <span
+                        style="color: var(--sp-accent); font-size: 24px; font-weight: bold; letter-spacing: 2px;">∞</span>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; font-size: 11px; border: 1px solid #333;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888;">INTERNAL VALUE:</span>
+                      <span style="color: var(--sp-accent);">Infinity</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #888;">STATUS:</span>
+                      <span style="color: #a6e22e;">STABLE (NO CRASH)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Nota técnica:</strong> Si necesitas evitar esto, puedes validar con
+              <code style="color: red;">if (divisor !== 0)</code> antes de realizar la operación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Asegúrate de evitar ese tipo de cálculos para no obtener resultados inesperados en tu código.
+      </p>
+      <p>
+        El operador de resto, representado por el signo de porcentaje (<mark>%</mark>), devuelve el resto de una
+        división. En
+        matemáticas, el resto es el valor que queda después de realizar una división:
+      </p>
+
+      <div class="ide-container" id="ide-js-remainder-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">remainder.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">remainder</span> = <span class="tk-selector">num1</span> <span class="tk-operator">%</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">remainder</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                REMAINDER VISUALIZER (10 % 3)</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                  <div style="display: flex; gap: 5px; align-items: center;">
+                    <span style="color: #888; width: 60px;">Grupo 1:</span>
+                    <div style="display: flex; gap: 3px;">
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 5px; align-items: center;">
+                    <span style="color: #888; width: 60px;">Grupo 2:</span>
+                    <div style="display: flex; gap: 3px;">
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 5px; align-items: center;">
+                    <span style="color: #888; width: 60px;">Grupo 3:</span>
+                    <div style="display: flex; gap: 3px;">
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                      <div style="width:10px; height:10px; background:#a6e22e; border-radius:2px;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 10px; background: rgba(239, 83, 80, 0.1); border: 1px solid #ef5350; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="width:10px; height:10px; background:#ef5350; border-radius:2px;"></div>
+                    <span style="color: #f8f8f2;">LO QUE SOBRA (RESTO):</span>
+                  </div>
+                  <span style="color: #ef5350; font-weight: bold; font-size: 16px;">1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Uso común:</strong> <code style="color: red;">n % 2 === 0</code> es la forma estándar de
+              preguntar si un número es
+              par en JavaScript.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de elevamiento a una potencia, representado por dos asteriscos (<mark>**</mark>), eleva un número a
+        la potencia
+        de otro:
+      </p>
+
+      <div class="ide-container" id="ide-js-exponent-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">exponent.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num1</span> = <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">num2</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">exponent</span> = <span class="tk-selector">num1</span> <span class="tk-operator">**</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">exponent</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 8</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXPONENT CALCULATION</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <div style="display: inline-block; position: relative;">
+                      <span style="font-size: 28px; color: #f8f8f2;">2</span>
+                      <span
+                        style="font-size: 16px; color: var(--sp-accent); position: absolute; top: -5px; right: -12px; font-weight: bold;">3</span>
+                    </div>
+                    <div style="margin-top: 10px; color: #888; font-size: 11px;">(2 * 2 * 2)</div>
+                  </div>
+
+                  <div style="border-top: 1px solid #444; padding-top: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #888; font-size: 10px;">RESULTADO:</span>
+                      <span style="color: var(--sp-accent); font-size: 20px; font-weight: bold;">8</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Curiosidad:</strong> Puedes usar exponentes negativos para calcular raíces o valores menores
+              que 1. Por ejemplo, <code style="color: red;">9 ** 0.5</code> te dará <code style="color: red;">3</code>
+              (la raíz cuadrada).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es posible combinar operadores en una misma operación o expresión:
+      </p>
+
+      <div class="ide-container" id="ide-js-operator-combination">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">precedence.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">10</span> <span class="tk-operator">+</span> <span class="tk-number">5</span> <span class="tk-operator">*</span> <span class="tk-number">2</span> <span class="tk-operator">-</span> <span class="tk-number">8</span> <span class="tk-operator">/</span> <span class="tk-number">4</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 18</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXECUTION STEPS</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 11px; color: #f8f8f2;">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; justify-content: space-between; opacity: 0.6;">
+                    <span>Original:</span>
+                    <span>10 + <b style="color:#f92672">5 * 2</b> - <b style="color:#f92672">8 / 4</b></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>Step 1 (Mul/Div):</span>
+                    <span>10 + <b style="color:#a6e22e">10</b> - <b style="color:#a6e22e">2</b></span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span>Step 2 (Add/Sub):</span>
+                    <span><b style="color:#a6e22e">20</b> - 2</span>
+                  </div>
+                  <div
+                    style="margin-top: 5px; padding-top: 10px; border-top: 1px solid #444; display: flex; justify-content: space-between; font-size: 16px;">
+                    <span style="color: #888;">FINAL:</span>
+                    <span style="color: var(--sp-accent); font-weight: bold;">18</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Regla PEMDAS:</strong> Paréntesis, Exponentes, Multiplicación/División, Adición/Sustracción.
+              ¡Igual que en las matemáticas del colegio!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando se combinan diferentes operadores en una misma expresión, el motor de JavaScript sigue un sistema
+        denominado precedencia de operadores para determinar el orden de las operaciones. La precedencia de operadores
+        determina el orden en que se ejecutan las operaciones en las expresiones. Aprenderás más sobre la precedencia de
+        operadores en lecciones futuras.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de los siguientes operadores debes usar para restar un número de otro?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            +
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            -
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            *
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            /
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado del siguiente código?
+            <pre>
+              <code>
+                const result = 4 / 0;
+                console.log(result);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Infinity
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            4
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            1
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            16
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado del siguiente código?
+            <pre>
+              <code>
+                const remainder = 5 % 3;
+                console.log(remainder);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            15
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            2
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            3
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            1.6666666666666667
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Qué sucede cuando intentas realizar cálculos con números y strings?
+      </h2>
+
+      <p>
+        JavaScript es un lenguaje en el que las cosas a veces funcionan de maneras sorprendentes, o incluso extrañas.
+        Una de esas sorpresas ocurre cuando mezclas números y strings en los cálculos. Lo primero que probablemente
+        intentes es sumar un número y un string. En JavaScript, el operador <mark>+</mark> tiene una doble función. Se
+        encarga tanto
+        de la suma como de la concatenación de strings, que es una forma de unir dos strings.
+      </p>
+      <p>
+        Cuando usas <mark>+</mark> con un número y una string, JavaScript decide tratarlos a ambos como strings y los
+        une. Si
+        compruebas el tipo del resultado con el operador <mark>typeof</mark>, verás que efectivamente es una string:
+      </p>
+
+      <div class="ide-container" id="ide-js-type-coercion-plus">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">5</span> <span class="tk-operator">+</span> <span class="tk-string">'10'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// 510</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// string</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                CONCATENATION PROCESS</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <span
+                      style="color: #ae81ff; border: 1px solid #ae81ff; padding: 2px 6px; border-radius: 3px;">5</span>
+                    <span style="color: #f92672; font-weight: bold;">+</span>
+                    <span
+                      style="color: #a6e22e; border: 1px solid #a6e22e; padding: 2px 6px; border-radius: 3px;">"10"</span>
+                    <span style="color: #f8f8f2; margin: 0 5px;">➔</span>
+                    <span
+                      style="color: #a6e22e; font-weight: bold; font-size: 16px; background: rgba(166, 226, 46, 0.1); padding: 2px 10px; border-radius: 4px;">"510"</span>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span style="color: #888; font-size: 10px;">FINAL DATA TYPE:</span>
+                      <span style="color: #66d9ef; font-weight: bold; text-transform: uppercase;">String</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> Este es el origen de muchos bugs. Si recibes un número de un
+              <code style="color: red;">input</code> de usuario, siempre será un string. ¡Asegúrate de convertirlo antes
+              de sumar!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        ¿Qué crees que pasará si cambias el orden del <mark>5</mark> y el <mark>'10'</mark>?
+      </p>
+
+      <div class="ide-container" id="ide-js-type-coercion-reverse">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">reverse_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-string">'10'</span> <span class="tk-operator">+</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// 105</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// string</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                TYPE COERCION ANALYZER</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 13px;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                    <span
+                      style="color: #a6e22e; border: 1px solid #a6e22e; padding: 2px 6px; border-radius: 3px;">"10"</span>
+                    <span style="color: #f92672; font-weight: bold;">+</span>
+                    <span
+                      style="color: #ae81ff; border: 1px solid #ae81ff; padding: 2px 6px; border-radius: 3px;">5</span>
+                    <span style="color: #f8f8f2; margin: 0 5px;">➔</span>
+                    <span style="color: #a6e22e; font-weight: bold; font-size: 16px;">"105"</span>
+                  </div>
+
+                  <div style="font-size: 11px; line-height: 1.4; color: #888;">
+                    <p style="margin: 0;">• El Number <b style="color:#ae81ff;">5</b> se convierte a String <b
+                        style="color:#a6e22e;">"5"</b>.</p>
+                    <p style="margin: 4px 0 0 0;">• <b style="color:#a6e22e;">"10"</b> + <b
+                        style="color:#a6e22e;">"5"</b> se unen mediante concatenación.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato pro:</strong> Esta es una forma rápida (aunque no la más elegante) que usan algunos para
+              convertir números a strings: <code style="color: red;">let str = 5 + "";</code>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, ha pasado lo mismo. JavaScript interpreta <mark>'10'</mark> como un string y <mark>5</mark>
+        como un número, por lo que convierte el número en un string y los une. A esto se le conoce como coerción de
+        tipos. La coerción de tipos se produce cuando un valor de un tipo de datos se convierte en otro.
+      </p>
+      <p>
+        Las cosas se ponen más interesantes cuando intentas realizar otras operaciones aritméticas como la resta, la
+        multiplicación o la división con un string y un número. En estos casos, JavaScript intenta convertir el string
+        en un número antes de hacer el cálculo: ¡otra conversión de tipos! Esto es lo que sucede:
+      </p>
+
+      <div class="ide-container" id="ide-js-numeric-coercion-advanced">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">math_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">subtractionResult</span> = <span class="tk-string">'10'</span> <span class="tk-operator">-</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">subtractionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5 (number)</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">multiplicationResult</span> = <span class="tk-string">'10'</span> <span class="tk-operator">*</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">multiplicationResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 20 (number)</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">divisionResult</span> = <span class="tk-string">'20'</span> <span class="tk-operator">/</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">divisionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10 (number)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COERCION LOGIC: OTHER OPERATORS</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <table style="width: 100%; border-collapse: collapse;">
+                  <thead>
+                    <tr style="text-align: left; color: #888; font-size: 10px;">
+                      <th style="padding: 5px;">INPUT</th>
+                      <th style="padding: 5px;">TRANSFORMS TO</th>
+                      <th style="padding: 5px;">RESULT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 8px 5px;"><span style="color:#a6e22e;">"10"</span> - 5</td>
+                      <td style="padding: 8px 5px;"><span style="color:#ae81ff;">10</span> - 5</td>
+                      <td style="padding: 8px 5px; color:#ae81ff; font-weight:bold;">5</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 8px 5px;"><span style="color:#a6e22e;">"10"</span> * 2</td>
+                      <td style="padding: 8px 5px;"><span style="color:#ae81ff;">10</span> * 2</td>
+                      <td style="padding: 8px 5px; color:#ae81ff; font-weight:bold;">20</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 5px;"><span style="color:#a6e22e;">"20"</span> / 2</td>
+                      <td style="padding: 8px 5px;"><span style="color:#ae81ff;">20</span> / 2</td>
+                      <td style="padding: 8px 5px; color:#ae81ff; font-weight:bold;">10</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Observación:</strong> A diferencia de la suma, aquí el resultado final siempre vuelve a ser de
+              tipo <code style="color: red;">number</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En los ejemplos anteriores, JavaScript convierte correctamente el string <mark>'10'</mark> o <mark>'20'</mark>
+        en un número y, a
+        continuación, realiza el cálculo. Como resultado, '<mark>10' - 5</mark> da <mark>5</mark>, <mark>'10' * 2</mark>
+        da <mark>20</mark> y <mark>'20' / 2</mark> da <mark>10</mark>.
+      </p>
+      <p>
+        Pero, ¿qué pasa si el string no parece un número? Veamos qué ocurre en ese caso:
+      </p>
+
+      <div class="ide-container" id="ide-js-nan-behavior">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nan_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">subtractionResult</span> = <span class="tk-string">'abc'</span> <span class="tk-operator">-</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">subtractionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">subtractionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">multiplicationResult</span> = <span class="tk-string">'abc'</span> <span class="tk-operator">*</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">multiplicationResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">multiplicationResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">divisionResult</span> = <span class="tk-string">'abc'</span> <span class="tk-operator">/</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">divisionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">divisionResult</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DEBUGGER: NaN DETECTED</h3>
+
+              <div style="font-family: var(--sp-font-code); font-size: 12px; line-height: 1.6;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 10px; border-radius: 4px; text-align: center;">
+                    <div style="color: #f92672; font-size: 10px; margin-bottom: 5px;">OPERACIÓN INVÁLIDA</div>
+                    <div style="color: #f8f8f2; font-size: 16px;">'abc' / 2 = <span
+                        style="color:#f92672; font-weight:bold;">NaN</span></div>
+                  </div>
+
+                  <div
+                    style="display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px;">
+                    <span style="color: #888;">typeof NaN</span>
+                    <span style="color: #66d9ef;">"number" 🧩</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Curiosidad:</strong> <code style="color: red;">NaN</code> es el único valor en JS que no es
+              igual a sí mismo
+              (<code style="color: red;">NaN === NaN</code> es <code>false</code>). Para detectarlo, usamos <code
+                style="color: red;">isNaN()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En los ejemplos anteriores, la cadena <mark>'abc'</mark> no representa un valor numérico válido, por lo que
+        JavaScript no
+        puede convertirla en un número significativo. Cuando dicha conversión falla, JavaScript devuelve
+        <mark>NaN</mark>, que
+        significa "Not a Number" (No es un número). <mark>NaN</mark> es un valor especial del tipo <mark>Number</mark>
+        que representa un número no
+        válido o irrepresentable.
+      </p>
+      <p>
+        ¿Qué pasa si realizas operaciones aritméticas con un booleano (<mark>true</mark> o f<mark>alse</mark>)? Veamos
+        qué sucede. JavaScript
+        trata a los booleanos como números en las operaciones matemáticas: <mark>true</mark> se convierte en
+        <mark>1</mark> y <mark>false</mark> se convierte
+        en <mark>0</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-boolean-math">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">booleans.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result1</span> = <span class="tk-boolean">true</span> <span class="tk-operator">+</span> <span class="tk-number">1</span><span class="tk-punctuation">;</span>          <span class="tk-comment">// 1 + 1 = 2</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result2</span> = <span class="tk-boolean">false</span> <span class="tk-operator">+</span> <span class="tk-number">1</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// 0 + 1 = 1</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result3</span> = <span class="tk-string">'Hello'</span> <span class="tk-operator">+</span> <span class="tk-boolean">true</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// "Hellotrue"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COERCION LOGIC</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); padding: 10px; border-radius: 4px; border: 1px solid #a6e22e; text-align: center;">
+                    <span style="color: #a6e22e; display: block; font-size: 10px;">TRUE BECOMES</span>
+                    <strong style="font-size: 18px; color: #f8f8f2;">1</strong>
+                  </div>
+                  <div
+                    style="background: rgba(239, 83, 80, 0.1); padding: 10px; border-radius: 4px; border: 1px solid #ef5350; text-align: center;">
+                    <span style="color: #ef5350; display: block; font-size: 10px;">FALSE BECOMES</span>
+                    <strong style="font-size: 18px; color: #f8f8f2;">0</strong>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 10px; padding: 10px; background: rgba(102, 217, 239, 0.1); border-radius: 4px; border: 1px dashed #66d9ef;">
+                  <span style="color: #66d9ef; font-size: 10px;">STRING CONTEXT:</span>
+                  <div style="color: #f8f8f2; text-align: center; font-size: 14px;">'Hello' + true = <span
+                      style="color:#e6db74;">"Hellotrue"</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato curioso:</strong> Esto permite trucos como sumar una lista de booleanos para saber cuántos
+              son verdaderos: <code style="color: red;">true + true + false</code> dará <code
+                style="color: red;">2</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En los dos primeros ejemplos, <mark>true + 1</mark> dio como resultado <mark>2</mark>, y <mark>false + 1</mark>
+        dio como resultado <mark>1</mark>. En el tercer
+        ejemplo, <mark>'Hello' + true</mark>, JavaScript convirtió <mark>true</mark> en un string y la concatenó con
+        <mark>'Hello'</mark>, lo que dio como
+        resultado <mark>'Hellotrue'</mark>, que es un string.
+      </p>
+      <p>
+        En cuanto a <mark>null</mark> y <mark>undefined</mark>, JavaScript trata <mark>null</mark> como 0 y
+        <mark>undefined</mark> como <mark>NaN</mark> en las operaciones matemáticas:
+      </p>
+
+      <div class="ide-container" id="ide-js-null-undefined-math">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">null_undef.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result1</span> = <span class="tk-boolean">null</span> <span class="tk-operator">+</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// 0 + 5 = 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">result1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">result2</span> = <span class="tk-boolean">undefined</span> <span class="tk-operator">+</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">result2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INTERNAL CONVERSION MONITOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                  <div>
+                    <span style="color: #888; font-size: 10px; display: block;">VALUE: NULL</span>
+                    <span style="color: #a6e22e; font-weight: bold;">Treated as 0</span>
+                  </div>
+                  <div style="font-size: 18px; color: #a6e22e;">✓</div>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 4px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                  <div>
+                    <span style="color: #888; font-size: 10px; display: block;">VALUE: UNDEFINED</span>
+                    <span style="color: #f92672; font-weight: bold;">Treated as NaN</span>
+                  </div>
+                  <div style="font-size: 18px; color: #f92672;">⚠</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Tip Pro:</strong> Si ves un <code style="color: red;">NaN</code> en tus cálculos, suele ser una
+              señal de que alguna
+              variable no se inicializó correctamente (es <code style="color: red;">undefined</code>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        JavaScript suele realizar conversiones de tipos, lo que implica convertir automáticamente tipos de datos como
+        números, cadenas y valores booleanos, a veces de formas inesperadas. Comprender estas conversiones es
+        fundamental para evitar errores y escribir código robusto en tus proyectos.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando ejecutas el siguiente código?
+            <pre>
+              <code>
+                const result = 3 + "19";
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            JavaScript ignora el string y solo realiza la operación con el número.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            JavaScript genera un error cuando se intenta mezclar strings y números en operaciones aritméticas.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            JavaScript convierte el número 3 en el string "3", concatena las dos strings y asigna el valor "319" a
+            result.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            JavaScript convierte el string "19" en el número 19, realiza la operación y asigna el valor 22 a result.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando ejecutas el siguiente código?
+            <pre>
+              <code>
+                const result = "6" - 4;
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            La conversión falla y JavaScript devuelve NaN.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            JavaScript convierte el número 4 en el string "4", concatena los dos strings y asigna el valor "64" a
+            result.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Se asigna el valor Infinity a result.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            JavaScript convierte la string "6" en el número 6, realiza la operación y asigna el valor 2 a result.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se realizan operaciones aritméticas con un valor booleano (<mark>true</mark> o <mark>false</mark>) en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            JavaScript genera un error.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            JavaScript ignora el valor booleano y solo realiza la operación con los números.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            JavaScript trata a true como 1 y a false como 0 en las operaciones aritméticas.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            JavaScript convierte el valor booleano en un string antes de realizar la operación.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
