@@ -299,3 +299,32 @@ Recuerda que en JavaScript hay un operador de asignación compuesto para cada op
 - El operador de asignación AND bit a bit (`&=`), que realiza una operación AND bit a bit con el número especificado y reasigna el resultado a la variable.
 
 - El operador de asignación OR bit a bit (`|=`), que realiza una operación OR bit a bit con el número especificado y reasigna el resultado a la variable.
+
+---
+
+## Cuestionario 3
+
+1. **¿Qué te permiten hacer los operadores de asignación compuestos en JavaScript?**
+
+    - [ ] a) Realizar una operación matemática sin modificar el valor de la variable.
+    - [x] b) Ofrecer una forma más breve de realizar una operación sobre una variable y asignar el resultado a esa misma variable. //correcto
+    - [ ] c) Realizar dos operaciones diferentes a la vez.
+    - [ ] d) Realizar únicamente sumas y restas en una sola línea de código.
+
+2. **¿Qué hace el operador de asignación de resto (`%=`) en JavaScript?**
+
+    - [ ] a) Divide una variable por el número especificado y asigna el cociente a la variable.
+    - [ ] b) Multiplica una variable por el número especificado y asigna el producto a la variable.
+    - [x] c) Divide una variable por el número especificado y vuelve a asignar el resto a la variable. //correcto
+    - [ ] d) Suma el resto de una división a la variable.
+
+3. **¿Qué sucede cuando ejecutas el código `let points = 5; points *= 3;`?**
+
+    - [ ] a) `points` se multiplica por `3` y el resultado se suma al valor original de `points`.
+    - [ ] b) `points` se divide por `3`.
+    - [x] c) `points` se multiplica por `3` y el resultado (`15`) se asigna de nuevo a `points`. //correcto
+    - [ ] d) `points` permanece sin cambios.
+
+[☝️](#trabajar-con-el-comportamiento-de-los-operadores)
+
+---

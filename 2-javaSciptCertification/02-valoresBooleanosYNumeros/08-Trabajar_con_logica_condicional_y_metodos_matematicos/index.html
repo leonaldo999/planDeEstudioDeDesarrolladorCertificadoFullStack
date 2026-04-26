@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a usar la lógica condicional y los métodos matemáticos para resolver problemas y tomar decisiones en tu código.">
+  <meta name="keywords" content="lógica condicional, métodos matemáticos, JavaScript, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con lógica condicional y métodos matemáticos">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a usar la lógica condicional y los métodos matemáticos para resolver problemas y tomar decisiones en tu código.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con lógica condicional y métodos matemáticos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con lógica condicional y métodos matemáticos</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar la lógica condicional y los métodos matemáticos para resolver problemas y
+        tomar decisiones en tu código.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son las sentencias condicionales y cómo funcionan las sentencias
+        <mark>if</mark>, <mark>else if</mark> y <mark>else</mark>?
+      </h2>
+
+      <p>
+        Las sentencias condicionales te permiten tomar decisiones en tu código JavaScript. Permiten que tu programa
+        fluya de una manera determinada en función de ciertas condiciones. Veamos cómo funcionan <mark>if</mark>,
+        <mark>else if</mark>, <mark>else</mark> y el
+        operador ternario para que puedas controlar el flujo de tu código.
+      </p>
+      <p>
+        Una instrucción <mark>if</mark> toma una condición y ejecuta un bloque de código si esa condición es verdadera.
+        Los valores
+        verdaderos son cualquier valor que resulte <mark>true</mark> cuando se evalúa en un contexto booleano, como una
+        instrucción
+        <mark>if</mark>. Estos son algunos ejemplos de valores verdaderos:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            strings de caracteres no vacías, por ejemplo, <mark>hola</mark>
+          </li>
+          <li class="list">
+            cualquier número que no sea <mark>0</mark> ni <mark>-0</mark>, por ejemplo, <mark>4</mark>, <mark>-5</mark>
+            y otros
+          </li>
+          <li class="list">
+            matrices
+          </li>
+          <li class="list">
+            objetos
+          </li>
+          <li class="list">
+            el valor booleano <mark>true</mark>
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Por otro lado, los valores falsos son aquellos que se evalúan como <mark>false</mark> en un contexto booleano.
+        JavaScript
+        tiene pocos valores falsos, lo que hace que sean fáciles de recordar. Estos son algunos de ellos:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            booleano <mark>false</mark>
+          </li>
+          <li class="list">
+            <mark>0</mark> (cero)
+          </li>
+          <li class="list">
+            <mark>""</mark> (cadena vacía)
+          </li>
+          <li class="list">
+            <mark>null</mark>
+          </li>
+          <li class="list">
+            <mark>undefined</mark>
+          </li>
+          <li class="list">
+            <mark>NaN</mark> (No es un número)
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Ahora que ya tenemos una idea básica de los valores true y false, veamos cómo funcionan con las sentencias
+        <mark>if</mark>.
+        En este primer ejemplo, utilizamos un par de sentencias <mark>if</mark> para comprobar si los valores son true o
+        false:
+      </p>
+
+      <div class="ide-container" id="ide-js-conditional-if">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">logic_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-number">null</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"This will not run."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span>
+
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-string">"freeCodeCamp"</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"This will run."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BOOLEAN CONTEXT INSPECTOR</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="border: 1px solid rgba(249, 38, 114, 0.3); border-radius: 6px; overflow: hidden;">
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); padding: 5px 10px; font-size: 10px; color: #f92672; font-weight: bold;">
+                    BLOCK 1 (null)</div>
+                  <div style="padding: 10px; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="color: #888; font-family: var(--sp-font-code); font-size: 11px;">Status:</span>
+                    <span style="color: #f92672; font-size: 11px; font-weight: bold;">✕ BLOCKED (Falsy)</span>
+                  </div>
+                </div>
+
+                <div style="border: 1px solid rgba(166, 226, 46, 0.3); border-radius: 6px; overflow: hidden;">
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); padding: 5px 10px; font-size: 10px; color: #a6e22e; font-weight: bold;">
+                    BLOCK 2 ("freeCodeCamp")</div>
+                  <div style="padding: 10px; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="color: #888; font-family: var(--sp-font-code); font-size: 11px;">Status:</span>
+                    <span style="color: #a6e22e; font-size: 11px; font-weight: bold;">✓ EXECUTED (Truthy)</span>
+                  </div>
+                  <div
+                    style="background: #111; padding: 8px 10px; color: #f8f8f2; font-family: var(--sp-font-code); font-size: 11px; border-top: 1px solid #333;">
+                    > This will run.
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; padding: 8px; background: rgba(102, 217, 239, 0.05); border-radius: 4px; font-size: 10px; color: #66d9ef; line-height: 1.3;">
+                <strong>Tip:</strong> Puedes convertir cualquier valor a su booleano real usando
+                <code>Boolean(valor)</code>.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> Un string con solo un espacio <code style="color: red;">" "</code> es
+              <strong>truthy</strong>,
+              mientras que un string vacío <code style="color: red;">""</code> es <strong>falsy</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que <mark>null</mark> es un valor falso, el mensaje dentro del bloque nunca se registrará en la consola.
+        Sin embargo, en
+        la segunda instrucción <mark>if</mark>, la cadena <mark>freeCodeCamp</mark> es un valor verdadero y se
+        considerará como tal en este
+        contexto booleano de la instrucción <mark>if</mark>. Como resultado, el mensaje <mark>This will run</mark>. se
+        registrará en la consola.
+      </p>
+      <p>
+        Veamos algunos ejemplos más sobre cómo funcionan las sentencias <mark>if</mark> con diferentes operadores de
+        comparación.
+        Aquí hay un ejemplo del uso de una sentencia <mark>if</mark> para verificar si el usuario tiene derecho a votar:
+      </p>
+
+      <div class="ide-container" id="ide-js-conditional-age">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">voting.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">age</span> = <span class="tk-number">22</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">age</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">18</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"You're eligible to vote"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VOTING ELIGIBILITY CHECKER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: center; gap: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px;">VALUE</div>
+                    <div style="color: #66d9ef; font-size: 20px;">22</div>
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 18px; font-weight: bold;">>=</div>
+                  <div style="text-align: center;">
+                    <div style="color: #888; font-size: 9px;">REQUIREMENT</div>
+                    <div style="color: #f92672; font-size: 20px;">18</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="color: #a6e22e; font-size: 10px; font-weight: bold; margin-bottom: 5px;">CONDITION RESULT:
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 14px;">true</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 5px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">"You're eligible to vote"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Lógica:</strong> Si la condición es <code style="color: red;">true</code>, el bloque <code
+                style="color: red;">{...}</code> se abre. Si
+              es <code style="color: red;">false</code>, JavaScript lo ignora por completo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, dado que el <mark>age</mark> es actualmente <mark>22</mark>, esto significa que la condición se
+        evaluará como <mark>true</mark>, ya
+        que <mark>22</mark> es mayor o igual a <mark>18</mark>. Por lo tanto, el mensaje <mark>You're eligible to
+          vote</mark> se registrará en la consola. Si
+        modificamos el ejemplo para que el <mark>age</mark> sea ahora <mark>15</mark>, la condición se evaluará como
+        <mark>false</mark> y el mensaje no se
+        registrará en la consola:
+      </p>
+
+      <div class="ide-container" id="ide-js-conditional-false">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">voting_v2.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">age</span> = <span class="tk-number">15</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">age</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">18</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"You're eligible to vote"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXECUTION FLOW TRACER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 12px; border-radius: 6px; text-align: center;">
+                  <div style="color: #f92672; font-size: 10px; font-weight: bold; margin-bottom: 4px;">EVALUANDO: 15 >=
+                    18</div>
+                  <div style="color: #f8f8f2; font-size: 16px; font-weight: bold;">RESULT: false</div>
+                </div>
+
+                <div
+                  style="position: relative; padding: 10px; border: 1px dashed #444; border-radius: 6px; background: rgba(0,0,0,0.2);">
+                  <div style="color: #666; font-size: 11px; text-decoration: line-through;">
+                    { console.log("You're eligible to vote"); }
+                  </div>
+                  <div
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-5deg); color: rgba(249, 38, 114, 0.6); font-weight: bold; border: 2px solid; padding: 2px 10px; pointer-events: none;">
+                    SKIPPED
+                  </div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; min-height: 40px; border: 1px solid #333;">
+                  <div style="color: #444; font-size: 9px; margin-bottom: 5px;">CONSOLE (EMPTY):</div>
+                  <div style="color: #666; font-size: 11px; font-style: italic;">No output generated...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚫 <strong>Resultado:</strong> Al no cumplirse la condición, el programa simplemente continúa su camino
+              después de la llave de cierre <code style="color: red;">}</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando una condición es <mark>false</mark>, puedes usar una cláusula <mark>else</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-conditional-else">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">voting_else.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">age</span> = <span class="tk-number">15</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">age</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">18</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"You're eligible to vote"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span> <span class="tk-property">else</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"You're not eligible to vote"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DECISION FORK</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+                <div style="text-align: center; color: #66d9ef; font-size: 11px;">INPUT: age = 15</div>
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                  <div
+                    style="width: 80px; height: 40px; border: 1px solid #f92672; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #f92672; transform: rotate(0deg); background: rgba(249, 38, 114, 0.05);">
+                    15 >= 18?
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+                  <div
+                    style="border: 1px solid #444; padding: 8px; border-radius: 4px; opacity: 0.3; text-align: center;">
+                    <div style="font-size: 9px; color: #888;">IF (true)</div>
+                    <div style="font-size: 10px; color: #a6e22e;">Skipped</div>
+                  </div>
+
+                  <div
+                    style="border: 1px solid #f92672; padding: 8px; border-radius: 4px; background: rgba(249, 38, 114, 0.1); text-align: center;">
+                    <div style="font-size: 9px; color: #f92672; font-weight: bold;">ELSE (false)</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">Executed</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672; margin-top: 5px;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"You're not eligible to vote"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Regla de oro:</strong> El bloque <code style="color: red;">else</code> no lleva condición
+              propia entre paréntesis;
+              simplemente captura todo lo que el <code style="color: red;">if</code> rechazó.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>15</mark> no es mayor o igual que <mark>18</mark>, por lo que la condición sería
+        <mark>false</mark>. En este caso, se ejecutará
+        el código dentro del bloque <mark>else</mark>.
+      </p>
+      <p>
+        Si quieres comprobar varias condiciones, puedes usar un bloque <mark>else if</mark>. Esto permite que tu
+        programa elija entre
+        más de dos rutas.
+      </p>
+
+      <div class="ide-container" id="ide-js-conditional-elseif">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">grades.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">score</span> = <span class="tk-number">87</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">score</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">90</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'You got an A'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span> <span class="tk-property">else if</span> <span class="tk-punctuation">(</span><span class="tk-selector">score</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">80</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'You got a B'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Seleccionado</span>
+<span class="tk-operator">}</span> <span class="tk-property">else if</span> <span class="tk-punctuation">(</span><span class="tk-selector">score</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">70</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'You got a C'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span> <span class="tk-property">else</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'You failed! You need to study more!'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MULTI-CONDITION TRACER</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code); font-size: 11px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 6px; border: 1px solid #444; border-radius: 4px; opacity: 0.5;">
+                  <span>87 >= 90 ?</span>
+                  <span style="color: #f92672;">false ✕</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 6px; border: 2px solid #a6e22e; border-radius: 4px; background: rgba(166, 226, 46, 0.1);">
+                  <span style="font-weight: bold;">87 >= 80 ?</span>
+                  <span style="color: #a6e22e; font-weight: bold;">true ✓</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 6px; border: 1px dashed #333; border-radius: 4px; opacity: 0.3;">
+                  <span>87 >= 70 ?</span>
+                  <span>SKIPPED</span>
+                </div>
+
+                <div
+                  style="margin-top: 10px; background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2;">"You got a B"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Estrategia:</strong> Empieza siempre por la condición más restrictiva (el valor más alto) para
+              que el flujo de descarte funcione correctamente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que el <mark>score</mark> actual es <mark>87</mark>, se registraría en la consola el mensaje <mark>You got
+          a B</mark>.
+      </p>
+      <p>
+        El operador ternario es una forma compacta de escribir sentencias <mark>if/else</mark> sencillas. Consta de tres
+        partes: una
+        condición, un resultado si la condición es verdadera y un resultado si es falsa. Esta es la sintaxis básica:
+      </p>
+
+      <div class="ide-container" id="ide-js-ternary-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">syntax_map.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Estructura base de la sintaxis:</span>
+<span class="tk-selector">condicion</span> <span class="tk-operator">?</span> <span class="tk-selector">expresionSiEsVerdad</span> <span class="tk-operator">:</span> <span class="tk-selector">expresionSiEsFalso</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Ejemplo funcional:</span>
+<span class="tk-property">const</span> <span class="tk-selector">mensaje</span> = <span class="tk-punctuation">(</span><span class="tk-number">10</span> <span class="tk-operator">&gt;</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-operator">?</span> <span class="tk-string">"Es mayor"</span> <span class="tk-operator">:</span> <span class="tk-string">"Es menor"</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SYNTAX BREAKDOWN</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="width: 25px; height: 25px; background: #66d9ef; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">
+                    1</div>
+                  <div
+                    style="flex-grow: 1; padding: 8px; border: 1px solid #66d9ef; border-radius: 4px; font-size: 11px;">
+                    <span style="color: #66d9ef;">Condición:</span> Evaluación booleana.
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="width: 25px; height: 25px; background: #f8f8f2; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">
+                    ?</div>
+                  <div
+                    style="flex-grow: 1; padding: 8px; border: 1px solid #444; border-radius: 4px; font-size: 11px; color: #888;">
+                    Separa la pregunta de las respuestas.
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="width: 25px; height: 25px; background: #ae81ff; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">
+                    3</div>
+                  <div style="flex-grow: 1; display: flex; gap: 5px; font-size: 10px;">
+                    <div
+                      style="padding: 5px; border: 1px solid #a6e22e; color: #a6e22e; border-radius: 3px; flex: 1; text-align: center;">
+                      SI ES TRUE</div>
+                    <div style="padding: 5px; color: #f8f8f2; flex: 0.2; text-align: center;">:</div>
+                    <div
+                      style="padding: 5px; border: 1px solid #f92672; color: #f92672; border-radius: 3px; flex: 1; text-align: center;">
+                      SI ES FALSE</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📖 <strong>Dato Sintáctico:</strong> El operador ternario requiere obligatoriamente ambas expresiones (la
+              de <code style="color: red;">true</code> y la de <code style="color: red;">false</code>). No puedes omitir
+              el <code style="color: red;">:</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí tienes un ejemplo sobre las temperaturas meteorológicas en grados Celsius:
+      </p>
+
+      <div class="ide-container" id="ide-js-ternary-weather">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">weather.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">temperature</span> = <span class="tk-number">30</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">weather</span> = <span class="tk-selector">temperature</span> <span class="tk-operator">&gt;</span> <span class="tk-number">25</span> <span class="tk-operator">?</span> <span class="tk-string">'sunny'</span> <span class="tk-operator">:</span> <span class="tk-string">'cool'</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">`It's a </span><span class="tk-operator">${</span><span class="tk-selector">weather</span><span class="tk-operator">}</span><span class="tk-string"> day!`</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// Salida: It's a sunny day!</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft); text-align: center;">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 20px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                WEATHER LOGIC ANALYZER</h3>
+
+              <div
+                style="position: relative; height: 100px; width: 40px; background: #333; border-radius: 20px; margin: 0 auto 15px; border: 2px solid #555;">
+                <div
+                  style="position: absolute; bottom: 0; width: 100%; height: 75%; background: linear-gradient(to top, #f92672, #fd971f); border-radius: 18px;">
+                </div>
+                <div
+                  style="position: absolute; top: 25%; right: -45px; color: #f8f8f2; font-size: 12px; font-weight: bold;">
+                  30°C</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+                <div style="font-size: 11px; color: #888;">
+                  <span style="color: #66d9ef;">30</span> > <span style="color: #66d9ef;">25</span>?
+                  <span style="color: #a6e22e; font-weight: bold; margin-left: 10px;">VERDADERO</span>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); padding: 12px; border-radius: 8px; border: 1px solid #a6e22e;">
+                  <div style="font-size: 10px; color: #a6e22e; margin-bottom: 5px;">VARIABLE 'weather' ASIGNADA:</div>
+                  <div style="font-size: 18px; color: #f8f8f2; font-weight: bold;">"sunny"</div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef; text-align: left; margin-top: 5px;">
+                  <div style="color: #66d9ef; font-size: 11px;">"It's a sunny day!"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #66d9ef; line-height: 1.4;">
+              💡 <strong>Cuándo elegir:</strong> Si la lógica cabe en una sola línea y se lee como una frase natural,
+              usa el ternario. Si te detienes a pensar más de 2 segundos para entender qué hace, usa
+              <code style="color: red;">if/else</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si la <mark>temperature</mark> es superior a <mark>25</mark>, el código anterior registra <mark>It's a sunny
+          day!</mark>. Si la <mark>temperature</mark> es inferior
+        o igual a <mark>25</mark>, registra <mark>It's a cool day!</mark>.
+      </p>
+      <p>
+        Entonces, ¿cuál deberías usar entre una instrucción <mark>if</mark> y un ternario? Usa un ternario cuando se
+        trate de una
+        sola condición o una sola expresión, o cuando quieras una sintaxis compacta para una lógica simple. Usa
+        instrucciones <mark>if/else</mark> cuando se trate de condiciones complejas y múltiples instrucciones, ya que el
+        código se
+        vuelve ilegible si anidas ternarios.
+      </p>
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la forma más concisa de escribir sentencias <mark>if/else</mark> sencillas?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Usando la sentencia switch.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Usando un bucle while.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Usando varias sentencias if
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Usando el operador ternario.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se pueden comprobar varias condiciones en una instrucción <mark>if</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Solo utilizando una instrucción switch.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Utilizando un bucle while.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Utilizando un bloque else if para elegir entre más de dos rutas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Utilizando el operador ternario.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la finalidad del bloque <mark>else</mark> en una instrucción <mark>if</mark>a?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Se ejecuta cuando la condición de la instrucción if es verdadera.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Ejecuta un bloque de código cuando la condición de la instrucción if no es verdadera.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Comprueba si varias condiciones son verdaderas.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Siempre se ejecuta antes del bloque if.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los operadores lógicos binarios y cómo funcionan?
+      </h2>
+
+      <p>
+        Los operadores lógicos binarios te ayudan a evaluar dos expresiones y devuelven un resultado en función de su
+        veracidad. Veamos los tres operadores lógicos binarios más comunes: el AND lógico, el OR lógico y el operador de
+        coalescencia nula.
+      </p>
+      <p>
+        El operador lógico AND se representa con un doble símbolo (<mark>&&</mark>). Comprueba si ambos operandos son
+        verdaderos y
+        devuelve un resultado. Si ambos operandos son verdaderos, devuelve el segundo valor, es decir, el de la derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-and">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">logical_and.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">true</span> <span class="tk-operator">&&</span> <span class="tk-string">'hello'</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// hello</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                AND LOGIC FLOW</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                  <div style="text-align: center; flex: 1;">
+                    <div style="font-size: 9px; color: #888; margin-bottom: 4px;">LEFT</div>
+                    <div style="color: #a6e22e; font-weight: bold;">true</div>
+                  </div>
+
+                  <div style="color: #f8f8f2; font-size: 14px; font-weight: bold;">&&</div>
+
+                  <div style="text-align: center; flex: 1;">
+                    <div style="font-size: 9px; color: #888; margin-bottom: 4px;">RIGHT</div>
+                    <div style="color: #66d9ef; font-weight: bold;">'hello'</div>
+                  </div>
+                </div>
+
+                <div style="text-align: center; color: #a6e22e; font-size: 10px;">
+                  <span>"Como el izquierdo es TRUE, devuelvo el derecho"</span>
+                  <div style="font-size: 14px;">⬇</div>
+                </div>
+
+                <div style="background: #111; padding: 12px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">VALOR ASIGNADO:</div>
+                  <div style="color: #f8f8f2; font-size: 14px;">"hello"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato clave:</strong> Si el primer valor hubiera sido <code style="color: red;">false</code>, el
+              resultado sería
+              <code style="color: red;">false</code> y ni siquiera miraría el segundo valor.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el texto <mark>hello</mark> se registra en la consola porque ambos operandos son
+        <mark>true</mark>. Si
+        alguno de los operandos es falso, devuelve el valor falso:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-and-false">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">short_circuit.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">0</span> <span class="tk-operator">&&</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SHORT-CIRCUIT ANALYZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-around; position: relative; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 6px;">
+
+                  <div
+                    style="text-align: center; border: 2px solid #f92672; padding: 8px; border-radius: 4px; background: rgba(249, 38, 114, 0.1);">
+                    <div style="font-size: 9px; color: #f92672;">FALSY</div>
+                    <div style="color: #f8f8f2; font-weight: bold;">0</div>
+                  </div>
+
+                  <div style="color: #666; font-size: 14px; font-weight: bold;">&&</div>
+
+                  <div
+                    style="text-align: center; border: 1px dashed #444; padding: 8px; border-radius: 4px; opacity: 0.4;">
+                    <div style="font-size: 9px; color: #888;">TRUTHY</div>
+                    <div style="color: #666;">3</div>
+                  </div>
+
+                  <div
+                    style="position: absolute; top: 50%; left: 45%; transform: translate(-50%, -50%); color: #f92672; font-size: 24px; font-weight: bold;">
+                    🛑
+                  </div>
+                </div>
+
+                <div style="text-align: center; font-size: 10px; color: #f92672;">
+                  "¡Encontré un falso! Me detengo y lo devuelvo."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2;">0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recuerda:</strong> El operador <code style="color: red;">&&</code> devuelve el <strong>valor
+                real</strong> que
+              causó el cortocircuito, no necesariamente la palabra <code style="color: red;">false</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que <mark>0</mark> es un valor falso, el número <mark>0</mark> se registra en la consola. Y si ambos
+        operandos son falsos, devuelve
+        el primer valor falso:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-and-double-false">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">double_falsy.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">false</span> <span class="tk-operator">&&</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FIRST-WIN FALSY DETECTOR</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: center; gap: 15px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+
+                  <div
+                    style="text-align: center; border: 2px solid #f92672; padding: 8px; border-radius: 4px; background: rgba(249, 38, 114, 0.2); position: relative;">
+                    <div style="font-size: 8px; color: #f92672;">1st OPERAND</div>
+                    <div style="color: #f8f8f2; font-weight: bold;">false</div>
+                    <div
+                      style="position: absolute; top: -10px; right: -10px; background: #f92672; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 10px; display: flex; align-items: center; justify-content: center;">
+                      !</div>
+                  </div>
+
+                  <div style="color: #444; font-size: 14px;">&&</div>
+
+                  <div
+                    style="text-align: center; border: 1px solid #333; padding: 8px; border-radius: 4px; opacity: 0.3;">
+                    <div style="font-size: 8px; color: #666;">2nd OPERAND</div>
+                    <div style="color: #666;">0</div>
+                  </div>
+                </div>
+
+                <div style="text-align: center; font-size: 10px; color: #888; font-style: italic;">
+                  "JavaScript se detiene en el primer valor que hace la operación falsa."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">RESULTADO EN CONSOLA:</div>
+                  <div style="color: #f8f8f2;">false</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota técnica:</strong> El operador <code style="color: red;">&&</code> siempre busca el primer
+              <strong>falsy</strong>. Si no encuentra ninguno, devuelve el último <strong>truthy</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que <mark>false</mark> es un valor que se interpreta como verdadero, <mark>false</mark> se registra en la
+        consola. El operador lógico AND resulta útil cuando se desea comprobar varias condiciones y asegurarse de que
+        todas sean verdaderas antes de continuar. A continuación, se muestra un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-multi-and">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">multi_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-number">2</span> <span class="tk-operator">&lt;</span> <span class="tk-number">3</span> <span class="tk-operator">&&</span> <span class="tk-number">3</span> <span class="tk-operator">&lt;</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'The if block runs'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> 
+<span class="tk-operator">}</span> <span class="tk-property">else</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'The else block runs'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                GATEKEEPER LOGIC (&&)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; gap: 10px; background: rgba(166, 226, 46, 0.1); padding: 8px; border-radius: 4px; border: 1px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 10px;">STEP 1:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">2 < 3 → <span style="color: #a6e22e;">true</span></div>
+                </div>
+
+                <div style="text-align: center; color: #f8f8f2; font-size: 14px; font-weight: bold;">&&</div>
+
+                <div
+                  style="display: flex; align-items: center; gap: 10px; background: rgba(166, 226, 46, 0.1); padding: 8px; border-radius: 4px; border: 1px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 10px;">STEP 2:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">3 < 4 → <span style="color: #a6e22e;">true</span></div>
+                </div>
+
+                <div style="margin-top: 5px; text-align: center;">
+                  <div style="font-size: 10px; color: #888; margin-bottom: 5px;">OVERALL RESULT:</div>
+                  <div
+                    style="background: #a6e22e; color: #000; display: inline-block; padding: 2px 10px; border-radius: 10px; font-weight: bold; font-size: 12px;">
+                    TRUE</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"The if block runs"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔒 <strong>Dato:</strong> El operador <code style="color: red;">&&</code> tiene una prioridad alta, pero
+              siempre es buena
+              práctica usar paréntesis si tus comparaciones se vuelven muy largas para mantener la claridad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En esta condición, dado que <mark>2</mark> es menor que <mark>3</mark> Y <mark>3</mark> es menor que
+        <mark>4</mark>, se registrará en la consola la frase <mark>The if block runs</mark>.
+      </p>
+      <p>
+        El operador lógico OR comprueba si al menos uno de los operandos es verdadero. Si el primer operando es
+        verdadero, devuelve ese valor:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-or-truthy">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">or_truthy.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-string">'This is truthy'</span> <span class="tk-operator">||</span> <span class="tk-number">false</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This is truthy</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                OR OPERATOR FLOW</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-around; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; position: relative;">
+
+                  <div
+                    style="text-align: center; border: 2px solid #a6e22e; padding: 8px; border-radius: 4px; background: rgba(166, 226, 46, 0.1);">
+                    <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px;">TRUTHY FOUND</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">'This is truthy'</div>
+                  </div>
+
+                  <div style="color: #f8f8f2; font-weight: bold;">||</div>
+
+                  <div
+                    style="text-align: center; border: 1px dashed #444; padding: 8px; border-radius: 4px; opacity: 0.3;">
+                    <div style="font-size: 8px; color: #999; margin-bottom: 4px;">NOT EVALUATED</div>
+                    <div style="color: #888; font-size: 11px;">false</div>
+                  </div>
+
+                  <div style="position: absolute; bottom: -8px; left: 25%; color: #a6e22e; font-size: 18px;">▲</div>
+                </div>
+
+                <div style="text-align: center; font-size: 10px; color: #a6e22e;">
+                  "El operador devuelve el primer valor que sea verdadero."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">VARIABLE RESULT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">"This is truthy"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Caso de uso:</strong> Imagina que pides el nombre de un usuario:
+              <code style="color: red;">const nombre = entrada || "Anónimo"</code>. Si la entrada está vacía, se usará
+              "Anónimo".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si el primer operando es falso, pero el segundo es verdadero, el segundo valor se registrará en la consola:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-or-fallback">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">fallback_logic.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">0</span> <span class="tk-operator">||</span> <span class="tk-string">'This is truthy'</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This is truthy</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FALLBACK MECHANISM</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+                <div
+                  style="display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;">
+
+                  <div
+                    style="text-align: center; border: 1px solid #f92672; padding: 8px; border-radius: 4px; opacity: 0.6;">
+                    <div style="font-size: 8px; color: #f92672;">FALSY</div>
+                    <div style="color: #f8f8f2;">0</div>
+                  </div>
+
+                  <div style="color: #66d9ef; font-size: 18px; font-weight: bold;">➜</div>
+
+                  <div
+                    style="text-align: center; border: 2px solid #a6e22e; padding: 8px; border-radius: 4px; background: rgba(166, 226, 46, 0.1);">
+                    <div style="font-size: 8px; color: #a6e22e;">TRUTHY</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">'This is truthy'</div>
+                  </div>
+                </div>
+
+                <div style="text-align: center; font-size: 10px; color: #888;">
+                  "Como el primero es falso, el operador devuelve el segundo."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">"This is truthy"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato curioso:</strong> Si ambos fueran falsos, el operador simplemente devolvería el último (el
+              de la derecha), incluso si es falso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es habitual utilizar el operador lógico OR en sentencias <mark>if/else</mark> de esta manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-or-presence">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">auth_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">userInput</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span>
+
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">userInput</span> <span class="tk-operator">||</span> <span class="tk-string">'Guest'</span><span class="tk-punctuation">)</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'A user is present'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span> <span class="tk-property">else</span> <span class="tk-operator">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'No user detected'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-operator">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                PRESENCE ANALYZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; font-size: 11px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span style="color: #66d9ef;">userInput:</span>
+                    <span style="color: #f92672;">undefined (falsy)</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #66d9ef;">'Guest':</span>
+                    <span style="color: #a6e22e;">truthy</span>
+                  </div>
+                </div>
+
+                <div style="text-align: center; font-weight: bold; color: #f8f8f2;">
+                  <span style="opacity: 0.5;">undefined</span> || <span style="color: #a6e22e;">'Guest'</span>
+                  <span style="color: #66d9ef; margin-left: 10px;">➜ 'Guest'</span>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 10px; color: #a6e22e; margin-bottom: 4px;">IF CONDITION RESULT:</div>
+                  <div style="color: #f8f8f2; font-weight: bold;">TRUE (Because 'Guest' is truthy)</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"A user is present"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Dato importante:</strong> Como el string <code style="color: red;">'Guest'</code> siempre es
+              verdadero, esta
+              condición <strong>siempre</strong> se ejecutará a menos que el OR devuelva algo falso (lo cual es
+              imposible aquí ya que el segundo valor es un string fijo).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como no le asignamos un valor a la variable <mark>userInput</mark>, actualmente está <mark>undefined</mark>. La
+        condición de la
+        instrucción <mark>if</mark> comprueba si la variable <mark>userInput</mark> o el string <mark>Guest</mark> son
+        valores lógicos verdaderos. Dado que el
+        string <mark>Guest</mark> es verdadera en un contexto booleano como este, se registrará en la consola el string
+        <mark>A user is
+          present</mark>.
+      </p>
+      <p>
+        El operador de coalescencia nula es más sofisticado que el OR lógico y el AND lógico. Representado por un doble
+        signo de interrogación (<mark>??</mark>), resulta útil en situaciones en las que se desea devolver un valor solo
+        si el
+        primero es <mark>null</mark> o <mark>undefined</mark>. A continuación, se muestra un ejemplo del uso del
+        operador de coalescencia nula:
+      </p>
+
+      <div class="ide-container" id="ide-js-nullish-coalescing">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nullish.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-number">null</span> <span class="tk-operator">??</span> <span class="tk-string">'default'</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// default</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                NULLISH CHECKER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">INPUT</div>
+                    <div style="color: #ae81ff; font-weight: bold;">null</div>
+                  </div>
+
+                  <div style="color: #ae81ff; font-size: 14px; font-weight: bold;">??</div>
+
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">FALLBACK</div>
+                    <div style="color: #f8f8f2;">'default'</div>
+                  </div>
+                </div>
+
+                <div
+                  style="text-align: center; font-size: 10px; border: 1px dashed #ae81ff; padding: 8px; border-radius: 4px; color: #ae81ff;">
+                  ¿Es el valor <span style="font-weight: bold;">null</span> o <span
+                    style="font-weight: bold;">undefined</span>?
+                  <span style="color: #a6e22e; margin-left: 5px;">SÍ</span>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">RESULTADO FINAL:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">"default"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Seguridad:</strong> El operador <code style="color: red;">??</code> es ideal para cuando
+              quieres permitir que el
+              usuario ingrese <code style="color: red;">0</code> o un texto vacío <code style="color: red;">""</code>
+              sin que el sistema los reemplace por el
+              valor por defecto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que <mark>null</mark> es un valor nulo, se registraría el string <mark>default</mark> en la consola. El
+        operador de coalescencia nula resulta increíblemente útil en situaciones en las que <mark>null</mark> o
+        <mark>undefined</mark> son los únicos valores que deben activar un valor de reserva o predeterminado. A
+        continuación se muestra un ejemplo sobre cómo gestionar la configuración de preferencias de un usuario:
+      </p>
+
+      <div class="ide-container" id="ide-js-nullish-settings">
+        <div class="ide-editor">
+          <div class="header-editor">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">settings.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">userSettings</span> = <span class="tk-operator">{</span>
+  <span class="tk-property">theme</span><span class="tk-punctuation">:</span> <span class="tk-number">null</span><span class="tk-punctuation">,</span>
+  <span class="tk-property">volume</span><span class="tk-punctuation">:</span> <span class="tk-number">0</span><span class="tk-punctuation">,</span>
+  <span class="tk-property">notifications</span><span class="tk-punctuation">:</span> <span class="tk-number">false</span>
+<span class="tk-operator">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">theme</span> = <span class="tk-selector">userSettings</span><span class="tk-punctuation">.</span><span class="tk-property">theme</span> <span class="tk-operator">??</span> <span class="tk-string">'light'</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">theme</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "light"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                OBJECT PROPERTY RESOLVER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 10px;">
+                  <div style="padding: 6px; border: 1px solid #444; border-radius: 4px;">
+                    <span style="color: #66d9ef;">.theme:</span> <span style="color: #ae81ff;">null</span>
+                    <div style="color: #f92672; font-size: 8px; margin-top: 4px;">TRIGGER FALLBACK ➔</div>
+                  </div>
+                  <div style="padding: 6px; border: 1px solid #444; border-radius: 4px;">
+                    <span style="color: #66d9ef;">.volume:</span> <span style="color: #f8f8f2;">0</span>
+                    <div style="color: #a6e22e; font-size: 8px; margin-top: 4px;">STAYS AS 0 ✓</div>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 5px; background: rgba(174, 129, 255, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #ae81ff; text-align: center;">
+                  <div style="font-size: 11px; color: #f8f8f2;">
+                    <span style="opacity: 0.5;">null</span> <span style="color: #ae81ff; font-weight: bold;">??</span>
+                    'light'
+                    <span style="color: #ae81ff; margin: 0 10px;">➜</span>
+                    <span style="font-weight: bold;">'light'</span>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">"light"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Conclusión:</strong> El operador <code style="color: red;">??</code> es la mejor opción para
+              configuraciones porque
+              "entiende" que el <code style="color: red;">0</code> o el <code style="color: red;">false</code> son
+              valores reales y no errores de datos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, tenemos un objeto llamado <mark>userSettings</mark> que contiene las propiedades
+        <mark>theme</mark>, <mark>volume</mark> y
+        <mark>notifications</mark>. Accedemos a la propiedad <mark>theme</mark> utilizando la notación de puntos, como
+        en <mark>userSettings.theme</mark>. En
+        una lección futura aprenderás más sobre cómo trabajar con objetos. Dado que el <mark>theme</mark> del usuario
+        está
+        actualmente establecido en <mark>null</mark>, se registrará la cadena <mark>light</mark> en la consola.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cómo funciona el operador lógico AND (<mark>&&</mark>)?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Comprueba si ambos operandos son false.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Comprueba si ambos operandos son true y devuelve un resultado.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Devuelve true si uno de los operandos es true.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Ignora el segundo operando.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el operador de coalescencia nula (<mark>??</mark>)?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Devuelve el primer valor, independientemente de si es nulo o indefinido.
+          </label>
+          <label>
+            <!-- correcto -->
+            <input type="radio" name="q5">
+            Devuelve el segundo valor solo si el primero es nulo o indefinido.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Comprueba si ambos valores son iguales.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Compara dos valores para realizar una conversión de tipos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo funciona el operador lógico OR (<mark>||</mark>) en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Comprueba si ambos operandos son valores lógicos verdaderos.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Devuelve true solo si ambos operandos son falsos.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Comprueba si al menos uno de los operandos es un valor lógico verdadero.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Devuelve «true» solo si ambos operandos son valores lógicos verdaderos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Qué es el objeto <mark>Math</mark> en JavaScript y cuáles son algunos de sus
+        métodos más
+        comunes?
+      </h2>
+
+      <p>
+        Al adentrarte en JavaScript, descubrirás rápidamente que realizar operaciones matemáticas es una tarea habitual.
+        Si bien los operadores aritméticos básicos pueden encargarse de cálculos sencillos, JavaScript ofrece un objeto
+        <mark>Math</mark> integrado para abordar retos matemáticos más complejos.
+      </p>
+      <p>
+        Esta práctica herramienta proporciona una variedad de métodos que facilitan la realización de cálculos avanzados
+        y la manipulación de números. Exploremos estos métodos y veamos cómo pueden simplificar tu experiencia de
+        programación.
+      </p>
+      <p>
+        El método <mark>Math.random()</mark> genera un número aleatorio de punto flotante entre <mark>0</mark>
+        (incluido) y <mark>1</mark> (excluido). Esto
+        significa que el resultado posible puede ser <mark>0</mark>, pero nunca llegará realmente a <mark>1</mark>. Aquí
+        hay un ejemplo que
+        utiliza el método <mark>Math.random()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-random">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">math_random.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Genera un decimal entre 0 (incluido) y 1 (excluido)</span>
+<span class="tk-property">const</span> <span class="tk-selector">randomNum</span> = <span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">random</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">randomNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MATH.RANDOM() SIMULATOR</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="position: relative; height: 10px; background: #333; border-radius: 5px; margin: 20px 0;">
+                  <div style="position: absolute; left: 0; top: -20px; font-size: 10px; color: #a6e22e;">[0.0 (Incluido)
+                  </div>
+                  <div style="position: absolute; right: 0; top: -20px; font-size: 10px; color: #f92672;">1.0
+                    (Excluido)]</div>
+
+                  <div
+                    style="position: absolute; left: 42%; top: -5px; width: 4px; height: 20px; background: #66d9ef; box-shadow: 0 0 10px #66d9ef;">
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 4px; border: 1px solid #444; text-align: center;">
+                  <div style="font-size: 9px; color: #888; margin-bottom: 5px;">OUTPUT VALUE:</div>
+                  <div style="color: #66d9ef; font-size: 16px; font-weight: bold;">0.42857142857142855</div>
+                </div>
+
+                <div style="font-size: 10px; color: #888; text-align: center; font-style: italic;">
+                  "Cada vez que refrescas, el valor cambia totalmente."
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎲 <strong>Pro-tip:</strong> Para obtener un número entre 0 y 10, simplemente multiplica el resultado:
+              <code style="color: red;">Math.random() * 10</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>Math.min()</mark> y <mark>Math.max()</mark> toman un conjunto de números y devuelven el valor mínimo y el
+        valor máximo,
+        respectivamente. A continuación se muestra un ejemplo del funcionamiento de ambos métodos:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-min-max">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">extremes.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">smallest</span> = <span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">min</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">9</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">smallest</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">largest</span> = <span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">max</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">9</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">largest</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 9</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                MATH EXTREMES ANALYZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="text-align: center; color: #888; font-size: 11px;">
+                  Input Dataset: <span style="color: #f8f8f2;">[1, 5, 3, 9]</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px; text-align: center;">
+                    <div style="font-size: 9px; color: #66d9ef; margin-bottom: 5px;">MATH.MIN()</div>
+                    <div style="font-size: 20px; color: #f8f8f2; font-weight: bold;">1</div>
+                    <div style="font-size: 8px; color: #66d9ef; margin-top: 4px;">EL MENOR</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 10px; border-radius: 6px; text-align: center;">
+                    <div style="font-size: 9px; color: #f92672; margin-bottom: 5px;">MATH.MAX()</div>
+                    <div style="font-size: 20px; color: #f8f8f2; font-weight: bold;">9</div>
+                    <div style="font-size: 8px; color: #f92672; margin-top: 4px;">EL MAYOR</div>
+                  </div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: flex-end; justify-content: space-between; height: 40px; padding: 0 10px; border-bottom: 1px solid #444;">
+                  <div style="width: 15%; height: 10%; background: #66d9ef; border-radius: 2px 2px 0 0;"></div>
+                  <div style="width: 15%; height: 50%; background: #444; border-radius: 2px 2px 0 0;"></div>
+                  <div style="width: 15%; height: 30%; background: #444; border-radius: 2px 2px 0 0;"></div>
+                  <div style="width: 15%; height: 90%; background: #f92672; border-radius: 2px 2px 0 0;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔎 <strong>Dato curioso:</strong> Si llamas a <code style="color: red;">Math.min()</code> sin argumentos,
+              devuelve
+              <code style="color: red;">Infinity</code>, y <code style="color: red;">Math.max()</code> devuelve <code
+                style="color: red;">-Infinity</code>. ¡Parece contradictorio
+              pero tiene una razón lógica en computación!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El primer <mark>console.log()</mark> mostrará el número <mark>1</mark>, ya que el <mark>1</mark> es el más
+        pequeño de esa lista de números. Y el
+        segundo <mark>console.log()</mark> mostrará el número <mark>9</mark>, ya que el <mark>9</mark> es el más grande
+        de esa lista.
+      </p>
+      <p>
+        Si quisieras redondear los números hacia arriba o hacia abajo al entero más cercano, podrías usar los métodos
+        <mark>Math.ceil()</mark> y <mark>Math.floor()</mark>. Aquí tienes un ejemplo de cómo usar
+        <mark>Math.ceil()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-ceil">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">ceil_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Redondea siempre hacia el "techo" (arriba)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">ceil</span><span class="tk-punctuation">(</span><span class="tk-number">4.3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">ceil</span><span class="tk-punctuation">(</span><span class="tk-number">4.01</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                CEILING LOGIC VISUALIZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 20px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="position: relative; height: 60px; border-left: 2px solid #444; border-right: 2px solid #444; margin: 10px 20px; background: rgba(255,255,255,0.02);">
+                  <div
+                    style="position: absolute; top: 0; width: 100%; border-top: 2px dashed #a6e22e; padding-top: 5px; color: #a6e22e; font-size: 10px; text-align: center;">
+                    CEIL LEVEL: 5
+                  </div>
+
+                  <div
+                    style="position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); color: #66d9ef; font-size: 14px; font-weight: bold;">
+                    4.3
+                  </div>
+
+                  <div
+                    style="position: absolute; bottom: 35%; left: 50%; transform: translateX(-50%); color: #a6e22e; font-size: 18px; animation: moveUp 2s infinite;">
+                    ↑
+                  </div>
+
+                  <div
+                    style="position: absolute; bottom: 0; width: 100%; border-bottom: 2px solid #444; color: #666; font-size: 10px; text-align: center;">
+                    FLOOR: 4
+                  </div>
+                </div>
+
+                <style>
+                  @keyframes moveUp {
+                    0% {
+                      bottom: 35%;
+                      opacity: 0;
+                    }
+
+                    50% {
+                      opacity: 1;
+                    }
+
+                    100% {
+                      bottom: 70%;
+                      opacity: 0;
+                    }
+                  }
+                </style>
+
+                <div style="background: #111;padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2;">5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #a6e22e; line-height: 1.4;">
+              🏠 <strong>Regla mnemotécnica:</strong> <em>Ceil</em> es techo en inglés. No importa si es 4.1 o 4.9, el
+              número siempre "sube al techo" (5).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La función <mark>Math.ceil()</mark> redondeará <mark>4,3</mark> al entero más cercano, que en este caso es
+        <mark>5</mark>. Ahora, veamos cómo redondear un número hacia abajo:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-floor">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">floor_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Redondea siempre hacia el "suelo" (abajo)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">floor</span><span class="tk-punctuation">(</span><span class="tk-number">4.7</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">floor</span><span class="tk-punctuation">(</span><span class="tk-number">4.99</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FLOOR LOGIC VISUALIZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 20px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="position: relative; height: 60px; border-left: 2px solid #444; border-right: 2px solid #444; margin: 10px 20px; background: rgba(255,255,255,0.02);">
+                  <div
+                    style="position: absolute; top: 0; width: 100%; border-top: 2px solid #444; color: #666; font-size: 10px; text-align: center;">
+                    CEIL: 5
+                  </div>
+
+                  <div
+                    style="position: absolute; top: 20%; left: 50%; transform: translateX(-50%); color: #66d9ef; font-size: 14px; font-weight: bold;">
+                    4.7
+                  </div>
+
+                  <div
+                    style="position: absolute; top: 35%; left: 50%; transform: translateX(-50%); color: #f92672; font-size: 18px; animation: moveDown 2s infinite;">
+                    ↓
+                  </div>
+
+                  <div
+                    style="position: absolute; bottom: 0; width: 100%; border-bottom: 2px dashed #f92672; padding-bottom: 5px; color: #f92672; font-size: 10px; text-align: center;">
+                    FLOOR LEVEL: 4
+                  </div>
+                </div>
+
+                <style>
+                  @keyframes moveDown {
+                    0% {
+                      top: 35%;
+                      opacity: 0;
+                    }
+
+                    50% {
+                      opacity: 1;
+                    }
+
+                    100% {
+                      top: 70%;
+                      opacity: 0;
+                    }
+                  }
+                </style>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2;">4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📉 <strong>Recuerda:</strong> <em>Floor</em> significa suelo. El método simplemente "deja caer" el número
+              al entero de abajo, sin importar qué tan grande sea la fracción.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>Math.floor()</mark> redondeará <mark>4,7</mark> hacia abajo al entero más cercano, que en este caso es
+        <mark>4</mark>. <mark>Math.round()</mark> es una combinación de <mark>Math.ceil()</mark> y
+        <mark>Math.floor()</mark>. Redondea un número al entero más cercano, teniendo en cuenta el punto decimal:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-round">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">round_logic.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">round</span><span class="tk-punctuation">(</span><span class="tk-number">2.3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2 (hacia abajo)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">round</span><span class="tk-punctuation">(</span><span class="tk-number">4.5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5 (hacia arriba)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">round</span><span class="tk-punctuation">(</span><span class="tk-number">4.8</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5 (hacia arriba)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ROUNDING DECISION MATRIX</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="position: relative; height: 40px; background: #222; border-radius: 20px; display: flex; align-items: center; padding: 0 15px; border: 1px solid #444;">
+                  <div
+                    style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: flex-start; color: #f92672; font-size: 10px;">
+                    .0 .1 .2 .3 .4</div>
+                  <div style="width: 2px; height: 80%; background: #66d9ef; position: relative;">
+                    <div style="position: absolute; top: -15px; left: -10px; font-size: 9px; color: #66d9ef;">.5</div>
+                  </div>
+                  <div
+                    style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: flex-end; color: #a6e22e; font-size: 10px;">
+                    .6 .7 .8 .9</div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 8px; border-radius: 6px; text-align: center;">
+                    <div style="font-size: 8px; color: #f92672;">&lt; .5</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">2.3 ➔ <span style="font-weight: bold;">2</span></div>
+                  </div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 6px; text-align: center;">
+                    <div style="font-size: 8px; color: #a6e22e;">≥ .5</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">4.5 ➔ <span style="font-weight: bold;">5</span></div>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    2<br>5<br>5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚖️ <strong>Dato clave:</strong> El <code style="color: red;">.5</code> siempre "rompe el empate" hacia
+              arriba. Es la
+              convención que usa JavaScript para mantener la consistencia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por lo tanto, si el punto decimal es menor que <mark>5</mark>, el número se redondea hacia abajo. Y si el punto
+        decimal es <mark>5</mark> o mayor, el número se redondea hacia arriba. Una aplicación práctica de
+        <mark>Math.floor()</mark> y <mark>Math.random()</mark> es generar un número aleatorio entre dos números enteros.
+        Esta es la sintaxis para hacerlo:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-range-random">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">range_random.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">max</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">min</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">randomNum</span> = <span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">floor</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">random</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-operator">*</span> <span class="tk-punctuation">(</span><span class="tk-selector">max</span> <span class="tk-operator">-</span> <span class="tk-selector">min</span> <span class="tk-operator">+</span> <span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span> <span class="tk-operator">+</span> <span class="tk-selector">min</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation"></span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">randomNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                RANGE CALCULATOR [5 - 10]</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="font-size: 10px; display: flex; flex-direction: column; gap: 5px;">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #888;">1. Multiplicador (10-5+1):</span>
+                    <span style="color: #a6e22e;">6</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #888;">2. Random (ej. 0.74) * 6:</span>
+                    <span style="color: #66d9ef;">4.44</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="color: #888;">3. Math.floor(4.44):</span>
+                    <span style="color: #f92672;">4</span>
+                  </div>
+                  <div
+                    style="display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 5px; margin-top: 2px;">
+                    <span style="color: #f8f8f2; font-weight: bold;">4. Resultado (4 + 5):</span>
+                    <span style="color: #a6e22e; font-weight: bold;">9</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; text-align: center;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 18px; font-weight: bold;">7</div>
+                  <div style="font-size: 8px; color: #666; margin-top: 5px;">(Número aleatorio generado)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>¿Por qué el +1?</strong> Sin el +1, la multiplicación por 5 solo nos daría números del 0 al 4.
+              Al sumar 1, nos aseguramos de que el número <code style="color: red;">max</code> sea una posibilidad real.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La generación de un número aleatorio entre <mark>20</mark> y <mark>1</mark> se haría así:
+      </p>
+
+      <div class="ide-container" id="ide-js-random-1-20">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">d20_roll.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">randomNumBtw1And20</span> = <span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">floor</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">random</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-operator">*</span> <span class="tk-number">20</span><span class="tk-punctuation">)</span> <span class="tk-operator">+</span> <span class="tk-number">1</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">randomNumBtw1And20</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                RANDOMIZER (1 - 20)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 10px;">
+                    <span style="color: #888;">Step 1: Math.random() * 20</span>
+                    <span style="color: #66d9ef;">0.00 a 19.99</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 10px;">
+                    <span style="color: #888;">Step 2: Math.floor(...)</span>
+                    <span style="color: #f92672;">0 a 19</span>
+                  </div>
+                  <div
+                    style="display: flex; justify-content: space-between; font-size: 10px; border-top: 1px solid #333; padding-top: 5px;">
+                    <span style="color: #f8f8f2;">Step 3: Result + 1</span>
+                    <span style="color: #a6e22e; font-weight: bold;">1 a 20</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+                  <div
+                    style="width: 60px; height: 60px; background: #a6e22e; color: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; box-shadow: 0 0 15px rgba(166, 226, 46, 0.4); transform: rotate(5deg);">
+                    14
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 14px;">14</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎲 <strong>Tip rápido:</strong> Si necesitas un número del 1 al 100, solo cambia el <code
+                style="color: red;">20</code> por
+              <code style="color: red;">100</code>. El <code style="color: red;">+ 1</code> siempre asegura que el
+              resultado nunca sea 0.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otro método útil de <mark>Math</mark> sería el método <mark>Math.trunc()</mark>. <mark>Math.trunc()</mark>
+        elimina la parte decimal de un número y devuelve solo la parte entera, sin redondear:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-trunc">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">trunc_logic.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Simplemente elimina los decimales</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">trunc</span><span class="tk-punctuation">(</span><span class="tk-number">2.9</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">trunc</span><span class="tk-punctuation">(</span><span class="tk-number">9.1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 9</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                TRUNCATION PROCESS</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div
+                    style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                    <span style="font-size: 18px; color: #f8f8f2; font-weight: bold;">2</span>
+                    <span
+                      style="font-size: 18px; color: #f92672; opacity: 0.5; text-decoration: line-through;">.9</span>
+                    <span style="margin-left: 10px; color: #66d9ef;">➔</span>
+                    <span style="font-size: 18px; color: #a6e22e; font-weight: bold; margin-left: 10px;">2</span>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                    <span style="font-size: 18px; color: #f8f8f2; font-weight: bold;">9</span>
+                    <span
+                      style="font-size: 18px; color: #f92672; opacity: 0.5; text-decoration: line-through;">.1</span>
+                    <span style="margin-left: 10px; color: #66d9ef;">➔</span>
+                    <span style="font-size: 18px; color: #a6e22e; font-weight: bold; margin-left: 10px;">9</span>
+                  </div>
+                </div>
+
+                <div style="text-align: center; font-size: 10px; color: #888; font-style: italic;">
+                  "Elimina la parte decimal sin importar su valor."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">RESULTADOS:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    2<br>9
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✂️ <strong>Uso rápido:</strong> Es el método más rápido si solo te interesa el número entero y no te
+              importa si el decimal era .001 o .999.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si necesitas calcular la raíz cuadrada o la raíz cúbica de un número, puedes utilizar los métodos
+        <mark>Math.sqrt()</mark> y <mark>Math.cbrt()</mark>, respectivamente:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-roots">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">roots.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">sqrt</span><span class="tk-punctuation">(</span><span class="tk-number">81</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 9 (9 * 9 = 81)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">cbrt</span><span class="tk-punctuation">(</span><span class="tk-number">27</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3 (3 * 3 * 3 = 27)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ROOT ANALYZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                  <div style="color: #a6e22e; font-size: 18px;">√81</div>
+                  <div style="color: #888; font-size: 10px;">9 × 9</div>
+                  <div style="color: #f8f8f2; font-weight: bold; font-size: 18px;">9</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                  <div style="color: #66d9ef; font-size: 18px;">∛27</div>
+                  <div style="color: #888; font-size: 10px;">3 × 3 × 3</div>
+                  <div style="color: #f8f8f2; font-weight: bold; font-size: 18px;">3</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    9<br>3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>¿Sabías que?</strong> Si intentas calcular la raíz cuadrada de un número negativo (ej.
+              <code style="color: red;">Math.sqrt(-1)</code>), JavaScript devolverá <code style="color: red;">NaN</code>
+              (Not a Number), porque requiere números
+              imaginarios que este método no maneja.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La primera instrucción de registro mostrará el valor <mark>9</mark>, ya que la raíz cuadrada de <mark>81</mark>
+        es <mark>9</mark>, mientras que la segunda instrucción de registro mostrará el valor <mark>3</mark>, ya que la
+        raíz cúbica de <mark>27</mark> es <mark>3</mark>. Si necesitas obtener el valor absoluto de un número, puedes
+        utilizar el método <mark>Math.abs()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-abs">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">absolute_val.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Devuelve la magnitud sin el signo</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">abs</span><span class="tk-punctuation">(</span><span class="tk-operator">-</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">abs</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 5</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                ABSOLUTE VALUE (MAGNITUDE)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="position: relative; height: 40px; display: flex; align-items: center; justify-content: center;">
+                  <div style="width: 100%; height: 2px; background: #444; position: absolute;"></div>
+
+                  <div style="position: absolute; left: 10%; text-align: center;">
+                    <div style="width: 8px; height: 8px; background: #f92672; border-radius: 50%; margin: 0 auto;">
+                    </div>
+                    <div style="font-size: 10px; color: #f92672; margin-top: 4px;">-5</div>
+                  </div>
+
+                  <div style="position: absolute; left: 50%; text-align: center;">
+                    <div style="width: 2px; height: 12px; background: #fff; margin: 0 auto;"></div>
+                    <div style="font-size: 10px; color: #fff; margin-top: 2px;">0</div>
+                  </div>
+
+                  <div style="position: absolute; left: 90%; text-align: center;">
+                    <div style="width: 8px; height: 8px; background: #a6e22e; border-radius: 50%; margin: 0 auto;">
+                    </div>
+                    <div style="font-size: 10px; color: #a6e22e; margin-top: 4px;">5</div>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center;">
+                  <div
+                    style="padding: 10px; background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #f92672;">Math.abs(-5)</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">5</div>
+                  </div>
+                  <div
+                    style="padding: 10px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #a6e22e;">Math.abs(5)</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">5</div>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f8f8f2;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">5<br>5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Dato clave:</strong> El valor absoluto representa la "distancia" al origen. Como no existen
+              distancias negativas, el resultado siempre será un número positivo o cero.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>Math.abs()</mark> devuelve el valor absoluto de un número, convirtiendo los números negativos en
+        positivos. El último método que veremos será el método <mark>Math.pow()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-math-pow">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">powers.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Math.pow(base, exponente)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">pow</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 8 (2 * 2 * 2)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">pow</span><span class="tk-punctuation">(</span><span class="tk-number">8</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 64 (8 * 8)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                EXPONENTIATION VISUALIZER</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-around; padding: 10px; background: rgba(174, 129, 255, 0.05); border-radius: 6px; border: 1px solid rgba(174, 129, 255, 0.2);">
+                  <div style="text-align: center;">
+                    <div style="font-size: 24px; color: #f8f8f2;">2<sup style="color: #ae81ff; font-size: 14px;">3</sup>
+                    </div>
+                  </div>
+                  <div style="color: #888; font-size: 12px;">=</div>
+                  <div style="color: #ae81ff; font-size: 11px;">2 × 2 × 2</div>
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 18px;">8</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-around; padding: 10px; background: rgba(102, 217, 239, 0.05); border-radius: 6px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                  <div style="text-align: center;">
+                    <div style="font-size: 24px; color: #f8f8f2;">8<sup style="color: #66d9ef; font-size: 14px;">2</sup>
+                    </div>
+                  </div>
+                  <div style="color: #888; font-size: 12px;">=</div>
+                  <div style="color: #66d9ef; font-size: 11px;">8 × 8</div>
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 18px;">64</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    8<br>64
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato moderno:</strong> En versiones actuales de JavaScript, puedes escribir <code
+                style="color: red;">2 ** 3</code>
+              para obtener el mismo resultado que <code style="color: red;">Math.pow(2, 3)</code>. Es una forma más
+              corta y legible de
+              expresar potencias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>Math.pow()</mark> toma dos números y eleva el primero a la potencia del segundo. Hay muchos más métodos
+        que pertenecen
+        al objeto <mark>Math</mark>, que puedes explorar por tu cuenta. Sin embargo, estos son solo algunos de los más
+        utilizados en
+        los códigos de JavaScript.
+      </p>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

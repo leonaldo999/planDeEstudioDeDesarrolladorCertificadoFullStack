@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, exploraremos los operadores unarios y bit a bit en JavaScript, que son herramientas poderosas para manipular datos a nivel de bits y realizar operaciones específicas en valores individuales.">
+  <meta name="keywords"
+    content="JavaScript, operadores unarios, operadores bit a bit, manipulación de datos, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con operadores unarios y bit a bit">
+  <meta property="og:description"
+    content="En esta sección, exploraremos los operadores unarios y bit a bit en JavaScript, que son herramientas poderosas para manipular datos a nivel de bits y realizar operaciones específicas en valores individuales.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con operadores unarios y bit a bit</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con operadores unarios y bit a bit</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, exploraremos los operadores unarios y bit a bit en JavaScript, que son herramientas poderosas
+        para manipular datos a nivel de bits y realizar operaciones específicas en valores individuales.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Qué son los operadores unarios y cómo funcionan?
+      </h2>
+
+      <p>
+        Los operadores unarios actúan sobre un solo operando para realizar operaciones como la conversión de tipos, la
+        manipulación de valores o la comprobación de ciertas condiciones. Veamos algunos operadores unarios comunes y
+        cómo funcionan.
+      </p>
+      <p>
+        El operador unario <mark>+</mark> convierte su operador en un número. Si el operador ya es un número, permanece
+        sin
+        cambios.
+      </p>
+
+      <div class="ide-container" id="ide-js-unary-plus">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">conversion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">str</span> = <span class="tk-string">'42'</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">strToNum</span> = <span class="tk-operator">+</span><span class="tk-selector">str</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">strToNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// 42</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">typeof</span> <span class="tk-selector">str</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// string</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">typeof</span> <span class="tk-selector">strToNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                TYPE CASTING INSPECTOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 10px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(230, 219, 116, 0.05); border: 1px solid rgba(230, 219, 116, 0.2); border-radius: 6px;">
+                  <div>
+                    <div style="color: #e6db74; font-size: 9px;">VALOR ORIGINAL</div>
+                    <div style="color: #f8f8f2; font-size: 14px;">'42'</div>
+                  </div>
+                  <div style="text-align: right; color: #e6db74;">STRING</div>
+                </div>
+
+                <div style="text-align: center; color: #66d9ef; font-size: 16px;">
+                  <div style="font-size: 9px; margin-bottom: 2px;">APLICANDO OPERADOR (+)</div>
+                  <span>⬇</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(102, 217, 239, 0.05); border: 1px solid rgba(102, 217, 239, 0.2); border-radius: 6px;">
+                  <div>
+                    <div style="color: #66d9ef; font-size: 9px;">RESULTADO</div>
+                    <div style="color: #f8f8f2; font-size: 14px;">42</div>
+                  </div>
+                  <div style="text-align: right; color: #66d9ef;">NUMBER</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * El operador unario (+) no modifica la variable original, crea un nuevo valor.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato pro:</strong> Si intentas usar <code style="color: red;">+</code> con un texto que no sea
+              un número (ej.
+              <code style="color: red;">+"hola"</code>), obtendrás <code style="color: red;">NaN</code> (Not a Number).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El signo <mark>+</mark> unario resulta útil cuando quieres asegurarte de que estás trabajando con un valor
+        numérico. Como
+        puedes imaginar, existe un operador de <mark>-</mark> unario. Este invierte el valor del operando. Funciona de
+        manera
+        similar al signo más unario, salvo que cambia el signo.
+      </p>
+
+      <div class="ide-container" id="ide-js-unary-negation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">negation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">str</span> = <span class="tk-string">'42'</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">strToNegativeNum</span> = <span class="tk-operator">-</span><span class="tk-selector">str</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">strToNegativeNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// -42</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">typeof</span> <span class="tk-selector">str</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// string</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">typeof</span> <span class="tk-selector">strToNegativeNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                NEGATION FLOW</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; justify-content: space-between; padding: 8px; background: rgba(230, 219, 116, 0.05); border-radius: 4px;">
+                  <span style="color: #e6db74;">Input: '42'</span>
+                  <span style="color: #888;">String</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; color: #f92672;">
+                  <div style="font-size: 14px; font-weight: bold;">[ - ]</div>
+                  <div style="font-size: 10px;">Operator Applied</div>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; padding: 8px; background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; border-radius: 4px;">
+                  <span style="color: #f8f8f2; font-weight: bold;">Output: -42</span>
+                  <span style="color: #f92672; font-weight: bold;">NUMBER</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Si el valor original fuera un número (ej. 10), el resultado sería simplemente -10.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Curiosidad:</strong> Si aplicas el operador a un cero (<code style="color: red;">-0</code>),
+              JavaScript mantiene el
+              signo, aunque matemáticamente <code style="color: red;">0 === -0</code> es verdadero.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador lógico NOT, representado por un signo de exclamación (<mark>!</mark>), es otro operador unario.
+        Invierte el valor booleano de su operando. Así, si el operando es <mark>true</mark>, se convierte en
+        <mark>false</mark>, y si es <mark>false</mark>, se convierte en <mark>true</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-logical-not">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">inversion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isOnline</span> = <span class="tk-number">true</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">!</span><span class="tk-selector">isOnline</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">isOffline</span> = <span class="tk-number">false</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">!</span><span class="tk-selector">isOffline</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LOGIC INVERTER MONITOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;">
+                  <div style="color: #a6e22e; font-weight: bold;">true</div>
+                  <div style="color: #f8f8f2; font-size: 14px;">➔ <span
+                      style="color: #f92672; font-weight: bold;">!</span> ➔</div>
+                  <div style="color: #f92672; font-weight: bold;">false</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;">
+                  <div style="color: #f92672; font-weight: bold;">false</div>
+                  <div style="color: #f8f8f2; font-size: 14px;">➔ <span
+                      style="color: #f92672; font-weight: bold;">!</span> ➔</div>
+                  <div style="color: #a6e22e; font-weight: bold;">true</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * El operador NOT fuerza la conversión a booleano antes de invertir.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato pro:</strong> Existe el "doble NOT" (<code style="color: red;">!! valor</code>). Se usa
+              para convertir
+              rápidamente cualquier valor (como un string o un número) a su equivalente booleano real.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador NOT bit a bit es un operador unario que se utiliza con menos frecuencia. Representado por una tilde,
+        <mark>~</mark>, invierte la representación binaria de un número. Las computadoras almacenan los números en
+        formato binario (1 y 0). El operador <mark>~</mark> invierte cada bit, lo que significa que cambia todos los 1 a
+        0 y todos los 0 a 1. Aprenderás más sobre el sistema binario y los bits en una lección futura.
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-not">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bitwise.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Binario: 00000101</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">~</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// -6</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BITWISE INSPECTOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 10px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                  <div style="color: #888;">NÚMERO 5:</div>
+                  <div style="color: #f8f8f2; letter-spacing: 2px;">00000101</div>
+                </div>
+
+                <div style="text-align: center; color: #ae81ff; font-weight: bold;">
+                  <span>INVIRTIENDO BITS (~)</span>
+                  <div style="font-size: 14px;">⬇</div>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(174, 129, 255, 0.1); border: 1px solid #ae81ff; border-radius: 4px;">
+                  <div style="color: #ae81ff;">RESULTADO:</div>
+                  <div style="color: #f8f8f2; letter-spacing: 2px;">11111010</div>
+                </div>
+
+                <div style="text-align: right; margin-top: 5px;">
+                  <span style="color: #888; font-size: 9px;">VALOR DECIMAL:</span>
+                  <span style="color: #f8f8f2; font-weight: bold; margin-left: 5px;">-6</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Los números se tratan como enteros de 32 bits con signo.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Truco:</strong> Antiguamente se usaba <code style="color: red;">~arr.indexOf(item)</code> para
+              saber si un elemento
+              estaba en un array, porque <code style="color: red;">~-1</code> da <code style="color: red;">0</code>
+              (falso). ¡Hoy usamos
+              <code style="color: red;">.includes()</code>!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>5</mark> se convirtió en <mark>-6</mark> porque al aplicar el operador <mark>~</mark> a
+        <mark>5</mark>, se obtiene <mark>-(5 + 1)</mark>, lo que equivale
+        a <mark>-6</mark> debido a la representación en complemento a dos. El complemento a dos es una forma en que las
+        computadoras
+        representan los números negativos en binario. Probablemente no usarás el NOT bit a bit con frecuencia, a menos
+        que estés trabajando en tareas de programación de bajo nivel, como la manipulación directa de bits.
+      </p>
+      <p>
+        La palabra clave <mark>void</mark> es un operador unario que evalúa una expresión y devuelve un valor
+        <mark>undefined</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-unary-void">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">void_op.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> = <span class="tk-operator">void</span> <span class="tk-punctuation">(</span><span class="tk-number">2</span> <span class="tk-operator">+</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                VOID DISCARDER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(102, 217, 239, 0.1); border-radius: 6px; border: 1px dashed #66d9ef;">
+                  <div style="color: #66d9ef;">EXPRESIÓN:</div>
+                  <div style="color: #f8f8f2;">(2 + 2) ➔ 4</div>
+                </div>
+
+                <div style="text-align: center; position: relative;">
+                  <div style="color: #ae81ff; font-weight: bold; font-size: 12px; margin-bottom: 5px;">APLICANDO VOID
+                  </div>
+                  <div style="font-size: 20px; color: #ae81ff;">🌀</div>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0, 0, 0, 0.3); border-radius: 6px; border: 1px solid #444;">
+                  <div style="color: #888;">VALOR ASIGNADO:</div>
+                  <div style="color: #ae81ff; font-weight: bold;">undefined</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * La expresión (2+2) se evalúa, pero su resultado es descartado.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato curioso:</strong> <code style="color: red;">void</code> es útil para invocar funciones
+              autoejecutables (IIFE)
+              asegurándose de que la sentencia no devuelva nada al contexto global.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La palabra <mark>void</mark> también se utiliza habitualmente en los hipervínculos para impedir la navegación:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-html" role="region" aria-label="HTML: descripción del bloque">
+    <code class="language-html">
+      <span class="token tag">&lt;a <span class="token attr-name">href="javascript:void(0);"</span>&gt;</span>
+        Click Me
+      <span class="token tag">&lt;/a&gt;</span>
+    </code>
+  </pre>
+      </div>
+
+      <p>
+        Por último, está el operador <mark>typeof</mark>, del que ya aprendiste en lecciones anteriores. Este devuelve
+        el tipo de su operando como una cadena.
+      </p>
+
+      <div class="ide-container" id="ide-js-unary-typeof">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">inspector.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">value</span> = <span class="tk-string">'Hello world'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">typeof</span> <span class="tk-selector">value</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// string</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                DATA TYPE SCANNER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="padding: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; display: flex; justify-content: space-between;">
+                  <span style="color: #888;">VARIABLE:</span>
+                  <span style="color: #e6db74;">'Hello world'</span>
+                </div>
+
+                <div style="text-align: center;">
+                  <div
+                    style="display: inline-block; padding: 4px 12px; background: #ae81ff; color: #fff; border-radius: 20px; font-size: 10px; font-weight: bold;">
+                    RUNNING: typeof
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 12px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 6px; text-align: center;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">RETORNA (STRING):</div>
+                  <div style="color: #a6e22e; font-size: 18px; font-weight: bold;">"string"</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Nota que el resultado es siempre una cadena en minúsculas.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Curiosidad histórica:</strong> Si haces <code style="color: red;">typeof null</code>,
+              JavaScript devolverá
+              <code style="color: red;">"object"</code>. Es un error conocido del lenguaje que no se ha corregido por
+              compatibilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Para qué sirven los operadores unarios?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Actúan sobre dos operandos para realizar operaciones aritméticas.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Actúan sobre un solo operando para realizar tareas como la conversión de tipos, la manipulación de valores o
+            la comprobación de condiciones.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Comparan dos valores para determinar si son iguales.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Solo realizan operaciones aritméticas.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el operador <mark>typeof</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Convierte un valor en un string.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Devuelve el tipo de su operando como un string.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Comprueba si dos valores son iguales.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Compara dos variables para realizar una conversión de tipos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo funciona el operador <mark>NOT</mark> bit a bit en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Multiplica el valor por 2.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Suma 1 al valor.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Invierte cada bit, convirtiendo todos los 1 en 0 y todos los 0 en 1.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Comprueba si el valor es positivo o negativo.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los operadores bit a bit y cómo funcionan?
+      </h2>
+
+      <p>
+        Los operadores bit a bit en JavaScript son operadores especiales que operan sobre las representaciones binarias
+        de los números. Para entender los operadores bit a bit, primero debemos comprender el concepto de bits y números
+        binarios. En informática, un bit es la unidad más básica de información. Solo puede tener dos valores: 0 o 1. El
+        sistema binario es un sistema numérico que utiliza únicamente estos dos dígitos para representar todos los
+        números.
+      </p>
+      <p>
+        Por ejemplo, la representación binaria del número decimal 10 es 1010. En este sistema, cada dígito representa
+        una potencia de 2, comenzando por el dígito más a la derecha y aumentando a medida que nos desplazamos hacia la
+        izquierda.
+      </p>
+
+      <div class="table-container">
+        <table class="comparison-table">
+          <tbody>
+            <tr>
+              <td data-label="Bit Posición 3">1</td>
+              <td data-label="Bit Posición 2">0</td>
+              <td data-label="Bit Posición 1">1</td>
+              <td data-label="Bit Posición 0">0</td>
+            </tr>
+            <tr>
+              <td data-label="Operación">1 · 2<sup>3</sup></td>
+              <td data-label="Operación">0 · 2<sup>2</sup></td>
+              <td data-label="Operación">1 · 2<sup>1</sup></td>
+              <td data-label="Operación">0 · 2<sup>0</sup></td>
+            </tr>
+            <tr>
+              <td data-label="Resultado">8</td>
+              <td data-label="Resultado">0</td>
+              <td data-label="Resultado">2</td>
+              <td data-label="Resultado">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        En la tabla anterior, la primera fila muestra el número binario <mark>1010</mark>, la segunda fila muestra la
+        potencia de <mark>2</mark>
+        que representa cada posición binaria y la tercera fila muestra el resultado de cada multiplicación. Si sumas
+        todos los valores de la tercera fila, el total es <mark>10</mark>.
+      </p>
+      <p>
+        Ahora, profundicemos en los operadores bit a bit. Estos operadores realizan operaciones sobre las
+        representaciones binarias de los números. JavaScript ofrece varios operadores bit a bit, entre ellos AND
+        (<mark>&</mark>), OR
+        (<mark>|</mark>), XOR (<mark>^</mark>), NOT (<mark>~</mark>), desplazamiento a la izquierda
+        (<mark>&lt;&lt;</mark>) y desplazamiento a la derecha (<mark>&gt;&gt;</mark>).
+      </p>
+      <p>
+        El operador bit a bit AND (<mark>&</mark>) devuelve un <mark>1</mark> en cada posición de bit en la que los bits
+        correspondientes de ambos
+        operandos sean <mark>1</mark>. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-and">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bitwise_and.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 101</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 011</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&amp;</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 1 (Binario: 001)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BITWISE AND ALIGNMENT</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 14px; display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; color: #888;">
+                  <span></span><span>4</span><span>2</span><span>1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px;">
+                  <span style="color: #66d9ef;">(5) a:</span>
+                  <span style="color: #f8f8f2;">1</span><span style="color: #f8f8f2;">0</span><span
+                    style="color: #a6e22e; font-weight: bold;">1</span>
+                </div>
+
+                <div
+                  style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; border-bottom: 1px solid #555; padding-bottom: 5px;">
+                  <span style="color: #66d9ef;">(3) b:</span>
+                  <span style="color: #f8f8f2;">0</span><span style="color: #f8f8f2;">1</span><span
+                    style="color: #a6e22e; font-weight: bold;">1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; margin-top: 5px;">
+                  <span style="color: #a6e22e;">Result:</span>
+                  <span style="color: #444;">0</span><span style="color: #444;">0</span><span
+                    style="color: #a6e22e; font-weight: bold;">1</span>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; padding: 8px; background: rgba(166, 226, 46, 0.1); border-radius: 4px; font-size: 10px; color: #a6e22e; text-align: center;">
+                SOLO 1 & 1 PRODUCE 1
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Uso común:</strong> El operador <code style="color: red;">&</code> se usa frecuentemente para
+              crear "máscaras de
+              bits" y verificar si un permiso específico está activo en un sistema de banderas (flags).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, realizamos una operación AND bit a bit entre <mark>5</mark> (<mark>101</mark> en binario) y
+        <mark>3</mark> (<mark>011</mark> en binario). El
+        resultado es <mark>1</mark> (<mark>001</mark> en binario) porque solo el bit más a la derecha es <mark>1</mark>
+        en ambos números.
+      </p>
+      <p>
+        El operador OR bit a bit (<mark>|</mark>) devuelve un <mark>1</mark> en cada posición de bit en la que los bits
+        correspondientes de uno o
+        ambos operandos sean <mark>1</mark>. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-or">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bitwise_or.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 101</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 011</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">|</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 7 (Binario: 111)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BITWISE OR MERGE</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 14px; display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; color: #888;">
+                  <span></span><span>4</span><span>2</span><span>1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px;">
+                  <span style="color: #66d9ef;">(5) a:</span>
+                  <span style="color: #f8f8f2;">1</span><span style="color: #f8f8f2;">0</span><span
+                    style="color: #f8f8f2;">1</span>
+                </div>
+
+                <div
+                  style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; border-bottom: 1px solid #555; padding-bottom: 5px;">
+                  <span style="color: #66d9ef;">(3) b:</span>
+                  <span style="color: #f8f8f2;">0</span><span style="color: #f8f8f2;">1</span><span
+                    style="color: #f8f8f2;">1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; margin-top: 5px;">
+                  <span style="color: #f92672;">Result:</span>
+                  <span style="color: #f92672; font-weight: bold;">1</span><span
+                    style="color: #f92672; font-weight: bold;">1</span><span
+                    style="color: #f92672; font-weight: bold;">1</span>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; padding: 8px; background: rgba(249, 38, 114, 0.1); border-radius: 4px; font-size: 10px; color: #f92672; text-align: center;">
+                SI HAY UN 1 EN CUALQUIER LADO, RESULTADO ES 1
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚙️ <strong>Uso común:</strong> Se usa para acumular flags. Por ejemplo, en estilos CSS dinámicos o
+              sistemas de permisos donde quieres sumar "Lectura" | "Escritura".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el resultado es <mark>7</mark> (<mark>111</mark> en binario) porque al menos uno de los bits es
+        <mark>1</mark> en cada posición.
+      </p>
+      <p>
+        El operador XOR (<mark>^</mark>) bit a bit devuelve un <mark>1</mark> en cada posición de bit en la que los bits
+        correspondientes de uno
+        de los operandos, pero no de ambos, sean <mark>1</mark>. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-xor">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bitwise_xor.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 101</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Binario: 011</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">^</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 6 (Binario: 110)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                XOR DIFFERENCE ANALYZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 14px; display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; color: #888;">
+                  <span></span><span>4</span><span>2</span><span>1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px;">
+                  <span style="color: #66d9ef;">(5) a:</span>
+                  <span style="color: #f8f8f2;">1</span><span style="color: #f8f8f2;">0</span><span
+                    style="color: #f8f8f2;">1</span>
+                </div>
+
+                <div
+                  style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; border-bottom: 1px solid #555; padding-bottom: 5px;">
+                  <span style="color: #66d9ef;">(3) b:</span>
+                  <span style="color: #f8f8f2;">0</span><span style="color: #f8f8f2;">1</span><span
+                    style="color: #f8f8f2;">1</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 80px 20px 20px 20px; gap: 5px; margin-top: 5px;">
+                  <span style="color: #ae81ff;">Result:</span>
+                  <span style="color: #ae81ff; font-weight: bold;">1</span><span
+                    style="color: #ae81ff; font-weight: bold;">1</span><span style="color: #444;">0</span>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; padding: 8px; background: rgba(174, 129, 255, 0.1); border-radius: 4px; font-size: 10px; color: #ae81ff; text-align: center;">
+                1 SI SON DIFERENTES | 0 SI SON IGUALES
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔐 <strong>Dato pro:</strong> El XOR es fundamental en criptografía simple y en algoritmos para
+              intercambiar valores de dos variables sin usar una tercera variable auxiliar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El resultado es <mark>6</mark> (<mark>110</mark> en binario) porque el primer y el segundo bit contando desde la
+        derecha son diferentes en
+        los dos números.
+      </p>
+      <p>
+        El operador NOT bit a bit (<mark>~</mark>) invierte todos los bits de su operando. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-not-v2">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bitwise_not.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Binario (simplificado): 101</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-operator">~</span><span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// -6</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                32-BIT INVERSION VISUALIZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 10px; display: flex; flex-direction: column; gap: 10px;">
+                <div>
+                  <div style="color: #888; margin-bottom: 4px;">BINARIO ORIGINAL (5):</div>
+                  <div style="display: flex; gap: 2px;">
+                    <span style="color: #444;">00000000 00000000 00000000 00000</span><span
+                      style="color: #66d9ef; font-weight: bold;">101</span>
+                  </div>
+                </div>
+
+                <div style="text-align: center; color: #f92672; font-size: 14px;">
+                  <span>~ (NOT)</span>
+                  <div>⬇</div>
+                </div>
+
+                <div>
+                  <div style="color: #f92672; margin-bottom: 4px;">BINARIO INVERTIDO (-6):</div>
+                  <div style="display: flex; gap: 2px;">
+                    <span style="color: #f92672;">11111111 11111111 11111111 11111</span><span
+                      style="color: #f8f8f2; font-weight: bold;">010</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; padding: 10px; background: rgba(249, 38, 114, 0.1); border-left: 3px solid #f92672; border-radius: 4px;">
+                <p style="margin: 0; color: #f8f8f2; font-size: 11px;">
+                  <strong>Explicación:</strong> El primer bit a la izquierda se vuelve 1, indicando que el número es
+                  negativo. El resto de bits se calculan siguiendo la regla del complemento a dos.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Fórmula rápida:</strong> Para saber el resultado de <code style="color: red;">~x</code>,
+              simplemente calcula
+              <code style="color: red;">-(x + 1)</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto puede parecer sorprendente, pero se debe a la forma en que se representan los números negativos en binario
+        utilizando el complemento a dos.
+      </p>
+      <p>
+        El operador de desplazamiento a la izquierda (<mark>&lt;&lt;</mark>) desplaza todos los bits hacia la izquierda
+        un número
+        determinado de posiciones. Por ejemplo: </p>
+
+      <div class="ide-container" id="ide-js-bitwise-left-shift">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">left_shift.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Binario: 101</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&lt;&lt;</span> <span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10 (Binario: 1010)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SHIFT LEFT VISUALIZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 13px; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+
+                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                  <div style="width: 60px; color: #888; font-size: 10px;">INICIAL (5):</div>
+                  <div
+                    style="display: flex; gap: 5px; background: #222; padding: 5px; border-radius: 4px; flex-grow: 1; justify-content: flex-end;">
+                    <span style="color: #666;">...0</span>
+                    <span style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px;">1</span>
+                    <span style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px;">0</span>
+                    <span style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px;">1</span>
+                    <span style="color: transparent; border: 1px dashed #444; padding: 0 4px;">0</span>
+                  </div>
+                </div>
+
+                <div style="color: #a6e22e; font-size: 10px; font-weight: bold; width: 100%; text-align: center;">
+                  ⬅️ DESPLAZANDO 1 POSICIÓN ⬅️
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                  <div style="width: 60px; color: #a6e22e; font-size: 10px;">FINAL (10):</div>
+                  <div
+                    style="display: flex; gap: 5px; background: rgba(166, 226, 46, 0.1); padding: 5px; border-radius: 4px; flex-grow: 1; justify-content: flex-end; border: 1px solid #a6e22e;">
+                    <span style="color: #666;">...0</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">1</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">0</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">1</span>
+                    <span
+                      style="color: #a6e22e; border: 1px solid #a6e22e; padding: 0 4px; background: rgba(166, 226, 46, 0.2);">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; line-height: 1.4;">
+                * El bit de la derecha se rellena con un <strong>0</strong>.<br>
+                * Matemáticamente: $5 \times 2^1 = 10$.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Performance:</strong> En motores de juegos o procesamiento de audio, se usa
+              <code style="color: red;">&lt;&lt;</code> en lugar de <code style="color: red;">* 2</code> para ganar
+              microsegundos de velocidad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, todos los bits se desplazan una posición hacia la izquierda, lo que equivale a multiplicar el número por
+        <mark>2</mark>.
+      </p>
+      <p>
+        El operador de desplazamiento a la derecha (<mark>&gt;&gt;</mark>) desplaza todos los bits hacia la derecha. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-bitwise-right-shift">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">right_shift.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// Binario: 101</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&gt;&gt;</span> <span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2 (Binario: 10)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                SHIFT RIGHT VISUALIZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 13px; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+
+                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                  <div style="width: 60px; color: #888; font-size: 10px;">INICIAL (5):</div>
+                  <div
+                    style="display: flex; gap: 5px; background: #222; padding: 5px; border-radius: 4px; flex-grow: 1;">
+                    <span style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px;">1</span>
+                    <span style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px;">0</span>
+                    <span
+                      style="color: #f92672; border: 1px solid #f92672; padding: 0 4px; background: rgba(249, 38, 114, 0.1);">1</span>
+                    <span style="color: #444;">...</span>
+                  </div>
+                </div>
+
+                <div style="color: #66d9ef; font-size: 10px; font-weight: bold; width: 100%; text-align: center;">
+                  ➡️ DESPLAZANDO 1 POSICIÓN ➡️
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+                  <div style="width: 60px; color: #66d9ef; font-size: 10px;">FINAL (2):</div>
+                  <div
+                    style="display: flex; gap: 5px; background: rgba(102, 217, 239, 0.05); padding: 5px; border-radius: 4px; flex-grow: 1; border: 1px solid #66d9ef;">
+                    <span
+                      style="color: #66d9ef; border: 1px solid #66d9ef; padding: 0 4px; background: rgba(102, 217, 239, 0.1);">0</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">1</span>
+                    <span style="color: #f8f8f2; font-weight: bold;">0</span>
+                    <span style="color: #444; text-decoration: line-through;">(1)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; line-height: 1.4;">
+                * El bit de la izquierda se rellena con el valor del bit de signo (relleno de signo).<br>
+                * Matemáticamente: $floor(5 / 2^1) = 2$.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota sobre signos:</strong> Este es un desplazamiento "con signo", lo que significa que si el
+              número es negativo, mantendrá su signo rellenando con unos a la izquierda.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, todos los bits se desplazan una posición hacia la derecha, lo que equivale a dividir el número entre
+        <mark>2</mark> y
+        redondear hacia abajo.
+      </p>
+      <p>
+        Los operadores bit a bit se utilizan a menudo en la programación de bajo nivel y en la criptografía. Aunque
+        quizá no sean tan habituales en la programación cotidiana con JavaScript, comprenderlos puede resultar útil para
+        ciertas tareas especializadas y puede ayudarte a profundizar en tu comprensión del funcionamiento de las
+        computadoras a un nivel fundamental.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let a = 5;  // Binary: 101
+                let b = 3;  // Binary: 011
+                console.log(a & b);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            8
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            1
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            7
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            15
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado de la siguiente operación?
+            <pre>
+              <code>
+                let x = 8;  // Binary: 1000
+                console.log(x &gt;&gt; 2);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            4
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            16
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            32
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            2
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la representación binaria del número <mark>6</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            101
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            110
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            111
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            100
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

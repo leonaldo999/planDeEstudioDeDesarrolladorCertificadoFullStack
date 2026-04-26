@@ -44,7 +44,23 @@
 
 // console.log(updatedPhrase);
 
-let phrase = "Good morning, morning people!";
-let updatedPhrase = phrase.replace("morning", "evening");
+// let phrase = "Good morning, morning people!";
+// let updatedPhrase = phrase.replace("morning", "evening");
 
-console.log(updatedPhrase);
+// console.log(updatedPhrase);
+
+
+// <=====  =====>
+
+// let points = 5; points *= 3;
+
+// console.log(points);
+
+// <=====  =====>
+
+// let a = 5;  // Binary: 101
+// let b = 3;  // Binary: 011
+// console.log(a & b);
+
+let x = 8;  // Binary: 1000
+console.log(x << 2);

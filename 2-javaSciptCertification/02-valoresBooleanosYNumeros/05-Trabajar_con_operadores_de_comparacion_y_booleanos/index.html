@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a usar operadores de comparación en JavaScript para comparar valores y obtener resultados booleanos. Domina los operadores de igualdad, desigualdad, mayor que, menor que, y más.">
+  <meta name="keywords"
+    content="JavaScript, operadores de comparación, booleanos, igualdad, desigualdad, mayor que, menor que">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con operadores de comparación y booleanos en JavaScript">
+  <meta property="og:description"
+    content="Aprende a usar operadores de comparación en JavaScript para comparar valores y obtener resultados booleanos. Domina los operadores de igualdad, desigualdad, mayor que, menor que, y más.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con operadores de comparación y booleanos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos de modificación de Strings</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar operadores de comparación para comparar valores y obtener resultados
+        booleanos (<mark>true</mark> o <mark>false</mark>). Estos operadores son fundamentales para tomar decisiones en
+        tu código
+        y controlar el flujo de ejecución.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo funciona la precedencia de los operadores?
+      </h2>
+
+      <p>
+        En una lección anterior, ya te introdujimos al concepto de los valores booleanos, pero en esta lección
+        profundizaremos en cómo funcionan los valores booleanos y cómo funcionan los operadores de igualdad y
+        desigualdad.
+      </p>
+      <p>
+        Los booleanos son un tipo de datos que solo admite los valores <mark>true</mark> y <mark>false</mark>. Son
+        útiles porque te permiten
+        realizar acciones basadas en ciertas condiciones. Los booleanos son esenciales cuando quieres evaluar si algo
+        debe suceder o no, como decidir si alguien puede acceder a una determinada función de tu aplicación. A
+        continuación, te mostramos un ejemplo en el que se asigna el valor <mark>true</mark> a una variable llamada
+        <mark>isOldEnoughToDrive</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-boolean-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">boolean_basics.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isOldEnoughToDrive</span> = <span class="tk-number">true</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">isOldEnoughToDrive</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BOOLEAN STATE MONITOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 13px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 12px; border-radius: 8px;">
+                  <div>
+                    <div style="color: #888; font-size: 10px; margin-bottom: 2px;">VARIABLE</div>
+                    <div style="color: #f8f8f2; font-weight: bold;">isOldEnoughToDrive</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="color: #a6e22e; font-size: 18px; font-weight: bold;">TRUE</div>
+                    <div style="color: #888; font-size: 9px;">(VALOR BOOLEANO)</div>
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; font-size: 11px; line-height: 1.4;">
+                  <p style="margin: 0; color: #888;">Lógica interna:</p>
+                  <p style="margin: 5px 0 0 0; color: #f8f8f2;">Si el valor es <span
+                      style="color: #a6e22e;">true</span>, el sistema permite el acceso.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Consejo:</strong> En JavaScript, los booleanos siempre van en minúsculas (<code
+                style="color: red;">true</code> /
+              <code style="color: red;">false</code>). No son strings, por lo que no llevan comillas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Puedes usar esta variable dentro de una condición de la siguiente manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-boolean-condition">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">decision.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isOldEnoughToDrive</span> = <span class="tk-number">true</span><span class="tk-punctuation">;</span>
+
+<span class="tk-operator">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">isOldEnoughToDrive</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"You're old enough to drive"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-operator">else</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Sorry, you are not old enough"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                FLOW EVALUATOR</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 10px;">
+                <div
+                  style="text-align: center; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; border: 1px dashed #888;">
+                  <span style="color: #888;">EVALUANDO:</span> <span style="color: #ae81ff;">if(true)</span>
+                </div>
+
+                <div
+                  style="position: relative; padding: 10px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 6px;">
+                  <div
+                    style="position: absolute; top: -8px; right: 10px; background: #a6e22e; color: #000; font-size: 8px; padding: 2px 5px; font-weight: bold; border-radius: 3px;">
+                    EJECUTADO</div>
+                  <div style="color: #a6e22e; font-size: 10px; margin-bottom: 4px;">BLOQUE IF:</div>
+                  <div style="color: #f8f8f2;">"You're old enough to drive"</div>
+                </div>
+
+                <div
+                  style="opacity: 0.4; padding: 10px; background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; border-radius: 6px;">
+                  <div style="color: #f92672; font-size: 10px; margin-bottom: 4px;">BLOQUE ELSE:</div>
+                  <div style="color: #f8f8f2;">"Sorry, you are not old enough..."</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px; display: flex; justify-content: space-between;">
+                <span>Condición: Cumplida</span>
+                <span>Salida: console.log()</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚦 <strong>Lógica:</strong> Si cambias el valor inicial a <code style="color: red;">false</code>, verás
+              cómo el programa elige
+              automáticamente el camino del <code style="color: red;">else</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Una instrucción condicional te ayuda a tomar decisiones en tu código en función de una condición. En este
+        ejemplo se utiliza lo que se conoce como una instrucción <mark>if/else</mark>.
+      </p>
+      <p>
+        Si <mark>isOldEnoughToDrive</mark> es <mark>true</mark>, entonces la frase <mark>You're old enough to
+          drive</mark> se registrará en la consola. De lo
+        contrario, si <mark>isOldEnoughToDrive</mark> es false, entonces la frase <mark>Sorry, you are not old enough to
+          drive</mark> se
+        registrará en la consola. Dado que la variable <mark>isOldEnoughToDrive</mark> está establecida en
+        <mark>true</mark>, la primera frase se
+        registrará en la consola. Aprenderás más sobre las sentencias <mark>if/else</mark> en una lección futura.
+      </p>
+      <p>
+        Para comparar dos valores, puedes usar el operador de igualdad o el de igualdad estricta. El resultado de la
+        comparación será un valor booleano, ya sea <mark>true</mark> o false. Aquí tienes un ejemplo del uso del
+        operador de igualdad
+        para comparar una cadena y un número. El operador de igualdad se representa con un doble signo de igual
+        (<mark>==</mark>).
+      </p>
+
+      <div class="ide-container" id="ide-js-loose-equality">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">equality.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparación con conversión automática</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">5</span> <span class="tk-operator">==</span> <span class="tk-string">"5"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COERCION ANALYZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div style="text-align: center; flex: 1;">
+                    <div style="color: #ae81ff; font-size: 10px;">NUMBER</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">5</div>
+                  </div>
+                  <div style="color: #888;">vs</div>
+                  <div style="text-align: center; flex: 1;">
+                    <div style="color: #e6db74; font-size: 10px;">STRING</div>
+                    <div style="font-size: 18px; color: #f8f8f2;">"5"</div>
+                  </div>
+                </div>
+
+                <div style="text-align: center; color: #f7df1e;">
+                  <div style="font-size: 10px; margin-bottom: 2px;">JS CONVIERTE TIPOS...</div>
+                  <div style="font-size: 20px;">⬇</div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="color: #f8f8f2; font-size: 16px;">5 <span style="color: #a6e22e;">==</span> 5</div>
+                  <div style="color: #a6e22e; font-weight: bold; margin-top: 5px;">RESULTADO: TRUE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(247, 223, 30, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> Debido a esta conversión, <code style="color: red;">0 == false</code> también
+              devuelve
+              <code style="color: red;">true</code>. Por eso, muchos desarrolladores prefieren la igualdad estricta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, JavaScript convierte la cadena <mark>"5"</mark> en el número <mark>5</mark> y luego comprueba
+        si son iguales. Dado que
+        ambos valores son ahora iguales, el resultado es verdadero. El operador de igualdad utiliza la conversión de
+        tipos antes de comprobar si cada valor es igual.
+      </p>
+      <p>
+        Esto difiere del operador de igualdad estricta, que no realiza la conversión de tipos. El operador de igualdad
+        estricta verificará si los tipos son los mismos y si los valores son los mismos. A continuación se muestra un
+        ejemplo en el que se utiliza el operador de igualdad estricta para comparar un número y una cadena. Este
+        operador se representa con un triple signo de igualdad (<mark>===</mark>).
+      </p>
+
+      <div class="ide-container" id="ide-js-strict-equality">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparación SIN conversión de tipos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">5</span> <span class="tk-operator">===</span> <span class="tk-string">'5'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRICT CHECKER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: flex; justify-content: space-around; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;">
+                  <div style="text-align: center;">
+                    <div style="color: #ae81ff; font-size: 9px;">TYPE</div>
+                    <div style="color: #f8f8f2;">Number</div>
+                  </div>
+                  <div style="color: #f92672; font-weight: bold;">≠</div>
+                  <div style="text-align: center;">
+                    <div style="color: #e6db74; font-size: 9px;">TYPE</div>
+                    <div style="color: #f8f8f2;">String</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="color: #f8f8f2; font-size: 14px;">5 <span style="color: #f92672;">===</span> '5'</div>
+                  <div style="color: #f92672; font-weight: bold; margin-top: 5px; font-size: 16px;">RESULTADO: FALSE
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * No hay conversión. Si los tipos no coinciden, la respuesta es siempre false.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Buenas prácticas:</strong> En la industria, se prefiere usar <code
+                style="color: red;">===</code> el 99% de las
+              veces para evitar comportamientos impredecibles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La siguiente comparación dará un resultado <mark>false</mark>, ya que el tipo de datos string no es el mismo que
+        el tipo de
+        datos Number. Si necesitas comprobar si un valor no es igual a otro, puedes utilizar los operadores de
+        desigualdad o de desigualdad estricta. A continuación se muestra un ejemplo del uso del operador de desigualdad
+        (<mark>!=</mark>) para comparar un número con un string.
+      </p>
+
+      <div class="ide-container" id="ide-js-loose-inequality">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">inequality.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Desigualdad con conversión automática</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">5</span> <span class="tk-operator">!=</span> <span class="tk-string">"5"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INEQUALITY LOGIC ANALYZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;">
+                  <div style="text-align: center;">
+                    <div style="color: #ae81ff; font-size: 9px;">VALOR A</div>
+                    <div style="color: #f8f8f2;">5 (Num)</div>
+                  </div>
+                  <div style="color: #f92672; font-weight: bold; font-size: 18px;">!=</div>
+                  <div style="text-align: center;">
+                    <div style="color: #e6db74; font-size: 9px;">VALOR B</div>
+                    <div style="color: #f8f8f2;">"5" (Str)</div>
+                  </div>
+                </div>
+
+                <div style="text-align: center; color: #f7df1e;">
+                  <div style="font-size: 9px; margin-bottom: 2px;">JS CONVIERTE "5" A NÚMERO...</div>
+                  <div style="font-size: 16px;">⬇</div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="color: #f8f8f2; font-size: 13px;">¿Es 5 diferente de 5?</div>
+                  <div style="color: #f92672; font-weight: bold; margin-top: 5px; font-size: 15px;">RESULTADO: FALSE
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Al ser los valores iguales tras la conversión, la desigualdad es falsa.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato:</strong> Este operador es el opuesto directo de <code style="color: red;">==</code>. Si
+              uno devuelve true, el
+              otro devolverá false para los mismos valores.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el resultado sería <mark>false</mark> porque el operador de desigualdad primero convierte el
+        valor del string en un número y luego compara los valores. Dado que los valores serían iguales, devolverá
+        <mark>false</mark>. Si
+        intentaras usar el operador de desigualdad estricta, obtendrías un resultado diferente. El operador de
+        desigualdad estricta se representa con un signo de exclamación seguido de dos signos de igualdad
+        (<mark>!==</mark>).
+      </p>
+
+      <div class="ide-container" id="ide-js-strict-inequality">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_inequality.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparación estricta: NO hay conversión</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-number">5</span> <span class="tk-operator">!==</span> <span class="tk-string">"5"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRICT DISSONANCE CHECK</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 15px;">
+                <div
+                  style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; text-align: center;">
+                  <div
+                    style="padding: 8px; background: rgba(174, 129, 255, 0.1); border-radius: 4px; border: 1px solid #ae81ff;">
+                    <div style="font-size: 9px; color: #ae81ff;">NUMBER</div>
+                    <div style="color: #f8f8f2;">5</div>
+                  </div>
+
+                  <div style="color: #f92672; font-weight: bold; font-size: 16px; padding: 0 10px;">!==</div>
+
+                  <div
+                    style="padding: 8px; background: rgba(230, 219, 116, 0.1); border-radius: 4px; border: 1px solid #e6db74;">
+                    <div style="font-size: 9px; color: #e6db74;">STRING</div>
+                    <div style="color: #f8f8f2;">"5"</div>
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 10px; background: rgba(166, 226, 46, 0.1); border-radius: 6px; border-left: 4px solid #a6e22e;">
+                  <p style="margin: 0; color: #f8f8f2; font-size: 11px;">
+                    <span style="color: #a6e22e; font-weight: bold;">MOTIVO:</span> Los tipos de datos son distintos. La
+                    comparación termina aquí.
+                  </p>
+                </div>
+
+                <div style="text-align: center; border-top: 1px solid #333; padding-top: 10px;">
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 16px;">RESULTADO: TRUE</div>
+                  <div style="color: #888; font-size: 9px;">(Sí, son diferentes)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🏆 <strong>Regla de oro:</strong> Usa siempre <code style="color: red;">===</code> y <code
+                style="color: red;">!==</code>. Hará que tu código sea
+              más predecible y fácil de depurar en el futuro.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El resultado sería <mark>true</mark> porque el operador de desigualdad estricta no realiza ninguna conversión de
+        tipos. Dado
+        que el número <mark>5</mark> no es igual al string <mark>"5"</mark>, el resultado es <mark>true</mark>.
+      </p>
+      <p>
+        Se considera una buena práctica utilizar los operadores de desigualdad y de igualdad estrictos siempre que sea
+        posible, ya que no realizan conversiones de tipos. En la mayoría de los casos, en los proyectos profesionales,
+        verás códigos que suelen preferir estos dos operadores frente a los operadores de desigualdad y de igualdad.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el uso principal de los valores booleanos en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Para almacenar números y strings de caracteres.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Para realizar operaciones aritméticas.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Para representar valores true o false y tomar decisiones basadas en condiciones.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Para recorrer matrices.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué es recomendable utilizar la igualdad estricta (<mark>===</mark>) en lugar de la igualdad normal
+            (<mark>==</mark>) en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Convierte los tipos de datos automáticamente.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Permite comparar tipos diferentes sin problemas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Comprueba tanto el valor como el tipo, lo que ofrece resultados más predecibles.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Es más rápido que la igualdad normal.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se utiliza la igualdad simple (<mark>==</mark>) en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Solo compara los valores sin realizar ninguna conversión de tipos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Realiza una conversión de tipos, transformando los valores al mismo tipo antes de compararlos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Comprueba tanto el valor como el tipo, al igual que la igualdad estricta (===).
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Genera un error si los tipos no coinciden.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son los operadores de comparación y cómo funcionan?
+      </h2>
+
+      <p>
+        Los operadores de comparación te permiten comparar dos valores y devuelven un resultado <mark>true</mark> o
+        <mark>false</mark>. A
+        continuación, puedes utilizar el resultado para tomar una decisión o controlar el flujo de tu programa. Las
+        comparaciones se utilizan en sentencias <mark>if</mark>, bucles y muchas otras situaciones en las que necesitas
+        tomar
+        decisiones basadas en determinadas condiciones. Veamos cuáles son los operadores de comparación más comunes y
+        cómo funcionan.
+      </p>
+      <p>
+        El operador mayor que, representado por un corchete angular (<mark>&gt;</mark>), comprueba si el valor de la
+        izquierda es mayor
+        que el de la derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-greater-than">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">comparison.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">9</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&gt;</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span> <span class="tk-operator">&gt;</span> <span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COMPARISON LOG</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(249, 38, 114, 0.05); border: 1px solid rgba(249, 38, 114, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">6 <b style="color: #f92672;">&gt;</b> 9</span>
+                  <span style="color: #f92672; font-weight: bold;">FALSE</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(166, 226, 46, 0.05); border: 1px solid rgba(166, 226, 46, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">9 <b style="color: #a6e22e;">&gt;</b> 6</span>
+                  <span style="color: #a6e22e; font-weight: bold;">TRUE</span>
+                </div>
+
+                <div
+                  style="margin-top: 10px; height: 30px; background: #333; border-radius: 15px; position: relative; overflow: hidden;">
+                  <div
+                    style="position: absolute; left: 60%; width: 2px; height: 100%; background: #66d9ef; z-index: 2;">
+                  </div>
+                  <div
+                    style="position: absolute; left: 0; width: 60%; height: 100%; background: rgba(102, 217, 239, 0.2);">
+                  </div>
+                  <span style="position: absolute; left: 10px; top: 7px; font-size: 10px; color: #66d9ef;">a (6)</span>
+                  <span style="position: absolute; right: 10px; top: 7px; font-size: 10px; color: #f8f8f2;">b (9)</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * El resultado de una comparación siempre es un valor booleano.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #66d9ef; line-height: 1.4;">
+              📏 <strong>Nota:</strong> Estos operadores también funcionan con strings basándose en el orden alfabético
+              (Unicode), aunque su uso principal es numérico.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador «mayor o igual que», representado por un corchete y el signo igual (<mark>>=</mark>), comprueba si
+        el valor de la izquierda es mayor o igual que el de la derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-greater-equal">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">threshold.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">9</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">c</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&gt;=</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false (6 no es mayor ni igual a 9)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span> <span class="tk-operator">&gt;=</span> <span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true  (9 es mayor que 6)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&gt;=</span> <span class="tk-selector">c</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true  (Son iguales)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                BOUNDARY ANALYZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 10px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(249, 38, 114, 0.05); border: 1px solid rgba(249, 38, 114, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">6 <b style="color: #f92672;">&gt;=</b> 9</span>
+                  <span style="color: #f92672; font-weight: bold;">✕ FALSE</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(166, 226, 46, 0.05); border: 1px solid rgba(166, 226, 46, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">9 <b style="color: #a6e22e;">&gt;=</b> 6</span>
+                  <span style="color: #a6e22e; font-weight: bold;">✓ TRUE</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(102, 217, 239, 0.05); border: 1px solid rgba(102, 217, 239, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">6 <b style="color: #66d9ef;">&gt;=</b> 6</span>
+                  <span style="color: #66d9ef; font-weight: bold;">✓ TRUE (Exact)</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * Este operador es útil para incluir el valor de referencia en la condición.
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Sintaxis:</strong> El signo igual siempre va a la <strong>derecha</strong>
+              (<code style="color: red;">&gt;=</code>). Si escribes <code style="color: red;">=&gt;</code>, JavaScript
+              lo interpretará como una "arrow
+              function", lo cual es algo totalmente distinto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador "menor que", representado por un corchete angular izquierdo (<mark>&gt;</mark>), funciona de manera
+        similar al <mark>&gt;</mark>, pero a la inversa. Comprueba si el valor de la izquierda es menor que el de la
+        derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-less-than">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">comparison_min.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre>
+                <code class="language-js">
+                  <span class="tk-property">
+                  let</span> <span class="tk-selector">a</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+                  <span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">9</span><span class="tk-punctuation">;</span>
+                  
+                  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&lt;</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (6 es menor que 9)</span>
+                  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span> <span class="tk-operator">&lt;</span> <span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false (9 no es menor que 6)</span>
+                </code>
+              </pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                LESS THAN ANALYZER</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 12px; display: flex; flex-direction: column; gap: 12px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(166, 226, 46, 0.05); border: 1px solid rgba(166, 226, 46, 0.2); border-radius: 6px;">
+                  <div style="color: #f8f8f2;">6 <span style="color: #a6e22e; font-weight: bold;">&lt;</span> 9</div>
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 14px;">TRUE</div>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(249, 38, 114, 0.05); border: 1px solid rgba(249, 38, 114, 0.2); border-radius: 6px;">
+                  <div style="color: #f8f8f2;">9 <span style="color: #f92672; font-weight: bold;">&lt;</span> 6</div>
+                  <div style="color: #f92672; font-weight: bold; font-size: 14px;">FALSE</div>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px;">
+                * En JavaScript, el operador &lt; siempre evalúa primero el valor de la izquierda. </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📉 <strong>Uso común:</strong> Se utiliza mucho en bucles <code style="color: red;">for</code> para
+              recorrer arrays desde el
+              índice 0 hasta que sea <em>menor que</em> la longitud del array.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador "menor o igual que", representado por un corchete izquierdo y el signo igual (<mark>&lt;=</mark>),
+        comprueba si
+        el
+        valor de la izquierda es menor o igual que el de la derecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-less-equal">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">max_limit.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">9</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">c</span> = <span class="tk-number">6</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&lt;=</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (6 es menor que 9)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span> <span class="tk-operator">&lt;=</span> <span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false (9 no es menor ni igual a 6)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span> <span class="tk-operator">&lt;=</span> <span class="tk-selector">c</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (Son iguales)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 14px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                INCLUSIVE LIMIT CHECK</h3>
+
+              <div
+                style="font-family: var(--sp-font-code); font-size: 11px; display: flex; flex-direction: column; gap: 10px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(166, 226, 46, 0.05); border: 1px solid rgba(166, 226, 46, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">6 <b style="color: #a6e22e;">&lt;=</b> 9</span>
+                  <span style="color: #a6e22e; font-weight: bold;">✓ TRUE (Menor)</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(249, 38, 114, 0.05); border: 1px solid rgba(249, 38, 114, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">9 <b style="color: #f92672;">&lt;=</b> 6</span>
+                  <span style="color: #f92672; font-weight: bold;">✕ FALSE (Mayor)</span>
+                </div>
+
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: rgba(102, 217, 239, 0.05); border: 1px solid rgba(102, 217, 239, 0.2); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">6 <b style="color: #66d9ef;">&lt;=</b> 6</span>
+                  <span style="color: #66d9ef; font-weight: bold;">✓ TRUE (Igual)</span>
+                </div>
+              </div>
+
+              <div
+                style="font-size: 10px; color: #888; border-top: 1px solid #333; padding-top: 10px; margin-top: 15px; text-align: center;">
+                "Cualquier valor menor o igual a la derecha es aceptado."
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>Recordatorio:</strong> Al igual que con el mayor o igual, el signo <code
+                style="color: red;">=</code> siempre
+              debe ir después del símbolo de comparación (<code style="color: red;">&lt;=</code>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace el operador "mayor o igual que" (<mark>>=</mark>) en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Comprueba si el valor de la izquierda es estrictamente mayor que el de la derecha.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Comprueba si el valor de la izquierda es mayor o igual que el de la derecha.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Comprueba si el valor de la derecha es mayor que el de la izquierda.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Comprueba si ambos valores son iguales.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situaciones se suelen utilizar los operadores de comparación en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Solo en operaciones aritméticas.
+          </label>
+          <label>
+            <!-- correcto -->
+            <input type="radio" name="q5">
+            En sentencias if, bucles y otras situaciones que requieran tomar decisiones basadas en condiciones.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Solo al trabajar con strings de caracteres.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Al definir funciones.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué dos operadores de JavaScript evitan la conversión de tipos?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            == y !=.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            === y !==.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            &gt; y &lt;.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            &lt;= y &gt;=.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
