@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con números y métodos numéricos comunes en JavaScript. Descubre cómo realizar operaciones matemáticas, redondear números y utilizar funciones numéricas para mejorar tus habilidades de programación.">
+  <meta name="keywords"
+    content="JavaScript, números, métodos numéricos, operaciones matemáticas, redondeo, funciones numéricas, programación">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con números y métodos numéricos comunes en JavaScript">
+  <meta property="og:description"
+    content="Aprende a trabajar con números y métodos numéricos comunes en JavaScript. Descubre cómo realizar operaciones matemáticas, redondear números y utilizar funciones numéricas para mejorar tus habilidades de programación.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con números y métodos numéricos comunes</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con números y métodos numéricos comunes</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con números y métodos numéricos comunes en JavaScript. Descubrirás cómo
+        realizar operaciones matemáticas, redondear números y utilizar funciones numéricas para mejorar tus habilidades
+        de programación.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo funciona isNaN?
+      </h2>
+
+      <p>
+        En JavaScript, <mark>NaN</mark> significa <em>"Not a Number"</em> (No es un número). Es un valor especial que
+        representa un resultado
+        numérico irrepresentable o indefinido. <mark>NaN</mark> es una propiedad del objeto global y también se
+        considera un tipo de
+        número en JavaScript, lo que a primera vista puede parecer contradictorio.
+      </p>
+      <p>
+        <mark>NaN</mark> suele ser el resultado de operaciones que deberían devolver un número, pero que no pueden
+        producir un valor
+        numérico significativo. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-nan-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nan_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-number">0</span> <span class="tk-operator">/</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+
+<span class="tk-comment">// Un dato curioso:</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "number"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                JS NUMBER TYPE SYSTEM</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; text-align: center; background: rgba(249, 38, 114, 0.05); padding: 15px; border-radius: 8px; border: 1px dashed #f92672;">
+                  <div>
+                    <div style="font-size: 10px; color: #888;">Input</div>
+                    <div style="color: #f8f8f2; font-size: 18px;">0 / 0</div>
+                  </div>
+                  <div style="color: #f92672; font-size: 20px;">➔</div>
+                  <div>
+                    <div style="font-size: 10px; color: #888;">Result</div>
+                    <div style="color: #f92672; font-size: 18px; font-weight: bold;">NaN</div>
+                  </div>
+                </div>
+
+                <div
+                  style="font-size: 10px; color: #888; text-align: center; border: 1px solid #333; padding: 8px; border-radius: 4px;">
+                  <span style="color: #66d9ef;">Información:</span> JavaScript no puede asignar un valor real a esta
+                  operación, por lo que usa la etiqueta de error matemático "NaN".
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">NaN</div>
+                  <div style="color: #888; font-size: 12px; margin-top: 4px;">"number"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Ojo:</strong> Una de las mayores trampas de JavaScript es que <code
+                style="color: red;">NaN === NaN</code> devuelve
+              <code style="color: red;">false</code>. ¡NaN no es igual ni siquiera a sí mismo! Para eso necesitamos la
+              función
+              <code style="color: red;">isNaN()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, dividir cero por cero no tiene sentido matemático, por lo que JavaScript devuelve
+        <mark>NaN</mark>. Una propiedad peculiar de <mark>NaN</mark> es que no es igual a nada, ni siquiera a sí mismo:
+      </p>
+
+      <div class="ide-container" id="ide-js-nan-comparison">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">paradox.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// La gran paradoja de JavaScript:</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">NaN</span> <span class="tk-operator">===</span> <span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">myValue</span> = <span class="tk-selector">NaN</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">myValue</span> <span class="tk-operator">==</span> <span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                COMPARISON ENGINE</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <div
+                    style="background: #f92672; color: #fff; padding: 10px 15px; border-radius: 4px; font-weight: bold;">
+                    NaN</div>
+                  <div style="color: #888; font-size: 20px;">===</div>
+                  <div
+                    style="background: #f92672; color: #fff; padding: 10px 15px; border-radius: 4px; font-weight: bold;">
+                    NaN</div>
+                </div>
+
+                <div
+                  style="text-align: center; border: 2px solid #f92672; border-radius: 8px; padding: 10px; background: rgba(249, 38, 114, 0.1);">
+                  <div style="font-size: 10px; color: #f92672; margin-bottom: 5px;">RESULTADO LOGICO:</div>
+                  <div style="font-size: 24px; color: #f8f8f2; font-weight: bold;">FALSE</div>
+                </div>
+
+                <div style="font-size: 9px; color: #888; text-align: center; line-height: 1.4;">
+                  "En JavaScript, NaN es el único valor que no es idéntico a sí mismo."
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2;">false</div>
+                  <div style="color: #f8f8f2;">false</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧩 <strong>¿Cómo lo solucionamos?</strong> Como no podemos usar <code style="color: red;">===</code>, la
+              siguiente lección te
+              mostrará la función <code style="color: red;">isNaN()</code>, que es la única forma confiable de hacer
+              esta pregunta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este comportamiento único hace que resulte complicado comprobar si un valor es <mark>NaN</mark> utilizando los
+        operadores de
+        comparación estándar. Para solucionar esto, JavaScript ofrece la función <mark>isNaN()</mark>. La propiedad
+        <mark>isNaN()</mark> se
+        utiliza para determinar si un valor es <mark>NaN</mark> o no. Sin embargo, es importante comprender cómo
+        funciona <mark>isNaN()</mark>, ya
+        que en ocasiones puede producir resultados inesperados. Así es como se comporta <mark>isNaN()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-isnan-complete">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">isnan_full.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-property">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// true</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-property">true</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-property">null</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-number">37</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// false</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">"37"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// false: "37" is converted to 37</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">"37.37"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// false: "37.37" is converted to 37.37</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">""</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// false: empty string is converted to 0</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">" "</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// false: string with a space is converted to 0</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">"blabla"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// true: "blabla" is not a number</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                isNaN COERCION MAP</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code); font-size: 11px;">
+                <div
+                  style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(249, 38, 114, 0.1); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">"blabla"</span>
+                  <span style="color: #f92672;">➔ isNaN: true</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(166, 226, 46, 0.1); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">"" (vacio)</span>
+                  <span style="color: #a6e22e;">➔ isNaN: false (0)</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(166, 226, 46, 0.1); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">null</span>
+                  <span style="color: #a6e22e;">➔ isNaN: false (0)</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; padding: 4px 8px; background: rgba(249, 38, 114, 0.1); border-radius: 4px;">
+                  <span style="color: #f8f8f2;">undefined</span>
+                  <span style="color: #f92672;">➔ isNaN: true</span>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                <div style="color: #f8f8f2; line-height: 1.5; font-size: 11px;">
+                  true, true, true <br>
+                  false, false, false <br>
+                  false, false, false, false <br>
+                  true
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚙️ <strong>Funcionamiento:</strong> <code style="color: red;">isNaN()</code> devuelve <code
+                style="color: red;">true</code> solo cuando el valor
+              pasado, después de intentar ser convertido a número, resulta ser <code style="color: red;">NaN</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, <mark>isNaN()</mark> primero intenta convertir el parámetro en un número. Si no puede
+        convertirlo, devuelve
+        <mark>true</mark>. Este comportamiento puede dar lugar a resultados inesperados, especialmente cuando se trata
+        de strings que
+        pueden transformarse en números.
+      </p>
+      <p>
+        Debido a estas posibles inconsistencias, ES6 (la sexta edición de JavaScript, lanzada en 2015) introdujo
+        <mark>Number.isNaN()</mark>. Este método no intenta convertir el parámetro en un número antes de realizar la
+        comprobación.
+        Solo devuelve <mark>true</mark> si el valor es exactamente <mark>NaN</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-isnan">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_nan.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-selector">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-number">0</span> <span class="tk-operator">/</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// true</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">"NaN"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-property">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>          <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-string">"blabla"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 13px; margin-bottom: 15px; font-family: var(--sp-font-code); border-bottom: 1px solid #444; padding-bottom: 5px;">
+                STRICT CHECK VS GLOBAL</h3>
+
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: var(--sp-font-code); font-size: 10px;">
+                <div style="color: #888; padding-bottom: 5px;">Valor Entrada</div>
+                <div style="color: #888; padding-bottom: 5px;">Number.isNaN()</div>
+
+                <div style="color: #f8f8f2; background: rgba(255,255,255,0.05); padding: 5px;">"blabla"</div>
+                <div style="color: #f92672; background: rgba(249, 38, 114, 0.1); padding: 5px; font-weight: bold;">FALSE
+                </div>
+
+                <div style="color: #f8f8f2; background: rgba(255,255,255,0.05); padding: 5px;">undefined</div>
+                <div style="color: #f92672; background: rgba(249, 38, 114, 0.1); padding: 5px; font-weight: bold;">FALSE
+                </div>
+
+                <div style="color: #f8f8f2; background: rgba(255,255,255,0.05); padding: 5px;">0 / 0</div>
+                <div style="color: #a6e22e; background: rgba(166, 226, 46, 0.1); padding: 5px; font-weight: bold;">TRUE
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                <div style="color: #888; font-size: 9px; margin-bottom: 2px;">OUTPUT:</div>
+                <div style="color: #f8f8f2; font-size: 11px;">
+                  true, true, true <br>
+                  false, false, false, false
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Regla de oro:</strong> Usa siempre <code style="color: red;">Number.isNaN()</code> a menos que
+              realmente quieras
+              saber si algo "no puede ser un número" (incluyendo strings de texto).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La función <mark>number.isNaN()</mark> ofrece una forma más confiable de detectar valores <mark>NaN</mark>,
+        especialmente en los casos en que la conversión de tipos podría dar lugar a resultados inesperados con la
+        función global <mark>isNaN()</mark>. En la práctica, al trabajar con operaciones numéricas o entradas de usuario
+        que deberían ser números, a menudo es necesario comprobar si hay valores <mark>NaN</mark> para gestionar los
+        errores o las entradas inesperadas de manera adecuada. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-nan-handling">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">error_handling.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">a</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">b</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-selector">a</span> <span class="tk-operator">/</span> <span class="tk-selector">b</span><span class="tk-punctuation">;</span>
+
+<span class="tk-operator">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">.</span><span class="tk-value">isNaN</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">result</span> = <span class="tk-string">"Error: Division resulted in NaN"</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Error: Division resulted in NaN"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 12px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Calculadora de Seguridad</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px; border: 1px solid #333;">
+                    <span style="color: #888; font-size: 9px; display: block;">Variable A</span>
+                    <span style="color: #f8f8f2; font-family: var(--sp-font-code);">0</span>
+                  </div>
+                  <div
+                    style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px; border: 1px solid #333;">
+                    <span style="color: #888; font-size: 9px; display: block;">Variable B</span>
+                    <span style="color: #f8f8f2; font-family: var(--sp-font-code);">0</span>
+                  </div>
+                </div>
+
+                <div
+                  style="padding: 10px; background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; border-radius: 6px; position: relative;">
+                  <div style="font-size: 10px; color: #66d9ef; margin-bottom: 5px; font-weight: bold;">[IF] CONTROL DE
+                    FLUJO</div>
+                  <div style="color: #f8f8f2; font-size: 11px; font-family: var(--sp-font-code);">¿Es 0/0 un número
+                    real? <span style="color: #f92672;">NO (NaN)</span></div>
+                  <div style="margin-top: 5px; color: #a6e22e; font-size: 11px;">➔ Ejecutando bloque de error...</div>
+                </div>
+
+                <div style="background: #111; padding: 12px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 5px;">CONSOLE LOG:</div>
+                  <div style="color: #f92672; font-size: 11px; font-family: var(--sp-font-code); font-weight: bold;">
+                    "Error: Division resulted in NaN"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Programación Defensiva:</strong> Siempre que realices divisiones, raíces cuadradas o
+              conversiones de texto a número, usa este patrón para asegurar que tu aplicación no se detenga
+              inesperadamente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos <mark>Number.isNaN()</mark> para detectar los casos en los que la operación de
+        división da como resultado un <mark>NaN</mark>, lo que nos permite gestionar esta situación de forma adecuada.
+        Comprender qué es un NaN y cómo detectarlo correctamente es fundamental para escribir código JavaScript robusto,
+        especialmente al realizar operaciones matemáticas o al analizar las entradas de los usuarios.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                console.log(isNaN("123"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            false
+            <!-- correcto -->
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            NaN
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones comprueba correctamente si un valor es exactamente <mark>NaN</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            value === NaN
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            isNaN(value)
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Number.isNaN(value)
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            value.isNaN()
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado de <mark>NaN === NaN</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Error
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Cómo funcionan los métodos <mark>parseFloat()</mark> y <mark>parseInt()</mark>?
+      </h2>
+
+      <p>
+        <mark>parseFloat()</mark> y <mark>parseInt()</mark> son dos métodos esenciales en JavaScript para convertir
+        cadenas en números. Estos
+        métodos resultan especialmente útiles al trabajar con entradas del usuario o al procesar datos que se presentan
+        en formato de cadena pero que deben tratarse como valores numéricos.
+      </p>
+      <p>
+        Comencemos con <mark>parseFloat()</mark>. Este método analiza un argumento de cadena y devuelve un número de
+        punto flotante.
+        Está diseñado para extraer un número del principio de una cadena, incluso si la cadena contiene caracteres no
+        numéricos más adelante. Recuerda que los números de punto flotante son números con decimales. Así es como
+        funciona <mark>parseFloat()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-parsefloat">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">parse_float.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"3.14"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// 3.14</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"3.14 abc"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3.14</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"3.14.5"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 3.14</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"abc 3.14"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                parseFloat() Visual Parser</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                  <div style="font-size: 10px; color: #888; margin-bottom: 5px;">Input: "3.14 abc"</div>
+                  <div style="font-size: 14px;">
+                    <span style="color: #a6e22e; font-weight: bold; border-bottom: 2px solid #a6e22e;">3.14</span>
+                    <span style="color: #f92672; text-decoration: line-through; opacity: 0.5;"> abc</span>
+                  </div>
+                  <div style="margin-top: 5px; color: #a6e22e; font-size: 10px;">Resultado: 3.14 (Number)</div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                  <div style="font-size: 10px; color: #888; margin-bottom: 5px;">Input: "abc 3.14"</div>
+                  <div style="font-size: 14px;">
+                    <span style="color: #f92672; font-weight: bold;">[!] abc</span>
+                    <span style="color: #888; opacity: 0.5;"> 3.14</span>
+                  </div>
+                  <div style="margin-top: 5px; color: #f92672; font-size: 10px;">Resultado: NaN</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    3.14 <br>
+                    3.14 <br>
+                    3.14 <br>
+                    NaN
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔎 <strong>Dato importante:</strong> <code style="color: red;">parseFloat()</code> solo reconoce el primer
+              punto decimal. Si
+              hay un segundo punto (como en "3.14.5"), detendrá el análisis allí mismo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, <mark>parseFloat()</mark> comienza a analizar desde el principio de la cadena y continúa hasta
+        que encuentra
+        un carácter que no puede formar parte de un número de punto flotante. Si no encuentra un número válido al inicio
+        de la cadena, devuelve <mark>NaN</mark> (Not a Number).
+      </p>
+      <p>
+        <mark>parseInt()</mark>, por otro lado, analiza un argumento de cadena y devuelve un entero. Al igual que
+        <mark>parseFloat()</mark>,
+        comienza desde el principio de la cadena, pero se detiene en el primer carácter que no sea un dígito. Así es
+        como funciona <mark>parseInt()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-parseint">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">parse_int.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"42"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// 42</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"42px"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// 42</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"3.14"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// 3</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"abc123"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// NaN</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                parseInt() Character Stop</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                  <div style="font-size: 10px; color: #888; margin-bottom: 5px;">Input: "3.14"</div>
+                  <div style="font-size: 14px;">
+                    <span style="color: #66d9ef; font-weight: bold; border-bottom: 2px solid #66d9ef;">3</span>
+                    <span style="color: #f92672; opacity: 0.5;">.14</span>
+                  </div>
+                  <div style="margin-top: 5px; color: #66d9ef; font-size: 10px;">Resultado: 3 (Integer)</div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                  <div style="font-size: 10px; color: #888; margin-bottom: 5px;">Input: "42px"</div>
+                  <div style="font-size: 14px;">
+                    <span style="color: #a6e22e; font-weight: bold; border-bottom: 2px solid #a6e22e;">42</span>
+                    <span style="color: #888; opacity: 0.5;">px</span>
+                  </div>
+                  <div style="margin-top: 5px; color: #a6e22e; font-size: 10px;">Resultado: 42 (Number)</div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    42 <br>
+                    42 <br>
+                    3 <br>
+                    NaN
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Recomendación:</strong> Se considera una buena práctica usar <code
+                style="color: red;">parseInt(valor, 10)</code>
+              para asegurar que el número se interprete siempre en base decimal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <mark>parseInt()</mark> detiene el análisis al encontrar el primer carácter que no sea un dígito. En el caso de
+        los números
+        de punto flotante, devuelve únicamente la parte entera. Si no encuentra un entero válido al principio del
+        string, devuelve <mark>NaN</mark>.
+      </p>
+      <p>
+        Ambos métodos presentan algunos comportamientos dignos de mención. Ignoran los espacios en blanco iniciales:
+      </p>
+
+      <div class="ide-container" id="ide-js-parse-whitespace">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">trimming.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"   3.14"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 3.14</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"   42"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// 42</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Whitespace Auto-Trim</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #1a1a1a; padding: 12px; border-radius: 6px; border: 1px solid #333; position: relative; overflow: hidden;">
+                  <div
+                    style="position: absolute; top: 0; left: 0; height: 100%; width: 60px; background: rgba(249, 38, 114, 0.1); border-right: 1px dashed #f92672; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #f92672; text-transform: uppercase;">
+                    Ignorado</div>
+                  <div style="padding-left: 65px; font-size: 16px;">
+                    <span style="color: #666;">&nbsp;&nbsp;&nbsp;</span><span
+                      style="color: #a6e22e; font-weight: bold;">3.14</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; color: #888;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 9px; margin-bottom: 4px;">RAW INPUT</div>
+                    <div style="color: #f8f8f2; font-size: 12px; border: 1px solid #444; padding: 4px 8px;">
+                      "&nbsp;&nbsp;&nbsp;42"</div>
+                  </div>
+                  <div style="font-size: 20px;">➔</div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 9px; margin-bottom: 4px;">PARSED NUMBER</div>
+                    <div
+                      style="color: #a6e22e; font-size: 12px; font-weight: bold; border: 1px solid #a6e22e; padding: 4px 8px;">
+                      42</div>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    3.14<br>
+                    42
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Eficiencia:</strong> No necesitas llamar a <code style="color: red;">.trim()</code> manualmente
+              antes de parsear;
+              JavaScript se encarga de saltar esos espacios por ti.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Toman en cuenta los signos más y menos al principio del string:
+      </p>
+
+      <div class="ide-container" id="ide-js-parse-signs">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">signs_final.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Soporte de signos aritméticos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseFloat</span><span class="tk-punctuation">(</span><span class="tk-string">"+3.14"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 3.14</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">parseInt</span><span class="tk-punctuation">(</span><span class="tk-string">"-42"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// -42</span>
+
+<span class="tk-comment">// Conclusión: Herramientas esenciales para robustez</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Sign Detection Unit</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                  <div style="display: flex; gap: 4px;">
+                    <span style="color: #a6e22e; font-weight: bold;">+</span>
+                    <span style="color: #f8f8f2;">3.14</span>
+                  </div>
+                  <div style="color: #888; font-size: 10px;">parseFloat() ➔</div>
+                  <div style="color: #a6e22e; font-weight: bold;">3.14</div>
+                </div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                  <div style="display: flex; gap: 4px;">
+                    <span style="color: #f92672; font-weight: bold;">-</span>
+                    <span style="color: #f8f8f2;">42</span>
+                  </div>
+                  <div style="color: #888; font-size: 10px;">parseInt() ➔</div>
+                  <div style="color: #f92672; font-weight: bold;">-42</div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef; margin-top: 5px;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE SUMMARY:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    3.14 (Float)<br>
+                    -42 (Integer)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>A tener en cuenta:</strong> Estos métodos son "glotones": tomarán el primer signo que
+              encuentren, pero si pones dos signos (ej: <code style="color: red;">"+-3"</code>), devolverán <code
+                style="color: red;">NaN</code> porque el
+              segundo signo se considera un carácter no válido.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cabe señalar que, si bien estos métodos son potentes, tienen algunas limitaciones. Por ejemplo, no admiten
+        directamente todos los formatos numéricos, como la notación científica. Para necesidades de análisis más
+        complejas, es posible que debas recurrir a técnicas o bibliotecas adicionales.
+      </p>
+      <p>
+        En conclusión, <mark>parseFloat()</mark> y <mark>parseInt()</mark> son herramientas valiosas para convertir
+        cadenas en números en
+        JavaScript. Comprender cómo funcionan y sus comportamientos específicos te permite manejar datos numéricos de
+        manera más efectiva en tus aplicaciones, especialmente al trabajar con entradas de usuario o fuentes de datos
+        externas.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                console.log(parseInt("10.99"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            10.99
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            10
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            11
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            NaN
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                console.log(parseInt("  -42abc"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            -42
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            NaN
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            42
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            -42abc
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué valor devuelve <mark>parseFloat("3.14.15")</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            3.1415
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            3.14
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            NaN
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            3
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">Tema 3: ¿Qué es el método <mark>toFixed()</mark> y cómo funciona?
+      </h2>
+
+      <p>
+        El método <mark>.toFixed()</mark> es una función integrada de JavaScript que formatea un número utilizando la
+        notación de punto fijo. Resulta especialmente útil cuando necesitas controlar el número de decimales de un
+        número, sobre todo para mostrar valores monetarios o al trabajar con medidas precisas.
+      </p>
+      <p>
+        El método <mark>.toFixed()</mark> se invoca sobre un número y toma un argumento opcional, que es el número de
+        dígitos que aparecerán después del punto decimal. Devuelve una representación en forma de string del número con
+        el número especificado de decimales. A continuación, se muestra un ejemplo básico de cómo funciona
+        <mark>.toFixed()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-tofixed">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">formatting.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">3.14159</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "3.14"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Decimal Formatter</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-between; background: rgba(174, 129, 255, 0.05); padding: 12px; border-radius: 8px; border: 1px solid rgba(174, 129, 255, 0.2);">
+                  <div>
+                    <div style="font-size: 9px; color: #888; margin-bottom: 4px;">NUMBER (Input)</div>
+                    <div style="color: #f8f8f2; font-size: 14px;">3.14159</div>
+                  </div>
+                  <div style="font-size: 18px; color: #ae81ff;">➔</div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 9px; color: #888; margin-bottom: 4px;">STRING (Output)</div>
+                    <div style="color: #ae81ff; font-size: 16px; font-weight: bold;">"3.14"</div>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                  <div style="flex: 1; background: #111; padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 8px; color: #888;">TYPEOF INPUT</div>
+                    <div style="font-size: 10px; color: #66d9ef;">number</div>
+                  </div>
+                  <div style="flex: 1; background: #111; padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 8px; color: #888;">TYPEOF OUTPUT</div>
+                    <div style="font-size: 10px; color: #f92672;">string</div>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"3.14"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato clave:</strong> Si el argumento de <code style="color: red;">toFixed()</code> es mayor que
+              el número de
+              decimales original, JavaScript añadirá ceros al final para completar el tamaño solicitado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, estamos limitando el número de decimales a dos. Por lo tanto, <mark>3.14159</mark> se convierte en
+        <mark>3.14</mark>. Es
+        importante señalar que <mark>.toFixed()</mark> devuelve un string, no un número. Esto se debe a que el método
+        está pensado
+        principalmente para dar formato a los números con fines de visualización, no para realizar cálculos posteriores.
+      </p>
+      <p>
+        El método <mark>.toFixed()</mark> redondea el número al valor más cercano que se puede representar con el número
+        de decimales
+        especificado. Es importante comprender este comportamiento de redondeo:
+      </p>
+
+      <div class="ide-container" id="ide-js-tofixed-rounding">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rounding_logic.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-punctuation">(</span><span class="tk-number">3.14159</span><span class="tk-punctuation">)</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "3.142" (Redondeo arriba)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-punctuation">(</span><span class="tk-number">3.14449</span><span class="tk-punctuation">)</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "3.144" (Redondeo abajo)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-punctuation">(</span><span class="tk-number">3.14550</span><span class="tk-punctuation">)</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "3.146" (Redondeo arriba)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rounding Logic Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 12px; color: #f8f8f2;">3.141<span
+                        style="color: #ae81ff; font-weight: bold;">5</span>9</span>
+                    <span style="font-size: 10px; color: #888;">(5 ≥ 5) ↑</span>
+                    <span style="color: #a6e22e; font-weight: bold;">"3.142"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 12px; color: #f8f8f2;">3.144<span
+                        style="color: #f92672; font-weight: bold;">4</span>9</span>
+                    <span style="font-size: 10px; color: #888;">(4 < 5) ↓</span>
+                        <span style="color: #66d9ef; font-weight: bold;">"3.144"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); padding: 8px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 12px; color: #f8f8f2;">3.145<span
+                        style="color: #ae81ff; font-weight: bold;">5</span>0</span>
+                    <span style="font-size: 10px; color: #888;">(5 ≥ 5) ↑</span>
+                    <span style="color: #a6e22e; font-weight: bold;">"3.146"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-top: 1px solid #333; margin-top: 5px;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    "3.142"<br>"3.144"<br>"3.146"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota:</strong> Debido a cómo se representan los números en memoria (punto flotante), en casos
+              muy específicos el redondeo puede parecer inconsistente. Para aplicaciones financieras críticas, se suelen
+              usar librerías especializadas o trabajar con céntimos en enteros.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, <mark>.toFixed()</mark> redondea hacia arriba cuando el siguiente dígito es <mark>5</mark> o
+        más, y hacia abajo en los demás casos. Si llamas a <mark>.toFixed()</mark> sin argumentos, el valor
+        predeterminado es <mark>0</mark> decimales:
+      </p>
+
+      <div class="ide-container" id="ide-js-tofixed-default">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">default_fix.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num</span> = <span class="tk-number">3.14159</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "3"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Default Parameter Analysis</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; background: rgba(102, 217, 239, 0.05); padding: 12px; border-radius: 8px;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 4px;">SINTAXIS</div>
+                    <div style="color: #66d9ef; font-size: 12px;">.toFixed()</div>
+                  </div>
+                  <div style="color: #444;">==</div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 4px;">EQUIVALENTE</div>
+                    <div style="color: #66d9ef; font-size: 12px;">.toFixed(0)</div>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                    <span style="color: #888;">Input: 3.65</span>
+                    <span style="color: #f92672;">➔ "4"</span>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"3"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📌 <strong>Dato:</strong> Aunque visualmente se parezca a <code style="color: red;">Math.round()</code>,
+              recuerda que el
+              resultado de <code style="color: red;">toFixed()</code> es un <strong>string</strong>, mientras que los
+              métodos de
+              <code style="color: red;">Math</code> devuelven números.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El método <mark>.toFixed()</mark> puede resultar especialmente útil al realizar cálculos financieros o al
+        mostrar precios:
+      </p>
+
+      <div class="ide-container" id="ide-js-tofixed-finance">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">checkout.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">price</span> = <span class="tk-number">19.99</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">taxRate</span> = <span class="tk-number">0.08</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">total</span> = <span class="tk-selector">price</span> <span class="tk-operator">+</span> <span class="tk-punctuation">(</span><span class="tk-selector">price</span> <span class="tk-operator">*</span> <span class="tk-selector">taxRate</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Total: $"</span> <span class="tk-operator">+</span> <span class="tk-selector">total</span><span class="tk-punctuation">.</span><span class="tk-value">toFixed</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Total: $21.59"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 12px; font-family: var(--sp-font-code); text-transform: uppercase;">
+                Simulación de Checkout</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code); font-size: 11px;">
+                <div
+                  style="display: flex; justify-content: space-between; color: #888; border-bottom: 1px dashed #333; padding-bottom: 4px;">
+                  <span>Subtotal:</span>
+                  <span>$19.99</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; color: #888; border-bottom: 1px dashed #333; padding-bottom: 4px;">
+                  <span>IVA (8%):</span>
+                  <span>$1.5992...</span>
+                </div>
+                <div
+                  style="display: flex; justify-content: space-between; color: #f8f8f2; padding: 8px 0; font-size: 14px; font-weight: bold;">
+                  <span>TOTAL:</span>
+                  <span style="color: #a6e22e;">$21.59</span>
+                </div>
+              </div>
+
+              <div
+                style="margin-top: 15px; background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                <div style="color: #888; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                <div style="color: #f8f8f2; font-size: 11px;">Total: $21.59</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Conclusión:</strong> <code style="color: red;">.toFixed()</code> es indispensable para la salida
+              de datos, pero
+              recuerda que al devolver un <strong>string</strong>, el número pierde su capacidad de cálculo directo
+              hasta que se convierta de nuevo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>.toFixed(2)</mark> garantiza que el total siempre se muestre con dos decimales, lo cual
+        es habitual
+        para las divisas en muchos países.
+      </p>
+      <p>
+        En conclusión, el método <mark>.toFixed()</mark> es una herramienta muy útil para dar formato a los números en
+        JavaScript,
+        sobre todo cuando necesitas controlar la visualización de los decimales. Aunque se utiliza principalmente para
+        dar formato a la salida, recuerda cómo funciona, especialmente cuando se requieran cálculos precisos.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let num = 5.678;
+                console.log(num.toFixed(1));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            "5.7"
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            "5.6"
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            5.7
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            5.6
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let num1 = 12.345;
+                let num2 = 67.891;
+                
+                console.log((num1 + num2).toFixed(2));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            "80.23"
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            "80.24"
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "80.25"
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "80.26"
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si llamas a toFixed() sin ningún argumento?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Lanza un error.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Devuelve el número original sin cambios.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Devuelve el número redondeado al entero más cercano.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Devuelve una representación en forma de cadena del número sin decimales.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

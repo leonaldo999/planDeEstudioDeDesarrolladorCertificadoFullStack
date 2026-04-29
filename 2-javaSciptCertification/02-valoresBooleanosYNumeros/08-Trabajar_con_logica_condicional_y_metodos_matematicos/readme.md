@@ -416,3 +416,32 @@ La primera instrucción de registro mostrará el valor `9`, ya que la raíz cuad
   ```
 
 `Math.pow()` toma dos números y eleva el primero a la potencia del segundo. Hay muchos más métodos que pertenecen al objeto `Math`, que puedes explorar por tu cuenta. Sin embargo, estos son solo algunos de los más utilizados en los códigos de JavaScript.
+
+---
+
+## Cuestionario 3
+
+1. **¿Qué hace la función `Math.floor()`?**
+
+    - [ ] a) Redondea un número al entero superior más cercano.
+    - [x] b) Redondea un número al entero inferior más cercano, independientemente de la posición de la coma decimal. //correcto
+    - [ ] c) Redondea un número al entero par más cercano.
+    - [ ] d) Redondea un número según la posición de la coma decimal.
+
+2. **¿Por qué se considera que `Math.round()` es un híbrido entre `Math.ceil()` y `Math.floor()`?**
+
+    - [ ] a) Solo redondea los números hacia arriba, como `Math.ceil()`.
+    - [ ] b) Redondea los números hacia abajo, como `Math.floor()`.
+    - [x] c) Redondea los números al entero más cercano, utilizando tanto el redondeo hacia arriba como hacia abajo dependiendo del decimal. //correcto
+    - [ ] d) Ignora el punto decimal.
+
+3. **¿Cuál es la diferencia entre `Math.min()` y `Math.max()`?**
+
+    - [ ] a) `Math.min()` devuelve el valor máximo, y `Math.max()` devuelve el valor mínimo.
+    - [x] b) `Math.min()` devuelve el número más pequeño, y `Math.max()` devuelve el número más grande de un conjunto. //correcto
+    - [ ] c) Ambos devuelven el mismo valor.
+    - [ ] d) `Math.min()` redondea los números hacia abajo, y `Math.max()` redondea los números hacia arriba.
+
+[☝️](#trabajar-con-lógica-condicional-y-métodos-matemáticos)
+
+---

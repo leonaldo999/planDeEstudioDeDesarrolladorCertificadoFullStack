@@ -62,5 +62,31 @@
 // let b = 3;  // Binary: 011
 // console.log(a & b);
 
-let x = 8;  // Binary: 1000
-console.log(x << 2);
+// let x = 8;  // Binary: 1000
+// console.log(x << 2);
+
+
+// <=====  =====>
+
+// console.log(isNaN("123"));
+
+// <=====  =====>
+
+// let num = 5.678;
+// console.log(num.toFixed(1));
+
+// let num1 = 12.345;
+// let num2 = 67.891;
+
+// console.log((num1 + num2).toFixed(2));
+
+// console.log(0 / 0);
+// console.log(isNaN());
+// console.log(isNaN("Matt"));
+// console.log(isNaN(7));
+// console.log(NaN(undefined));
+
+// let num = 5;
+// console.log(++num);
+
+// console.log(5 == '5');
