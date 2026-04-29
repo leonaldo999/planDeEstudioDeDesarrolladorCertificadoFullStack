@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En este desafío, aprenderás a usar comparaciones y oraciones condicionales para controlar el flujo de tu programa. Las comparaciones te permiten comparar valores y tomar decisiones basadas en esas comparaciones. Las oraciones condicionales, como if, else if y else, te permiten ejecutar diferentes bloques de código según las condiciones que hayas establecido. Al dominar estas herramientas, podrás crear programas más dinámicos e interactivos.">
+  <meta name="keywords"
+    content="comparaciones, oraciones condicionales, if, else if, else, control de flujo, programación dinámica, JavaScript">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Comprender las comparaciones y las oraciones condicionales">
+  <meta property="og:description"
+    content="En este desafío, aprenderás a usar comparaciones y oraciones condicionales para controlar el flujo de tu programa. Las comparaciones te permiten comparar valores y tomar decisiones basadas en esas comparaciones. Las oraciones condicionales, como if, else if y else, te permiten ejecutar diferentes bloques de código según las condiciones que hayas establecido. Al dominar estas herramientas, podrás crear programas más dinámicos e interactivos.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprender las comparaciones y las oraciones condicionales</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Comprender las comparaciones y las oraciones condicionales</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar operadores de comparación para comparar valores y a usar oraciones
+        condicionales para ejecutar código basado en el resultado de esas comparaciones. También aprenderás sobre la
+        precedencia de los operadores, que determina el orden en que se evalúan las operaciones en una expresión.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">Tema 1: ¿Cómo funcionan las comparaciones con los tipos de datos <mark>null</mark> y
+        <mark>undefined</mark>?
+      </h2>
+
+      <p>
+        En JavaScript, <mark>null</mark> y <mark>undefined</mark> son dos tipos de datos distintos que representan la
+        ausencia de un valor,
+        pero se comportan de manera diferente en las comparaciones. Comprender cómo interactúan estos tipos en diversos
+        escenarios de comparación es fundamental para escribir código robusto y sin errores.
+      </p>
+      <p>
+        Comencemos con el tipo <mark>undefined</mark>. Una variable es <mark>undefined</mark> cuando se ha declarado
+        pero no se le ha asignado un
+        valor. Es el valor predeterminado de las variables no inicializadas y de los parámetros de función a los que no
+        se les proporcionó un argumento.
+      </p>
+      <p>
+        El tipo <mark>null</mark>, por otro lado, es un valor de asignación que representa un no-valor deliberado. A
+        menudo se
+        utiliza para indicar que una variable no tiene valor intencionalmente.
+      </p>
+      <p>
+        Al comparar <mark>null</mark> y <mark>undefined</mark> utilizando el operador de igualdad <mark>==</mark>(),
+        JavaScript realiza una conversión de
+        tipos. Esto significa que intenta convertir los operandos al mismo tipo antes de realizar la comparación. En
+        este caso, <mark>null</mark> y <mark>undefined</mark> se consideran iguales:
+      </p>
+
+      <div class="ide-container" id="ide-js-null-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">comparison.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Igualdad débil (Abstract Equality)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true</span>
+
+<span class="tk-comment">// Igualdad estricta (Strict Equality)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">===</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// Tipos de datos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-property">typeof</span> <span class="tk-selector">null</span><span class="tk-punctuation">;</span>           <span class="tk-comment">// "object" (un error histórico de JS)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-property">typeof</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// "undefined"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Absence of Value Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div
+                    style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                    <div style="font-size: 8px; color: #66d9ef; margin-bottom: 5px;">UNDEFINED</div>
+                    <div style="color: #888; font-size: 10px; font-style: italic;">"No sé qué es esto aún"</div>
+                  </div>
+                  <div
+                    style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                    <div style="font-size: 8px; color: #ae81ff; margin-bottom: 5px;">NULL</div>
+                    <div style="color: #888; font-size: 10px; font-style: italic;">"Sé que aquí no hay nada"</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                    <span style="color: #f8f8f2;">null == undefined</span>
+                    <span style="color: #a6e22e; font-weight: bold;">TRUE</span>
+                  </div>
+                  <div
+                    style="display: flex; justify-content: space-between; font-size: 11px; margin-top: 5px; opacity: 0.6;">
+                    <span style="color: #f8f8f2;">null === undefined</span>
+                    <span style="color: #f92672; font-weight: bold;">FALSE</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border: 1px solid #333;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    true<br>
+                    false<br>
+                    "object"<br>
+                    "undefined"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Curiosidad:</strong> <code style="color: red;">typeof null</code> devuelve <code
+                style="color: red;">"object"</code>. Esto no es porque
+              null sea un objeto, sino por un error en la primera versión de JavaScript que nunca se corrigió para no
+              romper internet.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sin embargo, cuando se utiliza el operador de igualdad estricta (<mark>===</mark>), que comprueba tanto el valor
+        como el tipo sin realizar una conversión de tipos, null y undefined no son iguales:
+      </p>
+
+      <div class="ide-container" id="ide-js-strict-null-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparación de Identidad</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">===</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// ¿Por qué? Verifiquemos sus tipos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-property">typeof</span> <span class="tk-selector">null</span><span class="tk-punctuation">;</span>           <span class="tk-comment">// "object"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-property">typeof</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// "undefined"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Strict Identity Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <span style="color: #ae81ff; font-size: 11px;">null</span>
+                    <span style="color: #f92672; font-weight: bold;">!==</span>
+                    <span style="color: #66d9ef; font-size: 11px;">undefined</span>
+                  </div>
+                  <div style="height: 1px; background: #333; margin: 8px 0;"></div>
+                  <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 9px; text-align: center;">
+                    <div style="color: #888;">Tipo: <strong>Object</strong></div>
+                    <div style="color: #888;">Tipo: <strong>Undefined</strong></div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672; margin-top: 5px;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > false<br>
+                    > "object"<br>
+                    > "undefined"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Dato Clave:</strong> La igualdad estricta <code style="color: red;">===</code> no solo compara
+              el contenido, sino
+              que pregunta: "¿Son estos exactamente el mismo tipo de dato?". Como la respuesta es no, el resultado
+              siempre será <code style="color: red;">false</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es importante tener en cuenta esta diferencia al escribir sentencias condicionales o al realizar comprobaciones
+        de igualdad en tu código. Al comparar valores <mark>null</mark> o <mark>undefined</mark> con otros valores
+        utilizando el operador de igualdad (<mark>==</mark>), el comportamiento puede ser inesperado. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-null-equality-rules">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">pitfalls.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparaciones que devuelven FALSE</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-string">''</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// La única comparación TRUE para estos casos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+
+<span class="tk-comment">// Comportamiento matemático (Diferente a ==)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">+</span> <span class="tk-number">10</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// 10 (Aquí sí actúa como 0)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                The "Exclusive Club" of Null/Undefined</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; position: relative;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 10px;">COMPATIBILIDAD CON (==)</div>
+
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    <div
+                      style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 5px 10px; border-radius: 4px; color: #a6e22e; font-size: 11px;">
+                      null</div>
+                    <div style="color: #f8f8f2;">↔</div>
+                    <div
+                      style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 5px 10px; border-radius: 4px; color: #a6e22e; font-size: 11px;">
+                      undefined</div>
+                  </div>
+
+                  <div style="display: flex; justify-content: center; gap: 20px; margin-top: 15px; opacity: 0.4;">
+                    <div style="font-size: 10px; color: #f92672; text-decoration: line-through;">0</div>
+                    <div style="font-size: 10px; color: #f92672; text-decoration: line-through;">""</div>
+                    <div style="font-size: 10px; color: #f92672; text-decoration: line-through;">false</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    null == 0 -> false<br>
+                    null == '' -> false<br>
+                    null == undefined -> true<br>
+                    Math: null + 10 -> 10
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+              ⚠️ <strong>Dato importante:</strong> Esta es la razón por la que escribir
+              <code style="color: red;">if (variable == null)</code> es un truco popular: detecta si la variable es
+              <code style="color: red;">null</code> O
+              <code style="color: red;">undefined</code> al mismo tiempo, ignorando otros valores falsy como el 0.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estas comparaciones devuelven <mark>false</mark> porque <mark>null</mark> y <mark>undefined</mark> solo son
+        iguales entre sí (y a sí mismos) cuando se utiliza el operador de igualdad. El comportamiento de
+        <mark>null</mark> en otras comparaciones es especialmente complicado:
+      </p>
+
+      <div class="ide-container" id="ide-js-null-paradox">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">paradox.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// La paradoja de las comparaciones</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">&gt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false (null se vuelve 0)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false (null no se convierte)</span>
+
+<span class="tk-comment">// ¡Aquí está la sorpresa!</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (null se vuelve 0)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Comparison Algorithm Logic</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #66d9ef;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 5px;">MATH CONTEXT (> o >=)</div>
+                  <div style="font-size: 11px; color: #f8f8f2;">null ➔ <span
+                      style="font-weight: bold; color: #a6e22e;">0</span></div>
+                  <div style="font-size: 10px; color: #888; margin-top: 4px;">0 >= 0 es <span
+                      style="color: #a6e22e;">True</span></div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #f92672;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 5px;">EQUALITY CONTEXT (==)</div>
+                  <div style="font-size: 11px; color: #f8f8f2;">null ➔ <span
+                      style="font-weight: bold; color: #f92672;">null</span></div>
+                  <div style="font-size: 10px; color: #888; margin-top: 4px;">null == 0 es <span
+                      style="color: #f92672;">False</span></div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    false (null > 0)<br>
+                    false (null == 0)<br>
+                    true (null >= 0) ✅
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Conclusión:</strong> Nunca confíes en la conversión automática de <code
+                style="color: red;">null</code> para lógica
+              de negocios sensible. Valida siempre tus tipos antes de comparar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por otro lado, <mark>undefined</mark> siempre se convierte en <mark>NaN</mark> en contextos numéricos, lo que
+        hace que todas las comparaciones numéricas con <mark>undefined</mark> devuelvan <mark>false</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-undefined-numeric">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">undefined_logic.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Comparaciones numéricas con undefined</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">&gt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">&lt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// ¿Por qué ocurre esto?</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Undefined to Number Flow</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #111; padding: 15px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="color: #66d9ef; font-size: 11px;">undefined</div>
+                  <div style="color: #888;">➔ (Number) ➔</div>
+                  <div style="color: #f92672; font-weight: bold; font-size: 11px;">NaN</div>
+                </div>
+
+                <div
+                  style="font-size: 10px; color: #f8f8f2; background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 4px;">
+                  <div
+                    style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 4px 0;">
+                    <span>NaN > 0</span> <span style="color: #f92672;">false</span>
+                  </div>
+                  <div
+                    style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 4px 0;">
+                    <span>NaN < 0</span> <span style="color: #f92672;">false</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                    <span>NaN == 0</span> <span style="color: #f92672;">false</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    false<br>
+                    false<br>
+                    false<br>
+                    NaN
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Best Practice:</strong> Al inicializar variables que esperas que sean números, usa
+              <code style="color: red;">null</code> o <code style="color: red;">0</code> en lugar de dejarlas como <code
+                style="color: red;">undefined</code>. Esto hará que tus
+              errores matemáticos sean más fáciles de rastrear.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Teniendo en cuenta estos matices, por lo general se recomienda utilizar el operador de igualdad estricta al
+        comparar valores, especialmente cuando se trata de <mark>null</mark> y <mark>undefined</mark>. Este enfoque
+        ayuda a evitar la conversión
+        de tipos inesperada y hace que el comportamiento de tu código sea más predecible.
+      </p>
+      <p>
+        En resumen, aunque tanto <mark>null</mark> como <mark>undefined</mark> se utilizan para representar la ausencia
+        de un valor, se comportan
+        de manera diferente en las comparaciones. Comprender estas diferencias es clave para escribir código JavaScript
+        claro y sin errores.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado de la expresión: <mark>null === undefined</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Null
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En JavaScript, ¿cuál es el resultado de la comparación: <mark>null >= 0</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            true
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            false
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Error
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones sobre <mark>undefined</mark> es correcta?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            undefined == null da como resultado false.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            undefined === null da como resultado true.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            undefined < 0 da como resultado true. </label>
+              <label>
+                <input type="radio" name="q3">
+                undefined == 0 da como resultado false.
+              </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">Tema 2: ¿Qué son las sentencias <mark>switch</mark> y en qué se diferencian de las cadenas
+        <mark>if/else</mark>?
+      </h2>
+
+      <p>
+        Tanto las sentencias <mark>switch</mark> como las cadenas <mark>if/else if/else</mark> son
+        estructuras de flujo de control en programación
+        que nos permiten ejecutar diferentes bloques de código en función de determinadas condiciones. Sin embargo,
+        tienen características y casos de uso distintos.
+      </p>
+      <p>
+        Una instrucción <mark>switch</mark> evalúa una expresión y compara su valor con una serie de cláusulas
+        <mark>case</mark>. Cuando se
+        encuentra una coincidencia, se ejecuta el bloque de código asociado a <mark>case</mark>. A continuación se
+        muestra la
+        estructura básica de una instrucción <mark>switch</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-switch-statement">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">switch.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruit</span> = <span class="tk-string">'apple'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">switch</span> <span class="tk-punctuation">(</span><span class="tk-selector">fruit</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">case</span> <span class="tk-string">'apple'</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'Manzanas a $0.50'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-string">'banana'</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'Bananas a $0.20'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">default</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">'Fruta no disponible'</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// Resultado: Manzanas a $0.50</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Switch Flow Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 4px;">EXPRESSION</div>
+                  <div style="color: #66d9ef; font-size: 12px;">fruit = "apple"</div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 10px; color: #a6e22e;">CASE "apple"</span>
+                    <span style="font-size: 9px; color: #f8f8f2; font-weight: bold;">MATCH ✅</span>
+                  </div>
+                  <div
+                    style="background: #111; border: 1px solid #333; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; opacity: 0.5;">
+                    <span style="font-size: 10px; color: #888;">CASE "banana"</span>
+                    <span style="font-size: 9px; color: #888;">SKIPPED</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    "Manzanas a $0.50"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>¿Sabías que?</strong> Si omites el <code style="color: red;">break</code> en el primer caso,
+              JavaScript ejecutará
+              también el código de "banana" aunque la fruta no sea banana. Esto se llama <em>fall-through</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La instrucción <mark>break</mark> al final de cada <mark>case</mark> es fundamental. Le indica al programa que
+        salga del bloque <mark>switch</mark> una
+        vez que se haya ejecutado el <mark>case</mark> correspondiente. Sin ella, el programa seguiría ejecutando los
+        casos
+        posteriores, un comportamiento conocido como "fall-through".
+      </p>
+      <p>
+        Las sentencias <mark>switch</mark> se utilizan normalmente cuando se compara una sola variable con múltiples
+        valores
+        posibles. Son especialmente útiles cuando hay muchas condiciones potenciales que verificar con respecto a una
+        sola variable. A continuación se muestra un ejemplo en el que se utiliza una sentencia <mark>switch</mark> para
+        los días de
+        la semana:
+      </p>
+
+      <div class="ide-container" id="ide-js-switch-days">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">weekly_planner.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">dayOfWeek</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-property">switch</span> <span class="tk-punctuation">(</span><span class="tk-selector">dayOfWeek</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">case</span> <span class="tk-number">1</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Monday! Time to start the week strong."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">2</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Tuesday! Keep the momentum going."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">3</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Wednesday! We're halfway there."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">4</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Thursday! Almost the weekend."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">5</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Friday! The weekend is near."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">6</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Saturday! Enjoy your weekend."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">7</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"It's Sunday! Rest and recharge."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">default</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Invalid day! Please enter a number between 1 and 7."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Day Matcher Visualizer</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; display: flex; align-items: center; justify-content: space-between;">
+                  <div>
+                    <div style="font-size: 8px; color: #888;">INPUT VALUE</div>
+                    <div style="color: #66d9ef; font-size: 14px;">3</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 8px; color: #888;">TARGET CASE</div>
+                    <div style="color: #a6e22e; font-size: 14px;">CASE 3</div>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; gap: 4px;">
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                  <div
+                    style="flex:1; height: 4px; background: #a6e22e; border-radius: 2px; box-shadow: 0 0 8px #a6e22e;">
+                  </div>
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                  <div style="flex:1; height: 4px; background: #333; border-radius: 2px;"></div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">SYSTEM OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    "It's Wednesday! We're halfway there."
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Pro-Tip:</strong> El bloque <code style="color: red;">default</code> no es obligatorio, pero es
+              una excelente
+              práctica para capturar valores inesperados y evitar que tu programa falle silenciosamente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Las sentencias <mark>switch</mark> pueden resultar más legibles y concisas cuando se trabaja con muchos valores
+        posibles para
+        una sola variable.
+      </p>
+      <p>
+        Por otro lado, las sentencias <mark>if/else if</mark> son más flexibles. Pueden evaluar condiciones complejas y
+        variables
+        diferentes en cada cláusula. Esto las hace adecuadas para una gama más amplia de situaciones. A continuación se
+        muestra un ejemplo de cuándo se podría preferir una sentencia <mark>if/else</mark> en lugar de una sentencia
+        <mark>switch</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-logic-flexibility">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">loan_checker.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">creditScore</span> = <span class="tk-number">720</span><span class="tk-punctuation">;</span> 
+<span class="tk-property">let</span> <span class="tk-selector">annualIncome</span> = <span class="tk-number">60000</span><span class="tk-punctuation">;</span> 
+<span class="tk-property">let</span> <span class="tk-selector">loanAmount</span> = <span class="tk-number">200000</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-property">let</span> <span class="tk-selector">eligibilityStatus</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">creditScore</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">750</span> <span class="tk-operator">&amp;&amp;</span> <span class="tk-selector">annualIncome</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">80000</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">eligibilityStatus</span> = <span class="tk-string">"Eligible for premium loan rates."</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">else if</span> <span class="tk-punctuation">(</span><span class="tk-selector">creditScore</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">700</span> <span class="tk-operator">&amp;&amp;</span> <span class="tk-selector">annualIncome</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">50000</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">eligibilityStatus</span> = <span class="tk-string">"Eligible for standard loan rates."</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">else if</span> <span class="tk-punctuation">(</span><span class="tk-selector">creditScore</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">650</span> <span class="tk-operator">&amp;&amp;</span> <span class="tk-selector">annualIncome</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">40000</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">eligibilityStatus</span> = <span class="tk-string">"Eligible for subprime loan rates."</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">else if</span> <span class="tk-punctuation">(</span><span class="tk-selector">creditScore</span> <span class="tk-operator">&lt;</span> <span class="tk-number">650</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">eligibilityStatus</span> = <span class="tk-string">"Not eligible due to low credit score."</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">else</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">eligibilityStatus</span> = <span class="tk-string">"Not eligible due to insufficient income."</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">eligibilityStatus</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Loan Eligibility Analyzer</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 7px; color: #888;">CREDIT SCORE</div>
+                    <div style="color: #66d9ef; font-size: 13px; font-weight: bold;">720</div>
+                  </div>
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 7px; color: #888;">ANNUAL INCOME</div>
+                    <div style="color: #a6e22e; font-size: 13px; font-weight: bold;">$60k</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; margin-top: 5px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 5px;">RULE MATCHED: IF (>= 700 && >= 50000)
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 11px;">"Eligible for standard loan rates."</div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > Eligible for standard loan rates.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛠️ <strong>Guía de elección:</strong> Usa <code style="color: red;">switch</code> para variables simples
+              (como un estado de
+              pedido o un día). Usa <code style="color: red;">if/else</code> para todo lo demás que requiera cálculos o
+              comparaciones
+              múltiples.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, contamos con los ingresos anuales y la calificación crediticia de una persona, y verificamos
+        para qué tipos de préstamos podría calificar. Dado que estamos lidiando con evaluaciones lógicas más complejas y
+        múltiples variables, es mejor utilizar una instrucción <mark>if/else</mark> en lugar de una instrucción
+        <mark>switch</mark>.
+      </p>
+      <p>
+        Vale la pena señalar que las instrucciones <mark>switch</mark> en JavaScript utilizan la comparación estricta
+        (<mark>===</mark>), lo que
+        significa que no realizan conversión de tipos. Esto puede ser una ventaja en términos de previsibilidad y para
+        evitar errores sutiles.
+      </p>
+      <p>
+        En resumen, aunque tanto las sentencias <mark>switch</mark> como las cadenas <mark>if/else if</mark> permiten
+        una lógica de múltiples
+        ramificaciones en tu código, tienen diferentes puntos fuertes. Las sentencias <mark>switch</mark> se destacan en
+        el manejo de
+        múltiples valores posibles para una sola variable, mientras que las cadenas <mark>if/else if</mark> ofrecen más
+        flexibilidad
+        para condiciones complejas. La elección entre ellas a menudo se reduce a los requisitos específicos de tu código
+        y a las preferencias de estilo de programación personales o del equipo.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si se omite la instrucción <mark>break</mark> en un caso de <mark>switch</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            La instrucción switch generará un error.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            El programa saldrá del bloque switch inmediatamente.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            El código continuará con el siguiente caso, independientemente de si coincide o no.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            No pasa nada; break es opcional en las instrucciones switch.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una ventaja clave de utilizar una instrucción <mark>switch</mark> en
+            lugar de una cadena de sentencias <mark>if/else</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Las instrucciones switch pueden manejar condiciones más complejas.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Las instrucciones switch pueden comparar varias variables.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Las instrucciones switch suelen ser más concisas a la hora de comparar una sola variable con muchos valores.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Las instrucciones switch siempre se ejecutan más rápido que las cadenas de sentencias if/else.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En JavaScript, ¿qué tipo de comparación utiliza una instrucción <mark>switch</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Igualdad simple (==).
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Igualdad estricta (===).
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Mayor o igual que (>=).
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Menor o igual que (<=). </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

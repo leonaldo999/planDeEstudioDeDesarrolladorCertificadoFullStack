@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de comparaciones y condiciones en JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/js-icon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de comparaciones y condiciones en JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> null y undefined</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> switch</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        02 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/js-icon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de comparaciones y condiciones en JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem;border-radius: 1rem;">
+        🌓 Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta sección, repasaremos cómo funcionan las comparaciones y las condiciones en JavaScript, especialmente
+          en relación con los tipos de datos null y undefined. Es importante entender cómo estos valores interactúan con
+          las comparaciones para evitar errores comunes en el código.
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: Comparaciones y los tipos de datos <mark>null</mark> y <mark>undefined</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Comparaciones y <mark>undefined</mark></strong>: Una variable se considera <mark>undefined</mark>
+              cuando se ha declarado pero no se le ha asignado ningún valor. Es el valor predeterminado de las variables
+              no inicializadas y de los parámetros de función a los que no se les ha proporcionado un argumento.
+              <mark>undefined</mark> se convierte en <mark>NaN</mark> en contextos numéricos, lo que hace que todas las
+              comparaciones numéricas con <mark>undefined</mark> devuelvan <mark>false</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-repaso-undefined">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">repaso_undefined.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// REPASO: undefined en contextos numéricos</span>
+<span class="tk-property">let</span> <span class="tk-selector">notDefined</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Valor por defecto: undefined</span>
+
+<span class="tk-comment">// Comparaciones relacionales (devuelven false)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">notDefined</span> <span class="tk-operator">&lt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">notDefined</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// Explicación: Number(undefined) es NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Number</span><span class="tk-punctuation">(</span><span class="tk-selector">notDefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Comparison Breakdown</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 4px;">VARIABLE STATE</div>
+                    <div style="color: #66d9ef; font-size: 11px;">notDefined = <span
+                        style="color: #ae81ff;">undefined</span></div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <div
+                      style="background: rgba(249, 38, 114, 0.1); padding: 8px; border-radius: 4px; border: 1px solid #f92672; text-align: center;">
+                      <div style="font-size: 8px; color: #f92672;">AS NUMBER</div>
+                      <div style="color: #f8f8f2; font-size: 11px; font-weight: bold;">NaN</div>
+                    </div>
+                    <div
+                      style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; text-align: center;">
+                      <div style="font-size: 8px; color: #888;">RESULT</div>
+                      <div style="color: #f92672; font-size: 11px; font-weight: bold;">FALSE</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672; margin-top: 5px;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                      > false (undefined < 0)<br>
+                        > false (undefined >= 0)<br>
+                        > NaN (Number conversion)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Recordatorio:</strong> En JavaScript, <code style="color: yellow;">NaN</code> es el único
+                valor que no es igual a sí
+                mismo (<code style="color: yellow;">NaN === NaN</code> es <code>false</code>). Por eso <code
+                  style="color: yellow;">undefined</code> falla en todas
+                las pruebas numéricas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Comparaciones y <mark>null</mark></strong>: El tipo <mark>null</mark> representa la ausencia
+              intencionada de un valor. En contextos numéricos, <mark>null</mark> se convierte en <mark>0</mark>, lo que
+              puede provocar un comportamiento inesperado en las comparaciones numéricas:
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-repaso-null">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">repaso_null.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// REPASO: null en contextos numéricos</span>
+<span class="tk-property">let</span> <span class="tk-selector">emptyValue</span> = <span class="tk-selector">null</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Comparaciones relacionales (Conversión a 0)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyValue</span> <span class="tk-operator">&lt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false (0 < 0)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyValue</span> <span class="tk-operator">&gt;=</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (0 >= 0)</span>
+
+<span class="tk-comment">// Comparación de igualdad (Sin conversión a número)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyValue</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Null Value Coercion Monitor</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 6px;">COMPUTATIONAL CONTEXT</div>
+                    <div style="display: flex; align-items: center; justify-content: space-around;">
+                      <div style="text-align: center;">
+                        <div style="font-size: 10px; color: #a6e22e;">Relational</div>
+                        <div style="font-size: 11px; color: #f8f8f2;">null ➔ <span style="font-weight:bold;">0</span>
+                        </div>
+                      </div>
+                      <div style="width: 1px; height: 20px; background: #333;"></div>
+                      <div style="text-align: center;">
+                        <div style="font-size: 10px; color: #f92672;">Equality</div>
+                        <div style="font-size: 11px; color: #f8f8f2;">null ➔ <span style="font-weight:bold;">null</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                      > false (0 < 0)<br>
+                        > true (0 >= 0) ✅<br>
+                        > false (null == 0) ❌
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato curioso:</strong> Esta discrepancia ocurre porque <code style="color: yellow;">==</code>
+                sigue una regla de
+                diseño específica para <code style="color: yellow;">null</code>, mientras que <code
+                  style="color: yellow;">&gt;=</code> sigue el estándar de conversión a
+                primitivo numérico.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Cuando se utiliza el operador de igualdad (<mark>==</mark>), <mark>null</mark> y <mark>undefined</mark>
+              solo son iguales entre sí y a sí mismos:
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-equality-club">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">equality_rules.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// El "Club Privado" de la igualdad débil</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+
+<span class="tk-comment">// Intrusos rechazados (aunque sean falsy)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">==</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">==</span> <span class="tk-number">NaN</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// false</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefined</span> <span class="tk-operator">==</span> <span class="tk-string">''</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// false</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  The Equality "Club" Logic</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                  <div style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                      <div style="color: #ae81ff; font-weight: bold;">null</div>
+                      <div style="color: #a6e22e; font-size: 14px;">==</div>
+                      <div style="color: #66d9ef; font-weight: bold;">undefined</div>
+                    </div>
+                    <div style="text-align: center; font-size: 8px; color: #888; margin-top: 5px;">Solo entre ellos se
+                      consideran "iguales"</div>
+                  </div>
+
+                  <div style="font-size: 10px; color: #f8f8f2; opacity: 0.8;">
+                    <div
+                      style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #222;">
+                      <span>null == 0</span> <span style="color: #f92672;">❌ FALSE</span>
+                    </div>
+                    <div
+                      style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #222;">
+                      <span>undefined == NaN</span> <span style="color: #f92672;">❌ FALSE</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                      <span>null == false</span> <span style="color: #f92672;">❌ FALSE</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                    <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                      > true (null == undefined)<br>
+                      > false (null == 0)<br>
+                      > false (undefined == NaN)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato Técnico:</strong> Esta regla es tan consistente que muchos desarrolladores la usan para
+                verificar si una variable no tiene valor escribiendo <code
+                  style="color: yellow;">if (variable == null)</code>, lo que cubre
+                ambos casos (null y undefined) en un solo paso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Sin embargo, cuando se utiliza el operador de igualdad estricta (<mark>===</mark>), que comprueba tanto el
+              valor como el tipo sin realizar una conversión de tipos, <mark>null</mark> y <mark>undefined</mark> no son
+              iguales:
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-repaso-strict">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">strict_identity.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// Igualdad Estricta: Sin conversión de tipos</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">null</span> <span class="tk-operator">===</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span>
+
+<span class="tk-comment">// Verificación de tipos</span>
+<span class="tk-property">const</span> <span class="tk-selector">typeNull</span> = <span class="tk-property">typeof</span> <span class="tk-selector">null</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// "object"</span>
+<span class="tk-property">const</span> <span class="tk-selector">typeUndef</span> = <span class="tk-property">typeof</span> <span class="tk-selector">undefined</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "undefined"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">typeNull</span> <span class="tk-operator">===</span> <span class="tk-selector">typeUndef</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Strict Identity Check</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div
+                      style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                      <div style="font-size: 8px; color: #888; margin-bottom: 5px;">VALUE: null</div>
+                      <div style="color: #ae81ff; font-size: 10px;">TYPE: object</div>
+                    </div>
+                    <div
+                      style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                      <div style="font-size: 8px; color: #888; margin-bottom: 5px;">VALUE: undefined</div>
+                      <div style="color: #66d9ef; font-size: 10px;">TYPE: undefined</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 12px; border-radius: 4px; text-align: center;">
+                    <span style="color: #f8f8f2; font-size: 12px;">null === undefined</span>
+                    <span
+                      style="display: block; color: #f92672; font-weight: bold; font-size: 16px; margin-top: 5px;">FALSE</span>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border: 1px solid #333;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                      > false<br>
+                      > false (types differ)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🎯 <strong>Conclusión del repaso:</strong> Mientras que <code style="color: yellow;">==</code> agrupa
+                conceptos similares de
+                "vacío", <code style="color: yellow;">===</code> separa las identidades únicas. Usa el segundo para
+                evitar sorpresas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Instrucciones <mark>switch</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Una instrucción <mark>switch</mark> evalúa una expresión y compara su valor
+              con una serie de cláusulas <mark>case</mark>. Cuando se encuentra una coincidencia, se ejecuta el bloque
+              de código asociado a ese caso. Se debe colocar una instrucción <mark>break</mark> al final de cada caso,
+              para dar por terminada su ejecución y continuar con el siguiente. El caso por <mark>default</mark> es
+              opcional y solo se ejecuta si ninguno de los otros casos coincide. El caso por <mark>default</mark> se
+              coloca al final de una instrucción <mark>switch</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-repaso-switch">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">switch_review.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">dayOfWeek</span> = <span class="tk-number">3</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-property">switch</span> <span class="tk-punctuation">(</span><span class="tk-selector">dayOfWeek</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">case</span> <span class="tk-number">1</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Monday"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">case</span> <span class="tk-number">3</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Wednesday"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Detiene la ejecución aquí</span>
+  <span class="tk-property">default</span><span class="tk-punctuation">:</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Invalid day"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Switch Mechanism Monitor</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--sp-font-code);">
+
+                  <div
+                    style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <div style="color: #66d9ef; font-size: 11px;">Input (3)</div>
+                    <div style="color: #a6e22e; font-weight: bold; font-size: 14px;">===</div>
+                    <div style="color: #ae81ff; font-size: 11px;">Case 3</div>
+                  </div>
+
+                  <div style="position: relative; padding-left: 15px; border-left: 2px dashed #333;">
+                    <div style="margin-bottom: 5px; opacity: 0.3; font-size: 10px; color: #888;">Case 1 (Ignorado)</div>
+                    <div
+                      style="margin-bottom: 5px; background: rgba(166, 226, 46, 0.1); padding: 5px; border-radius: 4px; border: 1px solid #a6e22e;">
+                      <div style="font-size: 10px; color: #a6e22e;">Case 3 MATCH</div>
+                      <div style="font-size: 9px; color: #f8f8f2;">Exec: log("Wednesday")</div>
+                    </div>
+                    <div
+                      style="background: #f92672; color: #fff; font-size: 8px; padding: 2px 6px; border-radius: 2px; display: inline-block; margin-top: 2px;">
+                      BREAK: Exit Switch</div>
+                  </div>
+
+                  <div
+                    style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > "It's Wednesday! We're halfway there."
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Dato Crítico:</strong> El orden importa. El <code style="color: yellow;">default</code> se
+                coloca al final para
+                atrapar cualquier valor que no haya hecho <em>match</em> anteriormente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </div><!-- /.page-wrapper -->
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
