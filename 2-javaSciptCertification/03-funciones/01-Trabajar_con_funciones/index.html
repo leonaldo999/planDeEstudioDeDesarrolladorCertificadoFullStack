@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a declarar funciones, a pasarles argumentos y a devolver valores. Las funciones son una parte fundamental de la programación en JavaScript, ya que te permiten organizar tu código en bloques reutilizables y mantenerlo limpio y legible.">
+  <meta name="keywords"
+    content="JavaScript, funciones, declarar funciones, pasar argumentos, devolver valores, programación, código reutilizable, código limpio, código legible">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con funciones">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a declarar funciones, a pasarles argumentos y a devolver valores. Las funciones son una parte fundamental de la programación en JavaScript, ya que te permiten organizar tu código en bloques reutilizables y mantenerlo limpio y legible.">
+  <meta property="og:type" content="article">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con funciones</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con funciones</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a declarar funciones, a pasarles argumentos y a devolver valores. Las funciones son
+        una parte fundamental de la programación en JavaScript, ya que te permiten organizar tu código en bloques
+        reutilizables y mantenerlo limpio y legible.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Cuál es el propósito de las funciones y cómo funcionan?
+      </h2>
+
+      <p>
+        Las funciones son fragmentos de código reutilizables que realizan una tarea específica o calculan un valor.
+        Piensa en las funciones como una máquina que toma unos datos de entrada, realiza algunas operaciones con ellos
+        y, a continuación, genera unos datos de salida. A continuación, te mostramos un ejemplo de cómo declarar una
+        función:
+      </p>
+
+      <div class="ide-container" id="ide-js-functions-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">functions.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, Jessica!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Function Execution Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; position: relative;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 8px;">EN MEMORIA</div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div
+                      style="width: 10px; height: 10px; border-radius: 50%; background: #a6e22e; box-shadow: 0 0 5px #a6e22e;">
+                    </div>
+                    <div style="color: #f8f8f2; font-size: 11px;">greet: [Bloque de Código]</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); padding: 10px; border-radius: 4px; border: 1px solid #66d9ef;">
+                  <div style="font-size: 9px; color: #66d9ef; margin-bottom: 5px;">ESTADO:</div>
+                  <div style="color: #f8f8f2; font-size: 10px;">Para ejecutar el código, debes llamar a la función
+                    usando: <strong>greet();</strong></div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; font-style: italic; opacity: 0.7;">
+                    (Esperando llamada a la función...)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota:</strong> Definir una función es como escribir una receta. La receta no se cocina sola;
+              necesitas "llamarla" (invocarla) para que las instrucciones se ejecuten.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, hemos declarado una función llamada greet. Dentro de esa función, tenemos un console.log que
+        muestra el mensaje ¡Hola, Jessica!. Si intentáramos ejecutar este código, no veríamos aparecer el mensaje en la
+        consola. Esto se debe a que necesitamos llamar a la función.
+      </p>
+      <p>
+        Una llamada a una función, o invocación, es cuando realmente usamos o ejecutamos la función. Para llamar a una
+        función, tendrás que hacer referencia al nombre de la función seguido de un par de paréntesis:
+      </p>
+
+      <div class="ide-container" id="ide-js-function-invocation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">invocation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, Jessica!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, Jessica!"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Execution Flow Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; opacity: 0.7;">
+                  <div style="font-size: 8px; color: #888;">PASO 1: DECLARACIÓN</div>
+                  <div style="color: #f8f8f2; font-size: 10px;">La función se guarda en memoria.</div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #a6e22e;">
+                  <div style="font-size: 8px; color: #a6e22e;">PASO 2: INVOCACIÓN greet()</div>
+                  <div style="color: #f8f8f2; font-size: 10px;">El motor de JS salta a la línea 1 y ejecuta el bloque.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello, Jessica!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Flujo:</strong> Cuando JavaScript ve <code style="color: red;">greet()</code>, detiene lo que
+              está haciendo, busca
+              la función, ejecuta el código interno y luego vuelve al punto donde se hizo la llamada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora el mensaje <mark>¡Hola, Jessica!</mark> se registrará en la consola. Pero, ¿y si quisiéramos que el
+        mensaje dijera
+        <mark>¡Hola, Nick!</mark> o <mark>¡Hola, Anna!</mark>? No queremos escribir una nueva función cada vez que
+        saludemos a un usuario
+        diferente. En su lugar, podemos crear una función reutilizable que utilice parámetros y argumentos.
+      </p>
+      <p>
+        Los parámetros actúan como marcadores de posición para los valores que se pasarán a la función cuando se la
+        llame. Permiten que las funciones acepten entradas y trabajen con ellas. Los argumentos son los valores reales
+        que se pasan a la función cuando se la llama. Aquí hay una versión actualizada de la función <mark>greet</mark>
+        que utiliza
+        parámetros y argumentos:
+      </p>
+
+      <div class="ide-container" id="ide-js-params-args">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">dynamic_greet.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-string">"Alice"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Hello, Alice!</span>
+<span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-string">"Nick"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Hello, Nick!</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Data Flow: Param ➔ Arg</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 4px;">PLACEHOLDER (Parameter)</div>
+                  <div style="color: #66d9ef; font-size: 12px; font-weight: bold;">name</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-around; align-items: center; gap: 5px;">
+                  <div
+                    style="flex: 1; background: rgba(174, 129, 255, 0.1); padding: 8px; border-radius: 4px; border: 1px dashed #ae81ff; text-align: center;">
+                    <div style="font-size: 7px; color: #ae81ff;">ARG 1</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">"Alice"</div>
+                  </div>
+                  <div style="color: #444;">➔</div>
+                  <div
+                    style="flex: 1; background: rgba(174, 129, 255, 0.1); padding: 8px; border-radius: 4px; border: 1px dashed #ae81ff; text-align: center;">
+                    <div style="font-size: 7px; color: #ae81ff;">ARG 2</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">"Nick"</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > "Hello, Alice!"<br>
+                    > "Hello, Nick!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Diferencia clave:</strong> El <strong>parámetro</strong> es la variable en la definición (el
+              "molde"), mientras que el <strong>argumento</strong> es el valor real que envías al llamar a la función
+              (el "material").
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El <mark>name</mark> actúa como parámetro, mientras que los strings <mark>Alice</mark> y <mark>Nick</mark>
+        actúan como argumentos. Ahora tenemos una
+        función reutilizable que se puede usar decenas de veces a lo largo de nuestro código con diferentes argumentos.
+      </p>
+      <p>
+        Cuando una función termina su ejecución, siempre devuelve un valor. Por defecto, el valor de retorno será
+        <mark>undefined</mark>. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-return-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">return_value.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">doSomething</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Doing something..."</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">result</span> = <span class="tk-value">doSomething</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Function Return Tracker</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #66d9ef;">
+                    <div style="font-size: 8px; color: #66d9ef;">ACCIÓN (Efecto)</div>
+                    <div style="color: #f8f8f2; font-size: 10px;">Imprimir en consola</div>
+                  </div>
+                  <div
+                    style="background: rgba(174, 129, 255, 0.1); padding: 10px; border-radius: 6px; border: 1px solid #ae81ff;">
+                    <div style="font-size: 8px; color: #ae81ff;">RETORNO (Valor)</div>
+                    <div style="color: #f8f8f2; font-size: 10px; font-weight: bold;">undefined</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                  <div style="font-size: 8px; color: #888;">ASIGNACIÓN A VARIABLE</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">result <span style="color: #f92672;">=</span> undefined
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > "Doing something..."<br>
+                    > undefined
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Diferencia clave:</strong> <code style="color: red;">console.log</code> muestra datos en la
+              pantalla para el
+              humano, pero no "devuelve" nada al programa. Para que la variable <code style="color: red;">result</code>
+              reciba algo,
+              necesitarás la palabra clave <code style="color: red;">return</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si necesitas que tu función devuelva un valor específico, tendrás que utilizar la instrucción
+        <mark>return</mark>. A continuación te mostramos un ejemplo del uso de la instrucción <mark>return</mark> para
+        devolver la suma de dos valores:
+      </p>
+
+      <div class="ide-container" id="ide-js-function-return-sum">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">sum_calculator.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">calculateSum</span><span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> <span class="tk-operator">+</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">calculateSum</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Internal Arithmetic Flow</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">num1</div>
+                    <div
+                      style="background: #111; padding: 5px 10px; border-radius: 4px; border: 1px solid #333; color: #66d9ef;">
+                      3</div>
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 14px;">+</div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">num2</div>
+                    <div
+                      style="background: #111; padding: 5px 10px; border-radius: 4px; border: 1px solid #333; color: #66d9ef;">
+                      4</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; text-align: center; position: relative;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 5px;">INSTRUCTION: RETURN</div>
+                  <div style="font-size: 14px; color: #f8f8f2; font-weight: bold;">Result: 7</div>
+                  <div
+                    style="position: absolute; right: -5px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid #a6e22e;">
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    > 7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Diferencia clave:</strong> A diferencia del ejemplo anterior donde el resultado era
+              <code style="color: red;">undefined</code>, aquí el valor <strong>7</strong> es devuelto por la función y
+              puede ser capturado
+              por <code style="color: red;">console.log</code> o cualquier variable.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        A menudo utilizarás la instrucción <mark>return</mark>, ya que así podrás usar el valor devuelto por la función
+        más
+        adelante en tu código.
+      </p>
+      <p>
+        Hasta ahora hemos trabajado con funciones con nombre, pero también puedes crear lo que se conoce como una
+        función anónima. Una función anónima es una función sin nombre que se puede asignar a una variable de esta
+        manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-anonymous-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">anonymous_sum.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">sum</span> = <span class="tk-property">function</span> <span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> <span class="tk-operator">+</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">sum</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Function Expression Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                      <div style="font-size: 8px; color: #888;">VARIABLE NAME</div>
+                      <div style="color: #66d9ef; font-size: 13px;">sum</div>
+                    </div>
+                    <div style="color: #f92672; font-size: 18px;">=</div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 8px; color: #888;">ANONYMOUS LOGIC</div>
+                      <div style="color: #a6e22e; font-size: 11px;">function(n1, n2) { ... }</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.1); border: 1px dashed #ae81ff; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 5px;">INVOCATION VIA VARIABLE</div>
+                  <div style="font-size: 12px; color: #f8f8f2;">sum(3, 4) ➔ <span
+                      style="font-weight: bold; color: #a6e22e;">7</span></div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    > 7
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>Concepto Clave:</strong> Al usar <code style="color: red;">const sum = function...</code>, la
+              función en sí no
+              tiene nombre (es anónima), pero la variable <code style="color: red;">sum</code> apunta a ella. Esto
+              permite tratar a las
+              funciones como "ciudadanos de primera clase".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una variable <mark>const</mark> llamada <mark>sum</mark> a la que le asignamos una
+        función anónima que devuelve
+        la suma de <mark>num1</mark> y <mark>num2</mark>. A continuación, podemos llamar a <mark>sum</mark> y pasarle
+        los números <mark>3</mark> y <mark>4</mark> para obtener el
+        resultado <mark>7</mark>.
+      </p>
+      <p>
+        Las funciones admiten parámetros por defecto, lo que te permite establecer valores predeterminados para los
+        parámetros. Estos valores por defecto se utilizan si se llama a la función sin un argumento para ese parámetro.
+        He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-default-params">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">default_params.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greetings</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span> = <span class="tk-string">"Guest"</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">greetings</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Hello, Guest!</span>
+<span class="tk-value">greetings</span><span class="tk-punctuation">(</span><span class="tk-string">"Anna"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Hello, Anna!</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Default Value Logic</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 9px; color: #f92672;">Call: greetings()</span>
+                    <span style="font-size: 9px; color: #a6e22e;">Fallback: "Guest"</span>
+                  </div>
+                </div>
+
+                <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 9px; color: #66d9ef;">Call: greetings("Anna")</span>
+                    <span style="font-size: 9px; color: #f8f8f2;">Overwrites with: "Anna"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > "Hello, Guest!"<br>
+                    > "Hello, Anna!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Dato útil:</strong> Solo se usa el valor por defecto si el argumento es <code
+                style="color: red;">undefined</code>.
+              Si pasas <code style="color: red;">null</code>, JavaScript lo tomará como un valor válido y no usará el
+              valor predeterminado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, si no se proporciona ningún argumento para <mark>name</mark>, el valor predeterminado es
+        <mark>Guest</mark>.
+      </p>
+      <p>
+        En resumen, las funciones te permiten escribir código reutilizable y organizado. Pueden recibir entradas
+        (parámetros), realizar acciones y devolver resultados.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el resultado del siguiente código?
+            <pre>
+              <code>
+                function mystery(a, b = 3) {
+                  return a * b;
+                }
+                console.log(mystery(4));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            12
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            7
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            NaN
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la forma correcta de llamar (o invocar) a la función <mark>sum</mark>?
+            <pre>
+              <code>
+                function sum(num1, num2) {
+                  return num1 + num2
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            ()sum>
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            ()sum()
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            sum()
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            &lt;sum&gt;
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el valor de retorno predeterminado de una función si no se especifica ninguna instrucción
+            <mark>return</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            0
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Un string vacía.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué son las funciones flecha y cómo funcionan?
+      </h2>
+
+      <p>
+        En la lección anterior, aprendiste a trabajar con funciones, que son fragmentos de código reutilizables que
+        ayudan a que tu código sea más modular, más fácil de mantener y más eficiente. Todos los ejemplos anteriores
+        utilizaban la sintaxis habitual de las funciones, como esta:
+      </p>
+
+      <div class="ide-container" id="ide-js-traditional-start">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">traditional.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greetings</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Classic Function Anatomy</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 8px; color: #f92672;">KEYWORD</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">function</div>
+                  </div>
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333;">
+                    <div style="font-size: 8px; color: #a6e22e;">IDENTIFIER</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">greetings</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <div style="font-size: 9px; color: #66d9ef; margin-bottom: 4px;">OBSERVACIÓN:</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                    Esta es la forma estándar. En el siguiente paso, veremos cómo la "flecha" (<code>=></code>)
+                    reemplaza la palabra <code>function</code>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Dato Clave:</strong> Las funciones flecha no solo cambian la estética, sino que también manejan
+              el contexto de <code style="color: red;">this</code> de forma diferente, algo vital en programación
+              avanzada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sin embargo, otra forma de escribir funciones en JavaScript es crear una expresión de función flecha. A
+        continuación te mostramos cómo puedes refactorizar el ejemplo anterior para utilizar la sintaxis de las
+        funciones flecha:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arrow_function.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetings</span> = <span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Arrow Function Anatomy</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; display: flex; justify-content: space-around; align-items: center;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">PARAMS</div>
+                    <div style="color: #66d9ef; font-size: 11px;">(name)</div>
+                  </div>
+                  <div style="color: #f92672; font-size: 14px; font-weight: bold;">=></div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888;">LOGIC</div>
+                    <div style="color: #a6e22e; font-size: 11px;">{ body }</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px solid rgba(174, 129, 255, 0.3); padding: 10px; border-radius: 4px;">
+                  <div style="font-size: 9px; color: #ae81ff; margin-bottom: 4px;">REFACTORED CHANGES:</div>
+                  <ul
+                    style="margin: 0; padding-left: 15px; color: #f8f8f2; font-size: 10px; list-style-type: square; line-height: 1.4;">
+                    <li>Palabra <code>function</code> eliminada.</li>
+                    <li>Operador <code>=></code> (flecha) añadido.</li>
+                    <li>Asignada a variable <code>greetings</code>.</li>
+                  </ul>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">TIP:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    Llama a la función igual que siempre: <code>greetings("Jessica");</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Dato pro:</strong> Si la función flecha tiene un solo parámetro, puedes omitir los paréntesis:
+              <code style="color: red;">const greetings = name => { ... }</code>. ¡Menos código, misma potencia!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo revisado, estamos creando una variable <mark>const</mark> llamada <mark>greetings</mark> y
+        asignándole una función anónima. La mayor parte de la sintaxis te resultará familiar, salvo por la ausencia de
+        la palabra clave <mark>function</mark> y la incorporación de la flecha (<mark>=></mark>) entre el parámetro
+        <mark>name</mark> y el cuerpo de la función. Si tu lista de parámetros solo contiene un parámetro, puedes
+        eliminar los paréntesis de la siguiente manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-single-param">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">minimal_arrow.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetings</span> = <span class="tk-selector">name</span> <span class="tk-operator">=></span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Shorthand Parameter Check</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="font-size: 9px; color: #888;">CON PARÉNTESIS (Estándar):</div>
+                    <div style="color: #66d9ef; font-size: 10px; opacity: 0.6;">(name) => { ... }</div>
+                    <div style="height: 1px; background: #222; margin: 4px 0;"></div>
+                    <div style="font-size: 9px; color: #a6e22e;">SIN PARÉNTESIS (Simplificado):</div>
+                    <div style="color: #f8f8f2; font-size: 11px; font-weight: bold;">name => { ... }</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <div style="font-size: 9px; color: #a6e22e; margin-bottom: 4px;">REGLA DE ORO:</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                    Si tienes <strong>0</strong> parámetros o <strong>2+</strong> parámetros, los paréntesis son
+                    obligatorios. Solo con <strong>1</strong> puedes omitirlos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Eficiencia:</strong> Esta sintaxis es muy común al usar métodos de arreglos como
+              <code style="color: red;">.map()</code> o <code style="color: red;">.filter()</code>, donde solemos pasar
+              un único elemento como parámetro.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si tu función flecha no tiene parámetros, debes usar los paréntesis de esta manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-no-params">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">no_params.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetings</span> = <span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Empty Parameter Syntax</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                  <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                    <div
+                      style="background: rgba(249, 38, 114, 0.1); color: #f92672; padding: 5px 10px; border-radius: 4px; border: 1px solid #f92672; font-weight: bold;">
+                      ( )</div>
+                    <div style="color: #f8f8f2; font-size: 14px;">=></div>
+                    <div style="color: #a6e22e; font-size: 11px;">{ logic }</div>
+                  </div>
+                  <div style="font-size: 8px; color: #888; margin-top: 8px;">OBLIGATORIO CUANDO NO HAY INPUTS</div>
+                </div>
+
+                <div style="font-size: 10px; color: #f8f8f2;">
+                  <div
+                    style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #222;">
+                    <span>Sin parámetros:</span> <span style="color: #66d9ef;">() => { ... }</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                    <span>Con 1 parámetro:</span> <span style="color: #66d9ef;">name => { ... }</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Error común:</strong> Omitir los paréntesis cuando no hay parámetros causará un
+              <code style="color: red;">SyntaxError</code>. ¡Incluso si la función está vacía, los paréntesis son su
+              identidad!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando empezaste a aprender sobre las funciones, tenías que escribir el cuerpo de la función entre llaves. Pero
+        si el cuerpo de tu función solo contiene una línea de código, puedes eliminar las llaves de esta manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-oneliner">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">oneliner.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetings</span> = <span class="tk-selector">name</span> <span class="tk-operator">=></span> <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Implicit Logic Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333;">
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <div style="font-size: 8px; color: #888;">REDUCCIÓN DE SINTAXIS:</div>
+                    <div style="font-size: 10px; color: #f8f8f2; text-decoration: line-through; opacity: 0.4;">{ return
+                      ... }</div>
+                    <div style="color: #a6e22e; font-size: 11px; font-weight: bold;">=> (expresión directa)</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <div style="font-size: 9px; color: #a6e22e; margin-bottom: 4px;">CONCEPTO: RETORNO IMPLÍCITO</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                    Al quitar las llaves, lo que sea que esté después de la flecha se considera el "resultado" de la
+                    función automáticamente.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello, [name]!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato visual:</strong> Esta sintaxis hace que el código parezca casi lenguaje natural,
+              facilitando la lectura rápida durante el mantenimiento.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es importante señalar que eliminar los paréntesis y las llaves en la sintaxis de las funciones normales no
+        funcionará. Si intentas hacer algo como esto, obtendrás errores:
+      </p>
+
+      <div class="ide-container" id="ide-js-syntax-error-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">invalid_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// This will produce syntax errors </span>
+<span class="tk-property">function</span> <span class="tk-value">greetings</span> <span class="tk-selector">name</span> <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, "</span> <span class="tk-operator">+</span> <span class="tk-selector">name</span> <span class="tk-operator">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Debugger Alert</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 12px; border-radius: 6px;">
+                  <div style="color: #f92672; font-size: 9px; font-weight: bold; margin-bottom: 5px;">Uncaught
+                    SyntaxError:</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                    Unexpected identifier 'name'. Expected '(' to start parameter list.
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; opacity: 0.5;">
+                    <div style="font-size: 7px; color: #888;">ARROW FUNCTION</div>
+                    <div style="font-size: 9px; color: #a6e22e;">Permite omitir () y {}</div>
+                  </div>
+                  <div style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #f92672;">
+                    <div style="font-size: 7px; color: #f92672;">TRADITIONAL</div>
+                    <div style="font-size: 9px; color: #f8f8f2;">Exige () y {} siempre</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLA:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; font-family: monospace;">
+                    > ❌ SyntaxError: Unexpected token
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛑 <strong>Regla Inquebrantable:</strong> La sintaxis "limpia" es una recompensa por usar funciones
+              flecha. Con la palabra clave <code style="color: red;">function</code>, el lenguaje espera una estructura
+              formal completa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este tipo de funciones de una sola línea solo funcionan si se utiliza la sintaxis de funciones flecha. Otro
+        concepto clave es la instrucción <mark>return</mark>. A continuación se muestra un ejemplo del uso de la
+        sintaxis de funciones flecha para calcular el área:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-return-area">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">area_calc.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">calculateArea</span> = <span class="tk-punctuation">(</span><span class="tk-selector">width</span><span class="tk-punctuation">,</span> <span class="tk-selector">height</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">const</span> <span class="tk-selector">area</span> = <span class="tk-selector">width</span> <span class="tk-operator">*</span> <span class="tk-selector">height</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">return</span> <span class="tk-selector">area</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">calculateArea</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Calculation Pipeline</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; text-align: center;">
+                    <div style="font-size: 7px; color: #888;">WIDTH</div>
+                    <div style="color: #66d9ef; font-size: 11px;">5</div>
+                  </div>
+                  <div
+                    style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; text-align: center;">
+                    <div style="font-size: 7px; color: #888;">HEIGHT</div>
+                    <div style="color: #66d9ef; font-size: 11px;">3</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.1); border: 1px dashed #ae81ff; padding: 10px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px;">INTERNAL VARIABLE (area)</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">5 * 3 = <span
+                      style="font-weight: bold; color: #ae81ff;">15</span></div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 9px; color: #a6e22e; font-weight: bold;">RETURN VALUE</span>
+                  <span style="font-size: 12px; color: #f8f8f2;">15</span>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 15
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📐 <strong>Dato estructural:</strong> Aunque declaramos <code style="color: red;">area</code> con <code
+                style="color: red;">const</code> dentro de
+              la función, el valor se "clona" al devolverse, permitiendo que el resultado viva fuera de la función.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estamos creando una variable dentro de la función llamada <mark>area</mark> y luego devolvemos esa variable.
+        Pero podríamos simplificar un poco nuestro código y devolver el resultado del cálculo directamente:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrow-direct-return">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">area_direct.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">calculateArea</span> = <span class="tk-punctuation">(</span><span class="tk-selector">width</span><span class="tk-punctuation">,</span> <span class="tk-selector">height</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-selector">width</span> <span class="tk-operator">*</span> <span class="tk-selector">height</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">calculateArea</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Execution Shortcut</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 6px;">COMPUTATION FLOW</div>
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <span style="color: #66d9ef;">5 * 3</span>
+                    <span style="color: #f92672;">➔</span>
+                    <span style="color: #a6e22e; font-weight: bold;">15</span>
+                  </div>
+                  <div style="font-size: 7px; color: #66d9ef; margin-top: 8px;">(Returned instantly)</div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    > 15
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong>¿Sabías qué?</strong> Si tuvieras una sola línea, podrías incluso quitar el <code
+                style="color: red;">return</code>
+              y las llaves para un <strong>retorno implícito</strong>:
+              <code style="color: red;">const calculateArea = (w, h) => w * h;</code>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si intentaras eliminar las llaves y colocar el cálculo en la misma línea, aparecería el siguiente mensaje de
+        error: <mark>Uncaught SyntaxError: Unexpected token 'return'</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-error-return-implicit">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">syntax_error.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">calculateArea</span> = <span class="tk-punctuation">(</span><span class="tk-selector">width</span><span class="tk-punctuation">,</span> <span class="tk-selector">height</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-property">return</span> <span class="tk-selector">width</span> <span class="tk-operator">*</span> <span class="tk-selector">height</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Syntax Conflict Analysis</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 12px; border-radius: 6px; text-align: center;">
+                  <div style="color: #f8f8f2; font-size: 11px; margin-bottom: 8px;">
+                    <span style="opacity: 0.5;">=></span> <span
+                      style="background: #f92672; color: #fff; padding: 2px 4px; border-radius: 3px;">return</span>
+                    <span style="opacity: 0.5;">width * height</span>
+                  </div>
+                  <div style="font-size: 8px; color: #f92672; font-weight: bold;">CONFLICTO DETECTADO</div>
+                </div>
+
+                <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                  <div style="margin-bottom: 5px;">❌ <strong>Con llaves:</strong> Necesitas <code>return</code>
+                    explícito.</div>
+                  <div>✅ <strong>Sin llaves:</strong> El <code>return</code> ya está incluido en la flecha.</div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE ERROR:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; font-family: monospace;">
+                    > Uncaught SyntaxError: Unexpected token 'return'
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recuerda:</strong> Si quitas las llaves, la flecha <code style="color: red;">=></code> se
+              convierte automáticamente
+              en el "operador de retorno". No puedes tener dos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La razón por la que aparece este error es que debes eliminar la instrucción <mark>return</mark>. Cuando elimines
+        esa instrucción <mark>return</mark>, el error desaparecerá y la función seguirá devolviendo el resultado del
+        cálculo de forma implícita.
+      </p>
+
+      <div class="ide-container" id="ide-js-implicit-return-fixed">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">implicit_fixed.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">calculateArea</span> = <span class="tk-punctuation">(</span><span class="tk-selector">width</span><span class="tk-punctuation">,</span> <span class="tk-selector">height</span><span class="tk-punctuation">)</span> <span class="tk-operator">=></span> <span class="tk-selector">width</span> <span class="tk-operator">*</span> <span class="tk-selector">height</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">calculateArea</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Shorthand Execution Monitor</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 12px; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 5px;">AUTOMATIC RETURN FLOW</div>
+                  <div style="color: #f8f8f2; font-size: 13px;">(5 * 3) <span style="color: #a6e22e;">➔</span> 15</div>
+                  <div style="font-size: 7px; color: #888; margin-top: 5px;">No curly braces = Auto-return active</div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    > 15
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Resumen:</strong> Las funciones flecha son ideales para operaciones simples de una sola línea.
+              Cuando la lógica crece, volver a las llaves y al <code style="color: red;">return</code> explícito ayuda a
+              mantener la
+              claridad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Entonces, ¿cuándo se debe usar la sintaxis de las funciones flecha? Bueno, depende. Muchos desarrolladores la
+        usan sistemáticamente en sus proyectos personales. Sin embargo, cuando se trabaja en equipo, la elección suele
+        depender de si el código existente utiliza funciones normales o funciones flecha. En lecciones futuras, veremos
+        cuándo usar funciones flecha y cuándo evitarlas.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la forma correcta de escribir una función flecha que tome dos parámetros y devuelva su suma?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            (a, b) => { a + b }
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            (a, b) => a + b
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            (a, b) => return a + b
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            a, b => a + b
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la forma correcta de escribir una función flecha que no tome parámetros y devuelva la cadena
+            <mark>Hola</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            () => "Hello"
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            => "Hello"
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            () => { "Hello" }
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            () => return "Hello"
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let multiply = (a, b = 1) => a * b;
+
+                console.log(multiply(5));
+                console.log(multiply(5, 2));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            5, 10
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            1, 2
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            undefined, 10
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Qué es el ámbito en programación y cómo funcionan los ámbitos global, local y de bloque?
+      </h2>
+
+      <p>
+        El ámbito en programación se refiere a la visibilidad y accesibilidad de las variables en diferentes partes del
+        código. Determina dónde se puede acceder a las variables o modificarlas. En JavaScript, comprender el ámbito es
+        fundamental para escribir código limpio, eficiente y sin errores. Existen tres tipos principales de ámbito: el
+        ámbito global, el ámbito local y el ámbito de bloque.
+      </p>
+      <p>
+        El ámbito global es el ámbito más externo en un programa de JavaScript. Se puede acceder a las variables
+        declaradas en el ámbito global desde cualquier parte del código, incluso dentro de funciones y bloques. A estas
+        variables se les suele llamar variables globales. Si bien las variables globales pueden ser convenientes, deben
+        usarse con moderación, ya que pueden provocar conflictos de nombres y hacer que el código sea más difícil de
+        mantener. A continuación, se muestra un ejemplo de una variable global:
+      </p>
+
+      <div class="ide-container" id="ide-js-global-scope">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">global_scope.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">globalVar</span> = <span class="tk-string">"I'm a global variable"</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">function</span> <span class="tk-value">printGlobalVar</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">globalVar</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">printGlobalVar</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "I'm a global variable"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Scope Visibility Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <!-- Capa Global -->
+                <div
+                  style="border: 2px solid #66d9ef; background: rgba(102, 217, 239, 0.05); padding: 15px; border-radius: 8px; position: relative;">
+                  <div
+                    style="position: absolute; top: -8px; left: 10px; background: #66d9ef; color: #000; font-size: 8px; padding: 2px 5px; border-radius: 3px; font-weight: bold;">
+                    GLOBAL SCOPE</div>
+
+                  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div
+                      style="background: #111; border: 1px solid #333; padding: 5px 10px; border-radius: 4px; color: #f8f8f2; font-size: 11px;">
+                      <span style="color: #66d9ef;">var:</span> globalVar
+                    </div>
+                    <div style="color: #a6e22e; font-size: 14px;">➔</div>
+                    <div style="color: #888; font-size: 10px;">Visible en todo el archivo</div>
+                  </div>
+
+                  <!-- Capa Local (Función) -->
+                  <div
+                    style="border: 1px dashed #ae81ff; background: rgba(174, 129, 255, 0.1); padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #ae81ff; margin-bottom: 5px;">FUNCTION: printGlobalVar()</div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <div style="width: 8px; height: 8px; background: #66d9ef; border-radius: 50%;"></div>
+                      <div style="color: #f8f8f2; font-size: 10px;">Accediendo a <span
+                          style="color: #66d9ef;">globalVar</span>... <span style="color: #a6e22e;">¡Éxito!</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "I'm a global variable"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🌍 <strong>Regla de Oro:</strong> Una función siempre puede mirar "hacia afuera" a su ámbito superior,
+              pero el ámbito superior no siempre puede mirar "hacia adentro" de una función.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>globalVar</mark> se declara en el ámbito global y se puede acceder a ella desde dentro de
+        la función
+        <mark>printGlobalVar</mark>.
+      </p>
+      <p>
+        El ámbito local, por otro lado, se refiere a las variables a las que solo se puede acceder dentro de una
+        función. A continuación se muestra un ejemplo de ámbito local:
+      </p>
+
+      <div class="ide-container" id="ide-js-local-scope">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">local_scope.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">message</span> = <span class="tk-string">"Hello, local scope!"</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">message</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, local scope!"</span>
+<span class="tk-comment">// console.log(message); // This will throw an error</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Access Logic Diagram</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <!-- Representación de la Función como Muro -->
+                <div
+                  style="border: 2px solid #ae81ff; background: rgba(174, 129, 255, 0.05); padding: 15px; border-radius: 8px; position: relative;">
+                  <div
+                    style="position: absolute; top: -8px; left: 10px; background: #ae81ff; color: #fff; font-size: 8px; padding: 2px 5px; border-radius: 3px; font-weight: bold;">
+                    LOCAL SCOPE (Inside greet)</div>
+
+                  <div
+                    style="background: #111; border: 1px solid #a6e22e; padding: 5px 10px; border-radius: 4px; color: #a6e22e; font-size: 11px; display: inline-block;">
+                    message = "..."
+                  </div>
+                  <div style="margin-top: 10px; color: #f8f8f2; font-size: 10px;">✅ console.log(message) funciona aquí.
+                  </div>
+                </div>
+
+                <!-- Intento de acceso Externo -->
+                <div
+                  style="padding: 10px; border: 1px solid #f92672; background: rgba(249, 38, 114, 0.05); border-radius: 6px; display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #f92672; font-size: 16px;">🛑</div>
+                  <div>
+                    <div style="font-size: 9px; color: #f92672; font-weight: bold;">EXTERNAL ATTEMPT</div>
+                    <div style="color: #f8f8f2; font-size: 10px;">console.log(message) ➔ <span
+                        style="color: #f92672;">ReferenceError</span></div>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello, local scope!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔒 <strong>Dato clave:</strong> El ámbito local protege tus datos. Si otra función tuviera una variable
+              llamada <code style="color: red;">message</code>, no habría interferencia porque cada una vive en su
+              propio ámbito local.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, <mark>message</mark> es una variable local dentro de la función <mark>greet</mark>. Se puede
+        utilizar dentro de la
+        función, pero intentar acceder a ella fuera de la función provocará un error.
+      </p>
+      <p>
+        El ámbito de bloque es un concepto introducido con las palabras clave <mark>let</mark> y <mark>const</mark> en
+        ES6. Un bloque es cualquier
+        sección de código entre llaves <mark>{}</mark>, como en las sentencias <mark>if</mark>, los bucles
+        <mark>for</mark> o los bucles <mark>while</mark>. El concepto de
+        los bucles se explicará en una próxima lección.
+      </p>
+      <p>
+        Las variables declaradas con <mark>let</mark> o <mark>const</mark> dentro de un bloque solo son accesibles
+        dentro de ese bloque. A
+        continuación, se muestra un ejemplo de ámbito de bloque:
+      </p>
+
+      <!-- IDE INTERACTIVO: Ámbito de Bloque -->
+      <div class="ide-container" id="ide-js-block-scope">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">block_scope.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-property">true</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">blockVar</span> = <span class="tk-string">"I'm in a block"</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">blockVar</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "I'm in a block"</span>
+<span class="tk-punctuation">}</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">blockVar</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This will throw an error</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Block Confinement Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <!-- Bloque IF -->
+                <div
+                  style="border: 2px solid #a6e22e; background: rgba(166, 226, 46, 0.05); padding: 15px; border-radius: 8px; position: relative;">
+                  <div
+                    style="position: absolute; top: -8px; left: 10px; background: #a6e22e; color: #000; font-size: 8px; padding: 2px 5px; border-radius: 3px; font-weight: bold;">
+                    BLOCK SCOPE { ... }</div>
+
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div
+                      style="background: #111; border: 1px solid #a6e22e; padding: 5px 10px; border-radius: 4px; color: #f8f8f2; font-size: 11px;">
+                      blockVar
+                    </div>
+                    <div style="color: #a6e22e; font-size: 10px;">VIVE AQUÍ 🟢</div>
+                  </div>
+                </div>
+
+                <!-- Zona de Error -->
+                <div style="padding: 10px; border: 1px dashed #f92672; border-radius: 6px; text-align: center;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 5px;">OUTSIDE THE BLOCK</div>
+                  <div style="color: #f92672; font-size: 11px; font-weight: bold;">blockVar is UNDEFINED 🔴</div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE ERROR:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "I'm in a block"<br>
+                    <span style="color: #f92672;">> ReferenceError: blockVar is not defined</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Tip:</strong> El ámbito de bloque evita efectos secundarios. Al usar
+              <code style="color: red;">let</code>, te aseguras de que tus variables no "sangren" hacia otras partes del
+              código por
+              accidente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, solo se puede acceder a <mark>blockVar</mark> dentro del bloque <mark>if</mark>. Si intentas
+        acceder a ella fuera del
+        bloque, se producirá un error. Comprender estos diferentes tipos de ámbito es esencial para gestionar la
+        accesibilidad de las variables y evitar efectos secundarios no deseados en tu código.
+      </p>
+      <p>
+        Las variables globales deben usarse con moderación, ya que pueden provocar conflictos de nombres y dificultar el
+        mantenimiento de tu código. Las variables locales ayudan a mantener aisladas las diferentes partes de tu código,
+        lo cual es especialmente útil en programas más grandes. El ámbito de bloque con let y const proporciona un
+        control aún más preciso sobre la accesibilidad de las variables, lo que ayuda a prevenir errores y hace que tu
+        código sea más predecible. Dominar estos conceptos básicos de ámbito global, local y de bloque te proporcionará
+        una base sólida para comprender temas más avanzados.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let x = 10;
+
+                function printX() {
+                    let x = 20;
+                    console.log(x);
+                }
+                
+                printX();
+                console.log(x);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            20, 20
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            20, 10
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            10, 10
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            10, 20
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado de intentar acceder a <mark>blockVar</mark> fuera de su bloque en el siguiente código?
+            <pre>
+              <code>
+                if (true) {
+                    let blockVar = "Hello";
+                }
+                console.log(blockVar);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            Imprimirá "Hello".
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Imprimirá undefined
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            Dará un RferenceError.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Imprimirá null.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones describe correctamente el ámbito de una variable declarada con <mark>let</mark> en el nivel superior de un script (fuera de cualquier función o bloque)?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Ámbito de función.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Ámbito de bloque.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Ámbito global.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Ámbito local.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
