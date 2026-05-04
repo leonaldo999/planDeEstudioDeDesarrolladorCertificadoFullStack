@@ -8,9 +8,6 @@ En este ejercicio, escribirás una función que convierta la temperatura de grad
   fahrenheit = celsius * (9/5) + 32
   ```
 
->[!NOTE]
-> **Objetivo**: Cumple con las historias de usuario que se indican a continuación y haz que todas las pruebas pasen para completar el laboratorio.
-
 ## Historias de usuario
 
 - Debes crear una función llamada `convertCtoF`.

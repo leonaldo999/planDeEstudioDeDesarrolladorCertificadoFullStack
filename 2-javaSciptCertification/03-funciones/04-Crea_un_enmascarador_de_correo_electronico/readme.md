@@ -4,9 +4,6 @@
 
 Por ejemplo, si la dirección de correo electrónico era `myEmail@email.com`, entonces la dirección de correo electrónico enmascarada será `m*****l@email.com`.
 
-> [!NOTE]
-> Objetivo: Cumplir con las historias de usuario que se detallan a continuación y lograr que todas las pruebas se superen para completar el laboratorio.
-
 ## Historias de usuario
 
 - Crea una función llamada `maskEmailque` tome `email` como argumento.

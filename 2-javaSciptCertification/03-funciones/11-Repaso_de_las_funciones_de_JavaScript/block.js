@@ -244,3 +244,49 @@
 
 
 // <====================>
+// Cuestionario sobre funciones de JavaScript
+
+
+// const calculateTotal = (amount, taxRate = 0.05) => {
+//   return amount + (amount * taxRate);
+// };
+
+// console.log(calculateTotal(100));
+
+
+// function greet() {
+//   const developer = "Jessica";
+//   console.log("Hello there!");
+// }
+
+// console.log(developer);
+
+
+// function exampleFunction() {
+//   return "Hello";
+//   return "World!";
+// };
+
+// console.log(exampleFunction());
+
+
+// const developer = "Jessica";
+
+// function greet() {
+//   console.log("Hello, " + developer)
+// }
+
+// greet();
+
+
+// const sum = (num1, num2) => num1 + num2
+// console.log(sum(0, 0) + 10);
+
+// const exampleFunction = (param1, param2) => param1 + param2;
+// console.log(exampleFunction(3, "Something"));
+
+// const sum = (num1, num2) => num1 + num2
+// console.log(sum(0, 0) + num2);
+
+const divideTwoNumbers = (num1, num2) => num1 / num2;
+console.log(divideTwoNumbers(3, 0));

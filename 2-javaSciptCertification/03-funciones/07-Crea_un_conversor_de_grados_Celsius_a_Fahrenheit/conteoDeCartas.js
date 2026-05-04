@@ -1,7 +1,11 @@
 // Conteo de Cartas
 
+// Variable global para llevar el conteo acumulado del juego.
+// Empieza en cero porque no se ha visto ninguna carta aún.
 let count = 0;
 
+// Función que actualiza el conteo según la carta recibida.
+// Devuelve también una recomendación de acción: "Bet" o "Hold".
 function cardCounter(card) {
   // Cartas bajas (2-6): count +1
   if (card >= 2 && card <= 6) {

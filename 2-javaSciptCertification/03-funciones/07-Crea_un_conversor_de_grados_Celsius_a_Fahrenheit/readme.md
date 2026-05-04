@@ -4,9 +4,6 @@
 
 *Que queden más cartas altas en la baraja favorece al jugador. Cuando el conteo es positivo, el jugador debe apostar fuerte. Cuando el conteo es cero o negativo, el jugador debe apostar poco.*
 
->[!NOTE]
-> **Objetivo**: Cumplir con las historias de usuario que se indican a continuación y hacer que todas las pruebas pasen para completar el laboratorio.
-
 ## Historias de usuario
 
 - Debes usar `let` para declarar una variable global llamada `count` y asignarle el valor `0`.

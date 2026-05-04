@@ -2,9 +2,6 @@
 
 *Un año bisiesto es aquel que es divisible por `4`, excepto los años que son divisibles por `100` y no por `400`. Por ejemplo, el año `2000` es bisiesto, pero el `1900` no lo es. Además, un año bisiesto tiene un día adicional en febrero, que es el día `29` del mes.*
 
->[!NOTE]
-> **Objetivo**: Cumple con las historias de usuario que se indican a continuación y haz que todas las pruebas pasen para completar el laboratorio.
-
 ## Historias de usuario
 
 - Define una función llamada `isLeapYear` que tome un número como argumento.
