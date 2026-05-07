@@ -174,7 +174,7 @@
 
 
 // Es importante señalar que eliminar los paréntesis y las llaves en la sintaxis de las funciones normales no funcionará. Si intentas hacer algo como esto, obtendrás errores:
-// This will produce syntax errors 
+// This will produce syntax errors
 // function greetings name console.log("Hello, " + name + "!");
 
 
@@ -190,7 +190,7 @@
 // Pero podríamos simplificar un poco nuestro código y devolver el resultado del cálculo directamente:
 // const calculateArea = (width, height) => {
 //   return width * height;
-// }; 
+// };
 
 // console.log(calculateArea(5, 3)); // 15
 
@@ -288,5 +288,190 @@
 // const sum = (num1, num2) => num1 + num2
 // console.log(sum(0, 0) + num2);
 
-const divideTwoNumbers = (num1, num2) => num1 / num2;
-console.log(divideTwoNumbers(3, 0));
+// const divideTwoNumbers = (num1, num2) => num1 / num2;
+// console.log(divideTwoNumbers(3, 0));
+
+
+// <====================>
+
+// ¿Cuáles son las características principales de los Arrays en JavaScript?
+
+// let fruits = ["apple", "banana", "orange"];
+
+// let colors = ["red", "green", "blue"];
+// console.log(colors.length);
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits[0]); // "apple"
+// console.log(fruits[2]); // "orange"
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits.length); // 3
+
+// const fruits = ["apple", "banana", "cherry"];
+// console.log(fruits[1]); // "banana"
+
+// let fruits = ["apple", "banana", "cherry"];
+// console.log(fruits[3]); // undefined
+
+// let fruits = ["apple", "banana", "cherry"];
+// fruits[1] = "blueberry";
+// console.log(fruits); // ["apple", "blueberry", "cherry"]
+
+// let fruits = ["apple", "banana", "cherry"];
+// fruits[3] = "date";
+// console.log(fruits); // ["apple", "banana", "cherry", "date"]
+
+// const fruits = ["apple", "banana"];
+// const newLength = fruits.push("orange");
+// console.log(newLength); // 3
+// console.log(fruits); // ["apple", "banana", "orange"]
+
+// let numbers = [2, 3];
+// let newLength = numbers.unshift(1);
+// console.log(numbers);    // [1, 2, 3]
+// console.log(newLength); // 3
+
+// let colors = ["red", "green", "blue"];
+// let firstColor = colors.shift();
+// console.log(colors);     // ["green", "blue"]
+// console.log(firstColor); // "red"
+
+// const fruits = ["apple", "banana"];
+// const newLength = fruits.push("orange");
+// console.log(newLength); // 3
+// console.log(fruits); // ["apple", "banana", "orange"]
+
+// const fruits = ["apple", "banana"];
+// fruits = ["This", "will", "not", "work"];
+// console.log(fruits); // Uncaught TypeError: Assignment to constant variable.
+
+// let fruits = ["apple", "banana", "orange"];
+
+// let lastFruit = fruits.pop();
+// console.log(fruits);    // ["apple", "banana"]
+// console.log(lastFruit); // "orange"
+
+// let numbers = [2, 3];
+// let newLength = numbers.unshift(1);
+// console.log(numbers);    // [1, 2, 3]
+// console.log(newLength); // 3
+
+/*
+Por último, el método shift() elimina el primer elemento de un array y devuelve ese elemento. Es similar a pop(), pero actúa al principio del array en lugar de al final. Así es como funciona:
+*/
+// Initialize an array with elements "a", "b", "c", "d"
+// let arr = ["a", "b", "c", "d"];
+// Remove and return the first element ("a"), arr becomes ["b", "c", "d"]
+// let first = arr.shift();
+// Remove and return the last element ("d"), arr becomes ["b", "c"]
+// let last = arr.pop();
+// Log the removed first element, last element, and the modified array
+// console.log(first, last, arr);
+
+
+// <====================>
+
+// ¿Cuál es la diferencia entre los arrays unidimensionales y los bidimensionales?
+
+// Un array unidimensional
+// let fruits = ["apple", "banana", "cherry", "date"];
+// console.log(fruits[2]); // "cherry"
+
+// los arrays bidimensionales
+// let chessboard = [
+//   ["R", "N", "B", "Q", "K", "B", "N", "R"],
+//   ["P", "P", "P", "P", "P", "P", "P", "P"],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   ["p", "p", "p", "p", "p", "p", "p", "p"],
+//   ["r", "n", "b", "q", "k", "b", "n", "r"]
+// ];
+
+// console.log(chessboard[0][3]); // "Q"
+// console.log(chessboard[1][7]); // "p"
+
+// <====================>
+// Desestructuración de arrays y cómo funciona
+
+// let fruits = ["apple", "banana", "orange"];
+// let [first, second, third] = fruits;
+// console.log(first);  // "apple"
+// console.log(second); // "banana"
+// console.log(third);  // "orange"
+
+
+// const fruits = ["apple", "banana", "orange"];
+// const first = fruits[0];
+// const second = fruits[1];
+// const third = fruits[2];
+// console.log(first); // "apple"
+// console.log(second); // "banana"
+// console.log(third); // "orange"
+
+
+// let colors = ["red", "green", "blue", "yellow"];
+// let [firstColor, , thirdColor] = colors;
+// console.log(firstColor); // "red"
+// console.log(thirdColor); // "blue"
+
+
+// let numbers = [1, 2];
+// let [a, b, c = 3] = numbers;
+// console.log(a); // 1
+// console.log(b); // 2
+// console.log(c); // 3
+
+
+// let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+// let [first, second, ...rest] = fruits;
+// console.log(first);  // "apple"
+// console.log(second); // "banana"
+// console.log(rest);   // ["orange", "mango", "kiwi"]
+
+
+// let numbers = [1, 2, 3, 4, 5];
+// let [a, , b, ...rest] = numbers;
+// console.log(a, b, rest);
+
+// let colors = ["red", "green", "blue"];
+// let [primary, secondary, tertiary, quaternary = "yellow"] = colors;
+// console.log(quaternary);
+
+
+// let fruits = ["apple", "banana", "orange", "grape"];
+// let [first, ...rest, last] = fruits;
+// console.log(first, rest, last);
+
+
+// <====================>
+// Strings y arrays para invertir un string
+
+// let str = "hello";
+// let charArray = str.split("");
+// console.log(charArray); // ["h", "e", "l", "l", "o"]
+
+
+// let charArray = ["h", "e", "l", "l", "o"];
+// charArray.reverse();
+// console.log(charArray); // ["o", "l", "l", "e", "h"]
+
+
+// let reversedArray = ["o", "l", "l", "e", "h"];
+// let reversedString = reversedArray.join("");
+// console.log(reversedString); // "olleh"
+
+
+// let str = "coding";
+// let reversed = str.split("").reverse().join("");
+// console.log(reversed);
+
+
+// let word = "hello";
+// let chars = word.split("");
+// chars.reverse();
+// console.log(chars.join("-"));
+
+// <====================>

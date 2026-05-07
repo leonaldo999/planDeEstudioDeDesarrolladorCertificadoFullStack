@@ -1,0 +1,2927 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En esta sección, aprenderás a trabajar con matrices (arrays) en JavaScript. Las matrices son estructuras de datos que pueden almacenar múltiples valores en una sola variable. Son muy útiles para organizar y manipular conjuntos de datos.">
+  <meta name="keywords" content="JavaScript, Arrays, Matrices, Estructuras de datos, Programación, Desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con Arrays en JavaScript">
+  <meta property="og:description"
+    content="En esta sección, aprenderás a trabajar con matrices (arrays) en JavaScript. Las matrices son estructuras de datos que pueden almacenar múltiples valores en una sola variable. Son muy útiles para organizar y manipular conjuntos de datos.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con Arrays</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con funciones</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+      <li><a href="#tema5"><span aria-hidden="true">💻</span> Tema 5</a></li>
+      <li><a href="#cuest5"><span aria-hidden="true">❓</span> Cuest 5</a></li>
+      <li><a href="#tema6"><span aria-hidden="true">💻</span> Tema 6</a></li>
+      <li><a href="#cuest6"><span aria-hidden="true">❓</span> Cuest 6</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con matrices (arrays) en JavaScript. Las matrices son estructuras de
+        datos que pueden almacenar múltiples valores en una sola variable. Son muy útiles para organizar y manipular
+        conjuntos de datos.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Cuáles son las características principales de los Arrays en JavaScript?
+      </h2>
+
+      <p>
+        Un Arrays en JavaScript es una colección ordenada de valores, cada uno de los cuales se identifica mediante un
+        índice numérico. Los valores de un Array en JavaScript pueden ser de diferentes tipos de datos, incluyendo
+        números, strings, valores booleanos, objetos e incluso otros Arrays.
+      </p>
+      <p>
+        Para crear un Arrays en JavaScript, puedes usar corchetes <mark>[]</mark> y separar los valores con comas. Aquí
+        tienes un
+        ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">let</span> <span class="token variable">fruits</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este ejemplo, declaramos una variable llamada <mark>fruits</mark> y le asignamos un array que contiene tres
+        valores de
+        tipo string: <mark>apple</mark>, <mark>banana</mark> y <mark>orange</mark>.
+      </p>
+      <p>
+        Una de las características clave de los arrays es que se indexan a partir de cero, lo que significa que el
+        primer elemento de un array tiene el índice <mark>0</mark>, el segundo tiene el índice <mark>1</mark>, y así
+        sucesivamente. Puedes acceder
+        a elementos individuales de un array utilizando su índice. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-arrays-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">fruits_array.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">2</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "orange"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Memory Structure: Fruits Array</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización de Índices -->
+                <div style="display: flex; gap: 4px; justify-content: center;">
+                  <!-- Index 0 -->
+                  <div style="flex: 1; text-align: center;">
+                    <div style="font-size: 9px; color: #66d9ef; margin-bottom: 4px;">Index 0</div>
+                    <div
+                      style="background: #111; border: 2px solid #66d9ef; padding: 10px; border-radius: 4px; color: #f8f8f2; font-size: 11px;">
+                      "apple"</div>
+                  </div>
+                  <!-- Index 1 -->
+                  <div style="flex: 1; text-align: center;">
+                    <div style="font-size: 9px; color: #888; margin-bottom: 4px;">Index 1</div>
+                    <div
+                      style="background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; color: #f8f8f2; font-size: 11px; opacity: 0.6;">
+                      "banana"</div>
+                  </div>
+                  <!-- Index 2 -->
+                  <div style="flex: 1; text-align: center;">
+                    <div style="font-size: 9px; color: #66d9ef; margin-bottom: 4px;">Index 2</div>
+                    <div
+                      style="background: #111; border: 2px solid #66d9ef; padding: 10px; border-radius: 4px; color: #f8f8f2; font-size: 11px;">
+                      "orange"</div>
+                  </div>
+                </div>
+
+                <!-- Acceso a Datos -->
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 12px; border-radius: 6px;">
+                  <div style="font-size: 9px; color: #a6e22e; margin-bottom: 6px; font-weight: bold;">ACCESS LOG:</div>
+                  <div
+                    style="display: flex; justify-content: space-between; font-size: 11px; color: #f8f8f2; margin-bottom: 4px;">
+                    <span>fruits[0]</span>
+                    <span style="color: #a6e22e;">➔ "apple"</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; color: #f8f8f2;">
+                    <span>fruits[2]</span>
+                    <span style="color: #a6e22e;">➔ "orange"</span>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "apple"<br>
+                    > "orange"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato Curioso:</strong> Aunque los arrays se ven como listas, en JavaScript técnicamente son un
+              tipo especial de <strong>objeto</strong>. Por eso pueden guardar diferentes tipos de datos a la vez.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, usamos el índice <mark>0</mark> para acceder al primer elemento (<mark>apple</mark>) y el
+        índice 2 para acceder al tercer
+        elemento (<mark>orange</mark>).
+      </p>
+      <p>
+        Los arrays en JavaScript tienen una propiedad especial llamada <mark>length</mark> que devuelve el número de
+        elementos del array. Puedes acceder a esta propiedad utilizando la palabra clave <mark>length</mark>. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-length">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_length.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-property">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Metadata Inspector</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code);">
+
+                <!-- Representación de la Propiedad Length -->
+                <div
+                  style="background: #111; padding: 12px; border-radius: 6px; border: 1px solid #333; position: relative; overflow: hidden;">
+                  <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                    <div
+                      style="flex: 1; height: 20px; background: rgba(102, 217, 239, 0.2); border: 1px solid #66d9ef; border-radius: 2px;">
+                    </div>
+                    <div
+                      style="flex: 1; height: 20px; background: rgba(102, 217, 239, 0.2); border: 1px solid #66d9ef; border-radius: 2px;">
+                    </div>
+                    <div
+                      style="flex: 1; height: 20px; background: rgba(102, 217, 239, 0.2); border: 1px solid #66d9ef; border-radius: 2px;">
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-size: 9px; color: #888;">PROPERTY: <strong>.length</strong></span>
+                    <span style="font-size: 14px; color: #66d9ef; font-weight: bold;">3</span>
+                  </div>
+                </div>
+
+                <!-- Concepto de Dinamismo -->
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px dashed #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 5px;">DYNAMIC NATURE:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Si agregas una fruta con <code>push()</code>, <strong>.length</strong> pasará a ser 4
+                    automáticamente.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 12px;">
+                    > 3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Recuerda:</strong> El último índice de un array siempre es <code
+                style="color: red;">array.length - 1</code>. ¡Esta
+              es una de las fórmulas que más usarás en el futuro!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra característica clave de los arrays en JavaScript es que son dinámicas, lo que significa que su tamaño
+        puede cambiar después de crearlas. Puedes agregar o eliminar elementos de un array utilizando diversos métodos
+        de arrays, como <mark>push()</mark>, <mark>pop()</mark>, <mark>shift()</mark>, <mark>unshift()</mark>,
+        <mark>splice()</mark> y otros. Estos métodos se explicarán en las próximas lecciones.
+      </p>
+      <p>
+        Los arrays de JavaScript son versátiles y útiles para el almacenamiento de datos dentro de tus programas. A lo
+        largo de este módulo, podrás ver de primera mano cómo trabajar con matrices te ayudará a gestionar y manipular
+        colecciones de datos de manera eficiente.
+      </p>
+
+    </section>
+
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones NO es cierta con respecto a los arrays de JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Se indexan a partir del cero.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Son una colección desordenada de valores.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Pueden contener otro array como valor.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Son dinámicas y su tamaño puede cambiar después de crearlas
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let numbers = [1, 2, 3, 4, 5];
+                console.log(numbers[2]);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            3
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            4
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            5
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let colors = ["red", "green", "blue"];
+                console.log(colors.length);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            3
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            4
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            undefined
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo se accede y se actualizan los elementos de un array?
+      </h2>
+
+      <p>
+        En la lección anterior, se te presentó por primera vez el trabajo con arrays y cómo acceder a los diferentes
+        elementos de las mismas. A continuación, te recordamos cómo acceder al segundo elemento de un array:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-access">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_access.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cherry"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Index Mapping System</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Mapa de Índices -->
+                <div style="display: flex; gap: 4px;">
+                  <div
+                    style="flex: 1; border: 1px solid #333; padding: 8px; border-radius: 4px; text-align: center; opacity: 0.5;">
+                    <div style="font-size: 7px; color: #888;">[0]</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">apple</div>
+                  </div>
+                  <div
+                    style="flex: 1; border: 2px solid #ae81ff; background: rgba(174, 129, 255, 0.1); padding: 8px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 7px; color: #ae81ff; font-weight: bold;">[1]</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">banana</div>
+                  </div>
+                  <div
+                    style="flex: 1; border: 1px solid #333; padding: 8px; border-radius: 4px; text-align: center; opacity: 0.5;">
+                    <div style="font-size: 7px; color: #888;">[2]</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">cherry</div>
+                  </div>
+                </div>
+
+                <!-- Explicación Visual -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">POINTER LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    JavaScript salta directamente a la posición de memoria del índice <strong>1</strong> (segundo
+                    lugar).
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "banana"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>¿Sabías que?</strong> Si intentas acceder a un índice que no existe (como
+              <code style="color: red;">fruits[10]</code>), JavaScript no romperá el programa, simplemente te devolverá
+              <code style="color: red;">undefined</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que los índices de los arrays comienzan en cero, el primer elemento se encuentra en el
+        índice<mark>0</mark>, el segundo en el índice<mark>1</mark>, y así sucesivamente. Es importante tener en cuenta
+        que, si intentas acceder a un índice que no existe en la matriz, JavaScript devolverá <mark>undefined</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-array-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">undefined_index.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cherry"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Array Boundary Check</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Representación de la Memoria -->
+                <div style="display: flex; gap: 5px; align-items: flex-end;">
+                  <div
+                    style="flex: 1; height: 35px; background: rgba(102, 217, 239, 0.1); border: 1px solid #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #888;">
+                    [0]</div>
+                  <div
+                    style="flex: 1; height: 35px; background: rgba(102, 217, 239, 0.1); border: 1px solid #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #888;">
+                    [1]</div>
+                  <div
+                    style="flex: 1; height: 35px; background: rgba(102, 217, 239, 0.1); border: 1px solid #333; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #888;">
+                    [2]</div>
+                  <div
+                    style="flex: 1; height: 45px; border: 2px dashed #f92672; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(249, 38, 114, 0.05);">
+                    <div style="font-size: 7px; color: #f92672; font-weight: bold;">[3]</div>
+                    <div style="font-size: 14px; color: #f92672;">?</div>
+                  </div>
+                </div>
+
+                <!-- Análisis del Vacío -->
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 4px;">RESULTADO DE BÚSQUEDA:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Índice <strong>3</strong> está fuera del rango (0 a 2).<br>
+                    Valor devuelto: <span style="color: #f92672; font-weight: bold;">undefined</span>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > undefined
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Cuidado:</strong> Al desarrollar para Full Stack, esto es común si intentas leer el elemento
+              <code style="color: red;">length</code> en lugar de <code style="color: red;">length - 1</code>. Siempre
+              recuerda el desfase del índice cero.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, no existe el índice <mark>3</mark> en el <mark>array</mark> fruits. Por lo tanto, el registro
+        mostrará <mark>undefined</mark>. Ahora, veamos cómo actualizar elementos en un array. Puedes actualizar un
+        elemento asignándole un nuevo valor a un índice específico.
+      </p>
+
+      <div class="ide-container" id="ide-js-array-update">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_update.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cherry"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span> = <span class="tk-string">"blueberry"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["apple", "blueberry", "cherry"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Data Override Process</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Representación de la Mutación -->
+                <div style="display: flex; gap: 5px; align-items: center; justify-content: center;">
+                  <div
+                    style="background: #111; padding: 8px; border: 1px solid #333; border-radius: 4px; font-size: 9px; color: #888; text-align: center;">
+                    "apple"<br><span style="font-size: 7px;">[0]</span></div>
+
+                  <div
+                    style="display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; padding: 0 10px;">
+                    <div
+                      style="background: rgba(249, 38, 114, 0.2); border: 1px solid #f92672; padding: 8px; border-radius: 4px; font-size: 9px; color: #f92672; text-decoration: line-through;">
+                      "banana"</div>
+                    <div style="color: #a6e22e; font-size: 14px; font-weight: bold;">↓</div>
+                    <div
+                      style="background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px; font-size: 9px; color: #a6e22e; font-weight: bold;">
+                      "blueberry"</div>
+                    <div style="position: absolute; right: -5px; top: 40%; font-size: 8px; color: #ae81ff;">[1]</div>
+                  </div>
+
+                  <div
+                    style="background: #111; padding: 8px; border: 1px solid #333; border-radius: 4px; font-size: 9px; color: #888; text-align: center;">
+                    "cherry"<br><span style="font-size: 7px;">[2]</span></div>
+                </div>
+
+                <!-- Estado de la Memoria -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">MEMORY STATE:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    La posición <strong>index 1</strong> ha sido sobreescrita. <br>
+                    El array mantiene su <code>.length</code> original de 3.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["apple", "blueberry", "cherry"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato Pro:</strong> Aunque el array sea <code style="color: red;">const</code>, puedes cambiar
+              sus elementos
+              internos. Lo que no puedes hacer con <code style="color: red;">const</code> es reasignar la variable
+              completa a un nuevo array
+              (ej: <code style="color: red;">fruits = ["otro", "array"]</code> daría error).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <P>
+        En este ejemplo, hemos sustituido <mark>banana</mark> por <mark>blueberry</mark> en el índice <mark>1</mark>.
+        Este método te permite modificar cualquier elemento del Array, siempre y cuando conozcas su índice. También
+        puedes añadir nuevos elementos a un Array asignando un valor a un índice que aún no exista:
+      </P>
+
+      <div class="ide-container" id="ide-js-array-expansion">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_expansion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código íntegro proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cherry"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">3</span><span class="tk-punctuation">]</span> = <span class="tk-string">"date"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["apple", "banana", "cherry", "date"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Dynamic Growth Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Crecimiento -->
+                <div style="display: flex; gap: 4px; align-items: center;">
+                  <div
+                    style="display: flex; gap: 2px; padding: 5px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                    <div style="width: 25px; height: 25px; background: #333; border-radius: 2px;"></div>
+                    <div style="width: 25px; height: 25px; background: #333; border-radius: 2px;"></div>
+                    <div style="width: 25px; height: 25px; background: #333; border-radius: 2px;"></div>
+                  </div>
+                  <div style="color: #a6e22e; font-weight: bold; font-size: 14px;">+</div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.2); border: 2px solid #a6e22e; padding: 5px 10px; border-radius: 4px; color: #a6e22e; font-size: 10px; font-weight: bold;">
+                    "date" [3]
+                  </div>
+                </div>
+
+                <!-- Impacto en Propiedades -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div
+                    style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #333; text-align: center;">
+                    <div style="font-size: 7px; color: #888;">PREVIOUS LENGTH</div>
+                    <div style="font-size: 14px; color: #f92672;">3</div>
+                  </div>
+                  <div
+                    style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #a6e22e; text-align: center;">
+                    <div style="font-size: 7px; color: #a6e22e;">NEW LENGTH</div>
+                    <div style="font-size: 14px; color: #a6e22e; font-weight: bold;">4</div>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["apple", "banana", "cherry", "date"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚩 <strong>¡Alerta de Huecos!</strong> Si hubieras hecho <code
+                style="color: red;">fruits[5] = "date"</code>, el array tendría
+              una longitud de 6, y las posiciones 3 y 4 serían <code style="color: red;">undefined</code>. ¡Sé preciso
+              con tus índices!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Sin embargo, hay que tener cuidado al hacerlo. Si asignas un valor a un índice que es mucho mayor que la
+        longitud actual de la matriz, crearás elementos indefinidos para los índices intermedios, lo que puede provocar
+        un comportamiento inesperado. A medida que sigas trabajando con JavaScript, descubrirás que estas formas de
+        acceder y actualizar elementos de una matriz son fundamentales para muchas tareas de programación. Ya sea que
+        estés creando una simple lista de tareas pendientes o procesando estructuras de datos complejas, estas
+        habilidades te resultarán muy valiosas.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            Si tienes una matriz, por ejemplo <mark>let numbers = [10, 20, 30, 40, 50]</mark>, ¿qué valor devolverá
+            <mark>numbers[2]</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            20
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            30
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            40
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            2
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el índice que se utiliza para representar el primer elemento de un array?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            5
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            0
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            1
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let multiply = (a, b = 1) => a * b;
+
+                console.log(multiply(5));
+                console.log(multiply(5, 2));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            5, 10
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            1, 2
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            undefined, 10
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Cómo se agregan y eliminan elementos del principio y del final de un array?
+      </h2>
+
+      <p>
+        Los arrays en JavaScript son dinámicos, lo que significa que puedes agregar o eliminar elementos de ellos
+        fácilmente. Existen cuatro métodos principales para agregar y eliminar elementos del principio y del final de un
+        array: <mark>push()</mark>, <mark>pop()</mark>, <mark>shift()</mark> y <mark>unshift()</mark>. Analicemos cada
+        uno de estos métodos en detalle.
+      </p>
+      <p>
+        El método <mark>push()</mark> se utiliza para agregar uno o más elementos al final de un array. El valor de
+        retorno del
+        método <mark>push()</mark> es la nueva longitud del array. A continuación, se muestra un ejemplo de cómo agregar
+        una nueva
+        fruta al array de <mark>fruits</mark> existente:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-push">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_push.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo proporcionado por el usuario -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">newLength</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">push</span><span class="tk-punctuation">(</span><span class="tk-string">"orange"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newLength</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["apple", "banana", "orange"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Push Method Visualization</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Acción de Empujar -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <div
+                    style="display: flex; border: 1px solid #333; padding: 5px; border-radius: 4px; background: rgba(255,255,255,0.02);">
+                    <div style="width: 30px; height: 30px; background: #222; border-radius: 2px; margin: 2px;"></div>
+                    <div style="width: 30px; height: 30px; background: #222; border-radius: 2px; margin: 2px;"></div>
+                  </div>
+                  <div style="color: #a6e22e; font-size: 18px; font-weight: bold;">←</div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.2); border: 2px solid #a6e22e; padding: 8px; border-radius: 4px; color: #a6e22e; font-size: 10px; font-weight: bold;">
+                    "orange"
+                  </div>
+                </div>
+
+                <!-- Valores de Retorno -->
+                <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+                  <div style="background: #111; padding: 10px; border-radius: 6px; border: 1px solid #66d9ef;">
+                    <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">RETURN VALUE (newLength):</div>
+                    <div style="font-size: 14px; color: #f8f8f2; font-weight: bold;">3</div>
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > 3<br>
+                    > ["apple", "banana", "orange"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato Clave:</strong> <code style="color: red;">push()</code> puede recibir múltiples argumentos
+              a la vez, por
+              ejemplo: <code style="color: red;">fruits.push("orange", "grapes", "melon")</code>. ¡Pruébalo!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, comenzamos con un array llamada <mark>fruits</mark> que contiene dos elementos. A continuación,
+        utilizamos
+        el método <mark>push()</mark> para añadir el string <mark>orange</mark> al final de la array.
+      </p>
+      <p>
+        Quizás hayas notado que estamos usando <mark>const</mark> al declarar el array <mark>fruits</mark>. Pero, ¿por
+        qué es posible agregar más
+        elementos a este array <mark>fruits</mark> si <mark>fruits</mark> es una constante? Esto es posible porque
+        declarar un array con la
+        palabra clave <mark>const</mark> crea una referencia al array. Si bien el array en sí es mutable y se puede
+        modificar, no
+        puedes reasignar un nuevo valor a la constante <mark>fruits</mark>, como esto:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+<span class="token keyword">const</span> <span class="token value">fruits</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"apple"</span><span class="token punctuation">,</span> <span class="token string">"banana"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token value">fruits</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"This"</span><span class="token punctuation">,</span> <span class="token string">"will"</span><span class="token punctuation">,</ span><span class="token string">"not"</span><span class="token punctuation">,</ span><span class="token string">"work"</span><span class="token punctuation">]</span><span class="token punctuation">;</ span>
+<spa class="token property">console</span><span class="token punctuation">.</span><span class="token keyword">log</span>(<span class="token value">fruits</span>); <span class="token comment">// Uncaught TypeError: Assignment to constant variable. </span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        El siguiente método que veremos es el método <mark>pop()</mark>. El método <mark>pop()</mark> elimina el último
+        elemento de un array y devuelve ese elemento. Además, modifica el array original. Así es como funciona:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-pop-const">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_pop.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Ejemplo de pop() y lógica de mutabilidad -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">lastFruit</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">pop</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// ["apple", "banana"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">lastFruit</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "orange"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Pop Method & Memory Logic</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización de extracción -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <div
+                    style="display: flex; border: 1px solid #333; padding: 5px; border-radius: 4px; background: rgba(255,255,255,0.02);">
+                    <div
+                      style="width: 30px; height: 30px; background: #222; border-radius: 2px; margin: 2px; border: 1px solid #444;">
+                    </div>
+                    <div
+                      style="width: 30px; height: 30px; background: #222; border-radius: 2px; margin: 2px; border: 1px solid #444;">
+                    </div>
+                  </div>
+                  <div style="color: #f92672; font-size: 18px; font-weight: bold;">→</div>
+                  <div
+                    style="background: rgba(249, 38, 114, 0.2); border: 2px solid #f92672; padding: 8px; border-radius: 4px; color: #f92672; font-size: 10px; font-weight: bold; position: relative;">
+                    "orange"
+                    <span style="position: absolute; top: -15px; left: 0; font-size: 7px; color: #888;">REMOVED</span>
+                  </div>
+                </div>
+
+                <!-- Regla de Constante -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">CONST VS MUTABILITY:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    ✅ <span style="color: #a6e22e;">Modificar contenido:</span> Permitido.<br>
+                    ❌ <span style="color: #f92672;">fruits = [nuevo]:</span> TypeError.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > ["apple", "banana"]<br>
+                    > "orange"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Tip:</strong> Si ejecutas <code style="color: red;">pop()</code> en un array vacío, JavaScript
+              te devolverá
+              <code style="color: red;">undefined</code>. ¡Tenlo en cuenta para tus validaciones!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, comenzamos con un array de tres frutas. El método <mark>pop()</mark> elimina el último elemento
+        (<mark>orange</mark>) del
+        array y lo devuelve. El array original de <mark>fruits</mark> queda modificado y ahora contiene solo dos
+        elementos.
+      </p>
+      <p>
+        El método <mark>unshift()</mark> agrega uno o más elementos al principio de un array y devuelve su nueva
+        longitud. Funciona
+        de manera similar a <mark>push()</mark>, pero modifica el inicio de la array en lugar del final. A continuación,
+        un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-unshift">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_unshift.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: unshift -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">newLength</span> = <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">unshift</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newLength</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Unshift Operation Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del desplazamiento -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <div
+                    style="background: rgba(166, 226, 46, 0.2); border: 2px solid #a6e22e; padding: 8px; border-radius: 4px; color: #a6e22e; font-size: 10px; font-weight: bold;">
+                    1
+                  </div>
+                  <div style="color: #a6e22e; font-size: 18px; font-weight: bold;">→</div>
+                  <div
+                    style="display: flex; border: 1px solid #333; padding: 5px; border-radius: 4px; background: rgba(255,255,255,0.02); gap: 4px;">
+                    <div
+                      style="width: 25px; height: 25px; background: #222; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #888; border: 1px solid #444;">
+                      2</div>
+                    <div
+                      style="width: 25px; height: 25px; background: #222; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #888; border: 1px solid #444;">
+                      3</div>
+                  </div>
+                </div>
+
+                <!-- Re-indexación -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">SHIFTING INDICES:</div>
+                  <div style="font-size: 9px; color: #f8f8f2; line-height: 1.4;">
+                    Índice <span style="color: #ae81ff;">0</span> ahora es ocupado por <strong>1</strong>.<br>
+                    Valores previos se desplazan a la derecha.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > [1, 2, 3]<br>
+                    > 3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Tip:</strong> Al igual que <code style="color: red;">push()</code>, puedes pasar múltiples
+              valores:
+              <code style="color: red;">numbers.unshift(-1, 0)</code> agregaría ambos al inicio en un solo paso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, usamos <mark>unshift()</mark> para añadir el número <mark>1</mark> al principio del array
+        <mark>numbers</mark>. El método devuelve
+        la nueva longitud del array, que es 3.
+      </p>
+      <p>
+        Por último, el método <mark>shift()</mark> elimina el primer elemento de un array y devuelve ese elemento. Es
+        similar a
+        <mark>pop()</mark>, pero actúa al principio del array en lugar de al final. Así es como funciona:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-shift">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_shift.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: shift -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">"red"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-string">"blue"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">firstColor</span> = <span class="tk-selector">colors</span><span class="tk-punctuation">.</span><span class="tk-value">shift</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">colors</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// ["green", "blue"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">firstColor</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "red"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Shift Extraction Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización de la salida -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <div
+                    style="background: rgba(249, 38, 114, 0.2); border: 2px solid #f92672; padding: 8px; border-radius: 4px; color: #f92672; font-size: 10px; font-weight: bold; position: relative;">
+                    "red"
+                    <span
+                      style="position: absolute; bottom: -15px; left: 0; font-size: 7px; color: #888;">EXTRACTED</span>
+                  </div>
+                  <div style="color: #f92672; font-size: 18px; font-weight: bold;">←</div>
+                  <div
+                    style="display: flex; border: 1px solid #333; padding: 5px; border-radius: 4px; background: rgba(255,255,255,0.02); gap: 4px;">
+                    <div
+                      style="width: 35px; height: 25px; background: #222; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #a6e22e; border: 1px solid #444;">
+                      green</div>
+                    <div
+                      style="width: 35px; height: 25px; background: #222; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #a6e22e; border: 1px solid #444;">
+                      blue</div>
+                  </div>
+                </div>
+
+                <!-- Re-indexación automática -->
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px dashed #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px;">AUTOMATIC RE-INDEXING:</div>
+                  <div style="font-size: 9px; color: #f8f8f2; line-height: 1.4;">
+                    El elemento <strong>"green"</strong> pasa del índice 1 al <span
+                      style="color: #ae81ff;">0</span>.<br>
+                    El elemento <strong>"blue"</strong> pasa del índice 2 al <span style="color: #ae81ff;">1</span>.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > ["green", "blue"]<br>
+                    > "red"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Nota de rendimiento:</strong> Al igual que <code style="color: red;">unshift()</code>, <code
+                style="color: red;">shift()</code> mueve
+              todos los elementos del array. En listas muy grandes, <code style="color: red;">pop()</code> siempre será
+              más rápido porque no
+              requiere reordenar índices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, comenzamos con un array de tres colores. El método <mark>shift()</mark> elimina el primer
+        elemento (<mark>red</mark>)
+        del array y lo devuelve. El array de <mark>colors</mark> original queda modificada y ahora contiene solo dos
+        elementos.
+      </p>
+      <p>
+        Ten en cuenta que, mientras que <mark>push()</mark> y <mark>unshift()</mark> pueden agregar varios elementos a
+        la vez, <mark>pop()</mark> y <mark>shift()</mark>
+        eliminan solo un elemento cada vez.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = [1, 2, 3];
+                arr.push(4);
+                arr.unshift(0);
+                console.log(arr);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            [1, 2, 3, 4, 0]
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            [0, 1, 2, 3, 4]
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            [0, 4, 1, 2, 3]
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            [4, 0, 1, 2, 3]
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = ["a", "b", "c", "d"];
+                let first = arr.shift();
+                let last = arr.pop();
+                console.log(first, last, arr);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            "a" "d" ["b", "c"]
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "d" "a" ["b", "c"]
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "a" "b" ["c", "d"]
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "b" "c" ["a", "d"]
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = ["a", "b", "c"];
+                arr.unshift("x", "y");
+                arr.pop();
+                console.log(arr);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            ["x", "y", "a", "b"]
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            ["x", "y", "a", "b", "c"]
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            `["a", "b", "x", "y"]`
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            ["y", "x", "a", "b"]
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+      <h2 id="tema4-titulo">
+        Tema 4: ¿Cuál es la diferencia entre los arrays unidimensionales y los bidimensionales?
+      </h2>
+
+      <p>
+        En programación, los arrays son estructuras de datos fundamentales que se utilizan para almacenar conjuntos de
+        elementos. Comprender la diferencia entre los arrays unidimensionales y los bidimensionales es crucial para
+        organizar y manipular datos de manera eficaz. Exploremos estos conceptos de una forma que resulte fácil de
+        entender para los principiantes.
+      </p>
+      <p>
+        Una array unidimensional, a menudo llamado simplemente array, es como una sola fila de casillas. Imagina que
+        tienes una fila de casilleros en una estación de tren. Cada casillero puede contener un objeto, y puedes acceder
+        a cualquier casillero directamente si conoces su número.
+      </p>
+      <p>
+        En términos de programación, se accede a cada elemento de un array unidimensional utilizando un único índice.
+        Por ejemplo, en JavaScript, podrías crear y utilizar un array unidimensional como este:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-1d">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">one_dimensional.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Array Unidimensional -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cherry"</span><span class="tk-punctuation">,</span> <span class="tk-string">"date"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">2</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "cherry"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Single Row Map (1D)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización de los Casilleros -->
+                <div
+                  style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; background: #111; padding: 10px; border-radius: 8px; border: 1px solid #333;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 7px; color: #888; margin-bottom: 2px;">idx: 0</div>
+                    <div
+                      style="background: rgba(255,255,255,0.05); border: 1px solid #444; padding: 8px; border-radius: 4px; color: #f8f8f2; font-size: 9px;">
+                      apple</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 7px; color: #888; margin-bottom: 2px;">idx: 1</div>
+                    <div
+                      style="background: rgba(255,255,255,0.05); border: 1px solid #444; padding: 8px; border-radius: 4px; color: #f8f8f2; font-size: 9px;">
+                      banana</div>
+                  </div>
+                  <div style="text-align: center; position: relative;">
+                    <div style="font-size: 7px; color: #66d9ef; margin-bottom: 2px; font-weight: bold;">idx: 2</div>
+                    <div
+                      style="background: rgba(102, 217, 239, 0.2); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px; color: #66d9ef; font-size: 9px; font-weight: bold;">
+                      cherry</div>
+                    <div
+                      style="position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); color: #66d9ef; font-size: 14px;">
+                      ↑</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 7px; color: #888; margin-bottom: 2px;">idx: 3</div>
+                    <div
+                      style="background: rgba(255,255,255,0.05); border: 1px solid #444; padding: 8px; border-radius: 4px; color: #f8f8f2; font-size: 9px;">
+                      date</div>
+                  </div>
+                </div>
+
+                <!-- Lógica de Acceso -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">ACCESS LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Para obtener <strong>"cherry"</strong>, pedimos el índice <span
+                      style="color: #ae81ff;">2</span>.<br>
+                    Recordatorio: En programación empezamos a contar desde <span style="color: #ae81ff;">0</span>.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "cherry"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📏 <strong>Dato:</strong> Un array unidimensional tiene una única dimensión: <strong>la longitud</strong>.
+              Es ideal para listas simples de datos relacionados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, fruits es un array unidimensional. Puedes imaginártela como una sola fila de nombres de frutas. Para
+        acceder a cualquier fruta, se utiliza un número (el índice) entre corchetes.
+      </p>
+      <p>
+        Ahora, pasemos a los arrays bidimensionales. Si un array unidimensional es como una sola fila de casilleros,
+        un array bidimensional es como una cuadrícula de casilleros: varias filas y columnas. En programación, un array
+        bidimensional es esencialmente un array de arrays. Se utiliza para representar datos que tienen una estructura
+        natural similar a una cuadrícula, como un tablero de ajedrez, una hoja de cálculo o los píxeles de una imagen.
+      </p>
+      <p>
+        Para acceder a un elemento en un array bidimensional, necesitas dos índices: uno para la fila y otro para la
+        columna. Aquí tienes un ejemplo de cómo puedes crear y utilizar un array bidimensional en JavaScript:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-2d">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bidimensional.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Array Bidimensional -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">chessboard</span> = <span class="tk-punctuation">[</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">"R"</span><span class="tk-punctuation">,</span> <span class="tk-string">"N"</span><span class="tk-punctuation">,</span> <span class="tk-string">"B"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Q"</span><span class="tk-punctuation">,</span> <span class="tk-string">"K"</span><span class="tk-punctuation">,</span> <span class="tk-string">"B"</span><span class="tk-punctuation">,</span> <span class="tk-string">"N"</span><span class="tk-punctuation">,</span> <span class="tk-string">"R"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">,</span> <span class="tk-string">"P"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">,</span> <span class="tk-string">" "</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">,</span> <span class="tk-string">"p"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">"r"</span><span class="tk-punctuation">,</span> <span class="tk-string">"n"</span><span class="tk-punctuation">,</span> <span class="tk-string">"b"</span><span class="tk-punctuation">,</span> <span class="tk-string">"q"</span><span class="tk-punctuation">,</span> <span class="tk-string">"k"</span><span class="tk-punctuation">,</span> <span class="tk-string">"b"</span><span class="tk-punctuation">,</span> <span class="tk-string">"n"</span><span class="tk-punctuation">,</span> <span class="tk-string">"r"</span><span class="tk-punctuation">]</span>
+<span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">chessboard</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">[</span><span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Q"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Grid Navigation (2D)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Tablero de Ajedrez Simplificado -->
+                <div
+                  style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; background: #333; padding: 4px; border-radius: 4px; border: 2px solid #444; width: 100%; max-width: 240px; margin: 0 auto;">
+                  <!-- Fila 0 -->
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #eee; color: #111; font-size: 10px;">
+                    R</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #888; color: #eee; font-size: 10px;">
+                    N</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #eee; color: #111; font-size: 10px;">
+                    B</div>
+                  <!-- Celda [0][3] resaltada -->
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #66d9ef; color: #000; font-size: 12px; font-weight: bold; border: 2px solid #fff; box-sizing: border-box;">
+                    Q</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #eee; color: #111; font-size: 10px;">
+                    K</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #888; color: #eee; font-size: 10px;">
+                    B</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #eee; color: #111; font-size: 10px;">
+                    N</div>
+                  <div
+                    style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #888; color: #eee; font-size: 10px;">
+                    R</div>
+                  <!-- Filas restantes (abreviado) -->
+                  <div
+                    style="grid-column: span 8; background: rgba(0,0,0,0.3); height: 40px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #888;">
+                    ... Resto del tablero ...</div>
+                </div>
+
+                <!-- Lógica de Coordenadas -->
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px;">COORDINATE SYSTEM [fila][col]:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    🎯 Para ubicar la <strong>Reina (Q)</strong>:<br>
+                    1. <code>chessboard[0]</code> → Entramos a la primera fila.<br>
+                    2. <code>[3]</code> → Buscamos la cuarta posición de esa fila.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Q"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato Pro:</strong> Al ser arrays anidados, las filas no necesitan tener la misma longitud (esto
+              se llama <em>Jagged Arrays</em>), aunque para tablas y juegos lo común es que sean simétricas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>chessboard</mark> es un array bidimensional que representa la disposición inicial de una
+        partida de
+        ajedrez. Para acceder a la reina (<mark>Q</mark>) en la fila superior, utilizamos dos índices:
+        <mark>[0][3]</mark>. El primer índice, <mark>0</mark>,
+        selecciona la primera fila, y el segundo índice, <mark>3</mark>, selecciona la cuarta columna de esa fila.
+      </p>
+      <p>
+        La diferencia clave entre los arrays unidimensionales y bidimensionales radica en cómo se accede y se organizan
+        los datos. Los arrays unidimensionales utilizan un solo índice y son adecuadas para datos lineales como listas o
+        secuencias. Las arrays bidimensionales utilizan dos índices y son ideales para estructuras de datos en forma de
+        cuadrícula.
+      </p>
+      <p>
+        Vale la pena señalar que, en JavaScript, los arrays bidimensionales son en realidad arrays de arrays. Esto
+        significa que cada elemento del array externo es en sí mismo una array. Esta estructura anidada permite una gran
+        flexibilidad, pero también requiere un manejo cuidadoso para evitar errores.
+      </p>
+      <p>
+        A medida que avances en tu trayectoria como programador, descubrirás que la elección entre arrays
+        unidimensionales y bidimensionales depende de la naturaleza de tus datos y de cómo necesites manipularlos.
+      </p>
+      <p>
+        Los arrays unidimensionales son más sencillas y suficientes para muchas tareas, mientras que los arrays
+        bidimensionales resultan indispensables cuando se trata de datos más complejos y estructurados.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuántos índices se necesitan para acceder a un elemento de un array bidimensional?
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            Uno.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            Dos.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            Tres.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            Depende del tamaño del array.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué tipo de estructura de datos se representa mejor con un array unidimensional?
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            Una cuadrícula de números.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            Una lista de elementos.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Una tabla de información.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Un modelo 3D.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En JavaScript, ¿qué es, en esencia, un array bidimensional?
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            Un tipo de datos especial integrado en el lenguaje
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            Una array de arrays.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Una lista enlazada de arrays.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Un objeto array.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+      <h2 id="tema5-titulo">
+        Tema 5: ¿Qué es la desestructuración de arrays y cómo funciona?
+      </h2>
+
+      <p>
+        La desestructuración de arrays es una característica de JavaScript que permite extraer valores de arrays y
+        asignarlos a variables de una manera más concisa y legible. Ofrece una sintaxis práctica para descomponer los
+        elementos de un array en distintas variables.
+      </p>
+      <p>
+        Esta técnica resulta especialmente útil al trabajar con arrays y funciones que devuelven varios valores. A
+        continuación, se muestra un ejemplo del uso de la desestructuración de arrays:
+      </p>
+
+      <div class="ide-container" id="ide-js-destructuring">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">destructuring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Desestructuración -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Desestructuración en una línea</span>
+<span class="tk-property">let</span> <span class="tk-punctuation">[</span><span class="tk-selector">first</span><span class="tk-punctuation">,</span> <span class="tk-selector">second</span><span class="tk-punctuation">,</span> <span class="tk-selector">third</span><span class="tk-punctuation">]</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">first</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">second</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">third</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "orange"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Destructuring Flow</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Emparejamiento -->
+                <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;">
+                  <div
+                    style="display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px; border: 1px solid #333;">
+                    <span style="color: #a6e22e; font-size: 10px;">["apple",</span>
+                    <span style="color: #ae81ff; font-size: 10px;">"banana",</span>
+                    <span style="color: #66d9ef; font-size: 10px;">"orange"]</span>
+                  </div>
+
+                  <div style="color: #444; font-size: 12px;">⬇ ⬇ ⬇</div>
+
+                  <div style="display: flex; gap: 10px;">
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #a6e22e; color: #000; padding: 4px 8px; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        first</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #ae81ff; color: #000; padding: 4px 8px; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        second</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #66d9ef; color: #000; padding: 4px 8px; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        third</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nota de asignación -->
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px dashed #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px;">POSITIONAL MATCHING:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Las variables se crean y se llenan en el orden exacto del array. No necesitas índices como <code
+                      style="color: #f92672;">[0]</code>.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > apple<br>
+                    > banana<br>
+                    > orange
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Tip:</strong> Puedes saltarte elementos usando comas vacías:
+              <code style="color: red;">let [first, , third] = fruits;</code> ignoraría "banana".
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un array llamada <mark>fruits</mark> con tres elementos. Mediante la desestructuración
+        de arrays,
+        asignamos el primer elemento a la variable <mark>first</mark>, el segundo a <mark>second</mark> y el tercero a
+        <mark>third</mark>. Esto nos permite
+        acceder fácilmente a los elementos individuales del array sin necesidad de utilizar la notación de índice.
+      </p>
+      <p>
+        Así es como quedaría si accedieras a cada uno de esos elementos por su índice en lugar de utilizar la
+        desestructuración de arrays:
+      </p>
+
+      <div class="ide-container" id="ide-js-traditional-access">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">traditional_index.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Acceso por índice -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">first</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">second</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">third</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">2</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">first</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">second</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">third</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "orange"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Manual Extraction Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Acceso Manual -->
+                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center;">
+                  <div
+                    style="background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 6px; border-radius: 4px; font-size: 9px; text-align: center;">
+                    fruits<span style="color: #f92672;">[0]</span>
+                  </div>
+                  <div style="color: #888; font-size: 12px;">→</div>
+                  <div
+                    style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 6px; border-radius: 4px; font-size: 9px; color: #a6e22e; font-weight: bold;">
+                    "apple"
+                  </div>
+
+                  <div
+                    style="background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 6px; border-radius: 4px; font-size: 9px; text-align: center;">
+                    fruits<span style="color: #f92672;">[1]</span>
+                  </div>
+                  <div style="color: #888; font-size: 12px;">→</div>
+                  <div
+                    style="background: rgba(174, 129, 255, 0.1); border: 1px solid #ae81ff; padding: 6px; border-radius: 4px; font-size: 9px; color: #ae81ff; font-weight: bold;">
+                    "banana"
+                  </div>
+
+                  <div
+                    style="background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 6px; border-radius: 4px; font-size: 9px; text-align: center;">
+                    fruits<span style="color: #f92672;">[2]</span>
+                  </div>
+                  <div style="color: #888; font-size: 12px;">→</div>
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 6px; border-radius: 4px; font-size: 9px; color: #66d9ef; font-weight: bold;">
+                    "orange"
+                  </div>
+                </div>
+
+                <!-- Comparativa -->
+                <div
+                  style="margin-top: 5px; background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 8px; border-radius: 4px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 2px; font-weight: bold;">VERBOSITY CHECK:
+                  </div>
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.3;">
+                    Este método requiere <strong>3 líneas</strong> de asignación. La desestructuración lo resuelve en
+                    <strong>1 sola</strong>.
+                  </p>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > apple<br>
+                    > banana<br>
+                    > orange
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Nota:</strong> Aunque el acceso manual es funcional, la desestructuración previene errores
+              comunes como equivocarse de índice al copiar y pegar líneas similares.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La desestructuración de arrays también te permite omitir los elementos que no te interesan utilizando comas. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-destructuring-skip">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">skip_elements.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Omitir elementos -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">"red"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-string">"blue"</span><span class="tk-punctuation">,</span> <span class="tk-string">"yellow"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-punctuation">[</span><span class="tk-selector">firstColor</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">,</span> <span class="tk-selector">thirdColor</span><span class="tk-punctuation">]</span> = <span class="tk-selector">colors</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">firstColor</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "red"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">thirdColor</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "blue"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Selective Extraction Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Diagrama de Salto -->
+                <div
+                  style="display: flex; justify-content: space-around; align-items: center; background: #111; padding: 12px; border-radius: 8px; border: 1px solid #333;">
+                  <div style="text-align: center;">
+                    <div style="color: #f92672; font-size: 10px; font-weight: bold; margin-bottom: 5px;">[0]</div>
+                    <div
+                      style="background: #f92672; color: white; width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px;">
+                      red</div>
+                    <div style="color: #f92672; font-size: 14px; margin-top: 5px;">↓</div>
+                    <div style="font-size: 8px; color: #888;">firstColor</div>
+                  </div>
+
+                  <div style="text-align: center; opacity: 0.3;">
+                    <div style="color: #888; font-size: 10px; margin-bottom: 5px;">[1]</div>
+                    <div
+                      style="background: #333; color: #555; width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; text-decoration: line-through;">
+                      green</div>
+                    <div style="color: transparent; font-size: 14px; margin-top: 5px;">X</div>
+                    <div style="font-size: 8px; color: #444;">(ignorado)</div>
+                  </div>
+
+                  <div style="text-align: center;">
+                    <div style="color: #66d9ef; font-size: 10px; font-weight: bold; margin-bottom: 5px;">[2]</div>
+                    <div
+                      style="background: #66d9ef; color: #000; width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px;">
+                      blue</div>
+                    <div style="color: #66d9ef; font-size: 14px; margin-top: 5px;">↓</div>
+                    <div style="font-size: 8px; color: #888;">thirdColor</div>
+                  </div>
+                </div>
+
+                <!-- Nota sobre la sintaxis -->
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border: 1px dashed #f92672; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 4px;">SYNTAX TIP:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    La coma vacía <code style="color: #f92672;">, ,</code> actúa como un marcador de posición. Puedes
+                    usar tantas como necesites para saltar múltiples elementos.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > red<br>
+                    > blue
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Eficacia:</strong> Esto mantiene el espacio de nombres limpio, ya que no creas una variable
+              <code style="color: red;">secondColor</code> que nunca vas a utilizar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, omitimos el segundo elemento del array colors utilizando una coma adicional. De este modo, se
+        asigna el color <mark>red</mark> a <mark>firstColor</mark> y el <mark>blue</mark> a <mark>thirdColor</mark>,
+        ignorando así el <mark>green</mark>.
+      </p>
+      <p>
+        Otra característica muy útil de la desestructuración de arrays es la posibilidad de utilizar valores por
+        defecto. Si el array tiene menos elementos que las variables a las que intentas asignar valores, puedes
+        proporcionar valores por defecto:
+      </p>
+
+      <div class="ide-container" id="ide-js-destructuring-default">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">default_values.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Valores por defecto -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-punctuation">[</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">,</span> <span class="tk-selector">c</span> = <span class="tk-number">3</span><span class="tk-punctuation">]</span> = <span class="tk-selector">numbers</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">c</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Fallback Mechanism</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Flujo -->
+                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 15px; align-items: center;">
+                  <div style="text-align: right; font-size: 10px; color: #a6e22e;">Array [0] →</div>
+                  <div
+                    style="background: #a6e22e; color: #000; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                    1</div>
+                  <div style="font-size: 10px; color: #888;">Variable <strong>a</strong></div>
+
+                  <div style="text-align: right; font-size: 10px; color: #ae81ff;">Array [1] →</div>
+                  <div
+                    style="background: #ae81ff; color: #000; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                    2</div>
+                  <div style="font-size: 10px; color: #888;">Variable <strong>b</strong></div>
+
+                  <div style="text-align: right; font-size: 10px; color: #f92672;">Array [2] →</div>
+                  <div
+                    style="background: rgba(249, 38, 114, 0.2); border: 1px dashed #f92672; color: #f92672; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                    ∅</div>
+                  <div style="font-size: 10px; color: #f92672; font-weight: bold;">c = 3 (Default)</div>
+                </div>
+
+                <!-- Nota Lógica -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">RESCUE LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Como el índice 2 está vacío, JavaScript aplica el valor asignado tras el igual (<code>=</code>).
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > 1<br>
+                    > 2<br>
+                    > 3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Seguridad:</strong> Sin el valor por defecto, <code style="color: red;">c</code> valdría <code
+                style="color: red;">undefined</code>,
+              lo que podría causar errores si intentas operar matemáticamente con él.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, le asignamos el valor predeterminado <mark>3</mark> a <mark>c</mark> porque el array de
+        <mark>numbers</mark> no tiene un tercer elemento.
+      </p>
+      <p>
+        Ahora, veamos la sintaxis rest, representada por tres puntos (<mark>...</mark>). Te permite capturar los
+        elementos restantes
+        de un array que no se han desestructurado en un nuevo array. Así es como funciona:
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rest_operator.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Sintaxis Rest -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"mango"</span><span class="tk-punctuation">,</span> <span class="tk-string">"kiwi"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-punctuation">[</span><span class="tk-selector">first</span><span class="tk-punctuation">,</span> <span class="tk-selector">second</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">...</span><span class="tk-selector">rest</span><span class="tk-punctuation">]</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">first</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">second</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">rest</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// ["orange", "mango", "kiwi"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                The Collection Process</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Resto -->
+                <div style="display: flex; gap: 5px; align-items: flex-start; flex-wrap: wrap;">
+                  <!-- Elementos individuales -->
+                  <div
+                    style="border: 1px solid #a6e22e; padding: 5px 8px; border-radius: 4px; color: #a6e22e; font-size: 9px;">
+                    "apple"</div>
+                  <div
+                    style="border: 1px solid #a6e22e; padding: 5px 8px; border-radius: 4px; color: #a6e22e; font-size: 9px;">
+                    "banana"</div>
+
+                  <!-- Grupo Rest -->
+                  <div
+                    style="background: rgba(174, 129, 255, 0.15); border: 2px dashed #ae81ff; padding: 8px; border-radius: 6px; display: flex; gap: 4px;">
+                    <div style="color: #ae81ff; font-size: 9px;">"orange",</div>
+                    <div style="color: #ae81ff; font-size: 9px;">"mango",</div>
+                    <div style="color: #ae81ff; font-size: 9px;">"kiwi"</div>
+                    <div
+                      style="position: absolute; margin-top: 25px; font-size: 8px; color: #ae81ff; font-weight: bold;">
+                      [...rest]</div>
+                  </div>
+                </div>
+
+                <!-- Nota de estructura -->
+                <div
+                  style="margin-top: 15px; background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px;">REMAINDER LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Las primeras dos variables toman sus valores. Los tres puntos <code>...</code> le dicen a JS: "Crea
+                    un array nuevo con todo lo que sobre".
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                    > apple<br>
+                    > banana<br>
+                    <span style="color: #ae81ff;">> ["orange", "mango", "kiwi"]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              📦 <strong>Resultado:</strong> <code style="color: red;">rest</code> es un array real. Puedes usar sobre
+              él cualquier método
+              como <code style="color: red;">.length</code> o <code style="color: red;">.map()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>first</mark> y <mark>second</mark> capturan los dos primeros elementos del array
+        <mark>fruits</mark>, mientras que <mark>rest</mark> captura
+        todos los elementos restantes en un nuevo array. La sintaxis rest debe ser el último elemento del patrón de
+        desestructuración.
+      </p>
+      <p>
+        La desestructuración de arrays es una potente característica que puede hacer que tu código sea más conciso y
+        fácil de leer. Resulta especialmente útil cuando se trabaja con arrays y cuando necesitas extraer elementos
+        específicos de una array.
+      </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let numbers = [1, 2, 3, 4, 5];
+                let [a, , b, ...rest] = numbers;
+                console.log(a, b, rest);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q13">
+            1 2 [3, 4, 5]
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            <!-- correcto -->
+            1 3 [4, 5]
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            1 2 [4, 5]
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            1 3 [2, 4, 5]
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let colors = ["red", "green", "blue"];
+                let [primary, secondary, tertiary, quaternary = "yellow"] = colors;
+                console.log(quaternary);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q14">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            <!-- correcto -->
+            "yellow"
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let fruits = ["apple", "banana", "orange", "grape"];
+                let [first, ...rest, last] = fruits;
+                console.log(first, rest, last);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q15">
+            "apple" ["banana", "orange"] "grape"
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            "apple" ["banana", "orange", "grape"] undefined
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            <!-- correcto -->
+            Esto provocará un SyntaxError.
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            "apple" [] "grape"
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-labelledby="tema6-titulo">
+      <h2 id="tema6-titulo">
+        Tema 6: ¿Cómo se pueden utilizar los métodos de strings y arrays para invertir un string?
+      </h2>
+
+      <p>
+        Invertir un string es una tarea habitual en programación que se puede llevar a cabo en JavaScript utilizando una
+        combinación de métodos de strings y arrays. El proceso consta de tres pasos principales:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Dividir el string en un array de caracteres.
+          </li>
+          <li class="list">
+            Invertir el array.
+          </li>
+          <li class="list">
+            Volver a unir los caracteres en un string.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        Veamos cada uno de estos pasos utilizando los métodos <mark>split()</mark>, <mark>reverse()</mark> y
+        <mark>join()</mark>.
+      </p>
+      <p>
+        El primer paso para invertir un string es convertirlo en un array de caracteres individuales. Podemos hacerlo
+        utilizando el método <mark>split()</mark>. El método <mark>split()</mark> divide un string en un array de
+        substrings y especifica dónde
+        debe ocurrir cada división basándose en un separador dado. Si no se proporciona ningún separador, el método
+        devuelve un array que contiene le string original como un único elemento. Algunos ejemplos de separadores
+        comunes son:
+      </p>
+
+      <div class="info-box">
+        <ul class="list-box">
+          <li class="list">
+            Un string vacío <mark>""</mark>(), que divide el string en caracteres individuales.
+          </li>
+          <li class="list">
+            Un espacio simple <mark>" "</mark>(), que divide el string dondequiera que haya espacios.
+          </li>
+          <li class="list">
+            Un guión <mark>"-"</mark>(), que divide el string en cada guión.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        A continuación, se muestra un ejemplo del uso del método <mark>split</mark> para crear un array de caracteres:
+      </p>
+
+      <div class="ide-container" id="ide-js-string-split">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">string_to_array.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Método Split -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">str</span> = <span class="tk-string">"hello"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">charArray</span> = <span class="tk-selector">str</span><span class="tk-punctuation">.</span><span class="tk-value">split</span><span class="tk-punctuation">(</span><span class="tk-string">""</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">charArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["h", "e", "l", "l", "o"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Step 1: Deconstruction</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Split -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                  <div
+                    style="background: #333; padding: 8px 15px; border-radius: 4px; color: #f8f8f2; border: 1px solid #444;">
+                    "h e l l o"
+                  </div>
+                  <div style="color: #f92672; font-size: 12px; font-weight: bold;">.split("")</div>
+                  <div style="display: flex; gap: 5px;">
+                    <div
+                      style="background: #a6e22e; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      h</div>
+                    <div
+                      style="background: #a6e22e; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      e</div>
+                    <div
+                      style="background: #a6e22e; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      l</div>
+                    <div
+                      style="background: #a6e22e; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      l</div>
+                    <div
+                      style="background: #a6e22e; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      o</div>
+                  </div>
+                </div>
+
+                <!-- Lógica del separador -->
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px;">SEPARATOR LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Al usar un <strong>string vacío</strong> <code>""</code>, le indicamos a JavaScript que divida el
+                    texto en cada posición posible, aislando cada carácter.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["h", "e", "l", "l", "o"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔍 <strong>Nota:</strong> Este es un paso destructivo controlado. El string original <code
+                style="color: red;">str</code>
+              permanece intacto, mientras que <code style="color: red;">charArray</code> es una copia transformada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos <mark>split("")</mark> (pasándole un string vacío) para convertir el string
+        <mark>hello</mark> en un array
+        con sus caracteres individuales. Una vez que tenemos un array de caracteres, podemos usar el método
+        <mark>reverse()</mark>
+        para invertir el orden de los elementos del array.
+      </p>
+      <p>
+        El método <mark>reverse()</mark> es un método de array que invierte una array en su lugar. Esto significa que
+        modifica el
+        array original en lugar de crear una nueva. Así es como podemos usarlo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-reverse">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_reverse.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Método Reverse -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">charArray</span> = <span class="tk-punctuation">[</span><span class="tk-string">"h"</span><span class="tk-punctuation">,</span> <span class="tk-string">"e"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"o"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">charArray</span><span class="tk-punctuation">.</span><span class="tk-value">reverse</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">charArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["o", "l", "l", "e", "h"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Step 2: Positional Swap</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Reverse -->
+                <div
+                  style="position: relative; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 10px;">
+                  <!-- Estado Inicial (Pequeño) -->
+                  <div style="opacity: 0.4; font-size: 10px; position: absolute; top: -10px;">[h, e, l, l, o]</div>
+
+                  <!-- Flechas de swap -->
+                  <div style="display: flex; gap: 5px; align-items: center;">
+                    <div
+                      style="background: #ae81ff; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      o</div>
+                    <div
+                      style="background: #ae81ff; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      l</div>
+                    <div
+                      style="background: #ae81ff; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      l</div>
+                    <div
+                      style="background: #ae81ff; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      e</div>
+                    <div
+                      style="background: #ae81ff; color: #000; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      h</div>
+                  </div>
+                </div>
+
+                <!-- Alerta de Mutación -->
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 4px; font-weight: bold;">IN-PLACE MUTATION:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    A diferencia de otros métodos, <code>reverse()</code> <strong>modifica el array original</strong>.
+                    No necesitas asignar el resultado a una nueva variable.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["o", "l", "l", "e", "h"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Dato:</strong> Si no quieres modificar el original, en versiones modernas de JS puedes usar
+              <code style="color: red;">.toReversed()</code>, que devuelve una copia invertida.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, la función <mark>reverse()</mark> invierte el orden de los elementos de <mark>charArray</mark>,
+        pasando de <mark>["h", "e",
+          "l", "l", "o"]</mark> a <mark>["o", "l", "l", "e", "h"]</mark>.
+      </p>
+      <p>
+        El paso final es convertir el array de caracteres invertido de nuevo en un string. Podemos lograrlo utilizando
+        el método <mark>join()</mark>. El método <mark>join()</mark> crea y devuelve un nuevo string concatenando todos
+        los elementos de un
+        array, separados por un string separador especificado. Si quieres unir los caracteres sin ningún separador,
+        puedes usar un string vacío como argumento. Aquí tienes un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-join">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_join.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <!-- Código de ejemplo: Método Join -->
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">reversedArray</span> = <span class="tk-punctuation">[</span><span class="tk-string">"o"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"e"</span><span class="tk-punctuation">,</span> <span class="tk-string">"h"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">reversedString</span> = <span class="tk-selector">reversedArray</span><span class="tk-punctuation">.</span><span class="tk-value">join</span><span class="tk-punctuation">(</span><span class="tk-string">""</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">reversedString</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "olleh"</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Step 3: Reconstruction</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <!-- Visualización del Join -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                  <div style="display: flex; gap: 4px;">
+                    <div
+                      style="border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 11px;">
+                      "o"</div>
+                    <div
+                      style="border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 11px;">
+                      "l"</div>
+                    <div
+                      style="border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 11px;">
+                      "l"</div>
+                    <div
+                      style="border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 11px;">
+                      "e"</div>
+                    <div
+                      style="border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 11px;">
+                      "h"</div>
+                  </div>
+                  <div style="color: #f92672; font-size: 14px;">⚡</div>
+                  <div
+                    style="background: #66d9ef; color: #000; padding: 6px 20px; border-radius: 4px; font-weight: bold; font-size: 12px; letter-spacing: 2px;">
+                    "olleh"
+                  </div>
+                </div>
+
+                <!-- Nota de inmutabilidad -->
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px; font-weight: bold;">IMMUTABILITY WIN:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Has transformado la información de forma segura. Ahora <code>reversedString</code> es una cadena
+                    nueva e independiente.
+                  </div>
+                </div>
+
+                <!-- Consola -->
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "olleh"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Pro-Tip:</strong> Puedes encadenar todo en una línea:
+              <code style="color: red;">str.split("").reverse().join("");</code>. ¡Es la forma más común de verlo en
+              producción!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>join("")</mark> (al que se le pasa un string vacío como argumento) combina todos los
+        caracteres del
+        array en una sola string sin ningún separador entre ellos.
+      </p>
+      <p>
+        Recuerda que las strings en JavaScript son inmutables, lo que significa que no puedes invertir directamente una
+        string modificándola. Por eso necesitamos convertirla en un array, invertir el array y luego volver a
+        convertirlo en una string. Esta combinación de métodos de strings y arrays ofrece una forma potente y flexible
+        de manipular strings en JavaScript.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let str = "coding";
+                let reversed = str.split("").reverse().join("");
+                console.log(reversed);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q16">
+            coding
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            <!-- correcto -->
+            gnidoc
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            ["g", "n", "i", "d", "o", "c"]
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            undefined
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado de <mark>"hello".split("")</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q17">
+            "hello"
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            ["hello"]
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            <!-- correcto -->
+            ["h", "e", "l", "l", "o"]
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            "h,e,l,l,o"
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let word = "hello";
+                let chars = word.split("");
+                chars.reverse();
+                console.log(chars.join("-"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q18">
+            hello
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            <!-- correcto -->
+            o-l-l-e-h
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            olleh
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            ["o", "l", "l", "e", "h"]
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
