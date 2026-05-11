@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con métodos comunes de arrays en JavaScript. Descubre cómo manipular y transformar tus datos de manera eficiente utilizando métodos como map, filter, reduce y más.">
+  <meta name="keywords" content="JavaScript, arrays, métodos, map, filter, reduce">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con métodos comunes de arrays en JavaScript">
+  <meta property="og:description"
+    content="Aprende a trabajar con métodos comunes de arrays en JavaScript. Descubre cómo manipular y transformar tus datos de manera eficiente utilizando métodos como map, filter, reduce y más.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con métodos comunes de arrays</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con métodos comunes de arrays</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a usar métodos comunes de arrays para manipular y trabajar con datos en JavaScript.
+        Los métodos de arrays son funciones integradas que te permiten realizar operaciones como agregar, eliminar,
+        ordenar y transformar elementos en un array de manera eficiente.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Cómo se obtiene el índice de un elemento en un array utilizando el método <mark>indexOf()</mark>?
+      </h2>
+
+      <p>
+        En JavaScript, el método <mark>indexOf()</mark> es útil para encontrar el primer índice de un elemento
+        específico dentro de un array. Si no se encuentra el elemento, devolverá <mark>-1</mark>. Esta es la sintaxis
+        básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token operator">array</span><span class="token punctuation">.</span><span class="token keyword">indexOf</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">,</span> <span class="token parameter">fromIndex</span><span class="token punctuation">)</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>element</mark> representa el valor que deseas buscar dentro del array, y el parámetro
+        <mark>fromIndex</mark> es la posición desde la que debe comenzar la búsqueda. El parámetro
+        <mark>fromIndex</mark> es opcional. Si no se proporciona <mark>fromIndex</mark>, la búsqueda comienza desde el
+        principio de la array. Veamos un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-indexof">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">find_index.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">index</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"banana"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">index</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Search Execution Trace</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; gap: 6px;">
+                  <div style="text-align: center;">
+                    <div
+                      style="background: #333; width: 45px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #888; border: 1px solid #444;">
+                      apple</div>
+                    <div style="font-size: 7px; color: #f92672; margin-top: 4px;">idx: 0</div>
+                  </div>
+
+                  <div
+                    style="text-align: center; border: 2px solid #a6e22e; border-radius: 6px; padding: 2px; background: rgba(166, 226, 46, 0.1);">
+                    <div
+                      style="background: #a6e22e; width: 45px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #000; font-weight: bold;">
+                      banana</div>
+                    <div style="font-size: 7px; color: #a6e22e; margin-top: 4px; font-weight: bold;">MATCH!</div>
+                  </div>
+
+                  <div style="text-align: center; opacity: 0.5;">
+                    <div
+                      style="background: #333; width: 45px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #888; border: 1px solid #444;">
+                      orange</div>
+                    <div style="font-size: 7px; color: #888; margin-top: 4px;">idx: 2</div>
+                  </div>
+
+                  <div style="text-align: center; opacity: 0.5;">
+                    <div
+                      style="background: #333; width: 45px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #888; border: 1px solid #444;">
+                      banana</div>
+                    <div style="font-size: 7px; color: #888; margin-top: 4px;">idx: 3</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px dashed #a6e22e; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px;">SEARCH RESULT:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    La búsqueda se detiene en el primer <strong>"banana"</strong> encontrado. El índice retornado es
+                    <span style="color: #ae81ff; font-weight: bold;">1</span>.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 1
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Importante:</strong> El método <code style="color: red;">indexOf()</code> realiza una
+              comparación estricta
+              (<code style="color: red;">===</code>), lo que significa que distingue entre mayúsculas y minúsculas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un array <mark>fruits</mark> que contiene varios nombres de frutas. Utilizamos el
+        método <mark>indexOf()</mark>
+        para encontrar el índice del string <mark>banana</mark> dentro del array <mark>fruits</mark>. Dado que
+        <mark>banana</mark> se encuentra en el índice <mark>1</mark>,
+        el método devuelve <mark>1</mark>, valor que se almacena en la variable index y se registra en la consola.
+      </p>
+      <p>
+        Si el elemento que se busca no se encuentra en el array, <mark>indexOf()</mark> devuelve <mark>-1</mark>. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-indexof-notfound">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">not_found.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">index</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"grape"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">index</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// -1</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Search Execution (No Match)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; gap: 6px;">
+                  <div style="text-align: center;">
+                    <div
+                      style="background: #333; width: 50px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #f92672; border: 1px solid #f92672;">
+                      apple</div>
+                    <div style="font-size: 7px; color: #f92672; margin-top: 4px;">❌</div>
+                  </div>
+
+                  <div style="text-align: center;">
+                    <div
+                      style="background: #333; width: 50px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #f92672; border: 1px solid #f92672;">
+                      banana</div>
+                    <div style="font-size: 7px; color: #f92672; margin-top: 4px;">❌</div>
+                  </div>
+
+                  <div style="text-align: center;">
+                    <div
+                      style="background: #333; width: 50px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 9px; color: #f92672; border: 1px solid #f92672;">
+                      orange</div>
+                    <div style="font-size: 7px; color: #f92672; margin-top: 4px;">❌</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 4px; font-weight: bold;">MISSING ELEMENT:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Se buscó <strong>"grape"</strong> en todo el array. Al llegar al final sin coincidencias, el motor
+                    de JS devuelve <span style="color: #ae81ff; font-weight: bold;">-1</span>.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > -1
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Tip de validación:</strong> Siempre verifica si el resultado es mayor a <code
+                style="color: red;">-1</code> antes
+              de usar el índice para evitar errores de acceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí buscamos el string <mark>grape</mark> en el array <mark>fruits</mark> utilizando <mark>indexOf()</mark>.
+        Como <mark>grape</mark> no está presente en el array,
+        el método devuelve <mark>-1</mark>, valor que se almacena en la variable <mark>index</mark> y se registra en la
+        consola.
+      </p>
+      <p>
+        Si quieres empezar a buscar un elemento a partir de un número de índice específico, puedes pasar un segundo
+        argumento como en este ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-indexof-fromindex">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">offset_search.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">"red"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-string">"blue"</span><span class="tk-punctuation">,</span> <span class="tk-string">"yellow"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">index</span> = <span class="tk-selector">colors</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">index</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Execution Trace (Start at Index 3)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; gap: 6px;">
+                  <div style="text-align: center; opacity: 0.2;">
+                    <div
+                      style="background: #333; width: 42px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 8px; color: #888;">
+                      red</div>
+                    <div style="font-size: 7px; margin-top: 4px;">0</div>
+                  </div>
+
+                  <div style="text-align: center; opacity: 0.2;">
+                    <div
+                      style="background: #333; width: 42px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 8px; color: #888;">
+                      green</div>
+                    <div style="font-size: 7px; margin-top: 4px;">1</div>
+                  </div>
+
+                  <div style="text-align: center; opacity: 0.2;">
+                    <div
+                      style="background: #333; width: 42px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 8px; color: #888;">
+                      blue</div>
+                    <div style="font-size: 7px; margin-top: 4px;">2</div>
+                  </div>
+
+                  <div style="text-align: center;">
+                    <div
+                      style="background: #444; width: 42px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 8px; color: #f8f8f2; border: 1px dashed #66d9ef;">
+                      yellow</div>
+                    <div style="font-size: 7px; color: #66d9ef; margin-top: 4px; font-weight: bold;">START</div>
+                  </div>
+
+                  <div style="text-align: center; border: 2px solid #a6e22e; border-radius: 6px; padding: 1px;">
+                    <div
+                      style="background: #a6e22e; width: 42px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 8px; color: #000; font-weight: bold;">
+                      green</div>
+                    <div style="font-size: 7px; color: #a6e22e; margin-top: 4px; font-weight: bold;">MATCH!</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px; font-weight: bold;">SKIP LOGIC:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Los índices <strong>0, 1 y 2</strong> son ignorados completamente. La búsqueda comienza en el índice
+                    <strong>3</strong> y encuentra la coincidencia en el <strong>4</strong>.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 4
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Uso común:</strong> Esta técnica se usa para encontrar todas las ocurrencias de un elemento
+              mediante un bucle, actualizando el punto de inicio en cada iteración.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, la búsqueda no comienza desde el principio del array, sino que empieza en el índice
+        <mark>3</mark>, que es <mark>yellow</mark>, y devuelve el resultado <mark>4</mark>.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let numbers = [10, 20, 30, 20, 40];
+                let index = numbers.indexOf(20);
+                console.log(index);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            0
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            1
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            3
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let fruits = ["apple", "banana", "orange", "grape"];
+                let index = fruits.indexOf("kiwi");
+                console.log(index);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            0
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            -1
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Se producirá un error
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let colors = ["red", "green", "blue", "yellow", "green"];
+                let index = colors.indexOf("green", 2);
+                console.log(index);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            1
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            4
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            -1
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo se añaden y eliminan elementos de la parte central de un array?
+      </h2>
+
+      <p>
+        El método <mark>splice()</mark> de JavaScript es una forma eficaz de modificar arrays. Permite añadir o eliminar
+        elementos
+        desde cualquier posición de un array, incluida la parte central. El valor de retorno del método
+        <mark>splice()</mark> será un
+        array con los elementos eliminados del array. Si no se ha eliminado nada, se devolverá un array vacío.
+      </p>
+      <p>
+        Es importante tener en cuenta que este método mutará al array original, modificándola in situ en lugar de crear
+        un nuevo array. Esto es algo que hay que tener en cuenta al trabajar con <mark>splice()</mark>. Aquí está la
+        sintaxis básica:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token operator">array</span><span class="token punctuation">.</span><span class="token keyword">splice</span><span class="token punctuation">(</span><span class="token parameter">startIndex</span><span class="token punctuation">,</span> <span class="token parameter">itemsToRemove</span><span class="token punctuation">,</span> <span class="token parameter">item1</span><span class="token punctuation">,</span> <span class="token parameter">item2</span><span class="token punctuation">,</span> <span class="token parameter">...</span><span class="token parameter">)</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        <mark>startIndex</mark> especifica el índice en el que se debe comenzar a modificar el array, mientras que
+        <mark>itemsToRemove</mark> es
+        un parámetro opcional que indica cuántos elementos se deben eliminar. Si se omite <mark>itemsToRemove</mark>,
+        <mark>splice()</mark>
+        eliminará todos los elementos desde <mark>startIndex</mark> hasta el final de la array. Los parámetros
+        siguientes (<mark>item1</mark>,
+        <mark>item2</mark>, etc.) son los elementos que se añadirán al array, comenzando en el índice de inicio.
+      </p>
+      <p>
+        Comencemos con un ejemplo de cómo eliminar elementos del medio de un array:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-splice-remove">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">remove_elements.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"mango"</span><span class="tk-punctuation">,</span> <span class="tk-string">"kiwi"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">removed</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// ["apple", "banana", "kiwi"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">removed</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["orange", "mango"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Extraction Process (2, 2)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; gap: 4px; align-items: center;">
+                  <div
+                    style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                    apple [0]</div>
+                  <div
+                    style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                    banana [1]</div>
+
+                  <div
+                    style="display: flex; gap: 4px; border: 1px dashed #f92672; padding: 2px; border-radius: 4px; background: rgba(249, 38, 114, 0.1);">
+                    <div
+                      style="background: #f92672; color: #fff; padding: 5px 8px; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                      orange</div>
+                    <div
+                      style="background: #f92672; color: #fff; padding: 5px 8px; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                      mango</div>
+                  </div>
+
+                  <div
+                    style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                    kiwi [4]</div>
+                </div>
+
+                <div style="text-align: center; color: #f92672; font-size: 14px;">⬇</div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 9px; color: #a6e22e; width: 60px;">fruits:</span>
+                    <div
+                      style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #f8f8f2;">
+                      ["apple", "banana", "kiwi"]
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 9px; color: #ae81ff; width: 60px;">removed:</span>
+                    <div
+                      style="background: rgba(174, 129, 255, 0.1); border: 1px solid #ae81ff; padding: 4px 10px; border-radius: 4px; font-size: 10px; color: #f8f8f2;">
+                      ["orange", "mango"]
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    > ["apple", "banana", "kiwi"]<br>
+                    <span style="color: #ae81ff;">> ["orange", "mango"]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✂️ <strong>Efecto secundario:</strong> Los elementos que estaban después de la zona eliminada (como
+              "kiwi") se desplazan a la izquierda para llenar el hueco.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>splice(2, 2)</mark> comienza en el índice <mark>2</mark> y elimina <mark>2</mark>
+        elementos. El array modificado ahora estará compuesta únicamente por <mark>apple</mark>, <mark>banana</mark> y
+        <mark>kiwi</mark>. Ahora, veamos cómo añadir elementos en medio de un array:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-splice-insert">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">insert_elements.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">"red"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-string">"blue"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">colors</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">0</span><span class="tk-punctuation">,</span> <span class="tk-string">"yellow"</span><span class="tk-punctuation">,</span> <span class="tk-string">"purple"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">colors</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["red", "yellow", "purple", "green", "blue"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Injection Map (1, 0, ...)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 4px;">
+                  <div
+                    style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                    red [0]</div>
+
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="color: #66d9ef; font-size: 14px; margin-bottom: 2px;">↓</div>
+                    <div
+                      style="display: flex; gap: 4px; border: 1px dashed #66d9ef; padding: 3px; border-radius: 4px; background: rgba(102, 217, 239, 0.1);">
+                      <div
+                        style="background: #66d9ef; color: #000; padding: 4px 6px; border-radius: 2px; font-size: 9px; font-weight: bold;">
+                        yellow</div>
+                      <div
+                        style="background: #66d9ef; color: #000; padding: 4px 6px; border-radius: 2px; font-size: 9px; font-weight: bold;">
+                        purple</div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 4px; opacity: 0.6;">
+                    <div
+                      style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                      green [1→3]</div>
+                    <div
+                      style="background: #333; padding: 5px 8px; border-radius: 3px; font-size: 9px; color: #888; border: 1px solid #444;">
+                      blue [2→4]</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px; font-weight: bold;">NON-DESTRUCTIVE
+                    INSERT:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Al usar <code style="color: #66d9ef;">0</code> como segundo argumento, el array original crece de
+                    tamaño <strong>3</strong> a tamaño <strong>5</strong> sin perder elementos.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["red", "yellow", "purple", "green", "blue"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Dato:</strong> Puedes insertar tantos elementos como quieras pasando más argumentos después del
+              número de elementos a eliminar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>splice(1, 0, "yellow", "purple")</mark> comienza en el índice <mark>1</mark>, elimina
+        <mark>0</mark> elementos e inserta <mark>"yellow"</mark> y <mark>"purple"</mark>. El segundo parámetro
+        (<mark>0</mark>) indica que no se elimina ningún elemento antes de la inserción. También puedes usar
+        <mark>splice()</mark> para eliminar y añadir elementos al mismo tiempo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-splice-replace">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">replace_elements.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">6</span><span class="tk-punctuation">,</span> <span class="tk-number">7</span><span class="tk-punctuation">,</span> <span class="tk-number">8</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 6, 7, 8, 4, 5]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Simultaneous Swap (1, 2, ...)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 6px;">
+                  <div
+                    style="background: #333; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; color: #888;">
+                    1</div>
+
+                  <div
+                    style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 5px; border: 1px dashed #f92672; border-radius: 6px;">
+                    <div style="display: flex; gap: 4px; opacity: 0.4;">
+                      <div
+                        style="background: #f92672; color: #fff; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 9px; text-decoration: line-through;">
+                        2</div>
+                      <div
+                        style="background: #f92672; color: #fff; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 9px; text-decoration: line-through;">
+                        3</div>
+                    </div>
+                    <div style="color: #ae81ff; font-size: 12px;">⇅</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="background: #ae81ff; color: #000; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        6</div>
+                      <div
+                        style="background: #ae81ff; color: #000; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        7</div>
+                      <div
+                        style="background: #ae81ff; color: #000; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 3px; font-size: 9px; font-weight: bold;">
+                        8</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: #333; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; color: #888;">
+                    4</div>
+                  <div
+                    style="background: #333; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; color: #888;">
+                    5</div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px; font-weight: bold;">DYNAMIC RESIZING:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Eliminaste <strong>2</strong> elementos e insertaste <strong>3</strong>. El array creció
+                    automáticamente para acomodar el valor extra.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > [1, 6, 7, 8, 4, 5]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🔄 <strong>Versatilidad:</strong> <code style="color: red;">splice()</code> permite mantener la referencia
+              del array original
+              mientras cambias radicalmente su contenido interno.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>splice(1, 2, 6, 7, 8)</mark> comienza en el índice <mark>1</mark>, elimina <mark>2</mark>
+        elementos (el <mark>2</mark> y el <mark>3</mark>) e inserta el <mark>6</mark>, el <mark>7</mark> y el
+        <mark>8</mark>. Si necesitas mantener el array original sin cambios, debes crear una copia antes de usar
+        <mark>splice()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-splice-copy">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">immutability.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">original</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">copy</span> = <span class="tk-punctuation">[</span><span class="tk-punctuation">...</span><span class="tk-selector">original</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Clonamos el array</span>
+
+<span class="tk-selector">copy</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">6</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">original</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3, 4, 5]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copy</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// [1, 2, 6, 4, 5]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Memory Reference Isolation</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px; position: relative;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 8px; color: #888; width: 50px;">ORIGINAL:</span>
+                    <div
+                      style="background: #333; padding: 4px 8px; border-radius: 4px; border: 1px solid #a6e22e; color: #a6e22e; font-size: 10px;">
+                      [1, 2, 3, 4, 5]</div>
+                  </div>
+
+                  <div style="margin-left: 60px; color: #66d9ef; font-size: 10px;">⚡ Spread (...) creates new copy</div>
+
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 8px; color: #888; width: 50px;">COPY:</span>
+                    <div
+                      style="background: #333; padding: 4px 8px; border-radius: 4px; border: 1px solid #ae81ff; color: #ae81ff; font-size: 10px;">
+                      [1, 2, <span
+                        style="background: #f92672; color: #fff; padding: 0 4px; border-radius: 2px;">6</span>, 4, 5]
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px; margin-top: 5px;">
+                  <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px; font-weight: bold;">DATA PROTECTION:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    Como <code>copy</code> es un array distinto en memoria, la "operación quirúrgica" de
+                    <strong>splice</strong> no afecta al array inicial.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f8f8f2;">
+                  <div style="color: #888; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #a6e22e; font-size: 10px; margin-bottom: 4px;">> [1, 2, 3, 4, 5] <span
+                      style="color: #888;">(Original intacto)</span></div>
+                  <div style="color: #ae81ff; font-size: 10px;">> [1, 2, 6, 4, 5] <span style="color: #888;">(Copia
+                      modificada)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Regla de oro:</strong> Si no quieres efectos secundarios en otras partes de tu app,
+              <strong>siempre clona</strong> antes de usar métodos mutadores como <code
+                style="color: red;">splice</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, para crear una copia del array <mark>original</mark> sin modificarlo, utilizamos el operador de
+        expansión
+        (<mark>...</mark>). El operador de expansión creará una copia superficial de los elementos del array
+        <mark>original</mark> en un nuevo
+        array. Aprenderás más sobre esto en lecciones futuras.
+      </p>
+      <p>
+        Cuando usamos <mark>copy.splice(2, 1, 6)</mark>, se modifica el array de copia al eliminar el elemento en el
+        índice <mark>2</mark> (que es
+        <mark>3</mark>) e insertar el nuevo elemento <mark>6</mark> en esa posición.
+      </p>
+      <p>
+        Un caso de uso común de <mark>splice()</mark> es eliminar un solo elemento de un array cuando conoces su índice:
+      </p>
+
+      <div class="ide-container" id="ide-js-indexof-splice-combo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">safe_delete.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"mango"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">indexToRemove</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"orange"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">indexToRemove</span> <span class="tk-punctuation">!==</span> <span class="tk-number">-1</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-selector">indexToRemove</span><span class="tk-punctuation">,</span> <span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["apple", "banana", "mango"]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Step-by-Step Logic</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div
+                    style="background: #a6e22e; color: #000; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
+                    1</div>
+                  <div style="font-size: 10px; color: #f8f8f2;">
+                    <code>indexOf("orange")</code> <span style="color: #888;">→</span> <span
+                      style="color: #ae81ff;">2</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div
+                    style="background: #66d9ef; color: #000; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
+                    2</div>
+                  <div style="font-size: 10px; color: #f8f8f2;">
+                    <code>2 !== -1</code> <span style="color: #a6e22e;">✔ (True - Proceed)</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div
+                    style="background: #f92672; color: #000; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
+                    3</div>
+                  <div style="font-size: 10px; color: #f8f8f2;">
+                    <code>splice(2, 1)</code> <span style="color: #f92672;">✂ Removed "orange"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid #444;">
+                  <div style="font-size: 8px; color: #888; margin-bottom: 5px;">RESULT ARRAY:</div>
+                  <div style="display: flex; gap: 5px;">
+                    <div style="font-size: 9px; color: #f8f8f2;">"apple",</div>
+                    <div style="font-size: 9px; color: #f8f8f2;">"banana",</div>
+                    <div style="font-size: 9px; color: #f8f8f2; opacity: 0.3; text-decoration: line-through;">"orange",
+                    </div>
+                    <div style="font-size: 9px; color: #f8f8f2;">"mango"</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["apple", "banana", "mango"]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Buenas prácticas:</strong> Esta estructura previene errores en tiempo de ejecución y es la forma
+              más limpia de manejar eliminaciones basadas en valores.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, primero usamos el método <mark>indexOf()</mark> para encontrar el índice del elemento
+        <mark>orange</mark> en el array
+        <mark>fruits</mark>. El método <mark>indexOf()</mark> devuelve el índice de la primera aparición del elemento
+        dado o <mark>-1</mark> si el elemento no
+        se encuentra en el array.
+      </p>
+      <p>
+        Luego comparamos <mark>indexToRemove</mark> con <mark>-1</mark> para asegurarnos de que el elemento exista en el
+        array antes de intentar
+        eliminarlo. Si <mark>indexToRemove</mark> no es igual a <mark>-1</mark> (lo que significa que se encuentra el
+        elemento), usamos <mark>splice()</mark>
+        para eliminar un elemento a partir de la posición <mark>indexToRemove</mark>.
+      </p>
+      <p>
+        También puedes usar <mark>splice()</mark> para borrar un array eliminando todos los elementos:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-splice-clear">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">clear_array.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">array</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">array</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Elimina todo desde el índice 0</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">array</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// []</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Performance & Logic</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; justify-content: center; gap: 4px; position: relative; padding: 10px;">
+                  <div
+                    style="background: #333; border: 1px solid #f92672; color: #f92672; padding: 4px; border-radius: 3px; font-size: 10px; text-decoration: line-through;">
+                    1</div>
+                  <div
+                    style="background: #333; border: 1px solid #f92672; color: #f92672; padding: 4px; border-radius: 3px; font-size: 10px; text-decoration: line-through;">
+                    2</div>
+                  <div
+                    style="background: #333; border: 1px solid #f92672; color: #f92672; padding: 4px; border-radius: 3px; font-size: 10px; text-decoration: line-through;">
+                    3</div>
+                  <div
+                    style="background: #333; border: 1px solid #f92672; color: #f92672; padding: 4px; border-radius: 3px; font-size: 10px; text-decoration: line-through;">
+                    4</div>
+                  <div
+                    style="background: #333; border: 1px solid #f92672; color: #f92672; padding: 4px; border-radius: 3px; font-size: 10px; text-decoration: line-through;">
+                    5</div>
+                  <div
+                    style="position: absolute; color: #f92672; font-size: 20px; top: 0; font-weight: bold; opacity: 0.5;">
+                    ×</div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 6px; font-weight: bold;">EFFICIENCY
+                    COMPARISON:</div>
+                  <table style="width: 100%; font-size: 9px; color: #f8f8f2; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                      <td style="padding: 4px 0; color: #ae81ff;">End (Push/Pop)</td>
+                      <td style="text-align: right; color: #a6e22e;">O(1) - Fast</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                      <td style="padding: 4px 0; color: #ae81ff;">Middle (Splice)</td>
+                      <td style="text-align: right; color: #fd971f;">O(n) - Moderate</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 4px 0; color: #ae81ff;">Start (Shift/Splice)</td>
+                      <td style="text-align: right; color: #f92672;">O(n) - Heavy</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f8f8f2;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > []
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(253, 151, 31, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Conclusión:</strong> <code style="color: red;">splice()</code> es tu mejor aliado para cirugías
+              específicas, pero
+              usa los métodos de extremos para operaciones de alto rendimiento.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque <mark>splice()</mark> es muy potente, vale la pena señalar que, en el caso de arrays muy grandes, puede
+        resultar menos
+        eficiente que otros métodos, especialmente al modificar el principio del array. Esto se debe a que
+        <mark>splice()</mark>
+        puede necesitar desplazar todos los elementos posteriores. En tales casos, si solo vas a agregar o eliminar
+        elementos al final de la array, métodos como <mark>push()</mark>, <mark>pop()</mark>, <mark>unshift()</mark> y
+        <mark>shift()</mark> podrían ser más adecuados.
+      </p>
+      <p>
+        En conclusión, el método <mark>splice()</mark> es una forma versátil de modificar arrays en JavaScript. Permite
+        un control
+        preciso sobre la adición y eliminación de elementos desde cualquier posición en un array. Comprender cómo usar
+        <mark>splice()</mark> de manera efectiva puede mejorar considerablemente su capacidad para manipular arrays en
+        su código
+        JavaScript.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = [1, 2, 3, 4, 5];
+                arr.splice(2, 0, 6, 7);
+                console.log(arr);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            [1, 2, 6, 7, 3, 4, 5]
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            [1, 2, 3, 4, 5, 6, 7]
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            [1, 2, 3, 6, 7, 4, 5]
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            [1, 2, 6, 7, 4, 5]
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes llamadas a <mark>splice()</mark> eliminaría el número 3 del array?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            arr.splice(3, 1)
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            arr.splice(3, 0)
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            arr.splice(2, 1)
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            arr.splice(arr.length - 2, 1)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué devuelve el método <mark>splice()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            El array modificado.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            El número de elementos eliminados.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Un array que contiene los elementos eliminados.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            undefined
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Cómo se puede comprobar si un array contiene un valor determinado?
+      </h2>
+
+      <p>
+        En JavaScript, el método <mark>includes()</mark> es una forma sencilla y eficaz de comprobar si un array
+        contiene un valor
+        específico. Este método devuelve un valor booleano: <mark>true</mark> si el array contiene el elemento
+        especificado y <mark>false</mark>
+        en caso contrario.
+      </p>
+      <p>
+        El método <mark>includes()</mark> es particularmente útil cuando necesitas verificar rápidamente la presencia de
+        un elemento
+        en un array sin necesidad de conocer su posición exacta. Comencemos con un ejemplo de cómo usar el método
+        <mark>includes()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-includes">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"mango"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"banana"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"grape"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Boolean Logic Check</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; background: rgba(166, 226, 46, 0.05); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(166, 226, 46, 0.2);">
+                    <span style="font-size: 10px; color: #f8f8f2;">Search: <strong>"banana"</strong></span>
+                    <span
+                      style="background: #a6e22e; color: #000; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold;">TRUE</span>
+                  </div>
+
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; background: rgba(249, 38, 114, 0.05); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(249, 38, 114, 0.2);">
+                    <span style="font-size: 10px; color: #f8f8f2;">Search: <strong>"grape"</strong></span>
+                    <span
+                      style="background: #f92672; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold;">FALSE</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">RESULTADO BINARIO:</strong> A diferencia de <code>indexOf</code>,
+                    este método no devuelve la posición, solo confirma la existencia con un valor booleano.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > true<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Limpieza de código:</strong> Es ideal para usar directamente en sentencias <code
+                style="color: red;">if</code> como:
+              <code style="color: red;">if (fruits.includes("banana")) { ... }</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un array de frutas. Usamos el método <mark>includes()</mark> para comprobar si
+        <mark>banana</mark> está en el
+        array. Devuelve <mark>true</mark> porque, efectivamente, <mark>banana</mark> está presente. A continuación,
+        comprobamos si está grape, lo
+        que devuelve <mark>false</mark> porque no está en el array.
+      </p>
+      <p>
+        El método <mark>includes()</mark> distingue entre mayúsculas y minúsculas cuando se trata de strings. Esto
+        significa que
+        <mark>Banana</mark> con B mayúscula y <mark>banana</mark> con todas las letras en minúsculas se consideran
+        valores diferentes. A
+        continuación, un ejemplo que ilustra esto:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-case-sensitive">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">case_sensitivity.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"banana"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"Banana"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Strict Comparison Trace</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #a6e22e;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 10px; color: #f8f8f2;">"banana" === "banana"</span>
+                    <span style="color: #a6e22e; font-size: 12px;">✔</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #f92672;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 10px; color: #f8f8f2;">"Banana" === "banana"</span>
+                    <span style="color: #f92672; font-size: 12px;">✘</span>
+                  </div>
+                  <div style="font-size: 8px; color: #f92672; margin-top: 5px; opacity: 0.8;">
+                    DIFERENCIA DETECTADA: [B] vs [b]
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > true<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Recordatorio:</strong> <code style="color: red;">includes()</code> usa el algoritmo de igualdad
+              estricta. Para el
+              motor de JS, <code style="color: red;">"B"</code> (Unicode 66) no es igual a <code
+                style="color: red;">"b"</code> (Unicode 98).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>banana</mark> (<em>todo en minúsculas</em>) se encuentra en el array, pero
+        <mark>Banana</mark> (<em>con la primera letra mayúscula</em>)
+        no, por lo que la segunda llamada a <mark>includes()</mark> devuelve <mark>false</mark>.
+      </p>
+      <p>
+        El método <mark>includes()</mark> también puede aceptar un segundo parámetro opcional que especifica la posición
+        en el array
+        desde donde debe comenzar la búsqueda. Esto resulta útil si deseas comprobar la presencia de un elemento en una
+        parte específica del array. A continuación te mostramos cómo puedes utilizar esta función:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-segmentation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">segment_search.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">10</span><span class="tk-punctuation">,</span> <span class="tk-number">20</span><span class="tk-punctuation">,</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-number">40</span><span class="tk-punctuation">,</span> <span class="tk-number">50</span><span class="tk-punctuation">,</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-number">60</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (encuentra el del índice 5)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true (encuentra el del índice 5)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Offset Visual Guide</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 18px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <div style="font-size: 8px; color: #a6e22e; font-weight: bold;">START AT INDEX 3:</div>
+                  <div style="display: flex; gap: 3px;">
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      10</div>
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      20</div>
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      30</div>
+                    <div
+                      style="background: #444; color: #66d9ef; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center; border: 1px solid #66d9ef;">
+                      40</div>
+                    <div
+                      style="background: #444; color: #fff; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      50</div>
+                    <div
+                      style="background: #a6e22e; color: #000; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center; font-weight: bold;">
+                      30</div>
+                    <div
+                      style="background: #444; color: #fff; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      60</div>
+                  </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <div style="font-size: 8px; color: #ae81ff; font-weight: bold;">START AT INDEX 4:</div>
+                  <div style="display: flex; gap: 3px;">
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      10</div>
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      20</div>
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      30</div>
+                    <div
+                      style="background: #222; color: #444; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      40</div>
+                    <div
+                      style="background: #444; color: #ae81ff; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center; border: 1px solid #ae81ff;">
+                      50</div>
+                    <div
+                      style="background: #a6e22e; color: #000; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center; font-weight: bold;">
+                      30</div>
+                    <div
+                      style="background: #444; color: #fff; padding: 4px; border-radius: 2px; font-size: 9px; flex: 1; text-align: center;">
+                      60</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > true <span style="color: #888; font-size: 9px;">(Found at index 5)</span><br>
+                    > true <span style="color: #888; font-size: 9px;">(Found at index 5)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato curioso:</strong> Si el segundo parámetro es mayor o igual a la longitud del array,
+              siempre devolverá <code style="color: red;">false</code> porque no queda nada por escanear.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el primer <mark>console.log</mark>, buscamos el número <mark>30</mark> a partir del índice <mark>3</mark>. En
+        este caso, hay un número <mark>30</mark> que
+        aparece después del índice <mark>3</mark>, por lo que el método includes() devuelve <mark>true</mark>.
+      </p>
+      <p>
+        Lo mismo ocurre con el segundo <mark>console.log</mark>. Buscamos el número <mark>30</mark> a partir del índice
+        <mark>4</mark>. Dado que el número <mark>30</mark>
+        aparece después de ese índice, devolverá <mark>true</mark>.
+      </p>
+      <p>
+        Vale la pena señalar que <mark>includes()</mark> utiliza la comparación de igualdad estricta (<mark>===</mark>),
+        lo que significa que
+        puede distinguir entre diferentes tipos. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-includes-strict-equality">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">strict_types.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">mixedArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-string">"2"</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-string">"4"</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">mixedArray</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// false (Number vs String)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">mixedArray</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"2"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true (String match)</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Type Matching Analysis</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 5px;">
+                  <div style="border: 1px solid #66d9ef; padding: 5px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 7px; color: #66d9ef;">Number</div>
+                    <div style="font-size: 11px; color: #f8f8f2;">1</div>
+                  </div>
+                  <div style="border: 1px solid #e6db74; padding: 5px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 7px; color: #e6db74;">String</div>
+                    <div style="font-size: 11px; color: #f8f8f2;">"2"</div>
+                  </div>
+                  <div style="border: 1px solid #66d9ef; padding: 5px; border-radius: 4px; text-align: center;">
+                    <div style="font-size: 7px; color: #66d9ef;">Number</div>
+                    <div style="font-size: 11px; color: #f8f8f2;">3</div>
+                  </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid #444;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 9px; color: #f8f8f2;">Search <strong>2</strong> (Number)</span>
+                    <span style="color: #f92672; font-size: 10px; font-weight: bold;">✕ False</span>
+                  </div>
+                  <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 5px 0;"></div>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 9px; color: #f8f8f2;">Search <strong>"2"</strong> (String)</span>
+                    <span style="color: #a6e22e; font-size: 10px; font-weight: bold;">✓ True</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > false<br>
+                    > true
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(230, 219, 116, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Seguridad de tipos:</strong> <code style="color: red;">includes()</code> no realiza coerción
+              de tipos (type
+              coercion). Si buscas un número, debe haber un número.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, el número <mark>2</mark> y el string <mark>"2"</mark> se consideran tipos de datos diferentes. Por
+        lo tanto, el primer
+        <mark>console.log</mark> devolverá <mark>false</mark>, mientras que el segundo <mark>console.log</mark>
+        devolverá <mark>true</mark>.
+      </p>
+      <p>
+        El método <mark>includes()</mark> es una herramienta poderosa para verificar la presencia de elementos en
+        arrays. Es fácil de
+        usar, eficiente y puede evitarte escribir bucles o condiciones más complejos para buscar en arrays. Ya sea que
+        estés trabajando con strings, números o tipos de datos mixtos, <mark>includes()</mark> ofrece una forma sencilla
+        de verificar
+        si un valor existe en tu array.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = [1, 2, 3, 4, 5];
+                console.log(arr.includes(3, 3));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Esto generará un error.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = ["a", "b", "c", "d", "e"];
+                console.log(arr.includes("C"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = ["a", "b", "c", "d", "e"];
+                console.log(arr.includes("C"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+      <h2 id="tema4-titulo">
+        Tema 4: ¿Qué es una copia superficial de un array y cuáles son algunas formas de crear estas copias?
+      </h2>
+
+      <p>
+        Una copia superficial de un array es un nuevo array que contiene los mismos elementos que el original. Si el
+        array solo contiene valores primitivos, como números o strings, el nuevo array es completamente independiente.
+        Pero si el array contiene otros arrays en su interior, tanto el original como la copia tienen referencias de los
+        mismos arrays internos. Esto significa que si cambias algo dentro de un array interno compartido, verás ese
+        cambio en ambos arrays.
+      </p>
+      <p>
+        Las copias superficiales son útiles cuando necesitas modificar la estructura de nivel superior, como agregar,
+        eliminar o reordenar elementos, sin modificar el array original ni el array interno.
+      </p>
+      <p>
+        Existen varios métodos para crear copias superficiales de arrays, y exploraremos algunos de los más comunes:
+        <mark>concat()</mark>, <mark>slice()</mark> y el operador de expansión.
+      </p>
+      <p>
+        Comencemos con el método <mark>concat()</mark>. Este método crea un nuevo array al fusionar dos o más arrays.
+        Cuando se
+        utiliza con un solo array, crea efectivamente una copia superficial. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-shallow-copy-concat">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">shallow_copy.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">copyArray</span> = <span class="tk-punctuation">[</span><span class="tk-punctuation">]</span><span class="tk-punctuation">.</span><span class="tk-value">concat</span><span class="tk-punctuation">(</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span> <span class="tk-punctuation">===</span> <span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Shallow Copy Memory Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="font-size: 8px; color: #a6e22e; width: 80px;">ORIGINAL (Addr: 0x1)</div>
+                    <div style="display: flex; gap: 2px;">
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        1</div>
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        2</div>
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        3</div>
+                    </div>
+                  </div>
+
+                  <div style="text-align: center; color: #ae81ff; font-size: 10px;">⚡ [].concat() creates NEW reference
+                  </div>
+
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="font-size: 8px; color: #66d9ef; width: 80px;">COPY (Addr: 0x2)</div>
+                    <div style="display: flex; gap: 2px;">
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        1</div>
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        2</div>
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; font-size: 9px;">
+                        3</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #f92672; margin-bottom: 4px; font-weight: bold;">EQUALITY CHECK:
+                  </div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    <code>0x1 === 0x2</code> es <strong>false</strong>. <br>Aunque los datos son iguales, los
+                    "contenedores" en memoria son distintos.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > [1, 2, 3]<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🏗️ <strong>Dato técnico:</strong> Al ser una copia superficial, si el array tuviera un objeto,
+              <code style="color: red;">copyArray[0] === originalArray[0]</code> seguiría siendo <code
+                style="color: red;">true</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos el método <mark>concat()</mark> para concatenar un array vacío a
+        <mark>originalArray</mark>. Esto creará un
+        nuevo array que es una copia superficial de <mark>originalArray</mark>.
+      </p>
+      <p>
+        <mark>copyArray</mark> contiene los mismos elementos que <mark>originalArray</mark>, pero es un objeto de array
+        diferente, por lo que la
+        comparación de igualdad estricta (<mark>===</mark>) devuelve <mark>false</mark>.
+      </p>
+      <p>
+        Otro método para crear una copia superficial es el método <mark>slice()</mark>. Cuando se invoca sin argumentos,
+        <mark>slice()</mark>
+        devuelve una copia superficial de todo el array. Así es como funciona:
+      </p>
+
+      <div class="ide-container" id="ide-js-shallow-copy-slice">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">slice_copy.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">copyArray</span> = <span class="tk-selector">originalArray</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span> <span class="tk-punctuation">===</span> <span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Memory "Slice" Snapshot</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="position: relative; padding: 10px; border: 1px dashed rgba(102, 217, 239, 0.3); border-radius: 8px;">
+                  <div style="display: flex; align-items: center; justify-content: space-around;">
+                    <div style="text-align: center;">
+                      <div style="font-size: 8px; color: #888; margin-bottom: 4px;">originalArray</div>
+                      <div
+                        style="background: #333; padding: 6px; border-radius: 4px; color: #a6e22e; border: 1px solid #a6e22e;">
+                        [1, 2, 3]</div>
+                    </div>
+
+                    <div style="font-size: 14px; color: #66d9ef;">➔</div>
+
+                    <div style="text-align: center;">
+                      <div style="font-size: 8px; color: #888; margin-bottom: 4px;">copyArray</div>
+                      <div
+                        style="background: #333; padding: 6px; border-radius: 4px; color: #66d9ef; border: 1px solid #66d9ef;">
+                        [1, 2, 3]</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    <strong style="color: #a6e22e;">IDENTIDAD:</strong> Aunque los valores coinciden,
+                    <code>slice()</code> garantiza que el <strong>ID de objeto</strong> sea único. Modificar uno no
+                    afectará al otro.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > [1, 2, 3]<br>
+                    > false <span style="color: #888;">(Diferente referencia)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✨ <strong>Pro-tip:</strong> <code style="color: red;">slice()</code> es muy versátil. Si solo quisieras
+              los últimos dos
+              elementos, usarías <code style="color: red;">slice(1)</code>. Sin argumentos, es el clon perfecto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>originalArray.slice()</mark> crea un nuevo array que es una copia superficial de
+        <mark>originalArray</mark>. Una vez
+        más, <mark>copyArray</mark> contiene los mismos elementos, pero es un objeto de array diferente.
+      </p>
+      <p>
+        El operador de expansión (<mark>...</mark>), introducido en ES6, ofrece otra forma concisa de crear copias
+        superficiales de
+        arrays. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-shallow-copy-spread">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">spread_copy.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">copyArray</span> = <span class="tk-punctuation">[</span><span class="tk-punctuation">...</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span> <span class="tk-punctuation">===</span> <span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Spread Mechanism Visualization</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                  <div
+                    style="background: #333; padding: 4px 10px; border-radius: 4px; border: 1px solid #888; font-size: 10px; color: #888;">
+                    [1, 2, 3]</div>
+                  <div style="color: #ae81ff; font-size: 12px; font-weight: bold;">... (Unpack)</div>
+                  <div style="display: flex; gap: 4px;">
+                    <div
+                      style="background: #ae81ff; color: #000; padding: 5px 8px; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      1</div>
+                    <div
+                      style="background: #ae81ff; color: #000; padding: 5px 8px; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      2</div>
+                    <div
+                      style="background: #ae81ff; color: #000; padding: 5px 8px; border-radius: 3px; font-size: 10px; font-weight: bold;">
+                      3</div>
+                  </div>
+                  <div style="color: #a6e22e; font-size: 12px; font-weight: bold;">[ ] (New Container)</div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    <strong style="color: #ae81ff;">ES6 MODERN WAY:</strong> Es la forma más corta de clonar arrays y es
+                    altamente eficiente para la mayoría de los casos de uso cotidianos.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > [1, 2, 3]<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Versatilidad:</strong> El operador spread no solo copia, sino que te permite "inyectar" el
+              contenido de un array dentro de otro de forma declarativa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El operador de expansión (<mark>...</mark>) distribuye los elementos de <mark>originalArray</mark> en un nuevo
+        array, creando de hecho una copia superficial. Es importante señalar que todos estos métodos crean nuevos
+        objetos de array, lo que significa que puedes modificar la copia sin afectar al array original. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-independence">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">independence.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">copyArray</span> = <span class="tk-punctuation">[</span><span class="tk-punctuation">...</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">copyArray</span><span class="tk-punctuation">.</span><span class="tk-value">push</span><span class="tk-punctuation">(</span><span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copyArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// [1, 2, 3, 4]</span></code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Decoupled State Visualization</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 20px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; align-items: center; gap: 15px;">
+                  <div style="font-size: 9px; color: #888; width: 70px;">ORIGINAL:</div>
+                  <div style="display: flex; gap: 4px;">
+                    <div
+                      style="background: #333; border: 1px solid #a6e22e; color: #a6e22e; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      1</div>
+                    <div
+                      style="background: #333; border: 1px solid #a6e22e; color: #a6e22e; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      2</div>
+                    <div
+                      style="background: #333; border: 1px solid #a6e22e; color: #a6e22e; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      3</div>
+                  </div>
+                </div>
+
+                <div style="border-top: 1px dashed #444; position: relative;">
+                  <span
+                    style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-primary); padding: 0 10px; color: #ae81ff; font-size: 10px;">Independent
+                    Reference</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 15px;">
+                  <div style="font-size: 9px; color: #888; width: 70px;">COPY:</div>
+                  <div style="display: flex; gap: 4px;">
+                    <div
+                      style="background: #333; border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      1</div>
+                    <div
+                      style="background: #333; border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      2</div>
+                    <div
+                      style="background: #333; border: 1px solid #66d9ef; color: #66d9ef; padding: 4px 10px; border-radius: 4px; font-size: 10px;">
+                      3</div>
+                    <div
+                      style="background: #a6e22e; border: 1px solid #a6e22e; color: #000; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; animation: pulse 2s infinite;">
+                      4</div>
+                  </div>
+                  <span style="font-size: 8px; color: #a6e22e;">NEW!</span>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    <span style="color: #888;">// original:</span> [1, 2, 3]<br>
+                    <span style="color: #888;">// copy:</span> [1, 2, 3, 4]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ✅ <strong>Conclusión:</strong> Al trabajar con copias, el <code style="color: red;">push(4)</code> solo se
+              ejecuta en la nueva
+              dirección de memoria, dejando tus datos originales protegidos contra cambios accidentales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, añadir un elemento a <mark>copyArray</mark> no afecta a <mark>originalArray</mark>.
+      </p>
+      <p>
+        En resumen, se pueden crear fácilmente copias superficiales de matrices utilizando métodos como
+        <mark>concat()</mark>,
+        <mark>slice()</mark> o el operador de expansión. Estos métodos son útiles para crear nuevas matrices que se
+        pueden manipular
+        independientemente de la matriz original.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const arr1 = [1, 2, 3];
+                const arr2 = arr1.slice();
+                arr2.push(4);
+                console.log(arr1, arr2);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            [1, 2, 3] [1, 2, 3, 4]
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            [1, 2, 3, 4] [1, 2, 3, 4]
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            [1, 2, 3] [1, 2, 3]
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            Esto generará un error.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const fruits = ["apple", "banana", "orange"];
+                const fruitsCopy = [...fruits];
+                console.log(fruitsCopy.length);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            0
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            2
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            3
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            undefined
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const arr1 = [1, 2, 3];
+                const arr2 = [].concat(arr1);
+                console.log(arr1 === arr2);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

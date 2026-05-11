@@ -1,11 +1,5 @@
 # Trabajar con matrices (`Arrays`)
 
-## Navegación
-
-- [trabajar-con-matrices](#trabajar-con-matrices-arrays)
-
----
-
 En esta sección, aprenderás a trabajar con matrices (`arrays`) en JavaScript. Las matrices son estructuras de datos que pueden almacenar múltiples valores en una sola variable. Son muy útiles para organizar y manipular conjuntos de datos.
 
 ---

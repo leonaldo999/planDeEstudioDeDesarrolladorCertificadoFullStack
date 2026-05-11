@@ -475,3 +475,104 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // console.log(chars.join("-"));
 
 // <====================>
+
+// ¿Cómo se añaden y eliminan elementos de la parte central de un array?
+
+// array.splice(startIndex, itemsToRemove, item1, item2)
+
+
+// let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+// let removed = fruits.splice(2, 2);
+// console.log(fruits);  // ["apple", "banana", "kiwi"]
+// console.log(removed); // ["orange", "mango"]
+
+
+// let colors = ["red", "green", "blue"];
+// colors.splice(1, 0, "yellow", "purple");
+// console.log(colors); // ["red", "yellow", "purple", "green", "blue"]
+
+
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.splice(1, 2, 6, 7, 8);
+// console.log(numbers); // [1, 6, 7, 8, 4, 5]
+
+
+// let original = [1, 2, 3, 4, 5];
+// let copy = [...original];
+// copy.splice(2, 1, 6);
+// console.log(original); // [1, 2, 3, 4, 5]
+// console.log(copy);     // [1, 2, 6, 4, 5]
+
+
+// let fruits = ["apple", "banana", "orange", "mango"];
+// let indexToRemove = fruits.indexOf("orange");
+// if (indexToRemove !== -1) {
+//   fruits.splice(indexToRemove, 1);
+// }
+// console.log(fruits); // ["apple", "banana", "mango"]
+
+
+// let array = [1, 2, 3, 4, 5];
+// array.splice(0);
+// console.log(array); // []
+
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.splice(2, 0, 6, 7);
+// console.log(arr);
+
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.splice(2, 1);
+// console.log(arr);
+
+// <====================>
+
+// ¿Cómo se puede comprobar si un array contiene un valor determinado?
+
+// let fruits = ["apple", "banana", "orange", "mango"];
+// console.log(fruits.includes("banana")); // true
+// console.log(fruits.includes("grape"));  // false
+
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits.includes("banana")); // true
+// console.log(fruits.includes("Banana")); // false
+
+
+// let numbers = [10, 20, 30, 40, 50, 30, 60];
+// console.log(numbers.includes(30, 3)); // true
+// console.log(numbers.includes(30, 4)); // true
+
+// let mixedArray = [1, "2", 3, "4", 5];
+// console.log(mixedArray.includes(2));  // false
+// console.log(mixedArray.includes("2")); // true
+
+
+// let arr = [1, 2, 3, 4, 5];
+// console.log(arr.includes(3, 3));
+
+
+// let arr = ["a", "b", "c", "d", "e"];
+// console.log(arr.includes("C"));
+
+
+// let arr = [1, "2", 3, "4", 5];
+// console.log(arr.includes("3"));
+
+// <====================>
+
+// const arr1 = [1, 2, 3];
+// const arr2 = arr1.slice();
+// arr2.push(4);
+// console.log(arr1, arr2);
+
+
+// const fruits = ["apple", "banana", "orange"];
+// const fruitsCopy = [...fruits];
+// console.log(fruitsCopy.length);
+
+
+const arr1 = [1, 2, 3];
+const arr2 = [].concat(arr1);
+console.log(arr1 === arr2);
