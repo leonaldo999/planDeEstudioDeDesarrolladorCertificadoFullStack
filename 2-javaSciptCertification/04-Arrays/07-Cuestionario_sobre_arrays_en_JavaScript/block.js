@@ -573,6 +573,25 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // console.log(fruitsCopy.length);
 
 
-const arr1 = [1, 2, 3];
-const arr2 = [].concat(arr1);
-console.log(arr1 === arr2);
+// const arr1 = [1, 2, 3];
+// const arr2 = [].concat(arr1);
+// console.log(arr1 === arr2);
+
+
+// const numbers = [10, 20, 30, 40];
+// const index = numbers.indexOf(20);
+// console.log(index);`
+
+// const colors = ["red", "blue", "green", "yellow"];
+// colors.splice(1, 2, "purple");
+// console.log(colors);
+
+// const arr = ["apple", "banana", "cherry", "date"];
+// const slicedArr = arr.slice(1, 3);
+// console.log(slicedArr);
+
+const fruits = ["apple", "banana", "cherry", "apple", "orange"];
+
+fruits.splice(0, 1);
+
+console.log(fruits);

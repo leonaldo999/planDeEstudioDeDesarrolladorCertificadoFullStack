@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de los arrays en JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/jsIcon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de los arrays en JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> Conceptos básicos</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> Arrays 2D</a>
+          <a href="#tema3" data-nav><span class="nav-num">03</span> Descomposición</a>
+          <a href="#tema4" data-nav><span class="nav-num">04</span> Métodos comunes</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        04 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/jsIcon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de los arrays en JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem; border-radius: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;"
+        aria-label="Cambiar tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path
+            d="M12 3.25C12 3.11193 12.1119 3 12.25 3C12.3881 3 12.5 3.11193 12.5 3.25V5.25C12.5 5.38807 12.3881 5.5 12.25 5.5C12.1119 5.5 12 5.38807 12 5.25V3.25Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C14.4853 18.5 16.5 16.4853 16.5 14C16.5 11.5147 14.4853 9.5 12 9.5C9.51472 9.5 7.5 11.5147 7.5 14C7.5 16.4853 9.51472 18.5 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C12 18.3619 12.1119 18.25 12.25 18.25H14.25C14.3881 18.25 14.5 18.3619 14.5 18.5C14.5 18.6381 14.3881 18.75 14.25 18.75H12.25C12.1119 18.75 12 18.6381 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M4.75 12C4.75 11.8619 4.86193 11.75 5 11.75H7C7.13807 11.75 7.25 11.8619 7.25 12C7.25 12.1381 7.13807 12.25 7 12.25H5C4.86193 12.25 4.75 12.1381 4.75 12Z"
+            fill="currentColor" />
+          <path
+            d="M17 12C17 11.8619 17.1119 11.75 17.25 11.75H19.25C19.3881 11.75 19.5 11.8619 19.5 12C19.5 12.1381 19.3881 12.25 19.25 12.25H17.25C17.1119 12.25 17 12.1381 17 12Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 6.21967C6.51256 5.92678 6.98744 5.92678 7.28033 6.21967L8.28033 7.21967C8.57322 7.51256 8.57322 7.98744 8.28033 8.28033C7.98744 8.57322 7.51256 8.57322 7.21967 8.28033L6.21967 7.28033C5.92678 6.98744 5.92678 6.51256 6.21967 6.21967Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 15.7803C16.0732 15.4874 16.5481 15.4874 16.841 15.7803L17.841 16.7803C18.1339 17.0732 18.1339 17.5481 17.841 17.841C17.5481 18.1339 17.0732 18.1339 16.7803 17.841L15.7803 16.841C15.4874 16.5481 15.4874 16.0732 15.7803 15.7803Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 17.7803C5.92678 17.4874 5.92678 17.0126 6.21967 16.7197L7.21967 15.7197C7.51256 15.4268 7.98744 15.4268 8.28033 15.7197C8.57322 16.0126 8.57322 16.4874 8.28033 16.7803L7.28033 17.7803C6.98744 18.0732 6.51256 18.0732 6.21967 17.7803Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 8.21967C16.0732 7.92678 16.5481 7.92678 16.841 8.21967L17.841 9.21967C18.1339 9.51256 18.1339 9.98744 17.841 10.2803C17.5481 10.5732 17.0732 10.5732 16.7803 10.2803L15.7803 9.28033C15.4874 8.98744 15.4874 8.51256 15.7803 8.21967Z"
+            fill="currentColor" />
+        </svg>
+        Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta sección, repasaremos los conceptos básicos de las arrays en JavaScript, incluyendo su definición, cómo
+          se crean y manipulan, y algunos métodos comunes que se utilizan para trabajar con ellas.
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: Conceptos básicos de las arrays en JavaScript</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Un array en JavaScript es una colección ordenada de valores, cada uno de los
+              cuales se identifica mediante un índice numérico. Los valores de un array en JavaScript pueden ser de
+              diferentes tipos de datos, incluyendo números, strings, valores booleanos, objetos e incluso otros arrays.
+              Los arrays son contiguos en la memoria, lo que significa que todos los elementos se almacenan en un único
+              bloque continuo de ubicaciones de memoria, lo que permite una indexación eficiente y un acceso rápido a
+              los elementos mediante su índice.
+            </li>
+          </ul>
+        </div>
+
+        <div class="code-container">
+          <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+            <code class="language-js">
+              <span class="token variable">const</span> developers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Jessica"</span>, <span class="token string">"Naomi"</span>, <span class="token string">"Tom"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            </code>
+          </pre>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Acceso a los elementos de los arrays</strong>: Para acceder a los elementos de un array, debes
+              hacer referencia al array seguido de su número de índice entre corchetes. Los arrays de JavaScript tienen
+              una indexación basada en cero, lo que significa que el primer elemento se encuentra en el índice 0, el
+              segundo en el índice 1, y así sucesivamente. Si intentas acceder a un índice que no existe en el array,
+              JavaScript devolverá <mark>undefined</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-basics">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_basics.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">developers</span> = <span class="tk-punctuation">[</span><span class="tk-string">"Jessica"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Naomi"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Tom"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developers</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Jessica"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developers</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Naomi"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developers</span><span class="tk-punctuation">[</span><span class="tk-number">10</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Memory Index Mapping</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 20px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; gap: 8px; justify-content: center;">
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #a6e22e; color: #000; width: 60px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; font-weight: bold; border: 2px solid #a6e22e;">
+                        "Jessica"</div>
+                      <div style="font-size: 9px; color: #a6e22e; margin-top: 5px; font-weight: bold;">Index 0</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #333; color: #f8f8f2; width: 60px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; border: 1px solid #444;">
+                        "Naomi"</div>
+                      <div style="font-size: 9px; color: #888; margin-top: 5px;">Index 1</div>
+                    </div>
+                    <div style="text-align: center;">
+                      <div
+                        style="background: #333; color: #f8f8f2; width: 60px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 10px; border: 1px solid #444;">
+                        "Tom"</div>
+                      <div style="font-size: 9px; color: #888; margin-top: 5px;">Index 2</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px; position: relative; overflow: hidden;">
+                    <div style="font-size: 8px; color: #f92672; margin-bottom: 4px; font-weight: bold;">OUT OF BOUNDS
+                      ACCESS:</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">
+                      developers[10] <span style="color: #f92672;">➔ undefined</span>
+                    </div>
+                    <div style="position: absolute; right: -5px; bottom: -5px; font-size: 24px; opacity: 0.1;">🚫</div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > "Jessica"<br>
+                      > "Naomi"<br>
+                      > undefined
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Recuerda:</strong> El acceso por índice es una operación $O(1)$, lo que significa que toma el
+                mismo tiempo acceder al primer elemento que al último, sin importar el tamaño del array.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Propiedad <mark>length</mark></strong>: Esta propiedad se utiliza para devolver el número de
+              elementos de un array.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-length">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_length.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">developers</span> = <span class="tk-punctuation">[</span><span class="tk-string">"Jessica"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Naomi"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Tom"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">developers</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Array Dimensions Tracking</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="flex: 1; height: 35px; background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #a6e22e;">
+                        J</div>
+                      <div
+                        style="flex: 1; height: 35px; background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #a6e22e;">
+                        N</div>
+                      <div
+                        style="flex: 1; height: 35px; background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #a6e22e;">
+                        T</div>
+                    </div>
+                    <div
+                      style="position: relative; height: 20px; border-left: 1px solid #66d9ef; border-right: 1px solid #66d9ef; border-bottom: 1px solid #66d9ef; margin-top: 5px;">
+                      <span
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #66d9ef; font-size: 12px; font-weight: bold; background: var(--bg-primary); padding: 0 10px;">length:
+                        3</span>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                    <table style="width: 100%; font-size: 10px; color: #f8f8f2; border-collapse: collapse;">
+                      <tr>
+                        <td style="padding: 4px 0; color: #ae81ff;">Last Index:</td>
+                        <td style="text-align: right; font-weight: bold;">2</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 4px 0; color: #ae81ff;">Total Count:</td>
+                        <td style="text-align: right; font-weight: bold; color: #a6e22e;">3</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > 3
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚙️ <strong>Tip de oro:</strong> Para acceder siempre al último elemento de un array de forma segura,
+                usa: <code style="color: yellow;">developers[developers.length - 1]</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Actualización de elementos en un array</strong>: Para actualizar un elemento de un array, se
+              utiliza el operador de asignación (<mark>=</mark>) para asignar un nuevo valor al elemento situado en un
+              índice específico.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-update">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">update_array.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">'apple'</span><span class="tk-punctuation">,</span> <span class="tk-string">'banana'</span><span class="tk-punctuation">,</span> <span class="tk-string">'cherry'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">fruits</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span> = <span class="tk-string">'blueberry'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ['apple', 'blueberry', 'cherry']</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  In-Place Mutation Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                    <div style="display: flex; gap: 5px;">
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; opacity: 0.6;">
+                        "apple"</div>
+                      <div
+                        style="background: rgba(249, 38, 114, 0.2); border: 1px solid #f92672; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #f92672; text-decoration: line-through;">
+                        "banana"</div>
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; opacity: 0.6;">
+                        "cherry"</div>
+                    </div>
+
+                    <div style="color: #a6e22e; font-size: 14px;">▼ Assignment (=) ▼</div>
+
+                    <div style="display: flex; gap: 5px;">
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #f8f8f2;">
+                        "apple"</div>
+                      <div
+                        style="background: rgba(166, 226, 46, 0.2); border: 2px solid #a6e22e; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #a6e22e; font-weight: bold;">
+                        "blueberry"</div>
+                      <div
+                        style="background: #333; border: 1px solid #444; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #f8f8f2;">
+                        "cherry"</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #66d9ef;">MUTABILIDAD:</strong> Aunque el array es <code>const</code>, los
+                      valores en sus índices pueden cambiar. Lo que no puedes es hacer <code>fruits = ['otro']</code>.
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > ["apple", "blueberry", "cherry"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🎯 <strong>Efectividad:</strong> La actualización directa por índice es la forma más rápida de modificar
+                un dato si ya conoces su ubicación exacta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Arrays bidimensionales</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Un array bidimensional es, en esencia, un array de arrays. Se utiliza para
+              representar datos que tienen una estructura natural en forma de cuadrícula, como un tablero de ajedrez,
+              una hoja de cálculo o los píxeles de una imagen. Para acceder a un elemento de un array bidimensional, se
+              necesitan dos índices: uno para la fila y otro para la columna.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-2d-arrays">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">chess_grid.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">chessboard</span> = <span class="tk-punctuation">[</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">'R'</span><span class="tk-punctuation">,</span> <span class="tk-string">'N'</span><span class="tk-punctuation">,</span> <span class="tk-string">'B'</span><span class="tk-punctuation">,</span> <span class="tk-string">'Q'</span><span class="tk-punctuation">,</span> <span class="tk-string">'K'</span><span class="tk-punctuation">,</span> <span class="tk-string">'B'</span><span class="tk-punctuation">,</span> <span class="tk-string">'N'</span><span class="tk-punctuation">,</span> <span class="tk-string">'R'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">,</span> <span class="tk-string">'P'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">,</span> <span class="tk-string">' '</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">,</span> <span class="tk-string">'p'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">[</span><span class="tk-string">'r'</span><span class="tk-punctuation">,</span> <span class="tk-string">'n'</span><span class="tk-punctuation">,</span> <span class="tk-string">'b'</span><span class="tk-punctuation">,</span> <span class="tk-string">'q'</span><span class="tk-punctuation">,</span> <span class="tk-string">'k'</span><span class="tk-punctuation">,</span> <span class="tk-string">'b'</span><span class="tk-punctuation">,</span> <span class="tk-string">'n'</span><span class="tk-punctuation">,</span> <span class="tk-string">'r'</span><span class="tk-punctuation">]</span>
+<span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">chessboard</span><span class="tk-punctuation">[</span><span class="tk-number">0</span><span class="tk-punctuation">]</span><span class="tk-punctuation">[</span><span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Q"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Matrix Coordinate Mapper</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div
+                    style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; background: #444; padding: 2px; border-radius: 4px;">
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      R</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      N</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      B</div>
+                    <div
+                      style="background: #a6e22e; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #000; font-weight: bold; border: 1px solid #fff; box-shadow: 0 0 10px rgba(166, 226, 46, 0.5);">
+                      Q</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      K</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      B</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      N</div>
+                    <div
+                      style="background: #333; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #888;">
+                      R</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 9px; color: #a6e22e; margin-bottom: 5px; font-weight: bold;">ACCESS LOGIC:
+                    </div>
+                    <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                      <code>chessboard<span style="color: #ae81ff;">[0]</span><span style="color: #66d9ef;">[3]</span></code><br>
+                      <span style="color: #ae81ff;">[0]</span> → Fila 1 (Índice 0)<br>
+                      <span style="color: #66d9ef;">[3]</span> → Columna 4 (Índice 3)
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > "Q"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🧠 <strong>Visualización:</strong> Piensa siempre en <code style="color: yellow;">array[y][x]</code>
+                donde <code style="color: yellow;">y</code> es el
+                eje vertical (filas) y <code style="color: yellow;">x</code> el eje horizontal (columnas).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 3 -->
+      <section id="tema3" aria-labelledby="tema3-titulo">
+        <h2 id="tema3-titulo">Tema 3: Descomposición de arrays</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: La descomposición de arrays es una característica de JavaScript que permite
+              extraer valores de arrays y asignarlos a variables de una manera más concisa y legible. Ofrece una
+              sintaxis práctica para descomponer los elementos de un array en variables distintas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-destructuring">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">destructuring.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-punctuation">[</span><span class="tk-selector">first</span><span class="tk-punctuation">,</span> <span class="tk-selector">second</span><span class="tk-punctuation">,</span> <span class="tk-selector">third</span><span class="tk-punctuation">]</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">first</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">second</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">third</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "orange"</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Extraction Flow</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                    <div
+                      style="display: flex; gap: 4px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                      <div
+                        style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "apple"</div>
+                      <div
+                        style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 10px; color: #e6db74;">
+                        "banana"</div>
+                      <div
+                        style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 10px; color: #66d9ef;">
+                        "orange"</div>
+                    </div>
+
+                    <div style="color: #ae81ff; font-size: 14px;">⇅</div>
+
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="border: 1px dashed #a6e22e; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #a6e22e;">
+                        first</div>
+                      <div
+                        style="border: 1px dashed #e6db74; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #e6db74;">
+                        second</div>
+                      <div
+                        style="border: 1px dashed #66d9ef; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #66d9ef;">
+                        third</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #a6e22e;">SINTAXIS LIMPIA:</strong> Esta técnica es especialmente útil
+                      cuando una función devuelve un array y quieres asignar sus resultados a variables con nombre
+                      inmediatamente.
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                    <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      > "apple"<br>
+                      > "banana"<br>
+                      > "orange"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ✨ <strong>Truco extra:</strong> Puedes saltarte elementos usando comas vacías, por ejemplo:
+                <code style="color: yellow;">const [first, , third] = fruits;</code> ignoraría "banana".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Sintaxis <mark>rest</mark></strong>: Esto te permite capturar los elementos restantes de un array
+              que no se han desestructurado en un nuevo array.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-rest-syntax">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">rest_operator.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"mango"</span><span class="tk-punctuation">,</span> <span class="tk-string">"kiwi"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-punctuation">[</span><span class="tk-selector">first</span><span class="tk-punctuation">,</span> <span class="tk-selector">second</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">...</span><span class="tk-selector">rest</span><span class="tk-punctuation">]</span> = <span class="tk-selector">fruits</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">first</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "apple"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">second</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "banana"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">rest</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// ["orange", "mango", "kiwi"]</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Rest Collection Mapping</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; gap: 3px; justify-content: center; opacity: 0.8;">
+                      <div
+                        style="padding: 4px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #a6e22e;">
+                        "apple"</div>
+                      <div
+                        style="padding: 4px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #a6e22e;">
+                        "banana"</div>
+                      <div
+                        style="padding: 4px 6px; background: #444; border-radius: 3px; font-size: 9px; color: #ae81ff;">
+                        "orange"</div>
+                      <div
+                        style="padding: 4px 6px; background: #444; border-radius: 3px; font-size: 9px; color: #ae81ff;">
+                        "mango"</div>
+                      <div
+                        style="padding: 4px 6px; background: #444; border-radius: 3px; font-size: 9px; color: #ae81ff;">
+                        "kiwi"</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-around; padding: 0 20px;">
+                      <div style="color: #a6e22e;">↓</div>
+                      <div style="color: #a6e22e;">↓</div>
+                      <div style="color: #ae81ff; flex-grow: 1; text-align: center;">↘ ↘ ↘</div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; justify-content: center; align-items: flex-start;">
+                      <div style="text-align: center;">
+                        <div style="font-size: 8px; color: #888;">first</div>
+                        <div
+                          style="border: 1px solid #a6e22e; padding: 4px; border-radius: 3px; font-size: 9px; color: #a6e22e;">
+                          "apple"</div>
+                      </div>
+                      <div style="text-align: center;">
+                        <div style="font-size: 8px; color: #888;">second</div>
+                        <div
+                          style="border: 1px solid #a6e22e; padding: 4px; border-radius: 3px; font-size: 9px; color: #a6e22e;">
+                          "banana"</div>
+                      </div>
+                      <div style="text-align: center;">
+                        <div style="font-size: 8px; color: #888;">...rest</div>
+                        <div
+                          style="background: rgba(174, 129, 255, 0.2); border: 1px dashed #ae81ff; padding: 4px; border-radius: 3px; font-size: 9px; color: #ae81ff;">
+                          [ "orange", "mango", "kiwi" ]</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                    <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                      > "apple"<br>
+                      > "banana"<br>
+                      > ["orange", "mango", "kiwi"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                📦 <strong>Nota Importante:</strong> El operador rest siempre crea un <strong>nuevo array</strong>,
+                incluso si no hay elementos sobrantes (en cuyo caso devolvería un array vacío <code
+                  style="color: yellow;">[]</code>).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 4 -->
+      <section id="tema4" aria-labelledby="tema4-titulo">
+        <h2 id="tema4-titulo">Tema 4: Métodos comunes de los arrays</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>push()</mark></strong>: Este método se utiliza para añadir elementos al final del
+              array y devuelve la nueva longitud.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-push">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">push_method.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">desserts</span> = <span class="tk-punctuation">[</span><span class="tk-string">"cake"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cookies"</span><span class="tk-punctuation">,</span> <span class="tk-string">"pie"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">desserts</span><span class="tk-punctuation">.</span><span class="tk-value">push</span><span class="tk-punctuation">(</span><span class="tk-string">"ice cream"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">desserts</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["cake", "cookies", "pie", "ice cream"]</span></code></pre>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Push Operation Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <div style="display: flex; gap: 4px; border: 1px solid #444; padding: 5px; border-radius: 6px;">
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        cake</div>
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        cookies</div>
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        pie</div>
+                      <div
+                        style="background: rgba(166, 226, 46, 0.2); border: 1px dashed #a6e22e; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #a6e22e; font-weight: bold; animation: slideInRight 0.5s ease-out;">
+                        ice cream</div>
+                    </div>
+                    <div style="font-size: 14px; color: #a6e22e;">⬅</div>
+                  </div>
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: center; background: rgba(102, 217, 239, 0.05); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(102, 217, 239, 0.2);">
+                    <span style="font-size: 10px; color: #66d9ef;">New .length:</span>
+                    <span style="font-size: 12px; color: #fff; font-weight: bold;">4</span>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > ["cake", "cookies", "pie", "ice cream"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🍦 <strong>Tip:</strong> Puedes hacer push de múltiples elementos a la vez:
+                <code style="color: yellow;">desserts.push("brownie", "muffin")</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>pop()</mark></strong>: Este método se utiliza para eliminar el último elemento de un
+              array y devuelve dicho elemento. Si el array está vacío, el valor devuelto será indefinido.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-pop-v2">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">pop_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">desserts</span> = <span class="tk-punctuation">[</span><span class="tk-string">"cake"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cookies"</span><span class="tk-punctuation">,</span> <span class="tk-string">"pie"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">removedElement</span> = <span class="tk-selector">desserts</span><span class="tk-punctuation">.</span><span class="tk-value">pop</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">desserts</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>       <span class="tk-comment">// ["cake", "cookies"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">removedElement</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "pie"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Pop Mechanism (Stack Behavior)</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px; position: relative;">
+                    <div
+                      style="display: flex; gap: 4px; border: 1px solid #444; padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #888;">
+                        cake</div>
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #888;">
+                        cookies</div>
+                      <div style="width: 40px; border: 1px dashed #f92672; border-radius: 4px; opacity: 0.3;"></div>
+                    </div>
+
+                    <div style="font-size: 18px; color: #f92672; font-weight: bold; animation: popBounce 1s infinite;">➔
+                    </div>
+
+                    <div
+                      style="background: #f92672; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; box-shadow: 0 4px 10px rgba(249, 38, 114, 0.3);">
+                      pie
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px; font-weight: bold;">CAPTURED VALUE:
+                    </div>
+                    <div style="font-size: 10px; color: #f8f8f2;">
+                      removedElement = <span style="color: #e6db74;">"pie"</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > ["cake", "cookies"]<br>
+                      > "pie"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Dato:</strong> Si intentas hacer <code style="color: yellow;">.pop()</code> en un array vacío
+                <code style="color: yellow;">[]</code>, el
+                resultado será <code style="color: yellow;">undefined</code> y el array seguirá vacío.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>shift()</mark></strong>: Este método se utiliza para eliminar el primer elemento de
+              un array y devolver dicho elemento. Si el array está vacío, el valor devuelto será undefined.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-shift-v2">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">shift_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">desserts</span> = <span class="tk-punctuation">[</span><span class="tk-string">"cake"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cookies"</span><span class="tk-punctuation">,</span> <span class="tk-string">"pie"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">firstRemoved</span> = <span class="tk-selector">desserts</span><span class="tk-punctuation">.</span><span class="tk-value">shift</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">desserts</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>     <span class="tk-comment">// ["cookies", "pie"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">firstRemoved</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "cake"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Shift Operation (Queue Behavior)</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <div
+                      style="background: #f92672; color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; border: 1px solid #f92672;">
+                      cake
+                    </div>
+
+                    <div style="font-size: 18px; color: #f92672; font-weight: bold;">⟸</div>
+
+                    <div
+                      style="display: flex; gap: 4px; border: 1px solid #444; padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        cookies <span style="font-size: 8px; color: #888;">(idx 0)</span></div>
+                      <div
+                        style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        pie <span style="font-size: 8px; color: #888;">(idx 1)</span></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #f92672; margin-bottom: 4px; font-weight: bold;">COMPUTATIONAL
+                      NOTE:</div>
+                    <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                      Todos los elementos restantes han sido desplazados hacia la izquierda. El elemento que antes era
+                      el índice 1 ahora es el 0.
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > ["cookies", "pie"]<br>
+                      > "cake"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Dato pro:</strong> En términos de Big O, <code style="color: yellow;">pop()</code> es $O(1)$
+                mientras que
+                <code style="color: yellow;">shift()</code> es $O(n)$.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>unshift()</mark></strong>: Este método se utiliza para añadir elementos al principio
+              del array y devuelve la nueva longitud.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-unshift-v2">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">unshift_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">desserts</span> = <span class="tk-punctuation">[</span><span class="tk-string">"cake"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cookies"</span><span class="tk-punctuation">,</span> <span class="tk-string">"pie"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">newLength</span> = <span class="tk-selector">desserts</span><span class="tk-punctuation">.</span><span class="tk-value">unshift</span><span class="tk-punctuation">(</span><span class="tk-string">"ice cream"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">desserts</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// ["ice cream", "cake", "cookies", "pie"]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newLength</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Unshift & Displacement Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <div
+                      style="background: rgba(166, 226, 46, 0.2); border: 2px solid #a6e22e; padding: 5px 10px; border-radius: 4px; font-size: 10px; color: #a6e22e; font-weight: bold;">
+                      ice cream
+                    </div>
+
+                    <div style="font-size: 18px; color: #a6e22e; font-weight: bold;">➔</div>
+
+                    <div
+                      style="display: flex; gap: 4px; border: 1px solid #444; padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.2);">
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        cake <span style="font-size: 7px;">(0→1)</span></div>
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        cookies <span style="font-size: 7px;">(1→2)</span></div>
+                      <div style="background: #333; padding: 4px 8px; border-radius: 4px; font-size: 9px; color: #888;">
+                        pie <span style="font-size: 7px;">(2→3)</span></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px; font-weight: bold;">NEW ARRAY
+                      METRICS:</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">
+                      desserts.length = <span style="color: #66d9ef; font-weight: bold;">4</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > ["ice cream", "cake", "cookies", "pie"]<br>
+                      > 4
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚠️ <strong>Rendimiento:</strong> Al igual que <code style="color: yellow;">shift()</code>, este método
+                tiene una complejidad de
+                $O(n)$, lo que lo hace menos eficiente que <code style="color: yellow;">push()</code> en arrays masivos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>indexOf()</mark></strong>: Este método se utiliza para encontrar el primer índice de
+              un elemento específico dentro de un array. Si no se encuentra el elemento, devolverá <mark>-1</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-indexof">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">indexof_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">"apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"banana"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"banana"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// 1 (Encuentra el primero)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">indexOf</span><span class="tk-punctuation">(</span><span class="tk-string">"kiwi"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// -1 (No existe)</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Search Execution Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="font-size: 9px; color: #888;">Searching for: "banana"</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="flex: 1; background: rgba(249, 38, 114, 0.1); border: 1px solid #444; padding: 5px; border-radius: 4px; text-align: center; font-size: 9px; color: #888;">
+                        apple <span style="display:block; font-size:7px;">[idx 0] ✘</span></div>
+                      <div
+                        style="flex: 1; background: rgba(166, 226, 46, 0.2); border: 1px solid #a6e22e; padding: 5px; border-radius: 4px; text-align: center; font-size: 9px; color: #a6e22e; font-weight: bold;">
+                        banana <span style="display:block; font-size:7px;">[idx 1] ✔</span></div>
+                      <div
+                        style="flex: 1; background: #333; border: 1px solid #444; padding: 5px; border-radius: 4px; text-align: center; font-size: 9px; color: #444; opacity: 0.5;">
+                        orange <span style="display:block; font-size:7px;">(skipped)</span></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 8px; border-radius: 6px;">
+                    <div style="font-size: 9px; color: #f92672; font-weight: bold;">NOT FOUND CASE:</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">
+                      fruits.indexOf("kiwi") ➔ <span
+                        style="background: #f92672; color: #fff; padding: 1px 4px; border-radius: 2px;">-1</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > 1<br>
+                      > -1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Tip:</strong> Si necesitas encontrar la <em>última</em> coincidencia en lugar de la primera,
+                usa <code style="color: yellow;">fruits.lastIndexOf("banana")</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>splice()</mark></strong>: Este método se utiliza para añadir o eliminar elementos
+              desde cualquier posición en un array. El valor de retorno del método <mark>splice()</mark> será un array
+              con los elementos eliminados del array. Si no se elimina nada, se devolverá un array vacío. Este método
+              altera el array original, modificándolo in situ en lugar de crear un nuevo array. El primer argumento
+              especifica el índice en el que comenzar a modificar el array. El segundo argumento es el número de
+              elementos que deseas eliminar. Los siguientes argumentos son los elementos que deseas agregar.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-splice">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">splice_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">"red"</span><span class="tk-punctuation">,</span> <span class="tk-string">"green"</span><span class="tk-punctuation">,</span> <span class="tk-string">"blue"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// En el índice 1, elimina 0 elementos e inserta "yellow" y "purple"</span>
+<span class="tk-selector">colors</span><span class="tk-punctuation">.</span><span class="tk-value">splice</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">0</span><span class="tk-punctuation">,</span> <span class="tk-string">"yellow"</span><span class="tk-punctuation">,</span> <span class="tk-string">"purple"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">colors</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["red", "yellow", "purple", "green", "blue"]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Splice Injection Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="font-size: 9px; color: #888;">Before (index 1 is green):</div>
+                    <div style="display: flex; gap: 4px; opacity: 0.6;">
+                      <div
+                        style="padding: 4px 8px; background: #ff4444; border-radius: 4px; font-size: 9px; color: #fff;">
+                        red</div>
+                      <div
+                        style="padding: 4px 8px; background: #44ff44; border-radius: 4px; font-size: 9px; color: #000;">
+                        green</div>
+                      <div
+                        style="padding: 4px 8px; background: #4444ff; border-radius: 4px; font-size: 9px; color: #fff;">
+                        blue</div>
+                    </div>
+
+                    <div style="text-align: center; color: #a6e22e; font-size: 12px;">▼ .splice(1, 0, "yellow",
+                      "purple") ▼</div>
+
+                    <div style="font-size: 9px; color: #888;">After (New elements injected):</div>
+                    <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                      <div
+                        style="padding: 4px 8px; background: #ff4444; border-radius: 4px; font-size: 9px; color: #fff;">
+                        red</div>
+                      <div
+                        style="padding: 4px 8px; background: #ffff44; border: 1px solid #fff; border-radius: 4px; font-size: 9px; color: #000; font-weight: bold;">
+                        yellow</div>
+                      <div
+                        style="padding: 4px 8px; background: #aa44ff; border: 1px solid #fff; border-radius: 4px; font-size: 9px; color: #fff; font-weight: bold;">
+                        purple</div>
+                      <div
+                        style="padding: 4px 8px; background: #44ff44; border-radius: 4px; font-size: 9px; color: #000;">
+                        green</div>
+                      <div
+                        style="padding: 4px 8px; background: #4444ff; border-radius: 4px; font-size: 9px; color: #fff;">
+                        blue</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(174, 129, 255, 0.05); border: 1px solid #ae81ff; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #ae81ff; margin-bottom: 4px; font-weight: bold;">RETURN VALUE
+                      (DELETED):</div>
+                    <div style="font-size: 10px; color: #f8f8f2;">
+                      [] <span style="color: #888;">(Empty because deleteCount was 0)</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > ["red", "yellow", "purple", "green", "blue"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ✂️ <strong>Versatilidad:</strong> Si quieres borrar "green" y poner los nuevos en su lugar, usa
+                <code style="color: yellow;">colors.splice(1, 1, "yellow", "purple")</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>includes()</mark></strong>: Este método se utiliza para comprobar si un array
+              contiene un valor específico. Este método devuelve <mark>true</mark> si el array contiene el elemento
+              especificado y <mark>false</mark> en caso contrario.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-includes">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">includes_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">programmingLanguages</span> = <span class="tk-punctuation">[</span><span class="tk-string">"JavaScript"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Python"</span><span class="tk-punctuation">,</span> <span class="tk-string">"C++"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">programmingLanguages</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"Python"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">programmingLanguages</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"Perl"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// false</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Boolean Presence Check</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; background: rgba(166, 226, 46, 0.1); padding: 8px; border-radius: 6px; border: 1px solid #a6e22e;">
+                      <span style="font-size: 9px; color: #f8f8f2;">🔎 Checking: <strong
+                          style="color: #e6db74;">"Python"</strong></span>
+                      <span style="font-size: 10px; color: #a6e22e; font-weight: bold;">FOUND (true)</span>
+                    </div>
+
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; background: rgba(249, 38, 114, 0.1); padding: 8px; border-radius: 6px; border: 1px solid #f92672;">
+                      <span style="font-size: 9px; color: #f8f8f2;">🔎 Checking: <strong
+                          style="color: #e6db74;">"Perl"</strong></span>
+                      <span style="font-size: 10px; color: #f92672; font-weight: bold;">MISSING (false)</span>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #66d9ef;">CLEAN CODE:</strong> Es preferible usar <code>includes()</code> en
+                      sentencias <code>if</code> porque devuelve un booleano directo.
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                      > true<br>
+                      > false
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🔍 <strong>Extra:</strong> Puedes pasar un segundo argumento opcional para indicar desde qué índice
+                empezar a buscar: <code style="color: yellow;">arr.includes(valor, desdeIndice)</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>concat()</mark></strong>: Este método crea un nuevo array al fusionar dos o más
+              arrays.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-concat">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">concat_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">programmingLanguages</span> = <span class="tk-punctuation">[</span><span class="tk-string">"JavaScript"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Python"</span><span class="tk-punctuation">,</span> <span class="tk-string">"C++"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">newList</span> = <span class="tk-selector">programmingLanguages</span><span class="tk-punctuation">.</span><span class="tk-value">concat</span><span class="tk-punctuation">(</span><span class="tk-string">"Perl"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">programmingLanguages</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Sigue igual</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newList</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>              <span class="tk-comment">// Nueva lista combinada</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Merge & Immutability Trace</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <div style="font-size: 8px; color: #888;">Original Array (Unchanged):</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #66d9ef;">
+                        JS</div>
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #66d9ef;">
+                        Py</div>
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #66d9ef;">
+                        C++</div>
+                    </div>
+                  </div>
+
+                  <div style="text-align: center; color: #a6e22e; font-size: 14px;">⊕</div>
+
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <div style="font-size: 8px; color: #888;">Added Value:</div>
+                    <div
+                      style="padding: 3px 6px; background: rgba(166, 226, 46, 0.1); border: 1px dashed #a6e22e; border-radius: 3px; font-size: 9px; color: #a6e22e; width: fit-content;">
+                      "Perl"</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px; font-weight: bold;">RESULT (NEW
+                      ARRAY):</div>
+                    <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #f8f8f2;">
+                        JS</div>
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #f8f8f2;">
+                        Py</div>
+                      <div
+                        style="padding: 3px 6px; background: #333; border-radius: 3px; font-size: 9px; color: #f8f8f2;">
+                        C++</div>
+                      <div
+                        style="padding: 3px 6px; background: #a6e22e; border-radius: 3px; font-size: 9px; color: #000; font-weight: bold;">
+                        Perl</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                      > ["JavaScript", "Python", "C++", "Perl"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🔗 <strong>Tip:</strong> Puedes concatenar múltiples arrays a la vez:
+                <code style="color: yellow;">arr1.concat(arr2, arr3)</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>slice()</mark></strong>: Este método devuelve un nuevo array que contiene una copia
+              superficial de una parte del array original, especificada por los índices de inicio y fin. El nuevo array
+              contiene referencias a los mismos elementos que el array original (no duplicados). Esto significa que, si
+              los elementos son primitivos (como números o strings), se copian los valores; pero si los elementos son
+              objetos o arrays, se copian las referencias, no los objetos en sí.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-slice-view">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">slice_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">programmingLanguages</span> = <span class="tk-punctuation">[</span><span class="tk-string">"JavaScript"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Python"</span><span class="tk-punctuation">,</span> <span class="tk-string">"C++"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Extrae desde el índice 1 hasta el final</span>
+<span class="tk-property">const</span> <span class="tk-selector">newList</span> = <span class="tk-selector">programmingLanguages</span><span class="tk-punctuation">.</span><span class="tk-value">slice</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newList</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["Python", "C++"]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Slicing Operation (Range Selection)</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="font-size: 8px; color: #888;">Original Array Indices:</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="flex: 1; padding: 6px; background: #333; border-radius: 4px; text-align: center; opacity: 0.4;">
+                        <span style="font-size: 9px; color: #f8f8f2;">"JavaScript"</span>
+                        <span style="display: block; font-size: 7px; color: #888;">idx 0</span>
+                      </div>
+                      <div
+                        style="flex: 1; padding: 6px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 4px; text-align: center;">
+                        <span style="font-size: 9px; color: #a6e22e; font-weight: bold;">"Python"</span>
+                        <span style="display: block; font-size: 7px; color: #a6e22e;">idx 1</span>
+                      </div>
+                      <div
+                        style="flex: 1; padding: 6px; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; border-radius: 4px; text-align: center;">
+                        <span style="font-size: 9px; color: #a6e22e; font-weight: bold;">"C++"</span>
+                        <span style="display: block; font-size: 7px; color: #a6e22e;">idx 2</span>
+                      </div>
+                    </div>
+                    <div style="text-align: center; color: #a6e22e; font-size: 10px;">↑ slice(1) starts here ↑</div>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #66d9ef;">SHALLOW COPY:</strong> El array original permanece intacto.
+                      <code>slice()</code> es ideal para clonar partes de un array sin riesgos.
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > ["Python", "C++"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                📏 <strong>Tip:</strong> Puedes usar un segundo argumento para el fin (no incluido):
+                <code style="color: yellow;">arr.slice(1, 2)</code> solo devolvería "Python".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Sintaxis de expansión</strong>: La sintaxis de expansión se utiliza para crear copias
+              superficiales de un array.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-spread-syntax">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">spread_syntax.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// Crea una nueva referencia de memoria con los mismos valores</span>
+<span class="tk-property">const</span> <span class="tk-selector">shallowCopiedArray</span> = <span class="tk-punctuation">[</span><span class="tk-punctuation">...</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">shallowCopiedArray</span><span class="tk-punctuation">.</span><span class="tk-value">push</span><span class="tk-punctuation">(</span><span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">originalArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>      <span class="tk-comment">// [1, 2, 3]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">shallowCopiedArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3, 4]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Spread & Memory Allocation</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                    <div
+                      style="display: flex; gap: 4px; border: 1px solid #444; padding: 4px; border-radius: 4px; background: rgba(0,0,0,0.2);">
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #66d9ef; border-radius: 2px;">
+                        1</div>
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #66d9ef; border-radius: 2px;">
+                        2</div>
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #66d9ef; border-radius: 2px;">
+                        3</div>
+                    </div>
+
+                    <div style="font-size: 10px; color: #ae81ff;">[ ...spread ]</div>
+
+                    <div
+                      style="display: flex; gap: 4px; border: 1px solid #a6e22e; padding: 4px; border-radius: 4px; background: rgba(166, 226, 46, 0.05);">
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #f8f8f2; border-radius: 2px;">
+                        1</div>
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #f8f8f2; border-radius: 2px;">
+                        2</div>
+                      <div
+                        style="width: 20px; height: 20px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #f8f8f2; border-radius: 2px;">
+                        3</div>
+                      <div
+                        style="width: 20px; height: 20px; background: #a6e22e; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #000; font-weight: bold; border-radius: 2px;">
+                        4</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #ae81ff;">INMUTABILIDAD:</strong> Modificar <code>shallowCopiedArray</code>
+                      no afecta a <code>originalArray</code> porque ahora ocupan lugares distintos en la memoria.
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 10px; line-height: 1.4;">
+                      > [1, 2, 3]<br>
+                      > [1, 2, 3, 4]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ✨ <strong>Dato extra:</strong> También puedes usar spread para combinar arrays fácilmente:
+                <code style="color: yellow;">const combined = [...arr1, ...arr2]</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>reverse()</mark></strong>: Este método invierte un array sin modificarlo.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-reverse">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">reverse_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">desserts</span> = <span class="tk-punctuation">[</span><span class="tk-string">"cake"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cookies"</span><span class="tk-punctuation">,</span> <span class="tk-string">"pie"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Ojo: .reverse() muta (cambia) el array original</span>
+<span class="tk-selector">desserts</span><span class="tk-punctuation">.</span><span class="tk-value">reverse</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">desserts</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["pie", "cookies", "cake"]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Array Mirror Reflection</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                    <div style="font-size: 8px; color: #888;">Original Order (0 ➔ 2):</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 9px; color: #66d9ef;">
+                        cake</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 9px; color: #66d9ef;">
+                        cookies</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 9px; color: #66d9ef;">
+                        pie</div>
+                    </div>
+
+                    <div style="font-size: 16px; color: #ae81ff;">⇅</div>
+
+                    <div style="font-size: 8px; color: #888;">Reversed Order (2 ➔ 0):</div>
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="padding: 4px 8px; background: rgba(174, 129, 255, 0.2); border: 1px solid #ae81ff; border-radius: 4px; font-size: 9px; color: #f8f8f2;">
+                        pie</div>
+                      <div
+                        style="padding: 4px 8px; background: rgba(174, 129, 255, 0.2); border: 1px solid #ae81ff; border-radius: 4px; font-size: 9px; color: #f8f8f2;">
+                        cookies</div>
+                      <div
+                        style="padding: 4px 8px; background: rgba(174, 129, 255, 0.2); border: 1px solid #ae81ff; border-radius: 4px; font-size: 9px; color: #f8f8f2;">
+                        cake</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px;">
+                    <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                      <strong style="color: #f92672;">¡CUIDADO!:</strong> El método <code>.reverse()</code> es
+                      destructivo. Si necesitas conservar el original, usa:
+                      <br><code>const newArr = [...desserts].reverse();</code>
+                    </p>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                    <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > ["pie", "cookies", "cake"]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🔄 <strong>Modern JS:</strong> Si tu entorno lo soporta, prefiere <code
+                  style="color: yellow;">.toReversed()</code> para evitar
+                mutaciones accidentales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>join()</mark></strong>: Este método concatena todos los elementos de un array en una
+              sola cadena, separando cada elemento con un separador especificado. Si no se proporciona ningún separador,
+              o si se utiliza una cadena vacía (<mark>""</mark>), los elementos se unirán sin ningún separador.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-join">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">join_logic.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">reversedArray</span> = <span class="tk-punctuation">[</span><span class="tk-string">"o"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"l"</span><span class="tk-punctuation">,</span> <span class="tk-string">"e"</span><span class="tk-punctuation">,</span> <span class="tk-string">"h"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// Une los elementos usando un string vacío como pegamento</span>
+<span class="tk-property">const</span> <span class="tk-selector">reversedString</span> = <span class="tk-selector">reversedArray</span><span class="tk-punctuation">.</span><span class="tk-value">join</span><span class="tk-punctuation">(</span><span class="tk-string">""</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">reversedString</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "olleh"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Array to String Concatenation</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div style="display: flex; gap: 4px;">
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "o"</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "l"</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "l"</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "e"</div>
+                      <div
+                        style="padding: 4px 8px; background: #333; border-radius: 4px; font-size: 10px; color: #a6e22e;">
+                        "h"</div>
+                    </div>
+
+                    <div style="font-size: 14px; color: #66d9ef;">( glue: <span style="color: #e6db74;">""</span> )
+                    </div>
+
+                    <div
+                      style="padding: 8px 15px; background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; border-radius: 6px; font-size: 12px; color: #f8f8f2; letter-spacing: 2px;">
+                      "olleh"
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                    <div style="font-size: 8px; color: #a6e22e; margin-bottom: 4px; font-weight: bold;">DELIMITER
+                      EXAMPLES:</div>
+                    <div style="font-size: 9px; color: #f8f8f2; line-height: 1.6;">
+                      <code>.join()</code> ➔ "o,l,l,e,h"<br>
+                      <code>.join("-")</code> ➔ "o-l-l-e-h"<br>
+                      <code>.join(" ")</code> ➔ "o l l e h"
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px;">
+                      > "olleh"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                🧵 <strong>Recuerda:</strong> <code>join()</code> no modifica el array original, simplemente devuelve un
+                nuevo string con el resultado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </div><!-- /.page-wrapper -->
+
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
