@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende sobre los objetos en JavaScript, sus propiedades y cómo utilizarlos para organizar y estructurar tu código de manera eficiente.">
+  <meta name="keywords" content="JavaScript, objetos, propiedades, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Introducción a los objetos de JavaScript y sus propiedades">
+  <meta property="og:description"
+    content="Aprende sobre los objetos en JavaScript, sus propiedades y cómo utilizarlos para organizar y estructurar tu código de manera eficiente.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a los objetos de JavaScript y sus propiedades</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Introducción a los objetos de JavaScript y sus propiedades</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+      <li><a href="#tema5"><span aria-hidden="true">💻</span> Tema 5</a></li>
+      <li><a href="#cuest5"><span aria-hidden="true">❓</span> Cuest 5</a></li>
+      <li><a href="#tema6"><span aria-hidden="true">💻</span> Tema 6</a></li>
+      <li><a href="#cuest6"><span aria-hidden="true">❓</span> Cuest 6</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás sobre los objetos de JavaScript y cómo funcionan. Un objeto es una colección de
+        propiedades, y una propiedad es una asociación entre un nombre (o clave) y un valor. El valor de una propiedad
+        puede ser una función, lo que se conoce como un método.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es un objeto en JavaScript y cómo se puede acceder a las propiedades de un objeto?
+      </h2>
+
+      <p>
+        En JavaScript, un objeto es una estructura de datos fundamental que permite almacenar y organizar datos y
+        funcionalidades relacionados.
+      </p>
+      <p>
+        Puedes pensar en un objeto como un contenedor que alberga diversos datos, de forma muy similar a como un
+        archivador contiene diferentes carpetas y documentos.
+      </p>
+      <p>
+        Estos datos se denominan propiedades y constan de un nombre (o clave) y un valor.
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">const</span> <span class="token variable">exampleObject</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+              <span class="token property">propertyName</span><span class="token punctuation">:</span> <span class="token value">value</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Los objetos son increíblemente versátiles y constituyen la columna vertebral de JavaScript. De hecho, casi todo
+        en JavaScript es un objeto o puede tratarse como tal. Esto incluye los arrays, las funciones e incluso los
+        tipos de datos primitivos, como los strings y los números, cuando se utilizan de determinadas maneras.
+      </p>
+      <p>
+        Esta naturaleza centrada en los objetos de JavaScript es una de las razones por las que es un lenguaje tan
+        flexible y potente. Veamos cómo se puede crear un objeto:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">const</span> <span class="token variable">person</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+              <span class="token property">name</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span>
+              <span class="token property">age</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+              <span class="token property">city</span><span class="token punctuation">:</span> <span class="token string">"New York"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        En este ejemplo, hemos creado un objeto llamado <mark>person</mark> con tres propiedades: <mark>name</mark>,
+        <mark>age</mark> y <mark>city</mark>. Cada propiedad
+        tiene un nombre y un valor, separados por dos puntos.
+      </p>
+      <p>
+        Ahora, veamos cómo se puede acceder a estas propiedades. Hay dos formas principales de acceder a las propiedades
+        de un objeto en JavaScript: la notación de puntos y la notación de corchetes.
+      </p>
+      <p>
+        La notación de puntos es la forma más común y sencilla de acceder a las propiedades de un objeto. Esta es la
+        sintaxis básica de la notación de puntos:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token variable">objectName</span><span class="token punctuation">.</span><span class="token property">propertyName</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Así es como se utilizaría la notación de puntos con nuestro objeto <mark>person</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_dot_notation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// "Alice"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   <span class="tk-comment">// 30</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Object Inspector (Memory Map)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="border: 1px solid #444; border-radius: 8px; background: rgba(0,0,0,0.2); padding: 12px;">
+                  <div style="font-size: 9px; color: #66d9ef; margin-bottom: 8px; font-weight: bold;">OBJECT: person
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div
+                      style="display: flex; justify-content: space-between; background: #222; padding: 4px 8px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                      <span style="font-size: 9px; color: #a6e22e;">🔑 name</span>
+                      <span style="font-size: 9px; color: #e6db74;">"Alice"</span>
+                    </div>
+                    <div
+                      style="display: flex; justify-content: space-between; background: #222; padding: 4px 8px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                      <span style="font-size: 9px; color: #a6e22e;">🔑 age</span>
+                      <span style="font-size: 9px; color: #ae81ff;">30</span>
+                    </div>
+                    <div
+                      style="display: flex; justify-content: space-between; background: #222; padding: 4px 8px; border-radius: 4px; border-left: 3px solid #444; opacity: 0.6;">
+                      <span style="font-size: 9px; color: #888;">🔑 city</span>
+                      <span style="font-size: 9px; color: #888;">"New York"</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px solid #66d9ef; padding: 10px; border-radius: 6px;">
+                  <div style="font-size: 8px; color: #66d9ef; margin-bottom: 4px; font-weight: bold;">DOT NOTATION
+                    EVALUATION:</div>
+                  <div style="font-size: 10px; color: #f8f8f2; line-height: 1.4;">
+                    <code>person.name</code> ➔ Extrae el valor vinculado a la clave "name".
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Alice"<br>
+                    > 30
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ℹ️ <strong>Regla de oro:</strong> La notación de puntos requiere que el nombre de la propiedad sea un
+              identificador válido (no puede tener espacios ni empezar con números).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La notación de puntos es concisa y fácil de leer, lo que la convierte en la opción preferida cuando conoces el
+        nombre exacto de la propiedad a la que deseas acceder y ese nombre es un identificador válido de JavaScript (es
+        decir, no comienza con un número y no contiene caracteres especiales ni espacios).
+      </p>
+      <p>
+        La notación entre corchetes, por otro lado, te permite acceder a las propiedades de un objeto utilizando un
+        string entre corchetes. Así es como se utiliza la notación entre corchetes:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-brackets">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bracket_notation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-string">"name"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Alice"</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-string">"age"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// 30</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Bracket Resolver (String Keys)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-size: 9px; color: #888;">Evaluando paso a paso:</div>
+
+                  <div
+                    style="background: #222; padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; border: 1px dashed #ae81ff;">
+                    <span style="font-size: 10px; color: #f8f8f2;">person<strong
+                        style="color: #ae81ff;">["name"]</strong></span>
+                    <span style="font-size: 14px; color: #ae81ff;">➔</span>
+                    <span style="font-size: 10px; color: #e6db74; font-weight: bold;">"Alice"</span>
+                  </div>
+
+                  <div
+                    style="background: #222; padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; border: 1px dashed #ae81ff;">
+                    <span style="font-size: 10px; color: #f8f8f2;">person<strong
+                        style="color: #ae81ff;">["age"]</strong></span>
+                    <span style="font-size: 14px; color: #ae81ff;">➔</span>
+                    <span style="font-size: 10px; color: #ae81ff; font-weight: bold;">30</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #ae81ff;">USO DINÁMICO:</strong> Al usar strings, puedes guardar la clave en
+                    una variable: <br>
+                    <code>const miClave = "city";</code><br>
+                    <code>person[miClave]; // "New York"</code>
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ae81ff;">
+                  <div style="color: #ae81ff; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Alice"<br>
+                    > 30
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Error común:</strong> No olvides las comillas dentro de los corchetes. Si escribes
+              <code style="color: red;">person[name]</code> (sin comillas), JavaScript buscará una variable llamada
+              <code style="color: red;">name</code> en
+              lugar de la propiedad del objeto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La notación entre corchetes es más flexible que la notación con punto, ya que permite utilizar nombres de
+        propiedades que no son identificadores válidos en JavaScript. Por ejemplo, si tuvieras un nombre de propiedad
+        con espacios o que comenzara con un número, tendrías que utilizar la notación entre corchetes:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-special-keys">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">special_keys.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">oddObject</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-string">"1stProperty"</span><span class="tk-punctuation">:</span> <span class="tk-string">"Hello"</span><span class="tk-punctuation">,</span>
+  <span class="tk-string">"property with spaces"</span><span class="tk-punctuation">:</span> <span class="tk-string">"World"</span>
+<span class="tk-punctuation}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">oddObject</span><span class="tk-punctuation">[</span><span class="tk-string">"1stProperty"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>         <span class="tk-comment">// Hello</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">oddObject</span><span class="tk-punctuation">[</span><span class="tk-string">"property with spaces"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// World</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Invalid Identifiers Handling</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="border: 1px solid #444; border-radius: 6px; overflow: hidden; font-size: 10px;">
+                  <div
+                    style="background: #222; padding: 6px; font-weight: bold; color: #888; display: flex; justify-content: space-between;">
+                    <span>Propiedad</span>
+                    <span>Notación Dot (.)</span>
+                    <span>Notación Bracket ([])</span>
+                  </div>
+                  <div
+                    style="padding: 6px; display: flex; justify-content: space-between; border-bottom: 1px solid #333; background: rgba(0,0,0,0.1);">
+                    <span style="color: #e6db74;">"1stProperty"</span>
+                    <span style="color: #f92672;">❌ SyntaxError</span>
+                    <span style="color: #a6e22e;">✔ "Hello"</span>
+                  </div>
+                  <div
+                    style="padding: 6px; display: flex; justify-content: space-between; background: rgba(0,0,0,0.1);">
+                    <span style="color: #e6db74;">"property with spaces"</span>
+                    <span style="color: #f92672;">❌ SyntaxError</span>
+                    <span style="color: #a6e22e;">✔ "World"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #f92672;">POR QUÉ FALLA EL PUNTO:</strong> El motor de JS interpreta
+                    <code>oddObject.1stProperty</code> como si intentaras leer una propiedad del número <code>1</code>,
+                    lo cual es una expresión matemática o léxica completamente inválida.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Hello"<br>
+                    > "World"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛠️ <strong>Buena práctica:</strong> Aunque JavaScript permite estas claves usando corchetes, se
+              recomienda usar siempre <em>camelCase</em> (ej. <code style="color: red;">firstProperty</code>) para
+              mantener el código
+              uniforme y poder usar la notación de puntos sin problemas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra ventaja de la notación entre corchetes es que permite utilizar variables para acceder a las propiedades de
+        forma dinámica:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-dynamic-vars">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">dynamic_access.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"Wonderland"</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">propertyName</span> = <span class="tk-string">"city"</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">propertyName</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Wonderland"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Dynamic Variable Resolution</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 8px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; border: 1px solid #444;">
+                  <div style="font-size: 9px; color: #888; margin-bottom: 4px;">Paso 1: Leer el valor de la variable
+                  </div>
+                  <div style="font-size: 11px; color: #66d9ef;">propertyName <span style="color:#f8f8f2;">=</span> <span
+                      style="color:#e6db74;">"city"</span></div>
+
+                  <div style="text-align: center; color: #ae81ff; font-size: 12px; margin: 2px 0;">▼</div>
+
+                  <div style="font-size: 9px; color: #888;">Paso 2: Sustituir variable dentro de los corchetes</div>
+                  <div style="font-size: 11px; color: #f8f8f2;">person[<span style="color:#66d9ef;">propertyName</span>]
+                    ➔ person[<span style="color:#e6db74;">"city"</span>]</div>
+
+                  <div style="text-align: center; color: #a6e22e; font-size: 12px; margin: 2px 0;">▼</div>
+
+                  <div style="font-size: 9px; color: #888;">Paso 3: Extraer del mapa de memoria</div>
+                  <div style="font-size: 11px; color: #a6e22e; font-weight: bold;">➔ "Wonderland"</div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">ARQUITECTURA:</strong> Al igual que las estructuras anidadas, un
+                    objeto puede guardar arrays u otros sub-objetos, permitiendo modelar información compleja con este
+                    mismo sistema de llaves y valores de manera infinita.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Wonderland"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Diferencia clave:</strong> Si pones <code style="color: red;">person["propertyName"]</code>
+              (con comillas), buscará
+              una propiedad llamada literalmente "propertyName". Al quitarle las comillas, evalúa el contenido de la
+              variable.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esta flexibilidad hace que la notación entre corchetes resulte especialmente útil cuando no conoces el nombre
+        exacto de la propiedad en el momento de escribir el código, o cuando trabajas con nombres de propiedades que
+        provienen de la entrada del usuario o de alguna otra fuente dinámica.
+      </p>
+      <p>
+        Vale la pena señalar que los objetos en JavaScript son increíblemente potentes y versátiles. Pueden contener no
+        solo valores simples como strings y números, sino también arrays u otros objetos.
+      </p>
+      <p>
+        Comprender los objetos y cómo trabajar con ellos es fundamental en JavaScript, ya que se utilizan ampliamente en
+        todo el lenguaje y en muchas bibliotecas y marcos de trabajo de JavaScript.
+      </p>
+      <p>
+        A medida que continúes aprendiendo y trabajando con JavaScript, descubrirás que dominar los objetos te abre un
+        mundo de posibilidades para crear aplicaciones complejas y potentes.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué notación usarías para acceder a una propiedad de un objeto si el nombre de la propiedad contiene
+            espacios?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Notación de puntos
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Notación de corchetes
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Tanto la notación de puntos como la de corchetes
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Ninguna, no es posible tener nombres de propiedades con espacios
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la ventaja de usar la notación entre corchetes en lugar de la notación con punto al acceder a las
+            propiedades de un objeto?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Es más rápido de escribir.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Permite usar variables como nombres de propiedades.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Es la única forma de acceder a propiedades anidadas.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Convierte automáticamente los nombres de las propiedades a mayúsculas.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué se dice que la mayoría de las cosas en JavaScript son objetos?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Porque todo en JavaScript tiene propiedades y métodos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Porque JavaScript se diseñó originalmente para la programación orientada a objetos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Porque los objetos son el único tipo de datos en JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Porque incluso los tipos de datos primitivos pueden tratarse como objetos en ciertos contextos.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo se pueden eliminar propiedades de un objeto?
+      </h2>
+
+      <p>
+        Hay varias formas de eliminar propiedades de un objeto, siendo el operador <mark>delete</mark> el método más
+        sencillo y más
+        utilizado.
+      </p>
+      <p>
+        Al usar <mark>delete</mark>, se elimina la propiedad seleccionada del objeto. A continuación, se muestra un
+        ejemplo de cómo
+        usar el operador <mark>delete</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-delete">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">delete_property.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">job</span><span class="tk-punctuation">:</span> <span class="tk-string">"Engineer"</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">delete</span> <span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">job</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">job</span><span class="tk-punctuation"></span>)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Property Deletion Trace</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="font-size: 8px; color: #888;">Antes del delete:</div>
+                  <div style="display: flex; gap: 4px; opacity: 0.6; font-size: 9px;">
+                    <span style="background: #333; padding: 3px 6px; border-radius: 3px; color: #a6e22e;">name:
+                      "Alice"</span>
+                    <span style="background: #333; padding: 3px 6px; border-radius: 3px; color: #a6e22e;">age: 30</span>
+                    <span
+                      style="background: rgba(249, 38, 114, 0.2); border: 1px solid #f92672; padding: 3px 6px; border-radius: 3px; color: #f92672;">job:
+                      "Engineer"</span>
+                  </div>
+
+                  <div style="text-align: center; color: #f92672; font-size: 12px;">✂️ delete person.job</div>
+
+                  <div style="font-size: 8px; color: #888;">Después en memoria:</div>
+                  <div style="display: flex; gap: 4px; font-size: 9px;">
+                    <span
+                      style="background: #333; border: 1px solid #444; padding: 3px 6px; border-radius: 3px; color: #f8f8f2;">name:
+                      "Alice"</span>
+                    <span
+                      style="background: #333; border: 1px solid #444; padding: 3px 6px; border-radius: 3px; color: #f8f8f2;">age:
+                      30</span>
+                    <span
+                      style="border: 1px dashed #444; padding: 3px 6px; border-radius: 3px; color: #444; text-decoration: line-through;">job</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #f92672;">COMPORTAMIENTO:</strong> Al consultar <code>person.job</code>, el
+                    motor devuelve <span style="color: #ae81ff;">undefined</span> porque la clave ya no existe en el
+                    mapa de propiedades del objeto.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > undefined
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato pro:</strong> El operador <code style="color: red;">delete</code> devuelve siempre un
+              booleano
+              (<code style="color: red;">true</code> si la propiedad se eliminó con éxito o si nunca existió, y <code
+                style="color: red;">false</code> si la
+              propiedad no es configurable).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, comenzamos con un objeto <mark>person</mark> que tiene tres propiedades: <mark>name</mark>,
+        <mark>age</mark> y <mark>job</mark>. A continuación,
+        utilizamos el operador <mark>delete</mark> para eliminar la propiedad <mark>job</mark>. Tras la eliminación, el
+        objeto <mark>person</mark> ya no tiene
+        la propiedad <mark>job</mark>.
+      </p>
+      <p>
+        Otra forma de eliminar propiedades es mediante la asignación desestructurada con parámetros restantes. Este
+        método no elimina realmente la propiedad, sino que crea un nuevo objeto sin las propiedades especificadas:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-rest-destructuring">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rest_destructuring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Bob"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">25</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">job</span><span class="tk-punctuation">:</span> <span class="tk-string">"Designer"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-punctuation">{</span> <span class="tk-selector">job</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">...</span><span class="tk-selector">remainingProperties</span> <span class="tk-punctuation">}</span> = <span class="tk-selector">person</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">remainingProperties</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// { name: "Bob", age: 25 }</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Shallow Extraction & Separation</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="font-size: 8px; color: #888;">Fuente original (Intacta):</div>
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 8px; border-radius: 4px; font-size: 9px; display: flex; gap: 6px;">
+                    <span style="color: #66d9ef;">name</span>, <span style="color: #66d9ef;">age</span>, <span
+                      style="color: #66d9ef;">job</span>, <span style="color: #66d9ef;">city</span>
+                  </div>
+
+                  <div style="text-align: center; color: #ae81ff; font-size: 12px; font-weight: bold;">{ job, city,
+                    ...remainingProperties } = person</div>
+
+                  <div style="display: flex; gap: 10px;">
+                    <div
+                      style="flex: 1; background: rgba(249, 38, 114, 0.05); border: 1px solid #f92672; padding: 8px; border-radius: 4px;">
+                      <div style="font-size: 7px; color: #f92672; font-weight: bold; margin-bottom: 4px;">VARIABLES
+                        SUELTAS:</div>
+                      <div style="font-size: 9px; color: #f8f8f2;">job, city</div>
+                    </div>
+
+                    <div
+                      style="flex: 1; background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                      <div style="font-size: 7px; color: #a6e22e; font-weight: bold; margin-bottom: 4px;">NUEVO OBJETO
+                        (...):</div>
+                      <div style="font-size: 9px; color: #a6e22e; font-weight: bold;">{ name, age }</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #a6e22e;">BENEFICIO:</strong> Ideal para omitir credenciales sensibles o
+                    propiedades del sistema antes de pasar un objeto a otra sección de tu programa.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > { name: "Bob", age: 25 }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Regla del Operador Rest:</strong> El parámetro de extracción final
+              (<code style="color: red;">...remainingProperties</code>) debe situarse siempre en la **última posición**
+              de la
+              desestructuración, de lo contrario generará un error sintáctico.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, utilizamos la desestructuración para extraer las propiedades <mark>job</mark> y
+        <mark>city</mark> del objeto <mark>person</mark>, y
+        recopilamos las propiedades restantes en un nuevo objeto llamado <mark>remainingProperties</mark>. De esta
+        forma, se crea un
+        nuevo objeto sin las propiedades <mark>job</mark> y <mark>city</mark>.
+      </p>
+      <p>
+        Saber cómo eliminar propiedades de los objetos es una habilidad importante en la programación con JavaScript. Te
+        permite manipular objetos de forma dinámica y eliminar datos innecesarios.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let obj = {a: 1, b: 2, c: 3};
+                delete obj.b;
+                console.log(obj);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            {a: 1, c: 3}
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            {a: 1, b: undefined, c: 3}
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            {a: 1, b: 2, c: 3}
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Esto generará un error.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let car = {
+                    brand: "Toyota",
+                    model: "Corolla",
+                    year: 2020
+                };
+                
+                delete car.year;
+                console.log(car.year);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            2020
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué operador se utiliza habitualmente para eliminar propiedades de un objeto en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            remove
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            delete
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            erase
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            clear
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Cómo comprobar si un objeto tiene una propiedad?
+      </h2>
+
+      <p>
+        En JavaScript, hay varias formas de comprobar si un objeto tiene una propiedad específica. Comprender estos
+        métodos es importante para trabajar de manera eficaz con objetos, especialmente cuando se manejan datos de
+        fuentes externas o cuando es necesario asegurarse de que ciertas propiedades existen antes de utilizarlas.
+      </p>
+      <p>
+        Exploraremos algunos enfoques comunes: el método <mark>hasOwnProperty()</mark>, el método
+        <mark>Object.hasOwn()</mark>, el operador <mark>in</mark> y
+        la comprobación con <mark>undefined</mark>.
+      </p>
+      <p>
+        Comencemos con el método <mark>hasOwnProperty()</mark>. Este método devuelve un valor booleano que indica si el
+        objeto tiene
+        la propiedad especificada como una propiedad propia. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-has-own-property">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">has_own_property.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwnProperty</span><span class="tk-punctuation">(</span><span class="tk-string">"name"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwnProperty</span><span class="tk-punctuation">(</span><span class="tk-string">"job"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Property Existence Scanner</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: center; background: rgba(166, 226, 46, 0.1); padding: 8px; border-radius: 6px; border: 1px solid #a6e22e;">
+                    <span style="font-size: 9px; color: #f8f8f2;">🔍 Escaneando propiedad: <strong
+                        style="color: #e6db74;">"name"</strong></span>
+                    <span style="font-size: 10px; color: #a6e22e; font-weight: bold;">✔ EXISTE (true)</span>
+                  </div>
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: center; background: rgba(249, 38, 114, 0.1); padding: 8px; border-radius: 6px; border: 1px solid #f92672;">
+                    <span style="font-size: 9px; color: #f8f8f2;">🔍 Escaneando propiedad: <strong
+                        style="color: #e6db74;">"job"</strong></span>
+                    <span style="font-size: 10px; color: #f92672; font-weight: bold;">❌ AUSENTE (false)</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">PROPIEDADES PROPIAS:</strong> Si preguntas por
+                    <code>"toString"</code>, dará <code>false</code> porque, aunque el objeto puede usar ese método, no
+                    le pertenece directamente a él, sino a su prototipo base.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > true<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Peligro potencial:</strong> Si creas un objeto sin prototipo usando
+              <code style="color: red;">Object.create(null)</code>, este no tendrá acceso a <code
+                style="color: red;">hasOwnProperty()</code> y tu app romperá.
+              Por eso en JavaScript moderno se prefiere usar <code
+                style="color: red;">Object.hasOwn(person, "name")</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un objeto llamado <mark>person</mark> con dos propiedades: <mark>name</mark> y
+        <mark>age</mark>. Para comprobar si <mark>name</mark> es una
+        propiedad del objeto <mark>person</mark>, utilizamos el método <mark>hasOwnProperty()</mark>. Dado que
+        <mark>name</mark> es una propiedad, devolverá
+        <mark>true</mark>. Sin embargo, cuando utilizamos <mark>hasOwnProperty()</mark> para comprobar si
+        <mark>job</mark> es una propiedad,
+        devolverá <mark>false</mark>
+        porque no existe en el objeto.
+      </p>
+      <p>
+        <mark>Object.hasOwn()</mark> es la forma moderna y recomendada de verificar si un objeto tiene una propiedad
+        propia (no
+        heredada). Piensa en ello como una versión mejorada y más segura de <mark>hasOwnProperty()</mark>. La sintaxis
+        es
+        <mark>Object.hasOwn(objeto, nombreDePropiedad)</mark>: pasas el objeto como primer argumento y el nombre de la
+        propiedad como
+        segundo.
+      </p>
+      <p>
+        Aquí tienes un ejemplo básico:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-has-own">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_has_own.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">,</span> <span class="tk-string">"name"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">,</span> <span class="tk-string">"job"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// false</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Static Property Verification</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; font-size: 10px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Mecanismo Estático Externo:</div>
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 6px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <span style="color: #f8f8f2;">Object.hasOwn( <strong style="color: #a6e22e;">person</strong>, "name"
+                      )</span>
+                    <span style="color: #a6e22e; font-weight: bold;">✔ true</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">ESTÁNDAR MODERNO:</strong> Al no depender de la herencia del objeto,
+                    se eliminan los fallos de seguridad comunes cuando los datos provienen directamente de fuentes JSON
+                    externas inseguras.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > true<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Recomendación:</strong> Utiliza siempre <code style="color: red;">Object.hasOwn()</code> en
+              lugar de
+              <code style="color: red;">hasOwnProperty()</code> para todo tu código nuevo y refactorizaciones.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>Object.hasOwn(person, "name")</mark> devuelve <mark>true</mark> porque <mark>name</mark>
+        existe directamente en el objeto
+        <mark>person</mark>. <mark>Object.hasOwn(person, "job")</mark> devuelve <mark>false</mark> porque
+        <mark>job</mark> nunca se añadió al objeto.
+      </p>
+      <p>
+        Es muy importante entender que <mark>Object.hasOwn()</mark> solo comprueba si la propiedad existe; no le importa
+        el valor de
+        la propiedad. Esto significa que sigue devolviendo <mark>true</mark> incluso cuando el valor es <mark>0</mark>,
+        <mark>false</mark>, <mark>null</mark> o <mark>undefined</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-has-own-falsy">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">falsy_vs_existence.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">user</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">username</span><span class="tk-punctuation">:</span> <span class="tk-string">"coder123"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">score</span><span class="tk-punctuation">:</span> <span class="tk-number">0</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isActive</span><span class="tk-punctuation">:</span> <span class="tk-property">false</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">nickname</span><span class="tk-punctuation">:</span> <span class="tk-property">null</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Object.hasOwn() correctly reports these all exist</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">,</span> <span class="tk-string">"score"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// true  (value is 0, but property exists)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">,</span> <span class="tk-string">"isActive"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true  (value is false, but property exists)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">,</span> <span class="tk-string">"nickname"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true  (value is null, but property exists)</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">,</span> <span class="tk-string">"email"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>    <span class="tk-comment">// false (property was never added)</span>
+
+<span class="tk-comment">// Danger! Using if() directly gives wrong results for falsy values</span>
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">.</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Has score"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This will NOT print even though score exists!</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// Safe! Object.hasOwn() gives correct result</span>
+<span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">Object</span><span class="tk-punctuation">.</span><span class="tk-value">hasOwn</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">,</span> <span class="tk-string">"score"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Has score:"</span><span class="tk-punctuation">,</span> <span class="tk-selector">user</span><span class="tk-punctuation">.</span><span class="tk-selector">score</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Has score: 0</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Existence vs Evaluation Matrix</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div style="border: 1px solid #444; border-radius: 6px; overflow: hidden; font-size: 9px;">
+                  <div
+                    style="background: #222; padding: 6px; font-weight: bold; color: #888; display: flex; justify-content: space-between;">
+                    <span>Propiedad (Valor)</span>
+                    <span>Object.hasOwn()</span>
+                    <span>Evaluación if()</span>
+                  </div>
+                  <div
+                    style="padding: 6px; display: flex; justify-content: space-between; border-bottom: 1px solid #333; background: rgba(0,0,0,0.1);">
+                    <span>score: <strong style="color:#ae81ff;">0</strong></span>
+                    <span style="color: #a6e22e;">✔ true</span>
+                    <span style="color: #f92672;">❌ Omitido (Falsy)</span>
+                  </div>
+                  <div
+                    style="padding: 6px; display: flex; justify-content: space-between; border-bottom: 1px solid #333; background: rgba(0,0,0,0.1);">
+                    <span>isActive: <strong style="color:#ae81ff;">false</strong></span>
+                    <span style="color: #a6e22e;">✔ true</span>
+                    <span style="color: #f92672;">❌ Omitido (Falsy)</span>
+                  </div>
+                  <div
+                    style="padding: 6px; display: flex; justify-content: space-between; background: rgba(0,0,0,0.1);">
+                    <span>nickname: <strong style="color:#66d9ef;">null</strong></span>
+                    <span style="color: #a6e22e;">✔ true</span>
+                    <span style="color: #f92672;">❌ Omitido (Falsy)</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #f92672;">PUNTO CRÍTICO:</strong> El peligro del <code>if(user.score)</code>
+                    es que tu lógica asumirá que el usuario "no tiene puntuación", cuando en realidad tiene la
+                    puntuación válida de <code>0</code>.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 10px; line-height: 1.5;">
+                    > true <span style="color: #888;">(score)</span><br>
+                    > true <span style="color: #888;">(isActive)</span><br>
+                    > true <span style="color: #888;">(nickname)</span><br>
+                    > false <span style="color: #888;">(email)</span><br>
+                    <span style="color: #a6e22e;">> "Has score: 0"</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Conclusión:</strong> Usa siempre <code style="color: red;">Object.hasOwn()</code> cuando
+              quieras saber si la
+              configuración existe, e intereses de valor individuales solo cuando estés seguro de que no afectarán los
+              estados lógicos con valores válidos de tipo falsy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Otra forma de comprobar si un objeto tiene una propiedad es usar el operador <mark>in</mark>. Al igual que
+        <mark>hasOwnProperty()</mark>,
+        el operador <mark>in</mark> devolverá <mark>true</mark> si la propiedad existe en el objeto. Así es como se usa:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-in-operator">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">in_operator.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Bob"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">25</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"name"</span> <span class="tk-property">in</span> <span class="tk-selector">person</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// true</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                In Operator Chain Evaluation</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-size: 9px; color: #888;">Flujo de resolución del operador 'in':</div>
+
+                  <div
+                    style="background: rgba(166, 226, 46, 0.05); padding: 8px; border-radius: 4px; border: 1px solid #a6e22e; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 10px; color: #f8f8f2;"><code>"name" in person</code></span>
+                    <span style="font-size: 9px; color: #a6e22e; font-weight: bold;">✔ true (Propiedad directa)</span>
+                  </div>
+
+                  <div
+                    style="background: rgba(102, 217, 239, 0.05); padding: 8px; border-radius: 4px; border: 1px solid #66d9ef; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 10px; color: #f8f8f2;"><code>"toString" in person</code></span>
+                    <span style="font-size: 9px; color: #66d9ef; font-weight: bold;">✔ true (Heredada del
+                      Prototipo)</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #ae81ff;">SINTAXIS MANDATORIA:</strong> La clave a buscar siempre debe
+                    indicarse del lado izquierdo como una cadena de texto (o símbolo). Escribir
+                    <code>name in person</code> sin comillas buscará el valor de una variable externa.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > true
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Diferencia clave:</strong> Usa <code style="color: red;">Object.hasOwn()</code> si deseas
+              asegurar que la propiedad
+              le pertenece estrictamente al objeto físico, y usa el operador <code style="color: red;">in</code> si
+              necesitas verificar
+              accesibilidad general (incluyendo métodos heredados).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>"name" in person</mark> devuelve <mark>true</mark> porque <mark>name</mark> es una
+        propiedad de person.
+      </p>
+      <p>
+        El tercer método consiste en comprobar si una propiedad está <mark>undefined</mark>. Este enfoque puede resultar
+        útil, pero
+        tiene algunas limitaciones. He aquí un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-undefined-check">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">undefined_check.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">car</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">brand</span><span class="tk-punctuation">:</span> <span class="tk-string">"Toyota"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">model</span><span class="tk-punctuation">:</span> <span class="tk-string">"Corolla"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">year</span><span class="tk-punctuation">:</span> <span class="tk-number">2020</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">car</span><span class="tk-punctuation">.</span><span class="tk-selector">brand</span> <span class="tk-property">!==</span> <span class="tk-property">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">car</span><span class="tk-punctuation">.</span><span class="tk-selector">color</span> <span class="tk-property">!==</span> <span class="tk-property">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// false</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                The Undefined Edge Case</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="border: 1px solid #444; border-radius: 6px; overflow: hidden; font-size: 9px; background: rgba(0,0,0,0.2);">
+                  <div style="background: #222; padding: 6px; font-weight: bold; color: #888;">Escenario con clave
+                    explícita vacía:</div>
+                  <div style="padding: 10px; line-height: 1.4;">
+                    <code>const car2 = { color: <span style="color: #ae81ff;">undefined</span> };</code><br>
+                    <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px;">
+                      <span style="color: #f92672;">❌ car2.color !== undefined ➔ false (Dice que "no existe")</span>
+                      <span style="color: #a6e22e;">✔ Object.hasOwn(car2, "color") ➔ true (Detecta la clave)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #ae81ff;">¿CUÁNDO USARLO?:</strong> Es seguro usar <code>!== undefined</code>
+                    si tienes la total certeza de que nadie en tu equipo ni ninguna API externa inicializará propiedades
+                    asignándoles el valor literal de <code>undefined</code>.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > true<br>
+                    > false
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa de diseño:</strong> Si deseas representar la ausencia de un valor de forma
+              intencional sin romper las validaciones de existencia, se considera una mejor práctica asignar el valor
+              <code style="color: red;">null</code> en lugar de <code style="color: red;">undefined</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, verificamos que <mark>car.brand</mark> y <mark>car.color</mark> no sean <mark>undefined</mark>.
+        Esto funciona porque al acceder a una
+        propiedad inexistente en un objeto se devuelve <mark>undefined</mark>. Sin embargo, este método puede dar falsos
+        negativos si
+        una propiedad tiene explícitamente el valor <mark>undefined</mark>.
+      </p>
+      <p>
+        En la práctica, la elección entre estos métodos suele depender de los requisitos específicos de tu código.
+        Comprender las diferencias entre ellos te ayudará a tomar la decisión correcta en diferentes situaciones.
+      </p>
+
+    </section>
+
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let obj = {x: 0, y: null};
+                console.log(obj.hasOwnProperty("y"));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            true
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            false
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            undefined
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let person = {
+                    name: "Alice",
+                    age: 30
+                };
+                
+                console.log("name" in person);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            true
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            false
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            "Alice"
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            undefined
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let obj = {a: undefined};
+                console.log(obj.a !== undefined);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            true
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            false
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema4" aria-labelledby="tema4-titulo">
+      <h2 id="tema4-titulo">
+        Tema 4: ¿Cómo se accede a las propiedades de objetos anidados y arrays dentro de objetos?
+      </h2>
+
+      <p>
+        Al trabajar con JavaScript, a menudo te encontrarás con estructuras de datos complejas que incluyen objetos
+        anidados y arrays dentro de objetos. Estas estructuras pueden representar datos ricos y jerárquicos, pero
+        también requieren una comprensión clara de cómo acceder y manipular los datos que contienen. Veamos cómo navegar
+        por estas estructuras anidadas de manera eficaz.
+      </p>
+      <p>
+        Acceder a propiedades de objetos anidados implica usar la notación de puntos o la notación de corchetes, de
+        manera muy similar a como se accede a propiedades de objetos simples. Sin embargo, necesitarás encadenar estos
+        accesores para profundizar en la estructura anidada.
+      </p>
+      <p>
+        Por ejemplo, consideremos un objeto anidado que representa a una persona con información de contacto:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">const</span> <span class="token variable">person</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+              <span class="token property">name</span><span class="token punctuation">:</span> <span class="token string">"Alice"</span><span class="token punctuation">,</span>
+              <span class="token property">age</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+              <span class="token property">contact</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token property">email</span><span class="token punctuation">:</span> <span class="token string">"alice@example.com"</span><span class="token punctuation">,</span>
+                <span class="token property">phone</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                  <span class="token property">home</span><span class="token punctuation">:</span> <span class="token string">"123-456-7890"</span><span class="token punctuation">,</span>
+                  <span class="token property">work</span><span class="token punctuation">:</span> <span class="token string">"098-765-4321"</span>
+                <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Para acceder al número de teléfono del trabajo de <mark>Alice</mark>, tendrías que encadenar los accesores de
+        propiedad de la siguiente manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-nested">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nested_objects.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">contact</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">email</span><span class="tk-punctuation">:</span> <span class="tk-string">"alice@example.com"</span><span class="tk-punctuation">,</span>
+    <span class="tk-selector">phone</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+      <span class="tk-selector">home</span><span class="tk-punctuation">:</span> <span class="tk-string">"123-456-7890"</span><span class="tk-punctuation">,</span>
+      <span class="tk-selector">work</span><span class="tk-punctuation">:</span> <span class="tk-string">"098-765-4321"</span>
+    <span class="tk-punctuation">}</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">contact</span><span class="tk-punctuation">.</span><span class="tk-selector">phone</span><span class="tk-punctuation">.</span><span class="tk-selector">work</span><span class="tk-punctuation)</span><span class="tk-punctuation">;</span> // "098-765-4321"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Nested Hierarchy Navigation</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="font-size: 9px; border-left: 2px solid #444; padding-left: 8px; display: flex; flex-direction: column; gap: 6px;">
+                  <div style="color: #66d9ef; font-weight: bold;">📦 person</div>
+                  <div style="margin-left: 10px; color: #888;">┗ 📂 contact</div>
+                  <div style="margin-left: 20px; color: #888;"> ┗ 📂 phone</div>
+                  <div
+                    style="margin-left: 30px; background: rgba(166, 226, 46, 0.1); padding: 2px 6px; border-radius: 3px; display: inline-block; width: max-content;">
+                    <span style="color: #a6e22e; font-weight: bold;">┗ 📄 work: "098-765-4321"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border: 1px dashed #66d9ef; padding: 10px; border-radius: 4px; font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                  <span style="color: #888;">Ruta:</span> person<span style="color: #66d9ef;">.contact</span><span
+                    style="color: #ae81ff;">.phone</span><span style="color: #a6e22e;">.work</span>
+                  <div style="margin-top: 4px; font-size: 9px; color: #ae81ff;">
+                    ➔ [Object] ➔ [Object] ➔ "098-765-4321"
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "098-765-4321"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Peligro latente:</strong> Si intentas acceder a una propiedad de un nivel que no existe (ej.
+              <code style="color: red;">person.address.street</code>), JavaScript lanzará un error fatal: <em>TypeError:
+                Cannot read
+                properties of undefined</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También puedes utilizar la notación entre corchetes, que resulta especialmente útil cuando los nombres de las
+        propiedades incluyen espacios o caracteres especiales, o cuando utilizas variables para acceder a las
+        propiedades:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-nested-brackets">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nested_brackets.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">contact</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">email</span><span class="tk-punctuation">:</span> <span class="tk-string">"alice@example.com"</span><span class="tk-punctuation">,</span>
+    <span class="tk-selector">phone</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+      <span class="tk-selector">home</span><span class="tk-punctuation">:</span> <span class="tk-string">"123-456-7890"</span><span class="tk-punctuation">,</span>
+      <span class="tk-selector">work</span><span class="tk-punctuation">:</span> <span class="tk-string">"098-765-4321"</span>
+    <span class="tk-punctuation">}</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-string">'contact'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">[</span><span class="tk-string">'phone'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">[</span><span class="tk-string">'work'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "098-765-4321"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Bracket Chaining Resolution</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid #444; font-size: 10px;">
+                  <div style="color: #888; font-size: 8px;">Resolución secuencial (Izquierda a Derecha):</div>
+
+                  <div style="color: #f8f8f2;">
+                    1. <span style="color: #ae81ff;">person['contact']</span>
+                    <span style="color: #66d9ef;">➔ Retorna objeto contact</span>
+                  </div>
+
+                  <div style="color: #f8f8f2;">
+                    2. <span style="color: #66d9ef;">[objeto contact]</span><span
+                      style="color: #ae81ff;">['phone']</span>
+                    <span style="color: #66d9ef;">➔ Retorna objeto phone</span>
+                  </div>
+
+                  <div style="color: #f8f8f2;">
+                    3. <span style="color: #66d9ef;">[objeto phone]</span><span style="color: #ae81ff;">['work']</span>
+                    <span style="color: #a6e22e; font-weight: bold;">➔ "098-765-4321"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px;">
+                  <p style="margin: 0; font-size: 9px; color: #f8f8f2; line-height: 1.4;">
+                    <strong style="color: #ae81ff;">SINTAXIS HÍBRIDA:</strong> Puedes mezclar ambas notaciones en la
+                    misma línea si lo requieres:<br>
+                    <code>person.contact['phone'].work</code> ➔ Funciona perfectamente igual.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "098-765-4321"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Flexibilidad total:</strong> Esta sintaxis es clave cuando necesitas usar variables para los
+              niveles profundos, por ejemplo: <code style="color: red;">person[variableNivel1][variableNivel2]</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora, veamos cómo podemos acceder a los datos cuando una de las propiedades del objeto tiene el valor de un
+        array. Aquí hay un objeto <mark>person</mark> modificado que incluye un array de direcciones:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">const</span> <span class="token variable">person</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+              <span class="token property">name</span>: <span class="token string">"Alice"</span><span class="token punctuation">,</span>
+              <span class="token property">age</span>: <span class="token number">30</span><span class="token punctuation">,</span>
+              <span class="token property">addresses</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span> <span class="token property">type</span><span class="token punctuation">:</span> <span class="token string">"home"</span><span class="token punctuation">,</span> <span class="token property">street</span><span class="token punctuation">:</span> <span class="token string">"123 Main St"</span><span class="token punctuation">,</span> <span class="token property">city</span><span class="token punctuation">:</span> <span class="token string">"Anytown"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span> <span class="token property">type</span><span class="token punctuation">:</span> <span class="token string">"work"</span><span class="token punctuation">,</span> <span class="token property">street</span><span class="token punctuation">:</span> <span class="token string">"456 Market St"</span>, <span class="token property">city</span><span class="token punctuation">:</span> <span class="token string">"Workville"</span> <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        A continuación se muestra un ejemplo de cómo consultar la ciudad donde se encuentra la oficina de Alice:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-arrays-nested">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_in_object.js</button>
+              <button class="tab" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">addresses</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">[</span>
+    <span class="tk-punctuation">{</span> <span class="tk-selector">type</span><span class="tk-punctuation">:</span> <span class="tk-string">"home"</span><span class="tk-punctuation">,</span> <span class="tk-selector">street</span><span class="tk-punctuation">:</span> <span class="tk-string">"123 Main St"</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"Anytown"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">,</span>
+    <span class="tk-punctuation">{</span> <span class="tk-selector">type</span><span class="tk-punctuation">:</span> <span class="tk-string">"work"</span><span class="tk-punctuation">,</span> <span class="tk-selector">street</span><span class="tk-punctuation">:</span> <span class="tk-string">"456 Market St"</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"Workville"</span> <span class="tk-punctuation">}</span>
+  <span class="tk-punctuation">]</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">addresses</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">]</span><span class="tk-punctuation">.</span><span class="tk-selector">city</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "Workville"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Hybrid Collection Map</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); padding: 10px; font-size: 10px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">📁 person.addresses (Array):</div>
+
+                  <div style="display: flex; flex-direction: column; gap: 6px; padding-left: 8px;">
+                    <div
+                      style="background: #222; padding: 4px 8px; border-radius: 4px; border-left: 3px solid #555; opacity: 0.5;">
+                      <span style="color: #ae81ff; font-weight: bold;">[0]</span> { type: "home", city: "Anytown" }
+                    </div>
+
+                    <div
+                      style="background: #222; padding: 6px 8px; border-radius: 4px; border-left: 3px solid #a6e22e; border-top: 1px dashed rgba(166,226,46,0.3); border-right: 1px dashed rgba(166,226,46,0.3); border-bottom: 1px dashed rgba(166,226,46,0.3);">
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #a6e22e; font-weight: bold;">🎯 [1] Target Object:</span>
+                        <span style="font-size: 8px; color: #888;">type: "work"</span>
+                      </div>
+                      <div style="margin-top: 4px; padding-left: 14px; color: #e6db74;">
+                        ┗ 📄 city: <strong style="text-decoration: underline;">"Workville"</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px; font-size: 9px; line-height: 1.4; color: #f8f8f2;">
+                  <code>person.addresses</code> ➔ Accede a la lista.<br>
+                  <code>person.addresses[1]</code> ➔ Elige el segundo elemento (Objeto de trabajo).<br>
+                  <code>person.addresses[1].city</code> ➔ Extrae la propiedad de texto de ese objeto.
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Workville"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>¡Cuidado con los índices!:</strong> Al igual que con cualquier array simple, si pones un índice
+              que está fuera de los límites (por ejemplo, <code style="color: red;">person.addresses[2].city</code>), obtendrás un error de
+              tipo ya que intentarás leer <code style="color: red;">.city</code> de algo que es <code style="color: red;">undefined</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>person.addresses</mark> hace referencia al array de direcciones. Para acceder a la
+        segunda dirección
+        de ese array, utilizamos la notación entre corchetes y el índice <mark>1</mark>. A continuación, utilizamos la
+        notación de
+        puntos para acceder a <mark>city</mark> desde la dirección del objeto.
+      </p>
+      <p>
+        Entender cómo acceder a las propiedades de objetos y arrays anidados es esencial cuando se trabaja con
+        estructuras de datos complejas. En futuros talleres y prácticas, tendrás la oportunidad de practicar el trabajo
+        con este tipo de estructuras de datos.
+      </p>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

@@ -590,8 +590,22 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // const slicedArr = arr.slice(1, 3);
 // console.log(slicedArr);
 
-const fruits = ["apple", "banana", "cherry", "apple", "orange"];
 
-fruits.splice(0, 1);
+// const fruits = ["apple", "banana", "cherry", "apple", "orange"];
+// fruits.splice(0, 1);
+// console.log(fruits);
 
-console.log(fruits);
+
+// let obj = {a: 1, b: 2, c: 3};
+// delete obj.b;
+// console.log(obj);
+
+
+let car = {
+    brand: "Toyota",
+    model: "Corolla",
+    year: 2020
+};
+
+delete car.year;
+console.log(car.year);

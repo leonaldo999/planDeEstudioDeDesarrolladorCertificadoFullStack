@@ -54,7 +54,7 @@ Los arrays de JavaScript son versátiles y útiles para el almacenamiento de dat
     - [ ] c) Pueden contener otro array como valor.
     - [ ] d) Son dinámicas y su tamaño puede cambiar después de crearlas
 
-1. **¿Cuál será el resultado del siguiente código?**
+2. **¿Cuál será el resultado del siguiente código?**
 
     ```js
     let numbers = [1, 2, 3, 4, 5];
@@ -66,7 +66,7 @@ Los arrays de JavaScript son versátiles y útiles para el almacenamiento de dat
     - [ ] c) `4`
     - [ ] d) `5`
 
-1. **¿Cuál será el resultado del siguiente código?**
+3. **¿Cuál será el resultado del siguiente código?**
 
     ```js
     let colors = ["red", "green", "blue"];
@@ -272,7 +272,7 @@ Ten en cuenta que, mientras que `push()` y `unshift()` pueden agregar varios ele
 
 ---
 
-## Tema 3: ¿Cuál es la diferencia entre los arrays unidimensionales y los bidimensionales?
+## Tema 4: ¿Cuál es la diferencia entre los arrays unidimensionales y los bidimensionales?
 
 En programación, los arrays son estructuras de datos fundamentales que se utilizan para almacenar conjuntos de elementos. Comprender la diferencia entre los arrays unidimensionales y los bidimensionales es crucial para organizar y manipular datos de manera eficaz. Exploremos estos conceptos de una forma que resulte fácil de entender para los principiantes.
 
