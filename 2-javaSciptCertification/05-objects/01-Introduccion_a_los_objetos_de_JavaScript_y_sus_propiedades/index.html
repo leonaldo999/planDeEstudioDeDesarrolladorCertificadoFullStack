@@ -1927,8 +1927,10 @@
           <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
             <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
               💡 <strong>¡Cuidado con los índices!:</strong> Al igual que con cualquier array simple, si pones un índice
-              que está fuera de los límites (por ejemplo, <code style="color: red;">person.addresses[2].city</code>), obtendrás un error de
-              tipo ya que intentarás leer <code style="color: red;">.city</code> de algo que es <code style="color: red;">undefined</code>.
+              que está fuera de los límites (por ejemplo, <code style="color: red;">person.addresses[2].city</code>),
+              obtendrás un error de
+              tipo ya que intentarás leer <code style="color: red;">.city</code> de algo que es <code
+                style="color: red;">undefined</code>.
             </p>
           </div>
         </div>
@@ -1945,6 +1947,402 @@
         Entender cómo acceder a las propiedades de objetos y arrays anidados es esencial cuando se trabaja con
         estructuras de datos complejas. En futuros talleres y prácticas, tendrás la oportunidad de practicar el trabajo
         con este tipo de estructuras de datos.
+      </p>
+
+    </section>
+
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede acceder al número de teléfono de <mark>work</mark> de este object?
+            <pre>
+              <code>
+                let person = {
+                    contact: {
+                        phone: {
+                            home: "123-456-7890",
+                            work: "098-765-4321"
+                        }
+                    }
+                };
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            person.work
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            person.contact.work
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            person.contact.phone.work
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            person[contact][phone][work]
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let person = {
+                    name: "Alice",
+                    details: {
+                        age: 25,
+                        hobbies: ["reading", "swimming"]
+                    }
+                };
+                
+                console.log(person.details.hobbies[1]);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            reading
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            swimming
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el siguiente código, ¿qué se registrará en la consola?
+            <pre>
+              <code>
+                let data = {
+                    results: [
+                        { name: "Alice", score: 95 },
+                        { name: "Bob", score: 80 },
+                        { name: "Charlie", score: 90 }
+                    ]
+                };
+                
+                console.log(data.results[1].name);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            Alice
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            Bob
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            Charlie
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            undefined
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema5" aria-labelledby="tema5-titulo">
+      <h2 id="tema5-titulo">
+        Tema 5: ¿Cuál es la diferencia entre los tipos de datos primitivos y no primitivos?
+      </h2>
+
+      <p>
+        En JavaScript, comprender la diferencia entre los tipos de datos primitivos y no primitivos es importante para
+        escribir código eficiente y sin errores.
+      </p>
+      <p>
+        Estas dos categorías de tipos de datos se comportan de manera diferente en cuanto a cómo se almacenan en la
+        memoria y cómo se manipulan en los programas.
+      </p>
+      <p>
+        Los tipos de datos primitivos son la forma más simple de datos en JavaScript. Incluyen <mark>number</mark>,
+        <mark>bigint</mark>, <mark>string</mark>,
+        <mark>boolean</mark>, <mark>null</mark>, <mark>undefined</mark> y <mark>symbol</mark>. <strong>Estos tipos se
+          denominan
+          primitivos porque representan valores únicos y no
+          son objetos</strong>.
+      </p>
+      <p>
+        Cuando trabajas con tipos de datos primitivos, estás manejando directamente sus valores. Por ejemplo, cuando
+        creas una variable con un valor primitivo, ese valor se almacena directamente en la variable.
+      </p>
+      <p>
+        Los valores primitivos son inmutables, lo que significa que una vez creados, su valor no se puede cambiar. Sin
+        embargo, puedes reasignar un nuevo valor a la variable. A continuación, te mostramos un ejemplo de cómo trabajar
+        con tipos de datos primitivos:
+      </p>
+
+      <div class="ide-container" id="ide-js-primitives-memory">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">primitives_value.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">num1</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">num2</span> = <span class="tk-selector">num1</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">num1</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num2</span><span class="tk-punctuation)</span><span class="tk-punctuation">;</span> // 5</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Stack Memory Simulation (By Value)</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-size: 8px; color: #888;">Evolución de las variables independientes:</div>
+
+                  <div
+                    style="background: #222; padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #444;">
+                    <span style="font-size: 10px; color: #888;">Línea 1: <code>num1 = 5</code></span>
+                    <span style="font-size: 10px; color: #a6e22e; font-weight: bold;">[num1: 5]</span>
+                  </div>
+
+                  <div
+                    style="background: #222; padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #66d9ef;">
+                    <span style="font-size: 10px; color: #888;">Línea 2: <code>num2 = num1</code> <em
+                        style="color:#66d9ef;">(Copia física)</em></span>
+                    <span style="font-size: 10px; color: #66d9ef; font-weight: bold;">[num1: 5] [num2: 5]</span>
+                  </div>
+
+                  <div
+                    style="background: #222; padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #f92672;">
+                    <span style="font-size: 10px; color: #888;">Línea 3: <code>num1 = 10</code> <em
+                        style="color:#f92672;">(Reasignación)</em></span>
+                    <span style="font-size: 10px; color: #f8f8f2; font-weight: bold;"><span
+                        style="color:#f92672;">[num1: 10]</span> <span style="color:#a6e22e;">[num2: 5]</span></span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #a6e22e;">INMUTABILIDAD REAL:</strong> Cuando cambias <code>num1</code> a
+                    <code>10</code>, no estás modificando el número <code>5</code> que existía antes en memoria; estás
+                    reemplazando por completo el valor de la celda de la variable <code>num1</code> por un valor
+                    totalmente nuevo.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 5
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato clave:</strong> Los tipos primitivos se guardan en la memoria **Stack** (pila), que es de
+              acceso ultrarrápido y maneja tamaños de datos fijos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, estamos asignando un valor primitivo <mark>(5)</mark> de <mark>num1</mark> a <mark>num2</mark>.
+        Esto crea una copia independiente del
+        valor. Como resultado, cualquier cambio que se realice en la variable original (<mark>num1</mark>) no afecta a
+        la copia
+        (<mark>num2</mark>).
+      </p>
+      <p>
+        Los tipos de datos no primitivos, por otro lado, son más complejos. En JavaScript, estos son
+        <mark>objetos</mark>, que
+        incluyen objetos regulares, <mark>arrays</mark> y <mark>funciones</mark>. A diferencia de los primitivos, los
+        tipos no primitivos pueden
+        contener múltiples valores como propiedades o elementos.
+      </p>
+      <p>
+        Cuando creas una variable con un valor no primitivo, lo que se almacena en la variable es en realidad una
+        referencia a la ubicación en la memoria donde se almacena el objeto, no el objeto en sí. Esto da lugar a algunas
+        diferencias importantes en el comportamiento. Aquí hay un ejemplo con tipos no primitivos:
+      </p>
+
+      <div class="ide-container" id="ide-js-non-primitives-reference">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">reference_memory.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">originalPerson</span> = <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"John"</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">copiedPerson</span> = <span class="tk-selector">originalPerson</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">originalPerson</span><span class="tk-punctuation">.</span><span class="tk-selector">age</span> = <span class="tk-number">31</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">copiedPerson</span><span class="tk-punctuation">.</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // 31</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Heap Memory & Shared Reference</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div style="display: flex; gap: 10px; align-items: stretch;">
+
+                  <div
+                    style="flex: 1; display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; border: 1px solid #444;">
+                    <div style="font-size: 8px; color: #888; text-transform: uppercase;">Stack (Variables)</div>
+
+                    <div
+                      style="padding: 4px; background: #222; border-radius: 3px; font-size: 9px; border-left: 3px solid #66d9ef;">
+                      <span style="color:#888;">originalPerson:</span><br>
+                      <strong style="color:#66d9ef;">Ref: #0x1A2B</strong>
+                    </div>
+
+                    <div
+                      style="padding: 4px; background: #222; border-radius: 3px; font-size: 9px; border-left: 3px solid #ae81ff;">
+                      <span style="color:#888;">copiedPerson:</span><br>
+                      <strong style="color:#ae81ff;">Ref: #0x1A2B</strong>
+                    </div>
+                  </div>
+
+                  <div
+                    style="display: flex; flex-direction: column; justify-content: center; gap: 15px; color: #888; font-size: 14px; padding: 0 2px;">
+                    <span>➔</span>
+                    <span>➔</span>
+                  </div>
+
+                  <div
+                    style="flex: 1.2; background: rgba(166, 226, 46, 0.05); border: 1px solid #a6e22e; padding: 10px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 8px; color: #a6e22e; font-weight: bold; margin-bottom: 4px;">HEAP (Objeto
+                      único en la dirección #0x1A2B):</div>
+                    <div
+                      style="font-size: 11px; color: #f8f8f2; background: #000; padding: 6px; border-radius: 4px; border: 1px solid #333;">
+                      {<br>
+                      &nbsp;&nbsp;name: <span style="color:#e6db74;">"John"</span>,<br>
+                      &nbsp;&nbsp;age: <span
+                        style="color:#f92672; text-decoration: line-through; font-size: 10px;">30</span> ➔ <strong
+                        style="color:#a6e22e;">31</strong><br>
+                      }
+                    </div>
+                  </div>
+
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #f92672;">MUTACIÓN COLATERAL:</strong> Como no creaste un objeto nuevo,
+                    cualquier alteración afecta a todas las variables vinculadas. Si lo que querías era un clon real e
+                    independiente, debiste usar desestructuración: <code>{ ...originalPerson }</code>.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 31
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato técnico:</strong> El almacenamiento **Heap** es una región de memoria mucho más grande y
+              desorganizada que el Stack, diseñada para guardar datos dinámicos cuyo tamaño final no puede conocer el
+              motor antes de ejecutar el programa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo tenemos un objeto llamado <mark>originalPerson</mark> con dos propiedades: <mark>name</mark> y
+        <mark>age</mark>. A continuación,
+        asignamos el objeto <mark>originalPerson</mark> a una variable llamada <mark>copiedPerson</mark>.
+      </p>
+      <p>
+        Después, actualizamos el valor de <mark>age</mark> del objeto <mark>originalPerson</mark>. Cuando registramos la
+        propiedad <mark>age</mark> del objeto
+        <mark>copiedPerson</mark>, se muestra el valor actualizado.
+      </p>
+      <p>
+        ¿Pero por qué ocurre esto? Esto sucede porque tanto <mark>originalPerson</mark> como <mark>copiedPerson</mark>
+        hacen referencia al mismo
+        objeto en la memoria.
+      </p>
+      <p>
+        En JavaScript, cuando asignas un objeto a otra variable, estás copiando la referencia al objeto, no el objeto en
+        sí. Esto se conoce como copia superficial por referencia. Como resultado, cualquier cambio realizado en el
+        objeto a través de una referencia se refleja en todas las referencias a ese objeto.
+      </p>
+      <p>
+        A medida que sigas trabajando con JavaScript, te encontrarás con muchas situaciones en las que es importante
+        comprender la diferencia entre tipos primitivos y no primitivos. Es un concepto fundamental que subyace a muchos
+        aspectos del lenguaje y es clave para escribir código eficiente y correcto.
       </p>
 
     </section>

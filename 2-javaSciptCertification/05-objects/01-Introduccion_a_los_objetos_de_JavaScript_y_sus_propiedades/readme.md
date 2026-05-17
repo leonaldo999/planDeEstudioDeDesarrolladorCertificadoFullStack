@@ -484,3 +484,116 @@ A continuación se muestra un ejemplo de cómo consultar la ciudad donde se encu
 En este ejemplo, `person.addresses` hace referencia al array de direcciones. Para acceder a la segunda dirección de ese array, utilizamos la notación entre corchetes y el índice `1`. A continuación, utilizamos la notación de puntos para acceder a `city` desde la dirección del objeto.
 
 Entender cómo acceder a las propiedades de objetos y arrays anidados es esencial cuando se trabaja con estructuras de datos complejas. En futuros talleres y prácticas, tendrás la oportunidad de practicar el trabajo con este tipo de estructuras de datos.
+
+---
+
+## Cuestionario 4
+
+1. **¿Cómo se puede acceder al número de teléfono de `work` de este object?**
+
+    ```js
+    let person = {
+        contact: {
+            phone: {
+                home: "123-456-7890",
+                work: "098-765-4321"
+            }
+        }
+    };
+    ```
+
+    - [ ] a) `person.work`
+    - [ ] b) `person.contact.work`
+    - [x] c) `person.contact.phone.work` //correcto
+    - [ ] d) `person[contact][phone][work]`
+
+2. **¿Cuál será el resultado del siguiente código?**
+
+    ```js
+    let person = {
+        name: "Alice",
+        details: {
+            age: 25,
+            hobbies: ["reading", "swimming"]
+        }
+    };
+    
+    console.log(person.details.hobbies[1]);
+    ```
+
+    - [ ] a) `reading`
+    - [x] b) `swimming` //correcto
+    - [ ] c) `undefined`
+    - [ ] d) Esto generará un error.
+
+3. **En el siguiente código, ¿qué se registrará en la consola?**
+
+    ```js
+    let data = {
+        results: [
+            { name: "Alice", score: 95 },
+            { name: "Bob", score: 80 },
+            { name: "Charlie", score: 90 }
+        ]
+    };
+    
+    console.log(data.results[1].name);
+    ```
+
+    - [ ] a) `Alice`
+    - [x] b) `Bob` //correcto
+    - [ ] c) `Charlie`
+    - [ ] d) `undefined`
+
+[☝️](#introducción-a-los-objetos-de-javascript-y-sus-propiedades)
+
+---
+
+## Tema 5: ¿Cuál es la diferencia entre los tipos de datos primitivos y no primitivos?
+
+En JavaScript, comprender la diferencia entre los tipos de datos primitivos y no primitivos es importante para escribir código eficiente y sin errores.
+
+Estas dos categorías de tipos de datos se comportan de manera diferente en cuanto a cómo se almacenan en la memoria y cómo se manipulan en los programas.
+
+Los tipos de datos primitivos son la forma más simple de datos en JavaScript. Incluyen `number`, `bigint`, `string`, `boolean`, `null`, `undefined` y `symbol`. Estos tipos se denominan primitivos porque representan valores únicos y no son objetos.
+
+Cuando trabajas con tipos de datos primitivos, estás manejando directamente sus valores. Por ejemplo, cuando creas una variable con un valor primitivo, ese valor se almacena directamente en la variable.
+
+Los valores primitivos son inmutables, lo que significa que una vez creados, su valor no se puede cambiar. Sin embargo, puedes reasignar un nuevo valor a la variable. A continuación, te mostramos un ejemplo de cómo trabajar con tipos de datos primitivos:
+
+- **Example code**
+
+  ```js
+  let num1 = 5;
+  let num2 = num1;
+  num1 = 10;
+  
+  console.log(num2); // 5
+  ```
+
+En este ejemplo, estamos asignando un valor primitivo (`5`) de `num1` a `num2`. Esto crea una copia independiente del valor. Como resultado, cualquier cambio que se realice en la variable original (`num1`) no afecta a la copia (`num2`).
+
+Los tipos de datos no primitivos, por otro lado, son más complejos. En JavaScript, estos son `objetos`, que incluyen objetos regulares, `arrays` y `funciones`. A diferencia de los primitivos, los tipos no primitivos pueden contener múltiples valores como propiedades o elementos.
+
+Cuando creas una variable con un valor no primitivo, lo que se almacena en la variable es en realidad una referencia a la ubicación en la memoria donde se almacena el objeto, no el objeto en sí. Esto da lugar a algunas diferencias importantes en el comportamiento. Aquí hay un ejemplo con tipos no primitivos:
+
+- **Example code**
+
+  ```js
+  const originalPerson = { name: "John", age: 30 };
+  const copiedPerson = originalPerson;
+  
+  originalPerson.age = 31;
+  
+  console.log(copiedPerson.age); // 31
+  ```
+
+En este ejemplo tenemos un objeto llamado `originalPerson` con dos propiedades: `name` y `age`. A continuación, asignamos el objeto `originalPerson` a una variable llamada `copiedPerson`.
+
+Después, actualizamos el valor de `age` del objeto `originalPerson`. Cuando registramos la propiedad `age` del objeto `copiedPerson`, se muestra el valor actualizado.
+
+¿Pero por qué ocurre esto? Esto sucede porque tanto `originalPerson` como `copiedPerson` hacen referencia al mismo objeto en la memoria.
+
+En JavaScript, cuando asignas un objeto a otra variable, estás copiando la referencia al objeto, no el objeto en sí. Esto se conoce como copia superficial por referencia. Como resultado, cualquier cambio realizado en el objeto a través de una referencia se refleja en todas las referencias a ese objeto.
+
+A medida que sigas trabajando con JavaScript, te encontrarás con muchas situaciones en las que es importante comprender la diferencia entre tipos primitivos y no primitivos. Es un concepto fundamental que subyace a muchos aspectos del lenguaje y es clave para escribir código eficiente y correcto.
