@@ -53,6 +53,8 @@
       <li><a href="#cuest5"><span aria-hidden="true">❓</span> Cuest 5</a></li>
       <li><a href="#tema6"><span aria-hidden="true">💻</span> Tema 6</a></li>
       <li><a href="#cuest6"><span aria-hidden="true">❓</span> Cuest 6</a></li>
+      <li><a href="#tema7"><span aria-hidden="true">💻</span> Tema 7</a></li>
+      <li><a href="#cuest7"><span aria-hidden="true">❓</span> Cuest 7</a></li>
     </ul>
   </nav>
 
@@ -2344,6 +2346,829 @@
         comprender la diferencia entre tipos primitivos y no primitivos. Es un concepto fundamental que subyace a muchos
         aspectos del lenguaje y es clave para escribir código eficiente y correcto.
       </p>
+
+    </section>
+
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es un tipo de datos primitivo en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q13">
+            Number
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            String
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            Boolean
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            <!-- correcto -->
+            Array
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se asigna un valor primitivo a una nueva variable?
+          </legend>
+
+          <label>
+            <input type="radio" name="q14">
+            La nueva variable obtiene una referencia al valor original.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            <!-- correcto -->
+            El valor se copia en la nueva variable.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            Ambas variables comparten la misma ubicación en la memoria.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            La variable original pasa a ser nula.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let x = 10;
+                let y = x;
+                x = 20;
+                console.log(y);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q15">
+            <!-- correcto -->
+            10
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            20
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema6" aria-labelledby="tema6-titulo">
+      <h2 id="tema6-titulo">
+        Tema 6: ¿Cuál es la diferencia entre funciones y métodos de objetos?
+      </h2>
+
+      <p>
+        En JavaScript, tanto las funciones como los métodos de objetos son formas de encapsular código reutilizable,
+        pero presentan algunas diferencias clave en cuanto a cómo se definen, cómo se utilizan y el contexto en el que
+        operan. Comprender estas diferencias es fundamental para escribir código JavaScript eficaz y organizado.
+      </p>
+      <p>
+        Como aprendiste en módulos anteriores, las funciones son bloques de código reutilizables que realizan una tarea
+        específica:
+      </p>
+
+      <div class="ide-container" id="ide-js-functions-independent">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">independent_function.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">return</span> <span class="tk-string">"Hello, "</span> <span class="tk-property">+</span> <span class="tk-selector">name</span> <span class="tk-property">+</span> <span class="tk-string">"!"</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">greet</span><span class="tk-punctuation">(</span><span class="tk-string">"Alice"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, Alice!"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Isolated Function Scope</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; font-size: 10px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Ciclo de vida de la Función:</div>
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 6px; border-radius: 4px;">
+                    <span style="color: #888;">Entrada (Argumento):</span>
+                    <span style="color: #e6db74;">"Alice"</span>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 6px; border-radius: 4px; margin-top: 4px; border-left: 3px solid #a6e22e;">
+                    <span style="color: #888;">Salida (Retorno):</span>
+                    <span style="color: #a6e22e; font-weight: bold;">"Hello, Alice!"</span>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">AUTONOMÍA:</strong> Al estar definida de forma global o local (pero
+                    fuera de un objeto), esta función no depende de ningún contenedor para ser ejecutada. Responde
+                    directamente al contexto global del entorno.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello, Alice!"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Siguiente paso:</strong> En la próxima lección verás cómo esta misma lógica cambia por completo
+              cuando "encapsulas" la función dentro de la propiedad de un objeto, transformándola oficialmente en un
+              **método**.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Por otro lado, los métodos de objeto son funciones asociadas a un objeto. Se definen como propiedades de un
+        objeto y pueden acceder a los datos del objeto y manipularlos. A continuación se muestra un ejemplo de un objeto
+        con un método:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-methods-context">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_method.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+    <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Bob"</span><span class="tk-punctuation">,</span>
+    <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+    <span class="tk-value">sayHello</span><span class="tk-punctuation">:</span> <span class="tk-property">function</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+        <span class="tk-property">return</span> <span class="tk-string">"Hello, my name is "</span> <span class="tk-property">+</span> <span class="tk-property">this</span><span class="tk-punctuation">.</span><span class="tk-selector">name</span><span class="tk-punctuation">;</span>
+    <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-value">sayHello</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "Hello, my name is Bob"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Method Context Binding</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="border: 1px solid #444; border-radius: 6px; overflow: hidden; font-size: 9px; background: rgba(0,0,0,0.2);">
+                  <div style="background: #222; padding: 6px; font-weight: bold; color: #888;">Resolución de Ejecución:
+                  </div>
+                  <div style="padding: 10px; line-height: 1.4; display: flex; flex-direction: column; gap: 6px;">
+                    <div>Invocación: <strong style="color: #66d9ef;">person.sayHello()</strong></div>
+                    <div
+                      style="background: rgba(166, 226, 46, 0.05); padding: 6px; border-left: 2px solid #a6e22e; border-radius: 2px;">
+                      🔑 <strong style="color: #a6e22e;">this</strong> apunta a ➔ <code
+                        style="color: #f8f8f2;">person</code><br>
+                      🔍 <code style="color: #f8f8f2;">this.name</code> lee de ➔ <code
+                        style="color: #e6db74;">person.name ("Bob")</code>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px; font-size: 9px; line-height: 1.4;">
+                  <strong style="color: #ae81ff;">DIFERENCIA SINTÁCTICA DE LLAMADA:</strong>
+                  <ul style="margin: 4px 0 0 0; padding-left: 15px; color: #f8f8f2;">
+                    <li>Función libre: <code style="color: #66d9ef;">greet("Alice")</code> (Ámbito autónomo)</li>
+                    <li>Método acoplado: <code style="color: #a6e22e;">person.sayHello()</code> (Ámbito de objeto)</li>
+                  </ul>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Hello, my name is Bob"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Regla de oro de la POO:</strong> Agrupa tus funciones como métodos cuando la acción esté
+              estrechamente vinculada al estado o los datos de una entidad en particular. El código se volverá
+              infinitamente más limpio y fácil de mantener.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>sayHello</mark> es un método del objeto <mark>person</mark>. La palabra clave
+        <mark>this</mark> permite que el método <mark>sayHello</mark>
+        acceda a las propiedades del objeto llamado <mark>person</mark>. Aprenderás más sobre la palabra clave
+        <mark>this</mark> en lecciones
+        futuras.
+      </p>
+      <p>
+        Una diferencia entre las funciones y los métodos es la forma en que se invocan. Las funciones se invocan por su
+        nombre, mientras que los métodos se invocan utilizando la notación de puntos sobre el objeto al que pertenecen.
+        Por ejemplo, llamamos a la función <mark>greet</mark> como <mark>greet("Alice")</mark>, pero llamamos al método
+        <mark>sayHello</mark> como
+        <mark>person.sayHello()</mark>.
+      </p>
+      <p>
+        Otra diferencia importante es el contexto en el que operan. Las funciones normales tienen su propio ámbito, pero
+        no tienen una referencia incorporada a ningún objeto en particular. Los métodos, sin embargo, están vinculados a
+        su objeto y pueden acceder a sus propiedades y a otros métodos utilizando la palabra clave <mark>this</mark>.
+      </p>
+      <p>
+        Un punto clave a tener en cuenta es que los métodos ayudan a organizar el código en objetos lógicos, mientras
+        que las funciones se utilizan para código más general y reutilizable.
+      </p>
+      <p>
+        Comprender la diferencia entre funciones y métodos de objetos es importante a medida que avanzas en tu
+        aprendizaje de JavaScript. Aunque al principio puedan parecer similares, reconocer cuándo usar cada uno te
+        ayudará a escribir código más organizado, eficiente y de mejor calidad.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre una función y un método de objeto?
+          </legend>
+
+          <label>
+            <input type="radio" name="q16">
+            Las funciones pueden tomar parámetros, pero los métodos no.
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            <!-- correcto -->
+            Los métodos están asociados a objetos, mientras que las funciones son independientes.
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            Las funciones pueden devolver valores, pero los métodos no.
+          </label>
+          <label>
+            <input type="radio" name="q16">
+            Los métodos pueden utilizar la palabra clave this, pero las funciones no.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Teniendo en cuenta el siguiente código, ¿cómo llamarías correctamente al método <mark>greet</mark>?
+            <pre>
+              <code>
+                let person = {
+                    name: "Alice",
+                    greet: function() {
+                        console.log("Hello, I'm " + this.name);
+                    }
+                };
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q17">
+            greet();
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            person.greet;
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            <!-- correcto -->
+            person.greet();
+          </label>
+          <label>
+            <input type="radio" name="q17">
+            person(greet);
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                function sayHello() {
+                    return "Hello!";
+                }
+                
+                let obj = {
+                    sayHello: function() {
+                        return "Hi there!";
+                    }
+                };
+                
+                console.log(sayHello());
+                console.log(obj.sayHello());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q18">
+            "Hello!", "Hello!"
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            "Hi there!", "Hi there!"
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            <!-- correcto -->
+            "Hello!", "Hi there!"
+          </label>
+          <label>
+            <input type="radio" name="q18">
+            Esto generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema7" aria-labelledby="tema7-titulo">
+      <h2 id="tema7-titulo">
+        Tema 7: ¿Qué es el constructor <mark>Object()</mark> y cuándo se debe usar?
+      </h2>
+
+      <p>
+        En JavaScript, un constructor es un tipo especial de función que se utiliza para crear e inicializar objetos. Se
+        invoca con la palabra clave new y permite inicializar propiedades y métodos en el objeto recién creado.
+      </p>
+      <p>
+        En esta lección, veremos cómo trabajar con el constructor <mark>object()</mark>. El constructor <mark>object()</mark> crea un nuevo objeto
+        vacío. A continuación, te mostramos un ejemplo:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token variable">new</span> <span class="token function">Object</span><span class="token punctuation">()</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Cuando se invoca a <mark>new Object()</mark>, devuelve un nuevo objeto que se puede utilizar para almacenar
+        valores.
+      </p>
+      <p>
+        El constructor <mark>Object()</mark> se puede utilizar con o sin la palabra clave <mark>new</mark>. Cuando se
+        invoca como una función sin
+        <mark>new</mark>, se comporta de manera diferente según el tipo de valor que se le pase. A continuación se
+        muestra un ejemplo
+        del uso del constructor <mark>Object()</mark> sin la palabra clave <mark>new</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-objects-constructor-func">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_wrapping.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-number">42</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">numObj</span> = <span class="tk-value">Object</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Wrapping explícito</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numObj</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">numObj</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "object"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Primitive Wrapping Visualizer</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 15px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="display: flex; align-items: center; justify-content: space-around; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px dashed #444;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 4px;">PRIMITIVO</div>
+                    <div
+                      style="background: #333; padding: 10px; border-radius: 4px; color: #ae81ff; font-weight: bold;">42
+                    </div>
+                    <div style="font-size: 7px; margin-top: 4px; color: #f92672;">number</div>
+                  </div>
+
+                  <div style="color: #66d9ef; font-size: 20px;">➔</div>
+
+                  <div style="text-align: center;">
+                    <div style="font-size: 8px; color: #888; margin-bottom: 4px;">OBJETO (BOXED)</div>
+                    <div
+                      style="background: #a6e22e; color: #000; padding: 10px; border-radius: 4px; font-weight: bold; box-shadow: 0 0 10px rgba(166, 226, 46, 0.3);">
+                      [Number: 42]</div>
+                    <div style="font-size: 7px; margin-top: 4px; color: #a6e22e;">object</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #a6e22e;">AUTOBÓXING:</strong> JavaScript hace esto automáticamente cuando
+                    escribes <code>(42).toFixed(2)</code>. Crea el objeto temporalmente para usar el método y luego lo
+                    descarta. Usar <code>Object(num)</code> hace este proceso permanente en esa variable.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > Number {42}<br>
+                    > "object"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>¿Cuándo usarlo?:</strong> Casi nunca necesitas crear envoltorios de forma manual. Se recomienda
+              el uso de literales (ej. <code style="color: red;">42</code> o <code style="color: red;">{}</code>) por
+              ser mucho más eficientes en términos de
+              memoria y velocidad de ejecución.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver en el segundo <mark>console.log</mark>, <mark>numObj</mark> es un objeto. Esto ocurre porque
+        usamos el constructor
+        <mark>Object()</mark> para convertir ese número introducido en un objeto.
+      </p>
+      <p>
+        ¿Qué pasa si intentamos pasar <mark>null</mark> o <mark>undefined</mark> al constructor<mark> Object()</mark>?
+      </p>
+
+      <div class="ide-container" id="ide-js-object-null-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">fallback_object.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">newObj</span> = <span class="tk-property">new</span> <span class="tk-value">Object</span><span class="tk-punctuation">(</span><span class="tk-identifier">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">newObj</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // {}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Fallback & Graceful Recovery</h3>
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code);">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; font-size: 10px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evaluación del motor de JS:</div>
+                  <div style="padding-left: 6px; display: flex; flex-direction: column; gap: 4px; color: #f8f8f2;">
+                    <div>1. Detecta invocación ➔ <code>new Object(undefined)</code></div>
+                    <div>2. ¿Existe envoltorio para <code>undefined</code>? ➔ <span
+                        style="color: #f92672; font-weight: bold;">No</span></div>
+                    <div>3. Acción ➔ <span style="color: #a6e22e; font-weight: bold;">Crear objeto vacío genérico por
+                        defecto</span></div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(102, 217, 239, 0.05); border-left: 3px solid #66d9ef; padding: 8px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #66d9ef;">COMPORTAMIENTO IDÉNTICO:</strong><br>
+                    <code>new Object(null)</code> ➔ Produce exactamente el mismo resultado: <code>{}</code>.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > {}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Programación Defensiva:</strong> Esto evita que tu aplicación se rompa si una API externa te
+              devuelve accidentalmente un dato no definido en un campo que esperabas convertir en objeto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Bueno, el resultado será un objeto vacío. Otro caso de uso del constructor <mark>Object()</mark> es cuando
+        trabajas con un valor de tipo desconocido y necesitas asegurarte de que sea un objeto. Veamos el siguiente
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-object-normalization-fn">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">to_object.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">toObject</span><span class="tk-punctuation">(</span><span class="tk-selector">value</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">value</span> === <span class="tk-identifier">null</span> || <span class="tk-selector">value</span> === <span class="tk-identifier">undefined</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">return</span> <span class="tk-punctuation">{</span><span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">value</span> === <span class="tk-string">"object"</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">return</span> <span class="tk-selector">value</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+
+  <span class="tk-property">return</span> <span class="tk-value">Object</span><span class="tk-punctuation">(</span><span class="tk-selector">value</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">toObject</span><span class="tk-punctuation">(</span><span class="tk-identifier">null</span><span class="tk-punctuation)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">toObject</span><span class="tk-punctuation">(</span><span class="tk-identifier">true</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">toObject</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Evaluación de Tipos en Ejecución</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #888;">📥 toObject(<code style="color: #ae81ff;">null</code>)</span>
+                  <span style="color: #66d9ef;">➔ Condición 1 (Fallback) ➔ <strong
+                      style="color: #a6e22e;">{}</strong></span>
+                </div>
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #888;">📥 toObject(<code style="color: #ae81ff;">true</code>)</span>
+                  <span style="color: #66d9ef;">➔ Condición 3 (Boxing) ➔ <strong style="color: #a6e22e;">[Boolean:
+                      true]</strong></span>
+                </div>
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #888;">📥 toObject(<code style="color: #e6db74;">[1, 2, 3]</code>)</span>
+                  <span style="color: #66d9ef;">➔ Condición 2 (typeof Array) ➔ <strong style="color: #a6e22e;">[1, 2,
+                      3]</strong></span>
+                </div>
+
+                <div
+                  style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e; margin-top: 5px;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > {}<br>
+                    > Boolean {true}<br>
+                    > [1, 2, 3]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato sobre Arrays:</strong> Como los arrays devuelven <code style="color: red;">"object"</code>
+              al evaluarse con
+              <code style="color: red;">typeof</code>, la segunda condición los intercepta y los devuelve de forma
+              directa sin alterarlos ni
+              envolverlos de nuevo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una función llamada <mark>toObject</mark>. La segunda condición comprueba si el valor
+        es un tipo de
+        objeto y devuelve el valor si la condición es <mark>true</mark>. Esta condición detecta tanto objetos como
+        arrays, ya que los
+        arrays son un tipo especial de objeto.
+      </p>
+      <p>
+        Si ninguna de las condiciones es verdadera, la función devuelve <mark>Object(value)</mark>, lo que convierte la
+        entrada en un
+        objeto. Esto funciona con valores como numbers, strings, y booleans
+      </p>
+      <p>
+        La mayoría de las veces no usarás el constructor Object() para crear nuevos objetos, ya que en su lugar usarás
+        la sintaxis de literal de objeto (por ejemplo, <mark>const objectLiteral = { name: "Beau" }</mark>). Pero sigue
+        siendo bueno
+        entender los conceptos básicos del uso del constructor Object.
+      </p>
+
+    </section>
+
+    <section id="cuest6" aria-labelledby="cuest6-titulo">
+
+      <h2 id="cuest6-titulo">🧠 Cuestionario 6</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let obj = Object(42);
+                console.log(typeof obj);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q19">
+            number
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            <!-- correcto -->
+            "object"
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            42
+          </label>
+          <label>
+            <input type="radio" name="q19">
+            Esto generará un error.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la diferencia entre <mark>new Object()</mark> y <mark>{}</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q20">
+            new Object() crea un objeto vacío, mientras que {} no.
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            {} crea un objeto vacío, mientras que new Object() no.
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            No hay diferencia, ambos crean un objeto vacío.
+            <!-- correcto -->
+          </label>
+          <label>
+            <input type="radio" name="q20">
+            new Object() es más rápido que {}.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuándo se puede utilizar el constructor <mark>Object()</mark> en lugar de la notación de literal de objeto?
+          </legend>
+
+          <label>
+            <input type="radio" name="q21">
+            Cuando se necesita un mejor rendimiento.
+          </label>
+          <label>
+            <input type="radio" name="q21">
+            <!-- correcto -->
+            Cuando se desea crear un envoltorio de objeto para un valor primitivo.
+          </label>
+          <label>
+            <input type="radio" name="q21">
+            Cuando se trabaja con datos JSON.
+          </label>
+          <label>
+            <input type="radio" name="q21">
+            Cuando se crean objetos anidados.
+          </label>
+        </fieldset>
+
+      </form>
 
     </section>
 

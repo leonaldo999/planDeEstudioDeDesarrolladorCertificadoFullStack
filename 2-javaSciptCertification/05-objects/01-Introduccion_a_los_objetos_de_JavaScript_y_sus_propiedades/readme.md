@@ -597,3 +597,234 @@ Después, actualizamos el valor de `age` del objeto `originalPerson`. Cuando reg
 En JavaScript, cuando asignas un objeto a otra variable, estás copiando la referencia al objeto, no el objeto en sí. Esto se conoce como copia superficial por referencia. Como resultado, cualquier cambio realizado en el objeto a través de una referencia se refleja en todas las referencias a ese objeto.
 
 A medida que sigas trabajando con JavaScript, te encontrarás con muchas situaciones en las que es importante comprender la diferencia entre tipos primitivos y no primitivos. Es un concepto fundamental que subyace a muchos aspectos del lenguaje y es clave para escribir código eficiente y correcto.
+
+---
+
+## Cuestionario 5
+
+1. **¿Cuál de las siguientes opciones NO es un tipo de datos primitivo en JavaScript?**
+
+    - [ ] a) `Number`
+    - [ ] b) `String`
+    - [ ] c) `Boolean`
+    - [x] d) `Array` //correcto
+
+2. **¿Qué sucede cuando se asigna un valor primitivo a una nueva variable?**
+
+    - [ ] a) La nueva variable obtiene una referencia al valor original.
+    - [x] b) El valor se copia en la nueva variable. //correcto
+    - [ ] c) Ambas variables comparten la misma ubicación en la memoria.
+    - [ ] d) La variable original pasa a ser nula.
+
+3. **¿Cuál será el resultado del siguiente código?**
+
+    ```js
+    let x = 10;
+    let y = x;
+    x = 20;
+    console.log(y);
+    ```
+
+    - [ ] a) `10` //correcto
+    - [ ] b) `20`
+    - [x] c) `undefined`
+    - [ ] d) Esto generará un error.
+
+[☝️](#introducción-a-los-objetos-de-javascript-y-sus-propiedades)
+
+---
+
+## Tema 6: ¿Cuál es la diferencia entre funciones y métodos de objetos?
+
+En JavaScript, tanto las funciones como los métodos de objetos son formas de encapsular código reutilizable, pero presentan algunas diferencias clave en cuanto a cómo se definen, cómo se utilizan y el contexto en el que operan. Comprender estas diferencias es fundamental para escribir código JavaScript eficaz y organizado.
+
+Como aprendiste en módulos anteriores, las funciones son bloques de código reutilizables que realizan una tarea específica:
+
+- **Example code**
+
+  ```js
+  function greet(name) {
+      return "Hello, " + name + "!";
+  }
+  console.log(greet("Alice")); // "Hello, Alice!"
+  ```
+
+Por otro lado, los métodos de objeto son funciones asociadas a un objeto. Se definen como propiedades de un objeto y pueden acceder a los datos del objeto y manipularlos. A continuación se muestra un ejemplo de un objeto con un método:
+
+- **Example code**
+
+  ```js
+  const person = {
+      name: "Bob",
+      age: 30,
+      sayHello: function() {
+          return "Hello, my name is " + this.name;
+      }
+  };
+  
+  console.log(person.sayHello()); // "Hello, my name is Bob"
+  ```
+
+En este ejemplo, `sayHello` es un método del objeto `person`. La palabra clave `this` permite que el método `sayHello` acceda a las propiedades del objeto llamado `person`. Aprenderás más sobre la palabra clave `this` en lecciones futuras.
+
+Una diferencia entre las funciones y los métodos es la forma en que se invocan. Las funciones se invocan por su nombre, mientras que los métodos se invocan utilizando la notación de puntos sobre el objeto al que pertenecen. Por ejemplo, llamamos a la función `greet` como `greet("Alice")`, pero llamamos al método `sayHello` como `person.sayHello()`.
+
+Otra diferencia importante es el contexto en el que operan. Las funciones normales tienen su propio ámbito, pero no tienen una referencia incorporada a ningún objeto en particular. Los métodos, sin embargo, están vinculados a su objeto y pueden acceder a sus propiedades y a otros métodos utilizando la palabra clave `this`.
+
+Un punto clave a tener en cuenta es que los métodos ayudan a organizar el código en objetos lógicos, mientras que las funciones se utilizan para código más general y reutilizable.
+
+Comprender la diferencia entre funciones y métodos de objetos es importante a medida que avanzas en tu aprendizaje de JavaScript. Aunque al principio puedan parecer similares, reconocer cuándo usar cada uno te ayudará a escribir código más organizado, eficiente y de mejor calidad.
+
+---
+
+## Cuestionario 6
+
+1. **¿Cuál es la principal diferencia entre una función y un método de objeto?**
+
+    - [ ] a) Las funciones pueden tomar parámetros, pero los métodos no.
+    - [x] b) Los métodos están asociados a objetos, mientras que las funciones son independientes. //correcto
+    - [ ] c) Las funciones pueden devolver valores, pero los métodos no.
+    - [ ] d) Los métodos pueden utilizar la palabra clave `this`, pero las funciones no.
+
+2. **Teniendo en cuenta el siguiente código, ¿cómo llamarías correctamente al método `greet`?**
+
+    ```js
+    let person = {
+        name: "Alice",
+        greet: function() {
+            console.log("Hello, I'm " + this.name);
+        }
+    };
+    ```
+
+    - [ ] a) `greet();`
+    - [ ] b) `person.greet;`
+    - [x] d) `person.greet();` //correcto
+    - [ ] c) `person(greet);`
+
+3. **¿Cuál será el resultado del siguiente código?**
+
+    ```js
+    function sayHello() {
+        return "Hello!";
+    }
+    
+    let obj = {
+        sayHello: function() {
+            return "Hi there!";
+        }
+    };
+    
+    console.log(sayHello());
+    console.log(obj.sayHello());
+    ```
+
+    - [ ] a) `"Hello!", "Hello!"`
+    - [ ] b) `"Hi there!", "Hi there!"`
+    - [x] c) `"Hello!", "Hi there!"` //correcto
+    - [ ] d) Esto generará un error.
+
+[☝️](#introducción-a-los-objetos-de-javascript-y-sus-propiedades)
+
+---
+
+## Tema 7:  ¿Qué es el constructor Object() y cuándo se debe usar?
+
+En JavaScript, un constructor es un tipo especial de función que se utiliza para crear e inicializar objetos. Se invoca con la palabra clave new y permite inicializar propiedades y métodos en el objeto recién creado.
+
+En esta lección, veremos cómo trabajar con el constructor Object(). El constructor Object() crea un nuevo objeto vacío. A continuación, te mostramos un ejemplo:
+
+- **Example code**
+
+  ```js
+  new Object()
+  ```
+
+Cuando se invoca a `new Object()`, devuelve un nuevo objeto que se puede utilizar para almacenar valores.
+
+El constructor `Object()` se puede utilizar con o sin la palabra clave `new`. Cuando se invoca como una función sin `new`, se comporta de manera diferente según el tipo de valor que se le pase. A continuación se muestra un ejemplo del uso del constructor `Object()` sin la palabra clave `new`:
+
+- **Example code**
+
+  ```js
+  const num = 42;
+  const numObj = Object(num); // Creates an object wrapper for the number
+  
+  console.log(numObj);
+  console.log(typeof numObj); // "object"
+  ```
+
+Como puedes ver en el segundo `console.log`, `numObj` es un objeto. Esto ocurre porque usamos el constructor `Object()` para convertir ese número introducido en un objeto.
+
+¿Qué pasa si intentamos pasar `null` o `undefined` al constructor `Object()`?
+
+- **Example code**
+
+  ```js
+  const newObj = new Object(undefined);
+  console.log(newObj); // {}
+  ```
+
+Bueno, el resultado será un objeto vacío. Otro caso de uso del constructor `Object()` es cuando trabajas con un valor de tipo desconocido y necesitas asegurarte de que sea un objeto. Veamos el siguiente ejemplo:
+
+- **Example code**
+
+  ```js
+  function toObject(value) {
+    if (value === null || value === undefined) {
+      return {};
+    }
+  
+    if (typeof value === "object") {
+      return value;
+    }
+  
+    return Object(value);
+  }
+  
+  console.log(toObject(null));
+  
+  console.log(toObject(true));
+  
+  console.log(toObject([1, 2, 3]));
+  ```
+
+En este ejemplo, tenemos una función llamada `toObject`. La segunda condición comprueba si el valor es un tipo de objeto y devuelve el valor si la condición es `true`. Esta condición detecta tanto objetos como arrays, ya que los arrays son un tipo especial de objeto.
+
+Si ninguna de las condiciones es verdadera, la función devuelve `Object(value)`, lo que convierte la entrada en un objeto. Esto funciona con valores como numbers, strings, y booleans
+
+La mayoría de las veces no usarás el constructor `Object()` para crear nuevos objetos, ya que en su lugar usarás la sintaxis de literal de objeto (por ejemplo, `const objectLiteral = { name: "Beau" }`). Pero sigue siendo bueno entender los conceptos básicos del uso del constructor Object.
+
+---
+
+## Cuestionario 7
+
+1. **¿Cuál será el resultado del siguiente código?**
+
+    ```js
+    let obj = Object(42);
+    console.log(typeof obj);
+    ```
+
+    - [ ] a) `number`
+    - [x] b) `"object"` //correcto
+    - [ ] c) `42`
+    - [ ] d) Esto generará un error.
+
+2. **¿Cuál es la diferencia entre `new Object()` y `{}`?**
+
+    - [ ] a) `new Object()` crea un objeto vacío, mientras que `{}` no.
+    - [ ] b) `{}` crea un objeto vacío, mientras que `new Object()` no.
+    - [x] c) No hay diferencia, ambos crean un objeto vacío. //correcto
+    - [ ] d) `new Object()` es más rápido que `{}`.
+
+3. **¿Cuándo se puede utilizar el constructor `Object()` en lugar de la notación de literal de objeto?**
+
+    - [ ] a) Cuando se necesita un mejor rendimiento.
+    - [x] b) Cuando se desea crear un envoltorio de objeto para un valor primitivo. //correcto
+    - [ ] c) Cuando se trabaja con datos JSON.
+    - [ ] d) Cuando se crean objetos anidados.
+
+[☝️](#introducción-a-los-objetos-de-javascript-y-sus-propiedades)
+
+---

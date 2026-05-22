@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con JSON en JavaScript. JSON es un formato de datos ligero y fácil de usar para intercambiar información entre aplicaciones.">
+  <meta name="keywords" content="JavaScript, JSON, formato de datos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con JSON en JavaScript">
+  <meta property="og:description"
+    content="Aprende a trabajar con JSON en JavaScript. JSON es un formato de datos ligero y fácil de usar para intercambiar información entre aplicaciones.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con JSON</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con JSON</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con JSON (JavaScript Object Notation), un formato de texto ligero para el
+        intercambio de datos. JSON es fácil de leer y escribir para los humanos, y fácil de analizar y generar para las
+        máquinas.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es <mark>JSON</mark> y cómo se accede a los valores utilizando la notación de corchetes y puntos?
+      </h2>
+
+      <p>
+        ¿Qué es <strong>JSON</strong> y cómo se accede a los valores utilizando la notación de corchetes y puntos?
+      </p>
+      <p>
+        <strong>JSON</strong> son las siglas de <em>JavaScript Object Notation</em>. Es un formato de datos ligero y
+        basado en
+        texto que se
+        utiliza habitualmente para intercambiar datos entre un servidor y una aplicación web.
+      </p>
+      <p>
+        Una de las razones por las que <strong>JSON</strong> es tan popular en el desarrollo web es porque es legible
+        tanto para las
+        máquinas como para los humanos.
+      </p>
+      <p>
+        Dado que <strong>JSON</strong> es independiente del lenguaje, puedes enviar fácilmente datos
+        <strong>JSON</strong> desde una aplicación Java a una
+        aplicación Python, o desde una aplicación JavaScript a una aplicación C#.
+      </p>
+      <p>
+        <strong>JSON</strong> admite muchos tipos de datos, incluyendo <strong>objects</strong>,
+        <strong>arrays</strong>,
+        <strong>strings</strong>, <strong>booleans</strong>, <strong>null</strong>, y <strong>numbers</strong>.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de un objeto <strong>JSON</strong>:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-format-basics">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="json">data.json</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="json">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-json"><span class="tk-punctuation">{</span>
+  <span class="tk-property">"name"</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation,">,</span>
+  <span class="tk-property">"age"</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation,">,</span>
+  <span class="tk-property">"isStudent"</span><span class="tk-punctuation">:</span> <span class="tk-keyword">false</span><span class="tk-punctuation,">,</span>
+  <span class="tk-property">"list of courses"</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">[</span><span class="tk-string">"Mathematics"</span><span class="tk-punctuation,">,</span> <span class="tk-string">"Physics"</span><span class="tk-punctuation,">,</span> <span class="tk-string">"Computer Science"</span><span class="tk-punctuation">]</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                JSON Syntax Validator & Blueprint</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); padding: 10px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">📋 Anatomía del archivo de texto:
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 5px; padding-left: 6px; color: #f8f8f2;">
+                    <div>• Claves con comillas dobles: <code style="color: #e6db74;">"name"</code>, <code
+                        style="color: #e6db74;">"age"</code> <span style="color: #a6e22e;">✔ Correcto</span></div>
+                    <div>• Claves con espacios permitidas por las comillas: <code
+                        style="color: #e6db74;">"list of courses"</code> <span style="color: #a6e22e;">✔ Correcto</span>
+                    </div>
+                    <div>• Tipos de datos nativos aceptados: <code style="color: #ae81ff;">30</code> (number), <code
+                        style="color: #f92672;">false</code> (boolean).</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(249, 38, 114, 0.05); border-left: 3px solid #f92672; padding: 10px; border-radius: 4px; line-height: 1.4;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0;">
+                    <strong style="color: #f92672;">REGLA ESTRICTA DE TEXTO:</strong> A diferencia de JavaScript, en un
+                    archivo JSON legítimo no puedes usar comillas simples (`'`), no puedes omitir las comillas en las
+                    claves y no se permiten funciones, variables ni comentarios (<code>//</code>).
+                  </p>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 10px; border-radius: 4px; line-height: 1.4;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0;">
+                    <strong style="color: #a6e22e;">PREPARACIÓN DE ACCESO:</strong> Una vez convertido a objeto en tu
+                    código, usarás <code>objeto.name</code> para la propiedad simple, y obligatoriamente la notación de
+                    corchetes <code>objeto["list of courses"]</code> debido a los espacios de esa clave.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🌐 <strong>Independencia de lenguaje:</strong> Al ser texto plano estructurado, este bloque exacto puede
+              ser interpretado de forma nativa por Python (como un diccionario), PHP (como un array asociativo) o
+              cualquier base de datos moderna.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Como puedes ver, <strong>JSON</strong> utiliza pares clave-valor para almacenar información, y cada par va
+        separado por una coma.
+        Cada clave debe ir entre comillas dobles; de lo contrario, aparecerá un error.
+      </p>
+      <p>
+        Para acceder a los datos de un objeto <strong>JSON</strong>, puedes utilizar la notación de puntos o la notación
+        entre corchetes.
+        En este ejemplo, utilizamos la notación de puntos para acceder a la edad del objeto <strong>JSON</strong>:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-dot-notation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">main.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">import</span> <span class="tk-selector">data</span> <span class="tk-property">from</span> <span class="tk-string">"./example.json"</span> <span class="tk-property">with</span> <span class="tk-punctuation">{</span> <span class="tk-property">type</span><span class="tk-punctuation">:</span> <span class="tk-string">"json"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">data</span><span class="tk-punctuation">.</span><span class="tk-selector">age</span><span class="tk-punctuation)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Módulo de Importación y Lectura</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; display: flex; flex-direction: column; gap: 6px;">
+                  <div style="color: #66d9ef; font-weight: bold;">Análisis Estático (with { type: "json" }):</div>
+                  <div style="color: #f8f8f2; line-height: 1.4; padding-left: 6px;">
+                    📦 El navegador/entorno lee <code>example.json</code> como texto plano.<br>
+                    ⚙️ Valida la estructura estricta de comillas.<br>
+                    🧠 Genera el objeto asignado a la constante <code style="color: #a6e22e;">data</code>.
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(166, 226, 46, 0.05); border-left: 3px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0; line-height: 1.4;">
+                    <strong style="color: #a6e22e;">ACCESO DIRECTO:</strong> Al usar <code>data.age</code>, el puntero
+                    busca directamente la clave de texto binario traducida dentro del Heap. Es una operación síncrona
+                    instantánea tras la carga del módulo.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > 30
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Atributos de importación:</strong> La cláusula <code
+                style="color: red;">with { type: "json" }</code> es un
+              estándar de seguridad indispensable. Sin ella, el motor de JavaScript rechazaría el archivo importado por
+              motivos de seguridad de tipos MIME.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo concreto se utiliza lo que se conoce como una instrucción <mark>import</mark>, que importa el
+        objeto <strong>JSON</strong> a
+        este archivo para que podamos acceder a él. Aprenderás más sobre la instrucción <mark>import</mark> en una
+        lección futura.
+      </p>
+      <p>
+        También puedes utilizar la notación entre corchetes para acceder a la información de los objetos
+        <strong>JSON</strong>. A
+        continuación se muestra un ejemplo de cómo acceder al array <mark>list of courses</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-bracket-notation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">bracket_access.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">import</span> <span class="tk-selector">data</span> <span class="tk-property">from</span> <span class="tk-string">"./example.json"</span> <span class="tk-property">with</span> <span class="tk-punctuation">{</span> <span class="tk-property">type</span><span class="tk-punctuation">:</span> <span class="tk-string">"json"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">data</span><span class="tk-punctuation">[</span><span class="tk-string">"list of courses"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Resolución Dinámica de Claves</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); overflow: hidden;">
+                  <div style="background: #222; padding: 6px; font-weight: bold; color: #888;">Evaluador de Sintaxis:
+                  </div>
+                  <div style="padding: 10px; display: flex; flex-direction: column; gap: 6px;">
+                    <div style="color: #f92672; text-decoration: line-through;">❌ data.list of courses</div>
+                    <div style="color: #a6e22e; font-weight: bold;">✔ data["list of courses"]</div>
+                  </div>
+                </div>
+
+                <div
+                  style="background: rgba(174, 129, 255, 0.05); border-left: 3px solid #ae81ff; padding: 10px; border-radius: 4px; line-height: 1.4;">
+                  <p style="font-size: 9px; color: #f8f8f2; margin: 0;">
+                    <strong style="color: #ae81ff;">CLAVES DINÁMICAS:</strong> Otra gran ventaja de los corchetes es que
+                    puedes pasar variables dentro de ellos, por ejemplo:
+                    <code>const clave = "name"; data[clave];</code>, algo totalmente imposible de realizar usando la
+                    notación por puntos.
+                  </p>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > ["Mathematics", "Physics", "Computer Science"]
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🎯 <strong>Regla general:</strong> Por convención de limpieza de código, utiliza la notación de puntos
+              siempre que sea posible. Reserva los corchetes de forma exclusiva para claves con caracteres especiales,
+              espacios o cuando la clave provenga de una evaluación dinámica.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El uso de la notación entre corchetes resulta especialmente útil en este caso, ya que la clave contiene varias
+        palabras separadas por espacios. Si intentáramos usar la notación con punto, se produciría un error.
+      </p>
+      <p>
+        En resumen, <strong>JSON</strong> es un formato versátil que puede almacenar muchos tipos de datos, incluyendo
+        arrays y objetos
+        anidados. Mediante el uso de la notación con punto o la notación entre corchetes, puedes acceder fácilmente a
+        los valores almacenados dentro de un objeto <strong>JSON</strong>.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes afirmaciones sobre JSON es cierta?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            JSON solo se utiliza en JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            JSON es un formato de datos ligero que se utiliza para el intercambio de datos entre servidores y aplicaciones web.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            JSON no admite arrays.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            JSON debe incluir funciones.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede acceder al valor de la clave <mark>name</mark> en el siguiente objeto JSON utilizando la notación de puntos?
+            <pre>
+              <code>
+                {
+                  "name": "Alice",
+                  "age": 30
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            data("name")
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            data["name"]
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            data.name
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            data.name[]
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes claves te obligaría a usar la notación entre corchetes para acceder a su valor?
+            <pre>
+              <code>
+                {
+                  "first name": "Alice",
+                  "age": 30
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            "age"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            "first name"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Las dos opciones anteriores.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Ninguna de las anteriores.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

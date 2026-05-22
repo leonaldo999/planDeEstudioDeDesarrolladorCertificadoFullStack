@@ -35,6 +35,7 @@
 
 // let phrase = "JavaScript is Fun!";
 // console.log(phrase.toLowerCase());
+// console.log(phrase.toLocaleUpperCase());
 
 
 // <=====  =====>
@@ -52,7 +53,8 @@
 
 // <=====  =====>
 
-// let points = 5; points *= 3;
+// let points = 5;
+// points *= 3;
 
 // console.log(points);
 
@@ -601,11 +603,14 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // console.log(obj);
 
 
-let car = {
-    brand: "Toyota",
-    model: "Corolla",
-    year: 2020
-};
+// let car = {
+//     brand: "Toyota",
+//     model: "Corolla",
+//     year: 2020
+// };
 
-delete car.year;
-console.log(car.year);
+// delete car.year;
+// console.log(car.year);
+
+let obj = Object(42);
+console.log(typeof obj);
