@@ -1,0 +1,1142 @@
+<!-- Teoría -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con el encadenamiento opcional y la desestructuración de objetos en JavaScript. Mejora tu código y evita errores comunes al acceder a propiedades de objetos anidados.">
+  <meta name="keywords"
+    content="JavaScript, encadenamiento opcional, desestructuración de objetos, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con el encadenamiento opcional y la desestructuración de objetos">
+  <meta property="og:description"
+    content="Aprende a trabajar con el encadenamiento opcional y la desestructuración de objetos en JavaScript. Mejora tu código y evita errores comunes al acceder a propiedades de objetos anidados.">
+  <meta property="og:type" content="article">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con el encadenamiento opcional y la desestructuración de objetos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con el encadenamiento opcional y la desestructuración de objetos</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con el encadenamiento opcional y la desestructuración de objetos en
+        JavaScript. Estas son características útiles que te permiten acceder a propiedades de objetos anidados de manera
+        segura y extraer valores de objetos de forma más concisa.
+      </p>
+    </section>
+
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es el operador de encadenamiento opcional y cómo funciona?
+      </h2>
+
+      <p>
+        El operador de encadenamiento opcional (<mark>?.</mark>) es una herramienta útil en JavaScript que permite
+        acceder de forma
+        segura a las propiedades de un objeto o llamar a métodos sin preocuparse de si existen o no. Es como una red de
+        seguridad para trabajar con objetos a los que les puedan faltar partes.
+      </p>
+
+      <div class="ide-container" id="ide-js-optional-chaining-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">property_access.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "Alice"
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">job</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // undefined</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Evaluación de Propiedades en Superficie</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Estructura del Objeto en el Heap:
+                  </div>
+                  <div style="padding-left: 6px; display: flex; flex-direction: column; gap: 4px; color: #f8f8f2;">
+                    <div>• <code>person.name</code> ➔ Contiene valor físico <span style="color: #a6e22e;">"Alice"</span>
+                    </div>
+                    <div>• <code>person.age</code> ➔ Contiene valor físico <span style="color: #ae81ff;">30</span></div>
+                    <div>• <code>person.job</code> ➔ No inicializado/Inexistente ➔ <span
+                        style="color: #66d9ef;">undefined</span></div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Alice"<br>
+                    > undefined
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Siguiente paso:</strong> En el próximo bloque teórico verás cómo el operador de encadenamiento
+              opcional (<code style="color: red;">?.</code>) actúa deteniendo la lectura a tiempo si intentas ir más
+              profundo en una rama
+              vacía, salvando tu código de colapsar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>person.name</mark> existe, por lo que se muestra <mark>Alice</mark>. Sin embargo,
+        <mark>person.job</mark> no existe, por lo que
+        nos devuelve <mark>undefined</mark>.
+      </p>
+      <p>
+        Ahora, supongamos que queremos acceder a una propiedad de un objeto que podría no existir:
+      </p>
+
+      <div class="ide-container" id="ide-js-nested-property-error">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">runtime_error.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">address</span><span class="tk-punctuation">.</span><span class="tk-selector">street</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // This will throw an error!</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreo del Error en Tiempo de Ejecución</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Cadena de Evaluación Sintáctica:
+                  </div>
+                  <div style="padding-left: 6px; color: #f8f8f2;">
+                    1. <code>person</code> ➔ <span style="color: #a6e22e;">Existe (Object)</span><br>
+                    2. <code>person.address</code> ➔ <span style="color: #ae81ff;">Retorna undefined</span><br>
+                    3. <code>undefined.street</code> ➔ <span style="color: #f92672; font-weight: bold;">¡COLAPSO
+                      CRÍTICO!</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">❌ UNCAUGHT
+                    TYPERROR:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; font-family: var(--sp-font-code); line-height: 1.4;">
+                    TypeError: Cannot read properties of undefined (reading 'street')<br>
+                    <span style="color: #666; font-size: 9px;">at runtime_error.js:6:24</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Consecuencia práctica:</strong> Cuando ocurre un error no capturado como este, cualquier línea
+              de código que se encuentre por debajo de este `console.log` jamás llegará a ejecutarse, interrumpiendo la
+              experiencia del usuario por completo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este ejemplo generará un error <mark>Uncaught TypeError</mark>. Dado que <mark>person.address</mark> es
+        <mark>underfined</mark>, no podemos acceder a la propiedad <mark>street</mark>. Aquí es donde resulta útil el
+        operador de encadenamiento opcional. A continuación se muestra un ejemplo del uso del operador de encadenamiento
+        opcional:
+      </p>
+
+      <div class="ide-container" id="ide-js-optional-chaining-solution">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">safe_navigation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">user</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"John"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">profile</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">email</span><span class="tk-punctuation">:</span> <span class="tk-string">"john@example.com"</span><span class="tk-punctuation">,</span>
+    <span class="tk-selector">address</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+      <span class="tk-selector">street</span><span class="tk-punctuation">:</span> <span class="tk-string">"123 Main St"</span><span class="tk-punctuation">,</span>
+      <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"Somewhere"</span>
+    <span class="tk-punctuation">}</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">?.</span><span class="tk-selector">profile</span><span class="tk-punctuation">?.</span><span class="tk-selector">address</span><span class="tk-punctuation">?.</span><span class="tk-selector">street</span><span class="tk-punctuation)</span><span class="tk-punctuation">;</span> // "123 Main St"
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">?.</span><span class="tk-selector">profile</span><span class="tk-punctuation">?.</span><span class="tk-selector">phone</span><span class="tk-punctuation">?.</span><span class="tk-selector">number</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>   // undefined</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Análisis de Cortocircuito (Short-Circuit)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); padding: 10px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Rastreo de la segunda consulta:
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • <code>user?.profile</code> ➔ <span style="color: #a6e22e;">Existe objeto profile</span><br>
+                    • <code>profile?.phone</code> ➔ <span style="color: #f92672; font-weight: bold;">Retorna
+                      undefined</span><br>
+                    • <code>phone?.number</code> ➔ <span style="color: #ae81ff;">Cortocircuito activado de inmediato.
+                      Devuelve undefined de forma segura sin intentar leer '.number'.</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "123 Main St"<br>
+                    > undefined
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🛡️ <strong>Ventaja en producción:</strong> Antes de la llegada de `?.`, los desarrolladores tenían que
+              escribir condicionales larguísimos como <code
+                style="color: red;">user && user.profile && user.profile.phone && user.profile.phone.number</code> para
+              evitar errores catastróficos de ejecución.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al utilizar el operador de encadenamiento opcional, le indicamos a JavaScript que solo continúe con la operación
+        si el objeto (o el valor que precede al <mark>?.</mark>) existe y no es <mark>null</mark> ni
+        <mark>underfiend</mark>.
+      </p>
+      <p>
+        Si el valor que precede al <mark>?.</mark> es <mark>null</mark> o <mark>underfiend</mark>, JavaScript devuelve
+        <mark>undefined</mark> en lugar de intentar continuar
+        con la operación y generar un error.
+      </p>
+      <p>
+        Recuerda que el operador de encadenamiento opcional resulta más útil cuando no estás seguro de si existe una
+        propiedad o un método. Ayuda a evitar errores y hace que tu código sea más robusto.
+      </p>
+
+    </section>
+
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Para qué sirve el operador de encadenamiento opcional (<mark>?.</mark>) en JavaScript
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Asigna un valor por defecto cuando falta una propiedad.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Evita que aparezcan valores undefined en los objetos.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Permite acceder de forma segura a propiedades anidadas y devuelve undefined en lugar de generar un error si
+            falta un valor.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Obliga a JavaScript a evaluar las propiedades que faltan, aunque no existan.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const person = {
+                  name: "Alice",
+                  age: 30
+                };
+                
+                console.log(person.address.street);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            street
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            {}
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Se produce un TypeError porque person.address no está definido.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const user = {
+                  name: "John",
+                  profile: {
+                    email: "john@example.com",
+                    "home address": {
+                      street: "123 Main St",
+                      city: "Somewhere"
+                    }
+                  }
+                };
+                
+                console.log(user?.profile?.address?.street);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            "123 Main St"
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            null
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Se produce un TypeError.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué es la desestructuración de objetos y cómo funciona?
+      </h2>
+
+      <p>
+        La desestructuración de objetos es una potente característica de JavaScript que te permite extraer valores de
+        objetos y asignarlos a variables de una manera más concisa y legible.
+      </p>
+      <p>
+        Forma parte de la especificación ES6 (ECMAScript 2015) y se ha convertido en una herramienta esencial para
+        muchos desarrolladores de JavaScript.
+      </p>
+      <p>
+        La desestructuración puede simplificar tu código, especialmente cuando trabajas con objetos complejos o cuando
+        necesitas extraer varios valores a la vez.
+      </p>
+      <p>
+        En esencia, la desestructuración de objetos consiste en descomponer los valores de los objetos en variables
+        distintas. En lugar de acceder a las propiedades del objeto una por una, puedes extraer varias propiedades en
+        una sola instrucción. Esto puede hacer que tu código sea más limpio y eficiente.
+      </p>
+      <p>
+        Comencemos con un ejemplo para ilustrar cómo funciona la desestructuración de objetos:
+      </p>
+
+      <div class="ide-container" id="ide-js-object-destructuring-basics">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">destructuring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span> <span class="tk-punctuation">}</span> = <span class="tk-selector">person</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // Alice
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">age</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  // 30</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mapeo de Enlaces en Memoria</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Extracción en Bloque Único:</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    📦 Objeto Origen: <code>{ name: "Alice", age: 30, city: "New York" }</code><br>
+                    ⚡ Línea 3 vincula ➔ <code>name</code> ⬅ <code>person.name</code> ("Alice")<br>
+                    ⚡ Línea 3 vincula ➔ <code>age</code> ⬅ <code>person.age</code> (30)<br>
+                    🧹 Variable omitida ➔ <code>city</code> permanece intacta en el objeto original, sin variable
+                    propia.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Alice"<br>
+                    > 30
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Dato clave:</strong> El objeto `person` no sufre ninguna alteración ni mutación durante este
+              proceso. Sigue conservando todas sus propiedades originales exactamente iguales en memoria.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, extraemos las propiedades <mark>name</mark> y <mark>age</mark> del objeto <mark>person</mark> y
+        las asignamos a variables con los
+        mismos nombres.
+      </p>
+      <p>
+        Una de las ventajas más potentes de la desestructuración de objetos es que permite asignar los valores extraídos
+        a variables con nombres diferentes. Esto resulta especialmente útil cuando se trabaja con objetos cuyos nombres
+        de propiedades podrían entrar en conflicto con variables ya existentes o cuando se desea utilizar un nombre
+        diferente:
+      </p>
+
+      <div class="ide-container" id="ide-js-object-destructuring-alias">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">alias_destructuring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">let</span> <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-identifier">personName</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-identifier">personAge</span> <span class="tk-punctuation">}</span> = <span class="tk-selector">person</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-identifier">personName</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // Alice
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-identifier">personAge</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> //  30</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mapeo y Redirección de Variables</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Asignación de Alias en Ejecución:
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    🔍 Origen: <code>person.name</code> ➔ Valor: <code>"Alice"</code> ➔ Destino: <code
+                      style="color: #a6e22e;">personName</code><br>
+                    🔍 Origen: <code>person.age</code> ➔ Valor: <code>30</code> ➔ Destino: <code
+                      style="color: #a6e22e;">personAge</code><br>
+                    ⚠️ Nota: Si intentas ejecutar <code>console.log(name)</code> después de esto, obtendrás un error de
+                    referencia (o leerás una variable global externa), ya que la variable <code>name</code> local nunca
+                    se creó.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    > "Alice"<br>
+                    > 30
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Uso en Full-Stack:</strong> Esto se usa muchísimo cuando haces consultas SQL o consultas a
+              MongoDB donde la base de datos te devuelve identificadores como `_id`, y tú prefieres renombrarlo
+              inmediatamente a `userId` en tu lógica de JavaScript para mantener tu código consistente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, estamos extrayendo la propiedad <mark>name</mark> y asignándola a una variable llamada
+        <mark>personName</mark>, y hacemos lo
+        mismo con <mark>age</mark> y <mark>personAge</mark>.
+      </p>
+      <p>
+        La desestructuración de objetos también te permite establecer valores por defecto. Si una propiedad no existe en
+        el objeto que estás desestructurando, puedes especificar un valor alternativo:
+      </p>
+
+      <div class="ide-container" id="ide-js-destructuring-default-values">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">default_values.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Alice"</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span> <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">"New York"</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">,</span> <span class="tk-selector">country</span> = <span class="tk-string">"Unknown"</span> <span class="tk-punctuation">}</span> = <span class="tk-selector">person</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">country</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // Unknown</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Estrategia de Respaldo (Fallback)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Evaluación de propiedades de
+                    person:</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • <code>name</code> ➔ <span style="color: #a6e22e;">Encontrado ("Alice")</span><br>
+                    • <code>age</code> ➔ <span style="color: #a6e22e;">Encontrado (30)</span><br>
+                    • <code>country</code> ➔ <span style="color: #f92672; font-weight: bold;">Inexistente
+                      (undefined)</span> ➔ Se activa respaldo ➔ <span style="color: #e6db74;">"Unknown"</span>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "Unknown"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Regla Estricta:</strong> El valor por defecto solo se activará si la propiedad es estrictamente
+              <code style="color: red;">undefined</code>. Si la propiedad existiera en el objeto pero tuviera el valor
+              <code style="color: red;">null</code> o
+              un string vacío <code style="color: red;">""</code>, JavaScript considerará que la propiedad *sí* tiene un
+              valor y el valor
+              predeterminado no se aplicará.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, dado que la propiedad <mark>country</mark> no existe en nuestro objeto <mark>person</mark>, se le
+        asigna el valor
+        predeterminado <mark>Unknown</mark>.
+      </p>
+      <p>
+        Otro caso habitual es la desestructuración de objetos anidados. Puedes desestructurar propiedades anidadas
+        dentro de otros objetos utilizando otro par de llaves:
+      </p>
+
+      <div class="ide-container" id="ide-js-nested-destructuring">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nested_destructuring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">recipe</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"Chocolate Cake"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">ingredients</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">flour</span><span class="tk-punctuation">:</span> <span class="tk-string">"2 cups"</span><span class="tk-punctuation">,</span>
+    <span class="tk-selector">sugar</span><span class="tk-punctuation">:</span> <span class="tk-string">"1 cup"</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Extract `flour` from `ingredients`</span>
+<span class="tk-property">const</span> <span class="tk-punctuation">{</span> <span class="tk-selector">ingredients</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span> <span class="tk-selector">flour</span> <span class="tk-punctuation">}</span> <span class="tk-punctuation">}</span> = <span class="tk-selector">recipe</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">flour</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "2 cups"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Árbol de Inspección Interna</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Ruta de Extracción de Datos:</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    1. Acceso Inicial ➔ Lee la referencia raíz <code>recipe</code>.<br>
+                    2. Salto de Nivel ➔ Inspecciona <code>recipe.ingredients</code> (Objeto intermedio).<br>
+                    3. Enlace Directo ➔ Extrae la propiedad <code>flour</code> e inicializa la variable.<br>
+                    ❌ Estado intermedio ➔ Variable <code style="color: #f92672;">ingredients</code> es descartada (no
+                    existe en scope).
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "2 cups"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Riesgo de TypeError:</strong> Al igual que con el encadenamiento opcional, si la propiedad
+              intermedia <code style="color: red;">ingredients</code> no existiera en el objeto origen (fuera <code
+                style="color: red;">undefined</code>),
+              intentar desestructurar <code style="color: red;">{ flour }</code> de ella provocará un quiebre inmediato
+              de la aplicación.
+              ¡Combínalo con valores por defecto si no estás seguro de su existencia!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto equivale a acceder a la propiedad directamente:
+      </p>
+
+      <div class="ide-container" id="ide-js-traditional-nested-access">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">traditional_access.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">flour</span> = <span class="tk-selector">recipe</span><span class="tk-punctuation">.</span><span class="tk-selector">ingredients</span><span class="tk-punctuation">.</span><span class="tk-selector">flour</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">flour</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // "2 cups"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Comparativa de Compilación Externa</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); overflow: hidden;">
+                  <div style="background: #222; padding: 6px; font-weight: bold; color: #888;">Dos caminos, mismo
+                    resultado de bytes:</div>
+                  <div style="padding: 10px; display: flex; flex-direction: column; gap: 8px; line-height: 1.4;">
+                    <div>
+                      <span style="color: #66d9ef;">Enfoque Tradicional:</span><br>
+                      <code style="color: #f8f8f2; padding-left: 6px;">const flour = recipe.ingredients.flour;</code>
+                    </div>
+                    <div style="border-top: 1px solid #333; padding-top: 6px;">
+                      <span style="color: #a6e22e;">Enfoque Desestructurado:</span><br>
+                      <code style="color: #f8f8f2; padding-left: 6px;">const { ingredients: { flour } } = recipe;</code>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > "2 cups"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🧠 <strong style="color: #f92672;">Diferencia de Scope:</strong> En este enfoque tradicional, si la línea
+              anterior hubiera sido <code style="color: red;">const ingredients = recipe.ingredients;</code>, la
+              variable intermedia *sí*
+              existiría en memoria. Al usar desestructuración anidada directa, ahorras espacio en el entorno local al no
+              crear referencias intermedias innecesarias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ahora, hablemos de la notación abreviada en la desestructuración de objetos. Cuando creas objetos, especialmente
+        cuando los nombres de las propiedades coinciden con los de las variables, puedes usar una sintaxis abreviada:
+      </p>
+
+      <div class="ide-container" id="ide-js-object-property-shorthand">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">shorthand.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">name</span> = <span class="tk-string">"Bob"</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">age</span> = <span class="tk-number">25</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // { name: "Bob", age: 25 }</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mapeo Implícito de Clave-Valor</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Inferencia del Intérprete (Línea
+                    4):</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • Identificador <code>name</code> detectado ➔ Traducido a ➔ <code
+                      style="color: #a6e22e;">name: "Bob"</code><br>
+                    • Identificador <code>age</code> detectado ➔ Traducido a ➔ <code
+                      style="color: #a6e22e;">age: 25</code>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > Object { name: "Bob", age: 25 }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚡ <strong>Uso frecuente en Full-Stack:</strong> Esta sintaxis es el pan de cada día cuando construyes
+              controladores en el Backend (como Node.js/Express) para estructurar respuestas JSON que envías al cliente,
+              o al agrupar estados dentro de componentes en el Frontend.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El código anterior toma las propiedades que tienen el mismo nombre que nuestras variables y les asigna los
+        valores de esas variables.
+      </p>
+      <p>
+        Esta notación abreviada resulta especialmente útil cuando se devuelven objetos desde funciones o se crean
+        objetos con múltiples propiedades:
+      </p>
+
+      <div class="ide-container" id="ide-js-shorthand-factory-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">factory_function.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">createPerson</span><span class="tk-punctuation">(</span><span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">person</span> = <span class="tk-value">createPerson</span><span class="tk-punctuation">(</span><span class="tk-string">"Charlie"</span><span class="tk-punctuation">,</span> <span class="tk-number">35</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> // { name: "Charlie", age: 35 }</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Flujo de Inyección de Argumentos</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Ciclo de Vida de las Variables:
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    1. Invocación ➔ Se envían los valores <code>"Charlie"</code> y <code>35</code> a la función.<br>
+                    2. Ámbito local ➔ Los parámetros actúan como variables locales dentro del scope de
+                    <code>createPerson</code>.<br>
+                    3. Construcción ➔ El literal de objeto detecta las variables y ensambla la estructura
+                    <code>{ name: "Charlie", age: 35 }</code> de forma implícita.<br>
+                    4. Retorno ➔ El objeto resultante se almacena en la variable global externa <code>person</code>.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > Object { name: "Charlie", age: 35 }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚀 <strong>Impacto en el mantenimiento:</strong> Al escribir funciones factoría utilizando esta notación
+              abreviada, simplificas la legibilidad general de tu código y reduces drásticamente la probabilidad de
+              cometer errores tipográficos al mapear datos complejos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La desestructuración de objetos y la notación abreviada de objetos son características potentes que pueden hacer
+        que tu código sea más conciso y fácil de leer.
+      </p>
+      <p>
+        Son especialmente útiles cuando se trabaja con estructuras de datos complejas o cuando necesitas pasar varios
+        parámetros a las funciones.
+      </p>
+      <p>
+        A medida que sigas trabajando con JavaScript, encontrarás muchas situaciones en las que estas técnicas pueden
+        simplificar tu código y hacerlo más expresivo.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de la desestructuración de objetos en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Crear nuevos objetos.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Extraer valores de objetos y asignarlos a variables.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Combinar varios objetos.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Eliminar propiedades de objetos.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se puede asignar un valor predeterminado a una variable al desestructurar un objeto?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            { property = defaultValue } = object
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            { property: defaultValue } = object
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            { property || defaultValue } = object
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            { property ? defaultValue } = object
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+          ¿Qué hace la notación abreviada <mark>{ name, age }</mark> al crear un objeto?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Crea un objeto con propiedades undefined.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Crea un objeto con valores null para name y age.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Crea un objeto con propiedades llamadas name y age, asignándoles los valores de las variables con los mismos nombres.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Genera un error porque es una sintaxis inválida.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

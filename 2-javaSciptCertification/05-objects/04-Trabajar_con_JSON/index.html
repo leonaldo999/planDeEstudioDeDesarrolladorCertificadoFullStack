@@ -1,3 +1,4 @@
+<!-- Teoría -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -380,7 +381,8 @@
           <label>
             <input type="radio" name="q1">
             <!-- correcto -->
-            JSON es un formato de datos ligero que se utiliza para el intercambio de datos entre servidores y aplicaciones web.
+            JSON es un formato de datos ligero que se utiliza para el intercambio de datos entre servidores y
+            aplicaciones web.
           </label>
           <label>
             <input type="radio" name="q1">
@@ -395,7 +397,8 @@
 
         <fieldset>
           <legend>
-            ¿Cómo se puede acceder al valor de la clave <mark>name</mark> en el siguiente objeto JSON utilizando la notación de puntos?
+            ¿Cómo se puede acceder al valor de la clave <mark>name</mark> en el siguiente objeto JSON utilizando la
+            notación de puntos?
             <pre>
               <code>
                 {
@@ -454,6 +457,496 @@
           <label>
             <input type="radio" name="q3">
             Ninguna de las anteriores.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo funcionan <mark>JSON.parse()</mark> y <mark>JSON.stringify()</mark>?
+      </h2>
+
+      <p>
+        En JavaScript existen dos potentes métodos para manejar datos <strong>JSON</strong>: <mark>JSON.parse()</mark> y
+        <mark>JSON.stringify()</mark>. Estos
+        métodos se utilizan habitualmente para convertir strings <strong>JSON</strong> en objects JavaScript y
+        viceversa.
+      </p>
+      <p>
+        <mark>JSON.stringify()</mark> se utiliza para convertir un object JavaScript en un string <strong>JSON</strong>.
+        Esto resulta útil cuando se
+        desea almacenar o transmitir datos en un formato que se pueda compartir o transferir fácilmente entre sistemas.
+      </p>
+      <p>
+        A continuación se explica cómo se puede utilizar el método <mark>JSON.stringify()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-stringify-serialization">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">stringify_demo.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">user</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">"John"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isAdmin</span><span class="tk-punctuation">:</span> <span class="tk-keyword">true</span>
+<span class="tk-punctuation tribute">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">jsonString</span> = <span class="tk-value">JSON</span><span class="tk-punctuation">.</span><span class="tk-value">stringify</span><span class="tk-punctuation">(</span><span class="tk-selector">user</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">jsonString</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Pipeline de Serialización (Object ➔ String)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 8px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid #444;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #66d9ef;">🧠 Objeto JS (En Memoria):</span>
+                    <span style="color: #888; font-size: 8px;">Mutable / Estructurado</span>
+                  </div>
+                  <div style="font-size: 9px; color: #f8f8f2; background: #111; padding: 6px; border-radius: 4px;">
+                    { name: "John", age: 30, isAdmin: true }
+                  </div>
+
+                  <div style="color: #ae81ff; text-align: center; font-size: 12px; padding: 2px 0;">⬇ JSON.stringify() ⬇
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #a6e22e;">📄 Cadena JSON (Texto Plano):</span>
+                    <span style="color: #888; font-size: 8px;">Inmutable / Transportable</span>
+                  </div>
+                  <div
+                    style="font-size: 9px; color: #e6db74; background: #111; padding: 6px; border-radius: 4px; border: 1px dashed #a6e22e;">
+                    '{"name":"John","age":30,"isAdmin":true}'
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #e6db74; font-size: 11px; white-space: nowrap; overflow-x: auto;">
+                    {"name":"John","age":30,"isAdmin":true}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Nota de valor técnico:</strong> Observa cuidadosamente la salida en la consola. Las claves
+              `name`, `age` e `isAdmin` ahora tienen comillas dobles obligatorias, cumpliendo al 100% con la
+              especificación formal de JSON.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El método <mark>JSON.stringify()</mark> también admite un parámetro opcional denominado replacer, que puede ser
+        una función o
+        un array. A continuación se muestra un ejemplo del uso de un array como parámetro opcional replacer:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-stringify-replacer">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">replacer_filter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">developerObj</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">firstName</span><span class="tk-punctuation">:</span> <span class="tk-string">"Jessica"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isAwesome</span><span class="tk-punctuation">:</span> <span class="tk-keyword">true</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isMusician</span><span class="tk-punctuation">:</span> <span class="tk-keyword">true</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">country</span><span class="tk-punctuation">:</span> <span class="tk-string">"USA"</span><span class="tk-punctuation">,</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// result: {"firstName":"Jessica","country":"USA"}</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">JSON</span><span class="tk-punctuation">.</span><span class="tk-value">stringify</span><span class="tk-punctuation">(</span><span class="tk-selector">developerObj</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">[</span><span class="tk-string">"firstName"</span><span class="tk-punctuation">,</span> <span class="tk-string">"country"</span><span class="tk-punctuation">]</span><span class="tk-punctuation)</span><span class="tk-punctuation)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Auditoría del Filtro White-list</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); overflow: hidden;">
+                  <div style="background: #222; padding: 6px; font-weight: bold; color: #888;">Estado de Serialización:
+                  </div>
+                  <div style="padding: 10px; display: flex; flex-direction: column; gap: 6px; line-height: 1.4;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #f8f8f2;">• firstName</span>
+                      <span style="color: #a6e22e; font-weight: bold;">✔ Incluido</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #666;">• isAwesome</span>
+                      <span style="color: #f92672;">❌ Omitido</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #666;">• isMusician</span>
+                      <span style="color: #f92672;">❌ Omitido</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: #f8f8f2;">• country</span>
+                      <span style="color: #a6e22e; font-weight: bold;">✔ Incluido</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #e6db74; font-size: 11px; white-space: nowrap; overflow-x: auto;">
+                    {"firstName":"Jessica","country":"USA"}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(174, 129, 255, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚙️ <strong>Dato extra:</strong> Además de arrays, el parámetro `replacer` también acepta una función de
+              mapeo personalizado, lo que te permite evaluar el tipo o valor de cada propiedad dinámicamente antes de
+              escribir el JSON string.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un objeto <mark>developerObj</mark> con cuatro propiedades. Al utilizar el método
+        <mark>JSON.stringify()</mark>,
+        podemos pasar un array como segundo parámetro y especificar qué propiedades queremos convertir a string. El
+        resultado será un objeto convertido a string que contenga únicamente las propiedades <mark>firstName</mark> y
+        <mark>country</mark>.
+      </p>
+      <p>
+        Otro parámetro opcional del método <mark>JSON.stringify()</mark> es el parámetro <mark>spacer</mark>. Este
+        permite controlar el espaciado
+        del resultado convertido a string:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-stringify-space">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">pretty_print.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">developerObj</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">firstName</span><span class="tk-punctuation">:</span> <span class="tk-string">"Jessica"</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isAwesome</span><span class="tk-punctuation">:</span> <span class="tk-keyword">true</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">isMusician</span><span class="tk-punctuation">:</span> <span class="tk-keyword">true</span><span class="tk-punctuation">,</span>
+  <span class="tk-selector">country</span><span class="tk-punctuation">:</span> <span class="tk-string">"USA"</span><span class="tk-punctuation">,</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">JSON</span><span class="tk-punctuation">.</span><span class="tk-value">stringify</span><span class="tk-punctuation">(</span><span class="tk-selector">developerObj</span><span class="tk-punctuation">,</span> <span class="tk-identifier">null</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">/* result
+{
+  "firstName": "Jessica",
+  "isAwesome": true,
+  "isMusician": true,
+  "country": "USA"
+}
+*/</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Estructura del Espaciado Dinámico</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="border: 1px solid #444; border-radius: 6px; background: rgba(0,0,0,0.2); padding: 8px; line-height: 1.4;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Configuración de firma:</div>
+                  <div>• <code style="color: #888;">Param 2 (Replacer):</code> <code style="color: #ae81ff;">null</code>
+                    (Mantiene todas las propiedades)</div>
+                  <div>• <code style="color: #888;">Param 3 (Space):</code> <code
+                      style="color: #a6e22e; font-weight: bold;">2</code> (Aplica indentación física de 2 espacios)
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 6px;">CONSOLE (PRETTY-PRINTED):</div>
+                  <pre
+                    style="color: #e6db74; font-size: 11px; margin: 0; line-height: 1.5; font-family: var(--sp-font-code);">{
+  <span style="color: #f8f8f2;">"firstName":</span> "Jessica",
+  <span style="color: #f8f8f2;">"isAwesome":</span> true,
+  <span style="color: #f8f8f2;">"isMusician":</span> true,
+  <span style="color: #f8f8f2;">"country":</span> "USA"
+}</pre>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Tip Pro:</strong> El valor máximo permitido para el formateo numérico es `10`. Si le pasas un
+              número mayor, JavaScript lo limitará automáticamente a 10 espacios. También puedes pasar una cadena de
+              texto, como por ejemplo `"\t"`, para indentar usando tabulaciones reales en lugar de espacios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La mayoría de las veces no utilizarás ninguno de estos parámetros opcionales del método
+        <mark>JSON.stringify()</mark>, pero
+        es útil conocerlos.
+      </p>
+      <p>
+        Otro método que utilizarás mucho en tu programación es el método <mark>JSON.parse()</mark>.
+        <mark>JSON.parse()</mark> convierte un string
+        <strong>JSON</strong> de nuevo en un objeto JavaScript. Esto resulta útil cuando recuperas datos
+        <strong>JSON</strong> de un servidor web o de
+        <mark>localStorage</mark> y necesitas manipular los datos en tu aplicación. Aprenderás más sobre
+        <mark>localStorage</mark> en una lección
+        futura.
+      </p>
+      <p>
+        Aquí tienes un ejemplo de cómo trabajar con el método <mark>JSON.parse()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-json-parse-deserialization">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">parse_demo.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">jsonString</span> = <span class="tk-string">'{"name":"John","age":30,"isAdmin":true}'</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">userObject</span> = <span class="tk-value">JSON</span><span class="tk-punctuation">.</span><span class="tk-value">parse</span><span class="tk-punctuation">(</span><span class="tk-selector">jsonString</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">userObject</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Result:</span>
+<span class="tk-comment">// { name: 'John', age: 30, isAdmin: true }</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Pipeline de Deserialización (String ➔ Object)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 8px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; border: 1px solid #444;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #e6db74;">📄 Cadena JSON Entrante (Texto):</span>
+                    <span style="color: #888; font-size: 8px;">Inmutable / Secuencial</span>
+                  </div>
+                  <div style="font-size: 9px; color: #e6db74; background: #111; padding: 6px; border-radius: 4px;">
+                    '{"name":"John","age":30,"isAdmin":true}'
+                  </div>
+
+                  <div style="color: #66d9ef; text-align: center; font-size: 12px; padding: 2px 0;">⬇ JSON.parse() ⬇
+                  </div>
+
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #a6e22e;">🧠 Objeto JS Activo (Memoria):</span>
+                    <span style="color: #888; font-size: 8px;">Estructura de Datos Viva</span>
+                  </div>
+                  <div
+                    style="font-size: 9px; color: #f8f8f2; background: #111; padding: 6px; border-radius: 4px; border: 1px dashed #66d9ef;">
+                    { name: "John", age: 30, isAdmin: true }
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px;">
+                    > Object { name: "John", age: 30, isAdmin: true }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong style="color: #f92672;">¡Cuidado con la sintaxis!:</strong> Si la cadena de texto de entrada no
+              es un JSON perfectamente válido (por ejemplo, si olvidas una comilla o usas comillas simples dentro del
+              string), <code style="color: #f92672;">JSON.parse()</code> lanzará un error crítico de tipo <code
+                style="color: #f92672;">SyntaxError</code> que romperá
+              la aplicación si no se controla.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto te permite trabajar con los datos en tu programa como si se tratara de un object JavaScript normal, lo que
+        facilita su manipulación y uso.
+      </p>
+      <p>
+        En los próximos módulos, seguiremos aprendiendo más sobre cómo trabajar con <strong>JSON</strong> y los métodos
+        <mark>JSON.parse()</mark> y
+        <mark>JSON.stringify()</mark>.
+      </p>
+
+    </section>
+
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace <mark>JSON.stringify()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Convierte un string JSON en un object JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Convierte un object JavaScript en un string JSON.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Envía datos a un servidor web.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Convierte un array en un string.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué hace <mark>JSON.parse()</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Convierte un object JavaScript en un string JSON.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Almacena datos en el almacenamiento local.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Convierte un string JSON en un object JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Envía datos a través de la red.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Dada el siguiente string JSON, ¿cómo lo convertirías de nuevo en un objeto JavaScript y accederías al valor <mark>age</mark>?
+            <pre>
+              <code>
+                const jsonString = '{"name":"Alice","age":25}';
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            jsonString.name
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            JSON.stringify(jsonString).age
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            JSON.parse(jsonString).age
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            jsonString[1]
           </label>
         </fieldset>
 

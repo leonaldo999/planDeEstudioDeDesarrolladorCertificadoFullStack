@@ -1,4 +1,4 @@
-<!-- Clase -->
+<!-- Teoría -->
 # Trabajar con JSON
 
 En esta sección, aprenderás a trabajar con JSON (JavaScript Object Notation), un formato de texto ligero para el intercambio de datos. JSON es fácil de leer y escribir para los humanos, y fácil de analizar y generar para las máquinas.
@@ -97,6 +97,123 @@ En resumen, **JSON** es un formato versátil que puede almacenar muchos tipos de
     - [ ] c) Las dos opciones anteriores.
     - [ ] d) Ninguna de las anteriores.
 
-[☝️](#trabajar-con-json )
+[☝️](#trabajar-con-json)
+
+---
+
+## Tema 2: ¿Cómo funcionan `JSON.parse()` y `JSON.stringify()`?
+
+En JavaScript existen dos potentes métodos para manejar datos **JSON**: `JSON.parse()` y `JSON.stringify()`. Estos métodos se utilizan habitualmente para convertir strings **JSON** en objects JavaScript y viceversa.
+
+`JSON.stringify()` se utiliza para convertir un object JavaScript en un string **JSON**. Esto resulta útil cuando se desea almacenar o transmitir datos en un formato que se pueda compartir o transferir fácilmente entre sistemas.
+
+A continuación se explica cómo se puede utilizar el método `JSON.stringify()`:
+
+- **Example code**
+
+  ```js
+  const user = {
+    name: "John",
+    age: 30,
+    isAdmin: true
+  };
+  
+  const jsonString = JSON.stringify(user);
+  console.log(jsonString);
+  ```
+
+El método `JSON.stringify()` también admite un parámetro opcional denominado replacer, que puede ser una función o un array. A continuación se muestra un ejemplo del uso de un array como parámetro opcional replacer:
+
+- **Example code**
+
+  ```js
+  const developerObj = {
+    firstName: "Jessica",
+    isAwesome: true,
+    isMusician: true,
+    country: "USA",
+  };
+  
+  // result: {"firstName":"Jessica","country":"USA"}
+  console.log(JSON.stringify(developerObj, ["firstName", "country"]));
+  ```
+
+En este ejemplo, tenemos un objeto `developerObj` con cuatro propiedades. Al utilizar el método `JSON.stringify()`, podemos pasar un array como segundo parámetro y especificar qué propiedades queremos convertir a string. El resultado será un objeto convertido a string que contenga únicamente las propiedades `firstName` y `country`.
+
+Otro parámetro opcional del método `JSON.stringify()` es el parámetro `spacer`. Este permite controlar el espaciado del resultado convertido a string:
+
+- **Example code**
+
+  ```js
+  const developerObj = {
+    firstName: "Jessica",
+    isAwesome: true,
+    isMusician: true,
+    country: "USA",
+  };
+  
+  console.log(JSON.stringify(developerObj, null, 2));
+  
+  /* result
+  {
+    "firstName": "Jessica",
+    "isAwesome": true,
+    "isMusician": true,
+    "country": "USA"
+  }
+  */
+  ```
+
+La mayoría de las veces no utilizarás ninguno de estos parámetros opcionales del método `JSON.stringify()`, pero es útil conocerlos.
+
+Otro método que utilizarás mucho en tu programación es el método `JSON.parse()`. `JSON.parse()` convierte un string **JSON** de nuevo en un objeto JavaScript. Esto resulta útil cuando recuperas datos **JSON** de un servidor web o de `localStorage` y necesitas manipular los datos en tu aplicación. Aprenderás más sobre `localStorage` en una lección futura.
+
+Aquí tienes un ejemplo de cómo trabajar con el método `JSON.parse()`:
+
+- **Example code**
+
+  ```js
+  const jsonString = '{"name":"John","age":30,"isAdmin":true}';
+  const userObject = JSON.parse(jsonString);
+  console.log(userObject);
+  
+  // Result:
+  // { name: 'John', age: 30, isAdmin: true }
+  ```
+
+Esto te permite trabajar con los datos en tu programa como si se tratara de un object JavaScript normal, lo que facilita su manipulación y uso.
+
+En los próximos módulos, seguiremos aprendiendo más sobre cómo trabajar con **JSON** y los métodos `JSON.parse()` y `JSON.stringify()`.
+
+---
+
+## Cuestionario 2
+
+1. **¿Qué hace `JSON.stringify()`?**
+
+    - [ ] a) Convierte un string JSON en un object JavaScript.
+    - [x] b) Convierte un object JavaScript en un string JSON //correcto.
+    - [ ] c) Envía datos a un servidor web.
+    - [ ] d) Convierte un array en un string.
+
+2. **¿Qué hace `JSON.parse()`**
+
+    - [ ] a) Convierte un object JavaScript en un string JSON.
+    - [ ] b) Almacena datos en el almacenamiento local.
+    - [x] c) Convierte un string JSON en un object JavaScript. //correcto
+    - [ ] d) Envía datos a través de la red.
+
+3. **Dada el siguiente string JSON, ¿cómo lo convertirías de nuevo en un objeto JavaScript y accederías al valor `age`?**
+
+    ```js
+    const jsonString = '{"name":"Alice","age":25}';
+    ```
+
+    - [ ] a) `jsonString.name`
+    - [ ] b) `JSON.stringify(jsonString).age`
+    - [x] c) `JSON.parse(jsonString).age` //correcto
+    - [ ] d) `jsonString[1]`
+
+[☝️](#trabajar-con-json)
 
 ---

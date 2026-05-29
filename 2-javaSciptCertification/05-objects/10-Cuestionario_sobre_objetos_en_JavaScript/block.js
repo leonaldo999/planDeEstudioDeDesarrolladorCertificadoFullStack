@@ -612,5 +612,31 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // delete car.year;
 // console.log(car.year);
 
-let obj = Object(42);
-console.log(typeof obj);
+// let obj = Object(42);
+// console.log(typeof obj);
+
+// const person = {
+//   name: "Alice",
+//   age: 30
+// };
+
+// console.log(person.address.street);
+
+
+// const user = {
+//   name: "John",
+//   profile: {
+//     email: "john@example.com",
+//     "home address": {
+//       street: "123 Main St",
+//       city: "Somewhere"
+//     }
+//   }
+// };
+
+// console.log(user?.profile?.address?.street);
+
+const car = { year: 2025 };
+const product = { color: blue };
+const book = { "pages": 255 };
+const person = { "name": "nora" };
