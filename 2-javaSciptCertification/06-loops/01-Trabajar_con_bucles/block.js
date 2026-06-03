@@ -608,7 +608,6 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 //     model: "Corolla",
 //     year: 2020
 // };
-
 // delete car.year;
 // console.log(car.year);
 
@@ -619,7 +618,6 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 //   name: "Alice",
 //   age: 30
 // };
-
 // console.log(person.address.street);
 
 
@@ -633,10 +631,85 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 //     }
 //   }
 // };
-
 // console.log(user?.profile?.address?.street);
 
-const car = { year: 2025 };
-const product = { color: blue };
-const book = { "pages": 255 };
-const person = { "name": "nora" };
+// const car = { year: 2025 };
+// const product = { color: blue };
+// const book = { "pages": 255 };
+// const person = { "name": "nora" };
+// for (let i = 2; i <= 6; i += 2) {
+//   console.log(i);
+// }
+
+// <====================>
+// Trabajar con bucles
+
+// Tema 1: ¿Cómo funcionan los bucles y la iteración en JavaScript?
+
+// Sintaxis
+// for (initialization; condition; increment or decrement) {
+  // code block to be executed
+// }
+
+// for (let i = 0; i < 5; i++) {
+//   console.log(i);
+// }
+
+// <====================>
+
+// Tema 2: ¿Cómo funciona el bucle for...of y cuándo se debe usar?
+
+// Sintaxis
+// for (variable of iterable) {
+  // code block to be executed
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// for (const num of numbers) {
+//   console.log(num);
+// }
+
+// const str = 'freeCodeCamp';
+// for (let char of str) {
+//   console.log(char);
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// for (const num of numbers) {
+//   console.log(num);
+//   num = num + 1; // This will cause an error
+// }
+
+// const people = [
+//   { name: 'John', age: 30 },
+//   { name: 'Jane', age: 25 },
+//   { name: 'Jim', age: 40 }
+// ];
+// for (const person of people) {
+//   console.log(`${person.name} is ${person.age} years old`);
+// }
+
+// const colors = ['red', 'green', 'blue'];
+
+// for (const color of colors) {
+//   console.log(color);
+// }
+
+// <====================>
+// Tema 3: ¿Qué es el bucle for...in y cuándo se debe usar?
+
+// Sintaxis
+// for (variable in object) {
+  // code block to be executed
+// }
+
+// const fruit = {
+//   name: 'apple',
+//   color: 'red',
+//   price: 0.99
+// };
+// for (const prop in fruit) {
+//   console.log(fruit[prop]);
+// }
+
+

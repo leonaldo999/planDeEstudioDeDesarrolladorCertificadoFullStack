@@ -8,7 +8,7 @@ En esta sección, aprenderás a trabajar con matrices (`arrays`) en JavaScript. 
 
 Un Arrays en JavaScript es una colección ordenada de valores, cada uno de los cuales se identifica mediante un índice numérico. Los valores de un Array en JavaScript pueden ser de diferentes tipos de datos, incluyendo números, strings, valores booleanos, objetos e incluso otros Arrays.
 
-Para crear un Arrays en JavaScript, puedes usar corchetes [] y separar los valores con comas. Aquí tienes un ejemplo:
+Para crear un Arrays en JavaScript, puedes usar corchetes `[]` y separar los valores con comas. Aquí tienes un ejemplo:
 
 - **Example code**
 
@@ -41,7 +41,7 @@ Los arrays en JavaScript tienen una propiedad especial llamada `length` que devu
 
 Otra característica clave de los arrays en JavaScript es que son dinámicas, lo que significa que su tamaño puede cambiar después de crearlas. Puedes agregar o eliminar elementos de un array utilizando diversos métodos de arrays, como `push()`, `pop()`, `shift()`, `unshift()`, `splice()` y otros. Estos métodos se explicarán en las próximas lecciones.
 
-Los arrays de JavaScript son versátiles y útiles para el almacenamiento de datos dentro de tus programas. A lo largo de este módulo, podrás ver de primera mano cómo trabajar con matrices te ayudará a gestionar y manipular colecciones de datos de manera eficiente.
+Los arrays de JavaScript son versátiles y útiles para el almacenamiento de datos dentro de tus programas. A lo largo de este módulo, podrás ver de primera mano cómo trabajar con arrays te ayudará a gestionar y manipular colecciones de datos de manera eficiente.
 
 ---
 

@@ -201,8 +201,8 @@ Saber cómo eliminar propiedades de los objetos es una habilidad importante en l
     console.log(obj);
     ```
 
-    - [x] a) `{a: 1, c: 3}`` //correcto
-    - [ ] b) `{a: 1, b: undefined, c: 3}
+    - [x] a) `{a: 1, c: 3}` //correcto
+    - [ ] b) `{a: 1, b: undefined, c: 3}`
     - [ ] c) `{a: 1, b: 2, c: 3}`
     - [ ] d) Esto generará un error.
 

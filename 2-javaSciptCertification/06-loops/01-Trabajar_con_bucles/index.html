@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description" content="Aprende a trabajar con bucles en JavaScript">
+  <meta name="keywords" content="JavaScript, bucles, for, while">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con bucles en JavaScript">
+  <meta property="og:description" content="Aprende a trabajar con bucles en JavaScript">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con bucles</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con bucles</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+      <li><a href="#tema4"><span aria-hidden="true">💻</span> Tema 4</a></li>
+      <li><a href="#cuest4"><span aria-hidden="true">❓</span> Cuest 4</a></li>
+      <li><a href="#tema5"><span aria-hidden="true">💻</span> Tema 5</a></li>
+      <li><a href="#cuest5"><span aria-hidden="true">❓</span> Cuest 5</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En este articulo, aprenderás a usar bucles para ejecutar un bloque de código varias veces.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Cómo funcionan los bucles y la iteración en JavaScript?
+      </h2>
+
+      <p>
+        En programación, los bucles se utilizan para repetir un bloque de código varias veces.
+      </p>
+      <p>
+        Un ejemplo de bucle sería cuando estás diseñando un programa que necesita mostrar una lista de elementos.
+        Podrías usar un bucle para mostrar cada uno de los elementos de la lista.
+      </p>
+      <p>
+        Otro ejemplo sería cuando estás diseñando un juego y quieres mover un personaje por la pantalla. Podrías usar un
+        bucle para mover el personaje una cierta cantidad de píxeles cada vez que se ejecute el bucle.
+      </p>
+      <p>
+        En JavaScript, hay varios tipos de bucles que puedes usar. En esta lección, veremos el bucle <mark>for</mark>.
+        Esta es la
+        sintaxis básica de un bucle <mark>for</mark>:
+      </p>
+
+      <!-- <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>initialization<span class="token punctuation">;</span> condition<span class="token punctuation">;</span> increment or decrement<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token comment">// code block to be executed</span>
+            <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+
+      <br> -->
+
+      <div class="ide-container" id="ide-js-for-loop-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">for_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span>initialization<span class="tk-punctuation">;</span> condition<span class="tk-punctuation">;</span> increment or decrement<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">// code block to be executed</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Anatomía de la Cabecera</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code); font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px;">
+                  🔑 <strong style="color: #66d9ef;">Initialization:</strong> Configura el estado inicial (se ejecuta 1
+                  sola vez).
+                </div>
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 8px; border-radius: 4px;">
+                  ⚖️ <strong style="color: #f92672;">Condition:</strong> Evaluación booleana previa a cada iteración.
+                </div>
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                  📈 <strong style="color: #a6e22e;">Increment/Decrement:</strong> Altera el contador después de
+                  ejecutar el bloque.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La instrucción de inicialización se ejecuta antes de que comience el bucle. Normalmente se utiliza para
+        inicializar una variable contadora. Una variable contadora es una variable que se utiliza para llevar la cuenta
+        de cuántas veces se ha ejecutado el bucle.
+      </p>
+      <p>
+        La instrucción de condición se evalúa antes de cada iteración del bucle. Una iteración es una sola pasada por el
+        bucle.
+      </p>
+      <p>
+        Si la condición es verdadera, se ejecuta el bloque de código dentro del bucle. Si la condición es falsa, el
+        bucle se detiene y se pasa al siguiente bloque de código.
+      </p>
+      <p>
+        La última parte del bucle es la instrucción de incremento/decremento. Esta instrucción se ejecuta después de
+        cada iteración del bucle. Se utiliza normalmente para incrementar o decrementar la variable contador.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-loop-practical">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">loop_counter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador de Pasos de Ejecución</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Historial de las Vueltas
+                    (Iteraciones):</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Vuelta 1: <code>i = 0</code> ➔ <span style="color: #a6e22e;">0 &lt; 5 (True)</span> ➔
+                      Imprime: 0 ➔ Incrementa a 1</div>
+                    <div>🔄 Vuelta 2: <code>i = 1</code> ➔ <span style="color: #a6e22e;">1 &lt; 5 (True)</span> ➔
+                      Imprime: 1 ➔ Incrementa a 2</div>
+                    <div>🔄 Vuelta 3: <code>i = 2</code> ➔ <span style="color: #a6e22e;">2 &lt; 5 (True)</span> ➔
+                      Imprime: 2 ➔ Incrementa a 3</div>
+                    <div>🔄 Vuelta 4: <code>i = 3</code> ➔ <span style="color: #a6e22e;">3 &lt; 5 (True)</span> ➔
+                      Imprime: 3 ➔ Incrementa a 4</div>
+                    <div>🔄 Vuelta 5: <code>i = 4</code> ➔ <span style="color: #a6e22e;">4 &lt; 5 (True)</span> ➔
+                      Imprime: 4 ➔ Incrementa a 5</div>
+                    <div style="color: #f92672; font-weight: bold;">❌ Término: i = 5 ➔ 5 &lt; 5 (False) ➔ ¡El bucle se
+                      detiene!</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    0<br>1<br>2<br>3<br>4
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Dato de Scope (Ámbito):</strong> Al declarar el contador usando <code
+                style="color: red;">let i = 0</code> dentro
+              de la cabecera, la variable <code style="color: red;">i</code> está protegida por un alcance de bloque.
+              Esto significa que
+              solo existe y puede ser usada dentro del bucle. Si intentaras hacer un <code
+                style="color: red;">console.log(i)</code> fuera
+              del bucle, JavaScript daría un error de referencia (ReferenceError), lo cual mantiene tu memoria limpia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En la primera parte del ejemplo anterior, inicializamos una variable contadora <mark>i</mark> con el valor
+        <mark>0</mark>. Es una
+        convención habitual utilizar <mark>i</mark> como variable contadora en un bucle <mark>for</mark>.
+      </p>
+      <p>
+        La siguiente parte consiste en comprobar la condición. En este caso, la condición comprueba si <mark>i</mark> es
+        menor que <mark>5</mark>.
+        Dado que <mark>i</mark> es <mark>0</mark>, la condición es verdadera y se ejecuta el bloque de código dentro del
+        bucle.
+      </p>
+      <p>
+        El bloque de código dentro del bucle sirve para registrar el valor de <mark>i</mark> en la consola. El valor de
+        <mark>i</mark> es <mark>0</mark>, por
+        lo que la consola mostrará el valor <mark>0</mark>.
+      </p>
+      <p>
+        Luego se ejecuta la instrucción de incremento. En este caso, incrementamos <mark>i</mark> en <mark>1</mark>. Así
+        que ahora <mark>i</mark> es <mark>1</mark>.
+      </p>
+      <p>
+        A continuación, verificamos la condición nuevamente, que consiste en comprobar si <mark>i</mark> es menor que
+        <mark>5</mark>. Dado que <mark>i</mark>
+        ahora es <mark>1</mark>, la condición sigue siendo verdadera, y el bloque de código dentro del bucle se ejecuta
+        de nuevo.
+      </p>
+      <p>
+        Seguimos repitiendo este proceso hasta que la condición sea falsa. En este caso, cuando <mark>i</mark> es
+        <mark>5</mark>, la condición es
+        falsa y el bucle se detiene.
+      </p>
+      <p>
+        Cuando trabajes con bucles, debes tener cuidado de no crear una condición que sea siempre verdadera. Si lo
+        haces, el bucle se ejecutará para siempre y tu programa se bloqueará. Esto se conoce como un bucle infinito.
+      </p>
+      <p>
+        Es posible crear bucles <mark>for</mark> anidados. Un bucle anidado es aquel en el que se coloca un bucle dentro
+        de otro. Más
+        adelante veremos ejemplos de cuándo podría ser conveniente hacer esto.
+      </p>
+      <p>
+        Los bucles pueden ser útiles en programación cuando necesitas repetir un bloque de código un cierto número de
+        veces. Aunque trabajar con bucles <mark>for</mark> puede resultar complicado al principio, con la práctica le
+        tomarás el
+        truco.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de la instrucción de inicialización en un bucle <mark>for</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Para ejecutar código repetidamente.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Para comprobar si el bucle debe seguir ejecutándose.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Para establecer una variable contadora antes de que comience el bucle.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Para incrementar o decrementar la variable contadora.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si la condición de un bucle <mark>for</mark> siempre es <mark>true</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            El bucle se ejecutará un número limitado de veces.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El bucle se ejecutará una vez y luego se detendrá.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            El bucle nunca se ejecutará.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            El bucle se ejecutará indefinidamente y podría provocar que el programa se bloquee.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el siguiente ejemplo de bucle <mark>for</mark>, ¿cuál será el resultado?
+            <pre>
+              <code>
+                for (let i = 2; i &lt;= 6; i += 2) {
+                  console.log(i);
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            2, 4, 6
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            2, 3, 4, 5, 6
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            2, 4, 6, 8
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            1, 2, 3, 4, 5, 6
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo funciona el bucle <mark>for...of</mark> y cuándo se debe usar?
+      </h2>
+
+      <p>
+        El bucle <mark>for...of</mark> se utiliza cuando necesitas recorrer los valores de un objeto iterable. Algunos
+        ejemplos de
+        objetos iterables son los arrays y los strings.
+      </p>
+      <p>
+        Esta es la sintaxis básica del bucle <mark>for...of</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-for-of-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">for_of_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span>variable <span class="tk-property">of</span> iterable<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">// code block to be executed</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Estructura de la Cabecera</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code); font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                  📦 <strong style="color: #a6e22e;">variable:</strong> Contenedor temporal que recibe el valor directo
+                  del elemento en el ciclo actual.
+                </div>
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px;">
+                  🔂 <strong style="color: #66d9ef;">of:</strong> Operador nativo que activa el mecanismo interno de
+                  iteración.
+                </div>
+                <div
+                  style="background: rgba(174, 129, 255, 0.1); border: 1px solid #ae81ff; padding: 8px; border-radius: 4px;">
+                  ⛓️ <strong style="color: #ae81ff;">iterable:</strong> Colección de datos ordenada compatible (Arrays,
+                  Strings, NodeLists, Maps, Sets).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La variable del ejemplo representa el valor actual del iterable sobre el que se está ejecutando el bucle.
+      </p>
+      <p>
+        Si tienes un array de números, la variable sería el número actual del array. Si tienes un string, la
+        variable sería el carácter actual del string.
+      </p>
+      <p>
+        Veamos algunos ejemplos para que puedas entender mejor cómo funciona el bucle <mark>for...of</mark>.
+      </p>
+      <p>
+        En este primer ejemplo tenemos un array de números y queremos recorrer cada número y registrarlo en la
+        consola.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-of-practical">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_iteration.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation Appending">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-property">of</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador Interno de Valores Extrayendo del Array</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Estado de asignación en memoria:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>⚡ Iteración 1 ➔ Lee índice [0] ➔ variable <code>num = 1</code> ➔ Imprime en consola</div>
+                    <div>⚡ Iteración 2 ➔ Lee índice [1] ➔ variable <code>num = 2</code> ➔ Imprime en consola</div>
+                    <div>⚡ Iteración 3 ➔ Lee índice [2] ➔ variable <code>num = 3</code> ➔ Imprime en consola</div>
+                    <div>⚡ Iteración 4 ➔ Lee índice [3] ➔ variable <code>num = 4</code> ➔ Imprime en consola</div>
+                    <div>⚡ Iteración 5 ➔ Lee índice [4] ➔ variable <code>num = 5</code> ➔ Imprime en consola</div>
+                    <div style="color: #66d9ef;">🏁 Finalización automática: No quedan más elementos en `numbers`.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    1<br>2<br>3<br>4<br>5
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong style="color: #f92672;">Diferencia clave Full-Stack:</strong> Nunca intentes usar
+              <code style="color: red;">for...of</code> sobre objetos planos u ordinarios (ej. <code
+                style="color: red;">const obj = {a: 1}</code>), ya que los
+              objetos en JavaScript no son iterables por defecto y el programa arrojará un error crítico
+              (<code style="color: red;">TypeError: obj is not iterable</code>). Para esos casos se utiliza el bucle
+              complementario
+              <code style="color: red;">for...in</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Hemos creado una variable llamada <mark>num</mark> que representará el número actual del array. En la primera
+        iteración,
+        <mark>num</mark> será <mark>1</mark>; en la segunda, <mark>num</mark> será <mark>2</mark>, y así sucesivamente.
+      </p>
+      <p>
+        Dentro del bucle, estamos mostrando el número actual en la consola.
+      </p>
+      <p>
+        Aquí hay otro ejemplo en el que tenemos un string y queremos recorrer cada carácter y mostrarlo en la consola.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-of-string-iteration">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">string_loop.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">str</span> = <span class="tk-string">'freeCodeCamp'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">char</span> <span class="tk-property">of</span> <span class="tk-selector">str</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">char</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Desglose de Iteración del String</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Flujo de asignación secuencial:
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • Índice [0] ➔ <code>char = 'f'</code> ➔ Enviado a la consola.<br>
+                    • Índice [1] ➔ <code>char = 'r'</code> ➔ Enviado a la consola.<br>
+                    • Índice [2] ➔ <code>char = 'e'</code> ➔ Enviado a la consola.<br>
+                    • <span style="color: #888;">[Proceso continuo paso a paso...]</span><br>
+                    • Índice [11] ➔ <code>char = 'p'</code> ➔ Último elemento impreso.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.2;">
+                    f<br>r<br>e<br>e<br>C<br>o<br>d<br>e<br>C<br>a<br>m<br>p
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Beneficio Full-Stack:</strong> A diferencia de los bucles basados en índices tradicionales o
+              métodos viejos, el uso de <code style="color: red;">for...of</code> sobre strings maneja correctamente
+              caracteres especiales o
+              emoticonos de manera nativa (caracteres sustitutos de 4 bytes en UTF-16), evitando romper o dividir
+              caracteres complejos a la mitad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, hemos creado una variable llamada <mark>char</mark> que representará el carácter actual del
+        string.
+      </p>
+      <p>
+        En cada iteración, el bucle mostrará el carácter actual en la consola.
+      </p>
+      <p>
+        Es importante tener en cuenta que puedes usar <mark>let</mark> o <mark>const</mark> al declarar la variable en
+        un bucle <mark>for...of</mark>.
+      </p>
+      <p>
+        Sin embargo, si vas a usar <mark>const</mark>, asegúrate de que el valor de la variable no cambie dentro del
+        bucle. Si lo
+        hace, obtendrás un error.
+      </p>
+      <p>
+        Aquí hay un ejemplo del uso de <mark>const</mark> que da como resultado un error:
+      </p>
+
+      <div class="ide-container" id="ide-js-for-of-const-mutation-error">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">const_error.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-property">of</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">num</span> = <span class="tk-selector">num</span> <span class="tk-operator">+</span> <span class="tk-number">1</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This will cause an error</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Análisis de Excepción en Tiempo de Ejecución</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Ciclo de vida del error (Línea 5):
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • Iteración 1 ➔ Crea <code>const num = 1</code> de forma exitosa.<br>
+                    • Invocación ➔ <code>console.log(num)</code> ejecuta e imprime <span
+                      style="color: #a6e22e;">1</span> en consola.<br>
+                    • Conflicto ➔ <code>num = num + 1</code> intenta reasignar un nuevo valor al identificador
+                    inmutable.<br>
+                    • Resultado ➔ El motor congela el hilo, cancela las vueltas restantes (2, 3, 4, 5) y lanza una
+                    excepción.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE (CRASHED):</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    1<br>
+                    <span style="color: #f92672; font-weight: bold;">Uncaught TypeError: Assignment to constant
+                      variable.</span><br>
+                    <span style="color: #888; font-size: 9px;">&nbsp;&nbsp;&nbsp;&nbsp;at const_error.js:5:7</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              🚨 <strong style="color: #f92672;">Importante en Inmutabilidad:</strong> Recuerda que modificar
+              <code style="color: red;">num</code> (si fuera un <code style="color: red;">let</code>) solo cambia la
+              variable local de la vuelta, no altera los
+              números dentro del array original `numbers`. Si lo que buscas es mutar la colección raíz o transformar sus
+              datos, es mucho más óptimo e idiomático utilizar métodos funcionales como <code
+                style="color: red;">.map()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, intentamos modificar el valor de <mark>num</mark> dentro del bucle. Como hemos declarado
+        <mark>num</mark> con <mark>const</mark>,
+        aparecerá un error. Por lo tanto, si necesitas modificar el valor de la variable dentro del bucle, utiliza
+        <mark>let</mark>
+        en su lugar.
+      </p>
+      <p>
+        Veamos un último ejemplo con una matriz de objetos.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-of-array-of-objects">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_array_loop.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">people</span> = <span class="tk-punctuation">[</span>
+  <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'John'</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'Jane'</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">25</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">,</span>
+  <span class="tk-punctuation">{</span> <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'Jim'</span><span class="tk-punctuation">,</span> <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">40</span> <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">person</span> <span class="tk-property">of</span> <span class="tk-selector">people</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">`</span><span class="tk-value">${</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">name</span><span class="tk-value">}</span><span class="tk-string"> is </span><span class="tk-value">${</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-selector">age</span><span class="tk-value">}</span><span class="tk-string"> years old`</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mapeo de Punteros e Inyección de Variables</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evolución de las variables de
+                    cadena:</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • Vuelta 1 ➔ <code>person</code> apunta a <code>{ name: 'John', age: 30 }</span></code><br>
+                    • Vuelta 2 ➔ <code>person</code> apunta a <code>{ name: 'Jane', age: 25 }</span></code><br>
+                    • Vuelta 3 ➔ <code>person</code> apunta a <code>{ name: 'Jim', age: 40 }</span></code>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    > "John is 30 years old"<br>
+                    > "Jane is 25 years old"<br>
+                    > "Jim is 40 years old"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Tip Pro de Productividad:</strong> Puedes combinar este patrón con la desestructuración de
+              objetos directamente en la misma cabecera del bucle para escribir código aún más limpio:
+              <code
+                style="color: red;">for (const { name, age } of people) { console.log(`${name} is ${age} years old`); }</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un array de objetos llamada <mark>people</mark>. Cada objeto tiene una propiedad de
+        <mark>name</mark> y otra de
+        <mark>age</mark>.
+      </p>
+      <p>
+        Al recorrer el array, creamos una variable llamada <mark>person</mark> que representará al objeto actual del
+        array.
+      </p>
+      <p>
+        Dentro del bucle, estamos mostrando un mensaje en la consola.
+      </p>
+      <p>
+        El primer mensaje será <mark>John is 30 years old</mark>, el segundo mensaje será <mark>Jane is 25 years
+          old</mark> y el tercer mensaje
+        será <mark>Jim is 40 years old</mark>.
+      </p>
+      <p>
+        Los bucles <mark>for...of</mark> son muy útiles cuando necesitas recorrer los valores de un iterable, como un
+        array o un
+        string. Además, son fáciles de leer y pueden hacer que tu código sea más conciso.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const colors = ['red', 'green', 'blue'];
+
+                for (const color of colors) {
+                  console.log(color);
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            red
+            green
+            blue
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            red
+            red
+            red
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            color
+            color
+            color
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            blue
+            blue
+            red
+            red
+            green
+            green
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué pasa si intentas reasignar un valor a una variable declarada con <mark>const</mark> dentro de un bucle
+            <mark>for...of</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            El valor se ha reasignado correctamente.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            El bucle omitirá la iteración en la que se produce la reasignación.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Se producirá un error.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            El bucle terminará inmediatamente.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            En el siguiente fragmento de código, ¿qué se registra en la consola?
+            <pre>
+              <code>
+                const fruits = ['apple', 'banana', 'cherry'];
+
+                for (let fruit of fruits) {
+                  console.log(fruit.toUpperCase());
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            APPLE
+            APPLE
+            APPLE
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            apple
+            banana
+            cherry
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            APPLE
+            BANANA
+            CHERRY
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            FRUIT
+            FRUIT
+            FRUIT
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 3 -->
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Qué es el bucle <mark>for...in</mark> y cuándo se debe usar?
+      </h2>
+
+      <p>
+        El bucle <mark>for...in</mark> es ideal cuando necesitas recorrer las propiedades de un objeto. Este bucle
+        recorrerá todas
+        las propiedades enumerables de un objeto, incluidas las propiedades heredadas y las propiedades no numéricas.
+      </p>
+      <p>
+        Una propiedad heredada es una propiedad que se hereda de la cadena de prototipos del objeto. Una propiedad no
+        numérica es una propiedad que no es un número ni una cadena que se pueda convertir en un número.
+      </p>
+      <p>
+        Esta es la sintaxis básica de un bucle <mark>for...in</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-for-in-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">for_in_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span>variable <span class="tk-property">in</span> object<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">// code block to be executed</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Anatomía del Recorrido de Llaves</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code); font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                  🔑 <strong style="color: #a6e22e;">variable:</strong> String temporal que recibe el nombre de la
+                  propiedad (la clave) en cada iteración.
+                </div>
+                <div
+                  style="background: rgba(174, 129, 255, 0.1); border: 1px solid #ae81ff; padding: 8px; border-radius: 4px;">
+                  🔏 <strong style="color: #ae81ff;">in:</strong> Operador nativo que inspecciona los nombres de
+                  propiedades enumerables del contenedor.
+                </div>
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px;">
+                  📦 <strong style="color: #66d9ef;">object:</strong> La estructura o instancia de objeto cuyas llaves
+                  se van a explorar.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La variable del ejemplo representa la propiedad actual del objeto sobre el que se está ejecutando el bucle.
+      </p>
+      <p>
+        Veamos algunos ejemplos para que puedas entender mejor cómo funciona el bucle <mark>for...in</mark>.
+      </p>
+      <p>
+        En este primer ejemplo tenemos un objeto <mark>fruit</mark> y queremos recorrer cada una de sus propiedades y
+        mostrar su
+        valor en la consola.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-in-practical">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_keys_loop.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruit</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'apple'</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">color</span><span class="tk-punctuation">:</span> <span class="tk-string">'red'</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">price</span><span class="tk-punctuation">:</span> <span class="tk-number">0.99</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">prop</span> <span class="tk-property">in</span> <span class="tk-selector">fruit</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruit</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador de Evaluación Dinámica</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Mapeo de pasos de resolución:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Paso 1 ➔ Clave: <code>prop = 'name'</code> ➔ Evaluación: <code>fruit['name']</code> ➔
+                      Retorna: <span style="color: #e6db74;">'apple'</span></div>
+                    <div>🔄 Paso 2 ➔ Clave: <code>prop = 'color'</code> ➔ Evaluación: <code>fruit['color']</code> ➔
+                      Retorna: <span style="color: #e6db74;">'red'</span></div>
+                    <div>🔄 Paso 3 ➔ Clave: <code>prop = 'price'</code> ➔ Evaluación: <code>fruit['price']</code> ➔
+                      Retorna: <span style="color: #ae81ff;">0.99</span></div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    apple<br>red<br>0.99
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong style="color: #f92672;">Buenas Prácticas Full-Stack:</strong> Dado que <code
+                style="color: red;">for...in</code>
+              también recorre las propiedades del prototipo heredadas, si deseas asegurarte de procesar únicamente las
+              llaves escritas de forma directa en tu objeto actual, puedes proteger el bloque usando una validación
+              nativa: <code style="color: red;">if (Object.hasOwn(fruit, prop)) { ... }</code>. Alternativamente, para
+              evitar bucles, hoy en
+              día se prefiere usar <code style="color: red;">Object.values(fruit)</code> o <code
+                style="color: red;">Object.entries(fruit)</code> combinados con
+              <code style="color: red;">for...of</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La variable <mark>prop</mark> representa la propiedad actual del objeto. Se utiliza <mark>fruit[prop]</mark>
+        para acceder al valor de cada
+        propiedad.
+      </p>
+      <p>
+        En la primera iteración, <mark>prop</mark> será <mark>name</mark>. En la segunda iteración, <mark>prop</mark>
+        será <mark>color</mark>, y así sucesivamente.
+      </p>
+      <p>
+        Los resultados que se registrarán en la consola serán <mark>apple</mark>, <mark>red</mark> y <mark>0.99</mark>.
+      </p>
+      <p>
+        En este segundo ejemplo, tenemos un objeto anidado y queremos recorrer cada propiedad y registrar el valor en la
+        consola.
+      </p>
+
+      <div class="ide-container" id="ide-js-for-in-nested-objects">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nested_loop.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'John'</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">address</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">street</span><span class="tk-punctuation">:</span> <span class="tk-string">'123 Main St'</span><span class="tk-punctuation,">,</span>
+    <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">'Anytown'</span><span class="tk-punctuation,">,</span>
+    <span class="tk-selector">state</span><span class="tk-punctuation">:</span> <span class="tk-string">'CA'</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Resolución de Propiedades de Primer Nivel</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.5;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Mapeo de capturas en la iteración:
+                  </div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • Clave 1 ➔ <code>prop = 'name'</code> ➔ Valor: <code style="color: #e6db74;">"John"</code> (String
+                    primitivo)<br>
+                    • Clave 2 ➔ <code>prop = 'age'</code> ➔ Valor: <code style="color: #ae81ff;">30</code> (Number
+                    primitivo)<br>
+                    • Clave 3 ➔ <code>prop = 'address'</code> ➔ Valor: <code style="color: #66d9ef;">Object</code>
+                    (Estructura no primitiva entera)
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    John<br>
+                    30<br>
+                    { street: '123 Main St', city: 'Anytown', state: 'CA' }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Estrategia de Recursividad:</strong> Si en algún punto necesitas recorrer todas las llaves sin
+              importar qué tan profundo estén, puedes crear una función que se llame a sí misma si detecta un objeto:
+              <code
+                style="color: red;">function recorrer(obj) { for(let k in obj) { if(typeof obj[k] === 'object') recorrer(obj[k]); else console.log(obj[k]); } }</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La propiedad <mark>address</mark> es un objeto en sí misma. El bucle <mark>for...in</mark> también recorrerá las
+        propiedades del objeto
+        <mark>person</mark> y mostrará todo el objeto address en la consola.
+      </p>
+      <p>
+        Este será el resultado que aparecerá en la consola:
+      </p>
+
+      <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+        <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+        <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+          John<br>
+          30<br>
+          { street: '123 Main St', city: 'Anytown', state: 'CA' }
+        </div>
+      </div>
+
+      <p>
+        Si quieres recorrer las propiedades del objeto <mark>address</mark>, puedes anidar otro bucle
+        <mark>for...in</mark> dentro del primero.
+      </p>
+
+      <div class="ide-container" id="ide-js-nested-for-in-loops-validation">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">deep_traversal.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  <span class="tk-selector">name</span><span class="tk-punctuation">:</span> <span class="tk-string">'John'</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">age</span><span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">address</span><span class="tk-punctuation">:</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">street</span><span class="tk-punctuation">:</span> <span class="tk-string">'123 Main St'</span><span class="tk-punctuation,">,</span>
+    <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">'Anytown'</span><span class="tk-punctuation,">,</span>
+    <span class="tk-selector">state</span><span class="tk-punctuation">:</span> <span class="tk-string">'CA'</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">function</span> <span class="tk-value">isObject</span><span class="tk-punctuation">(</span>obj<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-property">typeof</span> obj === <span class="tk-string">'object'</span> <span class="tk-operator">&amp;&amp;</span> <span class="tk-operator">!</span><span class="tk-selector">Array</span><span class="tk-punctuation">.</span><span class="tk-value">isArray</span><span class="tk-punctuation">(</span>obj<span class="tk-punctuation">)</span> <span class="tk-operator">&amp;&amp;</span> obj <span class="tk-operator">!==</span> <span class="tk-property">null</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">prop</span> <span class="tk-property">in</span> <span class="tk-selector">person</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-value">isObject</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">nestedProp</span> <span class="tk-property">in</span> <span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+      <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">[</span><span class="tk-selector">nestedProp</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+    <span class="tk-punctuation">}</span>
+  <span class="tk-punctuation">}</span> <span class="tk-property">else</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Flujo de Evaluación y Bifurcación</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Evaluación del guardián
+                    condicional:</div>
+                  <div style="color: #f8f8f2; padding-left: 6px;">
+                    • <code>prop = 'name'</code> ➔ <code>isObject('John')</code> ➔ <span
+                      style="color: #f92672;">False</span> ➔ Ejecuta el bloque <code>else</code>.<br>
+                    • <code>prop = 'age'</code> ➔ <code>isObject(30)</code> ➔ <span style="color: #f92672;">False</span>
+                    ➔ Ejecuta el bloque <code>else</code>.<br>
+                    • <code>prop = 'address'</code> ➔ <code>isObject({...})</code> ➔ <span
+                      style="color: #a6e22e;">True</span> ➔ Activa el bucle interno secundario para recorrer
+                    <code>street</code>, <code>city</code> y <code>state</code>.
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    "John"<br>
+                    30<br>
+                    "123 Main St"<br>
+                    "Anytown"<br>
+                    "CA"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Regla de oro de rendimiento:</strong> Como bien concluye el texto, nunca uses
+              <code style="color: red;">for...in</code> para recorrer arreglos (indexados numéricamente). <code
+                style="color: red;">for...in</code> está
+              optimizado para buscar llaves tipo cadena en cualquier orden y verificar la cadena de prototipos, lo que
+              lo hace significativamente más lento e impredecible para secuencias numéricas ordenadas que un bucle
+              <code style="color: red;">for...of</code> o un método iterativo de arreglo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una función personalizada llamada <mark>isObject</mark> que comprueba si el valor es un
+        objeto.
+      </p>
+      <p>
+        El método <mark>Array.isArray</mark> se utiliza para verificar si el valor es un array. Al colocar el operador
+        lógico NOT (<mark>¡</mark>)
+        delante del método, estamos verificando si el valor no es un array.
+      </p>
+      <p>
+        La razón por la que no podemos simplemente usar <mark>typeof</mark> equals <mark>'object'</mark> es porque los
+        arrays también se
+        consideran objetos en JavaScript. Queremos excluir los arrays de la verificación.
+      </p>
+      <p>
+        Además, debido a un error histórico en JavaScript, <mark>typeof null</mark> devuelve <mark>'object'</mark>. Por
+        lo tanto, también queremos
+        excluir los valores <mark>null</mark> de la comprobación.
+      </p>
+      <p>
+        Si la condición es verdadera, anidamos otro bucle <mark>for...in</mark> que recorrerá las propiedades del objeto
+        anidado y
+        registrará el valor en la consola.
+      </p>
+      <p>
+        La variable <mark>nestedProp</mark> representa la propiedad actual del objeto anidado.
+      </p>
+      <p>
+        Así es como se verá el resultado modificado en la consola:
+      </p>
+
+      <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+        <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE OUTPUT:</div>
+        <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+          "John"<br>
+          30<br>
+          "123 Main St"<br>
+          "Anytown"<br>
+          "CA"
+        </div>
+      </div>
+
+      <p>
+        Un bucle <mark>for...in</mark> resulta útil cuando necesitas recorrer las propiedades de un objeto.
+      </p>
+      <p>
+        No se recomienda utilizar un bucle <mark>for...in</mark> para recorrer los elementos de un array. En su lugar,
+        utiliza un
+        bucle <mark>for...of</mark> u otros métodos de array como <mark>forEach</mark>, <mark>map</mark>,
+        <mark>filter</mark> y <mark>reduce</mark>, que aprenderás en lecciones futuras.
+      </p>
+
+    </section>
+
+  </main>
+
+  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Ir al inicio de la página">
+    <span aria-hidden="true">🚀</span>
+  </button>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
