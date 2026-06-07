@@ -625,9 +625,9 @@ A medida que sigas trabajando con JavaScript, te encontrarás con muchas situaci
     console.log(y);
     ```
 
-    - [ ] a) `10` //correcto
+    - [x] a) `10` //correcto
     - [ ] b) `20`
-    - [x] c) `undefined`
+    - [ ] c) `undefined`
     - [ ] d) Esto generará un error.
 
 [☝️](#introducción-a-los-objetos-de-javascript-y-sus-propiedades)

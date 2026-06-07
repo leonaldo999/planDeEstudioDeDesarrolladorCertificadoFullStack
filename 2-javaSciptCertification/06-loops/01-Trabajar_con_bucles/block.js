@@ -703,6 +703,7 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
   // code block to be executed
 // }
 
+
 // const fruit = {
 //   name: 'apple',
 //   color: 'red',
@@ -712,4 +713,68 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 //   console.log(fruit[prop]);
 // }
 
+
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   address: {
+//     street: '123 Main St',
+//     city: 'Anytown',
+//     state: 'CA'
+//   }
+// };
+// for (const prop in person) {
+//   console.log(person[prop]);
+// }
+
+
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   address: {
+//     street: '123 Main St',
+//     city: 'Anytown',
+//     state: 'CA'
+//   }
+// };
+// function isObject(obj) {
+//   return typeof obj === 'object' && !Array.isArray(obj) && obj !== null;
+// }
+// for (const prop in person) {
+//   if (isObject(person[prop])) {
+//     for (const nestedProp in person[prop]) {
+//       console.log(person[prop][nestedProp]);
+//     }
+//   } else {
+//     console.log(person[prop]);
+//   }
+// }
+
+
+// <====================>
+// Tema 4: ¿Qué es un bucle «while» y en qué se diferencia del bucle do...while?
+
+// Sintaxis
+// while (condition) {
+  // code block to be executed
+// }
+
+
+// let counter = 0;
+// while(counter < 5) {
+//   console.log(counter);
+//   counter++;
+// }
+
+
+// do {
+  // code block to be executed
+// } while (condition);
+
+
+// let counter = 0;
+// do {
+//   console.log(counter);
+//   counter++;
+// } while (counter < 5);
 

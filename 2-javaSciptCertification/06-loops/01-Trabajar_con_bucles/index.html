@@ -1173,7 +1173,12 @@
     <span class="tk-selector">city</span><span class="tk-punctuation">:</span> <span class="tk-string">'Anytown'</span><span class="tk-punctuation,">,</span>
     <span class="tk-selector">state</span><span class="tk-punctuation">:</span> <span class="tk-string">'CA'</span>
   <span class="tk-punctuation">}</span>
-<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span></code></pre>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">prop</span> <span class="tk-property">in</span> <span class="tk-selector">person</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+</code></pre>
             </div>
           </div>
         </div>
@@ -1230,7 +1235,7 @@
       <p>
         La propiedad <mark>address</mark> es un objeto en sí misma. El bucle <mark>for...in</mark> también recorrerá las
         propiedades del objeto
-        <mark>person</mark> y mostrará todo el objeto address en la consola.
+        <mark>person</mark> y mostrará todo el objeto <mark>address</mark> en la consola.
       </p>
       <p>
         Este será el resultado que aparecerá en la consola:
@@ -1244,6 +1249,7 @@
           { street: '123 Main St', city: 'Anytown', state: 'CA' }
         </div>
       </div>
+      <br>
 
       <p>
         Si quieres recorrer las propiedades del objeto <mark>address</mark>, puedes anidar otro bucle
@@ -1388,6 +1394,7 @@
           "CA"
         </div>
       </div>
+      <br>
 
       <p>
         Un bucle <mark>for...in</mark> resulta útil cuando necesitas recorrer las propiedades de un objeto.
@@ -1401,12 +1408,971 @@
 
     </section>
 
-  </main>
+    <!-- Cuestionario 3 -->
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
 
-  <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    aria-label="Ir al inicio de la página">
-    <span aria-hidden="true">🚀</span>
-  </button>
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                const fruit = {
+                  name: 'apple',
+                  color: 'red',
+                  price: 0.99
+                };
+                
+                for (const prop in fruit) {
+                  console.log(fruit[prop]);
+                }
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            apple
+            apple
+            apple
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            name
+            color
+            price
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            apple
+            red
+            0.99
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            fruit
+            fruit
+            fruit
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué no se suele recomendar el uso del bucle <mark>for...in</mark> para recorrer los elementos de un
+            array?
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            for...in solo recorre los métodos del array, no los elementos.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            for...in recorre todas las propiedades enumerables, incluidas las propiedades heredadas y las propiedades no
+            numéricas, lo que puede dar lugar a resultados inesperados.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Los bucles for...in son más lentos en comparación con otros métodos de iteración de arrays
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            for...in no puede manejar arrays con índices no numéricos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué es necesaria la función <mark>isObject</mark> en el ejemplo del bucle anidado?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Para comprobar si el valor es un string.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Para asegurarse de que el valor no sea ni un array ni null
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Para verificar que el valor sea un entero.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Para convertir el valor en un objeto.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 4 -->
+    <section id="tema4" aria-labelledby="tema4-titulo">
+      <h2 id="tema4-titulo">
+        Tema 4: ¿Qué es un bucle «while» y en qué se diferencia del bucle <mark>do...while</mark>?
+      </h2>
+
+      <p>
+        En lecciones anteriores, aprendiste a trabajar con bucles <mark>for</mark>, <mark>for...in</mark> y
+        <mark>for...of</mark>. En esta lección, aprenderás
+        sobre el bucle <mark>while</mark> y el bucle <mark>do...while</mark>.
+      </p>
+      <p>
+        Un bucle <mark>while</mark> ejecutará un bloque de código mientras la condición sea verdadera. Esta es la
+        sintaxis básica de
+        un bucle <mark>while</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-while-loop-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">while_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">while</span> <span class="tk-punctuation">(</span>condition<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">// code block to be executed</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Evaluación de Entrada (Pre-condición)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code); font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 8px; border-radius: 4px;">
+                  ⚖️ <strong style="color: #f92672;">condition:</strong> Expresión evaluada a booleano antes de cada
+                  vuelta. Si da <code>false</code> al inicio, el bloque se ignora por completo.
+                </div>
+                <div
+                  style="background: rgba(102, 217, 239, 0.1); border: 1px solid #66d9ef; padding: 8px; border-radius: 4px;">
+                  🔁 <strong style="color: #66d9ef;">code block:</strong> Se repite indefinidamente de forma secuencial
+                  mientras la condición de arriba se mantenga viva como <code>true</code>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La condición se comprueba antes de que se ejecute el bloque de código. Si la condición es falsa, el bloque de
+        código no se ejecutará.
+      </p>
+      <p>
+        Los bucles <mark>while</mark> son útiles cuando no sabes cuántas veces necesitas ejecutar el bloque de código. A
+        continuación, te mostramos un ejemplo del uso de un bucle <mark>while</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-while-loop-practical">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">while_counter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">counter</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-property">while</span><span class="tk-punctuation">(</span><span class="tk-selector">counter</span> <span class="tk-operator">&lt;</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">counter</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">counter</span><span class="tk-operator">++</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador de Cambios de Estado en la Memoria</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evaluaciones del Guardián
+                    Condicional:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Evaluación 1 ➔ ¿<code>0 &lt; 5</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime:
+                      0 ➔ Incrementa contador a 1</div>
+                    <div>🔄 Evaluación 2 ➔ ¿<code>1 &lt; 5</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime:
+                      1 ➔ Incrementa contador a 2</div>
+                    <div>🔄 Evaluación 3 ➔ ¿<code>2 &lt; 5</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime:
+                      2 ➔ Incrementa contador a 3</div>
+                    <div>🔄 Evaluación 4 ➔ ¿<code>3 &lt; 5</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime:
+                      3 ➔ Incrementa contador a 4</div>
+                    <div>🔄 Evaluación 5 ➔ ¿<code>4 &lt; 5</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime:
+                      4 ➔ Incrementa contador a 5</div>
+                    <div style="color: #f92672; font-weight: bold;">❌ Conclusión ➔ ¿<code>5 &lt; 5</code>? False ➔ El
+                      ciclo termina de forma segura.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    0<br>1<br>2<br>3<br>4
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Caso de uso Full-Stack real:</strong> Los bucles <code style="color: red;">while</code> son la
+              opción ideal cuando
+              la condición de parada depende de factores externos impredecibles en lugar de un simple conteo numérico;
+              por ejemplo, mantener una conexión abierta mientras el servidor responda con éxito, o leer renglones de un
+              archivo de texto hasta que encontremos una línea vacía.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una variable llamada <mark>counter</mark> que se inicializa con el valor
+        <mark>0</mark>. El bucle <mark>while</mark> seguirá
+        ejecutándose mientras el valor de <mark>counter</mark> sea menor que <mark>5</mark>. Dentro del bucle, mostramos
+        el valor de <mark>counter</mark> en la
+        consola y luego incrementamos <mark>counter</mark> en <mark>1</mark>.
+      </p>
+      <p>
+        Otro bucle similar al <mark>while</mark> es el bucle <mark>do...while</mark>. Esta es su sintaxis básica:
+      </p>
+
+      <div class="ide-container" id="ide-js-do-while-loop-syntax">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">do_while_syntax.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">do</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">// code block to be executed</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">while</span> <span class="tk-punctuation">(</span>condition<span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mecanismo de Post-Evaluación</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; font-family: var(--sp-font-code); font-size: 10px; line-height: 1.5; color: #f8f8f2;">
+                <div
+                  style="background: rgba(166, 226, 46, 0.1); border: 1px solid #a6e22e; padding: 8px; border-radius: 4px;">
+                  ⚡ <strong style="color: #a6e22e;">Bloque do:</strong> Zona de acceso libre inmediato. Se ejecuta
+                  ciegamente en la primera pasada, sin importar las variables.
+                </div>
+                <div
+                  style="background: rgba(249, 38, 114, 0.1); border: 1px solid #f92672; padding: 8px; border-radius: 4px;">
+                  ⚖️ <strong style="color: #f92672;">Filtro while:</strong> El punto de control al final. Si la
+                  condición resulta ser falsa en la primera revisión, el bucle se rompe, dejando el rastro de la primera
+                  ejecución intacto.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Caso de uso real:</strong> El bucle <code style="color: red;">do...while</code> es perfecto
+              para escenarios de
+              interacción con el usuario en terminales o interfaces, como por ejemplo, mostrar un menú de opciones o un
+              formulario de contraseña: necesitas pintar el menú al menos una vez (<code style="color: red;">do</code>)
+              y mantenerlo
+              repitiéndose mientras el usuario no elija la opción de salir (<code style="color: red;">while</code>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Una diferencia clave entre un bucle <mark>do...while</mark> y un bucle <mark>while</mark> es que el bucle
+        <mark>do...while</mark> ejecutará el bloque
+        de código al menos una vez antes de comprobar la condición.
+      </p>
+      <p>
+        Si la condición es verdadera, el bloque de código seguirá ejecutándose. Si la condición es falsa, el bloque de
+        código dejará de ejecutarse.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de un bucle <mark>do...while</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-do-while-loop-practical">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">do_while_counter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">counter</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+<span class="tk-property">do</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">counter</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">counter</span><span class="tk-operator">++</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">while</span> <span class="tk-punctuation">(</span><span class="tk-selector">counter</span> <span class="tk-operator">&lt;</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador de la Post-Condición por Vuelta</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evaluaciones post-ejecución del
+                    bloque:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Vuelta 1 ➔ Imprime: 0 ➔ <code>counter</code> cambia a 1 ➔ ¿<code>1 &lt; 5</code>? <span
+                        style="color: #a6e22e;">True</span> (Sigue)</div>
+                    <div>🔄 Vuelta 2 ➔ Imprime: 1 ➔ <code>counter</code> cambia a 2 ➔ ¿<code>2 &lt; 5</code>? <span
+                        style="color: #a6e22e;">True</span> (Sigue)</div>
+                    <div>🔄 Vuelta 3 ➔ Imprime: 2 ➔ <code>counter</code> cambia a 3 ➔ ¿<code>3 &lt; 5</code>? <span
+                        style="color: #a6e22e;">True</span> (Sigue)</div>
+                    <div>🔄 Vuelta 4 ➔ Imprime: 3 ➔ <code>counter</code> cambia a 4 ➔ ¿<code>4 &lt; 5</code>? <span
+                        style="color: #a6e22e;">True</span> (Sigue)</div>
+                    <div>🔄 Vuelta 5 ➔ Imprime: 4 ➔ <code>counter</code> cambia a 5 ➔ ¿<code>5 &lt; 5</code>? <span
+                        style="color: #f92672;">False</span> (Termina)</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    0<br>1<br>2<br>3<br>4
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Prueba mental de asincronía:</strong> Imagina si inicializaras la variable con
+              <code style="color: red;">let counter = 10;</code>. Un bucle <code style="color: red;">while</code> común
+              no haría nada y la consola quedaría
+              vacía. En cambio, con este <code style="color: red;">do...while</code>, la consola imprimirá
+              inmediatamente el número
+              <code style="color: red;">10</code>, sumará 1 para dejar el contador en <code
+                style="color: red;">11</code> y luego evaluará
+              <code style="color: red;">11 &lt; 5</code> (Falso) para detenerse. ¡Ese es el poder del disparo
+              obligatorio!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos una variable llamada <mark>counter</mark> que se inicializa con el valor
+        <mark>0</mark>. El bucle <mark>do...while</mark>
+        mostrará el valor de <mark>counter</mark> en la consola y, a continuación, incrementará <mark>counter</mark> en
+        <mark>1</mark>. Tras ejecutar el bloque
+        de código, comprueba si el valor de <mark>counter</mark> es menor que <mark>5</mark>. Si lo es, el bucle seguirá
+        ejecutándose. Si no lo
+        es, el bucle se detendrá.
+      </p>
+      <p>
+        En la mayoría de los casos, probablemente usarás el bucle <mark>while</mark> con más frecuencia que el bucle
+        <mark>do...while</mark>. Sin
+        embargo, es bueno conocer ambos tipos de bucles y saber cuándo usarlos.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 4 -->
+    <section id="cuest4" aria-labelledby="cuest4-titulo">
+
+      <h2 id="cuest4-titulo">🧠 Cuestionario 4</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre un bucle <mark>while</mark> y un bucle <mark>do...while</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q10">
+            Un bucle while ejecuta el bloque de código al menos una vez, mientras que un bucle do...while no lo hace.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            <!-- correcto -->
+            Un bucle do...while ejecuta el bloque de código al menos una vez, mientras que un bucle while no lo hace.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            Un bucle while y un bucle do...while son exactamente iguales y no tienen diferencias.
+          </label>
+          <label>
+            <input type="radio" name="q10">
+            Un bucle while comprueba la condición después de ejecutar el bloque de código, mientras que un bucle
+            do...while la comprueba antes.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué situación preferirías usar un bucle <mark>do...while</mark> en lugar de un bucle <mark>while</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q11">
+            Cuando necesitas ejecutar un bloque de código cero o más veces.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            <!-- correcto -->
+            Cuando necesitas ejecutar un bloque de código al menos una vez antes de comprobar la condición.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Cuando se conoce de antemano el número de iteraciones.
+          </label>
+          <label>
+            <input type="radio" name="q11">
+            Cuando quieres asegurarte de que el bucle nunca se ejecute.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede si la condición de un bucle <mark>while</mark> es inicialmente <mark>false</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q12">
+            El bloque de código dentro del bucle se ejecutará una vez y luego se detendrá.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            <!-- correcto -->
+            El bloque de código dentro del bucle no se ejecutará en absoluto.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            El bloque de código dentro del bucle se ejecutará indefinidamente.
+          </label>
+          <label>
+            <input type="radio" name="q12">
+            El bucle terminará inmediatamente y generará un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 5 -->
+    <section id="tema5" aria-labelledby="tema5-titulo">
+      <h2 id="tema5-titulo">
+        Tema 5: ¿Para qué sirven las sentencias <mark>break</mark> y <mark>continue</mark> en los bucles?
+      </h2>
+
+      <p>
+        La sentencia <mark>break</mark> se utiliza para salir de un bucle antes de tiempo, mientras que la sentencia
+        <mark>continue</mark> se
+        utiliza para saltarse la iteración actual de un bucle y pasar a la siguiente.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo del uso de la sentencia <mark>break</mark> en un bucle <mark>for</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-break-statement-loop">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">break_control.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> === <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador de la Interrupción Temprana</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evaluación de la condición por
+                    índice:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Vuelta 1 ➔ <code>i = 0</code> ➔ ¿<code>0 === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime en consola: 0</div>
+                    <div>🔄 Vuelta 2 ➔ <code>i = 1</code> ➔ ¿<code>1 === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime en consola: 1</div>
+                    <div>🔄 Vuelta 3 ➔ <code>i = 2</code> ➔ ¿<code>2 === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime en consola: 2</div>
+                    <div>🔄 Vuelta 4 ➔ <code>i = 3</code> ➔ ¿<code>3 === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime en consola: 3</div>
+                    <div>🔄 Vuelta 5 ➔ <code>i = 4</code> ➔ ¿<code>4 === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime en consola: 4</div>
+                    <div style="color: #f92672; font-weight: bold;">🚨 Vuelta 6 ➔ i = 5 ➔ ¿5 === 5? True ➔ ¡Se ejecuta
+                      break! El ciclo muere.</div>
+                    <div style="color: #888; font-style: italic; padding-left: 10px;">• Los índices 5, 6, 7, 8 y 9 nunca
+                      llegan a evaluarse ni imprimirse.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    0<br>1<br>2<br>3<br>4
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Caso de uso de Producción:</strong> Imagina que tienes una base de datos con 1 millón de
+              usuarios y buscas al usuario con ID específico. Al usar <code style="color: red;">break</code> justo en la
+              línea donde lo
+              encuentras, impides de forma drástica que el servidor gaste ciclos de CPU procesando los elementos
+              restantes de la lista.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el ejemplo anterior, el bucle comienza a contar desde <mark>0</mark> y, mientras <mark>i</mark> sea menor que
+        <mark>10</mark>, el bucle seguirá
+        ejecutándose.
+      </p>
+      <p>
+        Dentro del bucle, verificamos si <mark>i</mark> es igual a <mark>5</mark>. Si lo es, utilizamos la instrucción
+        <mark>break</mark> para salir del bucle
+        antes de tiempo. Si no lo es, registramos el valor de <mark>i</mark> en la consola. Por lo tanto, el resultado
+        del código
+        mostrará los números <mark>0</mark>, <mark>1</mark>, <mark>2</mark>, <mark>3</mark> y <mark>4</mark>.
+      </p>
+      <p>
+        La instrucción <mark>break</mark> es útil cuando quieres salir de un bucle antes de tiempo en función de una
+        condición
+        determinada. Por ejemplo, si estás buscando un valor específico en un array, puedes usar una instrucción
+        <mark>break</mark>
+        para salir del bucle una vez que encuentres el valor.
+      </p>
+      <p>
+        A veces es posible que quieras saltarte una iteración concreta de un bucle sin salir del bucle por completo.
+        Aquí es donde entra en juego la instrucción <mark>continue</mark>. A continuación, te mostramos un ejemplo del
+        uso de una
+        instrucción <mark>continue</mark> en un bucle <mark>for</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-continue-statement-loop">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">continue_control.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> === <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">continue</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Rastreador del Salto de Iteración</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Flujo de ejecución del bloque:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 3px;">
+                    <div>🔄 Vuelta 1 a 5 ➔ <code>i = 0</code> hasta <code>4</code> ➔ ¿<code>i === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime con éxito.</div>
+                    <div style="color: #f92672; font-weight: bold;">🚨 Vuelta 6 ➔ i = 5 ➔ ¿5 === 5? True ➔ Se ejecuta
+                      `continue`</div>
+                    <div style="color: #888; font-style: italic; padding-left: 10px;">• El motor ignora la línea 5
+                      (console.log) y salta directo a i++ de la línea 1.</div>
+                    <div>🔄 Vuelta 7 a 10 ➔ <code>i = 6</code> hasta <code>9</code> ➔ ¿<code>i === 5</code>? <span
+                        style="color: #a6e22e;">False</span> ➔ Imprime con éxito.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">
+                    0<br>1<br>2<br>3<br>4<br><span style="color: #f92672; font-weight: bold;">[El 5 ha sido
+                      omitido]</span><br>6<br>7<br>8<br>9
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              ⚠️ <strong>Peligro en bucles `while`:</strong> Ten mucho cuidado si usas <code
+                style="color: red;">continue</code> dentro de
+              un bucle <code style="color: red;">while</code>. Si colocas la sentencia <code
+                style="color: red;">continue</code> antes de haber incrementado
+              manualmente tu variable contador, el bucle volverá a evaluar la misma condición con el mismo valor una y
+              otra vez, cayendo en un bucle infinito que congelará la pestaña. ¡Asegúrate siempre de actualizar el
+              contador antes del desvío!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al igual que antes, hemos inicializado <mark>i</mark> en <mark>0</mark> y tenemos una condición que ejecutará el
+        bucle mientras <mark>i</mark> sea
+        menor que <mark>10</mark>.
+      </p>
+      <p>
+        Dentro del bucle, cuando <mark>i</mark> es igual a <mark>5</mark>, usamos la instrucción <mark>continue</mark>
+        para saltarnos la iteración actual y
+        pasar a la siguiente.
+      </p>
+      <p>
+        El resultado de este código imprimirá los números <mark>0</mark>, <mark>1</mark>, <mark>2</mark>,
+        <mark>3</mark>, <mark>4</mark>, <mark>6</mark>, <mark>7</mark>, <mark>8</mark> y <mark>9</mark>. El número
+        <mark>5</mark> se omite debido a la
+        instrucción <mark>continue</mark>.
+      </p>
+      <p>
+        Otra cosa que puedes hacer con las sentencias <mark>break</mark> y <mark>continue</mark> es usar etiquetas para
+        especificar qué bucle
+        quieres interrumpir o continuar.
+      </p>
+      <p>
+        Esto es útil cuando tienes bucles anidados y quieres controlar el flujo del bucle externo desde dentro del bucle
+        interno.
+      </p>
+      <p>
+        Aquí hay un ejemplo del uso de etiquetas con la sentencia <mark>break</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-labeled-statements-break">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">labeled_break.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">outerLoop</span><span class="tk-punctuation">:</span> <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">innerLoop</span><span class="tk-punctuation">:</span> <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">j</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">j</span> <span class="tk-operator">&lt;</span> <span class="tk-number">3</span><span class="tk-punctuation">;</span> <span class="tk-selector">j</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> === <span class="tk-number">1</span> <span class="tk-operator">&amp;&amp;</span> <span class="tk-selector">j</span> === <span class="tk-number">1</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+      <span class="tk-property">break</span> <span class="tk-property">outerLoop</span><span class="tk-punctuation">;</span>
+    <span class="tk-punctuation">}</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">`i: </span><span class="tk-value">${</span><span class="tk-selector">i</span><span class="tk-value">}</span><span class="tk-string">, j: </span><span class="tk-value">${</span><span class="tk-selector">j</span><span class="tk-value">}</span><span class="tk-string">`</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 2px;">
+                    <div>🟢 <code>i = 0</code> ➔ Entra a inner ➔ <code>j = 0, 1, 2</code> ➔ Evaluaciones falsas ➔ <span
+                        style="color: #a6e22e;">Imprime 3 líneas</span></div>
+                    <div>🟢 <code>i = 1</code> ➔ Avanza outer ➔ Entra a inner ➔ <code>j = 0</code> ➔ Evaluación falsa ➔
+                      <span style="color: #a6e22e;">Imprime 1 línea</span>
+                    </div>
+                    <div style="color: #f92672; font-weight: bold;">🚨 i = 1, j = 1 ➔ Se cumple (i === 1 && j === 1) ➔
+                      break outerLoop;</div>
+                    <div style="color: #888; font-style: italic; padding-left: 10px;">• El motor no solo frena a
+                      innerLoop, sino que destruye la estructura completa de outerLoop. El programa salta a la línea 9.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    i: 0, j: 0<br>
+                    i: 0, j: 1<br>
+                    i: 0, j: 2<br>
+                    i: 1, j: 0
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code>return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, tenemos un bucle <mark>for</mark> externo etiquetado como outerLoop y un bucle <mark>for</mark>
+        interno etiquetado como
+        <mark>innerLoop</mark>.
+      </p>
+      <p>
+        Cuando <mark>i</mark> es igual a <mark>1</mark> y <mark>j</mark> es igual a <mark>1</mark>, utilizamos la
+        instrucción <mark>break</mark> con la etiqueta <mark>outerLoop</mark> para salir
+        del bucle externo antes de tiempo. Esto hará que se salgan tanto del bucle interno como del externo.
+      </p>
+      <p>
+        La salida de este código registrará lo siguiente en la consola:
+      </p>
+
+      <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+        <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+        <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+          i: 0, j: 0<br>
+          i: 0, j: 1<br>
+          i: 0, j: 2<br>
+          i: 1, j: 0
+        </div>
+      </div>
+      <br>
+
+      <p>
+        En la mayoría de los casos no necesitarás usar etiquetas con las instrucciones <mark>break</mark> y
+        <mark>continue</mark>, pero es bueno saber que tienes esa opción por si alguna vez la necesitas.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 5 -->
+    <section id="cuest5" aria-labelledby="cuest5-titulo">
+
+      <h2 id="cuest5-titulo">🧠 Cuestionario 5</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de la instrucción <mark>break</mark> en un bucle?
+          </legend>
+
+          <label>
+            <input type="radio" name="q13">
+            <!-- correcto -->
+            Para saltarse la iteración actual y continuar con la siguiente.
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            Para salir del bucle inmediatamente.
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            Para detener la ejecución del programa.
+          </label>
+          <label>
+            <input type="radio" name="q13">
+            Para reiniciar el bucle desde el principio.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se encuentra la instrucción <mark>continue</mark> dentro de un bucle?
+          </legend>
+
+          <label>
+            <input type="radio" name="q14">
+            El bucle se sale inmediatamente.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            El bucle vuelve a empezar desde el principio.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            <!-- correcto -->
+            Se omite la iteración actual y comienza la siguiente.
+          </label>
+          <label>
+            <input type="radio" name="q14">
+            El bucle se detiene.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de utilizar etiquetas con las sentencias <mark>break</mark> y <mark>continue</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q15">
+            <!-- correcto -->
+            Para especificar de qué bucle salir o cuál omitir cuando se trabaja con bucles anidados.
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            Para nombrar los bucles y facilitar la depuración.
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            Para reiniciar el bucle desde un punto específico.
+          </label>
+          <label>
+            <input type="radio" name="q15">
+            Para permitir múltiples sentencias break y continue dentro del mismo bucle.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
 
   <footer>
     <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>

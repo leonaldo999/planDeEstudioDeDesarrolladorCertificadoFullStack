@@ -300,6 +300,10 @@ En este segundo ejemplo, tenemos un objeto anidado y queremos recorrer cada prop
       state: 'CA'
     }
   };
+
+  for (const prop in person) {
+    console.log(person[prop]);
+  }
   ```
 
 La propiedad `address` es un objeto en sí misma. El bucle `for...in` también recorrerá las propiedades del objeto `person` y mostrará todo el objeto `address` en la consola.
@@ -371,3 +375,251 @@ Así es como se verá el resultado modificado en la consola:
 Un bucle `for...in` resulta útil cuando necesitas recorrer las propiedades de un objeto.
 
 No se recomienda utilizar un bucle `for...in` para recorrer los elementos de un array. En su lugar, utiliza un bucle `for...of` u otros métodos de array como `forEach`, `map`, `filter` y `reduce`, que aprenderás en lecciones futuras.
+
+---
+
+## Cuestionario 3
+
+1. **¿Cuál será el resultado del siguiente código?**
+
+    ```js
+    const fruit = {
+      name: 'apple',
+      color: 'red',
+      price: 0.99
+    };
+    
+    for (const prop in fruit) {
+      console.log(fruit[prop]);
+    }
+    ```
+
+    - [ ] a)  apple
+              apple
+              apple
+
+    - [ ] b)  name
+              color
+              price
+
+    - [x] c)  apple
+              red
+              0.99  //correcto
+
+    - [ ] d)  fruit
+              fruit
+              fruit
+
+2. **¿Por qué no se suele recomendar el uso del bucle `for...in` para recorrer los elementos de un array?**
+
+    - [ ] a) `for...in` solo recorre los métodos del array, no los elementos.
+    - [x] b) `for...in` recorre todas las propiedades enumerables, incluidas las propiedades heredadas y las propiedades no numéricas, lo que puede dar lugar a resultados inesperados. //correcto
+    - [ ] c) Los bucles `for...in` son más lentos en comparación con otros métodos de iteración de arrays.
+    - [ ] d) `for...in` no puede manejar arrays con índices no numéricos.
+
+3. **¿Por qué es necesaria la función `isObject` en el ejemplo del bucle anidado?**
+
+    - [ ] a) Para comprobar si el valor es un string.
+    - [x] b) Para asegurarse de que el valor no sea ni un array ni `null`. //correcto
+    - [ ] c) Para verificar que el valor sea un entero.
+    - [ ] d) Para convertir el valor en un objeto.
+
+[☝️](#trabajar-con-bucles)
+
+---
+
+## Tema 4: ¿Qué es un bucle «while» y en qué se diferencia del bucle `do...while`?
+
+En lecciones anteriores, aprendiste a trabajar con bucles `for`, `for...in` y `for...of`. En esta lección, aprenderás sobre el bucle `while` y el bucle `do...while`.
+
+Un bucle `while` ejecutará un bloque de código mientras la condición sea verdadera. Esta es la sintaxis básica de un bucle `while`:
+
+- **Example code**
+
+  ```js
+  while (condition) {
+    // code block to be executed
+  }
+  ```
+
+La condición se comprueba antes de que se ejecute el bloque de código. Si la condición es falsa, el bloque de código no se ejecutará.
+
+Los bucles `while` son útiles cuando no sabes cuántas veces necesitas ejecutar el bloque de código. A continuación, te mostramos un ejemplo del uso de un bucle `while`:
+
+- **Example code**
+
+  ```js
+  let counter = 0;
+  while(counter < 5) {
+    console.log(counter);
+    counter++;
+  }
+  ```
+
+En este ejemplo, tenemos una variable llamada `counter` que se inicializa con el valor `0`. El bucle `while` seguirá ejecutándose mientras el valor de `counter` sea menor que `5`. Dentro del bucle, mostramos el valor de `counter` en la consola y luego incrementamos `counter` en `1`.
+
+Otro bucle similar al `while` es el bucle `do...while`. Esta es su sintaxis básica:
+
+- **Example code**
+
+  ```js
+  do {
+    // code block to be executed
+  } while (condition);
+  ```
+
+Una diferencia clave entre un bucle `do...while` y un bucle `while` es que el bucle `do...while` ejecutará el bloque de código al menos una vez antes de comprobar la condición.
+
+Si la condición es verdadera, el bloque de código seguirá ejecutándose. Si la condición es falsa, el bloque de código dejará de ejecutarse.
+
+A continuación se muestra un ejemplo del uso de un bucle `do...while`:
+
+- **Example code**
+
+  ```js
+  let counter = 0;
+  do {
+    console.log(counter);
+    counter++;
+  } while (counter < 5);  
+  ```
+
+En este ejemplo, tenemos una variable llamada `counter` que se inicializa con el valor `0`. El bucle `do...while` mostrará el valor de `counter` en la consola y, a continuación, incrementará `counter` en `1`. Tras ejecutar el bloque de código, comprueba si el valor de `counter` es menor que `5`. Si lo es, el bucle seguirá ejecutándose. Si no lo es, el bucle se detendrá.
+
+En la mayoría de los casos, probablemente usarás el bucle `while` con más frecuencia que el bucle `do...while`. Sin embargo, es bueno conocer ambos tipos de bucles y saber cuándo usarlos.
+
+---
+
+## Cuestionario 4
+
+1. **¿Cuál es la principal diferencia entre un bucle `while` y un bucle `do...while`?**
+
+    - [ ] a) Un bucle `while` ejecuta el bloque de código al menos una vez, mientras que un bucle `do...while` no lo hace.
+    - [x] b) Un bucle `do...while` ejecuta el bloque de código al menos una vez, mientras que un bucle `while` no lo hace. //correcto
+    - [ ] c) Un bucle `while` y un bucle `do...while` son exactamente iguales y no tienen diferencias.
+    - [ ] d) Un bucle `while` comprueba la condición después de ejecutar el bloque de código, mientras que un bucle `do...while` la comprueba antes.
+
+2. **¿En qué situación preferirías usar un bucle `do...while` en lugar de un bucle `while`?**
+
+    - [ ] a) Cuando necesitas ejecutar un bloque de código cero o más veces.
+    - [x] b) Cuando necesitas ejecutar un bloque de código al menos una vez antes de comprobar la condición. //correcto
+    - [ ] c) Cuando se conoce de antemano el número de iteraciones.
+    - [ ] d) Cuando quieres asegurarte de que el bucle nunca se ejecute.
+
+3. **¿Qué sucede si la condición de un bucle `while` es inicialmente `false`?**
+
+    - [ ] a) El bloque de código dentro del bucle se ejecutará una vez y luego se detendrá.
+    - [x] b) El bloque de código dentro del bucle no se ejecutará en absoluto. //correcto
+    - [ ] c) El bloque de código dentro del bucle se ejecutará indefinidamente.
+    - [ ] d) El bucle terminará inmediatamente y generará un error.
+
+[☝️](#trabajar-con-bucles)
+
+---
+
+## Tema 5: ¿Para qué sirven las sentencias `break` y `continue` en los bucles?
+
+La sentencia `break` se utiliza para salir de un bucle antes de tiempo, mientras que la sentencia `continue` se utiliza para saltarse la iteración actual de un bucle y pasar a la siguiente.
+
+A continuación se muestra un ejemplo del uso de la sentencia `break` en un bucle `for`:
+
+- **Example code**
+
+  ```js
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      break;
+    }
+    console.log(i);
+  }
+  ```
+
+En el ejemplo anterior, el bucle comienza a contar desde `0` y, mientras `i` sea menor que `10`, el bucle seguirá ejecutándose.
+
+Dentro del bucle, verificamos si `i` es igual a `5`. Si lo es, utilizamos la instrucción `break` para salir del bucle antes de tiempo. Si no lo es, registramos el valor de `i` en la consola. Por lo tanto, el resultado del código mostrará los números `0`, `1`, `2`, `3` y `4`.
+
+La instrucción `break` es útil cuando quieres salir de un bucle antes de tiempo en función de una condición determinada. Por ejemplo, si estás buscando un valor específico en un array, puedes usar una instrucción `break` para salir del bucle una vez que encuentres el valor.
+
+A veces es posible que quieras saltarte una iteración concreta de un bucle sin salir del bucle por completo. Aquí es donde entra en juego la instrucción `continue`. A continuación, te mostramos un ejemplo del uso de una instrucción `continue` en un bucle `for`:
+
+- **Example code**
+
+  ```js
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      continue;
+    }
+    console.log(i);
+  }
+  ```
+
+Al igual que antes, hemos inicializado `i` en `0` y tenemos una condición que ejecutará el bucle mientras `i` sea menor que `10`.
+
+Dentro del bucle, cuando `i` es igual a `5`, usamos la instrucción `continue` para saltarnos la iteración actual y pasar a la siguiente.
+
+El resultado de este código imprimirá los números `0`, `1`, `2`, `3`, `4`, `6`, `7`, `8` y `9`. El número `5` se omite debido a la instrucción `continue`.
+
+Otra cosa que puedes hacer con las sentencias `break` y `continue` es usar etiquetas para especificar qué bucle quieres interrumpir o continuar.
+
+Esto es útil cuando tienes bucles anidados y quieres controlar el flujo del bucle externo desde dentro del bucle interno.
+
+Aquí hay un ejemplo del uso de etiquetas con la sentencia `break`:
+
+- **Example code**
+
+  ```js
+  outerLoop: for (let i = 0; i < 3; i++) {
+    innerLoop: for (let j = 0; j < 3; j++) {
+      if (i === 1 && j === 1) {
+        break outerLoop;
+      }
+      console.log(`i: ${i}, j: ${j}`);
+    }
+  }
+  ```
+
+En este ejemplo, tenemos un bucle `for` externo etiquetado como `outerLoop` y un bucle `for` interno etiquetado como innerLoop.
+
+Cuando `i` es igual a `1` y `j` es igual a `1`, utilizamos la instrucción `break` con la etiqueta `outerLoop` para salir del bucle externo antes de tiempo. Esto hará que se salgan tanto del bucle interno como del externo.
+
+La salida de este código registrará lo siguiente en la consola:
+
+- **Example code**
+
+  ```bash
+  "i: 0, j: 0"
+  "i: 0, j: 1"
+  "i: 0, j: 2"
+  "i: 1, j: 0"
+  ```
+
+En la mayoría de los casos no necesitarás usar etiquetas con las instrucciones `break` y `continue`, pero es bueno saber que tienes esa opción por si alguna vez la necesitas.
+
+---
+
+## Cuestionario 5
+
+1. **¿Cuál es el propósito de la instrucción `break` en un bucle?**
+
+    - [ ] a) Para saltarse la iteración actual y continuar con la siguiente.
+    - [x] b) Para salir del bucle inmediatamente. //correcto
+    - [ ] c) Para detener la ejecución del programa.
+    - [ ] d) Para reiniciar el bucle desde el principio.
+
+2. **¿Qué sucede cuando se encuentra la instrucción `continue` dentro de un bucle?**
+
+    - [ ] a) El bucle se sale inmediatamente.
+    - [ ] b) El bucle vuelve a empezar desde el principio.
+    - [x] c) Se omite la iteración actual y comienza la siguiente. //correcto
+    - [ ] d) El bucle se detiene.
+
+3. **¿Cuál es el propósito de utilizar etiquetas con las sentencias `break` y `continue`?**
+
+    - [x] a) Para especificar de qué bucle salir o cuál omitir cuando se trabaja con bucles anidados. //correcto
+    - [ ] b) Para nombrar los bucles y facilitar la depuración.
+    - [ ] c) Para reiniciar el bucle desde un punto específico.
+    - [ ] d) Para permitir múltiples sentencias `break` y `continue` dentro del mismo bucle.
+
+[☝️](#trabajar-con-bucles)
+
+---
