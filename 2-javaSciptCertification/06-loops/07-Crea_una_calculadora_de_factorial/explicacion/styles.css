@@ -1,0 +1,389 @@
+/* Reset y variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #e74c3c;
+  --secondary: #3498db;
+  --success: #2ecc71;
+  --warning: #f39c12;
+  --dark: #2c3e50;
+  --light: #ecf0f1;
+  --orange: #e67e22;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Main */
+main {
+  padding: 30px;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section label {
+  font-weight: bold;
+  color: var(--dark);
+}
+
+#numero {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+
+#numero:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+#btn-calcular {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#btn-calcular:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: var(--light);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+#velocidad {
+  width: 100px;
+}
+
+#velocidad-valor {
+  background: var(--secondary);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  min-width: 30px;
+  text-align: center;
+}
+
+#btn-paso,
+#btn-reset {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+#btn-paso {
+  background: var(--success);
+  color: white;
+}
+
+#btn-reset {
+  background: var(--warning);
+  color: white;
+}
+
+#btn-paso:hover,
+#btn-reset:hover {
+  transform: scale(1.05);
+}
+
+/* Visualization - Steps */
+.visualization {
+  margin-bottom: 20px;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.step-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 15px;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.step-box .step-number {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.step-box .step-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.step-box.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.step-box.active .step-number,
+.step-box.active .step-value {
+  color: white;
+}
+
+.step-box.processed {
+  background: #ddd;
+  border-color: #ccc;
+}
+
+.step-box.processed .step-value {
+  color: #999;
+}
+
+/* State Panel */
+.state-panel {
+  background: var(--dark);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.state-panel h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.variables {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.var {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+}
+
+.var-name {
+  color: var(--warning);
+}
+
+.var-value {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.formula {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: 'Courier New', monospace;
+  border-left: 4px solid var(--warning);
+}
+
+.formula code {
+  color: var(--orange);
+  font-size: 1.1rem;
+}
+
+.explanation {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--warning);
+}
+
+.explanation p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Steps History */
+.steps-history {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.steps-history h2 {
+  margin-bottom: 15px;
+  color: var(--dark);
+  font-size: 1.2rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+}
+
+.history-item .multiply {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.history-item .equals {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.history-item .result-value {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Result */
+.result {
+  background: var(--success);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.result h2 {
+  margin-bottom: 10px;
+}
+
+.result-content strong {
+  font-size: 2.5rem;
+  background: white;
+  color: var(--success);
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+/* Footer / Code */
+footer {
+  padding: 30px;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.code-explanation h2 {
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.code-explanation pre {
+  background: var(--dark);
+  color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.code-explanation code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .step-box {
+    min-width: 60px;
+    padding: 10px;
+  }
+
+  .variables {
+    gap: 10px;
+  }
+
+  .var {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,36 @@
+function findLongestWordLength(oracion) {
+  let maxLength = 0;      // Longitud máxima encontrada
+  let currentLength = 0;  // Longitud de la palabra actual
+
+  // Recorrer cada carácter de la oración
+  for (let i = 0; i < oracion.length; i++) {
+
+    // Si el carácter no es un espacio, es parte de una palabra
+    if (oracion[i] !== ' ') {
+      currentLength = currentLength + 1;
+    } else {
+      // Si trouvé un espacio, verifico si la palabra terminó
+      if (currentLength > maxLength) {
+        maxLength = currentLength;
+      }
+      currentLength = 0;  // Reiniciar para la siguiente palabra
+    }
+  }
+
+  // Verificar la última palabra (por si no termina con espacio)
+  if (currentLength > maxLength) {
+    maxLength = currentLength;
+  }
+
+  return maxLength;
+}
+
+// Ejemplos de uso:
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+// Resultado: 6
+
+console.log(findLongestWordLength("Hello World"));
+// Resultado: 5
+
+console.log(findLongestWordLength("A"));
+// Resultado: 1

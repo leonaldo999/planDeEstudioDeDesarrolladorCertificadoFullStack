@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encontrar Palabra Más Larga</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 Encontrar la Palabra Más Larga</h1>
+      <p class="subtitle">Visualización del algoritmo paso a paso</p>
+    </header>
+
+    <main>
+      <!-- Área de entrada -->
+      <section class="input-section">
+        <label for="oracion">Ingresa una oración:</label>
+        <input type="text" id="oracion" placeholder="Escribe una oración..." value="The quick brown fox jumped">
+        <button id="btn-analizar">Analizar</button>
+      </section>
+
+      <!-- Controles de velocidad -->
+      <section class="controls">
+        <label>Velocidad:</label>
+        <input type="range" id="velocidad" min="1" max="10" value="5">
+        <span id="velocidad-valor">5</span>
+        <button id="btn-paso">Siguiente Paso ▶</button>
+        <button id="btn-reset" class="btn-secondary">Reiniciar ↺</button>
+      </section>
+
+      <!-- Visualización principal -->
+      <section class="visualization">
+        <div class="chars-container" id="chars-container">
+          <!-- Los caracteres se generarán aquí -->
+        </div>
+      </section>
+
+      <!-- Estado actual -->
+      <section class="state-panel">
+        <h2>Estado del Algoritmo</h2>
+        <div class="variables">
+          <div class="var" id="var-i">
+            <span class="var-name">i</span> = <span class="var-value">0</span>
+          </div>
+          <div class="var" id="var-current">
+            <span class="var-name">currentLength</span> = <span class="var-value">0</span>
+          </div>
+          <div class="var" id="var-max">
+            <span class="var-name">maxLength</span> = <span class="var-value">0</span>
+          </div>
+        </div>
+
+        <div class="explanation" id="explanation">
+          <p>Ingresa una oración y presiona "Analizar" para comenzar.</p>
+        </div>
+      </section>
+
+      <!-- Resultado -->
+      <section class="result" id="result">
+        <h2>Resultado</h2>
+        <div class="result-content">
+          <p>La palabra más larga tiene: <strong>0</strong> letras</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Explicación del código -->
+    <footer>
+      <section class="code-explanation">
+        <h2>📝 Código Explicado</h2>
+        <pre><code>function findLongestWordLength(oracion) {
+  let maxLength = 0;
+  let currentLength = 0;
+  
+  // Recorrer cada carácter
+  for (let i = 0; i < oracion.length; i++) {
+    if (oracion[i] !== ' ') {
+      currentLength++;
+    } else {
+      if (currentLength > maxLength) {
+        maxLength = currentLength;
+      }
+      currentLength = 0;
+    }
+  }
+  
+  // Verificar última palabra
+  if (currentLength > maxLength) {
+    maxLength = currentLength;
+  }
+  
+  return maxLength;
+}</code></pre>
+      </section>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

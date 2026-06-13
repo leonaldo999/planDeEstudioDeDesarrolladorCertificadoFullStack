@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Festivales - Explicación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>🎪 Simulador de Flujo de Público</h1>
+    <p class="subtitle">Taller de JavaScript - Explicación del Código</p>
+  </header>
+
+  <!-- Navegación -->
+  <nav>
+    <button class="nav-btn active" data-section="intro">Introducción</button>
+    <button class="nav-btn" data-section="datos">Estructura de Datos</button>
+    <button class="nav-btn" data-section="bucles">Tipos de Bucles</button>
+    <button class="nav-btn" data-section="codigo">Código Completo</button>
+    <button class="nav-btn" data-section="demo">Ver Demo</button>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main>
+    <!-- Sección: Introducción -->
+    <section id="intro" class="content-section active">
+      <h2>¿Qué hace este simulador?</h2>
+      <div class="card">
+        <p>Este proyecto <strong>simula el flujo de asistentes</strong> a un festival de música. Imagina que tienes 4
+          puertas (Norte, Este, Sur, Oeste) por donde la gente entra.</p>
+
+        <div class="diagram">
+          <div class="flow-step">
+            <span class="step-number">1</span>
+            <p>Llegan personas a cada puerta</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="flow-step">
+            <span class="step-number">2</span>
+            <p>La puerta procesa según su capacidad</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="flow-step">
+            <span class="step-number">3</span>
+            <p>Si se llena, se deriva a la siguiente puerta</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Conceptos Clave</h3>
+      <ul class="concept-list">
+        <li><strong>Tick:</strong> Un momento específico en el tiempo</li>
+        <li><strong>Capacity:</strong> Cantidad de personas que caben en una puerta</li>
+        <li><strong>Overflow:</strong> Personas que no caben y deben derivarse</li>
+        <li><strong>Queue:</strong> Cola de personas esperando</li>
+      </ul>
+    </section>
+
+    <!-- Sección: Estructura de Datos -->
+    <section id="datos" class="content-section">
+      <h2>Estructura de Datos</h2>
+
+      <div class="card">
+        <h3>Array de Gates (Puertas)</h3>
+        <pre><code>const morningGates = [
+  { id: "North", capacity: 5, queue: [3, 6, 2, 4] },
+  { id: "East", capacity: 3, queue: [2, 4, 3, 5] },
+  { id: "South", capacity: 4, queue: [1, 2, 3, 1] },
+  { id: "West", capacity: 2, queue: [4, 1, 2, 3] }
+];</code></pre>
+
+        <div class="explanation">
+          <p><strong>id:</strong> Nombre de la puerta</p>
+          <p><strong>capacity:</strong> Máxima gente que puede pasar por tick</p>
+          <p><strong>queue:</strong> Array con personas que llegan en cada tick</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ejemplo Visual</h3>
+        <div class="gates-visual">
+          <div class="gate-box north">
+            <span class="gate-name">North</span>
+            <span class="gate-capacity">Cap: 5</span>
+            <span class="gate-queue">[3,6,2,4]</span>
+          </div>
+          <div class="gate-box east">
+            <span class="gate-name">East</span>
+            <span class="gate-capacity">Cap: 3</span>
+            <span class="gate-queue">[2,4,3,5]</span>
+          </div>
+          <div class="gate-box south">
+            <span class="gate-name">South</span>
+            <span class="gate-capacity">Cap: 4</span>
+            <span class="gate-queue">[1,2,3,1]</span>
+          </div>
+          <div class="gate-box west">
+            <span class="gate-name">West</span>
+            <span class="gate-capacity">Cap: 2</span>
+            <span class="gate-queue">[4,1,2,3]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Tipos de Bucles -->
+    <section id="bucles" class="content-section">
+      <h2>Tipos de Bucles en JavaScript</h2>
+
+      <div class="card">
+        <h3>1. Bucle for...of</h3>
+        <p>Se usa para <strong>recorrer colecciones</strong> (arrays) cuando sabes cuántos elementos hay.</p>
+        <pre><code>for (const gate of gates) {
+  summary[gate.id] = 0;
+}</code></pre>
+        <div class="use-case">
+          <strong>Usos principales:</strong>
+          <ul>
+            <li>Inicializar el resumen de throughput</li>
+            <li>Recorrer todas las puertas en cada tick</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2. Bucle while</h3>
+        <p>Se usa cuando <strong>no sabemos cuántas veces</strong> se repetirá. Se ejecuta mientras la condición sea
+          verdadera.</p>
+        <pre><code>while (currentTickQueue > 0 && processed < gate.capacity) {
+  currentTickQueue--;
+  processed++;
+}</code></pre>
+        <div class="use-case">
+          <strong>Usos principales:</strong>
+          <ul>
+            <li>Procesar personas una por una hasta llenar la puerta</li>
+            <li>Controlar los ticks de la simulación</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>3. Bucle for...in</h3>
+        <p>Se usa para <strong>recorrer las propiedades</strong> de un objeto.</p>
+        <pre><code>for (const gate in summary) {
+  console.log(gate + ": " + summary[gate]);
+}</code></pre>
+        <div class="use-case">
+          <strong>Usos principales:</strong>
+          <ul>
+            <li>Mostrar el resumen final</li>
+            <li>Iterar sobre las claves de un objeto</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>4. Operador Módulo (%) - Lógica Circular</h3>
+        <p>Para volver al inicio cuando llegas al final (como un círculo).</p>
+        <pre><code>const nextGateIndex = (currentIndex + 1) % gates.length;
+// Si estás en la última puerta, vuelves a la primera</code></pre>
+        <p><em>Esto crea el efecto de "cola circular" para derivar personas.</em></p>
+      </div>
+    </section>
+
+    <!-- Sección: Código Completo -->
+    <section id="codigo" class="content-section">
+      <h2>Código Completo</h2>
+
+      <div class="code-controls">
+        <button id="show-morning" class="code-btn active">Morning Gates</button>
+        <button id="show-night" class="code-btn">Night Gates</button>
+        <button id="show-functions" class="code-btn active">Funciones</button>
+      </div>
+
+      <div class="code-container">
+        <pre><code id="full-code"></code></pre>
+      </div>
+
+      <div class="card">
+        <h3>Explicación por Pasos</h3>
+        <ol class="steps-list">
+          <li><strong>initializeThroughput:</strong> Crea el objeto para contar procesados</li>
+          <li><strong>processGateFlow:</strong> Procesa gente en una puerta (lógica core)</li>
+          <li><strong>rerouteOverflow:</strong> Deriva el exceso a la siguiente puerta</li>
+          <li><strong>handleGateAtTick:</strong> Controla todo lo que pasa en una puerta en un tick</li>
+          <li><strong>printSummary:</strong> Muestra el resultado final</li>
+          <li><strong>simulateFestival:</strong> Ejecuta la simulación completa</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Sección: Demo Interactiva -->
+    <section id="demo" class="content-section">
+      <h2>Demo Interactiva</h2>
+
+      <div class="demo-controls">
+        <div class="control-group">
+          <label>Seleccionar Turno:</label>
+          <select id="demo-turno">
+            <option value="morning">Morning (Mañana)</option>
+            <option value="night">Night (Noche)</option>
+          </select>
+        </div>
+        <button id="run-demo" class="action-btn">▶ Ejecutar Simulación</button>
+        <button id="reset-demo" class="action-btn secondary">↻ Reiniciar</button>
+      </div>
+
+      <div class="demo-output">
+        <h3>Salida de la Consola:</h3>
+        <pre id="console-output"></pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>🎪 Proyecto creado para aprender JavaScript y lógica de simulación</p>
+  </footer>
+
+  <script src="./simulator.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>

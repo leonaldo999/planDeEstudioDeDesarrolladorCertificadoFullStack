@@ -1,0 +1,282 @@
+/* Variables */
+:root {
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #22d3ee;
+  --success: #10b981;
+  --warning: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--text-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+}
+
+.nav-btn.active {
+  background: var(--primary);
+}
+
+/* Main */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content-section {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tarjetas */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border: 1px solid #334155;
+}
+
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Código */
+pre {
+  background: #0d1117;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+code {
+  color: #7ee787;
+}
+
+/* Diagramas */
+.diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.flow-step {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 120px;
+  border: 2px solid var(--primary);
+}
+
+.step-number {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: var(--primary);
+  border-radius: 50%;
+  line-height: 30px;
+  margin: 0 auto 0.5rem;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+/* Gates Visual */
+.gates-visual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gate-box {
+  background: var(--bg-dark);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid var(--secondary);
+}
+
+.gate-box.north {
+  border-color: #ef4444;
+}
+
+.gate-box.east {
+  border-color: #22c55e;
+}
+
+.gate-box.south {
+  border-color: #3b82f6;
+}
+
+.gate-box.west {
+  border-color: #f59e0b;
+}
+
+.gate-name {
+  display: block;
+  font-weight: bold;
+}
+
+.gate-cap {
+  display: block;
+  color: var(--success);
+  font-size: 0.9rem;
+}
+
+/* Demo */
+.demo-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.demo-controls select {
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--primary);
+  color: var(--text-light);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--success);
+  border: none;
+  color: var(--bg-dark);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+  background: var(--warning);
+}
+
+.demo-output {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#console-output {
+  color: var(--success);
+  white-space: pre-wrap;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}

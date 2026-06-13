@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio: Profile Lookup</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Laboratorio: Profile Lookup</h1>
+
+    <div class="description">
+      <strong>Objetivo:</strong> Buscar información de contactos en una lista.
+      <br>Recibe un nombre y una propiedad, retorna el valor correspondiente.
+    </div>
+
+    <!-- Lista de Contactos Visual -->
+    <div class="contacts-list">
+      <h3>📋 Contactos Disponibles</h3>
+      <div id="contactsVisual"></div>
+    </div>
+
+    <!-- Inputs de búsqueda -->
+    <div class="input-group">
+      <div class="input-wrapper">
+        <label for="nameInput">Nombre a buscar</label>
+        <input type="text" id="nameInput" placeholder="Ej: Akira" value="Akira">
+      </div>
+      <div class="input-wrapper">
+        <label for="propInput">Propiedad</label>
+        <select id="propInput">
+          <option value="firstName">firstName</option>
+          <option value="lastName" selected>lastName</option>
+          <option value="number">number</option>
+          <option value="likes">likes</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="btnEjecutar">Buscar Perfil</button>
+
+    <!-- Resultado -->
+    <div id="resultDisplay" class="result-box">
+      Resultado: <span id="resultValue"></span>
+    </div>
+
+    <!-- Explicación Paso a Paso -->
+    <div id="logContainer" class="steps-log">
+      <h3>Registro de Ejecución</h3>
+      <p style="color: #777;">Presiona el botón para ver cómo funciona la búsqueda...</p>
+      <div id="stepsList"></div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

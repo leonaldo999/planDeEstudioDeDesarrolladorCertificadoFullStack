@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Factorial</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>🧮 Calculadora de Factorial</h1>
+      <p class="subtitle">Visualización del algoritmo paso a paso</p>
+    </header>
+
+    <main>
+      <!-- Sección de entrada -->
+      <section class="input-section">
+        <label for="numero">Ingresa un número (1-20):</label>
+        <input type="number" id="numero" placeholder="Número..." min="1" max="20" value="5">
+        <button id="btn-calcular">Calcular</button>
+      </section>
+
+      <!-- Controles -->
+      <section class="controls">
+        <label>Velocidad:</label>
+        <input type="range" id="velocidad" min="1" max="10" value="5">
+        <span id="velocidad-valor">5</span>
+        <button id="btn-paso">Siguiente Paso ▶</button>
+        <button id="btn-reset" class="btn-secondary">Reiniciar ↺</button>
+      </section>
+
+      <!-- Visualización de pasos -->
+      <section class="visualization">
+        <div class="steps-container" id="steps-container">
+          <!-- Los pasos se generarán aquí -->
+        </div>
+      </section>
+
+      <!-- Estado actual -->
+      <section class="state-panel">
+        <h2>Estado del Algoritmo</h2>
+        <div class="variables">
+          <div class="var" id="var-i">
+            <span class="var-name">i</span> = <span class="var-value">1</span>
+          </div>
+          <div class="var" id="var-result">
+            <span class="var-name">result</span> = <span class="var-value">1</span>
+          </div>
+          <div class="var" id="var-num">
+            <span class="var-name">num</span> = <span class="var-value">5</span>
+          </div>
+        </div>
+
+        <div class="formula" id="formula">
+          <p>Formula: <code>result = result × i</code></p>
+        </div>
+
+        <div class="explanation" id="explanation">
+          <p>Ingresa un número y presiona "Calcular" para comenzar.</p>
+        </div>
+      </section>
+
+      <!-- Pasos acumulados -->
+      <section class="steps-history" id="steps-history">
+        <h2>Historial de Cálculos</h2>
+        <div class="history-list" id="history-list">
+          <!-- Los cálculos previos -->
+        </div>
+      </section>
+
+      <!-- Resultado -->
+      <section class="result" id="result">
+        <h2>Resultado</h2>
+        <div class="result-content">
+          <p>El factorial es: <strong>0</strong></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Explicación del código -->
+    <footer>
+      <section class="code-explanation">
+        <h2>📝 Código Explicado</h2>
+        <pre><code>function factorialCalculator(numero) {
+  let result = 1;
+  
+  // Bucle desde 1 hasta num
+  for (let i = 1; i <= numero; i++) {
+    result = result * i;
+  }
+  
+  return result;
+}</code></pre>
+      </section>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
