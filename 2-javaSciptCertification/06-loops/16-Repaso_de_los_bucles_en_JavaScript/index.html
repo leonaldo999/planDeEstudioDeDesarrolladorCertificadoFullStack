@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de los bucles en JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/jsIcon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de los bucles en JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> Trabajar con bucles</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> break y continue</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        02 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/jsIcon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de los objetos en JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem; border-radius: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;"
+        aria-label="Cambiar tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path
+            d="M12 3.25C12 3.11193 12.1119 3 12.25 3C12.3881 3 12.5 3.11193 12.5 3.25V5.25C12.5 5.38807 12.3881 5.5 12.25 5.5C12.1119 5.5 12 5.38807 12 5.25V3.25Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C14.4853 18.5 16.5 16.4853 16.5 14C16.5 11.5147 14.4853 9.5 12 9.5C9.51472 9.5 7.5 11.5147 7.5 14C7.5 16.4853 9.51472 18.5 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C12 18.3619 12.1119 18.25 12.25 18.25H14.25C14.3881 18.25 14.5 18.3619 14.5 18.5C14.5 18.6381 14.3881 18.75 14.25 18.75H12.25C12.1119 18.75 12 18.6381 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M4.75 12C4.75 11.8619 4.86193 11.75 5 11.75H7C7.13807 11.75 7.25 11.8619 7.25 12C7.25 12.1381 7.13807 12.25 7 12.25H5C4.86193 12.25 4.75 12.1381 4.75 12Z"
+            fill="currentColor" />
+          <path
+            d="M17 12C17 11.8619 17.1119 11.75 17.25 11.75H19.25C19.3881 11.75 19.5 11.8619 19.5 12C19.5 12.1381 19.3881 12.25 19.25 12.25H17.25C17.1119 12.25 17 12.1381 17 12Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 6.21967C6.51256 5.92678 6.98744 5.92678 7.28033 6.21967L8.28033 7.21967C8.57322 7.51256 8.57322 7.98744 8.28033 8.28033C7.98744 8.57322 7.51256 8.57322 7.21967 8.28033L6.21967 7.28033C5.92678 6.98744 5.92678 6.51256 6.21967 6.21967Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 15.7803C16.0732 15.4874 16.5481 15.4874 16.841 15.7803L17.841 16.7803C18.1339 17.0732 18.1339 17.5481 17.841 17.841C17.5481 18.1339 17.0732 18.1339 16.7803 17.841L15.7803 16.841C15.4874 16.5481 15.4874 16.0732 15.7803 15.7803Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 17.7803C5.92678 17.4874 5.92678 17.0126 6.21967 16.7197L7.21967 15.7197C7.51256 15.4268 7.98744 15.4268 8.28033 15.7197C8.57322 16.0126 8.57322 16.4874 8.28033 16.7803L7.28033 17.7803C6.98744 18.0732 6.51256 18.0732 6.21967 17.7803Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 8.21967C16.0732 7.92678 16.5481 7.92678 16.841 8.21967L17.841 9.21967C18.1339 9.51256 18.1339 9.98744 17.841 10.2803C17.5481 10.5732 17.0732 10.5732 16.7803 10.2803L15.7803 9.28033C15.4874 8.98744 15.4874 8.51256 15.7803 8.21967Z"
+            fill="currentColor" />
+        </svg>
+        Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta sección, repasaremos los conceptos básicos sobre los bucles en JavaScript, que hemos visto en
+          secciones anteriores. Los bucles son estructuras de control que nos permiten repetir un bloque de código
+          varias veces, lo que es útil para realizar tareas repetitivas sin tener que escribir el mismo código una y
+          otra vez.
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: Trabajar con bucles</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Bucle <mark>for</mark></strong>: Este tipo de bucle se utiliza para repetir un bloque de código un
+              número
+              determinado de veces. Este bucle se divide en tres partes: la instrucción de inicialización, la condición
+              y la instrucción de incremento/decremento. La instrucción de inicialización se ejecuta antes de que
+              comience el bucle. Normalmente se utiliza para inicializar una variable contadora. La condición se evalúa
+              antes de cada iteración del bucle. Una iteración es una sola pasada por el bucle. Si la condición es
+              <mark>true</mark>,
+              se ejecuta el bloque de código dentro del bucle. Si la condición es <mark>false</mark>, el bucle se
+              detiene y se pasa
+              al siguiente bloque de código. La instrucción de incremento/decremento se ejecuta después de cada
+              iteración del bucle. Por lo general, se utiliza para incrementar o decrementar la variable contadora.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-for-loop-review">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">for_review.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 2px;">
+                      <div>🟢 <code>i = 0</code> ➔ Inicialización única ➔ ¿<code>0 &lt; 5</code>? <span
+                          style="color: #a6e22e;">True</span> ➔ Ejecuta bloque e incrementa</div>
+                      <div>🟢 <code>i = 1</code> ➔ Siguiente iteración ➔ ¿<code>1 &lt; 5</code>? <span
+                          style="color: #a6e22e;">True</span> ➔ Ejecuta bloque e incrementa</div>
+                      <div>🟢 <code>i = 2</code> ➔ Siguiente iteración ➔ ¿<code>2 &lt; 5</code>? <span
+                          style="color: #a6e22e;">True</span> ➔ Ejecuta bloque e incrementa</div>
+                      <div>🟢 <code>i = 3</code> ➔ Siguiente iteración ➔ ¿<code>3 &lt; 5</code>? <span
+                          style="color: #a6e22e;">True</span> ➔ Ejecuta bloque e incrementa</div>
+                      <div>🟢 <code>i = 4</code> ➔ Siguiente iteración ➔ ¿<code>4 &lt; 5</code>? <span
+                          style="color: #a6e22e;">True</span> ➔ Ejecuta bloque e incrementa</div>
+                      <div style="color: #f92672; font-weight: bold;">🚨 i = 5 ➔ Condición final de parada ➔ ¿5 &lt; 5?
+                        False ➔ Fin del ciclo</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      0<br>
+                      1<br>
+                      2<br>
+                      3<br>
+                      4
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code style="color: yellow;">return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Bucle <mark>for...of</mark></strong>: Este tipo de bucle se utiliza cuando necesitas recorrer los
+              valores de un
+              objeto iterable. Algunos ejemplos de objetos iterables son las matrices y las cadenas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-for-of-loop-iterable">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">for_of_iterable.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-property">of</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 2px;">
+                      <div>🟢 Extrae elemento en posición 0 ➔ variable <code>num = 1</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 1 línea</span></div>
+                      <div>🟢 Extrae elemento en posición 1 ➔ variable <code>num = 2</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 1 línea</span></div>
+                      <div>🟢 Extrae elemento en posición 2 ➔ variable <code>num = 3</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 1 línea</span></div>
+                      <div>🟢 Extrae elemento en posición 3 ➔ variable <code>num = 4</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 1 línea</span></div>
+                      <div>🟢 Extrae elemento en posición 4 ➔ variable <code>num = 5</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 1 línea</span></div>
+                      <div style="color: #f92672; font-weight: bold;">🚨 Fin de la colección ➔ No quedan más elementos
+                        iterables ➔ El bucle se cierra.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      1<br>
+                      2<br>
+                      3<br>
+                      4<br>
+                      5
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code style="color: yellow;">return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Bucle <mark>for...in</mark></strong>: Este tipo de bucle es ideal cuando necesitas recorrer las
+              propiedades de un objeto. Este bucle recorrerá todas las propiedades enumerables de un objeto, incluidas
+              las propiedades heredadas y las propiedades no numéricas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-for-in-loop-properties">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">for_in_object.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruit</span> = <span class="tk-punctuation">{</span>
+  name<span class="tk-punctuation">:</span> <span class="tk-string">'apple'</span><span class="tk-punctuation">,</span>
+  color<span class="tk-punctuation">:</span> <span class="tk-string">'red'</span><span class="tk-punctuation">,</span>
+  price<span class="tk-punctuation">:</span> <span class="tk-number">0.99</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">prop</span> <span class="tk-property">in</span> <span class="tk-selector">fruit</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruit</span><span class="tk-punctuation">[</span><span class="tk-selector">prop</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 2px;">
+                      <div>🟢 Propiedad 1 ➔ <code>prop = "name"</code> ➔ Evalúa <code>fruit["name"]</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 'apple'</span></div>
+                      <div>🟢 Propiedad 2 ➔ <code>prop = "color"</code> ➔ Evalúa <code>fruit["color"]</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 'red'</span></div>
+                      <div>🟢 Propiedad 3 ➔ <code>prop = "price"</code> ➔ Evalúa <code>fruit["price"]</code> ➔ <span
+                          style="color: #a6e22e;">Imprime 0.99</span></div>
+                      <div style="color: #f92672; font-weight: bold;">🚨 Fin de propiedades enumerables ➔ No quedan
+                        llaves pendientes ➔ El bucle finaliza.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      apple<br>
+                      red<br>
+                      0.99
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code>return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>`
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Bucle <mark>while</mark></strong>: Este tipo de bucle ejecutará un bloque de código mientras la
+              condición sea <mark>True</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-while-loop-structure">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">while_loop.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">while</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> <span class="tk-operator">&gt;</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-selector">i</span><span class="tk-operator">--</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 2px;">
+                      <div>🟢 ¿<code>5 &gt; 0</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime 5 ➔ Decrementa
+                        a <code>i = 4</code></div>
+                      <div>🟢 ¿<code>4 &gt; 0</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime 4 ➔ Decrementa
+                        a <code>i = 3</code></div>
+                      <div>🟢 ¿<code>3 &gt; 0</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime 3 ➔ Decrementa
+                        a <code>i = 2</code></div>
+                      <div>🟢 ¿<code>2 &gt; 0</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime 2 ➔ Decrementa
+                        a <code>i = 1</code></div>
+                      <div>🟢 ¿<code>1 &gt; 0</code>? <span style="color: #a6e22e;">True</span> ➔ Imprime 1 ➔ Decrementa
+                        a <code>i = 0</code></div>
+                      <div style="color: #f92672; font-weight: bold;">🚨 ¿0 &gt; 0? False ➔ La condición se rompe antes
+                        de entrar al bloque ➔ Fin de la ejecución</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      5<br>
+                      4<br>
+                      3<br>
+                      2<br>
+                      1
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code style="color: yellow;">return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Bucle <mark>do...while</mark></strong>: Este tipo de bucle ejecutará el bloque de código al menos
+              una vez antes de comprobar la condición.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-do-while-loop-validation">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">do_while_validation.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">userInput</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">do</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">userInput</span> = <span class="tk-value">prompt</span><span class="tk-punctuation">(</span><span class="tk-string">"Please enter a number between 1 and 10"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span> <span class="tk-property">while</span> <span class="tk-punctuation">(</span><span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-selector">userInput</span><span class="tk-punctuation">)</span> <span class="tk-operator">&lt;</span> <span class="tk-number">1</span> <span class="tk-operator">||</span> <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-selector">userInput</span><span class="tk-punctuation">)</span> <span class="tk-operator">&gt;</span> <span class="tk-number">10</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-value">alert</span><span class="tk-punctuation">(</span><span class="tk-string">"You entered a valid number!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong>Paso 1:</strong> Se ejecuta bloque de forma incondicional ➔ Se abre
+                        <code>prompt()</code>
+                      </div>
+                      <div style="padding-left: 10px; color: #ffbd2e;">↳ <i>Simulación: Usuario escribe "15"</i></div>
+                      <div>🔄 <strong>Paso 2:</strong> Evalúa post-condición: ¿<code>15 &lt; 1 || 15 &gt; 10</code>? ➔
+                        <code>False || True</code> ➔ <span style="color: #66d9ef;">True</span> ➔ ¡Vuelve a iterar!
+                      </div>
+
+                      <div style="margin-top: 4px;">🟢 <strong>Paso 3:</strong> Segunda vuelta obligada ➔ Se abre de
+                        nuevo <code>prompt()</code></div>
+                      <div style="padding-left: 10px; color: #ffbd2e;">↳ <i>Simulación: Usuario escribe "7"</i></div>
+                      <div>🚨 <strong>Paso 4:</strong> Evalúa post-condición: ¿<code>7 &lt; 1 || 7 &gt; 10</code>? ➔
+                        <code>False || False</code> ➔ <span style="color: #f92672;">False</span> ➔ ¡Bucle roto!
+                      </div>
+
+                      <div style="margin-top: 4px; color: #a6e22e; font-weight: bold;">➔ El motor salta a la línea 7 y
+                        despliega el alert().</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">WINDOW INTERACTION LOG:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      [Prompt Spawned] ➔ Input gathered: "15"<br>
+                      [Prompt Spawned] ➔ Input gathered: "7"<br>
+                      <span style="color: #a6e22e;">[Alert Triggered] ➔ "You entered a valid number!"</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code style="color: yellow;">return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Instrucciones <mark>break</mark> y <mark>continue</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: La instrucción <mark>break</mark> se utiliza para salir de un bucle antes de
+              tiempo, mientras que la instrucción <mark>continue</mark> se utiliza para saltarse la iteración actual de
+              un bucle y pasar a la siguiente.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-break-continue-control">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">break_continue.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// Example of break statement</span>
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> === <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">break</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// Output: 0, 1, 2, 3, and 4</span>
+
+<span class="tk-comment">// Example of continue statement </span>
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-selector">i</span> === <span class="tk-number">5</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">continue</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">i</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// Output: 0, 1, 2, 3, 4, 6, 7, 8, and 9</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Seguimiento Matricial Combinado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🛑 <strong>Bloque 1 (break):</strong> Imprime consecutivamente cuando
+                        <code>i = 0, 1, 2, 3, 4</code>. Al llegar a <code>i = 5</code>, se ejecuta la línea 4 ➔ El bucle
+                        se destruye por completo. Las vueltas de la 5 a la 9 jamás ocurren.
+                      </div>
+                      <div>🔄 <strong>Bloque 2 (continue):</strong> Imprime con éxito de <code>0</code> a
+                        <code>4</code>. Al llegar a <code>i = 5</code>, la línea 14 cancela el console.log y salta a la
+                        cabecera ➔ El bucle continúa de <code>6</code> a <code>9</code> de forma normal.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                      <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE (BREAK):</div>
+                      <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">0<br>1<br>2<br>3<br>4<br><span
+                          style="color: #ff5f56; font-weight: bold;">[Bucle Terminado]</span></div>
+                    </div>
+                    <div>
+                      <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CONSOLE (CONTINUE):</div>
+                      <div style="color: #f8f8f2; font-size: 11px; line-height: 1.4;">0<br>1<br>2<br>3<br>4<br><span
+                          style="color: #66d9ef; font-weight: bold;">[5 Omitido]</span><br>6<br>7<br>8<br>9</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+                etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+                extraído y aislado dentro de su propia función independiente, utilizando una sentencia
+                <code style="color: yellow;">return</code> para salir limpiamente del proceso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </div><!-- /.page-wrapper -->
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>
