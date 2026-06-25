@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+
+  <!-- Open Graph -->
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con conceptos de calidad del código y ejecución</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con conceptos de calidad del código y ejecución</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, exploraremos conceptos clave relacionados con la calidad del código y la ejecución en
+        JavaScript. Estos conceptos son fundamentales para escribir código limpio, eficiente y mantenible.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué son los linters y los formateadores, y cómo pueden ayudarte a mantener la
+        consistencia del código?
+      </h2>
+
+      <p>
+        En el mundo del desarrollo de software, es importante mantener un código limpio, consistente y libre de errores.
+        Aquí es donde entran en juego los <strong>linters</strong> y los <strong>formateadores</strong>. Estas
+        herramientas son
+        esenciales para que los
+        desarrolladores garanticen la calidad y la consistencia del código en todos los proyectos y equipos.
+      </p>
+      <p>
+        Comencemos con los <strong>linters</strong>. Un <strong>linter</strong> es una herramienta de análisis estático
+        de código que
+        señala errores de
+        programación, bugs, errores de estilo y construcciones sospechosas. El término <mark>lint</mark> proviene de una
+        utilidad
+        de <strong>Unix</strong> que examina el código fuente del lenguaje <strong>C</strong>.
+      </p>
+      <p>
+        Hoy en día existen <strong>linters</strong> para la mayoría de los lenguajes de programación, incluido
+        JavaScript. Los <strong>linters</strong>
+        ayudan de varias maneras. En primer lugar, detectan errores potenciales antes de la ejecución. Por ejemplo, un
+        <strong>linter</strong> podría señalar el uso de una variable no definida o una función que se invoca con un
+        número incorrecto de
+        argumentos. También hacen cumplir los estándares de codificación y las mejores prácticas. Esto puede incluir
+        reglas sobre la sangría, el uso de punto y coma o la longitud máxima permitida de una línea. Por último, ayudan
+        a mantener la coherencia en todo el código, especialmente cuando varios desarrolladores trabajan en el mismo
+        proyecto.
+      </p>
+      <p>
+        Un <strong>linter</strong> popular para JavaScript es <mark>ESLint</mark>. A continuación, se muestra un ejemplo
+        sencillo de lo que
+        <mark>ESLint</mark>
+        podría señalar:
+      </p>
+
+      <div class="ide-container" id="ide-js-code-quality-eslint-linter">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">linter_test.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">doSomething</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-selector">x</span> <span class="tk-punctuation">+</span> <span class="tk-selector">z</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🔴 <span style="color: #f92672; font-weight: bold;">Error [no-undef]:</span> En la línea 2, la
+                      variable <code>z</code> es leída pero no ha sido definida en ningún ámbito accesible (local, de
+                      clausura o global), lo que arrojará un <code>ReferenceError</code> en tiempo de ejecución.</div>
+                    <div>🟡 <span style="color: #ffbd2e; font-weight: bold;">Advertencia [semi]:</span> En la línea 2,
+                      falta el carácter de terminación de sentencia (<code>;</code>). Aunque el mecanismo ASI (Inserción
+                      Automática de Puntos y Comas) de JavaScript puede resolverlo, viola las reglas de estilo
+                      consistentes del proyecto.</div>
+                  </div>
+                </div>
+
+                <div style="background: #1e1e1e; padding: 10px; border-radius: 4px; border: 1px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ESLINT
+                    DIAGNOSTICS:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5; font-family: var(--sp-font-code);">
+                    ✖ 2:14 <span style="color: #f92672;">error</span> 'z' is not defined <span
+                      style="color: #75715e;">no-undef</span><br>
+                    ⚠ 2:15 <span style="color: #ffbd2e;">warning</span> Missing semicolon <span
+                      style="color: #75715e;">semi</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code>return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, la variable <mark>z</mark> no está declarada, por lo que <mark>ESLint</mark> señalaría el error
+        <mark>z</mark> no está definida.
+        Además, a la última instrucción le falta un punto y coma, lo que <mark>ESLint</mark> también podría señalar en
+        el editor de
+        código.
+      </p>
+      <p>
+        Por otro lado, los formateadores son herramientas que formatean automáticamente tu código para que cumpla con
+        una guía de estilo específica. Si bien los <strong>linters</strong> a menudo pueden corregir automáticamente
+        algunos problemas,
+        los formateadores están diseñados específicamente para reescribir tu código a fin de que se ajuste a un estilo
+        predeterminado.
+      </p>
+      <p>
+        Los formateadores garantizan un estilo de código consistente en todo un proyecto o equipo, independientemente de
+        las preferencias individuales de los desarrolladores. También ahorran tiempo y energía mental que, de otra
+        manera, se dedicaría al formateo manual. Por último, pueden hacer que las revisiones de código sean más
+        eficientes al eliminar las discusiones sobre el estilo del código.
+      </p>
+      <p>
+        Un formateador popular para JavaScript es <mark>Prettier</mark>. A continuación, se muestra un ejemplo de cómo
+        <mark>Prettier</mark>
+        podría formatear el código. Aquí está el código antes del formateo:
+      </p>
+
+      <div class="ide-container" id="ide-js-code-quality-prettier-before">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">unformatted.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">longFunction</span><span class="tk-punctuation">(</span>
+  <span class="tk-selector">argument1</span><span class="tk-punctuation,">,</span> 
+  <span class="tk-selector">argument2</span><span class="tk-punctuation,">,</span>
+  <span class="tk-selector">argument3</span>
+<span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span><span class="tk-property">return</span> <span class="tk-selector">argument1</span> <span class="tk-punctuation">+</span> <span class="tk-selector">argument2</span> <span class="tk-punctuation">+</span> <span class="tk-selector">argument3</span><span class="tk-punctuation">;</span><span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟡 <span style="color: #ffbd2e; font-weight: bold;">Estructura colapsada:</span> La línea de
+                      retorno <code>{return argument1...}</code> se encuentra compactada en una sola línea junto con las
+                      llaves de cierre de la función, reduciendo la claridad visual.</div>
+                    <div>🟡 <span style="color: #ffbd2e; font-weight: bold;">Manejo de argumentos:</span> Los parámetros
+                      se distribuyen verticalmente, pero el cuerpo de la función rompe la consistencia de saltos de
+                      línea y sangrías (*indentation*) recomendada para bloques de código legibles.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PRETTIER STATUS:
+                    CODE UNFORMATTED</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    ℹ El código es sintácticamente válido, pero no cumple con la regla de longitud máxima de línea ni
+                    con las pautas estandarizadas de espaciado estructural.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code>return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Y luego, con un formato más atractivo:
+      </p>
+
+      <div class="ide-container" id="ide-js-code-quality-prettier-after">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">formatted.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">longFunction</span><span class="tk-punctuation">(</span><span class="tk-selector">argument1</span><span class="tk-punctuation,">,</span> <span class="tk-selector">argument2</span><span class="tk-punctuation,">,</span> <span class="tk-selector">argument3</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-selector">argument1</span> <span class="tk-punctuation">+</span> <span class="tk-selector">argument2</span> <span class="tk-punctuation">+</span> <span class="tk-selector">argument3</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Estructura Limpia:</strong> Prettier detectó que los tres argumentos caben
+                      perfectamente dentro de los márgenes estándar de la línea 1, unificándolos horizontalmente con un
+                      espaciado simétrico tras cada coma.</div>
+                    <div>🟢 <strong>Bloque Aislado:</strong> La sentencia de retorno ha sido empujada hacia abajo (línea
+                      2) y recibe una sangría idéntica de 2 espacios. La llave de cierre ocupa de forma exclusiva la
+                      línea 3, estructurando el código de acuerdo a los estándares profesionales de la industria.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PRETTIER STATUS:
+                    SUCCESS (100% PASS)</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    ✔ Estilo consistente.<br>
+                    ✔ Sangría corregida automáticamente.<br>
+                    ✔ Distribución óptima para lecturas de código veloces.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code>return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Tanto los <strong>linters</strong> como los <strong>formateadores</strong> pueden integrarse en tu flujo de
+        trabajo de desarrollo de diversas
+        maneras. Pueden incluirse en tu proceso de compilación o agregarse como complementos a tu editor de texto o IDE,
+        proporcionando retroalimentación en tiempo real mientras programas. El uso conjunto de <strong>linters</strong>
+        y <strong>formateadores</strong>
+        puede mejorar significativamente la calidad y la consistencia del código. Por ejemplo, podrías usar
+        <mark>ESLint</mark> para
+        detectar posibles errores y hacer cumplir ciertas prácticas de programación, y luego usar <mark>Prettier</mark>
+        para
+        encargarse de todas las tareas de formateo.
+      </p>
+      <p>
+        Muchos equipos de desarrollo configuran estas herramientas como parte de la configuración de sus proyectos, a
+        menudo con hooks de pre-commit que ejecutan el <strong>linter</strong> y el formateador antes de permitir que se
+        envíe el código.
+        Esto garantiza que todo el código en el repositorio cumpla con los estándares de calidad y estilo del equipo.
+      </p>
+      <p>
+        En resumen, los <strong>linters</strong> y los <strong>formateadores</strong> son herramientas poderosas que
+        ayudan a mantener la calidad del
+        código, detectar posibles errores a tiempo y garantizar la coherencia en todas las bases de código. Al
+        automatizar estos aspectos de la revisión de código, permiten a los desarrolladores enfocarse más en resolver
+        problemas y menos en debatir sobre el estilo del código.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el objetivo principal de un linter?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Formatear el código automáticamente.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Compilar el código.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Señalar posibles errores y problemas de estilo.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Ejecutar pruebas unitarias.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una ventaja de usar un formateador de código?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Detecta errores en tiempo de ejecución.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Garantiza un estilo de código consistente en todo el proyecto.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Mejora el rendimiento del código.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Agrega nuevas funciones al código base.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué etapa del proceso de desarrollo podrías integrar un linter?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Solo durante la configuración inicial del proyecto.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Solo durante la revisión final del código.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Como parte del proceso de compilación, mediante un complemento para tu editor de texto o IDE, un hook de
+            pre-commit antes de que el código se pueda enviar al repositorio, etc.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Después de que el código se haya implementado en producción.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué es la administración de memoria y cómo funciona en JavaScript?
+      </h2>
+
+      <p>
+        La administración de memoria es un concepto esencial en la programación, pero puede resultar un poco confuso
+        para los principiantes; así que vamos a explicarlo en términos sencillos.
+      </p>
+      <p>
+        Cuando ejecutas un programa, incluido el código <strong>JavaScript</strong> en un navegador web, este necesita
+        memoria para
+        almacenar toda la información con la que trabaja. Esto incluye variables, funciones, objetos; básicamente, todo
+        lo que tu código crea y utiliza. La gestión de memoria es el proceso de controlar esta memoria, asignarla cuando
+        sea necesario y liberarla cuando ya no se necesite. En algunos lenguajes de programación, los desarrolladores
+        tienen que gestionar la memoria manualmente. Deben indicarle explícitamente a la computadora cuándo asignar
+        memoria para nuevos elementos y cuándo liberar la memoria que ya no se necesita. Esto puede ser muy útil, pero
+        también complicado, ya que olvidarse de liberar memoria puede provocar fugas de memoria.
+      </p>
+      <p>
+        <strong>JavaScript</strong>, sin embargo, utiliza una gestión automática de la memoria. Esto significa que
+        <strong>JavaScript</strong> <em>(más
+          específicamente, el motor de <strong>JavaScript</strong> de tu navegador web)</em> se encarga de la asignación
+        y desasignación de
+        memoria por ti. No tienes que liberar memoria explícitamente en tu código. A este proceso automático se le suele
+        llamar recolección de basura.
+      </p>
+      <p>
+        Así es como funciona, en términos sencillos. La primera asignación ocurre cuando creas una variable, un objeto o
+        una función en tu código <strong>JavaScript</strong>; la memoria se asigna automáticamente para almacenarlos.
+        Luego, utilizas
+        esta memoria asignada cuando trabajas con esas variables, objetos o funciones en tu código.
+      </p>
+      <p>
+        El motor de <strong>JavaScript</strong> cuenta con métodos ingeniosos para determinar cuándo algo en la memoria
+        ya no es
+        necesario. Por lo general, si tu programa ya no tiene forma de acceder a un dato o utilizarlo, se considera que
+        ya no es necesario. Periódicamente, el recolector de basura se ejecuta, identifica la memoria que ya no se
+        necesita y la libera, dejándola disponible para su uso futuro. Este proceso ocurre automáticamente, lo cual es
+        genial porque significa que no tienes que preocuparte por administrar la memoria tú mismo.
+      </p>
+      <p>
+        Sin embargo, sigue siendo importante entender este concepto porque, a veces, puedes mantener accidentalmente
+        referencias a elementos que ya no necesitas, lo que impide que el recolector de basura libere esa memoria. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-memory-management-closures">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">memory_leak.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">createLargeArray</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">largeArray</span> = <span class="tk-property">new</span> <span class="tk-value">Array</span><span class="tk-punctuation">(</span><span class="tk-number">1000000</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">return</span> <span class="tk-property">function</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">largeArray</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">printArrayLength</span> = <span class="tk-value">createLargeArray</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">printArrayLength</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Asignación en Heap (Línea 2):</strong> Se reservan $1,000,000$ de celdas vacías en
+                      la memoria dinámica. El identificador <code>largeArray</code> apunta directamente a este espacio.
+                    </div>
+                    <div>🟢 <strong>Retención por Clausura (Línea 8):</strong> Al asignarse la función interna a
+                      <code>printArrayLength</code> en el ámbito global, se crea un enlace persistente hacia el entorno
+                      léxico de <code>createLargeArray</code>. El recolector de basura no puede liberar la memoria
+                      porque el objeto sigue siendo alcanzable desde la raíz global a través de la función vinculada.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">GARBAGE COLLECTOR
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Root Element: <code>window.printArrayLength</code> ➔ <span style="color: #a6e22e;">ALIVE</span>
+                    (Retiene referencia)<br>
+                    • Scope Environment: <code>largeArray</code> ➔ <span style="color: #f92672;">BLOCKED</span> (No se
+                    puede liberar/barrer)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code>return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, incluso después de que <mark>createLargeArray</mark> termine de ejecutarse,
+        <mark>largeArray</mark> no puede ser
+        eliminado por el recolector de basura porque la función devuelta todavía tiene acceso a él. Esto es un cierre, y
+        aunque los cierres son útiles, a veces pueden provocar un mayor uso de memoria de lo que cabría esperar.
+        Aprenderás más sobre los cierres en lecciones futuras.
+      </p>
+      <p>
+        Como principiante, no necesitas preocuparte demasiado por las complejidades de la administración de memoria. La
+        recolección automática de basura de JavaScript se encarga de casi todo por ti. Sin embargo, a medida que avances
+        en tu aprendizaje de JavaScript, comprender estos conceptos te ayudará a escribir código más eficiente,
+        especialmente para aplicaciones más grandes o cuando trabajes con recursos limitados.
+      </p>
+      <p>
+        Recuerda que las buenas prácticas de programación, como evitar las variables globales siempre que sea posible y
+        estar atento a lo que encierran tus funciones, pueden ayudar al motor de JavaScript a administrar la memoria de
+        manera más eficiente.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            En JavaScript, ¿quién es el principal responsable de administrar la memoria?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            El desarrollador.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            El motor de JavaScript.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            El sistema operativo.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            El navegador web.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se llama el proceso mediante el cual JavaScript libera automáticamente la memoria que ya no se
+            necesita?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Asignación de memoria.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Recolección de basura.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Fragmentación de memoria.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Desbordamiento de pila.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una posible desventaja de la gestión automática de memoria de
+            JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Requiere escribir más código.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            A veces puede mantener asignada memoria que ya no se necesita.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Hace que el programa se ejecute más lento.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Requiere la desasignación manual de memoria.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 3 -->
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Qué son los cierres y cómo funcionan?
+      </h2>
+
+      <p>
+        Los cierres son una de las características más poderosas y, a menudo, menos comprendidas de JavaScript. En
+        esencia, un cierre es una función que tiene acceso a las variables de su ámbito léxico externo, incluso después
+        de que la función externa haya finalizado. Esto puede parecer complejo, pero es un concepto fundamental que
+        permite muchos patrones de programación avanzados en JavaScript.
+      </p>
+      <p>
+        Para entender los cierres, comencemos con un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-closures-demo">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">closures.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">outerFunction</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">y</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">function</span> <span class="tk-value">innerFunction</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span> + <span class="tk-selector">y</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">return</span> <span class="tk-selector">innerFunction</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">closure</span> = <span class="tk-value">outerFunction</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">closure</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento del Ámbito Léxico</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Variables en Memoria Enlazada:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Ámbito Externo (Líneas 1-2):</strong> Se asigna el
+                      parámetro <code class="preview-inline-code">x = 5</code> y la variable interna <code
+                        class="preview-inline-code">y = 10</code> dentro de la ejecución de <code
+                        class="preview-inline-code">outerFunction</code>.</div>
+                    <div>🟢 <strong class="preview-bold-label">Persistencia Léxica (Línea 9):</strong> Al retornar <code
+                        class="preview-inline-code">innerFunction</code> y asignarla a la variable <code
+                        class="preview-inline-code">closure</code>, se encapsula el acceso a estas variables, impidiendo
+                      que el recolector de basura las destruya aunque la función externa haya terminado.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">GARBAGE COLLECTOR
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Root Element: <code>window.closure</code> ➔ <span style="color: #a6e22e;">ALIVE</span> (Retiene
+                    referencia)<br>
+                    • Scope Environment: <code>x, y</code> ➔ <span style="color: #f92672;">BLOCKED</span> (No se pueden
+                    liberar porque la función interna depende de ellos)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Concepto clave:</strong> Un cierre se produce de forma automática
+              cuando defines una función dentro de otra, dándole permiso a la función interna de recordar y usar las
+              variables del contenedor superior en el futuro.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, <mark>outerFunction</mark> toma un parámetro <mark>x</mark> y define una variable local
+        <mark>y</mark>. A continuación, define una
+        función interna <mark>innerFunction</mark> que utiliza tanto <mark>x</mark> como <mark>y</mark>. Finalmente,
+        devuelve <mark>innerFunction</mark>. Cuando llamamos a
+        <mark>outerFunction(5)</mark>, esta devuelve <mark>innerFunction</mark>, a la que asignamos a la variable
+        <mark>closure</mark>. Cuando más tarde
+        llamamos a <mark>closure()</mark>, esta sigue teniendo acceso a <mark>x</mark> e <mark>y</mark> de <mark>outerFunction</mark>, aunque
+        <mark>outerFunction</mark> ya haya
+        terminado de ejecutarse. Esta es la esencia de un cierre.
+      </p>
+      <p>
+        La función interna mantiene una referencia a su entorno léxico externo, conservando el acceso a las variables de
+        ese entorno incluso después de que la función externa haya finalizado.
+      </p>
+      <p>
+        Los cierres son particularmente útiles para crear variables y funciones privadas. Considera este ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-closures-counter">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">counter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">createCounter</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">count</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">return</span> <span class="tk-property">function</span> <span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">count</span>++<span class="tk-punctuation">;</span>
+    <span class="tk-property">return</span> <span class="tk-selector">count</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">counter</span> = <span class="tk-value">createCounter</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">counter</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">counter</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Estado de Encapsulamiento Léxico</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Variables Privadas en Scope:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Variable Protegida (Línea 2):</strong> La variable <code
+                        class="preview-inline-code">count</code> está totalmente aislada del entorno global. No existe
+                      forma de leerla o modificarla directamente desde el exterior de la función.</div>
+                    <div>🟢 <strong class="preview-bold-label">Persistencia de Estado (Líneas 10-11):</strong> Cada
+                      ejecución de <code class="preview-inline-code">counter()</code> accede al mismo espacio de memoria
+                      retenido. El valor persiste entre llamadas, incrementándose secuencialmente de 1 a 2.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">GARBAGE COLLECTOR
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Root Element: <code>window.counter</code> ➔ <span style="color: #a6e22e;">ALIVE</span>
+                    (Instanciado)<br>
+                    • Encapsulated State: <code>count</code> ➔ <span style="color: #f92672;">BLOCKED</span> (El valor
+                    actual se mantiene protegido en el Scope interno)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Uso avanzado:</strong> Este patrón actúa de forma similar a los
+              métodos públicos y propiedades privadas en la programación orientada a objetos, permitiéndote resguardar
+              datos sensibles de efectos secundarios del código global.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, <mark>createCounter</mark> devuelve una función que incrementa y devuelve una variable llamada
+        <mark>count</mark>. No se
+        puede acceder directamente a la variable <mark>count</mark> desde fuera de <mark>createCounter</mark>, pero la
+        función devuelta (nuestro
+        cierre) sí tiene acceso a ella. Cada vez que llamamos a <mark>counter()</mark>, esta incrementa y devuelve el
+        valor de <mark>count</mark>.
+      </p>
+      <p>
+        Los cierres también pueden capturar múltiples variables de su ámbito externo. Por ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-closures-multiply">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">multiply.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">multiply</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">return</span> <span class="tk-property">function</span> <span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-property">return</span> <span class="tk-selector">x</span> * <span class="tk-selector">y</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">double</span> = <span class="tk-value">multiply</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">double</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Fábrica de Funciones (Currying)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Contexto Léxico Almacenado:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Configuración inicial (Línea 7):</strong> Al invocar
+                      <code class="preview-inline-code">multiply(2)</code>, el parámetro <code
+                        class="preview-inline-code">x</code> queda fijado con el valor de 2 en el entorno cerrado de la
+                      función devuelta.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Cálculo dinámico (Línea 8):</strong> Cuando ejecutas
+                      <code class="preview-inline-code">double(5)</code>, la función interna toma el parámetro <code
+                        class="preview-inline-code">y = 5</code> y lo multiplica por el valor de <code
+                        class="preview-inline-code">x</code> que mantenía memorizado.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">GARBAGE COLLECTOR
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Instance Root: <code>window.double</code> ➔ <span style="color: #a6e22e;">ALIVE</span><br>
+                    • Captured Argument: <code>x = 2</code> ➔ <span style="color: #f92672;">BLOCKED</span> (No se barre;
+                    la instancia de la función depende de esta constante)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Casos prácticos:</strong> Este comportamiento te permite crear
+              generadores de funciones configurables personalizados, como utilidades para formatear monedas, aplicar
+              tasas impositivas fijas o configurar multiplicadores matemáticos reutilizables.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí, la función interna captura el parámetro <mark>x</mark> de la función <mark>multiply</mark>. Cuando creamos
+        la función <mark>double</mark> al
+        llamar a <mark>multiply(2)</mark>, esta devuelve una función que siempre multiplica su argumento por
+        <mark>2</mark>.
+      </p>
+      <p>
+        Un aspecto importante que hay que tener en cuenta sobre los cierres es que capturan variables por referencia, no
+        por valor. Esto significa que, si el valor de una variable capturada cambia, el cierre verá el nuevo valor. Por
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-closures-reference">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">reference.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">createIncrementer</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">let</span> <span class="tk-selector">count</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">return</span> <span class="tk-property">function</span> <span class="tk-punctuation">(</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">count</span>++<span class="tk-punctuation">;</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">count</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">increment</span> = <span class="tk-value">createIncrementer</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">increment</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span>
+<span class="tk-selector">increment</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 2</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Captura por Referencia vs Valor</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Persistencia en el Espacio Léxico:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Puntero de Memoria (Línea 2):</strong> La función interna
+                      no guarda una "fotografía" o copia estática con el valor inicial <code
+                        class="preview-inline-code">0</code>, sino que mantiene un enlace directo a la variable real.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Mutación Viva (Líneas 10-11):</strong> Cuando <code
+                        class="preview-inline-code">increment()</code> modifica la variable, el cambio se consolida en
+                      el mismo espacio referenciado. Por ello, la segunda llamada lee el valor actualizado (<code
+                        class="preview-inline-code">1</code>) y lo eleva a <code class="preview-inline-code">2</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">GARBAGE COLLECTOR
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Active Pointer: <code>window.increment</code> ➔ <span style="color: #a6e22e;">ALIVE</span><br>
+                    • Captured Reference: <code>count</code> ➔ <span style="color: #f92672;">BLOCKED</span> (Preservado
+                    en Heap porque el cierre opera sobre su dirección de memoria original)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Regla de oro:</strong> Si múltiples cierres se crean en el mismo
+              entorno léxico, todos compartirán y verán las modificaciones de la misma variable referenciada, lo que
+              resulta clave para coordinar estados compartidos de forma controlada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cada vez que llamamos a <mark>increment</mark>, esta funciona con la misma variable <mark>count</mark>, no con
+        una copia de su valor inicial. Los cierres son una herramienta poderosa en JavaScript. A medida que sigas
+        trabajando con JavaScript, descubrirás que comprender y utilizar los cierres de manera efectiva puede mejorar
+        enormemente tu capacidad para escribir código limpio, eficiente y potente.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 3 -->
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                function outer(x) {
+                    return function(y) {
+                        return x + y;
+                    };
+                }
+                
+                let add5 = outer(5);
+                console.log(add5(3));
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            5
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            3
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            8
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            undefined
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué concepto ilustra el siguiente código?
+            <pre>
+              <code>
+                function createGreeter(greeting) {
+                    return function(name) {
+                        console.log(greeting + ", " + name);
+                    };
+                }
+                
+                let sayHello = createGreeter("Hello");
+                sayHello("Alice");
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Elevación.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Cierre.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Recursión.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Herencia por prototipos.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                function counter() {
+                    let count = 0;
+                    return function() {
+                        count++;
+                        return count;
+                    };
+                }
+                
+                let increment = counter();
+                console.log(increment());
+                console.log(increment());
+                console.log(increment());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            1 <br>
+            1 <br>
+            1
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            1 <br>
+            2 <br>
+            3
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            0 <br>
+            1 <br>
+            2
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            undefined <br>
+            undefined <br>
+            undefined
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

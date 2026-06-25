@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="En este articulo, aprenderás a usar bucles para ejecutar un bloque de código varias veces.">
+  <meta name="keywords" content="JavaScript, bucles, iteración, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trabajar con tipos y objetos">
+  <meta property="og:description"
+    content="En este articulo, aprenderás a usar bucles para ejecutar un bloque de código varias veces.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajar con tipos y objetos</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Trabajar con tipos y objetos</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+      <li><a href="#tema3"><span aria-hidden="true">💻</span> Tema 3</a></li>
+      <li><a href="#cuest3"><span aria-hidden="true">❓</span> Cuest 3</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En JavaScript, los tipos de datos se dividen en dos categorías principales: tipos primitivos y objetos. Los
+        tipos primitivos incluyen <mark>string</mark>, <mark>number</mark>, <mark>boolean</mark>, <mark>null</mark>,
+        <mark>undefined</mark>, <mark>symbol</mark> y <mark>bigint</mark>. Los objetos, por otro lado, son colecciones
+        de propiedades y métodos que pueden contener otros objetos o valores primitivos.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es un objeto de cadena y en qué se diferencia de un tipo primitivo de cadena?
+      </h2>
+
+      <p>
+        En los módulos anteriores, te has acostumbrado a trabajar con literales de cadena como este:
+      </p>
+
+      <div class="code-container">
+        <pre class="language-js" role="region" aria-label="CSS: descripción del bloque">
+          <code class="language-js">
+            <span class="token keyword">const</span> <span class="token operator">greeting</span> <span class="token punctuation">=</span> <span class="token string">"Hello, World!"</span><span class="token punctuation">;</span>
+          </code>
+        </pre>
+      </div>
+
+      <p>
+        Pero JavaScript también cuenta con objetos de cadena. Tanto los objetos de cadena como las cadenas primitivas se
+        utilizan para manejar texto, pero su funcionamiento interno es diferente. Un objeto de cadena se crea mediante
+        la función constructora de cadena, que envuelve el valor primitivo en un objeto. A continuación se muestra cómo
+        se crea un objeto de cadena:
+      </p>
+
+      <div class="ide-container" id="ide-js-string-primitive-vs-object">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">string_types.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetingObject</span> = <span class="tk-property">new</span> <span class="tk-value">String</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, World!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">greetingObject</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "object"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Línea 1:</strong> Se invoca el constructor <code>new String()</code>. El motor no
+                      guarda una cadena plana; aloja una estructura de objeto en el Heap de memoria con índices
+                      numéricos para cada carácter (<code>0: "H", 1: "e"..."length": 13</code>).</div>
+                    <div>🟢 <strong>Línea 3:</strong> El operador <code>typeof</code> evalúa la referencia de la
+                      variable. Al no ser un tipo primitivo puro, devuelve su tipo estructural base.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "object"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando usamos el operador <mark>typeof</mark>, podemos ver que el resultado es de tipo <mark>object</mark> en
+        lugar de tipo <mark>string</mark>. Una de
+        las cosas que tal vez te hayas preguntado es cómo puedes usar propiedades como la propiedad <mark>.length</mark>
+        en cadenas
+        primitivas.
+      </p>
+      <p>
+        Cuando utilizas la propiedad <mark>length</mark> en una cadena primitiva, JavaScript envuelve temporalmente la
+        cadena
+        primitiva en un objeto de cadena para realizar la operación. Por eso puedes usar la propiedad
+        <mark>length</mark> y los
+        diferentes métodos como <mark>repeat()</mark>, <mark>concat()</mark> y <mark>slice()</mark>. A este tipo de
+        métodos y propiedades se les conoce como
+        métodos de instancia, propiedades de instancia y métodos estáticos. Aprenderás cómo funciona esto en detalle en
+        módulos futuros.
+      </p>
+      <p>
+        Una diferencia clave entre un objeto de cadena y una cadena primitiva es su relación con la memoria y el
+        rendimiento. Las cadenas primitivas suelen ser más eficientes en cuanto a memoria y más rápidas en comparación
+        con los objetos de cadena. Aunque en tu código trabajarás principalmente con cadenas primitivas, sigue siendo
+        útil comprender cómo funcionan los objetos de cadena.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la principal diferencia entre una cadena primitiva y un objeto de cadena en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Las cadenas primitivas son objetos, mientras que los objetos de cadena no lo son.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Las cadenas primitivas son más ligeras y eficientes, mientras que los objetos de cadena ofrecen propiedades
+            y métodos adicionales.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Los objetos de cadena no pueden acceder a métodos como .toUpperCase().
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Las cadenas primitivas pueden cambiar su valor después de ser creadas.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones describe correctamente la propiedad <mark>.length</mark> de una cadena?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Cambia el valor de una cadena.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Devuelve el número de caracteres de una cadena.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Solo funciona con objetos de cadena.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Agrega nuevos caracteres a la cadena.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué resultado dará el siguiente código?
+            <pre>
+              <code>
+                let str = "JavaScript";
+                let objStr = new String("JavaScript");
+                console.log(str.length === objStr.length);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            true
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            false
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            undefined
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Da un error.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué es el método <mark>toString()</mark> y cómo funciona?
+      </h2>
+
+      <p>
+        El método <mark>toString()</mark> es una característica fundamental de JavaScript que convierte un valor en su
+        representación
+        como cadena. Es un método que puedes usar con números, valores booleanos, matrices y objetos. Uno de los usos
+        más comunes de <mark>toString()</mark> es convertir un número en su representación como cadena. Aquí tienes un
+        ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-tostring-method-conversion">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">tostring_conversion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "10"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Línea 1:</strong> Se asigna el valor primitivo puro numérico <code>10</code> a la
+                      constante <code>num</code> en la pila de memoria (Stack).</div>
+                    <div>🟢 <strong>Línea 2:</strong> Al llamar a <code>.toString()</code>, el motor detecta que es un
+                      primitivo y realiza un <i>boxing empaquetado</i> temporal convirtiéndolo internamente en
+                      <code>new Number(10)</code> para poder resolver su método del prototipo, retornando la cadena
+                      literal de texto.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "10"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este método acepta un <strong>radix</strong> opcional, que es un número entre <mark>2</mark> y <mark>36</mark>.
+        Este <strong>radix</strong>
+        representa la base, como la base <mark>2</mark> para el sistema binario o la base 8 para el sistema octal. Si no
+        se especifica el <strong>radix</strong>, el valor predeterminado es la base 10, es decir, el sistema decimal. A
+        continuación se
+        muestra un ejemplo en el que se pasa el valor <mark>2</mark> como argumento al método <mark>toString()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-tostring-radix-binary">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">radix_conversion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "1010"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Evaluación de Argumento:</strong> Se detecta un radix válido de valor <code>2</code>
+                      (dentro del rango permitido de 2 a 36).</div>
+                    <div>🟢 <strong>Cálculo de bits (Base 2):</strong> El número decimal 10 se convierte mediante
+                      divisiones sucesivas por 2 o mediante asignación de pesos posicionales:</div>
+                    <div style="padding-left: 10px; color: #a6e22e;">
+                      • $2^3 \times 1 = 8$<br>
+                      • $2^2 \times 0 = 0$<br>
+                      • $2^1 \times 1 = 2$<br>
+                      • $2^0 \times 0 = 0$ ➔ Total: $8 + 0 + 2 + 0 = 10$. El string resultante es <code>"1010"</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "1010"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El resultado será <mark>1010</mark>, que es la representación binaria del número decimal <mark>10</mark>.
+      </p>
+      <p>
+        También puedes usar el método <mark>toString()</mark> para convertir matrices y objetos en cadenas. Las matrices
+        cuentan con
+        una implementación personalizada de <mark>toString()</mark> que convierte cada elemento en una cadena y los une
+        con comas.
+        Aquí tienes un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-tostring-array-serialization">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_tostring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">arr</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arr</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "1,2,3"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Lectura de Índices:</strong> El motor evalúa la longitud del arreglo
+                      (<code>length: 3</code>) e itera internamente de forma nativa por sus posiciones.</div>
+                    <div>🟢 <strong>Conversión y Unión Pasada a Pasada:</strong></div>
+                    <div style="padding-left: 10px; color: #a6e22e;">
+                      • Índice 0 ➔ <code>1</code> se convierte a <code>"1"</code><br>
+                      • Índice 1 ➔ <code>2</code> se convierte a <code>"2"</code> e inserta la coma ➔
+                      <code>"1,2"</code><br>
+                      • Índice 2 ➔ <code>3</code> se convierte a <code>"3"</code> e inserta la coma ➔
+                      <code>"1,2,3"</code>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "1,2,3"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, todos los elementos de la matriz se unen para formar la cadena <mark>1,2,3</mark>.
+      </p>
+      <p>
+        Cuando se utiliza el método <mark>toString()</mark> con objetos, el resultado no será una versión convertida a
+        cadena de las
+        propiedades del objeto.
+      </p>
+
+      <div class="ide-container" id="ide-js-tostring-object-behavior">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_tostring.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">person</span> = <span class="tk-punctuation">{</span>
+  name<span class="tk-punctuation">:</span> <span class="tk-string">"John"</span><span class="tk-punctuation,">,</span>
+  age<span class="tk-punctuation">:</span> <span class="tk-number">30</span><span class="tk-punctuation,">,</span>
+  isStudent<span class="tk-punctuation">:</span> <span class="tk-property">true</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">person</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "[object Object]"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Búsqueda en Prototipo:</strong> El motor busca el método <code>toString</code>
+                      directamente en el objeto <code>person</code>. Al no encontrar una versión sobreescrita
+                      localmente, sube por la cadena de prototipos hasta alcanzar
+                      <code>Object.prototype.toString</code>.
+                    </div>
+                    <div>🟢 <strong>Resolución de Firma:</strong> La especificación ECMAScript determina que la
+                      implementación base del prototipo lee el tag interno de la clase del objeto (<i>[[Class]]</i>) y
+                      concatena de forma estática la cadena <code>"[object " + "Object" + "]"</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "[object Object]"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, el resultado será la representación de cadena predeterminada del objeto, que es <mark>[object
+          Object]</mark>. Para obtener una versión convertida a cadena de las propiedades del objeto
+        <mark>person</mark>, tendrás que usar
+        <mark>JSON.stringify()</mark>, sobre el cual aprenderás más en las próximas lecciones.
+      </p>
+      <p>
+        En conclusión, el método <mark>toString()</mark> se utiliza para convertir valores en cadenas. Comprender cómo
+        funciona con
+        diferentes tipos de datos y cómo personalizarlo para tus propios objetos puede mejorar considerablemente tu
+        capacidad para manipular y mostrar datos en tus aplicaciones de JavaScript.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let num = 5.7;
+                console.log(num.toString());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            "5"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            "5.7"
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            5.7
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Error
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = [1, 2, 3, 4, 5];
+                console.log(arr.toString());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            [object Array]
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            "1,2,3,4,5"
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            12345
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Error
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let obj = { name: "John", age: 30 };
+                console.log(obj.toString());
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            "{ name: 'John', age: 30}"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            "[object Object]"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            "John30"
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Error
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 3 -->
+    <section id="tema3" aria-labelledby="tema3-titulo">
+      <h2 id="tema3-titulo">
+        Tema 3: ¿Qué es el constructor Number y cómo funciona en la conversión de tipos?
+      </h2>
+
+      <p>
+        El constructor <mark>Number()</mark> se utiliza para crear un objeto numérico. El objeto numérico contiene
+        algunas propiedades y métodos útiles, como <mark>isNaN</mark> y <mark>toFixed</mark>. A continuación se muestra
+        un ejemplo en el que se utiliza el constructor <mark>Number()</mark> con la palabra clave <mark>new</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-constructor-object">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">number_constructor.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">myNum</span> = <span class="tk-property">new</span> <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">"34"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">myNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "object"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Instanciación con new:</strong> Al anteponer <code>new</code>, JavaScript reserva
+                      espacio en el Heap para un nuevo objeto. Convierte internamente la cadena <code>"34"</code> al
+                      valor numérico primitivo de almacenamiento interno <code>[[PrimitiveValue]]: 34</code>.</div>
+                    <div>🟢 <strong>Evaluación Estructural:</strong> Dado que <code>myNum</code> contiene la referencia
+                      a un contenedor de objeto y no a un literal directo, el operador <code>typeof</code> devuelve de
+                      manera estricta la cadena <code>"object"</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    "object"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, pasamos un literal de cadena al constructor <mark>Number()</mark> y el tipo de retorno es
+        <mark>object</mark> en lugar de
+        una <mark>cadena</mark>.
+      </p>
+      <p>
+        Cuando se invoca el constructor <mark>Number()</mark> como una función sin la palabra clave <mark>new</mark>, el
+        valor de retorno será del
+        tipo numérico primitivo. La mayoría de las veces utilizarás el constructor <mark>Number()</mark> para convertir
+        otros tipos
+        de datos al tipo numérico. A continuación, te mostramos un ejemplo de cómo convertir una cadena en un número:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-function-coercion">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">number_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">myNum</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">"100"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">myNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 100</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">myNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// number</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Conversión sin instanciación:</strong> Al omitirse la palabra clave
+                      <code>new</code>, el motor ejecuta la rutina interna abstracta <i>ToNumber()</i> sobre el string
+                      de entrada <code>"100"</code>.
+                    </div>
+                    <div>🟢 <strong>Asignación Primitiva:</strong> El resultado es el valor numérico literal plano
+                      <code>100</code>, guardándose directamente en la celda asignada a la constante <code>myNum</code>.
+                      Al ejecutarse <code>typeof</code> en la línea 4, la respuesta es el tipo primitivo puro
+                      <code>"number"</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    100<br>
+                    "number"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto resulta útil cuando recibes datos del usuario y necesitas convertir esa cadena en un número para poder
+        realizar cálculos matemáticos.
+      </p>
+      <p>
+        Si intentas llamar al constructor <mark>Number()</mark> con una cadena vacía, el resultado será el número
+        <mark>0</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-number-empty-string-coercion">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">empty_string_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">""</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Análisis del Argumento (String):</strong> La función recibe una cadena con
+                      <code>length: 0</code>.
+                    </div>
+                    <div>🟢 <strong>Regla ECMAScript:</strong> Al aplicar la operación abstracta <i>StringToNumber</i>,
+                      el algoritmo dicta formalmente que una cadena matemática vacía o compuesta únicamente por espacios
+                      vacíos (<i>WhiteSpaces</i>) debe retornar la entidad primitiva de punto flotante <code>+0</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    0
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto se debe a que JavaScript intentará analizar la cadena y, como no contiene ningún dígito, el resultado será
+        cero.
+      </p>
+      <p>
+        Si intentas pasar una cadena con caracteres aleatorios, el resultado será <mark>NaN</mark> o "Not a Number".
+      </p>
+
+      <div class="ide-container" id="ide-js-number-nan-coercion-failure">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">nan_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">"random"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Procesamiento del String:</strong> El motor lee la cadena literal
+                      <code>"random"</code>. Al analizarla matemáticamente, determina que no cumple con la sintaxis de
+                      un literal numérico válido.
+                    </div>
+                    <div>🟢 <strong>Asignación de Estado Fallido:</strong> La operación matemática abstracta devuelve la
+                      propiedad global inmutable <code>NaN</code>. Esta se almacena en la constante <code>num</code>
+                      como un indicador persistente de que una operación matemática falló o no pudo computarse
+                      correctamente.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    NaN
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al trabajar con valores booleanos, <mark>true</mark> devuelve <mark>1</mark> porque <mark>true</mark> se
+        convierte en uno, y <mark>false</mark> devuelve <mark>0</mark> porque
+        <mark>false</mark> se convierte en cero.
+      </p>
+
+      <div class="ide-container" id="ide-js-number-boolean-coercion-mapping">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">boolean_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">boolTrue</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-property">true</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">boolFalse</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-property">false</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">boolTrue</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 1</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">boolFalse</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Evaluación del literal true:</strong> El algoritmo abstracto
+                      <i>ToNumber(argument)</i> intercepta el tipo Booleano. Si el valor es <code>true</code>, la
+                      especificación dicta explícitamente retornar el valor <code>1</code>.
+                    </div>
+                    <div>🟢 <strong>Evaluación del literal false:</strong> Si el valor interceptado es
+                      <code>false</code>, la especificación dicta explícitamente retornar el valor <code>0</code> en
+                      formato de punto flotante. Ambos valores se guardan como primitivos puros de tipo numérico.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    1<br>
+                    0
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si pasas un valor <mark>null</mark>, el resultado será <mark>0</mark>, y si pasas <mark>undefined</mark>, el
+        resultado será <mark>NaN</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-number-null-undefined-coercion">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">null_undefined.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">undefinedNum</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-property">undefined</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">nullNum</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-property">null</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">undefinedNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">nullNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Evaluación de undefined:</strong> La operación abstracta interna
+                      <i>ToNumber(undefined)</i> evalúa que la información no existe en absoluto. Al no ser mapeable a
+                      una cantidad real, retorna el estado matemático <code>NaN</code>.
+                    </div>
+                    <div>🟢 <strong>Evaluación de null:</strong> La operación abstracta interna <i>ToNumber(null)</i>
+                      identifica una referencia explícitamente inicializada pero vacía. El estándar dicta que este vacío
+                      formal se resuelva directamente como <code>+0</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    NaN<br>
+                    0
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al trabajar con matrices, hay algunas cosas que debes tener en cuenta.
+      </p>
+      <p>
+        Una matriz vacía devolverá <mark>0</mark>. Una matriz con un solo número devolverá ese número. Una matriz con
+        varios números
+        devolverá <mark>NaN</mark>. Y una matriz con una o varias cadenas de texto también devolverá <mark>NaN</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-number-array-coercion-behavior">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">emptyArr</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">arrOneNum</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-number">7</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">arrMultiNum</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-number">7</span><span class="tk-punctuation,">,</span> <span class="tk-number">36</span><span class="tk-punctuation,">,</span> <span class="tk-number">12</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">arrStr</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-string">"str1"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">arrMultiStr</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">[</span><span class="tk-string">"str1"</span><span class="tk-punctuation,">,</span> <span class="tk-string">"str2"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyArr</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 0</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arrOneNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arrMultiNum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arrStr</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arrMultiStr</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <code>[]</code> ➔ Proceso <i>ToPrimitive</i> invoca <code>.toString()</code> ➔ El string es
+                      <code>""</code> ➔ <span style="color: #a6e22e;">Number("") da 0</span>
+                    </div>
+                    <div>🟢 <code>[7]</code> ➔ Proceso <i>ToPrimitive</i> invoca <code>.toString()</code> ➔ El string es
+                      <code>"7"</code> ➔ <span style="color: #a6e22e;">Number("7") da 7</span>
+                    </div>
+                    <div>🟢 <code>[7, 36, 12]</code> ➔ Convierte a string ➔ El string es <code>"7,36,12"</code> ➔
+                      Contiene caracteres inválidos ➔ <span style="color: #f92672;">Da NaN</span></div>
+                    <div>🟢 <code>["str1"]</code> ➔ Convierte a string ➔ El string es <code>"str1"</code> ➔ No es
+                      numérico alfabético ➔ <span style="color: #f92672;">Da NaN</span></div>
+                    <div>🟢 <code>["str1", "str2"]</code> ➔ Convierte a string ➔ El string es <code>"str1,str2"</code> ➔
+                      Fallo de parsing matemático ➔ <span style="color: #f92672;">Da NaN</span></div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    0<br>
+                    7<br>
+                    NaN<br>
+                    NaN<br>
+                    NaN
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Al trabajar con objetos, el resultado siempre es <mark>NaN</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-number-object-coercion-failure">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">object_coercion.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">obj1</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">obj2</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span><span class="tk-number">2</span><span class="tk-punctuation">:</span> <span class="tk-number">2</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">obj3</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span>key<span class="tk-punctuation">:</span> <span class="tk-string">"val"</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">obj4</span> = <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span>key<span class="tk-punctuation">:</span> <span class="tk-property">true</span><span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">obj1</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">obj2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">obj3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">; // NaN</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">obj4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">; // NaN</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <code>{}</code> ➔ Llama internamente a <code>.toString()</code> ➔ Genera
+                      <code>"[object Object]"</code> ➔ <span style="color: #f92672;">Number() evalúa a NaN</span>
+                    </div>
+                    <div>🟢 <code>{2: 2}</code> ➔ Llama internamente a <code>.toString()</code> ➔ Genera
+                      <code>"[object Object]"</code> ➔ <span style="color: #f92672;">Number() evalúa a NaN</span>
+                    </div>
+                    <div>🟢 <code>{key: "val"}</code> ➔ Llama internamente a <code>.toString()</code> ➔ Genera
+                      <code>"[object Object]"</code> ➔ <span style="color: #f92672;">Number() evalúa a NaN</span>
+                    </div>
+                    <div>🟢 <code>{key: true}</code> ➔ Llama internamente a <code>.toString()</code> ➔ Genera
+                      <code>"[object Object]"</code> ➔ <span style="color: #f92672;">Number() evalúa a NaN</span>
+                    </div>
+                    <div style="color: #ffbd2e; margin-top: 4px; font-weight: bold;">💡 Conclusión estructural: Ningún
+                      contenido interno altera el string de Object.prototype.toString().</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    NaN<br>
+                    NaN<br>
+                    NaN<br>
+                    NaN
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En conclusión, usarás el constructor <mark>Number()</mark> principalmente para la conversión de tipos, más que
+        para crear un número o un objeto numérico.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 3 -->
+    <section id="cuest3" aria-labelledby="cuest3-titulo">
+
+      <h2 id="cuest3-titulo">🧠 Cuestionario 3</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito del constructor <mark>Number()</mark> en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q7">
+            Solo crea cadenas.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            <!-- correcto -->
+            Convierte otros tipos de datos en números y crea nuevos valores numéricos.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Se utiliza para manipular matrices.
+          </label>
+          <label>
+            <input type="radio" name="q7">
+            Realiza la concatenación de cadenas.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se crea un objeto numérico utilizando el constructor <mark>Number</mark> en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q8">
+            Utilizando el método Number.toString().
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            <!-- correcto -->
+            Inicializándolo con la palabra clave new y pasando un número como argumento.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Declarando una variable con la palabra clave var.
+          </label>
+          <label>
+            <input type="radio" name="q8">
+            Llamando a Number.parseInt() con un valor de cadena.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una de las formas correctas en que JavaScript maneja los arreglos al convertirlos en números utilizando el constructor <mark>Number</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q9">
+            Un arreglo vacío devuelve NaN.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Un arreglo con varios números se convierte en su suma.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            <!-- correcto -->
+            Un arreglo con un solo número se convierte en ese número, mientras que un arreglo vacío devuelve 0.
+          </label>
+          <label>
+            <input type="radio" name="q9">
+            Un arreglo con una o más cadenas se convierte en NaN.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+  <meta name="description"
+    content="Aprende a trabajar con matrices, variables y prácticas de nomenclatura en JavaScript. Descubre cómo organizar tu código y manejar datos de manera eficiente.">
+  <meta name="keywords" content="JavaScript, matrices, variables, nomenclatura, programación, desarrollo web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cómo trabajar con matrices, variables y prácticas de nomenclatura">
+  <meta property="og:description"
+    content="Aprende a trabajar con matrices, variables y prácticas de nomenclatura en JavaScript. Descubre cómo organizar tu código y manejar datos de manera eficiente.">
+  <meta property="og:type" content="article">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo trabajar con matrices, variables y prácticas de nomenclatura</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Cómo trabajar con matrices, variables y prácticas de nomenclatura</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En esta sección, aprenderás a trabajar con matrices, variables y prácticas de nomenclatura en JavaScript. Las
+        matrices son estructuras de datos que pueden almacenar múltiples valores en una sola variable. Las variables son
+        contenedores para almacenar datos y las prácticas de nomenclatura ayudan a mantener tu código organizado y fácil
+        de entender.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Cuáles son algunas prácticas comunes para nombrar variables y funciones?
+      </h2>
+
+      <p>
+        Nombrar variables y funciones es un aspecto importante para escribir código limpio, legible y fácil de mantener.
+        Las buenas prácticas de nomenclatura hacen que tu código se documente por sí mismo, lo que reduce la necesidad
+        de comentarios extensos y facilita que otros desarrolladores —incluido tu yo futuro— entiendan tu código.
+      </p>
+      <p>
+        Comencemos con las convenciones generales de nomenclatura en JavaScript. En lecciones anteriores aprendiste a
+        usar el estilo <em>camel case</em> para los nombres de variables. Para las variables booleanas, es una práctica
+        común
+        usar prefijos como <mark>is</mark>, <mark>has</mark> o <mark>can</mark>. Esto le indica de inmediato al lector
+        que la variable es booleana:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-booleans">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">naming_conventions.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isLoading</span> = <span class="tk-property">true</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">hasPermission</span> = <span class="tk-property">false</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">canEdit</span> = <span class="tk-property">true</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>isLoading:</strong> Uso de <i>camelCase</i> combinado con el prefijo
+                      interrogativo/afirmativo 'is'. Auto-documenta que el sistema se encuentra esperando un proceso
+                      asíncrono.</div>
+                    <div>🟢 <strong>hasPermission:</strong> El prefijo 'has' denota posesión o cumplimiento de una
+                      propiedad o rol en el sistema de dependencias.</div>
+                    <div>🟢 <strong>canEdit:</strong> El prefijo modal 'can' expresa una capacidad o derecho de
+                      ejecución de una acción por parte de la entidad actual.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">MEMORY STATE AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    ↳ <span style="color: #a6e22e;">isLoading</span> ➔ type: <b>boolean</b>, value:
+                    <code>true</code><br>
+                    ↳ <span style="color: #f92672;">hasPermission</span> ➔ type: <b>boolean</b>, value:
+                    <code>false</code><br>
+                    ↳ <span style="color: #a6e22e;">canEdit</span> ➔ type: <b>boolean</b>, value: <code>true</code>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el caso de las funciones, el nombre debe indicar claramente qué hace la función. A menudo resulta útil
+        comenzar con un verbo:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">function_naming.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">getUserData</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">calculateTotal</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">validateInput</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">"{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>getUserData:</strong> El prefijo <code>get</code> (obtener) indica explícitamente
+                      una operación de consulta o recuperación de datos que devolverá un valor.</div>
+                    <div>🟢 <strong>calculateTotal:</strong> El prefijo <code>calculate</code> (calcular) expresa un
+                      proceso aritmético o algorítmico de procesamiento interno de datos.</div>
+                    <div>🟢 <strong>validateInput:</strong> El prefijo <code>validate</code> (validar) denota un filtro
+                      lógico de control que evalúa condiciones y usualmente retorna un estado de éxito o fallo.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">CLEAN CODE MAP (VERBO + SUSTANTIVO):
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • <span style="color: #66d9ef;">get</span> + UserData ➔ Acción inequívoca de lectura.<br>
+                    • <span style="color: #66d9ef;">calculate</span> + Total ➔ Acción inequívoca de cómputo.<br>
+                    • <span style="color: #66d9ef;">validate</span> + Input ➔ Acción inequívoca de verificación.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para las funciones que devuelven un valor booleano —a menudo denominadas "predicados"—, puedes usar los mismos
+        prefijos <mark>is</mark>, <mark>has</mark> o <mark>can</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-predicate-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">predicates.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">isValidEmail</span><span class="tk-punctuation">(</span><span class="tk-selector">email</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">hasRequiredFields</span><span class="tk-punctuation">(</span><span class="tk-selector">form</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>isValidEmail(email):</strong> El prefijo verbal interrogativo <code>is</code>
+                      plantea una pregunta de validación directa. Quien invoque esta función sabe con certeza matemática
+                      que recibirá únicamente <code>true</code> o <code>false</code> tras procesar el argumento.</div>
+                    <div>🟢 <strong>hasRequiredFields(form):</strong> El prefijo posesivo <code>has</code> evalúa la
+                      existencia de propiedades requeridas estructurales dentro del objeto. Su diseño semántico
+                      auto-documenta la salida lógica booleana del bloque.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                  <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px;">EVALUACIÓN SEMÁNTICA EN FLUJO
+                    CONTROLADO:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    <span style="color: #f92672;">if</span> (<span style="color: #a6e22e;">isValidEmail</span>(input)) {
+                    <span style="color: #75715e;">// Se lee de inmediato: "Si es un email válido..."</span><br>
+                    &nbsp;&nbsp;<span style="color: #75715e;">// Ejecutar envío seguro</span><br>
+                    }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando tienes funciones que recuperan datos, es común empezar con la palabra <mark>get</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-get-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">get_functions.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">getProductDetails</span><span class="tk-punctuation">(</span><span class="tk-selector">productId</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">getUserProfile</span><span class="tk-punctuation">(</span><span class="tk-selector">userId</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>getProductDetails(productId):</strong> El verbo <code>get</code> explicita que se
+                      solicita una entidad externa (detalles del producto) indexada de forma única por el parámetro
+                      <code>productId</code>. Se asume un retorno síncrono o asíncrono de datos informativos.
+                    </div>
+                    <div>🟢 <strong>getUserProfile(userId):</strong> Delimita con claridad que la tarea es extraer la
+                      estructura de perfil del usuario correspondiente a <code>userId</code>, manteniendo el principio
+                      de responsabilidad única.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px;">EXPECTED RETURN ARTIFACT (DATA ONLY):
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    ↳ <span style="color: #66d9ef;">getProductDetails</span>(101) ➔
+                    <code>{ id: 101, name: "Teclado Mech", price: 89.99 }</code><br>
+                    ↳ <span style="color: #66d9ef;">getUserProfile</span>(5) ➔
+                    <code>{ id: 5, username: "dev_johndoe", role: "admin" }</code>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Cuando tienes funciones que establecen datos, es común empezar con la palabra <mark>set</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-set-functions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">set_functions.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">setUserPreferences</span><span class="tk-punctuation">(</span><span class="tk-selector">preferences</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">setPageTitle</span><span class="tk-punctuation">(</span><span class="tk-selector">title</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>setUserPreferences(preferences):</strong> El verbo <code>set</code>
+                      (establecer/asignar) denota una operación de escritura. Toma el parámetro de configuración y
+                      actualiza los registros o el estado de la sesión del usuario.</div>
+                    <div>🟢 <strong>setPageTitle(title):</strong> Al ejecutarse, modifica directamente una propiedad del
+                      entorno (en este caso, interactúa con el subproceso que controla el encabezado de la interfaz o el
+                      DOM). Por lo general, estas funciones no retornan un valor (su salida es <code>undefined</code>),
+                      ya que su éxito radica en el efecto secundario provocado.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">STATE MUTATION MONITOR (EFFECT ONLY):
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • <span style="color: #66d9ef;">setPageTitle</span>("Dashboard") ➔ <code>document.title</code> muta
+                    a: <span style="color: #a6e22e;">"Dashboard"</span><br>
+                    • <span style="color: #66d9ef;">setUserPreferences</span>({theme: "dark"}) ➔ Memoria global de
+                    configuración del sistema actualizada.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En el caso de las funciones de manejadores de eventos, puedes anteponerles <mark>handle</mark> o añadirles
+        <mark>handler</mark> al final:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-event-handlers">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">event_handlers.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">handleClick</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">onSubmit</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">keyPressHandler</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>handleClick:</strong> El prefijo <code>handle</code> declara de inmediato que el
+                      bloque actúa en respuesta reactiva a una acción asíncrona del usuario (clic).</div>
+                    <div>🟢 <strong>onSubmit:</strong> La convención del prefijo <code>on</code> enlaza la semántica al
+                      disparo nativo del formulario del DOM, reduciendo la carga cognitiva en la lectura del flujo.
+                    </div>
+                    <div>🟢 <strong>keyPressHandler:</strong> El sufijo explicita el rol estructural de la función,
+                      siendo muy común en arquitecturas desacopladas donde los controladores se importan de forma
+                      independiente.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px;">DOM EVENT ATTACHMENT MAP:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • button.addEventListener("click", <span style="color: #a6e22e;">handleClick</span>);<br>
+                    • form.addEventListener("submit", <span style="color: #a6e22e;">onSubmit</span>);<br>
+                    • input.addEventListener("keypress", <span style="color: #a6e22e;">keyPressHandler</span>);
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Un manejador de eventos es una acción que ocurre después de que se ha producido un evento, como al hacer clic en
+        un botón. Aprenderás sobre esto en lecciones futuras.
+      </p>
+      <p>
+        Al nombrar variables de iteración y bucles, es común usar letras únicas como <mark>i</mark>, <mark>j</mark> o
+        <mark>k</mark>, pero para bucles anidados
+        o iteraciones más complejas, puede ser útil usar nombres más descriptivos:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-loop-indices">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">loop_naming.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-punctuation">&lt;</span> <span class="tk-selector">array</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-punctuation">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">studentIndex</span> = <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">studentIndex</span> <span class="tk-punctuation">&lt;</span> <span class="tk-selector">students</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">;</span> <span class="tk-selector">studentIndex</span><span class="tk-punctuation">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-comment">/* ... */</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Uso de 'i':</strong> Ideal para operaciones abstractas rápidas donde el contenedor
+                      (<code>array</code>) es genérico. Reduce caracteres redundantes cuando el contexto es
+                      autoevidente.</div>
+                    <div>🟢 <strong>Uso de 'studentIndex':</strong> Añade valor semántico explícito. Al leer el cuerpo
+                      interno del bucle, el desarrollador asocia inmediatamente el índice con la entidad de negocio
+                      <code>students[studentIndex]</code>, previniendo confusiones si se añadieran sub-bucles para
+                      procesar notas o asistencias.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">ITERATION CONTEXT TRACE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Bucles lineales sencillos ➔ Variable corta admisible (<code>i</code>).<br>
+                    • Estructuras multidimensionales / Complejas ➔ Variable descriptiva imperativa
+                    (<code>studentIndex</code>).
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Para los nombres de las matrices, considera usar sustantivos en plural para indicar que la variable contiene
+        varios elementos:
+      </p>
+
+      <div class="ide-container" id="ide-js-naming-conventions-plural-arrays">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_naming.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">colors</span> = <span class="tk-punctuation">[</span><span class="tk-string">'red'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'green'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'blue'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">userNames</span> = <span class="tk-punctuation">[</span><span class="tk-string">'Alice'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'Bob'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'Charlie'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>colors:</strong> El sustantivo en plural indica explícitamente una colección de
+                      tonalidades. Evita nombres ambiguos o imprecisos como <code>colorList</code> o
+                      <code>arrayColor</code>.
+                    </div>
+                    <div>🟢 <strong>userNames:</strong> Estructura compuesta en <i>camelCase</i> que combina el dominio
+                      lógico de la entidad con el plural del recurso, comunicando instantáneamente que contiene
+                      múltiples cadenas de texto identificadoras.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                  <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px;">SINTAXIS SEMÁNTICA RECOMENDADA
+                    (SINGULAR de PLURAL):</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.6;">
+                    <span style="color: #f92672;">for</span> (<span style="color: #75715e;">const</span> <span
+                      style="color: #66d9ef;">color</span> <span style="color: #f92672;">of</span> <span
+                      style="color: #a6e22e;">colors</span>) {<br>
+                    &nbsp;&nbsp;<span style="color: #75715e;">// Cada iteración extrae un elemento único en
+                      singular</span><br>
+                    }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Recuerda que el objetivo es que tu código sea lo más claro posible por sí mismo. Una buena regla general es que,
+        si necesitas agregar un comentario para explicar qué hace una variable o una función, tal vez debas considerar
+        cambiarle el nombre por algo más descriptivo.
+      </p>
+      <p>
+        Por último, mantén la coherencia con tu código o con tu equipo. Si tu equipo ha establecido convenciones de
+        nomenclatura, respétalas. La coherencia hace que el código sea más legible y fácil de mantener para todos los
+        involucrados.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es un buen nombre para una variable booleana que verifica si un usuario ha
+            iniciado sesión?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            user_logged
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            checkLogin
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            isLoggedIn
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            login
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es una buena convención de nomenclatura para una función que recupera información de productos?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            productInformation
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            getProductInfo
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            retrieveProduct
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            prod_info
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones debes seguir si estás trabajando en un código ya establecido y/o con un
+            equipo?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Usa la función de buscar y reemplazar de tu editor de texto para actualizar cualquier nombre de función o
+            variable que encuentres y que pueda mejorarse, incluso si no está relacionado con la tarea en la que estás
+            trabajando.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Sigue las convenciones de nomenclatura para variables y funciones que ya se hayan establecido.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Crear tus propias convenciones de nomenclatura para cualquier código nuevo que escribas.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Utilizar estrictamente las convenciones de nomenclatura que se tratan en esta lección.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Cómo se obtiene la longitud de un array y cómo se puede crear un array vacío de longitud fija?
+      </h2>
+
+      <p>
+        En lecciones anteriores ya conociste la propiedad <mark>length</mark> esta propiedad devuelve el número de
+        elementos que contiene un array. Así que aquí tienes un breve recordatorio de cómo funciona:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-length-property-behavior">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_length.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> = <span class="tk-punctuation">[</span><span class="tk-string">'apple'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'banana'</span><span class="tk-punctuation,">,</span> <span class="tk-string">'orange'</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 3</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Mapeo de Índices en Memoria:</strong>
+                      <br>&nbsp;&nbsp;• <code>fruits[0]</code> ➔ <code>'apple'</code>
+                      <br>&nbsp;&nbsp;• <code>fruits[1]</code> ➔ <code>'banana'</code>
+                      <br>&nbsp;&nbsp;• <code>fruits[2]</code> ➔ <code>'orange'</code> (Índice máximo: 2)
+                    </div>
+                    <div>🟢 <strong>Cómputo de la Propiedad:</strong> El motor lee la propiedad interna de control de
+                      tamaño. Al ser el índice máximo $2$, el valor de <code>length</code> se establece directamente
+                      como $2 + 1 = 3$.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    3
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Es posible tener arrays con celdas vacías. Las celdas vacías se definen como aquellas que no contienen nada.
+        Esto es diferente a un array cuyo valor sea <mark>undefined</mark>. Este tipo de arrays se conocen como
+        arrays dispersos. A continuación, un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-sparse-arrays-empty-slots">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">sparse_arrays.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">sparseArray</span> = <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">,</span> <span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">sparseArray</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 4</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Mapa Físico en Memoria V8:</strong>
+                      <br>&nbsp;&nbsp;• <code>index 0</code> ➔ <code>1</code>
+                      <br>&nbsp;&nbsp;• <code>index 1</code> ➔ <span style="color: #ffbd2e;">&lt;empty slot&gt;</span>
+                      (no inicializado)
+                      <br>&nbsp;&nbsp;• <code>index 2</code> ➔ <span style="color: #ffbd2e;">&lt;empty slot&gt;</span>
+                      (no inicializado)
+                      <br>&nbsp;&nbsp;• <code>index 3</code> ➔ <code>4</code> (Índice máximo detectado: 3)
+                    </div>
+                    <div>🟢 <strong>Cálculo de Longitud:</strong> El motor no cuenta elementos reales; calcula la
+                      longitud mediante la fórmula $i_{max} + 1$. Al ser el último índice asignado el $3$, la propiedad
+                      <code>length</code> se establece en $3 + 1 = 4$. Los métodos iterativos tradicionales como
+                      <code>.forEach()</code> o <code>.map()</code> omitirán automáticamente estos huecos vacíos.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    4
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, aunque solo tengamos dos elementos definidos, el <mark>1</mark> y el <mark>4</mark>, la longitud
+        es <mark>4</mark> porque el índice más
+        alto (<mark>3</mark>) más <mark>1</mark> nos da una longitud de <mark>4</mark>.
+      </p>
+      <p>
+        Ahora veamos cómo crear un array vacío de longitud fija. Hay varias formas de hacerlo en JavaScript, pero un
+        método común es usar el constructor <mark>Array()</mark> con un argumento numérico. El constructor
+        <mark>Array()</mark> se puede usar con
+        la palabra clave <mark>new</mark> para crear un nuevo array. Aquí hay un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-constructor-fixed-length">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">fixed_array.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">emptyArray</span> = <span class="tk-property">new</span> <span class="tk-value">Array</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyArray</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">emptyArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [ , , , , ]</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Instanciación con Argumento Numérico:</strong> El constructor detecta un único
+                      número entero positivo. En lugar de crear un arreglo con el elemento <code>5</code>, configura la
+                      propiedad interna <code>length: 5</code> de forma imperativa.</div>
+                    <div>🟢 <strong>Estructura de Celdas Asignadas:</strong> El mapa físico en memoria no contiene
+                      propiedades indexadas válidas. En la consola, se renderiza con comas consecutivas separadas por
+                      espacios vacíos <code>[ , , , , ]</code>, confirmando que contiene 5 ranuras vacías (<i>empty x
+                        5</i>) que no responderán a métodos de mapeo convencionales hasta que sean inicializadas.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    5<br>
+                    Array(5) [ &lt;5 empty slots&gt; ]
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, creamos un nuevo array utilizando <mark>Array(5)</mark>. Esto crea un array disperso de
+        longitud <mark>5</mark> en el que
+        todas las posiciones están vacías.
+      </p>
+      <p>
+        Otra forma de crear un array vacío de longitud fija es utilizar el método <mark>Array.from()</mark> con un
+        argumento de
+        longitud. A diferencia de new <mark>Array(n)</mark>, este método crea un array de la longitud especificada en el
+        que todos
+        los elementos existen y tienen un valor <mark>undefined</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-from-fixed-length-undefined">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_from_fixed.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fixedLengthArray</span> = <span class="tk-value">Array</span><span class="tk-punctuation">.</span><span class="tk-value">from</span><span class="tk-punctuation">(</span><span class="tk-punctuation">{</span> length<span class="tk-punctuation">:</span> <span class="tk-number">5</span> <span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fixedLengthArray</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fixedLengthArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [undefined, undefined, undefined, undefined, undefined]</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Procesamiento del Objeto Like-Array:</strong> <code>Array.from()</code> recibe un
+                      objeto con la propiedad <code>length: 5</code>. Esto le indica al método cuántas iteraciones debe
+                      ejecutar internamente.</div>
+                    <div>🟢 <strong>Creación y Asignación Real:</strong> A diferencia de los huecos vacíos, el algoritmo
+                      crea las propiedades de índice (<code>"0"</code>, <code>"1"</code>, etc.) en el objeto del arreglo
+                      y les asigna el valor real de retorno por defecto: <code>undefined</code>. Todas las celdas quedan
+                      inicializadas físicamente en memoria.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    5<br>
+                    Array(5) [ undefined, undefined, undefined, undefined, undefined ]
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si quieres crear un array de una longitud específica y llenarlo con un valor por defecto, puedes usar el método
+        <mark>Array.fill()</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-array-fill-default-values">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">array_fill.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">filledArray</span> = <span class="tk-property">new</span> <span class="tk-value">Array</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">.</span><span class="tk-value">fill</span><span class="tk-punctuation">(</span><span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">filledArray</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [0, 0, 0]</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Seguimiento Matricial Combinado</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Historial de Coordenadas (i, j):
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong>Paso 1 (new Array):</strong> Reserva un array disperso con <code>length: 3</code>
+                      conteniendo ranuras vacías (<i>empty slots</i>).</div>
+                    <div>🟢 <strong>Paso 2 (.fill):</strong> El motor V8 ejecuta una mutación in-place iterando sobre
+                      las claves lógicas, reemplazando el vacío y enlazando el valor primitivo estático <code>0</code>
+                      en las coordenadas indexadas <code>0</code>, <code>1</code> y <code>2</code> de forma secuencial.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px;">CONSOLE:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    [ 0, 0, 0 ]
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong>Alternativa limpia en Clean Code:</strong> Si notas que tu código empieza a requerir muchas
+              etiquetas para controlar bucles complejos, a menudo es un indicador de que el bloque interno debería ser
+              extraído y aislado dentro de su propia función independiente, utilizando una sentencia <code
+                style="color: red;">return</code>
+              para salir limpiamente del proceso.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Esto crea un array de longitud tres y llena todos los elementos con el valor <mark>0</mark>. Nota: al llenar con
+        objetos,
+        todas las posiciones hacen referencia al mismo objeto; si necesitas copias independientes, utiliza una función
+        de retorno o <mark>Array.from()</mark> en su lugar.
+      </p>
+      <p>
+        Entender cómo obtener la longitud de un array y crear arrays de longitud fija es importante para muchas tareas
+        de programación, especialmente cuando necesitas inicializar arrays para algoritmos o estructuras de datos
+        específicos.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = [1, 2, 3, , 5];
+                console.log(arr.length);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            4
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            5
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            3
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            Esto generará un error.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿¿Cuál de las siguientes opciones es una forma de crear un array disperso?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            new Array(5)
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Array.from({ length: 5 })
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            new Array(5).fill(undefined)
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            [1, 2, 3, 4, 5]
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                let arr = new Array(3).fill(1);
+                console.log(arr);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            [1, 1, 1]
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            [3]
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            [undefined, undefined, undefined]
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            [&lt;3 empty items&gt;]
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

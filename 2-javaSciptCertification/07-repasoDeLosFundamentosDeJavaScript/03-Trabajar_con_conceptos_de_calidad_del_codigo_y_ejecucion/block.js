@@ -816,3 +816,239 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 // while (x < 5) {
 //   console.log("in the loop");
 // }
+
+// console.log("< ---------------- >");
+/* ================= */
+// Tema 1: ¿Qué es un objeto de cadena y en qué se diferencia de un tipo primitivo de cadena?
+
+// const greeting = "Hello, World!";
+// console.log(greeting);
+
+// const greetingObject = new String("Hello, World!");
+// console.log(typeof greetingObject); // "object"
+
+/* ---------------- */
+// console.log("< ---------------- >");
+// Tema 2: ¿Qué es el método toString() y cómo funciona?
+
+// const num = 10;
+// console.log(num.toString()); // "10"
+
+// const num2 = 20;
+// console.log(num2.toString(2)); // "10100"
+// console.log(num2.toString(36)); // "k"
+
+// const arr = [1, 2, 3, 4.7];
+// console.log(arr.toString()); // "1,2,3"
+
+// const person = {
+//   name: "John",
+//   age: 30,
+//   isStudent: true
+// };
+// console.log(person.toString()); // "[object Object]"
+// console.log(JSON.stringify(person)); // "{"name":"John","age":30,"isStudent":true}"
+
+/* ---------------- */
+
+/* ================= */
+// Tema 3: ¿Qué es el constructor Number y cómo funciona en la conversión de tipos?
+
+// const myNum = new Number("34");
+// console.log(typeof myNum); // "object"
+// console.log("< ---------------- >");
+
+
+// const myNum2 = Number("100");
+// console.log(myNum2); // 100
+// console.log(typeof myNum2); // number
+// console.log("< ---------------- >");
+
+// const num = Number("");
+// console.log(num); // 0
+// console.log("< ---------------- >");
+
+// const num3 = Number("random");
+// console.log(num3); // NaN
+// console.log("< ---------------- >");
+
+// const boolTrue = Number(true);
+// const boolFalse = Number(false);
+// console.log(boolTrue); // 1
+// console.log(boolFalse); // 0
+// console.log("< ---------------- >");
+
+// const undefinedNum = Number(undefined);
+// const nullNum = Number(null);
+// console.log(undefinedNum); // NaN
+// console.log(nullNum); // 0
+// console.log("< ---------------- >");
+
+// const emptyArr = Number([]);
+// const arrOneNum = Number([7]);
+// const arrMultiNum = Number([7, 36, 12]);
+// const arrStr = Number(["str1"]);
+// const arrMultiStr = Number(["str1", "str2"]);
+// console.log(emptyArr); // 0
+// console.log(arrOneNum); // 7
+// console.log(arrMultiNum); // NaN
+// console.log(arrStr); // NaN
+// console.log(arrMultiStr); // NaN
+// console.log("< ---------------- >");
+
+// const obj1 = Number({});
+// const obj2 = Number({2: 2});
+// const obj3 = Number({key: "val"});
+// const obj4 = Number({key: true});
+// console.log(obj1); // NaN
+// console.log(obj2); // NaN
+// console.log(obj3); // NaN
+// console.log(obj4); // NaN
+// console.log("< ---------------- >");
+
+/* ================= */
+// ¿Cómo se obtiene la longitud de un array y cómo se puede crear un array vacío de longitud fija?
+
+// const fruits = ['apple', 'banana', 'orange'];
+// console.log(fruits.length); // 3
+// console.log("< ---------------- >");
+
+// const sparseArray = [1, , , 4];
+// console.log(sparseArray.length); // 4
+// console.log("< ---------------- >");
+
+// const emptyArray = new Array(5);
+// console.log(emptyArray.length); // 5
+// console.log(emptyArray); // [ , , , , ]
+// console.log("< ---------------- >");
+
+// const fixedLengthArray = Array.from({ length: 5 });
+// console.log(fixedLengthArray.length); // 5
+// console.log(fixedLengthArray); // [undefined, undefined, undefined, undefined, undefined]
+// console.log("< ---------------- >");
+
+// const filledArray = new Array(3).fill(0);
+// console.log(filledArray); // [0, 0, 0]
+// console.log("< ---------------- >");
+
+
+/* ================= */
+// Tema 1: ¿Qué son los linters y los formateadores, y cómo pueden ayudarte a mantener la consistencia del código?
+
+// function doSomething(x) {
+//   return x + z
+// }
+// console.log("< ---------------- >");
+
+// function longFunction(
+//   argument1, 
+//   argument2,
+//   argument3
+// ) {return argument1 + argument2 + argument3;}
+// console.log("< ---------------- >");
+
+// function longFunction(argument1, argument2, argument3) {
+//   return argument1 + argument2 + argument3;
+// }
+// console.log("< ---------------- >");
+
+
+
+/* ================= */
+// Tema 2: ¿Qué es la administración de memoria y cómo funciona en JavaScript?
+
+// function createLargeArray() {
+//   let largeArray = new Array(1000000);
+//   return function() {
+//     console.log(largeArray.length);
+//   };
+// }
+
+// let printArrayLength = createLargeArray();
+// printArrayLength();
+// console.log("< ---------------- >");
+
+/* ================= */
+// Tema 3: ¿Qué son los cierres y cómo funcionan?
+
+// function outerFunction(x) {
+//   let y = 10;
+//   function innerFunction() {
+//     console.log(x + y);
+//   };
+//   return innerFunction;
+// }
+
+// let closure = outerFunction(5);
+// closure(); // 15
+// console.log("< ---------------- >");
+
+// function createCounter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+
+// let counter = createCounter();
+// console.log(counter()); // 1
+// console.log(counter()); // 2
+// console.log("< ---------------- >");
+
+
+// function multiply(x) {
+//   return function (y) {
+//     return x * y;
+//   };
+// }
+
+// let double = multiply(2);
+// console.log(double(5)); // 10
+// console.log("< ---------------- >");
+
+
+// function createIncrementer() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     console.log(count);
+//   };
+// }
+// let increment = createIncrementer();
+// increment(); // 1
+// increment(); // 2
+// console.log("< ---------------- >");
+
+// cuestionario
+
+function outer(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+let add5 = outer(5);
+console.log(add5(3));
+console.log("< ---------------- >");
+
+function createGreeter(greeting) {
+  return function(name) {
+    console.log(greeting + ", " + name);
+  };
+}
+let sayHello = createGreeter("Hello");
+sayHello("Alice");
+console.log("< ---------------- >");
+
+function counter() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
+  };
+}
+let increments = counter();
+console.log(increments());
+console.log(increments());
+console.log(increments());
+console.log("< ---------------- >");
