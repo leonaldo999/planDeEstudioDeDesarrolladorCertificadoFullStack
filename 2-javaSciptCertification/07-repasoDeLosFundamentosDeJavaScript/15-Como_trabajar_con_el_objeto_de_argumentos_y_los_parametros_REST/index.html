@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+
+  <!-- Open Graph -->
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo trabajar con el objeto de argumentos y los parámetros REST</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Cómo trabajar con el objeto de argumentos y los parámetros REST</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En este artículo, aprenderás sobre el objeto <mark>arguments</mark> y los parámetros REST en JavaScript. Estos
+        conceptos te
+        permitirán trabajar con funciones que aceptan un número variable de argumentos, lo que es útil cuando no sabes
+        de antemano cuántos argumentos se pasarán a una función.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es el objeto <mark>arguments</mark>?
+      </h2>
+
+      <p>
+        Como recordarás de lecciones y talleres anteriores, puedes crear funciones con varios parámetros y llamar a esa
+        función con argumentos.
+      </p>
+      <p>
+        Aquí tienes un recordatorio:
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-intro">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">get_sum.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// function definition</span>
+<span class="tk-property">function</span> <span class="tk-value">getSum</span><span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> + <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// function call</span>
+<span class="tk-value">getSum</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Mapeo de Parámetros Posicionales</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Paso de Argumentos Fijos:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Asignación Directa (Línea 2):</strong> Los parámetros
+                      estáticos <code class="preview-inline-code">num1</code> y <code
+                        class="preview-inline-code">num2</code> esperan un orden estrictamente posicional durante la
+                      invocación.</div>
+                    <div>🟢 <strong class="preview-bold-label">Evaluación Lineal (Línea 7):</strong> Al invocar <code
+                        class="preview-inline-code">getSum(3, 4)</code>, la expresión interna computa los valores
+                      asignados de forma directa en el Execution Context, retornando <code
+                        class="preview-inline-code">7</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">STACK PARAMETERS
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Expected Parameters: 2 (num1, num2)<br>
+                    • Received Arguments: [3, 4] ➔ <span style="color: #a6e22e;">MATCHED</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">El reto de la flexibilidad:</strong> Este enfoque tradicional
+              funciona de maravilla si sabes el número exacto de argumentos. En las siguientes secciones veremos qué
+              sucede si decides enviar 3, 5 o más valores a una función parametrizada para solo dos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Pero, ¿qué pasa si tienes una función a la que se le pasan más argumentos de los que se definieron para aceptar?
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-overflow">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">variadic_intro.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// function definition</span>
+<span class="tk-property">function</span> <span class="tk-value">getSum</span><span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> + <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// function call with extra argument</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">getSum</span><span class="tk-punctuation">(</span><span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 7</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Comportamiento del Desbordamiento (Argument Overflow)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Parámetros vs
+                    Argumentos:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Asignación Restringida (Línea 2):</strong> La función
+                      solo declara los parámetros fijos <code class="preview-inline-code">num1</code> y <code
+                        class="preview-inline-code">num2</code>, por lo que reserva espacio para los dos primeros
+                      valores del stack de invocación.</div>
+                    <div>🟢 <strong class="preview-bold-label">Ignorancia Pasiva (Línea 7):</strong> Al pasar <code
+                        class="preview-inline-code">(3, 4, 5)</code>, los dos primeros se mapean correctamente a sus
+                      variables. El valor <code class="preview-inline-code">5</code> no genera errores porque JS es
+                      altamente flexible, pero se omite en la operación aritmética directa de la línea 3.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ARGUMENTS AUDIT
+                    REPORT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Parameters map: { num1: 3, num2: 4 }<br>
+                    • Unmapped values: [5] ➔ <span style="color: #75715e;">IGNORED IN EXPLICIT SCOPE</span><br>
+                    • Output result: <span style="color: #a6e22e;">7</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">¿Flipped/Perdido?:</strong> Aunque el parámetro <code
+                style="background:#e8c7b8;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">5</code> parece
+              ignorado por completo en el retorno, JavaScript lo almacena tras bambalinas en estructuras internas de la
+              función. A continuación exploraremos cómo capturar estos valores adicionales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        JavaScript no generará un error en este caso. En cambio, ignorará el argumento adicional y simplemente sumará
+        los números <mark>3</mark> y <mark>4</mark>. Las funciones que aceptan un número variable de argumentos se
+        conocen como funciones
+        variádicas.
+      </p>
+      <p>
+        Si estás trabajando con funciones variádicas, puedes utilizar el objeto <mark>arguments</mark>. Este objeto,
+        similar a un
+        array, contiene los valores de los argumentos pasados a la función.
+      </p>
+      <p>
+        Aquí tienes un ejemplo:
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-object-loop">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arguments_object.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">arg</span> <span class="tk-property">of</span> <span class="tk-selector">arguments</span><span class="tk-punctuation">) {</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arg</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// result:</span>
+<span class="tk-comment">// 1</span>
+<span class="tk-comment">// 2</span>
+<span class="tk-comment">// 3</span>
+
+<span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-string">"example"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "example"</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Inspección del Objeto Arguments</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Estructura del Objeto Array-Like:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Carga Dinámica (Línea 2):</strong> Aunque la función no
+                      define parámetros fijos en sus paréntesis, la variable implícita <code
+                        class="preview-inline-code">arguments</code> recolecta todos los valores transferidos en forma
+                      de objeto indexado con una propiedad <code class="preview-inline-code">length</code>.</div>
+                    <div>🟢 <strong class="preview-bold-label">Iteración Soportada (Líneas 2-4):</strong> Al ser un
+                      objeto iterable, el bucle <code class="preview-inline-code">for...of</code> puede recorrerlo de
+                      principio a fin, imprimiendo secuencialmente cada elemento en la consola.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">LOCAL CONTEXT
+                    MEMORY AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Call 1 (Line 7) ➔ <code>arguments</code>: { 0: 1, 1: 2, 2: 3, length: 3 }<br>
+                    • Call 2 (Line 13) ➔ <code>arguments</code>: { 0: "example", length: 1 }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Advertencia de tipo:</strong> Ten en cuenta que <code
+                class="preview-tip-code"
+                style="background:#e9c1c1;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">arguments</code>
+              es un objeto *similar a un arreglo* (Array-like), lo que significa que no tiene acceso directo a métodos
+              modernos de array como <code class="preview-tip-code"
+                style="background:#ecb6b6;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.map()</code>,
+              <code class="preview-tip-code"
+                style="background:#e7b0b0;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.filter()</code>
+              o <code class="preview-tip-code"
+                style="background:#e8bdbd;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.forEach()</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Dado que el objeto <mark>arguments</mark> es similar a un array, puedes acceder a un argumento en un índice
+        específico de la siguiente manera:
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-index-access">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arguments_index.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">getArg</span><span class="tk-punctuation">(</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">arguments</span><span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">];</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">getArg</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">6</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> <span class="tk-comment">// 4</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Acceso Indexado (Zero-Indexed Access)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Estructura de Índices en Memoria:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Mapeo de Claves (Línea 2):</strong> Al igual que los
+                      arreglos verdaderos, las propiedades de <code class="preview-inline-code">arguments</code> se
+                      enumeran basándose en cero. Pasar <code class="preview-inline-code">(2, 4, 6)</code> genera los
+                      índices <code class="preview-inline-code">[0] → 2</code>, <code
+                        class="preview-inline-code">[1] → 4</code> y <code class="preview-inline-code">[2] → 6</code>.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Retorno Específico (Línea 2):</strong> La sintaxis de
+                      corchetes <code class="preview-inline-code">arguments[1]</code> extrae directamente la referencia
+                      asociada al segundo casillero, devolviendo el número <code class="preview-inline-code">4</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">INDEX VALUE
+                    VISUALIZER:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • arguments[0] ➔ <span style="color: #75715e;">2</span><br>
+                    • arguments[1] ➔ <span style="color: #a6e22e; font-weight: bold;">4 (SELECTED)</span><br>
+                    • arguments[2] ➔ <span style="color: #75715e;">6</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Caso de borde:</strong> Si intentas acceder a un índice que supera la
+              cantidad de argumentos enviados (por ejemplo, llamando a <code class="preview-tip-code"
+                style="background:#f4cccc;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">arguments[5]</code>
+              en este caso), JavaScript no fallará, sino que te devolverá el valor tipificado como <code
+                class="preview-tip-code"
+                style="background:#f0c8c8;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">undefined</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        También puedes usar la propiedad <mark>length</mark> de esta manera para obtener el número de argumentos con los
+        que se invocó la función:
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-length-property">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arguments_length.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">getArgs</span><span class="tk-punctuation">(</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">arguments</span><span class="tk-punctuation">.</span><span class="tk-property">length</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">getArgs</span><span class="tk-punctuation">(</span><span class="tk-string">"Example"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // 1
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">getArgs</span><span class="tk-punctuation">(</span><span class="tk-string">"Another"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Example"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // 2</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Conteo Dinámico (Arguments Length)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Propiedad de Conteo de Parámetros:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Evaluación de Longitud (Línea 2):</strong> La propiedad
+                      de solo lectura <code class="preview-inline-code">arguments.length`</code> inspecciona
+                      directamente la cantidad de elementos cargados en la pila de invocación en tiempo de ejecución.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Resultados Flexibles (Líneas 5-6):</strong> El valor
+                      cambia dinámicamente con cada llamada al script sin necesidad de mutar o redefinir la firma
+                      original de la función.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">LENGTH PROPERTY
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Call 1 (Line 5) ➔ <code>arguments.length</code> = <span style="color: #a6e22e;">1</span><br>
+                    • Call 2 (Line 6) ➔ <code>arguments.length</code> = <span style="color: #a6e22e;">2</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Limitación técnica:</strong> Aunque comparta propiedades numéricas
+              tradicionales como <code class="preview-tip-code"
+                style="background:#f0c6c6;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">length</code>,
+              cualquier intento de usar un método iterativo nativo como <code class="preview-tip-code"
+                style="background:#efafaf;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">arguments.push("test")</code>
+              romperá el flujo del intérprete con un error crítico de tipo <code class="preview-tip-code"
+                style="background:#eec8c8;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">TypeError: arguments.push is not a function</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque el objeto <mark>arguments</mark> parece comportarse como un array real, no cuenta con métodos de Array
+        integrados, como <mark>includes</mark> o <mark>push</mark>. Para tener acceso a esos métodos, primero tendrías
+        que convertir el objeto <mark>arguments</mark> en un array real utilizando algo como <mark>slice</mark>,
+        <mark>Array.from()</mark> o el operador de expansión:
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-to-array">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arguments_convert.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-punctuation">[</span><span class="tk-operator">...</span><span class="tk-selector">arguments</span><span class="tk-punctuation">].</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"cat"</span><span class="tk-punctuation">);</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-string">"dog"</span><span class="tk-punctuation">,</span> <span class="tk-string">"chicken"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cat"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // true
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-string">"dog"</span><span class="tk-punctuation">,</span> <span class="tk-string">"chicken"</span><span class="tk-punctuation">,</span> <span class="tk-string">"horse"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // false</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Conversión a Array (Spread Operator)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Paso de Array-like a Array Real:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Expansión (Línea 2):</strong> La expresión de
+                      desestructuración <code class="preview-inline-code">[...arguments]</code> extrae cada uno de los
+                      elementos del objeto y los deposita dentro de una instancia de arreglo legítima y nueva.</div>
+                    <div>🟢 <strong class="preview-bold-label">Uso de Métodos (Línea 2):</strong> Gracias a la
+                      conversión, la instancia resultante hereda directamente el prototipo <code
+                        class="preview-inline-code">Array.prototype</code>, permitiendo llamar al método integrado <code
+                        class="preview-inline-code">.includes()</code> de forma segura.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PROTOTYPE
+                    EVALUATION:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Type of <code>arguments</code>: <span style="color: #ffbd2e;">Object</span> (No posee
+                    includes)<br>
+                    • Type of <code>[...arguments]</code>: <span style="color: #a6e22e;">Array</span> (Acceso completo a
+                    la API de arreglos)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Alternativas modernas:</strong> Lograrás exactamente el mismo
+              resultado si reemplazas la sintaxis por <code class="preview-tip-code"
+                style="background:#ecc7c7;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">Array.from(arguments).includes("cat")</code>.
+              Ambas técnicas clonan la estructura a la memoria Heap de forma segura.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aunque es posible trabajar con el objeto de <mark>arguments</mark> en el caso de las funciones variádicas, las
+        aplicaciones modernas de JavaScript suelen utilizar la sintaxis de los parámetros residuales. Aprenderás más
+        sobre esto en una lección futura.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué es una función variádica?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Las funciones que aceptan dos argumentos.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Las funciones que aceptan un número variable de argumentos.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Las funciones que aceptan un solo argumento.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Las funciones que aceptan más de tres argumentos.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Qué es el objeto <mark>arguments</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            Un diccionario especial que contiene los valores de los argumentos pasados a una función.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            Un objeto similar a un array que contiene los valores de los argumentos pasados a una función.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Una variable que contiene únicamente el primer argumento pasado a una función.
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            Un array verdadero que se actualiza automáticamente cuando se reasignan los parámetros de una función.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Por qué no se pueden usar métodos integrados de Array, como<mark>includes</mark> o <mark>push</mark>, en el
+            objeto<mark>arguments</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            El objeto arguments siempre está vacío, a menos que se inicialice explícitamente.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            JavaScript bloquea automáticamente las llamadas a métodos en el objeto arguments por razones de rendimiento.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Los métodos includes o push no funcionan de manera confiable en el objeto arguments, por lo que se deben
+            evitar.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            El objeto arguments no es un array real, por lo que no cuenta con esos métodos integrados.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué son los parámetros por defecto y en qué se diferencian del objeto <mark>arguments</mark>?
+      </h2>
+
+      <p>
+        En la lección anterior, aprendiste a trabajar con el objeto <mark>arguments</mark>, que es un objeto similar a
+        un array que
+        contiene los valores de los argumentos pasados a la función.
+      </p>
+
+      <div class="ide-container" id="ide-js-arguments-vs-rest-review">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">arguments_review.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">arg</span> <span class="tk-property">of</span> <span class="tk-selector">arguments</span><span class="tk-punctuation">) {</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arg</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// result:</span>
+<span class="tk-comment">// 1</span>
+<span class="tk-comment">// 2</span>
+<span class="tk-comment">// 3</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Repaso: Mecánica de Arguments</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Contexto Implícito:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Colección Automática (Líneas 1-5):</strong> Al invocarse
+                      la función, JavaScript crea automáticamente el objeto local <code
+                        class="preview-inline-code">arguments</code> sin necesidad de haberlo declarado explícitamente
+                      en la firma.</div>
+                    <div>🟢 <strong class="preview-bold-label">Lectura Secuencial (Líneas 7-11):</strong> El bucle lee
+                      los índices del objeto de manera dinámica y los imprime en la consola, lo cual demuestra la
+                      naturaleza variádica básica del lenguaje.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">EVOLUTION NOTE:
+                  </div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Current Standard: <span style="color: #ffbd2e;">LEGACY BEHAVIOR</span> (Funciona perfectamente,
+                    pero se desaconseja su uso en favor de los parámetros rest modernos).<br>
+                    • Arrow Functions: <span style="color: #f92672;">NOT SUPPORTED</span> (El objeto arguments no existe
+                    dentro de las funciones flecha).
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Hacia dónde vamos:</strong> En las siguientes secciones exploraremos
+              cómo la sintaxis de parámetros residuales o *rest parameters* permite capturar estos mismos valores
+              variables de una forma mucho más expresiva, limpia y con las bondades nativas de un verdadero arreglo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Si bien esta es una forma válida de acceder y trabajar con un conjunto variable de argumentos desde una función,
+        las aplicaciones modernas de JavaScript utilizan, en su lugar, la sintaxis del parámetro <em>rest</em>.
+      </p>
+      <p>
+        A continuación se muestra un ejemplo actualizado que utiliza la sintaxis del parámetro <em>rest</em> en lugar
+        del
+        objeto <mark>arguments</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-parameters-loop">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rest_parameter.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-operator">...</span><span class="tk-selector">args</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">const</span> <span class="tk-selector">arg</span> <span class="tk-property">of</span> <span class="tk-selector">args</span><span class="tk-punctuation">) {</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arg</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-value">logArgs</span><span class="tk-punctuation">(</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-comment">// result:</span>
+<span class="tk-comment">// 1</span>
+<span class="tk-comment">// 2</span>
+<span class="tk-comment">// 3</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Sintaxis de Parámetros Rest (...args)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Recolección en Arreglo Legítimo:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Operador Rest (Línea 1):</strong> Los tres puntos
+                      precediendo al identificador <code class="preview-inline-code">...args</code> empaquetan
+                      activamente todos los argumentos independientes enviados en la llamada dentro de una instancia
+                      nativa de la clase Array.</div>
+                    <div>🟢 <strong class="preview-bold-label">Iteración Directa (Línea 2):</strong> La variable <code
+                        class="preview-inline-code">args</code> ya no es un objeto simulado (Array-like); al ser un
+                      arreglo real, responde de forma nativa a cualquier bucle o método moderno del prototipo.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">REST PARAMETER
+                    REPORT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Target Parameter: <code>args</code> ➔ <span style="color: #a6e22e;">TRUE ARRAY</span><br>
+                    • Array Contents: [1, 2, 3] (length: 3)<br>
+                    • Arrow Function Compatibility: <span style="color: #a6e22e;">FULLY SUPPORTED</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Ventaja de la API:</strong> Al ser un arreglo verdadero, puedes
+              encadenar directamente métodos avanzados como <code class="preview-tip-code"
+                style="background:#efcbcb;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">args.map()</code>,
+              <code class="preview-tip-code"
+                style="background:#efd3d3;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">args.reduce()</code>
+              o <code class="preview-tip-code"
+                style="background:#efc8c8;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">args.filter()</code>
+              sin necesidad de recurrir al operador de expansión o conversiones manuales intermedias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo actualizado ya no se hace referencia directa al objeto <mark>arguments</mark>. En su lugar, el
+        último
+        parámetro de la definición de la función va precedido de tres puntos. Esto hace que este parámetro residual se
+        coloque dentro de un objeto <mark>Array</mark>. Puedes darle el nombre que quieras a este parámetro residual.
+        Solo
+        asegúrate de que sea el último parámetro en la definición de la función, así:
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-parameters-syntax-rules">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rest_rules.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">exampleFunction</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">,</span> <span class="tk-operator">...</span><span class="tk-selector">restOfArgs</span><span class="tk-punctuation">) {</span>
+  <span class="tk-comment">// some code here</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">anotherFunction</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">,</span> <span class="tk-selector">y</span><span class="tk-punctuation">,</span> <span class="tk-operator">...</span><span class="tk-selector">theArgs</span><span class="tk-punctuation">) {</span>
+  <span class="tk-comment">// some code here</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Regla del Último Parámetro (The Last Parameter Rule)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Parámetros
+                    Posicionales Combinados:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Nombres Personalizados (Líneas 1 y 5):</strong> El
+                      identificador que acompaña a los tres puntos es completamente libre (<code
+                        class="preview-inline-code">restOfArgs</code> o <code
+                        class="preview-inline-code">theArgs</code>), permitiéndote nombrar la colección de manera
+                      descriptiva según el contexto.</div>
+                    <div>🟢 <strong class="preview-bold-label">Cierre Obligatorio (Líneas 1 y 5):</strong> Al actuar
+                      como un "recolector de residuos", la sintaxis exige que recoja exclusivamente *todo lo que sobre*
+                      después de mapear los primeros argumentos fijos (<code class="preview-inline-code">a, b</code> o
+                      <code class="preview-inline-code">x, y</code>).
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SYNTAX VALIDATION
+                    REPORT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Placement: <span style="color: #a6e22e;">VALID</span> (Ubicado al final de la firma)<br>
+                    • Invalid configuration attempt: <code style="color: #f92672;">(...rest, a, b)</code> ➔ <span
+                      style="color: #f92672;">SyntaxError</span> (Lanzamiento inmediato en compilación)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Por qué es el último:</strong> JavaScript procesa los argumentos de
+              izquierda a derecha. Si el operador rest estuviera al inicio o en el medio, devoraría infinitamente todos
+              los argumentos restantes del stack, dejando imposibilitados de recibir valores a los parámetros
+              siguientes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Existen algunas restricciones adicionales al utilizar la sintaxis del parámetro resto. Una de ellas es que las
+        definiciones de funciones solo pueden tener un parámetro resto. Por lo tanto, el siguiente ejemplo se
+        consideraría inválido.
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-parameters-restrictions">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">invalid_rest.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// Won't work</span>
+ 
+<span class="tk-property">function</span> <span class="tk-value">badFunction</span><span class="tk-punctuation">(</span><span class="tk-operator">...</span><span class="tk-selector">args</span><span class="tk-punctuation">,</span> <span class="tk-operator">...</span><span class="tk-selector">moreArgs</span><span class="tk-punctuation">) {</span>
+  <span class="tk-comment">// some code here</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Restricciones Críticas de Parámetros Rest</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Errores Sintácticos:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🔴 <strong class="preview-bold-label">Multiplicidad Prohibida (Línea 3):</strong> Intentar
+                      declarar más de un parámetro rest (<code class="preview-inline-code">...args, ...moreArgs</code>)
+                      confunde por completo la lógica de empaquetado del intérprete, volviendo imposible discernir dónde
+                      termina una colección y empieza otra.</div>
+                    <div>🔴 <strong class="preview-bold-label">Coma Trailing Restringida:</strong> Colocar una coma
+                      final justo después del operador rest (<code class="preview-inline-code">...restOfArgs,</code>)
+                      rompe las especificaciones de ECMAScript, ya que una coma sintácticamente asume que otro parámetro
+                      posicional va a continuar en la firma.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ENGINE COMPILATION
+                    FAIL:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Error Type: <span style="color: #f92672; font-weight: bold;">SyntaxError</span> (Rest parameter
+                    must be last formal parameter)<br>
+                    • Execution State: <span style="color: #f92672;">ABORTED</span> (El archivo no alcanza a ejecutarse)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Fase de captura:</strong> Recuerda que a diferencia de los errores en
+              tiempo de ejecución (como un <code class="preview-tip-code"
+                style="background:#f1f3d2;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">TypeError</code>),
+              los <code class="preview-tip-code"
+                style="background:#ecf6d9;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">SyntaxError</code>
+              son detectados por el motor de JavaScript durante la etapa de parseo o compilación preliminar, bloqueando
+              el hilo de ejecución completo inmediatamente.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        La siguiente restricción es que no se permiten comas finales después del parámetro <em>rest</em>: <mark>function
+          exampleFunction(a, b, ...restOfArgs, )</mark>.
+      </p>
+      <p>
+        Otra restricción es que el parámetro <em>rest</em> no puede tener un valor por defecto. De lo contrario, se
+        generará un
+        <mark>SyntaxError</mark>.
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-parameters-no-default">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">invalid_default_rest.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">badFunction</span><span class="tk-punctuation">(</span><span class="tk-operator">...</span><span class="tk-selector">args</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span><span class="tk-number">2</span><span class="tk-punctuation">]</span><span class="tk-punctuation">){</span>
+  <span class="tk-comment">// some code here</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Prohibición de Valores por Defecto</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Contradicción de Inicialización:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🔴 <strong class="preview-bold-label">Conflicto Lógico (Línea 1):</strong> Un parámetro rest
+                      está diseñado para absorber de forma dinámica e incondicional cualquier cantidad de argumentos
+                      restantes (incluso si son cero, creando un arreglo vacío <code
+                        class="preview-inline-code">[]</code>). Asignarle un valor predeterminado (<code
+                        class="preview-inline-code">= [1,2]</code>) contradice su propósito elemental de captura total.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PARSING CONTEXT
+                    EXCEPTION:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Syntax Rule: Rest parameter cannot have an initializer<br>
+                    • Result: <span style="color: #f92672; font-weight: bold;">SyntaxError</span> (Fallo inmediato en la
+                    fase de análisis inicial)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Comportamiento esperado:</strong> Si la función es invocada sin
+              argumentos adicionales, la variable rest pasará a ser automáticamente un arreglo completamente vacío
+              (<code class="preview-tip-code"
+                style="background:#eeeec1;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">[]</code>) listo
+              para ser manipulado sin levantar excepciones.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Entonces, ¿cuáles son algunas de las diferencias entre el objeto <mark>arguments</mark> y los parámetros
+        restantes?
+      </p>
+      <p>
+        Una diferencia clave es que el objeto <mark>arguments</mark> no es un array real, por lo que no admite métodos
+        como
+        <mark>includes</mark>, <mark>pop</mark> y <mark>push</mark>. Sin embargo, el parámetro restante es una instancia
+        de <mark>Array</mark>. Por lo tanto, puedes
+        utilizar métodos de array integrados válidos sin necesidad de convertirlo primero en un array real.
+      </p>
+
+      <div class="ide-container" id="ide-js-rest-parameters-array-methods">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">rest_includes.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-operator">...</span><span class="tk-selector">args</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">args</span><span class="tk-punctuation">.</span><span class="tk-value">includes</span><span class="tk-punctuation">(</span><span class="tk-string">"cat"</span><span class="tk-punctuation">);</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-string">"dog"</span><span class="tk-punctuation">,</span> <span class="tk-string">"chicken"</span><span class="tk-punctuation">,</span> <span class="tk-string">"cat"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // true
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">hasCat</span><span class="tk-punctuation">(</span><span class="tk-string">"dog"</span><span class="tk-punctuation">,</span> <span class="tk-string">"chicken"</span><span class="tk-punctuation">,</span> <span class="tk-string">"horse"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> // false</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Instanciación Directa de Prototipo</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Ventaja Estructural de Rest:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Herencia Nativa (Línea 2):</strong> Dado que <code
+                        class="preview-inline-code">args</code> nace directamente como una instancia de la clase global
+                      <code class="preview-inline-code">Array</code>, posee el puntero hacia <code
+                        class="preview-inline-code">Array.prototype</code> de forma automática e integrada.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Invocación Fluida (Línea 2):</strong> Puedes encadenar
+                      directamente <code class="preview-inline-code">.includes()</code>, <code
+                        class="preview-inline-code">.push()</code> o <code class="preview-inline-code">.pop()</code> sin
+                      necesidad de aplicar transformaciones sintácticas externas que consuman procesamiento extra.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PROTOTYPE
+                    VERIFICATION:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Code check: <code>args instanceof Array</code> ➔ <span style="color: #a6e22e;">true</span><br>
+                    • Outputs evaluated: Line 5 ➔ <span style="color: #a6e22e;">true</span> | Line 6 ➔ <span
+                      style="color: #f92672;">false</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Simplificación de Código:</strong> Al comparar este fragmento con el
+              del objeto `arguments` (donde necesitabas usar <code class="preview-tip-code"
+                style="background:#efefc1;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">[...arguments]</code>),
+              notarás que la sintaxis rest ahorra asignaciones de memoria redundantes y hace el código
+              significativamente más limpio y legible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es la forma correcta de utilizar la sintaxis del parámetro <em>rest</em> en la definición de una función?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            <pre>
+              <code>
+                function logArgs([args]) {
+                  for (const arg of args) {
+                    console.log(arg);
+                  }
+                }
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <pre>
+              <code>
+                function logArgs(>>>args) {
+                  for (const arg of args) {
+                    console.log(arg);
+                  }
+                }
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            <pre>
+              <code>
+                function logArgs(...args) {
+                  for (const arg of args) {
+                    console.log(arg);
+                  }
+                }
+              </code>
+            </pre>
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <pre>
+              <code>
+                function logArgs(<<<args) {
+                  for (const arg of args) {
+                    console.log(arg);
+                  }
+                }
+              </code>
+            </pre>
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones es una restricción al utilizar la sintaxis de los parámetros <em>rest</em>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Solo se puede tener un parámetro rest por definición de función.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Se debe colocar el parámetro rest al principio de la lista de parámetros de la función.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Se deben tener dos parámetros rest por definición de función.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Solo se pueden usar parámetros rest en funciones flecha.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es la diferencia clave entre el objeto <mark>arguments</mark> y los parámetros restantes?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Solo puedes usar métodos integrados de array, como push y pop, en el parámetro restante, mientras que el objeto arguments acepta todos los métodos integrados de array.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            No puedes usar métodos integrados de array, como push y pop, en el parámetro restante, pero esos métodos sí se pueden usar en el objeto arguments.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            El objeto arguments es una instancia de Array, mientras que el parámetro restante es de tipo similar a un array.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            El parámetro rest es una instancia de Array, mientras que el objeto arguments es similar a un array.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

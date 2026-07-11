@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+
+  <!-- Open Graph -->
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprender los módulos, las importaciones y las exportaciones</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>Comprender los módulos, las importaciones y las exportaciones</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En este articulo, exploraremos cómo funcionan los módulos en JavaScript, así como las importaciones y
+        exportaciones de funciones, objetos y variables entre diferentes archivos. Los módulos permiten organizar el
+        código en partes reutilizables y mantener un código más limpio y mantenible.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es un módulo en JavaScript y cómo puedes importar y exportar módulos en tu programa?
+      </h2>
+
+      <p>
+        En JavaScript, un módulo es una unidad de código independiente que encapsula funciones, clases o variables
+        relacionadas.
+      </p>
+      <p>
+        Piensa en un módulo como un bloque de construcción para tu aplicación, muy similar a un capítulo de un libro.
+        Cada módulo se enfoca en una funcionalidad específica, lo que hace que tu código sea más organizado, fácil de
+        mantener y reutilizable. Los módulos ayudan a evitar conflictos de nombres y te permiten estructurar tu
+        aplicación en partes separadas e interconectadas.
+      </p>
+      <p>
+        El concepto de módulos en JavaScript ha evolucionado con el tiempo, pero el enfoque más utilizado y compatible
+        es el sistema de módulos ES6 (ECMAScript 2015). Este sistema ofrece una forma estandarizada de definir y
+        utilizar módulos en diferentes entornos de JavaScript.
+      </p>
+      <p>
+        Para crear un módulo, escribes tu código de JavaScript en un archivo independiente. Cualquier variable, función
+        o clase que desees que esté disponible para otras partes de tu aplicación debe exportarse explícitamente. Puedes
+        hacerlo utilizando la palabra clave <mark>export</mark>.
+      </p>
+      <p>
+        Por ejemplo, supongamos que tienes un archivo llamado <mark>math.js</mark> con algunas funciones matemáticas:
+      </p>
+
+      <div class="ide-container" id="ide-js-modules-math-export">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">math.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">export</span> <span class="tk-property">function</span> <span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">a</span> + <span class="tk-selector">b</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">export</span> <span class="tk-property">function</span> <span class="tk-value">subtract</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">a</span> - <span class="tk-selector">b</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">PI</span> = <span class="tk-number">3.14159</span><span class="tk-punctuation">;</span>
+<span class="tk-property">export</span> <span class="tk-punctuation">{</span> <span class="tk-selector">PI</span> <span class="tk-punctuation">};</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Análisis del Sistema de Módulos (ESM)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Interfaz Pública de Exportación:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Exportaciones Nombradas (Líneas 1 y 5):</strong> Al
+                      anteponer <code class="preview-inline-code">export</code> directamente antes de las definiciones,
+                      las funciones <code class="preview-inline-code">add</code> y <code
+                        class="preview-inline-code">subtract</code> quedan expuestas para ser consumidas por otros
+                      archivos mediante sus nombres exactos.</div>
+                    <div>🟢 <strong class="preview-bold-label">Exportación en Bloque (Línea 10):</strong> La sintaxis
+                      <code class="preview-inline-code">export { PI }</code> permite agrupar variables previamente
+                      declaradas al final del documento, lo cual ayuda a mantener limpio el cuerpo principal del script.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">MODULE SCOPE
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Public API: <code>add, subtract, PI</code> ➔ <span style="color: #a6e22e;">EXPORTED</span>
+                    (Disponibles desde fuera)<br>
+                    • File Type: ECMAScript Module (.js / .mjs)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Encapsulamiento nativo:</strong> Todo lo que no tenga la palabra
+              clave <code class="preview-tip-code"
+                style="background:#e3d7d7;color:red;border:none;padding:2px 5px;border-radius:3px;">export</code> se
+              mantendrá estrictamente privado dentro de este archivo, protegiéndolo de fugas de variables o colisiones
+              en el espacio de nombres global.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este ejemplo, estamos exportando dos funciones (<mark>add</mark> y <mark>subtract</mark>) y una constante
+        (<mark>PI</mark>). Puedes exportar tantos
+        elementos como necesites desde un solo módulo.
+      </p>
+      <p>
+        Para usar estos elementos exportados en otra parte de tu aplicación, debes importarlos. Esto se hace utilizando
+        la palabra clave <mark>import</mark>.
+      </p>
+      <p>
+        Supongamos que quieres usar estas funciones matemáticas en un archivo llamado <mark>app.js</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-modules-app-import">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">app.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">import</span> <span class="tk-punctuation">{</span> <span class="tk-selector">add</span><span class="tk-punctuation">,</span> <span class="tk-selector">subtract</span><span class="tk-punctuation">,</span> <span class="tk-selector">PI</span> <span class="tk-punctuation">}</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// Outputs: 8</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">subtract</span><span class="tk-punctuation">(</span><span class="tk-number">10</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Outputs: 6</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">PI</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>               <span class="tk-comment">// Outputs: 3.14159</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Consumo de Recursos Importados</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Vinculación Léxica de Módulos:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Desestructuración (Línea 1):</strong> La sintaxis <code
+                        class="preview-inline-code">{ add, subtract, PI }</code> extrae exclusivamente las referencias
+                      nombradas desde el archivo de origen externo sin necesidad de importar todo el script.</div>
+                    <div>🟢 <strong class="preview-bold-label">Ruta Relativa (Línea 1):</strong> El indicador de ruta
+                      <code class="preview-inline-code">'./math.js'</code> le señala explícitamente al cargador de
+                      módulos que el archivo se localiza en la misma carpeta o directorio actual.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">CONSOLE OUTPUT
+                    DETECTOR:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Line 3 ➔ <span style="color: #a6e22e;">8</span><br>
+                    • Line 4 ➔ <span style="color: #a6e22e;">6</span><br>
+                    • Line 5 ➔ <span style="color: #a6e22e;">3.14159</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Enlaces en vivo:</strong> Las importaciones en ES Modules no son
+              copias estáticas, son enlaces dinámicos en tiempo real (live bindings). Si el valor dentro de un módulo
+              cambia internamente, el archivo que lo importa verá reflejado ese cambio de forma inmediata.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Aquí estamos importando las funciones y la constante específicas que necesitamos del módulo
+        <mark>math.js</mark>. La parte
+        <mark>'./math.js'</mark> le indica a JavaScript dónde encontrar el archivo del módulo en relación con el archivo
+        actual.
+      </p>
+      <p>
+        A veces, es posible que quieras importar todo lo que exporta un módulo. Puedes hacerlo utilizando la sintaxis
+        del asterisco (<mark>*</mark>):
+      </p>
+
+      <div class="ide-container" id="ide-js-modules-import-all">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">app_all.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">import</span> * <span class="tk-property">as</span> <span class="tk-selector">Math</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>        <span class="tk-comment">// Outputs: 8</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">subtract</span><span class="tk-punctuation">(</span><span class="tk-number">10</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Outputs: 6</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">PI</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>               <span class="tk-comment">// Outputs: 3.14159</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Importación Total de Espacio de Nombres (Namespace)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Estructura del Objeto Contenedor:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Sintaxis Asterisco (Línea 1):</strong> La instrucción
+                      <code class="preview-inline-code">import * as Math</code> empaqueta de forma automática
+                      absolutamente todas las exportaciones del archivo de origen en un único objeto contenedor
+                      estructurado llamado <code class="preview-inline-code">Math</code>.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Acceso por Propiedad (Líneas 3-5):</strong> Las funciones
+                      e identificadores originales se transforman en propiedades internas de dicho objeto, requiriendo
+                      el uso de la notación de punto para su llamada.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">NAMESPACE METRICS
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Namespace Object: <code>Math</code> ➔ <span style="color: #a6e22e;">SEALED</span> (Inmutable)<br>
+                    • Evaluated Outputs: [8, 6, 3.14159]
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Uso recomendado:</strong> Esta estrategia es sumamente útil para
+              evitar colisiones de nombres cuando importas utilidades de archivos muy extensos, permitiéndote agruparlas
+              conceptualmente bajo una sola variable de control.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, todas las exportaciones de <mark>math.js</mark> se importan como propiedades de un objeto llamado
+        <mark>Math</mark>.
+      </p>
+      <p>
+        Otro patrón común es tener una exportación por defecto en un módulo. Esto se suele utilizar cuando un módulo
+        exporta principalmente una sola función. Solo se puede tener una exportación por defecto por módulo.
+      </p>
+      <p>
+        Así es como se ve:
+      </p>
+
+      <div class="ide-container" id="ide-js-modules-export-default">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">module_default.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-comment">// In math.js</span>
+<span class="tk-property">export</span> <span class="tk-property">default</span> <span class="tk-property">function</span> <span class="tk-value">multiply</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">a</span> * <span class="tk-selector">b</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// In app.js</span>
+<span class="tk-property">import</span> <span class="tk-selector">multiply</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">multiply</span><span class="tk-punctuation">(</span><span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>  <span class="tk-comment">// Outputs: 20</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Análisis de Exportación por Defecto (Default Export)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Propiedades de la Sintaxis
+                    Default:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Exportación Única (Línea 2):</strong> La palabra clave
+                      combinada <code class="preview-inline-code">export default</code> designa el recurso principal del
+                      archivo. El motor de JS restringe esto a un solo elemento por módulo.</div>
+                    <div>🟢 <strong class="preview-bold-label">Importación Libre (Línea 7):</strong> Al consumir un
+                      valor por defecto, se prescinde de las llaves de desestructuración <code
+                        class="preview-inline-code">{ }</code>, lo que te permite renombrar el identificador libremente
+                      (ej. importar como <code class="preview-inline-code">multiplicar</code> en vez de <code
+                        class="preview-inline-code">multiply</code>).</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">EXPORT PREFERENCE
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Export Type: <span style="color: #a6e22e;">DEFAULT</span> (Único en math.js)<br>
+                    • Destructuring Brackets: <span style="color: #f92672;">NOT REQUIRED</span> (Sintaxis limpia)<br>
+                    • Console Output: <span style="color: #a6e22e;">20</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Regla de convivencia:</strong> Un mismo módulo puede exportar un solo
+              elemento por defecto y, simultáneamente, múltiples elementos nombrados tradicionales. Al importarlos
+              juntos se estructuran así: <code class="preview-tip-code"
+                style="background:#f0f0f0;color:red;border:none;padding:2px 5px;border-radius:3px;">import multiply, { PI } from './math.js'</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Ten en cuenta que, al importar una exportación predeterminada, no es necesario usar llaves y puedes darle el
+        nombre que quieras a la importación.
+      </p>
+      <p>
+        Es importante señalar que, para usar módulos ES6 en el navegador, debes especificar el <mark>type</mark> como
+        <mark>module</mark> en tu
+        etiqueta <mark>script</mark>:
+      </p>
+
+      <div class="ide-container" id="ide-js-modules-html-script">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="html">index.html</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="html">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <pre><code class="language-html"><span class="tk-punctuation">&lt;</span><span class="tk-property">script</span> <span class="tk-selector">type</span><span class="tk-operator">=</span><span class="tk-string">"module"</span> <span class="tk-selector">src</span><span class="tk-operator">=</span><span class="tk-string">"app.js"</span><span class="tk-punctuation">&gt;&lt;/</span><span class="tk-property">script</span><span class="tk-punctuation">&gt;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Configuración del Navegador (DOM Integration)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Comportamiento del Atributo
+                    type="module":</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Habilitación de Módulos (Línea 1):</strong> Al declarar
+                      <code class="preview-inline-code">type="module"</code>, el navegador activa las palabras clave de
+                      ESM (<code class="preview-inline-code">import</code> / <code
+                        class="preview-inline-code">export</code>). Sin este atributo, el uso de importaciones levantará
+                      un error sintáctico inmediato.
+                    </div>
+                    <div>🟢 <strong class="preview-bold-label">Diferido Automático (Línea 1):</strong> Los scripts
+                      cargados como módulos se comportan nativamente de forma asíncrona y diferida (<code
+                        class="preview-inline-code">defer</code>), lo que significa que no bloquean la carga del HTML
+                      mientras se descargan.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                  <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">BROWSER EXECUTION
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Strict Mode: <span style="color: #a6e22e;">ENABLED BY DEFAULT</span> (Los módulos corren siempre
+                    en modo estricto)<br>
+                    • CORS Policy: <span style="color: #f92672;">REQUIRED</span> (Los módulos se cargan mediante
+                    peticiones HTTP seguras)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Nota de infraestructura:</strong> Debido a las políticas de seguridad
+              del navegador (CORS), si intentas abrir el archivo HTML directamente haciendo doble clic desde tus
+              carpetas locales (<code class="preview-tip-code"
+                style="background:#f3e9e9;color:red;border:none;padding:2px 5px;border-radius:3px;">file://</code>),
+              los módulos se bloquearán. Necesitas usar un servidor local de desarrollo (como Live Server) para
+              probarlos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Los módulos ofrecen una forma eficaz de organizar y estructurar tu código JavaScript. Te permiten dividir tu
+        aplicación en partes más pequeñas y manejables, fomentan la reutilización del código y ayudan a mantener una
+        separación clara de responsabilidades. A medida que desarrolles aplicaciones más grandes, descubrirás que los
+        módulos se convierten en una herramienta esencial en tu conjunto de herramientas de desarrollo de JavaScript.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué palabra clave se utiliza para que otros módulos puedan acceder a funciones, variables o clases?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            import
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            export
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            module
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            requiere
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cómo se importa una exportación predeterminada desde un módulo?
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            import { default } from './module.js';
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            import default from './module.js';
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            import * as default from './module.js';
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            import anyName from './module.js';
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el propósito de usar módulos en JavaScript?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            Para que el código se ejecute más rápido.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Para reducir el tamaño de los archivos de la aplicación.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            Para organizar el código en partes manejables y reutilizables.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Para cifrar partes confidenciales del código.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

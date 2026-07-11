@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- SEO -->
+
+  <!-- Open Graph -->
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La palabra clave var y el hoisting</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header" role="banner" aria-label="Encabezado principal">
+    <div class="cont-img">
+      <img src="./img/js-icon.svg" alt="Logo de CSS" class="logo" loading="lazy">
+    </div>
+    <h1>La palabra clave var y el hoisting</h1>
+  </header>
+
+  <!-- Navegacion -->
+  <nav class="nav" role="navigation" aria-label="Menú principal">
+    <button class="hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"
+      aria-controls="nav-menu">
+      <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect y="6" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+        <rect y="16" width="24" height="2" rx="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="#tema1"><span aria-hidden="true">💻</span> Tema 1</a></li>
+      <li><a href="#cuest1"><span aria-hidden="true">❓</span> Cuest 1</a></li>
+      <li><a href="#tema2"><span aria-hidden="true">💻</span> Tema 2</a></li>
+      <li><a href="#cuest2"><span aria-hidden="true">❓</span> Cuest 2</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main role="main">
+
+    <!-- Introducción -->
+    <section id="intro" aria-labelledby="intro-titulo">
+      <h2 id="intro-titulo">🚀 Introducción</h2>
+      <p>
+        En este módulo, exploraremos la palabra clave <mark>var</mark> y el concepto de hoisting en JavaScript. Comprender estos conceptos es fundamental para escribir código limpio y evitar errores comunes.
+      </p>
+    </section>
+
+    <!-- Tema 1 -->
+    <section id="tema1" aria-labelledby="tema1-titulo">
+      <h2 id="tema1-titulo">
+        Tema 1: ¿Qué es la palabra clave <mark>var</mark> y por qué ya no se recomienda usarla?
+      </h2>
+
+      <p>
+        La palabra clave <mark>var</mark> en JavaScript es una de las formas originales de declarar variables. Ha
+        formado parte del
+        lenguaje desde sus inicios y, durante muchos años, siguió siendo el método principal para crear variables. Sin
+        embargo, a medida que JavaScript evolucionó y los desarrolladores adquirieron más experiencia con el lenguaje,
+        se hicieron evidentes ciertos inconvenientes del uso de <mark>var</mark>, lo que llevó a la introducción de
+        <mark>let</mark> y <mark>const</mark> en
+        2015.
+      </p>
+      <p>
+        Cuando declaras una variable con <mark>var</mark>, esta adquiere un ámbito de función o un ámbito global. Esto
+        significa
+        que, si declaras una variable dentro de una función usando <mark>var</mark>, solo se puede acceder a ella
+        dentro de esa
+        función. Sin embargo, si la declaras fuera de cualquier función, se convierte en una variable global a la que se
+        puede acceder en todo el script. Este comportamiento a veces puede dar lugar a resultados inesperados y hacer
+        que tu código sea más difícil de entender.
+      </p>
+      <p>
+        Un problema con <mark>var</mark> es que permite redeclarar la misma variable varias veces sin generar un error.
+        Esto puede
+        provocar sobrescrituras accidentales y dificultar la depuración.
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-var-redeclaration">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">var_scope.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">var</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span>
+
+<span class="tk-comment">// This is allowed and doesn't throw an error</span>
+<span class="tk-property">var</span> <span class="tk-selector">num</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 10</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Comportamiento de Ámbito Global/Función</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Redesclatación:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Asignación Inicial (Línea 1):</strong> La variable <code
+                        class="preview-inline-code">num</code> se registra en el entorno actual y toma el valor numérico
+                      de 5 sin restricciones.</div>
+                    <div>🟢 <strong class="preview-bold-label">Sobrescritura Permitida (Línea 5):</strong> A diferencia
+                      de <code class="preview-inline-code">let</code> o <code class="preview-inline-code">const</code>,
+                      volver a usar <code class="preview-inline-code">var num</code> es totalmente válido para el motor
+                      de JS, mutando silenciosamente el espacio original a 10.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">JAVASCRIPT ENGINE
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Strict Mode: <span style="color: #a6e22e;">PASSED</span> (No genera SyntaxError)<br>
+                    • Variable Shadowing: <span style="color: #f92672;">OVERWRITTEN</span> (El valor original se pierde
+                    por completo en el mismo contexto léxico)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Peligro en producción:</strong> Permitir la redeclaración de
+              variables sin avisar puede hacer que pases por alto errores tipográficos en scripts grandes, reemplazando
+              datos de variables existentes de manera accidental.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El problema más importante de <mark>var</mark> es que no tiene ámbito de bloque. Las variables declaradas con
+        <mark>var</mark> dentro de un bloque, como una instrucción <mark>if</mark> o un bucle <mark>for</mark>, siguen
+        siendo accesibles fuera de ese bloque.
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-var-block-scope">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">block_leak.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-number">true</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">var</span> <span class="tk-selector">num</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Análisis de Fuga de Ámbito (Scope Leak)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Comportamiento del Bloque:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Ignorancia de Bloque (Líneas 1-3):</strong> El motor de
+                      JavaScript procesa el bloque <code class="preview-inline-code">if</code>, pero al detectar la
+                      palabra clave <code class="preview-inline-code">var</code>, asocia la variable al ámbito de la
+                      función contenedora o al contexto global, no al bloque de llaves.</div>
+                    <div>🟢 <strong class="preview-bold-label">Acceso Externo (Línea 4):</strong> Como la variable se
+                      "fugó" del bloque decorativo, <code class="preview-inline-code">console.log(num)</code> puede leer
+                      perfectamente el valor de <code class="preview-inline-code">5</code> desde afuera.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SCOPE MANAGER
+                    REPORT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Block Scope: <span style="color: #f92672;">NONE</span> (Las llaves del if no aíslan la
+                    variable)<br>
+                    • Variable Status: <span style="color: #a6e22e;">LEAKED / GLOBAL</span> (Visible y expuesta en todo
+                    el script exterior)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Por qué usar let / const:</strong> Si modificas el ejemplo
+              reemplazando <code style="color: red;">var</code> por
+              <code style="color: red;">let</code>, la
+              línea 4 lanzaría de inmediato un error de tipo <code style="color: red;">ReferenceError</code>,
+              protegiendo la integridad del flujo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Este comportamiento puede provocar fugas de variables no intencionales y hacer que tu código sea más propenso a
+        errores.
+      </p>
+      <p>
+        Debido a estos problemas, el desarrollo moderno de JavaScript ha dejado de lado en gran medida el uso de
+        <mark>var</mark>
+        para dar paso a <mark>let</mark> y <mark>const</mark>. Estas palabras clave ofrecen un ámbito de bloque que se
+        ajusta mejor a cómo
+        funciona el ámbito en muchos otros lenguajes de programación.
+      </p>
+      <p>
+        Además, no permiten la redeclaración dentro del mismo ámbito, lo que ayuda a evitar sobrescrituras accidentales.
+      </p>
+      <p>
+        Si bien <mark>var</mark> sigue formando parte de JavaScript y funciona en todos los navegadores, por lo general
+        se recomienda
+        utilizar <mark>let</mark> y <mark>const</mark> en el desarrollo moderno de JavaScript. Estas palabras clave
+        ofrecen reglas claras de
+        ámbito, ayudan a evitar errores comunes y hacen que el comportamiento de tu código sea más predecible.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 1 -->
+    <section id="cuest1" aria-labelledby="cuest1-titulo">
+
+      <h2 id="cuest1-titulo">🧠 Cuestionario 1</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Cuál es el ámbito de una variable declarada con <mark>var</mark> fuera de cualquier función?
+          </legend>
+
+          <label>
+            <input type="radio" name="q1">
+            Ámbito de bloque.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Ámbito de función.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            <!-- correcto -->
+            Ámbito de global.
+          </label>
+          <label>
+            <input type="radio" name="q1">
+            Ámbito de módulo.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál será el resultado del siguiente código?
+            <pre>
+              <code>
+                var x = 10;
+                
+                if (true) {
+                  var x = 20;
+                  console.log(x);
+                }
+                
+                console.log(x);
+              </code>
+            </pre>
+          </legend>
+
+          <label>
+            <input type="radio" name="q2">
+            10 <br>
+            10
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            <!-- correcto -->
+            20 <br>
+            20
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            10 <br>
+            20
+          </label>
+          <label>
+            <input type="radio" name="q2">
+            20 <br>
+            10
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿Cuál de las siguientes opciones NO es una razón para evitar el uso de <mark>var</mark> en JavaScript
+            moderno?
+          </legend>
+
+          <label>
+            <input type="radio" name="q3">
+            var permite redeclarar variables en el mismo ámbito.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            <!-- correcto -->
+            var no es compatible con los navegadores modernos.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Las variables var tienen ámbito de función, no de bloque.
+          </label>
+          <label>
+            <input type="radio" name="q3">
+            Las variables var se elevan.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+    <!-- Tema 2 -->
+    <section id="tema2" aria-labelledby="tema2-titulo">
+      <h2 id="tema2-titulo">
+        Tema 2: ¿Qué es el hoisting?
+      </h2>
+
+      <p>
+        El <strong>hoisting</strong> es un comportamiento de JavaScript que suele confundir a los principiantes, pero entenderlo puede
+        ayudarte a evitar errores sutiles en tu código. En términos sencillos, el <strong>hoisting</strong> es el comportamiento
+        predeterminado de JavaScript de mover las declaraciones al inicio de sus respectivos ámbitos durante la fase de
+        compilación, antes de que se ejecute el código.
+      </p>
+      <p>
+        Para entender el <strong>hoisting</strong>, es importante saber que JavaScript se ejecuta en dos fases: la fase de compilación y
+        la fase de ejecución. Durante la fase de compilación, el motor de JavaScript revisa tu código y configura el
+        espacio de memoria para las variables y las funciones. Aquí es donde entra en juego el <strong>hoisting</strong>.
+      </p>
+      <p>
+        Comencemos con el <strong>hoisting</strong> de variables: cuando declaras una variable usando la palabra clave <mark>var</mark>,
+        JavaScript
+        eleva la declaración al inicio de su ámbito. Sin embargo, es fundamental tener en cuenta que solo se eleva la
+        declaración, no la inicialización. Esto significa que puedes usar una variable en tu código antes de haberla
+        declarado, pero su valor será <mark>undefined</mark> hasta que realmente le asignes un valor.
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-var-hoisting">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">hoisting_demo.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span>
+<span class="tk-property">var</span> <span class="tk-selector">x</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Fase de Creación y Memoria (Hoisting)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Asignación en Memoria Temporal:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Fase de Compilación (Línea 1):</strong> El motor de
+                      JavaScript detecta la declaración <code class="preview-inline-code">var x</code> en la línea 2 y
+                      reserva espacio en memoria inicializándolo automáticamente con <code
+                        class="preview-inline-code">undefined</code>. Por eso la primera lectura no falla.</div>
+                    <div>🟢 <strong class="preview-bold-label">Fase de Ejecución (Línea 2):</strong> El código llega a
+                      la asignación real y actualiza el espacio reservado, permitiendo que la lectura de la línea 3
+                      devuelva con éxito el número <code class="preview-inline-code">5</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">EXECUTION CONTEXT
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Declaration Allocation: <span style="color: #a6e22e;">HOISTED</span> (Mapeado al inicio del
+                    script)<br>
+                    • Value Assignment: <span style="color: #f92672;">DELAYED</span> (La asignación física permanece en
+                    su línea original)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Análisis técnico:</strong> El motor reordena mentalmente tu código
+              interpretando la declaración como si al inicio del archivo hubieses escrito <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">var x;</code> y
+              dejado la asignación <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">x = 5;</code>
+              abajo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este código, aunque usamos <mark>x</mark> antes de declararlo, no aparece un error, sino que obtenemos el
+        valor <mark>undefined</mark>. Esto se debe a que JavaScript eleva la declaración <mark>var x</mark> al inicio de
+        su ámbito, pero no la inicialización <mark>x = 5</mark>. Es como si el código se reescribiera así:
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-hoisting-rewritten">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">hoisting_simulation.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-property">var</span> <span class="tk-selector">x</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// undefined</span>
+<span class="tk-selector">x</span> = <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 5</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Simulación del Comportamiento Interno</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Perspectiva del Motor de JS:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Declaración Pura (Línea 1):</strong> Esta es la
+                      representación de cómo el motor separa la reserva del espacio. La variable existe formalmente,
+                      pero al no tener un dato asignado, adopta de forma predeterminada el tipo <code
+                        class="preview-inline-code">undefined</code>.</div>
+                    <div>🟢 <strong class="preview-bold-label">Asignación Posterior (Línea 3):</strong> Al llegar a este
+                      punto en la fase de ejecución, el puntero en memoria sobrescribe el estado inicial y almacena
+                      permanentemente el número <code class="preview-inline-code">5</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">INTERPRETATION
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Execution Order: Separation of declaration and initialization confirmed.<br>
+                    • Memory State: Line 2 yields <span style="color: #75715e;">undefined</span>, Line 4 yields <span
+                      style="color: #a6e22e;">5</span>.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Conclusión visual:</strong> Aunque físicamente escribas la variable
+              abajo, este desdoblamiento es el motivo exacto por el cual JavaScript no detiene la ejecución con un error
+              crítico al hacer lecturas previas con <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">var</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        El <strong>hoisting</strong> de funciones funciona de manera un poco diferente. Cuando declaras una función utilizando la
+        sintaxis de declaración de <mark>function</mark>, tanto el nombre como el cuerpo de la función se elevan. Esto
+        significa que puedes llamar a una función antes de haberla declarado en tu código. A continuación te presento un
+        ejemplo de <strong>hoisting</strong> de funciones:
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-function-hoisting">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">function_hoisting.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-value">sayHello</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "Hello, World!"</span>
+
+<span class="tk-property">function</span> <span class="tk-value">sayHello</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, World!"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Elevación de Declaraciones de Función</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Comportamiento de la Función en
+                    Memoria:</div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Carga Completa (Línea 1):</strong> Durante la fase de
+                      compilación, el motor detecta la estructura de tipo declaración de función (<code
+                        class="preview-inline-code">function sayHello</code>) e introduce tanto el nombre de la función
+                      como su cuerpo de ejecución en el mapa de memoria inicial.</div>
+                    <div>🟢 <strong class="preview-bold-label">Invocación Exitosa (Línea 1):</strong> Como la definición
+                      completa ya se encuentra lista antes de procesar el código línea por línea, la llamada anticipada
+                      se ejecuta sin lanzar ningún tipo de error.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                  <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">HOISTING METRICS
+                    AUDIT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Allocation Type: <span style="color: #a6e22e;">FULL HOISTING</span> (Identificador y cuerpo
+                    cargados de forma simultánea)<br>
+                    • Execution Status: <span style="color: #a6e22e;">SUCCESSFUL</span> (Imprime "Hello, World!"
+                    correctamente)
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Diferencia crucial:</strong> Esto solo aplica a declaraciones puras
+              con la palabra clave <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">function</code>.
+              Si defines la función guardándola en una variable (<code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">var sayHello = function() {}</code>),
+              el motor la tratará como una variable común y su valor inicial será <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">undefined</code>
+              al intentar llamarla arriba.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        En este caso, podemos llamar a <mark>sayHello()</mark> antes de su declaración porque toda la función se eleva
+        al inicio de
+        su ámbito.
+      </p>
+      <p>
+        Es importante señalar que la elevación funciona de manera diferente con las declaraciones <mark>let</mark> y
+        <mark>const</mark>
+        introducidas en ES6.
+      </p>
+
+      <!-- IDE interactivo de ejemplo -->
+      <div class="ide-container" id="ide-js-let-temporal-dead-zone">
+        <div class="ide-editor">
+          <div class="editor-header">
+            <div class="tabs">
+              <button class="tab active" type="button" data-lang="js">temporal_dead_zone.js</button>
+            </div>
+            <button class="copy-btn-mini" type="button">
+              <span class="btn-text">Copiar</span>
+            </button>
+          </div>
+
+          <div class="editor-body">
+            <div class="code-content active" data-lang="js">
+              <div class="line-numbers">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">y</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// Throws a ReferenceError</span>
+<span class="tk-property">let</span> <span class="tk-selector">y</span> = <span class="tk-number">10</span><span class="tk-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ide-preview">
+          <div class="ide-preview-body"
+            style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+            <div
+              style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+              <h3
+                style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                Zona Muerta Temporal (TDZ)</h3>
+
+              <div
+                style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                <div
+                  style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                  <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Estado de la Variable en Memoria:
+                  </div>
+                  <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                    <div>🟢 <strong class="preview-bold-label">Fase de Reserva (Línea 1):</strong> El motor de
+                      JavaScript reconoce la existencia de la variable <code class="preview-inline-code">let y</code>
+                      durante la compilación, pero a diferencia de <code class="preview-inline-code">var</code>, la
+                      mantiene en un estado estrictamente "no inicializado".</div>
+                    <div>🟢 <strong class="preview-bold-label">Bloqueo de Acceso (Línea 1):</strong> Intentar leer la
+                      variable antes de que el flujo de ejecución pase físicamente sobre la línea de su declaración
+                      formal lanza inmediatamente un error crítico de tipo <code
+                        class="preview-inline-code">ReferenceError</code>.</div>
+                  </div>
+                </div>
+
+                <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                  <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ENGINE SECURITY
+                    REPORT:</div>
+                  <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                    • Initialization State: <span style="color: #f92672;">UNINITIALIZED</span> (Protected by TDZ)<br>
+                    • Runtime Status: <span style="color: #f92672;">CRASHED (ReferenceError)</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+            <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+              💡 <strong class="preview-tip-label">Concepto clave:</strong> La Zona Muerta Temporal comprende todo el
+              espacio de líneas desde el inicio del ámbito de bloque hasta el punto exacto donde se ejecuta la
+              inicialización física de la palabra clave <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">let</code> o
+              <code class="preview-tip-code"
+                style="color:red;border:none;padding:2px 5px;border-radius:3px;">const</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Estas declaraciones se elevan, pero no se inicializan y no puedes acceder a ellas antes de la declaración real
+        en tu código. A esto se le suele llamar <em>zona muerta temporal</em>.
+      </p>
+      <p>
+        Entender el <strong>hoisting</strong> puede ayudarte a escribir código más limpio y predecible. Sin embargo, confiar en el
+        <strong>hoisting</strong> puede hacer que tu código sea más difícil de leer y mantener. Como práctica recomendada, se aconseja
+        declarar tus variables al inicio de su ámbito y tus funciones antes de usarlas, independientemente del <strong>hoisting</strong>.
+        Esto hace que el comportamiento de tu código sea más explícito y más fácil de entender para los demás, incluido
+        tu yo futuro.
+      </p>
+
+    </section>
+
+    <!-- Cuestionario 2 -->
+    <section id="cuest2" aria-labelledby="cuest2-titulo">
+
+      <h2 id="cuest2-titulo">🧠 Cuestionario 2</h2>
+
+      <form>
+
+        <fieldset>
+          <legend>
+            ¿Qué sucede cuando se eleva una variable declarada con <mark>var</mark>?
+          </legend>
+
+          <label>
+            <input type="radio" name="q4">
+            Tanto la declaración como la inicialización se mueven al principio del código.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            <!-- correcto -->
+            Solo la declaración se mueve al principio del código.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            La variable no se eleva en absoluto.
+          </label>
+          <label>
+            <input type="radio" name="q4">
+            La variable se elimina del código.
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            ¿En qué se diferencia el hoisting de funciones del hoisting de variables?
+          </legend>
+
+          <label>
+            <input type="radio" name="q5">
+            Las funciones no se someten a hoisting.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            Solo se somete a hoisting el nombre de la función.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            <!-- correcto -->
+            Tanto el nombre como el cuerpo de la función se someten a hoisting.
+          </label>
+          <label>
+            <input type="radio" name="q5">
+            El hoisting de funciones solo funciona con funciones de flecha.
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Qué sucede si intentas acceder a una variable declarada con <mark>let</mark> antes de que aparezca su declaración en el código?
+          </legend>
+
+          <label>
+            <input type="radio" name="q6">
+            Devuelve undefined.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            <!-- correcto -->
+            Genera un ReferenceError.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Devuelve null.
+          </label>
+          <label>
+            <input type="radio" name="q6">
+            Funciona sin problemas.
+          </label>
+        </fieldset>
+
+      </form>
+
+    </section>
+
+
+
+    <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+      aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </main>
+
+
+
+  <footer>
+    <small>&copy; 2026 Curso JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

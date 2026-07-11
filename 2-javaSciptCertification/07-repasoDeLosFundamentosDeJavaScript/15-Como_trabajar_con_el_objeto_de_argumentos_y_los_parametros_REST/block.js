@@ -1022,33 +1022,106 @@ Por último, el método shift() elimina el primer elemento de un array y devuelv
 
 // cuestionario
 
-function outer(x) {
-  return function(y) {
-    return x + y;
-  };
-}
-let add5 = outer(5);
-console.log(add5(3));
-console.log("< ---------------- >");
+// function outer(x) {
+//   return function (y) {
+//     return x + y;
+//   };
+// }
+// let add5 = outer(5);
+// console.log(add5(3));
+// console.log("< ---------------- >");
 
-function createGreeter(greeting) {
-  return function(name) {
-    console.log(greeting + ", " + name);
-  };
-}
-let sayHello = createGreeter("Hello");
-sayHello("Alice");
-console.log("< ---------------- >");
+// function createGreeter(greeting) {
+//   return function (name) {
+//     console.log(greeting + ", " + name);
+//   };
+// }
+// let sayHello = createGreeter("Hello");
+// sayHello("Alice");
+// console.log("< ---------------- >");
 
-function counter() {
-  let count = 0;
-  return function() {
-    count++;
-    return count;
-  };
-}
-let increments = counter();
-console.log(increments());
-console.log(increments());
-console.log(increments());
+// function counter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+// let increments = counter();
+// console.log(increments());
+// console.log(increments());
+// console.log(increments());
+// console.log("< ---------------- >");
+/* ================= */
+// Crea un inversor de cadenas
+
+// function reverseString(str) {
+//   const letras = str.split("");
+//   const invertido = letras.reverse();
+//   const resultado = invertido.join("");
+
+//   return resultado;
+// }
+
+// console.log(reverseString("hello")); // "olleh"
+// console.log(reverseString("JavaScript")); // "tpircSavaJ"
+// console.log(reverseString("abc")); // "cba"
+
+/* ================= */
+
+
+// var x = 10;
+
+// if (true) {
+//   var x = 20;
+//   console.log(x);
+// }
+
+// console.log(x);
+
+/* ================= */
+// La palabra clave var y el hoisting
+
+// Tema 1: ¿Qué es la palabra clave var y por qué ya no se recomienda usarla?
+
+// var num = 5;
+// console.log(num); // 5
+
+// This is allowed and doesn't throw an error
+// var num = 10;
+// console.log(num); // 10
+
+// console.log("< ---------------- >");
+
+// if (true) {
+  //   var num = 5;
+// }
+// console.log(num); // 5
+// console.log("< ---------------- >");
+
+// Tema 2: ¿Qué es el hoisting?
+/*
+En términos sencillos, el hoisting es el comportamiento predeterminado de JavaScript de mover las declaraciones al inicio de sus respectivos ámbitos durante la fase de compilación, antes de que se ejecute el código.
+*/
+// console.log(x); // undefined
+// var x = 5;
+// console.log(x); // 5
+// console.log("< ---------------- >");
+
+// var x;
+// console.log(x); // undefined
+// x = 5;
+// console.log(x); // 5
+// console.log("< ---------------- >");
+
+// sayHello(); // "Hello, World!"
+
+// function sayHello(){
+//   console.log("Hello, World!");
+// }
+// console.log("< ---------------- >");
+
+console.log(y); // Throws a ReferenceError
+let y = 10;
 console.log("< ---------------- >");
+/* ================= */
