@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de los fundamentos de JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/jsIcon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de los fundamentos de JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> String y toString()</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> Number</a>
+          <a href="#tema3" data-nav><span class="nav-num">03</span> Nombres variables/funciones</a>
+          <a href="#tema4" data-nav><span class="nav-num">04</span> Matrices dispersas</a>
+          <a href="#tema5" data-nav><span class="nav-num">05</span> Linters y formateadores</a>
+          <a href="#tema6" data-nav><span class="nav-num">06</span> Memoria</a>
+          <a href="#tema7" data-nav><span class="nav-num">07</span> Cierres</a>
+          <a href="#tema8" data-nav><span class="nav-num">08</span> var y hoisting</a>
+          <a href="#tema9" data-nav><span class="nav-num">09</span> Memoria</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        02 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/jsIcon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de los fundamentos de JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem; border-radius: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;"
+        aria-label="Cambiar tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path
+            d="M12 3.25C12 3.11193 12.1119 3 12.25 3C12.3881 3 12.5 3.11193 12.5 3.25V5.25C12.5 5.38807 12.3881 5.5 12.25 5.5C12.1119 5.5 12 5.38807 12 5.25V3.25Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C14.4853 18.5 16.5 16.4853 16.5 14C16.5 11.5147 14.4853 9.5 12 9.5C9.51472 9.5 7.5 11.5147 7.5 14C7.5 16.4853 9.51472 18.5 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C12 18.3619 12.1119 18.25 12.25 18.25H14.25C14.3881 18.25 14.5 18.3619 14.5 18.5C14.5 18.6381 14.3881 18.75 14.25 18.75H12.25C12.1119 18.75 12 18.6381 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M4.75 12C4.75 11.8619 4.86193 11.75 5 11.75H7C7.13807 11.75 7.25 11.8619 7.25 12C7.25 12.1381 7.13807 12.25 7 12.25H5C4.86193 12.25 4.75 12.1381 4.75 12Z"
+            fill="currentColor" />
+          <path
+            d="M17 12C17 11.8619 17.1119 11.75 17.25 11.75H19.25C19.3881 11.75 19.5 11.8619 19.5 12C19.5 12.1381 19.3881 12.25 19.25 12.25H17.25C17.1119 12.25 17 12.1381 17 12Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 6.21967C6.51256 5.92678 6.98744 5.92678 7.28033 6.21967L8.28033 7.21967C8.57322 7.51256 8.57322 7.98744 8.28033 8.28033C7.98744 8.57322 7.51256 8.57322 7.21967 8.28033L6.21967 7.28033C5.92678 6.98744 5.92678 6.51256 6.21967 6.21967Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 15.7803C16.0732 15.4874 16.5481 15.4874 16.841 15.7803L17.841 16.7803C18.1339 17.0732 18.1339 17.5481 17.841 17.841C17.5481 18.1339 17.0732 18.1339 16.7803 17.841L15.7803 16.841C15.4874 16.5481 15.4874 16.0732 15.7803 15.7803Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 17.7803C5.92678 17.4874 5.92678 17.0126 6.21967 16.7197L7.21967 15.7197C7.51256 15.4268 7.98744 15.4268 8.28033 15.7197C8.57322 16.0126 8.57322 16.4874 8.28033 16.7803L7.28033 17.7803C6.98744 18.0732 6.51256 18.0732 6.21967 17.7803Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 8.21967C16.0732 7.92678 16.5481 7.92678 16.841 8.21967L17.841 9.21967C18.1339 9.51256 18.1339 9.98744 17.841 10.2803C17.5481 10.5732 17.0732 10.5732 16.7803 10.2803L15.7803 9.28033C15.4874 8.98744 15.4874 8.51256 15.7803 8.21967Z"
+            fill="currentColor" />
+        </svg>
+        Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta sección, repasaremos los conceptos básicos de JavaScript que hemos visto en secciones anteriores.
+          Estos fundamentos son esenciales para comprender cómo funciona el lenguaje y cómo podemos utilizarlo para
+          crear aplicaciones web interactivas.
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: El constructor String y el método <mark>toString()</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Un objeto String se utiliza para representar una secuencia de caracteres. Los
+              objetos String se crean mediante la función constructora String, que envuelve el valor primitivo en un
+              objeto.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-string-constructor-object">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">string_constructor.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">greetingObject</span> <span class="tk-operator">=</span> <span class="tk-property">new</span> <span class="tk-value">String</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, world!"</span><span class="tk-punctuation">);</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">greetingObject</span><span class="tk-punctuation">);</span> <span class="tk-comment">// "object"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Envoltura de Objetos (Object Wrapper)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Comportamiento del Constructor
+                      String:</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Instanciación con new (Línea 1):</strong> Al invocar
+                        <code class="preview-inline-code">new String()</code>, JavaScript no crea un valor primitivo
+                        regular, sino que reserva memoria para una envoltura de tipo objeto que encapsula la cadena.
+                      </div>
+                      <div>🟢 <strong class="preview-bold-label">Evaluación de Tipo (Línea 3):</strong> Dado que se usó
+                        el constructor como clase instanciable, el operador <code
+                          class="preview-inline-code">typeof</code> evalúa su tipo estructural como <code
+                          class="preview-inline-code">"object"</code> en lugar de <code
+                          class="preview-inline-code">"string"</code>.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                    <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">OBJECT MEMORY
+                      INSPECTOR:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Primitive value: <span style="color: #a6e22e;">"Hello, world!"</span><br>
+                      • Wrapped representation: <code>String { "Hello, world!" }</code><br>
+                      • Type verification: <span style="color: #66d9ef;">"object"</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: #f8f8f2; border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #333; line-height: 1.4;">
+                💡 <strong style="color: #000;">Recomendación de uso:</strong> En el desarrollo moderno de
+                JavaScript casi nunca es necesario crear cadenas con <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">new String()</code>.
+                Se aconseja usar siempre literales de cadena primitivos para una inicialización óptima en memoria.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>toString()</mark></strong>: Este método convierte un valor en su representación como
+              cadena. Es un método que puedes usar con números, valores booleanos, matrices y objetos.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-tostring-method-behavior">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">tostring_method.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">()</span><span class="tk-punctuation">);</span> <span class="tk-comment">// "10"</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">arr</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">];</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">arr</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">()</span><span class="tk-punctuation">);</span> <span class="tk-comment">// "1,2,3"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Comportamiento de toString()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Resolución según Tipo de Dato:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Conversión Numérica (Línea 2):</strong> Para los
+                        números, <code class="preview-inline-code">.toString()</code> extrae el valor primitivo y lo
+                        formatea como una cadena de texto base 10 estándar.</div>
+                      <div>🟢 <strong class="preview-bold-label">Conversión de Arrays (Línea 5):</strong> En arreglos,
+                        el método recorre internamente cada elemento, invoca el método de cadena de cada uno y los une
+                        de forma implícita mediante comas.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">STRING CASTING
+                      REPORT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Number type ➔ <code style="color: #66d9ef;">"10"</code> (String primitive)<br>
+                      • Array type ➔ <code style="color: #66d9ef;">"1,2,3"</code> (Concatenated format)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Curiosidad técnica:</strong> Los tipos primitivos como los números
+                no son objetos, pero JavaScript los envuelve automáticamente en un objeto temporal (autoboxing) al
+                invocar <code class="preview-tip-code"
+                  style="background:#f3f397;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.toString()</code>
+                para que puedas acceder al método sin fallos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Este método acepta un radix opcional, que es un número entre 2 y 36. Este radix representa la base, como
+              la base 2 para el sistema binario o la base 8 para el sistema octal. Si no se especifica el radix, el
+              valor predeterminado es la base 10, es decir, el sistema decimal.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-tostring-radix-conversion">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">tostring_radix.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">.</span><span class="tk-value">toString</span><span class="tk-punctuation">(</span><span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">);</span> <span class="tk-comment">// "1010"(binary)</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Conversión de Base Numérica (Radix)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Mecánica del Argumento Radix:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Conversión Binaria (Línea 2):</strong> Al pasar el
+                        parámetro <code class="preview-inline-code">2</code> al método <code
+                          class="preview-inline-code">.toString()</code>, el motor de JavaScript convierte el valor
+                        decimal <code class="preview-inline-code">10</code> a su representación binaria equivalente en
+                        cadena.</div>
+                      <div>🟢 <strong class="preview-bold-label">Cálculo de Bits:</strong> El número entero <code
+                          class="preview-inline-code">10</code> se descompone matemáticamente en <code
+                          class="preview-inline-code">8 + 2</code> (es decir, <code
+                          class="preview-inline-code">1*(2³) + 0*(2²) + 1*(2¹) + 0*(2⁰)</code>), resultando en la cadena
+                        <code class="preview-inline-code">"1010"</code>.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">RADIX
+                      REPRESENTATION VISUALIZER:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Decimal (Base 10) ➔ <span style="color: #ffbd2e;">10</span><br>
+                      • Binary (Base 2) ➔ <span style="color: #a6e22e; font-weight: bold;">"1010"</span><br>
+                      • Hexadecimal (Base 16) ➔ <span style="color: #66d9ef;">"a"</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Límite del parámetro:</strong> El parámetro radix debe ser
+                estrictamente un entero entre <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">2</code> y
+                <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">36</code>. Si
+                pasas un valor fuera de este rango (como <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">1</code> o
+                <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">37</code>), el
+                motor detendrá el script lanzando un <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">RangeError</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Constructor Number</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: El constructor <mark>Number</mark> se utiliza para crear un objeto numérico.
+              El objeto numérico contiene algunas propiedades y métodos útiles, como los métodos <mark>isNaN</mark> y
+              <mark>toFixed</mark>. En la mayoría de los casos, utilizarás el constructor <mark>Number</mark> para
+              convertir otros tipos de datos al tipo de datos numérico.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-number-constructor-and-casting">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">number_constructor.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">myNum</span> <span class="tk-operator">=</span> <span class="tk-property">new</span> <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">"34"</span><span class="tk-punctuation">);</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">myNum</span><span class="tk-punctuation">);</span> <span class="tk-comment">// "object"</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-value">Number</span><span class="tk-punctuation">(</span><span class="tk-string">'100'</span><span class="tk-punctuation">);</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">);</span> <span class="tk-comment">// 100</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-property">typeof</span> <span class="tk-selector">num</span><span class="tk-punctuation">);</span> <span class="tk-comment">// number</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Doble comportamiento de Number</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Instanciación vs Conversión:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Instancia de Objeto (Línea 1):</strong> Al usar el
+                        operador <code class="preview-inline-code">new</code>, se encapsula el valor dentro de un objeto
+                        envoltorio de tipo <code class="preview-inline-code">"object"</code>.</div>
+                      <div>🟢 <strong class="preview-bold-label">Casting Primitivo (Línea 4):</strong> Invocar el
+                        constructor directamente como una función (sin <code class="preview-inline-code">new</code>)
+                        realiza un casting puro de tipos, retornando un valor numérico primitivo con tipo <code
+                          class="preview-inline-code">"number"</code>.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                    <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">TYPE AND MEMORY
+                      AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • <code>new Number("34")</code> ➔ <span style="color: #66d9ef;">"object"</span> (Instancia en
+                      memoria Heap)<br>
+                      • <code>Number('100')</code> ➔ <span style="color: #a6e22e;">"number"</span> (Valor primitivo
+                      directo)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Regla de oro:</strong> Evita usar <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">new Number()</code>.
+                Los objetos envueltos pueden causar efectos secundarios inesperados en comparaciones de igualdad
+                estricta (<code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">===</code>).
+                Para realizar conversiones de tipo, usa siempre la función directa <code class="preview-tip-code"
+                  style="background:#ebf4a5;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">Number()</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 3 -->
+      <section id="tema3" aria-labelledby="tema3-titulo">
+        <h2 id="tema3-titulo">Tema 3: Mejores prácticas para nombrar variables y funciones</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong><mark>camelCasing</mark></strong>: Por convención, los desarrolladores de JavaScript utilizan el
+              estilo <em>camel case</em> para nombrar variables y funciones. En este estilo, la primera palabra se
+              escribe completamente en minúsculas y las siguientes comienzan con mayúscula. Ejemplo:
+              <mark>isLoading</mark>.
+            </li>
+            <li>
+              <strong>Nombres de variables booleanas</strong>: Para las variables booleanas, es una práctica común usar
+              prefijos como "<strong>is</strong>", "<strong>has</strong>" o "<strong>can</strong>".
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-boolean-naming-conventions">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">boolean_naming.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">let</span> <span class="tk-selector">isLoading</span> <span class="tk-operator">=</span> <span class="tk-number">true</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">hasPermission</span> <span class="tk-operator">=</span> <span class="tk-number">false</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">canEdit</span> <span class="tk-operator">=</span> <span class="tk-number">true</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Convenciones de Semántica y Prefijos</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Estilo Empleado:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Camel Case Estricto (Líneas 1-3):</strong> El inicio de
+                        cada variable es minúsculo, elevando a mayúscula la primera letra de cada término subsiguiente
+                        (<code class="preview-inline-code">Loading</code>, <code
+                          class="preview-inline-code">Permission</code>, <code class="preview-inline-code">Edit</code>)
+                        para asegurar legibilidad inmediata.</div>
+                      <div>🟢 <strong class="preview-bold-label">Prefijos Descriptivos:</strong> El uso de verbos
+                        auxiliares (<code class="preview-inline-code">is</code>, <code
+                          class="preview-inline-code">has</code>, <code class="preview-inline-code">can</code>) actúa
+                        como un indicador explícito que anuncia el retorno inminente de un booleano sin necesidad de
+                        revisar su asignación.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SEMANTIC RULES
+                      EVALUATION:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • <code>isLoading</code> ➔ <span style="color: #a6e22e;">Estado</span> (¿Está cargando?)<br>
+                      • <code>hasPermission</code> ➔ <span style="color: #a6e22e;">Posesión</span> (¿Tiene el
+                      permiso?)<br>
+                      • <code>canEdit</code> ➔ <span style="color: #a6e22e;">Habilidad</span> (¿Puede editar?)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Buenas prácticas:</strong> Nombrar booleanos usando sustantivos
+                planos (como <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">loading</code>
+                o <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">permission</code>)
+                disminuye la claridad. Añadir el prefijo adecuado convierte el código en una lectura casi natural al
+                estructurar bloques condicionales <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">if</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Nombres de funciones</strong>: En el caso de las funciones, el nombre debe indicar claramente qué
+              hace la función. Para las funciones que devuelven un valor booleano (a menudo llamadas predicados), puedes
+              usar los mismos prefijos <strong>is</strong>, <strong>has</strong> o <strong>can</strong>. Cuando se trata
+              de funciones que recuperan datos, es común comenzar con la palabra "<strong>get</strong>". Cuando se trata
+              de funciones que establecen datos, es común comenzar con la palabra "<strong>set</strong>". Para las
+              funciones de manejo de eventos, se puede usar el prefijo "<strong>handle</strong>" o el sufijo
+              "<strong>Handler</strong>".
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-function-naming-conventions">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">function_naming.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">getUserData</span><span class="tk-punctuation">() {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">isValidEmail</span><span class="tk-punctuation">(</span><span class="tk-selector">email</span><span class="tk-punctuation">) {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">getProductDetails</span><span class="tk-punctuation">(</span><span class="tk-selector">productId</span><span class="tk-punctuation">) {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">setUserPreferences</span><span class="tk-punctuation">(</span><span class="tk-selector">preferences</span><span class="tk-punctuation">) {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-value">handleClick</span><span class="tk-punctuation">() {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Semántica de Funciones y Patrones de Acción</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Patrones de Nombramiento
+                      Estándar:</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Acceso y Mutación (Líneas 1, 5, 7):</strong> El uso de
+                        verbos claros como <code class="preview-inline-code">get</code> para consultas y <code
+                          class="preview-inline-code">set</code> para asignaciones de estado define inmediatamente el
+                        flujo de datos de la función.</div>
+                      <div>🟢 <strong class="preview-bold-label">Predicados y Eventos (Líneas 3, 9):</strong> Prefijos
+                        de validación (<code class="preview-inline-code">is</code>) indican retorno booleano implícito,
+                        mientras que verbos de acción directa como <code class="preview-inline-code">handle</code>
+                        describen la captura y procesamiento de una interacción del usuario.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">API DESIGN &
+                      FUNCTION INTENT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • <code>get...</code> ➔ <span style="color: #66d9ef;">Reader</span> (Retorna datos limpios)<br>
+                      • <code>set...</code> ➔ <span style="color: #ffbd2e;">Writer</span> (Modifica o escribe un
+                      estado)<br>
+                      • <code>is...</code> ➔ <span style="color: #a6e22e;">Evaluator</span> (Retorna true/false)<br>
+                      • <code>handle...</code> ➔ <span style="color: #f92672;">Listener</span> (Reacciona a eventos
+                      asíncronos)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Diseño autodocumentado:</strong> Seguir estas reglas de verbos
+                iniciales permite que cualquier desarrollador entienda el propósito de una API o módulo al instante sin
+                tener que sumergirse a leer la implementación interna de cada función.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Nombres de variables dentro de los bucles</strong>: Al nombrar las variables iteradoras en los
+              bucles, es común usar letras únicas como <mark>i</mark>, <mark>j</mark> o <mark>k</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-loop-variable-naming">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">loop_iterator.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> <span class="tk-operator">=</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-selector">array</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">) {</span> <span class="tk-comment">/* ... */</span> <span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Variables de Iteración en Bucles</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Matemática e Historia del
+                      Iterador:</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Uso de la Letra "i" (Línea 1):</strong> Por convención
+                        histórica heredada de lenguajes como Fortran y de las matemáticas algebraicas, la letra <code
+                          class="preview-inline-code">i</code> representa el concepto de "índice" o "iterador".</div>
+                      <div>🟢 <strong class="preview-bold-label">Orden Alfabético (j, k):</strong> En caso de requerir
+                        bucles anidados, se avanza alfabéticamente a <code class="preview-inline-code">j</code> para el
+                        segundo nivel y a <code class="preview-inline-code">k</code> para el tercero, manteniendo un
+                        código conciso.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">LOOP SCOPING
+                      ANALYSIS:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Iterator: <code>i</code> ➔ <span style="color: #a6e22e;">Blocked Scope (let)</span><br>
+                      • Recommended Nesting: <code>i</code> (outer) ➔ <code>j</code> (inner) ➔ <code>k</code> (deep)<br>
+                      • Scope Leakage: <span style="color: #00e5b0;">None</span> (La variable no existe fuera del bucle)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">¿Cuándo NO usar "i"?:</strong> Si estás iterando colecciones
+                complejas donde el índice representa algo muy específico (como una fila o columna en una matriz de
+                mapas), a veces es preferible usar nombres más claros como <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">rowIndex</code>
+                o <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">colIndex</code>
+                para evitar confusiones en el algoritmo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 4 -->
+      <section id="tema4" aria-labelledby="tema4-titulo">
+        <h2 id="tema4-titulo">Tema 4: Trabajar con matrices dispersas</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Es posible tener matrices con celdas vacías. Las celdas vacías se definen
+              como aquellas que no contienen nada. Esto es diferente a las celdas de una matriz cuyo valor es undefined.
+              Este tipo de matrices se conocen como matrices dispersas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-sparse-arrays-behavior">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">sparse_array.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">sparseArray</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-punctuation">,</span> <span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">];</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">sparseArray</span><span class="tk-punctuation">.</span><span class="tk-value">length</span><span class="tk-punctuation">);</span> <span class="tk-comment">// 4</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Estructura de Matrices Dispersas (Sparse Arrays)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Ranuras Vacías
+                      (Holes):</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Celdas Elididas (Línea 1):</strong> Las comas sucesivas
+                        sin valor intermedio crean ranuras vacías (<code
+                          class="preview-inline-code">empty slots</code>). Estas celdas físicamente no existen en el
+                        mapa de propiedades del objeto Array en memoria.</div>
+                      <div>🟢 <strong class="preview-bold-label">Cálculo de Longitud (Línea 2):</strong> La propiedad
+                        <code class="preview-inline-code">.length</code> no cuenta los elementos presentes, sino que
+                        simplemente retorna el índice más alto incrementado en uno, devolviendo un valor de <code
+                          class="preview-inline-code">4</code>.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #ffbd2e;">
+                    <div style="color: #ffbd2e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">MEMORY
+                      ALLOCATION AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Index 0 ➔ <code>1</code> (Allocated)<br>
+                      • Index 1 ➔ <span style="color: #ffbd2e;">&lt;empty slot&gt;</span> (No key in prototype)<br>
+                      • Index 2 ➔ <span style="color: #ffbd2e;">&lt;empty slot&gt;</span> (No key in prototype)<br>
+                      • Index 3 ➔ <code>4</code> (Allocated)
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Diferencia con undefined:</strong> Si intentas consultar el índice
+                1 (<code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">sparseArray[1]</code>),
+                el motor devolverá <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">undefined</code>,
+                pero métodos iteradores nativos como <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.forEach()</code>
+                o <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">.map()</code>
+                ignorarán por completo estas ranuras saltándoselas durante la ejecución.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 5 -->
+      <section id="tema5" aria-labelledby="tema5-titulo">
+        <h2 id="tema5-titulo">Tema 5: Linters y formateadores</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Linters</strong>: Un linter es una herramienta de análisis estático de código que señala errores
+              de programación, bugs, errores de estilo y construcciones sospechosas. Un ejemplo de linter común sería
+              ESLint.
+            </li>
+            <li>
+              <strong>Formateadores</strong>: Los formateadores son herramientas que formatean automáticamente el código
+              para que cumpla con una guía de estilo específica. Un ejemplo de formateador común sería Prettier.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-linters-formatters">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">linter_formatter_demo.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">unUsedVar</span> <span class="tk-operator">=</span> <span class="tk-string">'linter alert'</span><span class="tk-punctuation">;</span> 
+
+<span class="tk-property">function</span> <span class="tk-value">badFormat</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span><span class="tk-selector">b</span><span class="tk-punctuation">){</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Análisis Estático y Estilo de Código</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <!-- Sección Linter -->
+                  <div
+                    style="background: rgba(249, 38, 114, 0.1); border: 1px solid rgba(249, 38, 114, 0.3); padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #f92672; font-weight: bold; margin-bottom: 4px;">🔍 ESLint Alert (Análisis
+                      Calidad/Reglas):</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>⚠️ <strong class="preview-bold-label">Línea 1:</strong> Variable declarada pero nunca usada
+                        (<code class="preview-inline-code">no-unused-vars</code>). Puede generar fugas de memoria o
+                        código basura.</div>
+                      <div>⚠️ <strong class="preview-bold-label">Línea 3:</strong> Uso de var, variables globales
+                        implícitas o parámetros sin uso.</div>
+                    </div>
+                  </div>
+
+                  <!-- Sección Formateador -->
+                  <div
+                    style="background: rgba(102, 217, 239, 0.1); border: 1px solid rgba(102, 217, 239, 0.3); padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">✨ Prettier Suggestions (Análisis
+                      Estético):</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>💅 <strong class="preview-bold-label">Espaciado incorrecto (Línea 3):</strong> Falta un
+                        espacio entre los argumentos (<code class="preview-inline-code">a, b</code>) y antes de la llave
+                        ( <code class="preview-inline-code">{}</code> ).</div>
+                      <div>💅 <strong class="preview-bold-label">Indentación rota (Línea 4):</strong> El cuerpo de la
+                        función debería estar indentado con 2 o 4 espacios consistentes.</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Diferencia Clave:</strong> Un **Linter** (ESLint) se enfoca en la
+                **calidad del código** (encontrar bugs potenciales y malas prácticas de lógica). Un **Formateador**
+                (Prettier) se encarga exclusivamente de la **consistencia visual** (comas, espacios, comillas
+                simples/dobles e indentaciones).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 6 -->
+      <section id="tema6" aria-labelledby="tema6-titulo">
+        <h2 id="tema6-titulo">Tema 6: Administración de memoria</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: La administración de memoria es el proceso de controlar la memoria, asignarla
+              cuando sea necesario y liberarla cuando ya no se necesite. JavaScript utiliza una administración
+              automática de memoria. Esto significa que JavaScript (más específicamente, el motor de JavaScript de tu
+              navegador web) se encarga de la asignación y liberación de memoria por ti. No es necesario que liberes
+              memoria explícitamente en tu código. A este proceso automático se le suele llamar "<em>recolección de
+                basura</em>".
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- TEMA 7 -->
+      <section id="tema7" aria-labelledby="tema7-titulo">
+        <h2 id="tema7-titulo">Tema 7: Cierres</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Un cierre es una función que tiene acceso a las variables de su ámbito léxico
+              externo (en el que está contenida), incluso después de que la función externa haya finalizado.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-closures-lexical-scope">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">closures.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-value">outerFunction</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">let</span> <span class="tk-selector">y</span> <span class="tk-operator">=</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span>
+  <span class="tk-property">function</span> <span class="tk-value">innerFunction</span><span class="tk-punctuation">() {</span>
+    <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span> <span class="tk-operator">+</span> <span class="tk-selector">y</span><span class="tk-punctuation">);</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-property">return</span> <span class="tk-selector">innerFunction</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">let</span> <span class="tk-selector">closure</span> <span class="tk-operator">=</span> <span class="tk-value">outerFunction</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">);</span>
+<span class="tk-value">closure</span><span class="tk-punctuation">();</span> <span class="tk-comment">// 15</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Persistencia del Ámbito Léxico (Closure)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Ciclo de Vida de las Variables:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Retención de Memoria (Línea 4):</strong> Aunque <code
+                          class="preview-inline-code">outerFunction</code> finaliza su ejecución en la línea 9, <code
+                          class="preview-inline-code">innerFunction</code> mantiene viva una referencia interna a <code
+                          class="preview-inline-code">x</code> (del parámetro) y a <code
+                          class="preview-inline-code">y</code> (del ámbito local).</div>
+                      <div>🟢 <strong class="preview-bold-label">Resolución en Ejecución (Línea 10):</strong> Al llamar
+                        a <code class="preview-inline-code">closure()</code>, el motor de JS busca las referencias en el
+                        "entorno de cierre" guardado en memoria, resolviendo con éxito el cálculo <code
+                          class="preview-inline-code">5 + 10</code>.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SCOPE CHAIN
+                      DIAGRAM:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Closure Scope ➔ <code>{ x: 5, y: 10 }</code> (Preservado)<br>
+                      • Local Scope (innerFunction) ➔ <code>{}</code> (Vacío)<br>
+                      • Output Console ➔ <span style="color: #a6e22e; font-weight: bold;">15</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Manejo de memoria:</strong> Los closures evitan que el recolector
+                de basura (*Garbage Collector*) libere el ámbito de la función externa. Úsalos de manera consciente para
+                evitar retenciones accidentales de memoria en estructuras de datos muy grandes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 8 -->
+      <section id="tema8" aria-labelledby="tema8-titulo">
+        <h2 id="tema8-titulo">Tema 8: La palabra clave <mark>var</mark> y el hoisting</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: <mark>var</mark> era la forma original de declarar variables antes de 2015.
+              Sin embargo, <mark>var</mark> presentaba algunos problemas relacionados con el ámbito, la redeclaración y
+              otros aspectos. Por eso, en la programación moderna de JavaScript se utilizan <mark>let</mark> y
+              <mark>const</mark> en su lugar. Redeclaración de variables con <mark>var</mark>: Si intentas redeclarar
+              una variable usando <mark>let</mark>, obtendrás un <mark>SyntaxError</mark>. Sin embargo, con
+              <mark>var</mark>, sí se permite redeclarar una variable.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-var-redeclaration-hoisting">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">var_redeclaration.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// Uncaught SyntaxError: Identifier 'num' has already been declared </span>
+<span class="tk-property">let</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">19</span><span class="tk-punctuation">;</span>
+<span class="tk-property">let</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">18</span><span class="tk-punctuation">;</span>
+
+<span class="tk-property">var</span> <span class="tk-selector">myNum</span> <span class="tk-operator">=</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-property">var</span> <span class="tk-selector">myNum</span> <span class="tk-operator">=</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span> <span class="tk-comment">// This is allowed and doesn't throw an error</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">myNum</span><span class="tk-punctuation">)</span> <span class="tk-comment">// 10</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Reglas de Ámbito y Redeclaración</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Comportamiento:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🔴 <strong class="preview-bold-label">Bloqueo Sintáctico (Línea 3):</strong> El motor de
+                        JavaScript impide por completo que <code class="preview-inline-code">let</code> registre un
+                        identificador idéntico en el mismo contexto, interrumpiendo la lectura de inmediato.</div>
+                      <div>🟢 <strong class="preview-bold-label">Mutación Permisiva (Línea 6):</strong> Al procesar
+                        <code class="preview-inline-code">var</code>, el compilador ignora la segunda declaración física
+                        y la interpreta simplemente como una reasignación directa de valor sobre la variable existente
+                        en memoria.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">PARSING RUNTIME
+                      REPORT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Lexical Check: <code>let num</code> ➔ <span
+                        style="color: #f92672; font-weight: bold;">SyntaxError</span> (Línea 3)<br>
+                      • Identifier Override: <code>myNum</code> ➔ Reescrito de <code style="color: #66d9ef;">5</code> a
+                      <code style="color: #a6e22e;">10</code><br>
+                      • Console Output: ➔ <span style="color: #a6e22e; font-weight: bold;">10</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">¿Por qué evitar var?:</strong> Permitir la redeclaración silenciosa
+                facilita la aparición de bugs invisibles, donde puedes sobrescribir accidentalmente variables globales o
+                locales previamente configuradas sin recibir ningún aviso o mensaje de error.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong><mark>var</mark> y el ámbito</strong>: Las variables declaradas con <mark>var</mark> dentro de un
+              bloque (como
+              una instrucción <mark>if</mark> o un ciclo <mark>for</mark>) siguen siendo accesibles fuera de ese bloque.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-var-block-scope">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">var_scope.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">if</span> <span class="tk-punctuation">(</span><span class="tk-boolean">true</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">var</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">5</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">);</span> <span class="tk-comment">// 5</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Comportamiento del Ámbito en Bloques</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Fuga de Ámbito (Scope Leakage):
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Ámbito Funcional (Línea 2):</strong> Dado que <code
+                          class="preview-inline-code">var</code> ignora los bloques estructurados (como <code
+                          class="preview-inline-code">if</code>, <code class="preview-inline-code">for</code> o <code
+                          class="preview-inline-code">while</code>) y solo se limita por funciones, la variable se
+                        registra en el contexto global o de la función contenedora.</div>
+                      <div>🟢 <strong class="preview-bold-label">Acceso Externo (Línea 5):</strong> La variable <code
+                          class="preview-inline-code">num</code> escapa de las llaves del bloque condicional,
+                        permitiendo que la llamada externa la lea sin lanzar un error de referencia.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SCOPE RESOLUTION
+                      AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Block Scope (if) ➔ <code>No aplica para var</code><br>
+                      • Outer/Global Scope ➔ <code>{ num: 5 }</code> (Asignado globalmente)<br>
+                      • Console Output ➔ <span style="color: #a6e22e; font-weight: bold;">5</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Diferencia con let y const:</strong> Si hubieras usado <code
+                  class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">let</code> o
+                <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">const</code>,
+                la variable habría quedado estrictamente restringida al interior del bloque <code
+                  class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">if</code>, y
+                la línea 5 habría fallado de inmediato con un <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">ReferenceError</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Cuando declaras una función utilizando la sintaxis de declaración de funciones, tanto el nombre como el
+              cuerpo de la función se elevan. Esto significa que puedes llamar a una función antes de haberla declarado
+              en tu código.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-function-hoisting">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">function_hoisting.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-value">sayHello</span><span class="tk-punctuation">();</span> <span class="tk-comment">// "Hello, World!"</span>
+
+<span class="tk-property">function</span> <span class="tk-value">sayHello</span><span class="tk-punctuation">() {</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-string">"Hello, World!"</span><span class="tk-punctuation">);</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Elevación de Funciones (Function Hoisting)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Fase de Compilación vs.
+                      Ejecución:</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Registro Completo (Líneas 3-5):</strong> Durante la
+                        fase de creación del contexto, el motor de JS registra en memoria tanto el identificador <code
+                          class="preview-inline-code">sayHello</code> como su definición física completa.</div>
+                      <div>🟢 <strong class="preview-bold-label">Invocación Temprana (Línea 1):</strong> Al iniciar la
+                        fase de ejecución paso a paso, la función ya está totalmente asignada y disponible para ser
+                        invocada con éxito antes de su definición textual.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">INTERPRETER
+                      TIMELINE:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Step 1 (Compile) ➔ Reservar espacio para <code>sayHello() { ... }</code><br>
+                      • Step 2 (Execute) ➔ Ejecutar <code>sayHello()</code> en la Línea 1<br>
+                      • Output Console ➔ <span style="color: #a6e22e; font-weight: bold;">"Hello, World!"</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Expresiones de función:</strong> Ten en cuenta que este
+                comportamiento solo aplica a las **declaraciones tradicionales**. Si asignas una función a una variable
+                (<code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">const sayHello = () => ...</code>),
+                el hoisting no elevará la definición y arrojará un error si intentas llamarla previamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Las declaraciones de variables realizadas con <mark>let</mark> o <mark>const</mark> se elevan, pero no se
+              inicializan, y no puedes acceder a ellas antes de la declaración real en tu código. A este comportamiento
+              se le suele llamar "zona muerta temporal".
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-temporal-dead-zone">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">tdz_behavior.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">);</span> <span class="tk-comment">// Throws a ReferenceError</span>
+<span class="tk-property">let</span> <span class="tk-selector">num</span> <span class="tk-operator">=</span> <span class="tk-number">10</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Zona Muerta Temporal (TDZ)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Análisis de Inicialización:
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🔴 <strong class="preview-bold-label">Falta de Inicialización (Línea 1):</strong> Aunque
+                        <code class="preview-inline-code">let num</code> es reconocida por el compilador en la fase
+                        previa, entra en un estado "no inicializado". El acceso temprano a su identificador está
+                        estrictamente prohibido.
+                      </div>
+                      <div>🟢 <strong class="preview-bold-label">Activación Léxica (Línea 2):</strong> La variable sale
+                        de la Zona Muerta Temporal solo cuando el flujo de ejecución pasa físicamente por encima de la
+                        línea de su asignación de valor inicial.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #f92672;">
+                    <div style="color: #f92672; font-size: 9px; margin-bottom: 4px; font-weight: bold;">TDZ RUNTIME
+                      EXCEPTION:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Line 1 ➔ <code>num</code> in TDZ (Estado inaccesible)<br>
+                      • Execution Status ➔ <span style="color: #f92672; font-weight: bold;">ReferenceError: Cannot
+                        access 'num' before initialization</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(249, 38, 114, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Diferencia crucial con var:</strong> A diferencia de <code
+                  class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">var</code>
+                (que se inicializa automáticamente en memoria como <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">undefined</code>
+                durante el hoisting), <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">let</code> y
+                <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">const</code>
+                te obligan a escribir un código lineal y ordenado, evitando errores lógicos por leer variables antes de
+                tiempo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 9 -->
+      <section id="tema9" aria-labelledby="tema9-titulo">
+        <h2 id="tema9-titulo">Tema 9: Administración de memoria</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Módulo</strong>: Es una unidad de código independiente que encapsula funciones, clases o variables
+              relacionadas. Para crear un módulo, debes escribir tu código JavaScript en un archivo aparte.
+            </li>
+            <li>
+              <strong>Exportaciones</strong>: Cualquier variable, función o clase que desees que esté disponible para
+              otras partes de tu aplicación debe exportarse explícitamente utilizando la palabra clave
+              <mark>export</mark>. Existen dos tipos de exportación: la exportación con nombre y la exportación por
+              defecto.
+            </li>
+            <li>
+              <strong>Importaciones</strong>: Para utilizar los elementos exportados en otra parte de la aplicación, es
+              necesario importarlos mediante la palabra clave <mark>import</mark>. Los tipos pueden ser importación con
+              nombre,
+              importación por defecto e importación de espacio de nombres.
+            </li>
+          </ul>
+        </div>
+
+        <!-- IDE interactivo de ejemplo -->
+        <div class="ide-container" id="ide-js-es-modules">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">main.js</button>
+                <button class="tab" type="button" data-lang="js">math.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <!-- Archivo principal: Consumidor -->
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// Within another file, we can import the functions from math.js.</span>
+
+<span class="tk-comment">// Named import - This line imports the add function.</span>
+<span class="tk-comment">// The name of the function must exactly match the one exported from math.js.</span>
+<span class="tk-property">import</span> <span class="tk-punctuation">{</span> <span class="tk-selector">add</span> <span class="tk-punctuation">}</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Default import - This line imports the subtract function.</span>
+<span class="tk-comment">// The name of the function can be anything.</span>
+<span class="tk-property">import</span> <span class="tk-selector">subtractFunc</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Namespace import - This line imports everything from the file.</span>
+<span class="tk-property">import</span> <span class="tk-operator">*</span> <span class="tk-property">as</span> <span class="tk-selector">Math</span> <span class="tk-property">from</span> <span class="tk-string">'./math.js'</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">));</span> <span class="tk-comment">// 8</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-value">subtractFunc</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">));</span> <span class="tk-comment">// 2</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">));</span> <span class="tk-comment">// 8</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">Math</span><span class="tk-punctuation">.</span><span class="tk-value">subtract</span><span class="tk-punctuation">(</span><span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">));</span> <span class="tk-comment">// 2</span></code></pre>
+              </div>
+
+              <!-- Archivo secundario: Módulo de matemáticas -->
+              <div class="code-content" data-lang="js" style="display: none;">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-comment">// Within a file called math.js, we export the following functions:</span>
+
+<span class="tk-comment">// Named export</span>
+<span class="tk-property">export</span> <span class="tk-property">function</span> <span class="tk-value">add</span><span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> <span class="tk-operator">+</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-comment">// Default export</span>
+<span class="tk-property">export</span> <span class="tk-property">default</span> <span class="tk-property">function</span> <span class="tk-value">subtract</span><span class="tk-punctuation">(</span><span class="tk-selector">num1</span><span class="tk-punctuation">,</span> <span class="tk-selector">num2</span><span class="tk-punctuation">) {</span>
+  <span class="tk-property">return</span> <span class="tk-selector">num1</span> <span class="tk-operator">-</span> <span class="tk-selector">num2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Resolución de Importación y Exportación (ESM)</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Comparativa de Enlaces:</div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>📦 <strong class="preview-bold-label">Export Nombrado (Named):</strong> Obliga al importador
+                        a utilizar llaves <code class="preview-inline-code">{ add }</code> y a mantener exactamente el
+                        mismo identificador definido en el origen.</div>
+                      <div>⭐️ <strong class="preview-bold-label">Export por Defecto (Default):</strong> Solo puede
+                        existir un único export default por archivo. Se puede importar sin llaves y se le puede asignar
+                        cualquier nombre arbitrario como <code class="preview-inline-code">subtractFunc</code>.</div>
+                      <div>🌐 <strong class="preview-bold-label">Namespace Import (*):</strong> Empaqueta todas las
+                        exportaciones (incluido el default) bajo un único objeto namespace estructurado (<code
+                          class="preview-inline-code">Math</code>).</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">MODULAR TERMINAL
+                      OUTPUT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Line 14: <code>add(5, 3)</code> ➔ <span style="color: #a6e22e; font-weight: bold;">8</span><br>
+                      • Line 15: <code>subtractFunc(5, 3)</code> ➔ <span
+                        style="color: #a6e22e; font-weight: bold;">2</span><br>
+                      • Line 16: <code>Math.add(5, 3)</code> ➔ <span
+                        style="color: #a6e22e; font-weight: bold;">8</span><br>
+                      • Line 17: <code>Math.subtract(5, 3)</code> ➔ <span
+                        style="color: #a6e22e; font-weight: bold;">2</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f0f0f0; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Uso en entornos web:</strong> Para utilizar la sintaxis <code
+                  class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">import</code>
+                / <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">export</code>
+                directamente en el navegador, debes añadir el atributo <code class="preview-tip-code"
+                  style="background:#e4f9ac;color:#0a1a17;border:none;padding:2px 5px;border-radius:3px;">type="module"</code>
+                a tu etiqueta script en el archivo HTML.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </div><!-- /.page-wrapper -->
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

@@ -127,7 +127,7 @@ En conclusión, el método `toString()` se utiliza para convertir valores en cad
     console.log(num.toString());
     ```
 
-    - [x] a)  `"5"`
+    - [ ] a)  `"5"`
     - [x] b)  `"5.7"` //correcto
     - [ ] c)  `5.7`
     - [ ] d)  `Error`
