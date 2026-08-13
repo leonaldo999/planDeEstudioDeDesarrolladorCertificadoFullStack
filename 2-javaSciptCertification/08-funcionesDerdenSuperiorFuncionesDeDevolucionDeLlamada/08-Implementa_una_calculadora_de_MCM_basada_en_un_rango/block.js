@@ -1,0 +1,1185 @@
+// const str = "I am learning JavaScript.";
+// str.indexOf("Javascript");
+
+// console.log(str);
+
+// <=====  =====>
+
+// let sentence = "JavaScript is awesome!";
+// let position = sentence.indexOf("awesome!");
+// console.log(position); // 14
+
+// let sentence = "JavaScript is awesome!";
+// let position = sentence.indexOf("fantastic");
+// console.log(position); // -1
+
+// let sentence = "JavaScript is awesome, and JavaScript is powerful!";
+// let position = sentence.indexOf("JavaScript", 10);
+// console.log(position); // 27
+
+// console.log("freeCodeCamp".indexOf("F")); // -1
+
+// <=====  =====>
+
+// let text = "JavaScript is awesome!";
+// let result = text.slice(0, 9);
+
+// console.log(result);
+
+// let sentence = "Learning JavaScript is fun!";
+// let extracted = sentence.slice(9, -5);
+
+// console.log(extracted);
+
+// <=====  =====>
+
+// let phrase = "JavaScript is Fun!";
+// console.log(phrase.toLowerCase());
+// console.log(phrase.toLocaleUpperCase());
+
+
+// <=====  =====>
+
+// let phrase = "freeCodeCamp is awesome!";
+// let updatedPhrase = phrase.replace("freecodecamp", "fCC");
+
+// console.log(updatedPhrase);
+
+// let phrase = "Good morning, morning people!";
+// let updatedPhrase = phrase.replace("morning", "evening");
+
+// console.log(updatedPhrase);
+
+
+// <=====  =====>
+
+// let points = 5;
+// points *= 3;
+
+// console.log(points);
+
+// <=====  =====>
+
+// let a = 5;  // Binary: 101
+// let b = 3;  // Binary: 011
+// console.log(a & b);
+
+// let x = 8;  // Binary: 1000
+// console.log(x << 2);
+
+
+// <=====  =====>
+
+// console.log(isNaN("123"));
+
+// <=====  =====>
+
+// let num = 5.678;
+// console.log(num.toFixed(1));
+
+// let num1 = 12.345;
+// let num2 = 67.891;
+
+// console.log((num1 + num2).toFixed(2));
+
+// console.log(0 / 0);
+// console.log(isNaN());
+// console.log(isNaN("Matt"));
+// console.log(isNaN(7));
+// console.log(NaN(undefined));
+
+// let num = 5;
+// console.log(++num);
+
+// console.log(5 == '5');
+
+// console.log(undefined > 0);
+// console.log(5 === 2 + 3 || 4 == 2);
+
+// if (1) {
+//   console.log("True!");
+// }
+
+
+// const a = 2;
+// if (1 == "1") {
+//   let b = 3;
+//   console.log(a + b);
+// }
+// console.log(b);
+
+// let vehicle = "car";
+
+// switch (vehicle) {
+//   case "bike":
+//     console.log("Bikes are two-wheelers.");
+//     break;
+//   case "car":
+//     console.log("Some cars are 4x4.");
+//   case "truck":
+//     console.log("Trucks can carry heavy loads.");
+//     break;
+//   default:
+//     console.log("Unknown vehicle.");
+// }
+
+
+// let x = 5;
+// if (x > 1 && x < 10) {
+//   console.log("x is between 1 and 10");
+// } else {
+//   console.log("x is not between 1 and 10");
+// }
+
+
+// function mystery(a, b = 3) {
+//   return a * b;
+// }
+// console.log(mystery(4));
+
+
+// function sum(num1, num2) {
+//   return num1 + num2
+// }
+
+
+/*
+<===== funciones flecha  =====>
+*/
+
+// sintaxis habitual de las funciones
+// function greetings(name) {
+//   console.log("Hello, " + name + "!");
+// }
+
+
+// refactorizar el ejemplo anterior para utilizar la sintaxis de las funciones flecha
+// const greetings = (name) => {
+//   console.log("Hello, " + name + "!");
+// };
+
+
+// Si tu lista de parámetros solo contiene un parámetro, puedes eliminar los paréntesis de la siguiente manera:
+// const greetings = name => {
+//   console.log("Hello, " + name + "!");
+// };
+
+
+// Si tu función flecha no tiene parámetros, debes usar los paréntesis de esta manera:
+// const greetings = () => {
+//   console.log("Hello");
+// };
+
+
+// Pero si el cuerpo de tu función solo contiene una línea de código, puedes eliminar las llaves de esta manera:
+// const greetings = name => console.log("Hello, " + name + "!");
+
+
+// Es importante señalar que eliminar los paréntesis y las llaves en la sintaxis de las funciones normales no funcionará. Si intentas hacer algo como esto, obtendrás errores:
+// This will produce syntax errors
+// function greetings name console.log("Hello, " + name + "!");
+
+
+// Otro concepto clave es la instrucción return. A continuación se muestra un ejemplo del uso de la sintaxis de funciones flecha para calcular el área:
+// const calculateArea = (width, height) => {
+//   const area = width * height;
+//   return area;
+// };
+
+// console.log(calculateArea(5, 3)); // 15
+
+
+// Pero podríamos simplificar un poco nuestro código y devolver el resultado del cálculo directamente:
+// const calculateArea = (width, height) => {
+//   return width * height;
+// };
+
+// console.log(calculateArea(5, 3)); // 15
+
+
+// Si intentaras eliminar las llaves y colocar el cálculo en la misma línea, aparecería el siguiente mensaje de error: Uncaught SyntaxError: Unexpected token 'return':
+// const calculateArea = (width, height) => return width * height;
+
+
+// Cuando elimines esa instrucción return, el error desaparecerá y la función seguirá devolviendo el resultado del cálculo de forma implícita.
+// const calculateArea = (width, height) => width * height;
+
+// console.log(calculateArea(5, 3)); // 15
+
+// let multiply = (a, b = 1) => a * b;
+
+// console.log(multiply(5));
+// console.log(multiply(5, 2));
+
+// <==================>
+
+
+/*
+<===== ámbitos global, local y de bloque =====>
+*/
+
+// A continuación, se muestra un ejemplo de una variable global:
+// let globalVar = "I'm a global variable";
+
+// function printGlobalVar() {
+//     console.log(globalVar);
+// }
+
+// printGlobalVar(); // "I'm a global variable"
+
+
+// let x = 10;
+
+// function printX() {
+//     let x = 20;
+//     console.log(x);
+// }
+
+// printX();
+// console.log(x);
+
+
+// if (true) {
+//     let blockVar = "Hello";
+// }
+// console.log(blockVar);
+
+
+// <====================>
+// Cuestionario sobre funciones de JavaScript
+
+
+// const calculateTotal = (amount, taxRate = 0.05) => {
+//   return amount + (amount * taxRate);
+// };
+
+// console.log(calculateTotal(100));
+
+
+// function greet() {
+//   const developer = "Jessica";
+//   console.log("Hello there!");
+// }
+
+// console.log(developer);
+
+
+// function exampleFunction() {
+//   return "Hello";
+//   return "World!";
+// };
+
+// console.log(exampleFunction());
+
+
+// const developer = "Jessica";
+
+// function greet() {
+//   console.log("Hello, " + developer)
+// }
+
+// greet();
+
+
+// const sum = (num1, num2) => num1 + num2
+// console.log(sum(0, 0) + 10);
+
+// const exampleFunction = (param1, param2) => param1 + param2;
+// console.log(exampleFunction(3, "Something"));
+
+// const sum = (num1, num2) => num1 + num2
+// console.log(sum(0, 0) + num2);
+
+// const divideTwoNumbers = (num1, num2) => num1 / num2;
+// console.log(divideTwoNumbers(3, 0));
+
+
+// <====================>
+
+// ¿Cuáles son las características principales de los Arrays en JavaScript?
+
+// let fruits = ["apple", "banana", "orange"];
+
+// let colors = ["red", "green", "blue"];
+// console.log(colors.length);
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits[0]); // "apple"
+// console.log(fruits[2]); // "orange"
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits.length); // 3
+
+// const fruits = ["apple", "banana", "cherry"];
+// console.log(fruits[1]); // "banana"
+
+// let fruits = ["apple", "banana", "cherry"];
+// console.log(fruits[3]); // undefined
+
+// let fruits = ["apple", "banana", "cherry"];
+// fruits[1] = "blueberry";
+// console.log(fruits); // ["apple", "blueberry", "cherry"]
+
+// let fruits = ["apple", "banana", "cherry"];
+// fruits[3] = "date";
+// console.log(fruits); // ["apple", "banana", "cherry", "date"]
+
+// const fruits = ["apple", "banana"];
+// const newLength = fruits.push("orange");
+// console.log(newLength); // 3
+// console.log(fruits); // ["apple", "banana", "orange"]
+
+// let numbers = [2, 3];
+// let newLength = numbers.unshift(1);
+// console.log(numbers);    // [1, 2, 3]
+// console.log(newLength); // 3
+
+// let colors = ["red", "green", "blue"];
+// let firstColor = colors.shift();
+// console.log(colors);     // ["green", "blue"]
+// console.log(firstColor); // "red"
+
+// const fruits = ["apple", "banana"];
+// const newLength = fruits.push("orange");
+// console.log(newLength); // 3
+// console.log(fruits); // ["apple", "banana", "orange"]
+
+// const fruits = ["apple", "banana"];
+// fruits = ["This", "will", "not", "work"];
+// console.log(fruits); // Uncaught TypeError: Assignment to constant variable.
+
+// let fruits = ["apple", "banana", "orange"];
+
+// let lastFruit = fruits.pop();
+// console.log(fruits);    // ["apple", "banana"]
+// console.log(lastFruit); // "orange"
+
+// let numbers = [2, 3];
+// let newLength = numbers.unshift(1);
+// console.log(numbers);    // [1, 2, 3]
+// console.log(newLength); // 3
+
+/*
+Por último, el método shift() elimina el primer elemento de un array y devuelve ese elemento. Es similar a pop(), pero actúa al principio del array en lugar de al final. Así es como funciona:
+*/
+// Initialize an array with elements "a", "b", "c", "d"
+// let arr = ["a", "b", "c", "d"];
+// Remove and return the first element ("a"), arr becomes ["b", "c", "d"]
+// let first = arr.shift();
+// Remove and return the last element ("d"), arr becomes ["b", "c"]
+// let last = arr.pop();
+// Log the removed first element, last element, and the modified array
+// console.log(first, last, arr);
+
+
+// <====================>
+
+// ¿Cuál es la diferencia entre los arrays unidimensionales y los bidimensionales?
+
+// Un array unidimensional
+// let fruits = ["apple", "banana", "cherry", "date"];
+// console.log(fruits[2]); // "cherry"
+
+// los arrays bidimensionales
+// let chessboard = [
+//   ["R", "N", "B", "Q", "K", "B", "N", "R"],
+//   ["P", "P", "P", "P", "P", "P", "P", "P"],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   [" ", " ", " ", " ", " ", " ", " ", " "],
+//   ["p", "p", "p", "p", "p", "p", "p", "p"],
+//   ["r", "n", "b", "q", "k", "b", "n", "r"]
+// ];
+
+// console.log(chessboard[0][3]); // "Q"
+// console.log(chessboard[1][7]); // "p"
+
+// <====================>
+// Desestructuración de arrays y cómo funciona
+
+// let fruits = ["apple", "banana", "orange"];
+// let [first, second, third] = fruits;
+// console.log(first);  // "apple"
+// console.log(second); // "banana"
+// console.log(third);  // "orange"
+
+
+// const fruits = ["apple", "banana", "orange"];
+// const first = fruits[0];
+// const second = fruits[1];
+// const third = fruits[2];
+// console.log(first); // "apple"
+// console.log(second); // "banana"
+// console.log(third); // "orange"
+
+
+// let colors = ["red", "green", "blue", "yellow"];
+// let [firstColor, , thirdColor] = colors;
+// console.log(firstColor); // "red"
+// console.log(thirdColor); // "blue"
+
+
+// let numbers = [1, 2];
+// let [a, b, c = 3] = numbers;
+// console.log(a); // 1
+// console.log(b); // 2
+// console.log(c); // 3
+
+
+// let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+// let [first, second, ...rest] = fruits;
+// console.log(first);  // "apple"
+// console.log(second); // "banana"
+// console.log(rest);   // ["orange", "mango", "kiwi"]
+
+
+// let numbers = [1, 2, 3, 4, 5];
+// let [a, , b, ...rest] = numbers;
+// console.log(a, b, rest);
+
+// let colors = ["red", "green", "blue"];
+// let [primary, secondary, tertiary, quaternary = "yellow"] = colors;
+// console.log(quaternary);
+
+
+// let fruits = ["apple", "banana", "orange", "grape"];
+// let [first, ...rest, last] = fruits;
+// console.log(first, rest, last);
+
+
+// <====================>
+// Strings y arrays para invertir un string
+
+// let str = "hello";
+// let charArray = str.split("");
+// console.log(charArray); // ["h", "e", "l", "l", "o"]
+
+
+// let charArray = ["h", "e", "l", "l", "o"];
+// charArray.reverse();
+// console.log(charArray); // ["o", "l", "l", "e", "h"]
+
+
+// let reversedArray = ["o", "l", "l", "e", "h"];
+// let reversedString = reversedArray.join("");
+// console.log(reversedString); // "olleh"
+
+
+// let str = "coding";
+// let reversed = str.split("").reverse().join("");
+// console.log(reversed);
+
+
+// let word = "hello";
+// let chars = word.split("");
+// chars.reverse();
+// console.log(chars.join("-"));
+
+// <====================>
+
+// ¿Cómo se añaden y eliminan elementos de la parte central de un array?
+
+// array.splice(startIndex, itemsToRemove, item1, item2)
+
+
+// let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+// let removed = fruits.splice(2, 2);
+// console.log(fruits);  // ["apple", "banana", "kiwi"]
+// console.log(removed); // ["orange", "mango"]
+
+
+// let colors = ["red", "green", "blue"];
+// colors.splice(1, 0, "yellow", "purple");
+// console.log(colors); // ["red", "yellow", "purple", "green", "blue"]
+
+
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.splice(1, 2, 6, 7, 8);
+// console.log(numbers); // [1, 6, 7, 8, 4, 5]
+
+
+// let original = [1, 2, 3, 4, 5];
+// let copy = [...original];
+// copy.splice(2, 1, 6);
+// console.log(original); // [1, 2, 3, 4, 5]
+// console.log(copy);     // [1, 2, 6, 4, 5]
+
+
+// let fruits = ["apple", "banana", "orange", "mango"];
+// let indexToRemove = fruits.indexOf("orange");
+// if (indexToRemove !== -1) {
+//   fruits.splice(indexToRemove, 1);
+// }
+// console.log(fruits); // ["apple", "banana", "mango"]
+
+
+// let array = [1, 2, 3, 4, 5];
+// array.splice(0);
+// console.log(array); // []
+
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.splice(2, 0, 6, 7);
+// console.log(arr);
+
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.splice(2, 1);
+// console.log(arr);
+
+// <====================>
+
+// ¿Cómo se puede comprobar si un array contiene un valor determinado?
+
+// let fruits = ["apple", "banana", "orange", "mango"];
+// console.log(fruits.includes("banana")); // true
+// console.log(fruits.includes("grape"));  // false
+
+
+// let fruits = ["apple", "banana", "orange"];
+// console.log(fruits.includes("banana")); // true
+// console.log(fruits.includes("Banana")); // false
+
+
+// let numbers = [10, 20, 30, 40, 50, 30, 60];
+// console.log(numbers.includes(30, 3)); // true
+// console.log(numbers.includes(30, 4)); // true
+
+// let mixedArray = [1, "2", 3, "4", 5];
+// console.log(mixedArray.includes(2));  // false
+// console.log(mixedArray.includes("2")); // true
+
+
+// let arr = [1, 2, 3, 4, 5];
+// console.log(arr.includes(3, 3));
+
+
+// let arr = ["a", "b", "c", "d", "e"];
+// console.log(arr.includes("C"));
+
+
+// let arr = [1, "2", 3, "4", 5];
+// console.log(arr.includes("3"));
+
+// <====================>
+
+// const arr1 = [1, 2, 3];
+// const arr2 = arr1.slice();
+// arr2.push(4);
+// console.log(arr1, arr2);
+
+
+// const fruits = ["apple", "banana", "orange"];
+// const fruitsCopy = [...fruits];
+// console.log(fruitsCopy.length);
+
+
+// const arr1 = [1, 2, 3];
+// const arr2 = [].concat(arr1);
+// console.log(arr1 === arr2);
+
+
+// const numbers = [10, 20, 30, 40];
+// const index = numbers.indexOf(20);
+// console.log(index);`
+
+// const colors = ["red", "blue", "green", "yellow"];
+// colors.splice(1, 2, "purple");
+// console.log(colors);
+
+// const arr = ["apple", "banana", "cherry", "date"];
+// const slicedArr = arr.slice(1, 3);
+// console.log(slicedArr);
+
+
+// const fruits = ["apple", "banana", "cherry", "apple", "orange"];
+// fruits.splice(0, 1);
+// console.log(fruits);
+
+
+// let obj = {a: 1, b: 2, c: 3};
+// delete obj.b;
+// console.log(obj);
+
+
+// let car = {
+//     brand: "Toyota",
+//     model: "Corolla",
+//     year: 2020
+// };
+// delete car.year;
+// console.log(car.year);
+
+// let obj = Object(42);
+// console.log(typeof obj);
+
+// const person = {
+//   name: "Alice",
+//   age: 30
+// };
+// console.log(person.address.street);
+
+
+// const user = {
+//   name: "John",
+//   profile: {
+//     email: "john@example.com",
+//     "home address": {
+//       street: "123 Main St",
+//       city: "Somewhere"
+//     }
+//   }
+// };
+// console.log(user?.profile?.address?.street);
+
+// const car = { year: 2025 };
+// const product = { color: blue };
+// const book = { "pages": 255 };
+// const person = { "name": "nora" };
+// for (let i = 2; i <= 6; i += 2) {
+//   console.log(i);
+// }
+
+// <====================>
+// Trabajar con bucles
+
+// Tema 1: ¿Cómo funcionan los bucles y la iteración en JavaScript?
+
+// Sintaxis
+// for (initialization; condition; increment or decrement) {
+// code block to be executed
+// }
+
+// for (let i = 0; i < 5; i++) {
+//   console.log(i);
+// }
+
+// <====================>
+
+// Tema 2: ¿Cómo funciona el bucle for...of y cuándo se debe usar?
+
+// Sintaxis
+// for (variable of iterable) {
+// code block to be executed
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// for (const num of numbers) {
+//   console.log(num);
+// }
+
+// const str = 'freeCodeCamp';
+// for (let char of str) {
+//   console.log(char);
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// for (const num of numbers) {
+//   console.log(num);
+//   num = num + 1; // This will cause an error
+// }
+
+// const people = [
+//   { name: 'John', age: 30 },
+//   { name: 'Jane', age: 25 },
+//   { name: 'Jim', age: 40 }
+// ];
+// for (const person of people) {
+//   console.log(`${person.name} is ${person.age} years old`);
+// }
+
+// const colors = ['red', 'green', 'blue'];
+
+// for (const color of colors) {
+//   console.log(color);
+// }
+
+// <====================>
+// Tema 3: ¿Qué es el bucle for...in y cuándo se debe usar?
+
+// Sintaxis
+// for (variable in object) {
+// code block to be executed
+// }
+
+
+// const fruit = {
+//   name: 'apple',
+//   color: 'red',
+//   price: 0.99
+// };
+// for (const prop in fruit) {
+//   console.log(fruit[prop]);
+// }
+
+
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   address: {
+//     street: '123 Main St',
+//     city: 'Anytown',
+//     state: 'CA'
+//   }
+// };
+// for (const prop in person) {
+//   console.log(person[prop]);
+// }
+
+
+// const person = {
+//   name: 'John',
+//   age: 30,
+//   address: {
+//     street: '123 Main St',
+//     city: 'Anytown',
+//     state: 'CA'
+//   }
+// };
+// function isObject(obj) {
+//   return typeof obj === 'object' && !Array.isArray(obj) && obj !== null;
+// }
+// for (const prop in person) {
+//   if (isObject(person[prop])) {
+//     for (const nestedProp in person[prop]) {
+//       console.log(person[prop][nestedProp]);
+//     }
+//   } else {
+//     console.log(person[prop]);
+//   }
+// }
+
+
+// <====================>
+// Tema 4: ¿Qué es un bucle «while» y en qué se diferencia del bucle do...while?
+
+// Sintaxis
+// while (condition) {
+// code block to be executed
+// }
+
+
+// let counter = 0;
+// while(counter < 5) {
+//   console.log(counter);
+//   counter++;
+// }
+
+
+// do {
+// code block to be executed
+// } while (condition);
+
+
+// let counter = 0;
+// do {
+//   console.log(counter);
+//   counter++;
+// } while (counter < 5);
+
+// for (let i = 2; i < 10; i+=2) {  
+//   console.log(i);  
+// }
+
+// for (let i = 0; i < 25; i += 2) {
+//   if (i % 5 === 0) {
+//     continue;
+//   }
+//   if (i % 13 === 0) {
+//     break;
+//   }
+//   console.log(i);
+// }
+
+// for (let i = 1; i < 6; i++) {
+//   if (i === 4) break;
+//   console.log(i);
+// }
+
+// const shoppingList = { tomatoes: 4, apples: 10 };
+// for (const item in shoppingList) {
+//   console.log(item);
+// }
+
+// for (let i = 2; i <= 13; i++) {
+//   if (i % 2 === 0) continue;
+//   console.log(i);
+// }
+
+// const fruits = ["Mango", "Pineapple", "Oranges"];
+// for (const fruit of fruits) {
+//   console.log(fruit);
+// }
+
+// let x = 0
+// while (x < 5) {
+//   console.log("in the loop");
+// }
+
+// console.log("< ---------------- >");
+/* ================= */
+// Tema 1: ¿Qué es un objeto de cadena y en qué se diferencia de un tipo primitivo de cadena?
+
+// const greeting = "Hello, World!";
+// console.log(greeting);
+
+// const greetingObject = new String("Hello, World!");
+// console.log(typeof greetingObject); // "object"
+
+/* ---------------- */
+// console.log("< ---------------- >");
+// Tema 2: ¿Qué es el método toString() y cómo funciona?
+
+// const num = 10;
+// console.log(num.toString()); // "10"
+
+// const num2 = 20;
+// console.log(num2.toString(2)); // "10100"
+// console.log(num2.toString(36)); // "k"
+
+// const arr = [1, 2, 3, 4.7];
+// console.log(arr.toString()); // "1,2,3"
+
+// const person = {
+//   name: "John",
+//   age: 30,
+//   isStudent: true
+// };
+// console.log(person.toString()); // "[object Object]"
+// console.log(JSON.stringify(person)); // "{"name":"John","age":30,"isStudent":true}"
+
+/* ---------------- */
+
+/* ================= */
+// Tema 3: ¿Qué es el constructor Number y cómo funciona en la conversión de tipos?
+
+// const myNum = new Number("34");
+// console.log(typeof myNum); // "object"
+// console.log("< ---------------- >");
+
+
+// const myNum2 = Number("100");
+// console.log(myNum2); // 100
+// console.log(typeof myNum2); // number
+// console.log("< ---------------- >");
+
+// const num = Number("");
+// console.log(num); // 0
+// console.log("< ---------------- >");
+
+// const num3 = Number("random");
+// console.log(num3); // NaN
+// console.log("< ---------------- >");
+
+// const boolTrue = Number(true);
+// const boolFalse = Number(false);
+// console.log(boolTrue); // 1
+// console.log(boolFalse); // 0
+// console.log("< ---------------- >");
+
+// const undefinedNum = Number(undefined);
+// const nullNum = Number(null);
+// console.log(undefinedNum); // NaN
+// console.log(nullNum); // 0
+// console.log("< ---------------- >");
+
+// const emptyArr = Number([]);
+// const arrOneNum = Number([7]);
+// const arrMultiNum = Number([7, 36, 12]);
+// const arrStr = Number(["str1"]);
+// const arrMultiStr = Number(["str1", "str2"]);
+// console.log(emptyArr); // 0
+// console.log(arrOneNum); // 7
+// console.log(arrMultiNum); // NaN
+// console.log(arrStr); // NaN
+// console.log(arrMultiStr); // NaN
+// console.log("< ---------------- >");
+
+// const obj1 = Number({});
+// const obj2 = Number({2: 2});
+// const obj3 = Number({key: "val"});
+// const obj4 = Number({key: true});
+// console.log(obj1); // NaN
+// console.log(obj2); // NaN
+// console.log(obj3); // NaN
+// console.log(obj4); // NaN
+// console.log("< ---------------- >");
+
+/* ================= */
+// ¿Cómo se obtiene la longitud de un array y cómo se puede crear un array vacío de longitud fija?
+
+// const fruits = ['apple', 'banana', 'orange'];
+// console.log(fruits.length); // 3
+// console.log("< ---------------- >");
+
+// const sparseArray = [1, , , 4];
+// console.log(sparseArray.length); // 4
+// console.log("< ---------------- >");
+
+// const emptyArray = new Array(5);
+// console.log(emptyArray.length); // 5
+// console.log(emptyArray); // [ , , , , ]
+// console.log("< ---------------- >");
+
+// const fixedLengthArray = Array.from({ length: 5 });
+// console.log(fixedLengthArray.length); // 5
+// console.log(fixedLengthArray); // [undefined, undefined, undefined, undefined, undefined]
+// console.log("< ---------------- >");
+
+// const filledArray = new Array(3).fill(0);
+// console.log(filledArray); // [0, 0, 0]
+// console.log("< ---------------- >");
+
+
+/* ================= */
+// Tema 1: ¿Qué son los linters y los formateadores, y cómo pueden ayudarte a mantener la consistencia del código?
+
+// function doSomething(x) {
+//   return x + z
+// }
+// console.log("< ---------------- >");
+
+// function longFunction(
+//   argument1, 
+//   argument2,
+//   argument3
+// ) {return argument1 + argument2 + argument3;}
+// console.log("< ---------------- >");
+
+// function longFunction(argument1, argument2, argument3) {
+//   return argument1 + argument2 + argument3;
+// }
+// console.log("< ---------------- >");
+
+
+
+/* ================= */
+// Tema 2: ¿Qué es la administración de memoria y cómo funciona en JavaScript?
+
+// function createLargeArray() {
+//   let largeArray = new Array(1000000);
+//   return function() {
+//     console.log(largeArray.length);
+//   };
+// }
+
+// let printArrayLength = createLargeArray();
+// printArrayLength();
+// console.log("< ---------------- >");
+
+/* ================= */
+// Tema 3: ¿Qué son los cierres y cómo funcionan?
+
+// function outerFunction(x) {
+//   let y = 10;
+//   function innerFunction() {
+//     console.log(x + y);
+//   };
+//   return innerFunction;
+// }
+
+// let closure = outerFunction(5);
+// closure(); // 15
+// console.log("< ---------------- >");
+
+// function createCounter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+
+// let counter = createCounter();
+// console.log(counter()); // 1
+// console.log(counter()); // 2
+// console.log("< ---------------- >");
+
+
+// function multiply(x) {
+//   return function (y) {
+//     return x * y;
+//   };
+// }
+
+// let double = multiply(2);
+// console.log(double(5)); // 10
+// console.log("< ---------------- >");
+
+
+// function createIncrementer() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     console.log(count);
+//   };
+// }
+// let increment = createIncrementer();
+// increment(); // 1
+// increment(); // 2
+// console.log("< ---------------- >");
+
+// cuestionario
+
+// function outer(x) {
+//   return function (y) {
+//     return x + y;
+//   };
+// }
+// let add5 = outer(5);
+// console.log(add5(3));
+// console.log("< ---------------- >");
+
+// function createGreeter(greeting) {
+//   return function (name) {
+//     console.log(greeting + ", " + name);
+//   };
+// }
+// let sayHello = createGreeter("Hello");
+// sayHello("Alice");
+// console.log("< ---------------- >");
+
+// function counter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+// let increments = counter();
+// console.log(increments());
+// console.log(increments());
+// console.log(increments());
+// console.log("< ---------------- >");
+/* ================= */
+// Crea un inversor de cadenas
+
+// function reverseString(str) {
+//   const letras = str.split("");
+//   const invertido = letras.reverse();
+//   const resultado = invertido.join("");
+
+//   return resultado;
+// }
+
+// console.log(reverseString("hello")); // "olleh"
+// console.log(reverseString("JavaScript")); // "tpircSavaJ"
+// console.log(reverseString("abc")); // "cba"
+
+/* ================= */
+
+
+// var x = 10;
+
+// if (true) {
+//   var x = 20;
+//   console.log(x);
+// }
+
+// console.log(x);
+
+/* ================= */
+// La palabra clave var y el hoisting
+
+// Tema 1: ¿Qué es la palabra clave var y por qué ya no se recomienda usarla?
+
+// var num = 5;
+// console.log(num); // 5
+
+// This is allowed and doesn't throw an error
+// var num = 10;
+// console.log(num); // 10
+
+// console.log("< ---------------- >");
+
+// if (true) {
+//   var num = 5;
+// }
+// console.log(num); // 5
+// console.log("< ---------------- >");
+
+// Tema 2: ¿Qué es el hoisting?
+/*
+En términos sencillos, el hoisting es el comportamiento predeterminado de JavaScript de mover las declaraciones al inicio de sus respectivos ámbitos durante la fase de compilación, antes de que se ejecute el código.
+*/
+// console.log(x); // undefined
+// var x = 5;
+// console.log(x); // 5
+// console.log("< ---------------- >");
+
+// var x;
+// console.log(x); // undefined
+// x = 5;
+// console.log(x); // 5
+// console.log("< ---------------- >");
+
+// sayHello(); // "Hello, World!"
+
+// function sayHello(){
+//   console.log("Hello, World!");
+// }
+// console.log("< ---------------- >");
+
+// console.log(y); // Throws a ReferenceError
+// let y = 10;
+// console.log("< ---------------- >");
+/* ================= */
+
+// let numbers = [1, 2, 3, 4, 5];
+
+// numbers.forEach(function (number) {
+//   console.log(number * 2);
+// });
+
+/* ================= */
+
+// function operateOnArray(arr, operation) {
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     result.push(operation(arr[i]));
+//   }
+//   return result;
+// }
+
+// function double(x) {
+//   return x * 2;
+// }
+
+// let numbers = [1, 2, 3, 4, 5];
+// let doubledNumbers = operateOnArray(numbers, double);
+// console.log(doubledNumbers); // [2, 4, 6, 8, 10]
+
+/* ================= */
+
+// function multiplyBy(factor) {
+//   return function (number) {
+//     return number * factor;
+//   }
+// }
+
+// let double = multiplyBy(2);
+// let triple = multiplyBy(3);
+
+// console.log(double(5)); // 10
+// console.log(triple(5)); // 15
+
+/* ================= */
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const evenNumbers = numbers.filter((num) => num % 3 === 0);
+
+// console.log(evenNumbers); // [2, 4, 6, 8, 10]
+
+/* ================= */
+
+// let str = "  HELLO world  ";
+// let result = str.trim().toLowerCase().split(' ');
+// console.log(result);
+
+/* ================= */
+
+const numbers = [];
+const hasSomeEvenNumbers = numbers.some((num) => num % 2 === 0);
+
+console.log(hasSomeEvenNumbers); // true
