@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso de las funciones de orden superior en JavaScript</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+  SIDEBAR — navbar izquierdo
+  ════════════════════════════════════════════ -->
+  <div id="main-sidebar" class="sidebar">
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+      <!-- Encabezado del sidebar -->
+      <div class="sidebar-header">
+        <img src="./img/jsIcon.svg" alt="Logo CSS3" class="sidebar-logo" loading="lazy" width="36" height="51">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">Repaso de las funciones de orden superior en JavaScript</span>
+          <span class="sidebar-brand-badge">REPASO</span>
+        </div>
+      </div>
+
+      <!-- Buscador de temas -->
+      <div class="sidebar-search">
+        <input type="search" class="sidebar-search-input" id="nav-search" placeholder="Buscar tema..."
+          aria-label="Buscar tema en la navegación" autocomplete="off">
+      </div>
+
+      <!-- Lista de navegación -->
+      <div class="sidebar-nav" id="sidebar-nav-list">
+
+        <div class="nav-group">
+          <span class="nav-group-label">General</span>
+          <a href="#intro" data-nav><span class="nav-num">00</span> Introducción</a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Temas</span>
+          <a href="#tema1" data-nav><span class="nav-num">01</span> Devolución de llamada y forEach</a>
+          <a href="#tema2" data-nav><span class="nav-num">02</span> Funciones de orden superior</a>
+          <a href="#tema3" data-nav><span class="nav-num">03</span> Encadenamiento de métodos</a>
+          <a href="#tema4" data-nav><span class="nav-num">04</span> Método sort</a>
+          <a href="#tema5" data-nav><span class="nav-num">05</span> Métodos every y some</a>
+        </div>
+
+      </div>
+
+      <!-- Pie del sidebar: contador de resultados de búsqueda -->
+      <div class="sidebar-footer" id="sidebar-footer" aria-live="polite">
+        05 temas
+      </div>
+    </nav>
+
+    <!-- Overlay para cerrar sidebar tocando fuera -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+        CONTENIDO PRINCIPAL
+════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="topbar" role="banner" aria-label="Barra superior">
+      <button class="sidebar-toggle" type="button" id="sidebar-toggle-btn" aria-label="Abrir menú de navegación"
+        aria-expanded="false" aria-controls="main-sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <span class="topbar-title">
+        <span>JS</span> Repaso
+      </span>
+    </header>
+
+    <header class="header" role="banner" aria-label="Encabezado principal">
+      <img src="./img/jsIcon.svg" alt="Logo CSS3" class="logo" loading="eager" width="56" height="80">
+      <h1>Repaso de las funciones de orden superior en JavaScript</h1>
+      <span class="header-badge" aria-label="Tipo de contenido: repaso">REPASO</span>
+
+      <button id="theme-switcher" class="copy-btn"
+        style="position: absolute; top: 1rem; right: 1rem; padding: 6px 12px; font-size: 0.8rem; border-radius: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;"
+        aria-label="Cambiar tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path
+            d="M12 3.25C12 3.11193 12.1119 3 12.25 3C12.3881 3 12.5 3.11193 12.5 3.25V5.25C12.5 5.38807 12.3881 5.5 12.25 5.5C12.1119 5.5 12 5.38807 12 5.25V3.25Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C14.4853 18.5 16.5 16.4853 16.5 14C16.5 11.5147 14.4853 9.5 12 9.5C9.51472 9.5 7.5 11.5147 7.5 14C7.5 16.4853 9.51472 18.5 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M12 18.5C12 18.3619 12.1119 18.25 12.25 18.25H14.25C14.3881 18.25 14.5 18.3619 14.5 18.5C14.5 18.6381 14.3881 18.75 14.25 18.75H12.25C12.1119 18.75 12 18.6381 12 18.5Z"
+            fill="currentColor" />
+          <path
+            d="M4.75 12C4.75 11.8619 4.86193 11.75 5 11.75H7C7.13807 11.75 7.25 11.8619 7.25 12C7.25 12.1381 7.13807 12.25 7 12.25H5C4.86193 12.25 4.75 12.1381 4.75 12Z"
+            fill="currentColor" />
+          <path
+            d="M17 12C17 11.8619 17.1119 11.75 17.25 11.75H19.25C19.3881 11.75 19.5 11.8619 19.5 12C19.5 12.1381 19.3881 12.25 19.25 12.25H17.25C17.1119 12.25 17 12.1381 17 12Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 6.21967C6.51256 5.92678 6.98744 5.92678 7.28033 6.21967L8.28033 7.21967C8.57322 7.51256 8.57322 7.98744 8.28033 8.28033C7.98744 8.57322 7.51256 8.57322 7.21967 8.28033L6.21967 7.28033C5.92678 6.98744 5.92678 6.51256 6.21967 6.21967Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 15.7803C16.0732 15.4874 16.5481 15.4874 16.841 15.7803L17.841 16.7803C18.1339 17.0732 18.1339 17.5481 17.841 17.841C17.5481 18.1339 17.0732 18.1339 16.7803 17.841L15.7803 16.841C15.4874 16.5481 15.4874 16.0732 15.7803 15.7803Z"
+            fill="currentColor" />
+          <path
+            d="M6.21967 17.7803C5.92678 17.4874 5.92678 17.0126 6.21967 16.7197L7.21967 15.7197C7.51256 15.4268 7.98744 15.4268 8.28033 15.7197C8.57322 16.0126 8.57322 16.4874 8.28033 16.7803L7.28033 17.7803C6.98744 18.0732 6.51256 18.0732 6.21967 17.7803Z"
+            fill="currentColor" />
+          <path
+            d="M15.7803 8.21967C16.0732 7.92678 16.5481 7.92678 16.841 8.21967L17.841 9.21967C18.1339 9.51256 18.1339 9.98744 17.841 10.2803C17.5481 10.5732 17.0732 10.5732 16.7803 10.2803L15.7803 9.28033C15.4874 8.98744 15.4874 8.51256 15.7803 8.21967Z"
+            fill="currentColor" />
+        </svg>
+        Tema
+      </button>
+
+    </header>
+
+    <main role="main">
+
+      <!-- INTRO -->
+      <section id="intro" aria-labelledby="intro-titulo">
+        <h2 id="intro-titulo">🚀 Introducción</h2>
+        <p>
+          En esta lección, repasaremos las funciones de orden superior en JavaScript, centrándonos en las funciones de
+          devolución de llamada y el método <mark>forEach</mark>.
+        </p>
+      </section>
+
+      <!-- TEMA 1 -->
+      <section id="tema1" aria-labelledby="tema1-titulo">
+        <h2 id="tema1-titulo">Tema 1: Funciones de devolución de llamada y el método <mark>forEach</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: En JavaScript, una función de devolución de llamada es una función que se
+              pasa como argumento a otra función y se ejecuta una vez que la función principal ha finalizado su
+              ejecución.
+            </li>
+            <li>
+              <strong>Método <mark>forEach()</mark></strong>: Este método se utiliza para recorrer cada elemento de un
+              array y realizar una operación en cada uno de ellos. La función de devolución de llamada en
+              <mark>forEach</mark> puede tomar hasta tres argumentos: el elemento actual, el índice del elemento actual
+              y el array sobre el que se invocó <mark>forEach</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-foreach-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_foreach.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-comment">// Result: 2 4 6 8 10</span>
+<span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">forEach</span><span class="tk-punctuation">((</span><span class="tk-selector">number</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-punctuation">{</span>
+  <span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">number</span> <span class="tk-operator">*</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Ejecución del Callback en forEach()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Array Inicial:</div>
+                    <div style="color: #f8f8f2;">
+                      <code class="preview-inline-code">[1, 2, 3, 4, 5]</code>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">ITERACIONES PASO
+                      A PASO:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• Iteración 1: <code class="preview-inline-code">number = 1</code> ➔ <code
+                          class="preview-inline-code">1 * 2</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">2</strong></div>
+                      <div>• Iteración 2: <code class="preview-inline-code">number = 2</code> ➔ <code
+                          class="preview-inline-code">2 * 2</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">4</strong></div>
+                      <div>• Iteración 3: <code class="preview-inline-code">number = 3</code> ➔ <code
+                          class="preview-inline-code">3 * 2</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">6</strong></div>
+                      <div>• Iteración 4: <code class="preview-inline-code">number = 4</code> ➔ <code
+                          class="preview-inline-code">4 * 2</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">8</strong></div>
+                      <div>• Iteración 5: <code class="preview-inline-code">number = 5</code> ➔ <code
+                          class="preview-inline-code">5 * 2</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">10</strong></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SALIDA EN
+                      CONSOLA (LÍNEAS 4-6):</div>
+                    <div style="color: #a6e22e; font-size: 11px; font-weight: bold; line-height: 1.5;">
+                      2<br>4<br>6<br>8<br>10
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Nota sobre forEach:</strong> A diferencia de métodos como <code
+                  style="color: yellow;">map()</code> o <code style="color: yellow;">filter()</code>, <code
+                  style="color: yellow;">forEach()</code> no devuelve un nuevo array (retorna <code
+                  style="color: yellow;">undefined</code>). Se utiliza principalmente para ejecutar efectos
+                secundarios por cada elemento, como imprimir en consola.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 2 -->
+      <section id="tema2" aria-labelledby="tema2-titulo">
+        <h2 id="tema2-titulo">Tema 2: Funciones de orden superior</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: Una función de orden superior toma una o más funciones como argumentos y
+              devuelve una función o un valor como resultado.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-higher-order-functions">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">higher_order_fn.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">function</span> <span class="tk-selector">operateOnArray</span><span class="tk-punctuation">(</span><span class="tk-selector">arr</span><span class="tk-punctuation">,</span> <span class="tk-selector">operation</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-property">const</span> <span class="tk-selector">result</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+  <span class="tk-keyword">for</span> <span class="tk-punctuation">(</span><span class="tk-property">let</span> <span class="tk-selector">i</span> <span class="tk-operator">=</span> <span class="tk-number">0</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span> <span class="tk-operator">&lt;</span> <span class="tk-selector">arr</span><span class="tk-punctuation">.</span><span class="tk-property">length</span><span class="tk-punctuation">;</span> <span class="tk-selector">i</span><span class="tk-operator">++</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+    <span class="tk-selector">result</span><span class="tk-punctuation">.</span><span class="tk-value">push</span><span class="tk-punctuation">(</span><span class="tk-selector">operation</span><span class="tk-punctuation">(</span><span class="tk-selector">arr</span><span class="tk-punctuation">[</span><span class="tk-selector">i</span><span class="tk-punctuation">]</span><span class="tk-punctuation">)</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+  <span class="tk-punctuation">}</span>
+  <span class="tk-keyword">return</span> <span class="tk-selector">result</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">function</span> <span class="tk-selector">double</span><span class="tk-punctuation">(</span><span class="tk-selector">x</span><span class="tk-punctuation">)</span> <span class="tk-punctuation">{</span>
+  <span class="tk-keyword">return</span> <span class="tk-selector">x</span> <span class="tk-operator">*</span> <span class="tk-number">2</span><span class="tk-punctuation">;</span>
+<span class="tk-punctuation">}</span>
+
+<span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">doubledNumbers</span> <span class="tk-operator">=</span> <span class="tk-selector">operateOnArray</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">,</span> <span class="tk-selector">double</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">doubledNumbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [2, 4, 6, 8, 10]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Flujo de Función de Orden Superior</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Función de Orden Superior
+                      (`operateOnArray`):</div>
+                    <div style="color: #f8f8f2;">
+                      Recibe <code class="preview-inline-code">arr = [1, 2, 3, 4, 5]</code> y la función callback <code
+                        class="preview-inline-code">operation = double</code>.
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">TRANSFORMACIÓN
+                      DENTRO DEL BUCLE:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• <code class="preview-inline-code">double(1)</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">2</strong></div>
+                      <div>• <code class="preview-inline-code">double(2)</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">4</strong></div>
+                      <div>• <code class="preview-inline-code">double(3)</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">6</strong></div>
+                      <div>• <code class="preview-inline-code">double(4)</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">8</strong></div>
+                      <div>• <code class="preview-inline-code">double(5)</code> ➔ <strong class="preview-bold-label"
+                          style="color: #a6e22e;">10</strong></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">NUEVO ARRAY
+                      RETORNADO (LÍNEA 14):</div>
+                    <div style="color: #ae81ff; font-size: 11px; font-weight: bold;">
+                      [2, 4, 6, 8, 10]
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Concepto clave:</strong> <code
+                  style="color: yellow;">operateOnArray</code> es una función de orden superior porque acepta otra
+                función (<code style="color: yellow;">double</code>) como argumento. Este patrón es la base del
+                funcionamiento interno de métodos nativos como <code style="color: yellow;">map()</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>map()</mark></strong>: Este método se utiliza para crear un nuevo array aplicando una
+              función determinada a cada elemento del array original. La función de llamada de retorno puede aceptar
+              hasta tres argumentos: el elemento actual, el índice del elemento actual y el array sobre el que se invocó
+              el método <mark>map</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-map-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_map.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">doubled</span> <span class="tk-operator">=</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">map</span><span class="tk-punctuation">((</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">num</span> <span class="tk-operator">*</span> <span class="tk-number">2</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [1, 2, 3, 4, 5]</span>
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">doubled</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [2, 4, 6, 8, 10]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Transformación de Array con map()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Array Original (Inmutable):
+                    </div>
+                    <div style="color: #ae81ff;">
+                      [1, 2, 3, 4, 5]
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">TRANSFORMACIÓN
+                      ELEMENTO A ELEMENTO:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• <code class="preview-inline-code">1</code> ➔ <code class="preview-inline-code">1 * 2</code>
+                        ➔ <strong class="preview-bold-label" style="color: #a6e22e;">2</strong></div>
+                      <div>• <code class="preview-inline-code">2</code> ➔ <code class="preview-inline-code">2 * 2</code>
+                        ➔ <strong class="preview-bold-label" style="color: #a6e22e;">4</strong></div>
+                      <div>• <code class="preview-inline-code">3</code> ➔ <code class="preview-inline-code">3 * 2</code>
+                        ➔ <strong class="preview-bold-label" style="color: #a6e22e;">6</strong></div>
+                      <div>• <code class="preview-inline-code">4</code> ➔ <code class="preview-inline-code">4 * 2</code>
+                        ➔ <strong class="preview-bold-label" style="color: #a6e22e;">8</strong></div>
+                      <div>• <code class="preview-inline-code">5</code> ➔ <code class="preview-inline-code">5 * 2</code>
+                        ➔ <strong class="preview-bold-label" style="color: #a6e22e;">10</strong></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SALIDAS EN
+                      CONSOLA (LÍNEAS 4 Y 5):</div>
+                    <div style="color: #f8f8f2; font-size: 11px; font-weight: bold; line-height: 1.6;">
+                      <div>numbers: <span style="color: #ae81ff;">[1, 2, 3, 4, 5]</span></div>
+                      <div>doubled: <span style="color: #a6e22e;">[2, 4, 6, 8, 10]</span></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Inmutabilidad:</strong> <code style="color: yellow;">map()</code>
+                genera y retorna un <strong>nuevo array</strong> sin alterar
+                ni modificar el array original (<code style="color: yellow;">numbers</code> se mantiene intacto).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>filter()</mark></strong>: Este método se utiliza para crear un nuevo array con los
+              elementos que cumplen una condición específica, lo que lo hace útil para extraer elementos de manera
+              selectiva según ciertos criterios. Al igual que el método <mark>map</mark>, la función de llamada de
+              retorno del método <mark>filter</mark> acepta los mismos tres argumentos: el elemento actual que se está
+              procesando, el índice y el array.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-filter">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_filter.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">6</span><span class="tk-punctuation">,</span> <span class="tk-number">7</span><span class="tk-punctuation">,</span> <span class="tk-number">8</span><span class="tk-punctuation">,</span> <span class="tk-number">9</span><span class="tk-punctuation">,</span> <span class="tk-number">10</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">evenNumbers</span> <span class="tk-operator">=</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">filter</span><span class="tk-punctuation">(</span><span class="tk-punctuation">(</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">num</span> <span class="tk-operator">%</span> <span class="tk-number">2</span> <span class="tk-operator">===</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">evenNumbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [2, 4, 6, 8, 10]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary, #1e1e2e); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg, rgba(255, 255, 255, 0.05)); border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)); border-radius: var(--border-radius-small, 8px); padding: 15px; box-shadow: var(--shadow-soft, 0 4px 12px rgba(0,0,0,0.1));">
+                <h3
+                  style="color: var(--text-primary, #f8f8f2); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code, monospace); text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">
+                  Array.prototype.filter() - Proceso de Filtrado</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code, monospace); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 6px;">Evaluación del Predicado ((num)
+                      => num % 2 === 0):</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+                      <span
+                        style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">1
+                        ❌</span>
+                      <span
+                        style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">2
+                        ✅</span>
+                      <span
+                        style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">3
+                        ❌</span>
+                      <span
+                        style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">4
+                        ✅</span>
+                      <span
+                        style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">5
+                        ❌</span>
+                      <span
+                        style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">6
+                        ✅</span>
+                      <span
+                        style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">7
+                        ❌</span>
+                      <span
+                        style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">8
+                        ✅</span>
+                      <span
+                        style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">9
+                        ❌</span>
+                      <span
+                        style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">10
+                        ✅</span>
+                    </div>
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Filtro Selectivo (Línea 2):</strong> Solo los elementos
+                        cuya función callback retorna <code class="preview-inline-code">true</code> son copiados al
+                        nuevo array.</div>
+                      <div>🟢 <strong class="preview-bold-label">Inmutabilidad:</strong> El array original <code
+                          class="preview-inline-code">numbers</code> no es modificado. <code
+                          class="preview-inline-code">evenNumbers</code> hace referencia a una nueva instancia.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ARRAY EXECUTION
+                      AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Original length: <span style="color: #bd93f9;">10</span><br>
+                      • Filtered result: <span style="color: #e6db74;">[2, 4, 6, 8, 10]</span><br>
+                      • Result length: <span style="color: #bd93f9;">5</span><br>
+                      • Callback arguments: <span style="color: #a6e22e;">(element, index, array)</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+                💡 <strong class="preview-tip-label" style="color: #00e5b0;">¿Sabías qué?</strong> Si ningún elemento
+                cumple la condición, <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">filter()</code> devuelve un array vacío
+                <code class="preview-inline-code" style="background: rgba(255,255,255,0.05); border: none;">[]</code> en
+                vez de <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">undefined</code> o <code
+                  class="preview-inline-code" style="background: rgba(255,255,255,0.05); border: none;">null</code>, lo
+                que facilita el encadenamiento seguro de métodos como <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">.map()</code> o la lectura de <code
+                  class="preview-inline-code" style="background: rgba(255,255,255,0.05); border: none;">.length</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>reduce()</mark></strong>: Este método se utiliza para procesar un array y condensarlo
+              en un solo valor. Este valor único puede ser un número, una cadena, un objeto o incluso otro array. El
+              método <mark>reduce()</mark> funciona aplicando una función a cada elemento del array, en orden, y pasando
+              el resultado de cada cálculo al siguiente. A esta función se le suele llamar <em>función reductora</em>.
+              La
+              función reductora toma dos parámetros principales: un acumulador y el valor actual. El acumulador es donde
+              se almacena el resultado acumulado de las operaciones, y el valor actual es el elemento del array que se
+              está procesando.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-reduce-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_reduce.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">sum</span> <span class="tk-operator">=</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">reduce</span><span class="tk-punctuation">(</span>
+  <span class="tk-punctuation">(</span><span class="tk-selector">accumulator</span><span class="tk-punctuation">,</span> <span class="tk-selector">currentValue</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">accumulator</span> <span class="tk-operator">+</span> <span class="tk-selector">currentValue</span><span class="tk-punctuation">,</span>
+  <span class="tk-number">0</span>
+<span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">sum</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// 15</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Acumulación con reduce()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Valor Inicial del Acumulador:
+                    </div>
+                    <div style="color: #ae81ff;">
+                      0
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">ITERACIONES PASO
+                      A PASO:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• Iteración 1: <code class="preview-inline-code">acc = 0</code>, <code
+                          class="preview-inline-code">val = 1</code> ➔ <code class="preview-inline-code">0 + 1</code> ➔
+                        <strong class="preview-bold-label" style="color: #a6e22e;">1</strong>
+                      </div>
+                      <div>• Iteración 2: <code class="preview-inline-code">acc = 1</code>, <code
+                          class="preview-inline-code">val = 2</code> ➔ <code class="preview-inline-code">1 + 2</code> ➔
+                        <strong class="preview-bold-label" style="color: #a6e22e;">3</strong>
+                      </div>
+                      <div>• Iteración 3: <code class="preview-inline-code">acc = 3</code>, <code
+                          class="preview-inline-code">val = 3</code> ➔ <code class="preview-inline-code">3 + 3</code> ➔
+                        <strong class="preview-bold-label" style="color: #a6e22e;">6</strong>
+                      </div>
+                      <div>• Iteración 4: <code class="preview-inline-code">acc = 6</code>, <code
+                          class="preview-inline-code">val = 4</code> ➔ <code class="preview-inline-code">6 + 4</code> ➔
+                        <strong class="preview-bold-label" style="color: #a6e22e;">10</strong>
+                      </div>
+                      <div>• Iteración 5: <code class="preview-inline-code">acc = 10</code>, <code
+                          class="preview-inline-code">val = 5</code> ➔ <code class="preview-inline-code">10 + 5</code> ➔
+                        <strong class="preview-bold-label" style="color: #a6e22e;">15</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">RESULTADO FINAL
+                      EN CONSOLA (LÍNEA 7):</div>
+                    <div style="color: #ae81ff; font-size: 11px; font-weight: bold;">
+                      15
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Acumulación de estado:</strong> En cada iteración, el valor
+                devuelto por la función reductora se convierte en el nuevo <code
+                  style="color: yellow;">accumulator</code> para la siguiente iteración, comprimiendo todo el array
+                en un único valor.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 3 -->
+      <section id="tema3" aria-labelledby="tema3-titulo">
+        <h2 id="tema3-titulo">Tema 3: Encadenamiento de métodos</h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: El encadenamiento de métodos es una técnica de programación que permite
+              llamar a varios métodos sobre el mismo objeto en una sola línea de código. Esta técnica puede hacer que tu
+              código sea más legible y conciso, especialmente al realizar una serie de operaciones sobre el mismo
+              objeto.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-method-chaining">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">method_chaining.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">result</span> <span class="tk-operator">=</span> <span class="tk-string">"  Hello, World!  "</span>
+  <span class="tk-punctuation">.</span><span class="tk-value">trim</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span>
+  <span class="tk-punctuation">.</span><span class="tk-value">toLowerCase</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span>
+  <span class="tk-punctuation">.</span><span class="tk-value">replace</span><span class="tk-punctuation">(</span><span class="tk-string">"world"</span><span class="tk-punctuation">,</span> <span class="tk-string">"JavaScript"</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">result</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// "hello, JavaScript!"</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Flujo de Encadenamiento de Métodos</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Cadena Inicial:</div>
+                    <div style="color: #e6db74;">
+                      " Hello, World! "
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">PASOS DE
+                      TRANSFORMACIÓN:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• Paso 1: <code class="preview-inline-code">.trim()</code> ➔ <span
+                          style="color: #e6db74;">"Hello, World!"</span> <span style="color: #75715e;">(elimina espacios
+                          externos)</span></div>
+                      <div>• Paso 2: <code class="preview-inline-code">.toLowerCase()</code> ➔ <span
+                          style="color: #e6db74;">"hello, world!"</span> <span style="color: #75715e;">(convierte a
+                          minúsculas)</span></div>
+                      <div>• Paso 3: <code class="preview-inline-code">.replace("world", "JavaScript")</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">"hello, JavaScript!"</strong></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">RESULTADO FINAL
+                      EN CONSOLA (LÍNEA 6):</div>
+                    <div style="color: #e6db74; font-size: 11px; font-weight: bold;">
+                      "hello, JavaScript!"
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(102, 217, 239, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                💡 <strong class="preview-tip-label">Mecanismo de encadenamiento:</strong> Cada método retorna un nuevo
+                valor del mismo tipo (un string en este caso), lo que permite ejecutar inmediatamente el siguiente
+                método sobre el valor resultante sin necesidad de guardarlo en variables intermedias.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- TEMA 4 -->
+      <section id="tema4" aria-labelledby="tema4-titulo">
+        <h2 id="tema4-titulo">Tema 4: Cómo trabajar con el método <mark>sort</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Definición</strong>: El método <mark>sort</mark> se utiliza para ordenar los elementos de un array
+              y devolver una referencia al array ordenado. En este caso no se realiza ninguna copia, ya que los
+              elementos se ordenan en su lugar.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-sort">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">array_sort.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">fruits</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-string">"Banana"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Orange"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Apple"</span><span class="tk-punctuation">,</span> <span class="tk-string">"Mango"</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-selector">fruits</span><span class="tk-punctuation">.</span><span class="tk-value">sort</span><span class="tk-punctuation">(</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">fruits</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// ["Apple", "Banana", "Mango", "Orange"]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary, #1e1e2e); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg, rgba(255, 255, 255, 0.05)); border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)); border-radius: var(--border-radius-small, 8px); padding: 15px; box-shadow: var(--shadow-soft, 0 4px 12px rgba(0,0,0,0.1));">
+                <h3
+                  style="color: var(--text-primary, #f8f8f2); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code, monospace); text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">
+                  Array.prototype.sort() - Ordenamiento In-Place</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code, monospace); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 8px;">Transformación de Elementos:
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px;">
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #ff79c6; width: 65px; font-weight: bold;">Original:</span>
+                        <span
+                          style="background: rgba(255, 255, 255, 0.08); border: 1px solid #555; color: #f8f8f2; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
+                          ["Banana", "Orange", "Apple", "Mango"]
+                        </span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #50fa7b; width: 65px; font-weight: bold;">Ordenado:</span>
+                        <span
+                          style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
+                          ["Apple", "Banana", "Mango", "Orange"]
+                        </span>
+                      </div>
+                    </div>
+
+                    <div style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px;">
+                      <div>🟢 <strong class="preview-bold-label">Mutación In Situ (Línea 2):</strong> El método modifica
+                        directamente el array original en memoria sin crear una copia.</div>
+                      <div>🟢 <strong class="preview-bold-label">Criterio Lexicográfico:</strong> Sin función
+                        comparadora, los elementos se convierten a texto y se ordenan por su valor UTF-16 Unicode.</div>
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">ARRAY EXECUTION
+                      AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Target variable: <span style="color: #a6e22e;">fruits</span><br>
+                      • Array length: <span style="color: #bd93f9;">4</span><br>
+                      • Mutates original array: <span style="color: #ff5555; font-weight: bold;">YES</span> (In-place
+                      modification)<br>
+                      • Default strategy: <span style="color: #e6db74;">Lexicographical (UTF-16 Code Points)</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+                💡 <strong class="preview-tip-label" style="color: #00e5b0;">¿Sabías qué?</strong> Si ordenas números
+                con el comportamiento por defecto (ej. <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">[10, 2, 5].sort()</code>), obtendrás <code
+                  class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">[10, 2, 5]</code> porque <code
+                  class="preview-inline-code" style="background: rgba(255,255,255,0.05); border: none;">"10"</code>
+                precede a <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">"2"</code> lexicográficamente. Para
+                ordenamiento numérico debes pasar una función callback: <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">.sort((a, b) =&gt; a - b)</code>. Además, en
+                JavaScript moderno puedes usar <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">.toSorted()</code> si quieres obtener una
+                versión ordenada sin modificar el array original.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Si necesitas ordenar números, deberás pasar una función de comparación. El método <mark>sort</mark>
+              convierte los elementos en cadenas y luego compara sus secuencias de valores de unidades de código UTF-16.
+              Las unidades de código UTF-16 son los valores numéricos que representan los caracteres de la cadena.
+              Algunos ejemplos de unidades de código UTF-16 son los números 65, 66 y 67, que representan los caracteres
+              "A", "B" y "C", respectivamente. Por lo tanto, el número 200 aparece antes que el número 3 en un array, ya
+              que la cadena "200" viene antes que la cadena "3" al comparar sus unidades de código UTF-16.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-array-sort-numbers">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">sort_numbers.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">414</span><span class="tk-punctuation">,</span> <span class="tk-number">200</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">10</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">sort</span><span class="tk-punctuation">(</span><span class="tk-punctuation">(</span><span class="tk-selector">a</span><span class="tk-punctuation">,</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">a</span> <span class="tk-operator">-</span> <span class="tk-selector">b</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">numbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// [3, 5, 10, 200, 414]</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary, #1e1e2e); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg, rgba(255, 255, 255, 0.05)); border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)); border-radius: var(--border-radius-small, 8px); padding: 15px; box-shadow: var(--shadow-soft, 0 4px 12px rgba(0,0,0,0.1));">
+                <h3
+                  style="color: var(--text-primary, #f8f8f2); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code, monospace); text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">
+                  Array.prototype.sort() - Comparador Numérico vs UTF-16</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code, monospace); font-size: 10px;">
+
+                  <!-- Comparación gráfica -->
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 8px;">Comparativa de Comportamiento:
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px;">
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #ff79c6; width: 130px; font-weight: bold;">Sin comparador:</span>
+                        <span
+                          style="background: rgba(255, 85, 85, 0.15); border: 1px solid #ff5555; color: #ff5555; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
+                          [10, 200, 3, 414, 5] (UTF-16: "200" antes que "3")
+                        </span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #50fa7b; width: 130px; font-weight: bold;">Con (a, b) => a - b:</span>
+                        <span
+                          style="background: rgba(80, 250, 123, 0.15); border: 1px solid #50fa7b; color: #50fa7b; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
+                          [3, 5, 10, 200, 414] (Orden Numérico Ascendente)
+                        </span>
+                      </div>
+                    </div>
+
+                    <div
+                      style="color: #f8f8f2; display: flex; flex-direction: column; gap: 4px; border-top: 1px dashed #444; padding-top: 8px; margin-top: 4px;">
+                      <div style="color: #bd93f9; font-weight: bold;">Lógica de la función comparadora (a, b):</div>
+                      <div>🔹 <strong class="preview-bold-label">Retorno Negativo (&lt; 0):</strong> <code
+                          class="preview-inline-code">a</code> se posiciona <em>antes</em> que <code
+                          class="preview-inline-code">b</code>.</div>
+                      <div>🔹 <strong class="preview-bold-label">Retorno Positivo (&gt; 0):</strong> <code
+                          class="preview-inline-code">a</code> se posiciona <em>después</em> de <code
+                          class="preview-inline-code">b</code>.</div>
+                      <div>🔹 <strong class="preview-bold-label">Retorno Cero (=== 0):</strong> Mantiene el orden
+                        relativo entre <code class="preview-inline-code">a</code> y <code
+                          class="preview-inline-code">b</code>.</div>
+                    </div>
+                  </div>
+
+                  <!-- Execution Audit -->
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #00e5b0;">
+                    <div style="color: #00e5b0; font-size: 9px; margin-bottom: 4px; font-weight: bold;">SORT EXECUTION
+                      AUDIT:</div>
+                    <div style="color: #f8f8f2; font-size: 11px; line-height: 1.5;">
+                      • Target array: <span style="color: #a6e22e;">numbers</span> <span style="color: #888;">([414,
+                        200, 5, 10, 3])</span><br>
+                      • Comparator: <span style="color: #ff79c6;">(a, b) =&gt; a - b</span><br>
+                      • Result array: <span style="color: #50fa7b;">[3, 5, 10, 200, 414]</span><br>
+                      • Mutation strategy: <span style="color: #ff5555; font-weight: bold;">In-Place</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="padding: 12px; background: rgba(0, 229, 176, 0.05); border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+                💡 <strong class="preview-tip-label" style="color: #00e5b0;">¿Sabías qué?</strong> Sin una función de
+                comparación, JavaScript convierte cada número a string y compara sus puntos de código UTF-16 (por
+                ejemplo: 'A'=65, 'B'=66, 'C'=67, '2'=50, '3'=51). Dado que el carácter '2' (50) tiene un valor menor que
+                '3' (51), la cadena <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">"200"</code> precede a <code
+                  class="preview-inline-code" style="background: rgba(255,255,255,0.05); border: none;">"3"</code>. Usar
+                la resta <code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">a - b</code> garantiza un ordenamiento
+                numérico ascendente (<code class="preview-inline-code"
+                  style="background: rgba(255,255,255,0.05); border: none;">b - a</code> para descendente).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              Los parámetros <mark>a</mark> y <mark>b</mark> son los dos elementos que se comparan. La función de
+              comparación debe devolver un valor negativo si <mark>a</mark> debe ir antes que <mark>b</mark>, un valor
+              positivo si <mark>a</mark> debe ir después de <mark>b</mark> y cero si <mark>a</mark> y <mark>b</mark> son
+              iguales.
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- TEMA 5 -->
+      <section id="tema5" aria-labelledby="tema5-titulo">
+        <h2 id="tema5-titulo">Tema 5: Cómo trabajar con los métodos <mark>every</mark> y <mark>some</mark></h2>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>every()</mark></strong>: Este método comprueba si todos los elementos de un array
+              pasan una prueba implementada por una función proporcionada. El método <mark>every()</mark> devuelve
+              <mark>true</mark> si la función proporcionada devuelve <mark>true</mark> para todos los elementos del
+              array. Si algún elemento no pasa la prueba, el método devuelve inmediatamente <mark>false</mark> y deja de
+              revisar los elementos restantes.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-topic5-every-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">every_example.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">2</span><span class="tk-punctuation">,</span> <span class="tk-number">4</span><span class="tk-punctuation">,</span> <span class="tk-number">6</span><span class="tk-punctuation">,</span> <span class="tk-number">8</span><span class="tk-punctuation">,</span> <span class="tk-number">10</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">hasAllEvenNumbers</span> <span class="tk-operator">=</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">every</span><span class="tk-punctuation">((</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">num</span> <span class="tk-operator">%</span> <span class="tk-number">2</span> <span class="tk-operator">===</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">hasAllEvenNumbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Validación Completa con every()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Condición Evaluada:</div>
+                    <div style="color: #f8f8f2;">
+                      <code class="preview-inline-code">(num) =&gt; num % 2 === 0</code> (Comprueba si todos los números
+                      son pares)
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">EVALUACIÓN DE
+                      CADA ELEMENTO:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• Elemento 1: <code class="preview-inline-code">2 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong></div>
+                      <div>• Elemento 2: <code class="preview-inline-code">4 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong></div>
+                      <div>• Elemento 3: <code class="preview-inline-code">6 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong></div>
+                      <div>• Elemento 4: <code class="preview-inline-code">8 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong></div>
+                      <div>• Elemento 5: <code class="preview-inline-code">10 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong></div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">RESULTADO FINAL
+                      EN CONSOLA (LÍNEA 4):</div>
+                    <div style="color: #a6e22e; font-size: 11px; font-weight: bold;">
+                      true
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚡ <strong class="preview-tip-label">Evaluación de circuito corto:</strong> Dado que todos los elementos
+                cumplieron la condición, <code style="color: yellow;">every()</code> recorre el array completo y
+                retorna <code style="color: yellow;">true</code>. Si hubiese encontrado un solo impar, se habría
+                detenido de inmediato retornando <code style="color: yellow;">false</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="list-wrapper">
+          <ul class="lis">
+            <li>
+              <strong>Método <mark>some()</mark></strong>: Este método verifica si al menos un elemento cumple con la
+              condición. El método <mark>some()</mark> devuelve <mark>true</mark> tan pronto como encuentra un elemento
+              que cumple con la condición. Si ningún elemento cumple con la condición, devuelve <mark>false</mark>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ide-container" id="ide-js-topic5-some-method">
+          <div class="ide-editor">
+            <div class="editor-header">
+              <div class="tabs">
+                <button class="tab active" type="button" data-lang="js">some_example.js</button>
+              </div>
+              <button class="copy-btn-mini" type="button">
+                <span class="btn-text">Copiar</span>
+              </button>
+            </div>
+
+            <div class="editor-body">
+              <div class="code-content active" data-lang="js">
+                <div class="line-numbers">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+                <pre><code class="language-js"><span class="tk-property">const</span> <span class="tk-selector">numbers</span> <span class="tk-operator">=</span> <span class="tk-punctuation">[</span><span class="tk-number">1</span><span class="tk-punctuation">,</span> <span class="tk-number">3</span><span class="tk-punctuation">,</span> <span class="tk-number">5</span><span class="tk-punctuation">,</span> <span class="tk-number">7</span><span class="tk-punctuation">,</span> <span class="tk-number">8</span><span class="tk-punctuation">,</span> <span class="tk-number">9</span><span class="tk-punctuation">]</span><span class="tk-punctuation">;</span>
+<span class="tk-property">const</span> <span class="tk-selector">hasSomeEvenNumbers</span> <span class="tk-operator">=</span> <span class="tk-selector">numbers</span><span class="tk-punctuation">.</span><span class="tk-value">some</span><span class="tk-punctuation">((</span><span class="tk-selector">num</span><span class="tk-punctuation">)</span> <span class="tk-operator">=&gt;</span> <span class="tk-selector">num</span> <span class="tk-operator">%</span> <span class="tk-number">2</span> <span class="tk-operator">===</span> <span class="tk-number">0</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span>
+
+<span class="tk-selector">console</span><span class="tk-punctuation">.</span><span class="tk-value">log</span><span class="tk-punctuation">(</span><span class="tk-selector">hasSomeEvenNumbers</span><span class="tk-punctuation">)</span><span class="tk-punctuation">;</span> <span class="tk-comment">// true</span></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ide-preview">
+            <div class="ide-preview-body"
+              style="background: var(--bg-primary); padding: 20px; font-family: 'Inter', sans-serif;">
+              <div
+                style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--border-radius-small); padding: 15px; box-shadow: var(--shadow-soft);">
+                <h3
+                  style="color: var(--text-primary); font-size: 11px; margin-bottom: 15px; font-family: var(--sp-font-code); text-transform: uppercase; letter-spacing: 1px;">
+                  Comprobación Existencial con some()</h3>
+
+                <div
+                  style="display: flex; flex-direction: column; gap: 12px; font-family: var(--sp-font-code); font-size: 10px;">
+
+                  <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid #444; padding: 10px; border-radius: 6px; line-height: 1.6;">
+                    <div style="color: #66d9ef; font-weight: bold; margin-bottom: 4px;">Condición Evaluada:</div>
+                    <div style="color: #f8f8f2;">
+                      <code class="preview-inline-code">(num) =&gt; num % 2 === 0</code> (Comprueba si existe al menos
+                      un número par)
+                    </div>
+                  </div>
+
+                  <div style="background: #000; padding: 10px; border-radius: 4px; border-left: 3px solid #66d9ef;">
+                    <div style="color: #66d9ef; font-size: 9px; margin-bottom: 6px; font-weight: bold;">EVALUACIÓN DE
+                      CADA ELEMENTO:</div>
+                    <div
+                      style="color: #f8f8f2; font-size: 10px; line-height: 1.6; display: flex; flex-direction: column; gap: 4px;">
+                      <div>• Elemento 1: <code class="preview-inline-code">1 % 2 === 0</code> ➔ <span
+                          style="color: #f92672;">false</span></div>
+                      <div>• Elemento 2: <code class="preview-inline-code">3 % 2 === 0</code> ➔ <span
+                          style="color: #f92672;">false</span></div>
+                      <div>• Elemento 3: <code class="preview-inline-code">5 % 2 === 0</code> ➔ <span
+                          style="color: #f92672;">false</span></div>
+                      <div>• Elemento 4: <code class="preview-inline-code">7 % 2 === 0</code> ➔ <span
+                          style="color: #f92672;">false</span></div>
+                      <div>• Elemento 5: <code class="preview-inline-code">8 % 2 === 0</code> ➔ <strong
+                          class="preview-bold-label" style="color: #a6e22e;">true</strong> <span
+                          style="color: #75715e;">(¡Coincidencia encontrada!)</span></div>
+                      <div style="color: #75715e; font-style: italic;">• Elemento 6: <code
+                          class="preview-inline-code">9</code> ➔ [OMITIDO por Cortocircuito]</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="background: rgba(0,0,0,0.4); padding: 10px; border-radius: 4px; border-left: 3px solid #a6e22e;">
+                    <div style="color: #a6e22e; font-size: 9px; margin-bottom: 4px; font-weight: bold;">RESULTADO FINAL
+                      EN CONSOLA (LÍNEA 4):</div>
+                    <div style="color: #a6e22e; font-size: 11px; font-weight: bold;">
+                      true
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 12px; background: rgba(166, 226, 46, 0.05); border-top: 1px solid var(--glass-border);">
+              <p style="margin: 0; font-family: sans-serif; font-size: 12px; color: #f8f8f2; line-height: 1.4;">
+                ⚡ <strong class="preview-tip-label">Optimizador de Cortocircuito:</strong> Tan pronto como <code
+                  style="color: yellow;">some()</code> encuentra un elemento que hace la condición verdadera (el
+                número <code style="color: yellow;">8</code> en el índice 4), interrumpe el recorrido
+                inmediatamente y devuelve <code style="color: yellow;">true</code> sin analizar el resto del array.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <button class="to-top" type="button" aria-label="Ir al inicio de la página">
+      <span aria-hidden="true">🚀</span>
+    </button>
+
+  </div><!-- /.page-wrapper -->
+
+  <footer role="contentinfo" aria-label="Pie de página">
+    <small>&copy; 2026 Repaso de JS. Sigamos aprendiendo.</small>
+  </footer>
+
+  <script src="./script.js" defer></script>
+
+</body>
+
+</html>

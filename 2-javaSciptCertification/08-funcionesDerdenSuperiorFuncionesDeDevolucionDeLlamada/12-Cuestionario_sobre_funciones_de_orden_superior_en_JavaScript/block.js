@@ -1179,7 +1179,20 @@ En términos sencillos, el hoisting es el comportamiento predeterminado de JavaS
 
 /* ================= */
 
-const numbers = [];
-const hasSomeEvenNumbers = numbers.some((num) => num % 2 === 0);
+// const numbers = [];
+// const hasSomeEvenNumbers = numbers.some((num) => num % 2 === 0);
 
-console.log(hasSomeEvenNumbers); // true
+// console.log(hasSomeEvenNumbers); // true
+
+/* ================= */
+
+const numbers = [1, 1, 1, 1, 1];
+let sum = 0;
+const forEachRes = numbers.forEach(num => {
+  return (sum += num);
+});
+const mapRes = numbers.map(num => {
+  return (sum += num);
+});
+
+console.log(forEachRes, mapRes);

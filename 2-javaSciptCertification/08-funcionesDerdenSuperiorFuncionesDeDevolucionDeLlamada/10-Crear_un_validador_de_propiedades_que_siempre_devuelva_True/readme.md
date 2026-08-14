@@ -45,7 +45,7 @@ Si te pidieran que comprobaras la propiedad `role`, los valores serían `"Founde
 ```js
 // Crear un validador de propiedades que siempre devuelva True
 function truthCheck(collection, pre) {
-  return pre;
+  return collection.every(obj => obj[pre]);
 }
 
 truthCheck(
