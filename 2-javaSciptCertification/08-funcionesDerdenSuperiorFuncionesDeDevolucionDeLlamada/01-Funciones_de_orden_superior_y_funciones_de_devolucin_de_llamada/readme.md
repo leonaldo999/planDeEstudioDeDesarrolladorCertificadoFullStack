@@ -79,9 +79,9 @@ Es importante comprender las funciones de devolución de llamada y los métodos 
 1. **¿Cuál es el propósito principal de una función de callback de llamada en JavaScript?**
 
     - [ ] a) Crear un nuevo array.
-    - [x] b) Permitir que una función ejecute otro fragmento de código más adelante.
+    - [x] b) Permitir que una función ejecute otro fragmento de código más adelante. //correcto
     - [ ] c) Definir una nueva variable.
-    - [ ] d) Reemplazar un bucle `for`. //correcto
+    - [ ] d) Reemplazar un bucle `for`.
 
 2. **¿Cuántas veces se invoca la función de retorno en `forEach`?**
 
